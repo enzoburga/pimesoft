@@ -20,14 +20,8 @@ namespace GI.UI.Propiedades
 
         protected override void Inicializar()
         {
-            cbTipoPropiedad.Items.Add(GI.BR.Propiedades.TipoPropiedad.Casa);
-            cbTipoPropiedad.Items.Add(GI.BR.Propiedades.TipoPropiedad.Departamento);
-            cbTipoPropiedad.Items.Add(GI.BR.Propiedades.TipoPropiedad.PH);
-            cbTipoPropiedad.Items.Add(GI.BR.Propiedades.TipoPropiedad.Campo);
-            cbTipoPropiedad.Items.Add(GI.BR.Propiedades.TipoPropiedad.Chacra);
-            cbTipoPropiedad.Items.Add(GI.BR.Propiedades.TipoPropiedad.Galpón);
-            cbTipoPropiedad.Items.Add(GI.BR.Propiedades.TipoPropiedad.Terreno);
-            cbTipoPropiedad.SelectedIndex = 0;
+
+
 
             GI.BR.Propiedades.EstadosPropiedad Estados = new GI.BR.Propiedades.EstadosPropiedad();
             Estados.RecuperarEstados(Propiedad.GetType());

@@ -47,13 +47,8 @@ namespace GI.UI.Propiedades
 
             #region Tipo de Propiedad
             cbTipoPropiedad.Items.Add("Seleccione opción...");
-            cbTipoPropiedad.Items.Add(GI.BR.Propiedades.TipoPropiedad.Casa);
-            cbTipoPropiedad.Items.Add(GI.BR.Propiedades.TipoPropiedad.Departamento);
-            cbTipoPropiedad.Items.Add(GI.BR.Propiedades.TipoPropiedad.PH);
-            cbTipoPropiedad.Items.Add(GI.BR.Propiedades.TipoPropiedad.Campo);
-            cbTipoPropiedad.Items.Add(GI.BR.Propiedades.TipoPropiedad.Chacra);
-            cbTipoPropiedad.Items.Add(GI.BR.Propiedades.TipoPropiedad.Galpón);
-            cbTipoPropiedad.Items.Add(GI.BR.Propiedades.TipoPropiedad.Terreno);
+
+
             cbTipoPropiedad.SelectedIndex = 0;
             #endregion
 
@@ -100,7 +95,7 @@ namespace GI.UI.Propiedades
         private void bBuscar_Click_1(object sender, EventArgs e)
         {
             GI.Managers.Propiedades.MngPropiedades mngPropiedades = new GI.Managers.Propiedades.MngPropiedades();
-            GI.BR.Propiedades.Propiedades props = mngPropiedades.RecuperarPropiedades(null, GI.BR.Propiedades.TipoPropiedad.Casa, null, null);
+            GI.BR.Propiedades.Propiedades props = mngPropiedades.RecuperarPropiedades(null, null, null, null);
 
             lvPropiedades.BeginUpdate();
             lvPropiedades.Items.Clear();
