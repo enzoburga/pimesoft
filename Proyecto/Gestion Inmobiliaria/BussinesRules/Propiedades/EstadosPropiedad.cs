@@ -36,7 +36,7 @@ namespace GI.BR.Propiedades
                 Add(estadoProp);
 
                 estadoProp = new EstadoPropiedad();
-                estadoProp.Descripcion = "Cerrado";
+                estadoProp.Descripcion = "Historico";
                 estadoProp.IdEstadoPropiedad = 5;
                 Add(estadoProp);
 
@@ -59,7 +59,7 @@ namespace GI.BR.Propiedades
                 Add(estadoProp);
 
                 estadoProp = new EstadoPropiedad();
-                estadoProp.Descripcion = "Cerrado";
+                estadoProp.Descripcion = "Historico";
                 estadoProp.IdEstadoPropiedad = 4;
                 Add(estadoProp);
 

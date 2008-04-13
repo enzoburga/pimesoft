@@ -28,18 +28,18 @@ namespace GI.UI.Propiedades
 
             i = new ListViewItem();
             i.Text = "Cocina";
-            i.SubItems.Add("4 x 5");
-            lvMedidas.Items.Add(i);
-
-            i = new ListViewItem();
-            i.Text = "Baño";
-            i.SubItems.Add("2 x 1.5");
+            i.SubItems.Add("4");
+            i.SubItems.Add("5");
+            i.SubItems.Add("Pinotea");
             lvMedidas.Items.Add(i);
 
             i = new ListViewItem();
             i.Text = "Living";
-            i.SubItems.Add("4 x 4");
+            i.SubItems.Add("4");
+            i.SubItems.Add("5");
+            i.SubItems.Add("Pinotea");
             lvMedidas.Items.Add(i);
+
 
   
 

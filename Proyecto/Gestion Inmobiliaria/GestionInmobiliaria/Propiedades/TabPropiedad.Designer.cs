@@ -496,8 +496,8 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.cbTipoPropiedad);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TabPropiedad";
+            this.Size = new System.Drawing.Size(500, 533);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
