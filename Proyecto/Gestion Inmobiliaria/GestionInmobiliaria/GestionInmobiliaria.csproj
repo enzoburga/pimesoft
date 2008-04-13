@@ -1,0 +1,350 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{05324A33-1FC5-44FF-A790-153B80F802A0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GI.UI</RootNamespace>
+    <AssemblyName>GestionInmobiliaria</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminAlquileres\frmListadoAdmAlquiler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmListadoAdmAlquiler.Designer.cs">
+      <DependentUpon>frmListadoAdmAlquiler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmFichaAdmAlquileres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmFichaAdmAlquileres.Designer.cs">
+      <DependentUpon>frmFichaAdmAlquileres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabDatosPrincipales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabDatosPrincipales.Designer.cs">
+      <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabHistorico.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabHistorico.Designer.cs">
+      <DependentUpon>TabHistorico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabPagos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabPagos.Designer.cs">
+      <DependentUpon>TabPagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Botonera.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Botonera.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmFichaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmFichaCliente.Designer.cs">
+      <DependentUpon>frmFichaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmListadoClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmListadoClientes.Designer.cs">
+      <DependentUpon>frmListadoClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\TabDatosPrincipales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Clientes\TabDatosPrincipales.Designer.cs">
+      <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPopUpEventos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPopUpEventos.Designer.cs">
+      <DependentUpon>frmPopUpEventos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPublicacionWeb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPublicacionWeb.Designer.cs">
+      <DependentUpon>frmPublicacionWeb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStartUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStartUp.Designer.cs">
+      <DependentUpon>frmStartUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminAlquileres\frmListadoAdmAlquiler.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmListadoAdmAlquiler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\frmFichaAdmAlquileres.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmFichaAdmAlquileres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\TabDatosPrincipales.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\TabHistorico.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabHistorico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\TabPagos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Botonera.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Botonera.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmFichaCliente.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmFichaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmListadoClientes.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmListadoClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\TabDatosPrincipales.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPopUpEventos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPopUpEventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPublicacionWeb.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPublicacionWeb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStartUp.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmStartUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\frmNota.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\frmVisita.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmVisita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\frmFichaPropiedad.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmFichaPropiedad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\FrmListadoPropiedades.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmListadoPropiedades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabContenidoPropiedad.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabContenidoPropiedad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabDetalles.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabDetalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabGaleriaFotos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabGaleriaFotos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabNotas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabNotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabPedidos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabPropiedad.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabPropiedad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabPublicaciones.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabPublicaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabTasaciones.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabTasaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabVisitas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabVisitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\FrmLogIn.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\frmNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\frmNota.Designer.cs">
+      <DependentUpon>frmNota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\frmVisita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\frmVisita.Designer.cs">
+      <DependentUpon>frmVisita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\frmFichaPropiedad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\frmFichaPropiedad.Designer.cs">
+      <DependentUpon>frmFichaPropiedad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\FrmListadoPropiedades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\FrmListadoPropiedades.Designer.cs">
+      <DependentUpon>FrmListadoPropiedades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabContenidoPropiedad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabContenidoPropiedad.Designer.cs">
+      <DependentUpon>TabContenidoPropiedad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabDetalles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabDetalles.Designer.cs">
+      <DependentUpon>TabDetalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabGaleriaFotos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabGaleriaFotos.Designer.cs">
+      <DependentUpon>TabGaleriaFotos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabNotas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabNotas.Designer.cs">
+      <DependentUpon>TabNotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabPedidos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabPedidos.Designer.cs">
+      <DependentUpon>TabPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabPropiedad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabPropiedad.Designer.cs">
+      <DependentUpon>TabPropiedad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabPublicaciones.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabPublicaciones.Designer.cs">
+      <DependentUpon>TabPublicaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabTasaciones.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabTasaciones.Designer.cs">
+      <DependentUpon>TabTasaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabVisitas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabVisitas.Designer.cs">
+      <DependentUpon>TabVisitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\FrmLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\FrmLogIn.Designer.cs">
+      <DependentUpon>FrmLogIn.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BussinesRules\BussinesRules.csproj">
+      <Project>{66558686-DC74-4052-B6C9-B1F04797999A}</Project>
+      <Name>BussinesRules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controles\Framework.csproj">
+      <Project>{28CFEA97-AA29-49AE-9F7F-3CF337A0AB81}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Managers\Managers.csproj">
+      <Project>{DA938C06-AE00-447E-8675-C0F97DF9273F}</Project>
+      <Name>Managers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Carteles\" />
+    <Folder Include="Eventos\" />
+    <Folder Include="Pedidos\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Tasaciones\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
