@@ -66,7 +66,6 @@ namespace GI.UI.Propiedades
             cbAmbientes.SelectedIndex = 0; 
             #endregion
 
-
             #region Localidad
             GI.BR.Propiedades.Ubicaciones.Paises Paises = new GI.BR.Propiedades.Ubicaciones.Paises();
             Paises.RecuperarTodos();
@@ -116,6 +115,9 @@ namespace GI.UI.Propiedades
                 i.SubItems.Add(p.Moneda.Simbolo + " " + p.ValorPublicacion.ToString("N"));
                 i.SubItems.Add("Vicente López");
                 i.SubItems.Add("Florida");
+                if (p.EsOtraInmobiliaria)
+                    i.ForeColor = System.Drawing.Color.Blue;
+
                 i.Tag = p;
 
                 lvPropiedades.Items.Add(i);

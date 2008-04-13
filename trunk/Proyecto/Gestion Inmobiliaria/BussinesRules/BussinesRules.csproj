@@ -39,6 +39,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Propiedades\Alquiler.cs" />
     <Compile Include="Propiedades\Ambientes.cs" />
+    <Compile Include="Propiedades\CategoriaPropiedad.cs" />
+    <Compile Include="Propiedades\CategoriasPropiedad.cs" />
     <Compile Include="Propiedades\Direccion.cs" />
     <Compile Include="Propiedades\Estado.cs" />
     <Compile Include="Propiedades\EstadoPropiedad.cs" />
@@ -46,6 +48,7 @@
     <Compile Include="Propiedades\EstadosPropiedad.cs" />
     <Compile Include="Propiedades\Propiedad.cs" />
     <Compile Include="Propiedades\TipoPropiedad.cs" />
+    <Compile Include="Propiedades\TiposPropiedad.cs" />
     <Compile Include="Propiedades\Ubicacion.cs" />
     <Compile Include="Propiedades\Ubicaciones\Barrio.cs" />
     <Compile Include="Propiedades\Ubicaciones\Localidad.cs" />

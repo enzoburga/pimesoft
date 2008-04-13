@@ -4,14 +4,43 @@ using System.Text;
 
 namespace GI.BR.Propiedades
 {
-    public enum TipoPropiedad
+    
+    public class TipoPropiedad
     {
-        Casa = 1,
-        Departamento = 2,
-        PH = 3,
-        Terreno = 4,
-        Campo = 5,
-        Chacra = 6,
-        Galpón = 7
+        public TipoPropiedad() { }
+
+        private int idTipoPropiedad;
+        private string descripcion;
+        private int idCategoria;
+
+        public int IdTipoPropiedad
+        {
+            get { return idTipoPropiedad; }
+            set { idTipoPropiedad = value; }
+        }
+        
+
+        public string Descripcion
+        {
+            get { return descripcion; }
+            set { descripcion = value; }
+        }
+        
+
+        public int IdCategoria
+        {
+            get { return idCategoria; }
+            set { idCategoria = value; }
+        }
+
+
+        public override string ToString()
+        {
+            return Descripcion;
+        }
+
+
+
+
     }
 }
