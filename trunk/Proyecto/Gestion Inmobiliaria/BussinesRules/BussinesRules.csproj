@@ -1,0 +1,73 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{66558686-DC74-4052-B6C9-B1F04797999A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GI.BR</RootNamespace>
+    <AssemblyName>GI.BR</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cliente.cs" />
+    <Compile Include="Monedas\Moneda.cs" />
+    <Compile Include="Monedas\Monedas.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Propiedades\Alquiler.cs" />
+    <Compile Include="Propiedades\Ambientes.cs" />
+    <Compile Include="Propiedades\Direccion.cs" />
+    <Compile Include="Propiedades\Estado.cs" />
+    <Compile Include="Propiedades\EstadoPropiedad.cs" />
+    <Compile Include="Propiedades\EstadoPropiedadFlyweigthFactory.cs" />
+    <Compile Include="Propiedades\EstadosPropiedad.cs" />
+    <Compile Include="Propiedades\Propiedad.cs" />
+    <Compile Include="Propiedades\TipoPropiedad.cs" />
+    <Compile Include="Propiedades\Ubicacion.cs" />
+    <Compile Include="Propiedades\Ubicaciones\Barrio.cs" />
+    <Compile Include="Propiedades\Ubicaciones\Localidad.cs" />
+    <Compile Include="Propiedades\Ubicaciones\Pais.cs" />
+    <Compile Include="Propiedades\Propiedades.cs" />
+    <Compile Include="Propiedades\Ubicaciones\Provincia.cs" />
+    <Compile Include="Propiedades\Venta.cs" />
+    <Compile Include="Propietario.cs" />
+    <Compile Include="Seguridad\Usuario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{49D54CEC-D798-4349-8D29-022294E64789}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
