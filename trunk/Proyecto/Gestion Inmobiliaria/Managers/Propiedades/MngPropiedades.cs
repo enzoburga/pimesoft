@@ -38,7 +38,7 @@ namespace GI.Managers.Propiedades
             p.Moneda.Simbolo = "USD";
             p.Observaciones = "detalles de obs de la propiedad";
             p.Propietario = new GI.BR.Propietario();
-            p.TipoPropiedad = GI.BR.Propiedades.TipoPropiedad.Casa;
+            p.TipoPropiedad = new GI.BR.Propiedades.TipoPropiedad();
             p.Ubicacion = new GI.BR.Propiedades.Ubicacion();
             p.Ubicacion.Barrio = new GI.BR.Propiedades.Ubicaciones.Barrio();
             p.Ubicacion.Localidad = new GI.BR.Propiedades.Ubicaciones.Localidad();
@@ -69,7 +69,7 @@ namespace GI.Managers.Propiedades
             p.Moneda.Simbolo = "USD";
             p.Observaciones = "detalles de obs de la propiedad";
             p.Propietario = new GI.BR.Propietario();
-            p.TipoPropiedad = GI.BR.Propiedades.TipoPropiedad.Casa;
+            p.TipoPropiedad = new GI.BR.Propiedades.TipoPropiedad();
             p.Ubicacion = new GI.BR.Propiedades.Ubicacion();
             p.Ubicacion.Barrio = new GI.BR.Propiedades.Ubicaciones.Barrio();
             p.Ubicacion.Localidad = new GI.BR.Propiedades.Ubicaciones.Localidad();
