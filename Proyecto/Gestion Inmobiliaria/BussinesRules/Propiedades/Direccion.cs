@@ -42,7 +42,5 @@ namespace GI.BR.Propiedades
             get { return codigoPostal; }
             set { codigoPostal = value; }
         }
-
-
     }
 }
