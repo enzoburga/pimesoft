@@ -107,7 +107,7 @@ namespace GI.UI.Propiedades
                 i.SubItems.Add(p.TipoPropiedad.ToString());
                 i.SubItems.Add(p.Estado.Descripcion);
                 i.SubItems.Add("3");
-                i.SubItems.Add(p.Moneda.Simbolo + " " + p.ValorPublicacion.ToString("N"));
+                i.SubItems.Add(p.ValorPublicacion.ToString());
                 i.SubItems.Add("Vicente López");
                 i.SubItems.Add("Florida");
                 if (p.EsOtraInmobiliaria)

@@ -45,8 +45,11 @@ namespace GI.Framework.Seguridad
             if (Ctrl is Framework.ComboBox)
                 return true;
 
+            if (Ctrl is System.Windows.Forms.LinkLabel)
+                return true;
 
 
+        
             return false;
         }
 
@@ -58,6 +61,7 @@ namespace GI.Framework.Seguridad
                 {
                     ((Interfaces.ISoloLectura)c).SoloLectura = this.SoloLectura;
                     ((Interfaces.ISoloLectura)c).RefrezcarSoloLectura(c.Controls);
+                    continue;
                 }
 
                 if (AsignarSoloLectura(c))

@@ -16,37 +16,39 @@ namespace GI.BR.Propiedades
         protected string codigo;
         protected TipoPropiedad tipoPropiedad;
         protected EstadoPropiedad estado;
+        protected Estado enumEstado;
         protected Propietario propietario;
         protected Ubicacion ubicacion;
         protected Direccion direccion;
-        protected Monedas.Moneda moneda;
-        protected double valorMercado;
-        protected double valorPublicacion;
+        protected Valor valorMercado;
+        protected Valor valorPublicacion;
         protected string observaciones;
         protected bool esOtraInmobiliaria;
-
-
-
-
-
-
-
+        protected MedidasAmbiente medidas;
+        protected MedidaPropiedad medidasPropiedad;
+        protected MedidasTerreno medidasTerreno;
+        protected string orientacion;
+        protected int cantidadBaños;
+        protected int cantidadCocheras;
+        protected int cantidadDormitorios;
+        protected int cantidadPlantas;
+        protected DepartamentoDisposicion disposicion;
+        protected bool esAptoProfesional;
+        protected int cantidadPisos;
+        protected int departamentosPorPiso;
+        protected int cantidadAscensores;
+        protected int cantidadAscensoresServicio;
+        protected TipoZona tipoZona;
+        protected string fos;
+        protected string fot;
+        protected string zonificacion;
+        protected int metrosConstruibles;
 
         
         #endregion
 
         #region Propiedades
-        public bool EsOtraInmobiliaria
-        {
-            get { return esOtraInmobiliaria; }
-            set { esOtraInmobiliaria = value; }
-        }
 
-        public string Observaciones
-        {
-            get { return observaciones; }
-            set { observaciones = value; }
-        }
 
         public int IdPropiedad
         {
@@ -76,6 +78,13 @@ namespace GI.BR.Propiedades
         }
 
 
+        public Estado EnumEstado
+        {
+            get { return enumEstado; }
+            set { enumEstado = value; }
+        }
+
+
         public Propietario Propietario
         {
             get { return propietario; }
@@ -97,34 +106,176 @@ namespace GI.BR.Propiedades
         }
 
 
-        public Monedas.Moneda Moneda
-        {
-            get { return moneda; }
-            set { moneda = value; }
-        }
-
-
-        public double ValorMercado
+        public Valor ValorMercado
         {
             get { return valorMercado; }
             set { valorMercado = value; }
         }
 
 
-        public double ValorPublicacion
+        public Valor ValorPublicacion
         {
             get { return valorPublicacion; }
             set { valorPublicacion = value; }
         }
 
+
+        public string Observaciones
+        {
+            get { return observaciones; }
+            set { observaciones = value; }
+        }
+
+
+        public bool EsOtraInmobiliaria
+        {
+            get { return esOtraInmobiliaria; }
+            set { esOtraInmobiliaria = value; }
+        }
+
+
+        public MedidasAmbiente Medidas
+        {
+            get { return medidas; }
+            set { medidas = value; }
+        }
+
+
+        public MedidaPropiedad MedidasPropiedad
+        {
+            get { return medidasPropiedad; }
+            set { medidasPropiedad = value; }
+        }
+
+
+        public MedidasTerreno MedidasTerreno
+        {
+            get { return medidasTerreno; }
+            set { medidasTerreno = value; }
+        }
+
+
+        public string Orientacion
+        {
+            get { return orientacion; }
+            set { orientacion = value; }
+        }
+
+
+        public int CantidadBaños
+        {
+            get { return cantidadBaños; }
+            set { cantidadBaños = value; }
+        }
+
+
+        public int CantidadCocheras
+        {
+            get { return cantidadCocheras; }
+            set { cantidadCocheras = value; }
+        }
+
+
+        public int CantidadDormitorios
+        {
+            get { return cantidadDormitorios; }
+            set { cantidadDormitorios = value; }
+        }
+
+
+        public int CantidadPlantas
+        {
+            get { return cantidadPlantas; }
+            set { cantidadPlantas = value; }
+        }
+
+
+
+        public DepartamentoDisposicion Disposicion
+        {
+            get { return disposicion; }
+            set { disposicion = value; }
+        }
+
+
+        public bool EsAptoProfesional
+        {
+            get { return esAptoProfesional; }
+            set { esAptoProfesional = value; }
+        }
+
+
+        public int CantidadPisos
+        {
+            get { return cantidadPisos; }
+            set { cantidadPisos = value; }
+        }
+
+
+        public int DepartamentosPorPiso
+        {
+            get { return departamentosPorPiso; }
+            set { departamentosPorPiso = value; }
+        }
+
+
+        public int CantidadAscensores
+        {
+            get { return cantidadAscensores; }
+            set { cantidadAscensores = value; }
+        }
+
+
+        public int CantidadAscensoresServicio
+        {
+            get { return cantidadAscensoresServicio; }
+            set { cantidadAscensoresServicio = value; }
+        }
+
+
+
+        public TipoZona TipoZona
+        {
+            get { return tipoZona; }
+            set { tipoZona = value; }
+        }
+
+
+        public string Fos
+        {
+            get { return fos; }
+            set { fos = value; }
+        }
+
+
+        public string Fot
+        {
+            get { return fot; }
+            set { fot = value; }
+        }
+
+
+        public string Zonificacion
+        {
+            get { return zonificacion; }
+            set { zonificacion = value; }
+        }
+
+
+        public int MetrosConstruibles
+        {
+            get { return metrosConstruibles; }
+            set { metrosConstruibles = value; }
+        }
+
+
+
+        
         #endregion
 
         #region Metodos
 
-        public virtual bool Guardar()
-        {
-            throw new Exception("Metodo No Implementado");
-        }
+        public abstract bool Guardar();
 
         public virtual bool Actualizar()
         {

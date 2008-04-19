@@ -17,13 +17,13 @@ namespace GI.BR.Monedas
             Add(m);
 
             m = new Moneda();
-            m.IdMoneda = 1;
+            m.IdMoneda = 2;
             m.Nombre = "Dolares";
             m.Simbolo = "USD";
             Add(m);
 
             m = new Moneda();
-            m.IdMoneda = 1;
+            m.IdMoneda = 3;
             m.Nombre = "Euros";
             m.Simbolo = "£";
             Add(m);

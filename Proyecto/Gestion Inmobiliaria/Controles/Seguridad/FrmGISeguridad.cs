@@ -70,6 +70,7 @@ namespace GI.Framework.Seguridad
                 {
                     ((Interfaces.ISoloLectura)c).SoloLectura = this.SoloLectura;
                     ((Interfaces.ISoloLectura)c).RefrezcarSoloLectura(c.Controls);
+                    continue;
                 }
                 
                 if (AsignarSoloLectura(c))

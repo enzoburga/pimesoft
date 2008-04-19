@@ -32,10 +32,10 @@ namespace GI.Managers.Propiedades
             p.Estado.IdEstadoPropiedad = 1;
             p.Estado.Descripcion = "En venta";
             p.IdPropiedad = 1;
-            p.Moneda = new GI.BR.Monedas.Moneda();
-            p.Moneda.IdMoneda = 1;
-            p.Moneda.Nombre = "Dólares";
-            p.Moneda.Simbolo = "USD";
+            
+            
+            
+            
             p.Observaciones = "detalles de obs de la propiedad";
             p.Propietario = new GI.BR.Propietario();
             p.TipoPropiedad = new GI.BR.Propiedades.TipoPropiedad();
@@ -43,13 +43,23 @@ namespace GI.Managers.Propiedades
             p.Ubicacion.Barrio = new GI.BR.Propiedades.Ubicaciones.Barrio();
             p.Ubicacion.Localidad = new GI.BR.Propiedades.Ubicaciones.Localidad();
             p.Ubicacion.Pais = new GI.BR.Propiedades.Ubicaciones.Pais();
-            p.ValorMercado = 58000;
-            p.ValorPublicacion = 60000;
+
+            p.ValorPublicacion = new GI.BR.Valor();
+            p.ValorPublicacion.Moneda = new GI.BR.Monedas.Moneda();
+            p.ValorPublicacion.Moneda.Simbolo = "USD";
+            p.ValorPublicacion.Importe = 50000;
 
             Propiedades.Add(p);
 
 
             p = new GI.BR.Propiedades.Venta();
+
+            p.ValorPublicacion = new GI.BR.Valor();
+            p.ValorPublicacion.Moneda = new GI.BR.Monedas.Moneda();
+            p.ValorPublicacion.Moneda.Simbolo = "USD";
+            p.ValorPublicacion.Importe = 50000;
+
+
             p.Codigo = "P-0001";
             p.Direccion = new GI.BR.Propiedades.Direccion();
             p.Direccion.Calle = "Agustin Alvarez";
@@ -63,10 +73,7 @@ namespace GI.Managers.Propiedades
             p.Estado.IdEstadoPropiedad = 1;
             p.Estado.Descripcion = "En venta";
             p.IdPropiedad = 1;
-            p.Moneda = new GI.BR.Monedas.Moneda();
-            p.Moneda.IdMoneda = 1;
-            p.Moneda.Nombre = "Dólares";
-            p.Moneda.Simbolo = "USD";
+           
             p.Observaciones = "detalles de obs de la propiedad";
             p.Propietario = new GI.BR.Propietario();
             p.TipoPropiedad = new GI.BR.Propiedades.TipoPropiedad();
@@ -74,8 +81,7 @@ namespace GI.Managers.Propiedades
             p.Ubicacion.Barrio = new GI.BR.Propiedades.Ubicaciones.Barrio();
             p.Ubicacion.Localidad = new GI.BR.Propiedades.Ubicaciones.Localidad();
             p.Ubicacion.Pais = new GI.BR.Propiedades.Ubicaciones.Pais();
-            p.ValorMercado = 58000;
-            p.ValorPublicacion = 60000;
+           
 
             Propiedades.Add(p);
 

@@ -71,6 +71,13 @@ namespace GI.UI.Propiedades
         }
 
 
+        public override bool AsignarSoloLectura(Control Ctrl)
+        {
+            if (Ctrl.Name == "LinkPropietario")
+                return false;
+
+            return base.AsignarSoloLectura(Ctrl);
+        }
 
         private void cbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
