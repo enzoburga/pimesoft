@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 
 namespace GI.BR.Propiedades
 {
@@ -9,60 +10,18 @@ namespace GI.BR.Propiedades
 
         public void RecuperarEstados(Type Tipo)
         {
-
             Clear();
-            EstadoPropiedad estadoProp;
-
-            if (Tipo == typeof(GI.BR.Propiedades.Venta))
+            EstadoPropiedad estado;
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarEstadoPropiedad(Tipo.ToString()))
             {
-                estadoProp = new EstadoPropiedad();
-                estadoProp.Descripcion = "En venta";
-                estadoProp.IdEstadoPropiedad = 1;
-                Add(estadoProp);
-
-                estadoProp = new EstadoPropiedad();
-                estadoProp.Descripcion = "Reservado";
-                estadoProp.IdEstadoPropiedad = 2;
-                Add(estadoProp);
-
-                estadoProp = new EstadoPropiedad();
-                estadoProp.Descripcion = "Vendido";
-                estadoProp.IdEstadoPropiedad = 3;
-                Add(estadoProp);
-
-                estadoProp = new EstadoPropiedad();
-                estadoProp.Descripcion = "Pendiente Tasación";
-                estadoProp.IdEstadoPropiedad = 4;
-                Add(estadoProp);
-
-                estadoProp = new EstadoPropiedad();
-                estadoProp.Descripcion = "Historico";
-                estadoProp.IdEstadoPropiedad = 5;
-                Add(estadoProp);
-
-            }
-            else if (Tipo == typeof(GI.BR.Propiedades.Alquiler))
-            {
-                estadoProp = new EstadoPropiedad();
-                estadoProp.Descripcion = "En alquiler";
-                estadoProp.IdEstadoPropiedad = 1;
-                Add(estadoProp);
-
-                estadoProp = new EstadoPropiedad();
-                estadoProp.Descripcion = "Reservado";
-                estadoProp.IdEstadoPropiedad = 2;
-                Add(estadoProp);
-
-                estadoProp = new EstadoPropiedad();
-                estadoProp.Descripcion = "Alquilado";
-                estadoProp.IdEstadoPropiedad = 3;
-                Add(estadoProp);
-
-                estadoProp = new EstadoPropiedad();
-                estadoProp.Descripcion = "Historico";
-                estadoProp.IdEstadoPropiedad = 4;
-                Add(estadoProp);
-
+                while (dr.Read())
+                {
+                    estado = new EstadoPropiedad();
+                    estado.Descripcion = dr.GetString(dr.GetOrdinal("Nombre"));
+                    estado.IdEstadoPropiedad = dr.GetInt32(dr.GetOrdinal("IdEstadoPropiedad"));
+                    Add(estado);
+                
+                }
             }
 
 

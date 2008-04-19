@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 
 namespace GI.BR.Propiedades
 {
@@ -12,62 +13,19 @@ namespace GI.BR.Propiedades
         public void RecuperarTodas()
         {
             Clear();
+            CategoriaPropiedad categoria;
+            using (IDataReader dr = new DA.CategoriasPropiedadData().RecuperarCategoriasPropiedad())
+            {
+                while (dr.Read())
+                {
+                    categoria = new CategoriaPropiedad();
+                    categoria.IdCategoria = dr.GetInt32(dr.GetOrdinal("IdCategoria"));
+                    categoria.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
+                    Add(categoria);
+                }
+            }
+            
 
-            CategoriaPropiedad categoria = new CategoriaPropiedad();
-            TipoPropiedad tipo = new TipoPropiedad();
-
-            categoria = new CategoriaPropiedad();
-            categoria.IdCategoria = 1;
-            categoria.Nombre = "Vivienda";
-            categoria.TiposPropiedad = new TiposPropiedad();
-            tipo = new TipoPropiedad();
-            //departamento, PH frente, PH interno, PH fondo, PH planta baja, PH planta alta, casa, chalet, duplex, triplex, terreno, quinta
-            tipo.Descripcion = "Casa";
-            tipo.IdTipoPropiedad = 1;
-            tipo.IdCategoria = categoria.IdCategoria;
-            categoria.TiposPropiedad.Add(tipo);
-            tipo.Descripcion = "Casa";
-            tipo.IdTipoPropiedad = 2;
-            tipo.IdCategoria = categoria.IdCategoria;
-            categoria.TiposPropiedad.Add(tipo);
-            tipo.Descripcion = "Casa";
-            tipo.IdTipoPropiedad = 3;
-            tipo.IdCategoria = categoria.IdCategoria;
-            categoria.TiposPropiedad.Add(tipo);
-            tipo.Descripcion = "Casa";
-            tipo.IdTipoPropiedad = 4;
-            tipo.IdCategoria = categoria.IdCategoria;
-            categoria.TiposPropiedad.Add(tipo);
-            tipo.Descripcion = "Casa";
-            tipo.IdTipoPropiedad = 5;
-            tipo.IdCategoria = categoria.IdCategoria;
-            categoria.TiposPropiedad.Add(tipo);
-            tipo.Descripcion = "Casa";
-            tipo.IdTipoPropiedad = 1;
-            tipo.IdCategoria = categoria.IdCategoria;
-            categoria.TiposPropiedad.Add(tipo);
-            tipo.Descripcion = "Casa";
-            tipo.IdTipoPropiedad = 1;
-            tipo.IdCategoria = categoria.IdCategoria;
-            categoria.TiposPropiedad.Add(tipo);
-            tipo.Descripcion = "Casa";
-            tipo.IdTipoPropiedad = 1;
-            tipo.IdCategoria = categoria.IdCategoria;
-            categoria.TiposPropiedad.Add(tipo);
-            tipo.Descripcion = "Casa";
-            tipo.IdTipoPropiedad = 1;
-            tipo.IdCategoria = categoria.IdCategoria;
-            categoria.TiposPropiedad.Add(tipo);
-            tipo.Descripcion = "Casa";
-            tipo.IdTipoPropiedad = 1;
-            tipo.IdCategoria = categoria.IdCategoria;
-            categoria.TiposPropiedad.Add(tipo);
-            tipo.Descripcion = "Casa";
-            tipo.IdTipoPropiedad = 1;
-            tipo.IdCategoria = categoria.IdCategoria;
-            categoria.TiposPropiedad.Add(tipo);
-
-            Add(categoria);
 
         }
     }

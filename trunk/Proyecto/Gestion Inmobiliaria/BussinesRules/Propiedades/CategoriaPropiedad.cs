@@ -30,8 +30,17 @@ namespace GI.BR.Propiedades
 
         public TiposPropiedad TiposPropiedad
         {
-            get { return tiposPropiedad; }
-            set { tiposPropiedad = value; }
+            get
+            {
+                if (tiposPropiedad == null)
+                {
+                    tiposPropiedad = new TiposPropiedad();
+                    tiposPropiedad.RecuperarPorCategoria(this);
+
+                }
+                return tiposPropiedad;
+            }
+            
         }
 
 
@@ -39,8 +48,12 @@ namespace GI.BR.Propiedades
         {
             return Nombre;
         }
-     
 
+
+
+
+
+        
 
     }
 }
