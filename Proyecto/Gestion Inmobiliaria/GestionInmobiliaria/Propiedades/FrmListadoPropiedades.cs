@@ -185,6 +185,7 @@ namespace GI.UI.Propiedades
             {
                 frmFichaPropiedad frmFicha = new frmFichaPropiedad();
                 frmFicha.Propiedad = (GI.BR.Propiedades.Propiedad)lvPropiedades.SelectedItems[0].Tag;
+                frmFicha.SoloLectura = true;
                 frmFicha.ShowDialog();
             }
         }

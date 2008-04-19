@@ -30,12 +30,12 @@ namespace GI.UI.Propiedades
         {
             this.lvPedidos = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // lvPedidos
@@ -48,7 +48,7 @@ namespace GI.UI.Propiedades
             this.lvPedidos.HideSelection = false;
             this.lvPedidos.Location = new System.Drawing.Point(15, 17);
             this.lvPedidos.Name = "lvPedidos";
-            this.lvPedidos.Size = new System.Drawing.Size(412, 369);
+            this.lvPedidos.Size = new System.Drawing.Size(464, 446);
             this.lvPedidos.TabIndex = 11;
             this.lvPedidos.UseCompatibleStateImageBehavior = false;
             this.lvPedidos.View = System.Windows.Forms.View.Details;
@@ -57,43 +57,6 @@ namespace GI.UI.Propiedades
             // 
             this.columnHeader1.Text = "Fecha";
             this.columnHeader1.Width = 94;
-            // 
-            // label2
-            // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(260, 396);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1, 30);
-            this.label2.TabIndex = 15;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(208, 393);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Opciones";
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(263, 409);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(161, 13);
-            this.linkLabel2.TabIndex = 13;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Marcar propiedad como ofrecida";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(262, 393);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(154, 13);
-            this.linkLabel1.TabIndex = 12;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Enviar ficha por email al cliente";
             // 
             // columnHeader2
             // 
@@ -105,6 +68,43 @@ namespace GI.UI.Propiedades
             this.columnHeader3.Text = "Telefono";
             this.columnHeader3.Width = 127;
             // 
+            // label2
+            // 
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Location = new System.Drawing.Point(314, 471);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(1, 30);
+            this.label2.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(262, 468);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Opciones";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(317, 484);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(161, 13);
+            this.linkLabel2.TabIndex = 13;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Marcar propiedad como ofrecida";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(316, 468);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(154, 13);
+            this.linkLabel1.TabIndex = 12;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Enviar ficha por email al cliente";
+            // 
             // TabPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -115,6 +115,7 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lvPedidos);
             this.Name = "TabPedidos";
+            this.Size = new System.Drawing.Size(494, 544);
             this.ResumeLayout(false);
             this.PerformLayout();
 

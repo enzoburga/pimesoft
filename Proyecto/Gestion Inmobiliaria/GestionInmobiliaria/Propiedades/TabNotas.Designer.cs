@@ -46,7 +46,7 @@ namespace GI.UI.Propiedades
             this.lvNotas.HideSelection = false;
             this.lvNotas.Location = new System.Drawing.Point(15, 17);
             this.lvNotas.Name = "lvNotas";
-            this.lvNotas.Size = new System.Drawing.Size(412, 369);
+            this.lvNotas.Size = new System.Drawing.Size(464, 446);
             this.lvNotas.TabIndex = 0;
             this.lvNotas.UseCompatibleStateImageBehavior = false;
             this.lvNotas.View = System.Windows.Forms.View.Details;
@@ -65,7 +65,7 @@ namespace GI.UI.Propiedades
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(359, 389);
+            this.linkLabel1.Location = new System.Drawing.Point(409, 472);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(72, 13);
             this.linkLabel1.TabIndex = 1;
@@ -75,7 +75,7 @@ namespace GI.UI.Propiedades
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(360, 405);
+            this.linkLabel2.Location = new System.Drawing.Point(410, 488);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(69, 13);
             this.linkLabel2.TabIndex = 2;
@@ -85,7 +85,7 @@ namespace GI.UI.Propiedades
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(305, 389);
+            this.label1.Location = new System.Drawing.Point(355, 472);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 3;
@@ -94,7 +94,7 @@ namespace GI.UI.Propiedades
             // label2
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(357, 392);
+            this.label2.Location = new System.Drawing.Point(407, 475);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(1, 30);
             this.label2.TabIndex = 4;
@@ -108,8 +108,8 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lvNotas);
-            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TabNotas";
+            this.Size = new System.Drawing.Size(494, 544);
             this.ResumeLayout(false);
             this.PerformLayout();
 

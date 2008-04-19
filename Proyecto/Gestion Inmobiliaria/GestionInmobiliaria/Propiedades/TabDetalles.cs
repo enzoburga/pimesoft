@@ -24,25 +24,50 @@ namespace GI.UI.Propiedades
         protected override void CargarPropiedad()
         {
 
-            ListViewItem i;
-
-            i = new ListViewItem();
-            i.Text = "Cocina";
-            i.SubItems.Add("4");
-            i.SubItems.Add("5");
-            i.SubItems.Add("Pinotea");
-            lvMedidas.Items.Add(i);
-
-            i = new ListViewItem();
-            i.Text = "Living";
-            i.SubItems.Add("4");
-            i.SubItems.Add("5");
-            i.SubItems.Add("Pinotea");
-            lvMedidas.Items.Add(i);
 
 
   
 
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TabDetalles_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
 
         }
     }
