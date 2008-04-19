@@ -47,10 +47,13 @@ namespace GI.UI.Propiedades
             cbMonedaReal.SelectedIndex = cbMonedaPublicacion.SelectedIndex = 0;
 
 
-            GI.BR.Propiedades.Estados est = new GI.BR.Propiedades.Estados();
-            est.RecuperarTodos();
-            foreach (GI.BR.Propiedades.Estado e in est)
-                cbEstadoProp.Items.Add(e);
+            cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.AEstrenar);
+            cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.AReciclar);
+            cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.Bueno);
+            cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.Malo);
+            cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.NoEspecifica);
+            cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.Reciclado);
+            cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.Regular);
             cbEstadoProp.SelectedIndex = 0;
 
             GI.BR.Propiedades.Ambientes ambientes = new GI.BR.Propiedades.Ambientes();
