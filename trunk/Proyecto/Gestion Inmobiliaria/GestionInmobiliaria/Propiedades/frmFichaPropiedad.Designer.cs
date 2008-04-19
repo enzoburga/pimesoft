@@ -62,8 +62,8 @@ namespace GI.UI.Propiedades
             // 
             this.splitContainer1.Panel2.Controls.Add(this.bAceptar);
             this.splitContainer1.Panel2.Controls.Add(this.bCancelar);
-            this.splitContainer1.Size = new System.Drawing.Size(444, 518);
-            this.splitContainer1.SplitterDistance = 477;
+            this.splitContainer1.Size = new System.Drawing.Size(494, 618);
+            this.splitContainer1.SplitterDistance = 568;
             this.splitContainer1.TabIndex = 0;
             // 
             // tabControl
@@ -72,7 +72,7 @@ namespace GI.UI.Propiedades
             this.tabControl.Location = new System.Drawing.Point(0, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(444, 453);
+            this.tabControl.Size = new System.Drawing.Size(494, 544);
             this.tabControl.TabIndex = 0;
             // 
             // menuStrip1
@@ -82,7 +82,7 @@ namespace GI.UI.Propiedades
             this.publicaciónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(444, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(494, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -137,7 +137,7 @@ namespace GI.UI.Propiedades
             // 
             // bAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(267, 5);
+            this.bAceptar.Location = new System.Drawing.Point(320, 10);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
             this.bAceptar.TabIndex = 1;
@@ -146,7 +146,7 @@ namespace GI.UI.Propiedades
             // 
             // bCancelar
             // 
-            this.bCancelar.Location = new System.Drawing.Point(357, 5);
+            this.bCancelar.Location = new System.Drawing.Point(410, 10);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 0;
@@ -157,7 +157,7 @@ namespace GI.UI.Propiedades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 518);
+            this.ClientSize = new System.Drawing.Size(494, 618);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

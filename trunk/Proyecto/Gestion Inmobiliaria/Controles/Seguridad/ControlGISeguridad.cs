@@ -1,31 +1,21 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Text;
 using System.Windows.Forms;
 
 namespace GI.Framework.Seguridad
 {
-    public partial class FrmGISeguridad : Form, Interfaces.ISoloLectura
+    public partial class ControlGISeguridad : UserControl, Interfaces.ISoloLectura
     {
 
         private bool soloLectura;
 
-        public FrmGISeguridad()
+        public ControlGISeguridad()
         {
             InitializeComponent();
-        }
-
-        private void FrmGISeguridad_Load(object sender, EventArgs e)
-        {
-
-
-            if (SoloLectura)
-                RefrezcarSoloLectura(this.Controls);
-
-
         }
 
         #region ISoloLectura Members
@@ -55,8 +45,6 @@ namespace GI.Framework.Seguridad
             if (Ctrl is Framework.ComboBox)
                 return true;
 
-            if (Ctrl is System.Windows.Forms.LinkLabel)
-                return true;
 
 
             return false;
@@ -71,7 +59,7 @@ namespace GI.Framework.Seguridad
                     ((Interfaces.ISoloLectura)c).SoloLectura = this.SoloLectura;
                     ((Interfaces.ISoloLectura)c).RefrezcarSoloLectura(c.Controls);
                 }
-                
+
                 if (AsignarSoloLectura(c))
                 {
                     c.Enabled = !SoloLectura;
@@ -88,11 +76,5 @@ namespace GI.Framework.Seguridad
         }
 
         #endregion
-
-        
-
-
-
-
     }
 }

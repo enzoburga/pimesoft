@@ -80,6 +80,12 @@ namespace GI.UI.Propiedades
             tabPage.Controls.Add(control);
             tabControl.TabPages.Add(tabPage);
 
+            tabPage = new TabPage("Llamados");
+            control = new TabVisitas();
+            control.Dock = DockStyle.Fill;
+            tabPage.Controls.Add(control);
+            tabControl.TabPages.Add(tabPage);
+
             tabPage = new TabPage("Publicaciones");
             control = new TabPublicaciones();
             control.Dock = DockStyle.Fill;

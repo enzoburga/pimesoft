@@ -43,14 +43,14 @@ namespace GI.UI.Propiedades
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(35, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(370, 370);
+            this.pictureBox1.Size = new System.Drawing.Size(429, 466);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(226, 388);
+            this.button1.Location = new System.Drawing.Point(254, 484);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -59,7 +59,7 @@ namespace GI.UI.Propiedades
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(145, 388);
+            this.button2.Location = new System.Drawing.Point(173, 484);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
@@ -75,7 +75,8 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TabGaleriaFotos";
-            this.Size = new System.Drawing.Size(444, 439);
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Size = new System.Drawing.Size(494, 544);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

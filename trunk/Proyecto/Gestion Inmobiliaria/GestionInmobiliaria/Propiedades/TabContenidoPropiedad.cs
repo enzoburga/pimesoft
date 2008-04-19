@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GI.UI.Propiedades
 {
-    public partial class TabContenidoPropiedad : UserControl
+    public partial class TabContenidoPropiedad : Framework.Seguridad.ControlGISeguridad
     {
 
         private GI.BR.Propiedades.Propiedad _Propiedad;
