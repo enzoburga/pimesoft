@@ -190,7 +190,22 @@ namespace GI.UI.Propiedades
             }
         }
 
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.lvPropiedades_DoubleClick(null, null);
+        }
+
+        private void editarFichaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFichaPropiedad frmFicha = new frmFichaPropiedad();
+            frmFicha.Propiedad = (GI.BR.Propiedades.Propiedad)lvPropiedades.SelectedItems[0].Tag;
+            frmFicha.SoloLectura = false;
+            frmFicha.ShowDialog();
+        }
+
         #endregion
+
+
 
 
     }
