@@ -47,8 +47,6 @@ namespace GI.UI.Propiedades
             this.label12 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
@@ -265,24 +263,6 @@ namespace GI.UI.Propiedades
             this.label13.TabIndex = 38;
             this.label13.Text = "Terreno";
             // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(132, 212);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(58, 21);
-            this.textBox8.TabIndex = 43;
-            this.textBox8.Text = "80";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(69, 215);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(57, 13);
-            this.label16.TabIndex = 42;
-            this.label16.Text = "Ambientes";
-            // 
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(353, 212);
@@ -357,7 +337,7 @@ namespace GI.UI.Propiedades
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(353, 266);
+            this.textBox13.Location = new System.Drawing.Point(132, 212);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(58, 21);
             this.textBox13.TabIndex = 53;
@@ -367,7 +347,7 @@ namespace GI.UI.Propiedades
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(285, 269);
+            this.label21.Location = new System.Drawing.Point(64, 215);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(62, 13);
             this.label21.TabIndex = 52;
@@ -643,8 +623,6 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.label18);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.label16);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label13);
@@ -693,8 +671,6 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBox10;

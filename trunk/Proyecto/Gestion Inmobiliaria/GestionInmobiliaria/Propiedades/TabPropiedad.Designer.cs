@@ -81,7 +81,7 @@ namespace GI.UI.Propiedades
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.LinkPropietario = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -579,21 +579,21 @@ namespace GI.UI.Propiedades
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Agregar Medida";
             // 
-            // linkLabel3
+            // LinkPropietario
             // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(320, 47);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(70, 13);
-            this.linkLabel3.TabIndex = 31;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Emilio Davidis";
+            this.LinkPropietario.AutoSize = true;
+            this.LinkPropietario.Location = new System.Drawing.Point(320, 47);
+            this.LinkPropietario.Name = "LinkPropietario";
+            this.LinkPropietario.Size = new System.Drawing.Size(70, 13);
+            this.LinkPropietario.TabIndex = 31;
+            this.LinkPropietario.TabStop = true;
+            this.LinkPropietario.Text = "Emilio Davidis";
             // 
             // TabPropiedad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.linkLabel3);
+            this.Controls.Add(this.LinkPropietario);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.cbCategoria);
@@ -682,7 +682,7 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel LinkPropietario;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBox6;

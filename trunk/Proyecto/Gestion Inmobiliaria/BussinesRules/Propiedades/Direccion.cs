@@ -8,34 +8,53 @@ namespace GI.BR.Propiedades
     {
 
         private string calle;
+        private int numero;
+        private string depto;
+        private string piso;
+        private string codigoPostal;
+        private string calleEntre1;
+        private string calleEntre2;
+
+        public string CalleEntre1
+        {
+            get { return calleEntre1; }
+            set { calleEntre1 = value; }
+        }
+        
+
+        public string CalleEntre2
+        {
+            get { return calleEntre2; }
+            set { calleEntre2 = value; }
+        }
 
         public string Calle
         {
             get { return calle; }
             set { calle = value; }
         }
-        private int numero;
+        
 
         public int Numero
         {
             get { return numero; }
             set { numero = value; }
         }
-        private string depto;
+        
 
         public string Depto
         {
             get { return depto; }
             set { depto = value; }
         }
-        private string piso;
+        
 
         public string Piso
         {
             get { return piso; }
             set { piso = value; }
         }
-        private string codigoPostal;
+        
 
         public string CodigoPostal
         {
