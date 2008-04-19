@@ -7,9 +7,9 @@ namespace GI.DA
 {
     public class mngConexion
     {
-        private static SqlConnection xConn = new SqlConnection(connString);
+        private static SqlConnection xConn = new SqlConnection(GetConnString);
         private static SqlTransaction trans;
-        private static string connString = System.Configuration.ConfigurationSettings.AppSettings["connectionStrings"].ToString();
+        private static string connString = System.Configuration.ConfigurationSettings.AppSettings["ConnString"].ToString();
 
 
         internal static string GetConnString

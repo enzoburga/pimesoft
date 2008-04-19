@@ -70,6 +70,8 @@ namespace GI.UI.Propiedades
             this.cbAmbientes = new GI.Framework.ComboBox();
             this.cbEstadoProp = new GI.Framework.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.cbCategoria = new GI.Framework.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -77,16 +79,16 @@ namespace GI.UI.Propiedades
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-1, 20);
+            this.label1.Location = new System.Drawing.Point(34, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tipo de Propiedad";
+            this.label1.Text = "Categoria";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(259, 21);
+            this.label2.Location = new System.Drawing.Point(259, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 1;
@@ -96,7 +98,7 @@ namespace GI.UI.Propiedades
             // 
             this.cbTipoPropiedad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoPropiedad.FormattingEnabled = true;
-            this.cbTipoPropiedad.Location = new System.Drawing.Point(98, 17);
+            this.cbTipoPropiedad.Location = new System.Drawing.Point(98, 44);
             this.cbTipoPropiedad.Name = "cbTipoPropiedad";
             this.cbTipoPropiedad.Size = new System.Drawing.Size(106, 21);
             this.cbTipoPropiedad.TabIndex = 2;
@@ -105,7 +107,7 @@ namespace GI.UI.Propiedades
             // 
             this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Location = new System.Drawing.Point(301, 18);
+            this.cbEstado.Location = new System.Drawing.Point(301, 44);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(109, 21);
             this.cbEstado.TabIndex = 3;
@@ -113,7 +115,7 @@ namespace GI.UI.Propiedades
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(237, 48);
+            this.label3.Location = new System.Drawing.Point(237, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 4;
@@ -122,7 +124,7 @@ namespace GI.UI.Propiedades
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(52, 48);
+            this.label4.Location = new System.Drawing.Point(52, 74);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 5;
@@ -138,7 +140,7 @@ namespace GI.UI.Propiedades
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(17, 148);
+            this.groupBox1.Location = new System.Drawing.Point(17, 174);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(409, 84);
             this.groupBox1.TabIndex = 6;
@@ -229,7 +231,7 @@ namespace GI.UI.Propiedades
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Location = new System.Drawing.Point(17, 238);
+            this.groupBox2.Location = new System.Drawing.Point(17, 264);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(409, 79);
             this.groupBox2.TabIndex = 7;
@@ -327,7 +329,7 @@ namespace GI.UI.Propiedades
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(14, 320);
+            this.label14.Location = new System.Drawing.Point(14, 346);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(78, 13);
             this.label14.TabIndex = 8;
@@ -335,7 +337,7 @@ namespace GI.UI.Propiedades
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(17, 336);
+            this.textBox6.Location = new System.Drawing.Point(17, 362);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -346,7 +348,7 @@ namespace GI.UI.Propiedades
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(37, 77);
+            this.label15.Location = new System.Drawing.Point(37, 103);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(55, 13);
             this.label15.TabIndex = 26;
@@ -356,14 +358,14 @@ namespace GI.UI.Propiedades
             // 
             this.cbMonedaReal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonedaReal.FormattingEnabled = true;
-            this.cbMonedaReal.Location = new System.Drawing.Point(155, 74);
+            this.cbMonedaReal.Location = new System.Drawing.Point(155, 100);
             this.cbMonedaReal.Name = "cbMonedaReal";
             this.cbMonedaReal.Size = new System.Drawing.Size(48, 21);
             this.cbMonedaReal.TabIndex = 27;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(98, 74);
+            this.textBox7.Location = new System.Drawing.Point(98, 100);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(51, 21);
             this.textBox7.TabIndex = 25;
@@ -372,7 +374,7 @@ namespace GI.UI.Propiedades
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(301, 72);
+            this.textBox8.Location = new System.Drawing.Point(301, 98);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(57, 21);
             this.textBox8.TabIndex = 28;
@@ -383,7 +385,7 @@ namespace GI.UI.Propiedades
             // 
             this.cbMonedaPublicacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonedaPublicacion.FormattingEnabled = true;
-            this.cbMonedaPublicacion.Location = new System.Drawing.Point(364, 72);
+            this.cbMonedaPublicacion.Location = new System.Drawing.Point(364, 98);
             this.cbMonedaPublicacion.Name = "cbMonedaPublicacion";
             this.cbMonedaPublicacion.Size = new System.Drawing.Size(47, 21);
             this.cbMonedaPublicacion.TabIndex = 30;
@@ -391,7 +393,7 @@ namespace GI.UI.Propiedades
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(210, 77);
+            this.label16.Location = new System.Drawing.Point(210, 103);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(86, 13);
             this.label16.TabIndex = 29;
@@ -399,7 +401,7 @@ namespace GI.UI.Propiedades
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(98, 45);
+            this.textBox9.Location = new System.Drawing.Point(98, 71);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(51, 21);
             this.textBox9.TabIndex = 31;
@@ -408,7 +410,7 @@ namespace GI.UI.Propiedades
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(301, 45);
+            this.textBox10.Location = new System.Drawing.Point(301, 71);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(110, 21);
@@ -417,7 +419,7 @@ namespace GI.UI.Propiedades
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(117, 132);
+            this.label17.Location = new System.Drawing.Point(117, 158);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(86, 13);
             this.label17.TabIndex = 32;
@@ -426,7 +428,7 @@ namespace GI.UI.Propiedades
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(98, 132);
+            this.checkBox1.Location = new System.Drawing.Point(98, 158);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 15;
@@ -435,7 +437,7 @@ namespace GI.UI.Propiedades
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(35, 109);
+            this.label18.Location = new System.Drawing.Point(35, 135);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(57, 13);
             this.label18.TabIndex = 33;
@@ -445,7 +447,7 @@ namespace GI.UI.Propiedades
             // 
             this.cbAmbientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAmbientes.FormattingEnabled = true;
-            this.cbAmbientes.Location = new System.Drawing.Point(98, 105);
+            this.cbAmbientes.Location = new System.Drawing.Point(98, 131);
             this.cbAmbientes.Name = "cbAmbientes";
             this.cbAmbientes.Size = new System.Drawing.Size(106, 21);
             this.cbAmbientes.TabIndex = 34;
@@ -454,7 +456,7 @@ namespace GI.UI.Propiedades
             // 
             this.cbEstadoProp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstadoProp.FormattingEnabled = true;
-            this.cbEstadoProp.Location = new System.Drawing.Point(301, 106);
+            this.cbEstadoProp.Location = new System.Drawing.Point(301, 132);
             this.cbEstadoProp.Name = "cbEstadoProp";
             this.cbEstadoProp.Size = new System.Drawing.Size(109, 21);
             this.cbEstadoProp.TabIndex = 36;
@@ -462,16 +464,37 @@ namespace GI.UI.Propiedades
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(210, 109);
+            this.label19.Location = new System.Drawing.Point(210, 135);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(91, 13);
             this.label19.TabIndex = 35;
             this.label19.Text = "Estado Propiedad";
             // 
+            // cbCategoria
+            // 
+            this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoria.FormattingEnabled = true;
+            this.cbCategoria.Location = new System.Drawing.Point(97, 17);
+            this.cbCategoria.Name = "cbCategoria";
+            this.cbCategoria.Size = new System.Drawing.Size(106, 21);
+            this.cbCategoria.TabIndex = 37;
+            this.cbCategoria.SelectedIndexChanged += new System.EventHandler(this.cbCategoria_SelectedIndexChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(-1, 47);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(93, 13);
+            this.label20.TabIndex = 38;
+            this.label20.Text = "Tipo de Propiedad";
+            // 
             // TabPropiedad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.cbCategoria);
             this.Controls.Add(this.cbEstadoProp);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.cbAmbientes);
@@ -551,5 +574,7 @@ namespace GI.UI.Propiedades
         private GI.Framework.ComboBox cbAmbientes;
         private GI.Framework.ComboBox cbEstadoProp;
         private System.Windows.Forms.Label label19;
+        private GI.Framework.ComboBox cbCategoria;
+        private System.Windows.Forms.Label label20;
     }
 }

@@ -17,10 +17,18 @@ namespace GI.UI.Propiedades
         }
 
 
-
+        
         protected override void Inicializar()
         {
 
+
+            GI.BR.Propiedades.CategoriasPropiedad Categorias = new GI.BR.Propiedades.CategoriasPropiedad();
+            Categorias.RecuperarTodas();
+            foreach (GI.BR.Propiedades.CategoriaPropiedad Cat in Categorias)
+            {
+                cbCategoria.Items.Add(Cat);
+            }
+            cbCategoria.SelectedIndex = 0;
 
 
             GI.BR.Propiedades.EstadosPropiedad Estados = new GI.BR.Propiedades.EstadosPropiedad();
@@ -57,6 +65,23 @@ namespace GI.UI.Propiedades
         protected override void CargarPropiedad()
         {
             base.CargarPropiedad();
+        }
+
+
+
+        private void cbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCategoria.SelectedItem == null) return;
+
+            GI.BR.Propiedades.TiposPropiedad tipos = ((GI.BR.Propiedades.CategoriaPropiedad)cbCategoria.SelectedItem).TiposPropiedad;
+            cbTipoPropiedad.Items.Clear();
+
+            foreach (GI.BR.Propiedades.TipoPropiedad tipo in tipos)
+            {
+                cbTipoPropiedad.Items.Add(tipo);
+            }
+
+            cbTipoPropiedad.SelectedIndex = 0;
         }
 
 
