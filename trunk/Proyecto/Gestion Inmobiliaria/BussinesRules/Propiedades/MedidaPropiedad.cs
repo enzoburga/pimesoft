@@ -11,21 +11,21 @@ namespace GI.BR.Propiedades
         private decimal metrosSemicubiertos;
         private decimal metrosLibres;
 
-        protected decimal MetrosCubiertos
+        public decimal MetrosCubiertos
         {
             get { return metrosCubiertos; }
             set { metrosCubiertos = value; }
         }
-        
 
-        protected decimal MetrosSemicubiertos
+
+        public decimal MetrosSemicubiertos
         {
             get { return metrosSemicubiertos; }
             set { metrosSemicubiertos = value; }
         }
-        
 
-        protected decimal MetrosLibres
+
+        public decimal MetrosLibres
         {
             get { return metrosLibres; }
             set { metrosLibres = value; }
