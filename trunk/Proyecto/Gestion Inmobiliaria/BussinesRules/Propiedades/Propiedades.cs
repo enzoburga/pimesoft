@@ -15,11 +15,15 @@ namespace GI.BR.Propiedades
         Ubicaciones.UbicacionFlyweightFactory ubicacionesFactory;
 
         #endregion
-        
+
+        #region Contructor
         public Propiedades()
-        { 
-        
-        }
+        {
+
+        } 
+        #endregion
+
+        #region Metodos de Recuperacion VENTA
 
         public void RecuperarPropiedadesVentasTodas()
         {
@@ -32,9 +36,11 @@ namespace GI.BR.Propiedades
             {
                 cargarColeccionVentas(dr);
             }
-        
-        }
 
+        } 
+        #endregion
+
+        #region Metodos Privados
 
 
         private void cargarColeccionVentas(IDataReader dr)
@@ -53,7 +59,7 @@ namespace GI.BR.Propiedades
 
         private void CargarPropiedad(GI.BR.Propiedades.Propiedad p, IDataReader dr)
         {
-            
+
 
             p.IdPropiedad = dr.GetInt32(dr.GetOrdinal("IdPropiedad"));
             p.CantidadAmbientes = dr.GetDecimal(dr.GetOrdinal("CantidadAmbientes"));
@@ -129,6 +135,7 @@ namespace GI.BR.Propiedades
 
 
 
+        #endregion
 
     }
 }
