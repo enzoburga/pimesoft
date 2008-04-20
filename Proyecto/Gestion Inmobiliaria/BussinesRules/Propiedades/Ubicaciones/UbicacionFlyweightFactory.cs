@@ -35,6 +35,7 @@ namespace GI.BR.Propiedades.Ubicaciones
                 hashLocalidades.Add(l.IdLocalidad, l);
 
             Barrios barrios = new Barrios();
+            barrios.RecuperarTodos();
             foreach (Barrio b in barrios)
                 hashBarrios.Add(b.IdBarrio, b);
         

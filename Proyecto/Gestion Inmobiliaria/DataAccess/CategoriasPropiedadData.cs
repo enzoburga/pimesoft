@@ -9,6 +9,14 @@ namespace GI.DA
     public class CategoriasPropiedadData
     {
 
+        public IDataReader RecuperarTiposDePropiedad()
+        {
+            return AccesoDatos.RecuperarDatos(
+                "TiposPropiedad_RecuperarTodos",
+                new object[] { },
+                new string[] { });
+        }
+
         public IDataReader RecuperarTiposDePropiedad(int IdCategoria)
         {
             return AccesoDatos.RecuperarDatos(

@@ -13,7 +13,7 @@ namespace GI.BR.Monedas
         {
             Monedas monedas = new Monedas();
             hashMonedas = new System.Collections.Hashtable();
-
+            monedas.RecuperarTodas();
             foreach (Moneda m in monedas)
                 hashMonedas.Add(m.IdMoneda, m);
         }
