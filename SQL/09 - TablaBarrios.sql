@@ -1,0 +1,46 @@
+/*
+   Domingo, 20 de Abril de 2008 02:43:56 p.m.
+   Usuario: 
+   Servidor: EMILIOMOVIL
+   Base de datos: InmobiliariaDb
+   Aplicación: MS SQLEM - Data Tools
+*/
+
+BEGIN TRANSACTION
+SET QUOTED_IDENTIFIER ON
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
+SET ARITHABORT ON
+SET NUMERIC_ROUNDABORT OFF
+SET CONCAT_NULL_YIELDS_NULL ON
+SET ANSI_NULLS ON
+SET ANSI_PADDING ON
+SET ANSI_WARNINGS ON
+COMMIT
+BEGIN TRANSACTION
+COMMIT
+BEGIN TRANSACTION
+CREATE TABLE dbo.Barrios
+	(
+	IdBarrio int NOT NULL,
+	Nombre nvarchar(150) NOT NULL,
+	[Default] bit NOT NULL,
+	IdLocalidad int NOT NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE dbo.Barrios ADD CONSTRAINT
+	PK_Barrios PRIMARY KEY CLUSTERED 
+	(
+	IdBarrio
+	) ON [PRIMARY]
+
+GO
+ALTER TABLE dbo.Barrios ADD CONSTRAINT
+	FK_Barrios_Localidades FOREIGN KEY
+	(
+	IdLocalidad
+	) REFERENCES dbo.Localidades
+	(
+	IdLocalidad
+	)
+GO
+COMMIT

@@ -14,8 +14,6 @@ namespace GI.BR.Propiedades
 
         protected int idPropiedad;
         protected decimal cantidadAmbientes;
-
-       
         protected string codigo;
         protected TipoPropiedad tipoPropiedad;
         protected EstadoPropiedad estado;
@@ -27,7 +25,6 @@ namespace GI.BR.Propiedades
         protected Valor valorPublicacion;
         protected string observaciones;
         protected bool esOtraInmobiliaria;
-        protected MedidasAmbiente medidas;
         protected MedidaPropiedad medidasPropiedad;
         protected MedidasTerreno medidasTerreno;
         protected string orientacion;
@@ -46,8 +43,8 @@ namespace GI.BR.Propiedades
         protected string fot;
         protected string zonificacion;
         protected int metrosConstruibles;
-        
 
+        protected MedidasAmbiente medidas;
         
         #endregion
 

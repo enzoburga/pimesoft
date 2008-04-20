@@ -8,20 +8,22 @@ namespace GI.BR.Propiedades
     {
 
         private decimal metrosCubiertos;
+        private decimal metrosSemicubiertos;
+        private decimal metrosLibres;
 
         protected decimal MetrosCubiertos
         {
             get { return metrosCubiertos; }
             set { metrosCubiertos = value; }
         }
-        private decimal metrosSemicubiertos;
+        
 
         protected decimal MetrosSemicubiertos
         {
             get { return metrosSemicubiertos; }
             set { metrosSemicubiertos = value; }
         }
-        private decimal metrosLibres;
+        
 
         protected decimal MetrosLibres
         {

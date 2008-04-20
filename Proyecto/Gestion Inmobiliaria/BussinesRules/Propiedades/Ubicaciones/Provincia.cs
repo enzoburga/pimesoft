@@ -10,20 +10,23 @@ namespace GI.BR.Propiedades.Ubicaciones
         public Provincia() { }
 
         private int idProvincia;
+        private string nombre;
+        private int idPais;
+        private bool esDefault;
 
         public int IdProvincia
         {
             get { return idProvincia; }
             set { idProvincia = value; }
         }
-        private string nombre;
+       
 
         public string Nombre
         {
             get { return nombre; }
             set { nombre = value; }
         }
-        private int idPais;
+        
 
         public int IdPais
         {
@@ -31,7 +34,7 @@ namespace GI.BR.Propiedades.Ubicaciones
             set { idPais = value; }
         }
         
-        private bool esDefault;
+        
 
         public bool EsDefault
         {
