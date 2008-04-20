@@ -89,6 +89,7 @@
     <Compile Include="Clientes\TabDatosPrincipales.Designer.cs">
       <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBuilder.cs" />
     <Compile Include="frmPopUpEventos.cs">
       <SubType>Form</SubType>
     </Compile>

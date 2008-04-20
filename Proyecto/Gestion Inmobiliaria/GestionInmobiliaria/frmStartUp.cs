@@ -10,18 +10,19 @@ namespace GI.UI
 {
     public partial class frmStartUp : Form
     {
+        FrmBuilder builder;
+
         public frmStartUp()
         {
             InitializeComponent();
+            builder = new FrmBuilder(this);
         }
 
 
 
         private void ventaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Propiedades.FrmListadoPropiedades frmListado = new GI.UI.Propiedades.FrmListadoPropiedades(typeof(GI.BR.Propiedades.Venta));
-            frmListado.MdiParent = this;
-            frmListado.Show();
+            builder.AbrirFormulario("GI.UI.Propiedades.FrmListadoPropiedades");
         }
 
         private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)

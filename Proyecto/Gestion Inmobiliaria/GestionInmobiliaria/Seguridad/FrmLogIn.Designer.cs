@@ -41,7 +41,7 @@ namespace GI.UI.Seguridad
             this.bCancelar.Location = new System.Drawing.Point(164, 90);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
-            this.bCancelar.TabIndex = 0;
+            this.bCancelar.TabIndex = 1;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
             this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
@@ -51,7 +51,7 @@ namespace GI.UI.Seguridad
             this.bAceptar.Location = new System.Drawing.Point(83, 90);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
-            this.bAceptar.TabIndex = 1;
+            this.bAceptar.TabIndex = 0;
             this.bAceptar.Text = "Aceptar";
             this.bAceptar.UseVisualStyleBackColor = true;
             this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
@@ -69,16 +69,20 @@ namespace GI.UI.Seguridad
             // 
             this.textBoxUsuario.Location = new System.Drawing.Point(76, 16);
             this.textBoxUsuario.Name = "textBoxUsuario";
+            this.textBoxUsuario.ReadOnly = true;
             this.textBoxUsuario.Size = new System.Drawing.Size(163, 21);
             this.textBoxUsuario.TabIndex = 3;
+            this.textBoxUsuario.Text = "Usuario";
             // 
             // textBoxPassword
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(76, 46);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
+            this.textBoxPassword.ReadOnly = true;
             this.textBoxPassword.Size = new System.Drawing.Size(163, 21);
-            this.textBoxPassword.TabIndex = 4;
+            this.textBoxPassword.TabIndex = 2;
+            this.textBoxPassword.Text = "1234";
             // 
             // label2
             // 
@@ -105,6 +109,7 @@ namespace GI.UI.Seguridad
             this.Name = "FrmLogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión Inmobiliaria - Log In";
+            this.Load += new System.EventHandler(this.FrmLogIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

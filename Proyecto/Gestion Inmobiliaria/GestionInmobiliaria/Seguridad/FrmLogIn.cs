@@ -27,7 +27,9 @@ namespace GI.UI.Seguridad
         {
 
             GI.BR.Seguridad.Usuario Usr = GI.BR.Seguridad.Usuario.GetUsuario(textBoxUsuario.Text, textBoxPassword.Text);
+            
             usuario = Usr;
+
 
             DialogResult = DialogResult.OK;
             Close();
@@ -39,6 +41,11 @@ namespace GI.UI.Seguridad
         {
             DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        private void FrmLogIn_Load(object sender, EventArgs e)
+        {
+            //bAceptar.Focus();
         }
     }
 }
