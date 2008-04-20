@@ -11,27 +11,30 @@ namespace GI.BR.Propiedades
         { }
 
         private Ubicaciones.Pais pais;
+        private Ubicaciones.Provincia provincia;
+        private Ubicaciones.Localidad localidad;
+        private Ubicaciones.Barrio barrio;
 
         public Ubicaciones.Pais Pais
         {
             get { return pais; }
             set { pais = value; }
         }
-        private Ubicaciones.Provincia provincia;
+        
 
         public Ubicaciones.Provincia Provincia
         {
             get { return provincia; }
             set { provincia = value; }
         }
-        private Ubicaciones.Localidad localidad;
+        
 
         public Ubicaciones.Localidad Localidad
         {
             get { return localidad; }
             set { localidad = value; }
         }
-        private Ubicaciones.Barrio barrio;
+        
 
         public Ubicaciones.Barrio Barrio
         {
