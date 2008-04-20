@@ -7,8 +7,12 @@ namespace GI.BR.Propiedades
 {
     public class TiposPropiedad : List<TipoPropiedad>
     {
-        
 
+
+        public void RecuperarTodos()
+        {
+            throw new Exception("Metodo no implementado");
+        }
 
         public void RecuperarPorCategoria(CategoriaPropiedad Categoria)
         {

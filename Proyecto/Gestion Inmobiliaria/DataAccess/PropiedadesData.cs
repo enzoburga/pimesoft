@@ -7,7 +7,13 @@ namespace GI.DA
 {
     public class PropiedadesData
     {
-
+        public IDataReader RecuperarPropiedadesVentasTodas()
+        {
+            return AccesoDatos.RecuperarDatos(
+                "PropiedadesVentas_RecuperarTodas",
+                new object[] { },
+                new string[] { });
+        }
 
         public IDataReader RecuperarEstadoPropiedad(string ClasePropiedad)
         {
