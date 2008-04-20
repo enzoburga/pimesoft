@@ -54,7 +54,21 @@ namespace GI.BR.Propiedades.Ubicaciones
 
         public void RecuperarTodos()
         {
-            throw new Exception("Metodo no Implementado");
+            Clear();
+            using (System.Data.IDataReader dr = new DA.UbicacionesData().RecuperarBarrios())
+            {
+                Barrio b;
+                while (dr.Read())
+                {
+                    b = new Barrio();
+                    b.IdLocalidad = dr.GetInt32(dr.GetOrdinal("IdLocalidad"));
+                    b.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
+                    b.EsDefault = dr.GetBoolean(dr.GetOrdinal("Default"));
+                    b.IdBarrio = dr.GetInt32(dr.GetOrdinal("IdBarrio"));
+                    Add(b);
+                }
+
+            }
         }
 
         public void RecuperarTodos(Localidad Localidad)

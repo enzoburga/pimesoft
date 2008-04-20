@@ -11,7 +11,19 @@ namespace GI.BR.Propiedades
 
         public void RecuperarTodos()
         {
-            throw new Exception("Metodo no implementado");
+            Clear();
+            TipoPropiedad tipo;
+            using (IDataReader dr = new GI.DA.CategoriasPropiedadData().RecuperarTiposDePropiedad())
+            {
+                while (dr.Read())
+                {
+                    tipo = new TipoPropiedad();
+                    tipo.Descripcion = dr.GetString(dr.GetOrdinal("Nombre"));
+                    tipo.IdCategoria = dr.GetInt32(dr.GetOrdinal("IdCategoria"));
+                    tipo.IdTipoPropiedad = dr.GetInt32(dr.GetOrdinal("IdTipoPropiedad"));
+                    Add(tipo);
+                }
+            }
         }
 
         public void RecuperarPorCategoria(CategoriaPropiedad Categoria)

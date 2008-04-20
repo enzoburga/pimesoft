@@ -44,13 +44,26 @@ namespace GI.BR.Propiedades.Ubicaciones
     public class Paises : List<Pais>
     {
 
+
+
+
         public void RecuperarTodos()
         {
-            Pais p = new Pais();
-            p.EsDefault = true;
-            p.IdPais = 1;
-            p.Nombre = "Argentina";
-            Add(p);
+            Clear();
+            using (System.Data.IDataReader dr = new DA.UbicacionesData().RecuperarPaises())
+            {
+                Pais p;
+                while (dr.Read())
+                {
+                    p = new Pais();
+                    p.IdPais = dr.GetInt32(dr.GetOrdinal("IdPais"));
+                    p.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
+                    p.EsDefault = dr.GetBoolean(dr.GetOrdinal("Default"));
+                    Add(p);
+                }
+            
+            }
+
         }
 
 

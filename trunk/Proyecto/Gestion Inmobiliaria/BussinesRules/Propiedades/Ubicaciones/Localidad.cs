@@ -50,7 +50,21 @@ namespace GI.BR.Propiedades.Ubicaciones
     {
         public void RecuperarTodas()
         {
-            throw new Exception("Metodo no Implementado");
+            Clear();
+            using (System.Data.IDataReader dr = new DA.UbicacionesData().RecuperarLocalidades())
+            {
+                Localidad l;
+                while (dr.Read())
+                {
+                    l = new Localidad();
+                    l.IdLocalidad = dr.GetInt32(dr.GetOrdinal("IdLocalidad"));
+                    l.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
+                    l.EsDefault = dr.GetBoolean(dr.GetOrdinal("Default"));
+                    l.IdProvincia = dr.GetInt32(dr.GetOrdinal("IdProvincia"));
+                    Add(l);
+                }
+
+            }
         }
 
         public void RecuperarTodas(Provincia Provincia)
