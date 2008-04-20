@@ -108,6 +108,10 @@ namespace GI.Managers.Propiedades
         }
 
 
+        
+
+
+
 
 
 

@@ -58,6 +58,7 @@
     <Compile Include="Propiedades\TipoPropiedad.cs" />
     <Compile Include="Propiedades\TiposDePiso.cs" />
     <Compile Include="Propiedades\TiposPropiedad.cs" />
+    <Compile Include="Propiedades\TiposPropiedadFlyweightFactory.cs" />
     <Compile Include="Propiedades\TipoZona.cs" />
     <Compile Include="Propiedades\Ubicacion.cs" />
     <Compile Include="Propiedades\Ubicaciones\Barrio.cs" />
