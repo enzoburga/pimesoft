@@ -11,21 +11,21 @@ namespace GI.BR.Propiedades
         private decimal fondo;
         private decimal frente;
 
-        protected decimal Metros
+        public decimal Metros
         {
             get { return metros; }
             set { metros = value; }
         }
-        
 
-        protected decimal Fondo
+
+        public decimal Fondo
         {
             get { return fondo; }
             set { fondo = value; }
         }
-        
 
-        protected decimal Frente
+
+        public decimal Frente
         {
             get { return frente; }
             set { frente = value; }

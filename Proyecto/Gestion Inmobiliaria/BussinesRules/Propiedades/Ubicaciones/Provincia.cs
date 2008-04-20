@@ -53,6 +53,12 @@ namespace GI.BR.Propiedades.Ubicaciones
 
     public class Provincias : List<Provincia>
     {
+
+        public void RecuperarTodas()
+        {
+            throw new Exception("Metodo no Implementado");
+        }
+
         public void RecuperarTodas(Pais Pais)
         {
             Clear();

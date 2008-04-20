@@ -51,6 +51,12 @@ namespace GI.BR.Propiedades.Ubicaciones
 
     public class Barrios : List<Barrio>
     {
+
+        public void RecuperarTodos()
+        {
+            throw new Exception("Metodo no Implementado");
+        }
+
         public void RecuperarTodos(Localidad Localidad)
         {
             Clear();

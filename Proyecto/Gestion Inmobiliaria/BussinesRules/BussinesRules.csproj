@@ -37,6 +37,7 @@
     <Compile Include="General\emunTipoDocumento.cs" />
     <Compile Include="Monedas\Moneda.cs" />
     <Compile Include="Monedas\Monedas.cs" />
+    <Compile Include="Monedas\MonedasFlyweigthFactory.cs" />
     <Compile Include="Monedas\Valor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Propiedades\Alquiler.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Propiedades\Ubicaciones\Pais.cs" />
     <Compile Include="Propiedades\Propiedades.cs" />
     <Compile Include="Propiedades\Ubicaciones\Provincia.cs" />
+    <Compile Include="Propiedades\Ubicaciones\UbicacionFlyweightFactory.cs" />
     <Compile Include="Propiedades\Venta.cs" />
     <Compile Include="Propietario.cs" />
     <Compile Include="Seguridad\Usuario.cs" />
