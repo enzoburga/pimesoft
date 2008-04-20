@@ -49,6 +49,15 @@ namespace GI.Managers.Propiedades
             p.ValorPublicacion.Moneda.Simbolo = "USD";
             p.ValorPublicacion.Importe = 50000;
 
+            p.Ubicacion = new GI.BR.Propiedades.Ubicacion();
+            p.Ubicacion.Barrio = new GI.BR.Propiedades.Ubicaciones.Barrio();
+            p.Ubicacion.Barrio.Nombre = "Florida M";
+
+            p.Ubicacion.Localidad = new GI.BR.Propiedades.Ubicaciones.Localidad();
+            p.Ubicacion.Localidad.Nombre = "Vicente Lopez";
+
+            p.CantidadAmbientes = 3;
+
             Propiedades.Add(p);
 
 
@@ -81,7 +90,15 @@ namespace GI.Managers.Propiedades
             p.Ubicacion.Barrio = new GI.BR.Propiedades.Ubicaciones.Barrio();
             p.Ubicacion.Localidad = new GI.BR.Propiedades.Ubicaciones.Localidad();
             p.Ubicacion.Pais = new GI.BR.Propiedades.Ubicaciones.Pais();
-           
+
+            p.Ubicacion = new GI.BR.Propiedades.Ubicacion();
+            p.Ubicacion.Barrio = new GI.BR.Propiedades.Ubicaciones.Barrio();
+            p.Ubicacion.Barrio.Nombre = "Florida M";
+
+            p.Ubicacion.Localidad = new GI.BR.Propiedades.Ubicaciones.Localidad();
+            p.Ubicacion.Localidad.Nombre = "Vicente Lopez";
+
+            p.CantidadAmbientes = 3;
 
             Propiedades.Add(p);
 

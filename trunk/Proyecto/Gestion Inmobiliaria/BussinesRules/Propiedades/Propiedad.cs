@@ -13,6 +13,9 @@ namespace GI.BR.Propiedades
         #region Miembros
 
         protected int idPropiedad;
+        protected decimal cantidadAmbientes;
+
+       
         protected string codigo;
         protected TipoPropiedad tipoPropiedad;
         protected EstadoPropiedad estado;
@@ -43,12 +46,18 @@ namespace GI.BR.Propiedades
         protected string fot;
         protected string zonificacion;
         protected int metrosConstruibles;
+        
 
         
         #endregion
 
         #region Propiedades
 
+        public decimal CantidadAmbientes
+        {
+            get { return cantidadAmbientes; }
+            set { cantidadAmbientes = value; }
+        }
 
         public int IdPropiedad
         {
