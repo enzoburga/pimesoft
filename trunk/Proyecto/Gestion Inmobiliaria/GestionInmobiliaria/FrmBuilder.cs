@@ -74,7 +74,7 @@ namespace GI.UI
 
         }
 
-        public System.Windows.Forms.Form MostrarFormPorClaveSeguridad(string Type)
+        private System.Windows.Forms.Form MostrarFormPorClaveSeguridad(string Type)
         {
 
             if (Type == "GI.UI.Propiedades.FrmListadoPropiedades")
