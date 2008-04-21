@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GI.BR.Propiedades
 {
-    public abstract class Propiedad
+    public abstract class Propiedad : ICloneable
     {
 
         public Propiedad()
@@ -142,7 +142,15 @@ namespace GI.BR.Propiedades
 
         public MedidasAmbiente Medidas
         {
-            get { return medidas; }
+            get 
+            {
+                if (medidas == null)
+                {
+                    medidas = new MedidasAmbiente();
+                    medidas.RecuperarPorPropiedad(this);
+                }
+                return medidas; 
+            }
             set { medidas = value; }
         }
 
@@ -293,6 +301,15 @@ namespace GI.BR.Propiedades
             throw new Exception("Metodo No Implementado");
         }
 
+
+        #endregion
+
+        #region ICloneable Members
+
+        public object Clone()
+        {
+            return base.MemberwiseClone();
+        }
 
         #endregion
     }

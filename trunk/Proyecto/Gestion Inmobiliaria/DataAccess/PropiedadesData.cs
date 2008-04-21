@@ -23,6 +23,14 @@ namespace GI.DA
                 new string[] { "@Clase" });
         }
 
+        public IDataReader RecuperarMedidasAmbientesPorPropiedad(int IdPropiedad)
+        { 
+            return AccesoDatos.RecuperarDatos(
+                "MedidasAmbientes_RecuperarPorPropiedad",
+                new object[] { IdPropiedad },
+                new string[] { "@IdPropiedad" });
+        }
+
 
 
 

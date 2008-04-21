@@ -28,6 +28,7 @@ namespace GI.UI.Propiedades
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbTipoPropiedad = new GI.Framework.ComboBox();
@@ -44,29 +45,30 @@ namespace GI.UI.Propiedades
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBoxEntreCalle2 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBoxEntreCalle1 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxCodigoPostal = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxDpto = new System.Windows.Forms.TextBox();
+            this.textBoxPiso = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxNumero = new System.Windows.Forms.TextBox();
+            this.textBoxCalle = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.cbMonedaReal = new GI.Framework.ComboBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBoxVarorMercado = new System.Windows.Forms.TextBox();
+            this.textBoxValorPublicacion = new System.Windows.Forms.TextBox();
             this.cbMonedaPublicacion = new GI.Framework.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBoxCodigo = new System.Windows.Forms.TextBox();
+            this.propiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label17 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxEsOtraPropiedad = new System.Windows.Forms.CheckBox();
             this.label18 = new System.Windows.Forms.Label();
             this.cbAmbientes = new GI.Framework.ComboBox();
             this.cbEstadoProp = new GI.Framework.ComboBox();
@@ -84,6 +86,7 @@ namespace GI.UI.Propiedades
             this.LinkPropietario = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,7 +115,7 @@ namespace GI.UI.Propiedades
             this.cbTipoPropiedad.Location = new System.Drawing.Point(120, 44);
             this.cbTipoPropiedad.Name = "cbTipoPropiedad";
             this.cbTipoPropiedad.Size = new System.Drawing.Size(106, 21);
-            this.cbTipoPropiedad.TabIndex = 2;
+            this.cbTipoPropiedad.TabIndex = 1;
             // 
             // cbEstado
             // 
@@ -121,7 +124,7 @@ namespace GI.UI.Propiedades
             this.cbEstado.Location = new System.Drawing.Point(323, 17);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(109, 21);
-            this.cbEstado.TabIndex = 3;
+            this.cbEstado.TabIndex = 2;
             // 
             // label3
             // 
@@ -165,7 +168,7 @@ namespace GI.UI.Propiedades
             this.cbBarrio.Location = new System.Drawing.Point(255, 47);
             this.cbBarrio.Name = "cbBarrio";
             this.cbBarrio.Size = new System.Drawing.Size(148, 21);
-            this.cbBarrio.TabIndex = 14;
+            this.cbBarrio.TabIndex = 3;
             // 
             // cbLocalidad
             // 
@@ -174,7 +177,7 @@ namespace GI.UI.Propiedades
             this.cbLocalidad.Location = new System.Drawing.Point(67, 47);
             this.cbLocalidad.Name = "cbLocalidad";
             this.cbLocalidad.Size = new System.Drawing.Size(123, 21);
-            this.cbLocalidad.TabIndex = 13;
+            this.cbLocalidad.TabIndex = 2;
             // 
             // cbProvincia
             // 
@@ -183,7 +186,7 @@ namespace GI.UI.Propiedades
             this.cbProvincia.Location = new System.Drawing.Point(255, 20);
             this.cbProvincia.Name = "cbProvincia";
             this.cbProvincia.Size = new System.Drawing.Size(148, 21);
-            this.cbProvincia.TabIndex = 12;
+            this.cbProvincia.TabIndex = 1;
             // 
             // cbPais
             // 
@@ -192,7 +195,7 @@ namespace GI.UI.Propiedades
             this.cbPais.Location = new System.Drawing.Point(67, 20);
             this.cbPais.Name = "cbPais";
             this.cbPais.Size = new System.Drawing.Size(123, 21);
-            this.cbPais.TabIndex = 8;
+            this.cbPais.TabIndex = 0;
             // 
             // label8
             // 
@@ -232,34 +235,33 @@ namespace GI.UI.Propiedades
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox10);
+            this.groupBox2.Controls.Add(this.textBoxEntreCalle2);
             this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.textBoxEntreCalle1);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.textBoxCodigoPostal);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.textBoxDpto);
+            this.groupBox2.Controls.Add(this.textBoxPiso);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.textBoxNumero);
+            this.groupBox2.Controls.Add(this.textBoxCalle);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Location = new System.Drawing.Point(41, 387);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(409, 107);
-            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dirección";
             // 
-            // textBox10
+            // textBoxEntreCalle2
             // 
-            this.textBox10.Location = new System.Drawing.Point(230, 69);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(164, 21);
-            this.textBox10.TabIndex = 28;
-            this.textBox10.Text = "Agustín Alvarez";
+            this.textBoxEntreCalle2.Location = new System.Drawing.Point(230, 69);
+            this.textBoxEntreCalle2.Name = "textBoxEntreCalle2";
+            this.textBoxEntreCalle2.Size = new System.Drawing.Size(164, 21);
+            this.textBoxEntreCalle2.TabIndex = 6;
             // 
             // label21
             // 
@@ -270,13 +272,12 @@ namespace GI.UI.Propiedades
             this.label21.TabIndex = 27;
             this.label21.Text = "y";
             // 
-            // textBox6
+            // textBoxEntreCalle1
             // 
-            this.textBox6.Location = new System.Drawing.Point(67, 69);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(138, 21);
-            this.textBox6.TabIndex = 26;
-            this.textBox6.Text = "Agustín Alvarez";
+            this.textBoxEntreCalle1.Location = new System.Drawing.Point(67, 69);
+            this.textBoxEntreCalle1.Name = "textBoxEntreCalle1";
+            this.textBoxEntreCalle1.Size = new System.Drawing.Size(138, 21);
+            this.textBoxEntreCalle1.TabIndex = 5;
             // 
             // label14
             // 
@@ -287,14 +288,13 @@ namespace GI.UI.Propiedades
             this.label14.TabIndex = 25;
             this.label14.Text = "Entre calle";
             // 
-            // textBox5
+            // textBoxCodigoPostal
             // 
-            this.textBox5.Location = new System.Drawing.Point(245, 41);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(46, 21);
-            this.textBox5.TabIndex = 24;
-            this.textBox5.Text = "1602";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxCodigoPostal.Location = new System.Drawing.Point(245, 41);
+            this.textBoxCodigoPostal.Name = "textBoxCodigoPostal";
+            this.textBoxCodigoPostal.Size = new System.Drawing.Size(46, 21);
+            this.textBoxCodigoPostal.TabIndex = 4;
+            this.textBoxCodigoPostal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label13
             // 
@@ -305,22 +305,21 @@ namespace GI.UI.Propiedades
             this.label13.TabIndex = 23;
             this.label13.Text = "CP";
             // 
-            // textBox4
+            // textBoxDpto
             // 
-            this.textBox4.Location = new System.Drawing.Point(166, 41);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(24, 21);
-            this.textBox4.TabIndex = 22;
-            this.textBox4.Text = "2";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxDpto.Location = new System.Drawing.Point(166, 41);
+            this.textBoxDpto.Name = "textBoxDpto";
+            this.textBoxDpto.Size = new System.Drawing.Size(24, 21);
+            this.textBoxDpto.TabIndex = 3;
+            this.textBoxDpto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox3
+            // textBoxPiso
             // 
-            this.textBox3.Location = new System.Drawing.Point(67, 41);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(38, 21);
-            this.textBox3.TabIndex = 21;
-            this.textBox3.Text = "PB";
+            this.textBoxPiso.Location = new System.Drawing.Point(67, 41);
+            this.textBoxPiso.Name = "textBoxPiso";
+            this.textBoxPiso.Size = new System.Drawing.Size(38, 21);
+            this.textBoxPiso.TabIndex = 2;
+            this.textBoxPiso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label12
             // 
@@ -331,22 +330,20 @@ namespace GI.UI.Propiedades
             this.label12.TabIndex = 20;
             this.label12.Text = "Depto.";
             // 
-            // textBox2
+            // textBoxNumero
             // 
-            this.textBox2.Location = new System.Drawing.Point(347, 14);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(47, 21);
-            this.textBox2.TabIndex = 19;
-            this.textBox2.Text = "2578";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxNumero.Location = new System.Drawing.Point(347, 14);
+            this.textBoxNumero.Name = "textBoxNumero";
+            this.textBoxNumero.Size = new System.Drawing.Size(47, 21);
+            this.textBoxNumero.TabIndex = 1;
+            this.textBoxNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox1
+            // textBoxCalle
             // 
-            this.textBox1.Location = new System.Drawing.Point(67, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(224, 21);
-            this.textBox1.TabIndex = 18;
-            this.textBox1.Text = "Agustín Alvarez";
+            this.textBoxCalle.Location = new System.Drawing.Point(67, 14);
+            this.textBoxCalle.Name = "textBoxCalle";
+            this.textBoxCalle.Size = new System.Drawing.Size(224, 21);
+            this.textBoxCalle.TabIndex = 0;
             // 
             // label11
             // 
@@ -391,26 +388,24 @@ namespace GI.UI.Propiedades
             this.cbMonedaReal.Location = new System.Drawing.Point(378, 100);
             this.cbMonedaReal.Name = "cbMonedaReal";
             this.cbMonedaReal.Size = new System.Drawing.Size(48, 21);
-            this.cbMonedaReal.TabIndex = 27;
+            this.cbMonedaReal.TabIndex = 8;
             // 
-            // textBox7
+            // textBoxVarorMercado
             // 
-            this.textBox7.Location = new System.Drawing.Point(323, 100);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(51, 21);
-            this.textBox7.TabIndex = 25;
-            this.textBox7.Text = "135000";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxVarorMercado.Location = new System.Drawing.Point(323, 100);
+            this.textBoxVarorMercado.Name = "textBoxVarorMercado";
+            this.textBoxVarorMercado.Size = new System.Drawing.Size(51, 21);
+            this.textBoxVarorMercado.TabIndex = 7;
+            this.textBoxVarorMercado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox8
+            // textBoxValorPublicacion
             // 
-            this.textBox8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(120, 98);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(57, 21);
-            this.textBox8.TabIndex = 28;
-            this.textBox8.Text = "145700";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxValorPublicacion.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxValorPublicacion.Location = new System.Drawing.Point(120, 98);
+            this.textBoxValorPublicacion.Name = "textBoxValorPublicacion";
+            this.textBoxValorPublicacion.Size = new System.Drawing.Size(57, 21);
+            this.textBoxValorPublicacion.TabIndex = 5;
+            this.textBoxValorPublicacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // cbMonedaPublicacion
             // 
@@ -419,7 +414,7 @@ namespace GI.UI.Propiedades
             this.cbMonedaPublicacion.Location = new System.Drawing.Point(183, 98);
             this.cbMonedaPublicacion.Name = "cbMonedaPublicacion";
             this.cbMonedaPublicacion.Size = new System.Drawing.Size(47, 21);
-            this.cbMonedaPublicacion.TabIndex = 30;
+            this.cbMonedaPublicacion.TabIndex = 6;
             // 
             // label16
             // 
@@ -431,15 +426,19 @@ namespace GI.UI.Propiedades
             this.label16.TabIndex = 29;
             this.label16.Text = "Valor Publicación";
             // 
-            // textBox9
+            // textBoxCodigo
             // 
-            this.textBox9.Location = new System.Drawing.Point(120, 71);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(57, 21);
-            this.textBox9.TabIndex = 31;
-            this.textBox9.Text = "P000032";
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "Codigo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxCodigo.Location = new System.Drawing.Point(120, 71);
+            this.textBoxCodigo.Name = "textBoxCodigo";
+            this.textBoxCodigo.ReadOnly = true;
+            this.textBoxCodigo.Size = new System.Drawing.Size(57, 21);
+            this.textBoxCodigo.TabIndex = 31;
+            this.textBoxCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // propiedadBindingSource
+            // 
+            this.propiedadBindingSource.DataSource = typeof(GI.BR.Propiedades.Propiedad);
             // 
             // label17
             // 
@@ -450,14 +449,14 @@ namespace GI.UI.Propiedades
             this.label17.TabIndex = 32;
             this.label17.Text = "Otra Inmobiliaria";
             // 
-            // checkBox1
+            // checkBoxEsOtraPropiedad
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(323, 74);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 15;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxEsOtraPropiedad.AutoSize = true;
+            this.checkBoxEsOtraPropiedad.Location = new System.Drawing.Point(323, 74);
+            this.checkBoxEsOtraPropiedad.Name = "checkBoxEsOtraPropiedad";
+            this.checkBoxEsOtraPropiedad.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxEsOtraPropiedad.TabIndex = 4;
+            this.checkBoxEsOtraPropiedad.UseVisualStyleBackColor = true;
             // 
             // label18
             // 
@@ -470,12 +469,14 @@ namespace GI.UI.Propiedades
             // 
             // cbAmbientes
             // 
+            this.cbAmbientes.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.propiedadBindingSource, "CantidadAmbientes", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbAmbientes.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "CantidadAmbientes", true));
             this.cbAmbientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAmbientes.FormattingEnabled = true;
             this.cbAmbientes.Location = new System.Drawing.Point(120, 131);
             this.cbAmbientes.Name = "cbAmbientes";
             this.cbAmbientes.Size = new System.Drawing.Size(106, 21);
-            this.cbAmbientes.TabIndex = 34;
+            this.cbAmbientes.TabIndex = 9;
             // 
             // cbEstadoProp
             // 
@@ -484,7 +485,7 @@ namespace GI.UI.Propiedades
             this.cbEstadoProp.Location = new System.Drawing.Point(323, 132);
             this.cbEstadoProp.Name = "cbEstadoProp";
             this.cbEstadoProp.Size = new System.Drawing.Size(109, 21);
-            this.cbEstadoProp.TabIndex = 36;
+            this.cbEstadoProp.TabIndex = 10;
             // 
             // label19
             // 
@@ -502,7 +503,7 @@ namespace GI.UI.Propiedades
             this.cbCategoria.Location = new System.Drawing.Point(119, 17);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(106, 21);
-            this.cbCategoria.TabIndex = 37;
+            this.cbCategoria.TabIndex = 0;
             this.cbCategoria.SelectedIndexChanged += new System.EventHandler(this.cbCategoria_SelectedIndexChanged);
             // 
             // label20
@@ -565,7 +566,7 @@ namespace GI.UI.Propiedades
             this.linkLabel2.Location = new System.Drawing.Point(303, 115);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(80, 13);
-            this.linkLabel2.TabIndex = 28;
+            this.linkLabel2.TabIndex = 1;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Eliminar Medida";
             // 
@@ -575,7 +576,7 @@ namespace GI.UI.Propiedades
             this.linkLabel1.Location = new System.Drawing.Point(218, 115);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(83, 13);
-            this.linkLabel1.TabIndex = 27;
+            this.linkLabel1.TabIndex = 1;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Agregar Medida";
             // 
@@ -585,7 +586,7 @@ namespace GI.UI.Propiedades
             this.LinkPropietario.Location = new System.Drawing.Point(320, 47);
             this.LinkPropietario.Name = "LinkPropietario";
             this.LinkPropietario.Size = new System.Drawing.Size(70, 13);
-            this.LinkPropietario.TabIndex = 31;
+            this.LinkPropietario.TabIndex = 3;
             this.LinkPropietario.TabStop = true;
             this.LinkPropietario.Text = "Emilio Davidis";
             // 
@@ -601,13 +602,13 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.label19);
             this.Controls.Add(this.cbAmbientes);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkBoxEsOtraPropiedad);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.textBoxCodigo);
+            this.Controls.Add(this.textBoxValorPublicacion);
             this.Controls.Add(this.cbMonedaPublicacion);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBoxVarorMercado);
             this.Controls.Add(this.cbMonedaReal);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.groupBox2);
@@ -624,6 +625,7 @@ namespace GI.UI.Propiedades
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -649,25 +651,25 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxCodigoPostal;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxDpto;
+        private System.Windows.Forms.TextBox textBoxPiso;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxNumero;
+        private System.Windows.Forms.TextBox textBoxCalle;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label15;
         private GI.Framework.ComboBox cbMonedaReal;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBoxVarorMercado;
+        private System.Windows.Forms.TextBox textBoxValorPublicacion;
         private GI.Framework.ComboBox cbMonedaPublicacion;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBoxCodigo;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxEsOtraPropiedad;
         private System.Windows.Forms.Label label18;
         private GI.Framework.ComboBox cbAmbientes;
         private GI.Framework.ComboBox cbEstadoProp;
@@ -683,9 +685,10 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel LinkPropietario;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBoxEntreCalle2;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxEntreCalle1;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.BindingSource propiedadBindingSource;
     }
 }

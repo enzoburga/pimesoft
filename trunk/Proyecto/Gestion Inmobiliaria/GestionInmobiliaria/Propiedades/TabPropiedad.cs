@@ -60,7 +60,11 @@ namespace GI.UI.Propiedades
             ambientes.RecuperarTodos();
             foreach (GI.BR.Propiedades.Ambiente a in ambientes)
                 cbAmbientes.Items.Add(a);
-            cbAmbientes.SelectedIndex = 2;
+            //cbAmbientes.SelectedIndex = 2;
+
+
+
+            propiedadBindingSource.Add(Propiedad);
 
 
         }
