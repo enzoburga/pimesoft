@@ -12,7 +12,7 @@ namespace GI.BR
         private string nombres;
         private string apellido;
         private string nroDocumento;
-        private General.emunTipoDocumento tipoDocumento;
+        private General.enumTipoDocumento tipoDocumento;
         private int telefonoParticular;
         private int telefonoTrabajo;
         private int telefonoCelular;
@@ -53,7 +53,7 @@ namespace GI.BR
         }
 
 
-        public General.emunTipoDocumento TipoDocumento
+        public General.enumTipoDocumento TipoDocumento
         {
             get { return tipoDocumento; }
             set { tipoDocumento = value; }

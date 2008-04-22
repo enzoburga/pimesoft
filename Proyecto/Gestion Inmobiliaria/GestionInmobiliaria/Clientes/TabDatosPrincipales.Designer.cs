@@ -28,55 +28,56 @@ namespace GI.UI.Clientes
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbNombres = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbApellido = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbCodigoPostal = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbDepto = new System.Windows.Forms.TextBox();
+            this.tbPiso = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.tbAltura = new System.Windows.Forms.TextBox();
+            this.tbCalle = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbBarrio = new GI.Framework.ComboBox();
             this.cbLocalidad = new GI.Framework.ComboBox();
-            this.cbProvincia = new GI.Framework.ComboBox();
+            this.cbTipoDocumento = new GI.Framework.ComboBox();
             this.cbPais = new GI.Framework.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.tbNroDocumento = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.tbObervaciones = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.tbTelParticular = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.tbTelCelular = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.tbTelLaboral = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.cbProvincia = new GI.Framework.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tbNombres
             // 
-            this.textBox1.Location = new System.Drawing.Point(114, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(106, 21);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "Emilio Luis";
+            this.tbNombres.Location = new System.Drawing.Point(114, 11);
+            this.tbNombres.Name = "tbNombres";
+            this.tbNombres.Size = new System.Drawing.Size(106, 21);
+            this.tbNombres.TabIndex = 0;
+            this.tbNombres.Text = "Emilio Luis";
             // 
             // label1
             // 
@@ -96,23 +97,23 @@ namespace GI.UI.Clientes
             this.label2.TabIndex = 2;
             this.label2.Text = "Apellido";
             // 
-            // textBox2
+            // tbApellido
             // 
-            this.textBox2.Location = new System.Drawing.Point(278, 11);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(145, 21);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "Davidis";
+            this.tbApellido.Location = new System.Drawing.Point(278, 11);
+            this.tbApellido.Name = "tbApellido";
+            this.tbApellido.Size = new System.Drawing.Size(145, 21);
+            this.tbApellido.TabIndex = 3;
+            this.tbApellido.Text = "Davidis";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.tbCodigoPostal);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.tbDepto);
+            this.groupBox2.Controls.Add(this.tbPiso);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.tbAltura);
+            this.groupBox2.Controls.Add(this.tbCalle);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
@@ -123,14 +124,14 @@ namespace GI.UI.Clientes
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dirección";
             // 
-            // textBox5
+            // tbCodigoPostal
             // 
-            this.textBox5.Location = new System.Drawing.Point(245, 41);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(46, 21);
-            this.textBox5.TabIndex = 24;
-            this.textBox5.Text = "1602";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbCodigoPostal.Location = new System.Drawing.Point(245, 41);
+            this.tbCodigoPostal.Name = "tbCodigoPostal";
+            this.tbCodigoPostal.Size = new System.Drawing.Size(46, 21);
+            this.tbCodigoPostal.TabIndex = 24;
+            this.tbCodigoPostal.Text = "1602";
+            this.tbCodigoPostal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label13
             // 
@@ -141,22 +142,22 @@ namespace GI.UI.Clientes
             this.label13.TabIndex = 23;
             this.label13.Text = "CP";
             // 
-            // textBox4
+            // tbDepto
             // 
-            this.textBox4.Location = new System.Drawing.Point(166, 41);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(24, 21);
-            this.textBox4.TabIndex = 22;
-            this.textBox4.Text = "2";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbDepto.Location = new System.Drawing.Point(166, 41);
+            this.tbDepto.Name = "tbDepto";
+            this.tbDepto.Size = new System.Drawing.Size(24, 21);
+            this.tbDepto.TabIndex = 22;
+            this.tbDepto.Text = "2";
+            this.tbDepto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox3
+            // tbPiso
             // 
-            this.textBox3.Location = new System.Drawing.Point(67, 41);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(38, 21);
-            this.textBox3.TabIndex = 21;
-            this.textBox3.Text = "PB";
+            this.tbPiso.Location = new System.Drawing.Point(67, 41);
+            this.tbPiso.Name = "tbPiso";
+            this.tbPiso.Size = new System.Drawing.Size(38, 21);
+            this.tbPiso.TabIndex = 21;
+            this.tbPiso.Text = "PB";
             // 
             // label12
             // 
@@ -167,22 +168,22 @@ namespace GI.UI.Clientes
             this.label12.TabIndex = 20;
             this.label12.Text = "Depto.";
             // 
-            // textBox6
+            // tbAltura
             // 
-            this.textBox6.Location = new System.Drawing.Point(347, 14);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(47, 21);
-            this.textBox6.TabIndex = 19;
-            this.textBox6.Text = "2578";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbAltura.Location = new System.Drawing.Point(347, 14);
+            this.tbAltura.Name = "tbAltura";
+            this.tbAltura.Size = new System.Drawing.Size(47, 21);
+            this.tbAltura.TabIndex = 19;
+            this.tbAltura.Text = "2578";
+            this.tbAltura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox7
+            // tbCalle
             // 
-            this.textBox7.Location = new System.Drawing.Point(67, 14);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(224, 21);
-            this.textBox7.TabIndex = 18;
-            this.textBox7.Text = "Agustín Alvarez";
+            this.tbCalle.Location = new System.Drawing.Point(67, 14);
+            this.tbCalle.Name = "tbCalle";
+            this.tbCalle.Size = new System.Drawing.Size(224, 21);
+            this.tbCalle.TabIndex = 18;
+            this.tbCalle.Text = "Agustín Alvarez";
             // 
             // label11
             // 
@@ -213,9 +214,9 @@ namespace GI.UI.Clientes
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbProvincia);
             this.groupBox1.Controls.Add(this.cbBarrio);
             this.groupBox1.Controls.Add(this.cbLocalidad);
-            this.groupBox1.Controls.Add(this.cbProvincia);
             this.groupBox1.Controls.Add(this.cbPais);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
@@ -246,14 +247,16 @@ namespace GI.UI.Clientes
             this.cbLocalidad.Size = new System.Drawing.Size(123, 21);
             this.cbLocalidad.TabIndex = 13;
             // 
-            // cbProvincia
+            // cbTipoDocumento
             // 
-            this.cbProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbProvincia.FormattingEnabled = true;
-            this.cbProvincia.Location = new System.Drawing.Point(255, 20);
-            this.cbProvincia.Name = "cbProvincia";
-            this.cbProvincia.Size = new System.Drawing.Size(148, 21);
-            this.cbProvincia.TabIndex = 12;
+            this.cbTipoDocumento.FormattingEnabled = true;
+            this.cbTipoDocumento.Items.AddRange(new object[] {
+            "DNI",
+            "LC"});
+            this.cbTipoDocumento.Location = new System.Drawing.Point(176, 38);
+            this.cbTipoDocumento.Name = "cbTipoDocumento";
+            this.cbTipoDocumento.Size = new System.Drawing.Size(44, 21);
+            this.cbTipoDocumento.TabIndex = 12;
             // 
             // cbPais
             // 
@@ -300,14 +303,14 @@ namespace GI.UI.Clientes
             this.label5.TabIndex = 8;
             this.label5.Text = "País";
             // 
-            // textBox8
+            // tbNroDocumento
             // 
-            this.textBox8.Location = new System.Drawing.Point(114, 38);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(106, 21);
-            this.textBox8.TabIndex = 11;
-            this.textBox8.Text = "DNI 26816168";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbNroDocumento.Location = new System.Drawing.Point(114, 38);
+            this.tbNroDocumento.Name = "tbNroDocumento";
+            this.tbNroDocumento.Size = new System.Drawing.Size(56, 21);
+            this.tbNroDocumento.TabIndex = 11;
+            this.tbNroDocumento.Text = "26816168";
+            this.tbNroDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
             // 
@@ -318,15 +321,15 @@ namespace GI.UI.Clientes
             this.label3.TabIndex = 10;
             this.label3.Text = "Documento";
             // 
-            // textBox9
+            // tbObervaciones
             // 
-            this.textBox9.Location = new System.Drawing.Point(16, 333);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox9.Size = new System.Drawing.Size(407, 90);
-            this.textBox9.TabIndex = 27;
-            this.textBox9.Text = "Este espacio esta destinado a comentarios.";
+            this.tbObervaciones.Location = new System.Drawing.Point(16, 333);
+            this.tbObervaciones.Multiline = true;
+            this.tbObervaciones.Name = "tbObervaciones";
+            this.tbObervaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbObervaciones.Size = new System.Drawing.Size(407, 90);
+            this.tbObervaciones.TabIndex = 27;
+            this.tbObervaciones.Text = "Este espacio esta destinado a comentarios.";
             // 
             // label14
             // 
@@ -337,14 +340,14 @@ namespace GI.UI.Clientes
             this.label14.TabIndex = 26;
             this.label14.Text = "Observaciones";
             // 
-            // textBox10
+            // tbTelParticular
             // 
-            this.textBox10.Location = new System.Drawing.Point(114, 67);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(106, 21);
-            this.textBox10.TabIndex = 29;
-            this.textBox10.Text = "011 4761-0137";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTelParticular.Location = new System.Drawing.Point(114, 67);
+            this.tbTelParticular.Name = "tbTelParticular";
+            this.tbTelParticular.Size = new System.Drawing.Size(106, 21);
+            this.tbTelParticular.TabIndex = 29;
+            this.tbTelParticular.Text = "011 4761-0137";
+            this.tbTelParticular.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
             // 
@@ -355,14 +358,14 @@ namespace GI.UI.Clientes
             this.label4.TabIndex = 28;
             this.label4.Text = "Telefono Particular";
             // 
-            // textBox11
+            // tbTelCelular
             // 
-            this.textBox11.Location = new System.Drawing.Point(114, 94);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(106, 21);
-            this.textBox11.TabIndex = 31;
-            this.textBox11.Text = "153 590-5900";
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTelCelular.Location = new System.Drawing.Point(114, 94);
+            this.tbTelCelular.Name = "tbTelCelular";
+            this.tbTelCelular.Size = new System.Drawing.Size(106, 21);
+            this.tbTelCelular.TabIndex = 31;
+            this.tbTelCelular.Text = "153 590-5900";
+            this.tbTelCelular.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label15
             // 
@@ -373,13 +376,13 @@ namespace GI.UI.Clientes
             this.label15.TabIndex = 30;
             this.label15.Text = "Telefono Celular";
             // 
-            // textBox12
+            // tbTelLaboral
             // 
-            this.textBox12.Location = new System.Drawing.Point(318, 70);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(105, 21);
-            this.textBox12.TabIndex = 33;
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTelLaboral.Location = new System.Drawing.Point(318, 70);
+            this.tbTelLaboral.Name = "tbTelLaboral";
+            this.tbTelLaboral.Size = new System.Drawing.Size(105, 21);
+            this.tbTelLaboral.TabIndex = 33;
+            this.tbTelLaboral.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label16
             // 
@@ -399,22 +402,22 @@ namespace GI.UI.Clientes
             this.label17.TabIndex = 34;
             this.label17.Text = "Fecha Nacimiento";
             // 
-            // dateTimePicker1
+            // dtpFechaNac
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(320, 98);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(106, 21);
-            this.dateTimePicker1.TabIndex = 35;
-            this.dateTimePicker1.Value = new System.DateTime(1978, 11, 16, 15, 35, 0, 0);
+            this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNac.Location = new System.Drawing.Point(320, 98);
+            this.dtpFechaNac.Name = "dtpFechaNac";
+            this.dtpFechaNac.Size = new System.Drawing.Size(106, 21);
+            this.dtpFechaNac.TabIndex = 35;
+            this.dtpFechaNac.Value = new System.DateTime(1978, 11, 16, 15, 35, 0, 0);
             // 
-            // textBox13
+            // tbEmail
             // 
-            this.textBox13.Location = new System.Drawing.Point(278, 38);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(145, 21);
-            this.textBox13.TabIndex = 37;
-            this.textBox13.Text = "davidis@nalejandria.com";
+            this.tbEmail.Location = new System.Drawing.Point(278, 38);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(145, 21);
+            this.tbEmail.TabIndex = 37;
+            this.tbEmail.Text = "davidis@nalejandria.com";
             // 
             // label18
             // 
@@ -425,30 +428,40 @@ namespace GI.UI.Clientes
             this.label18.TabIndex = 36;
             this.label18.Text = "E-Mail";
             // 
+            // cbProvincia
+            // 
+            this.cbProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbProvincia.FormattingEnabled = true;
+            this.cbProvincia.Location = new System.Drawing.Point(255, 20);
+            this.cbProvincia.Name = "cbProvincia";
+            this.cbProvincia.Size = new System.Drawing.Size(148, 21);
+            this.cbProvincia.TabIndex = 14;
+            // 
             // TabDatosPrincipales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox13);
+            this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.cbTipoDocumento);
+            this.Controls.Add(this.dtpFechaNac);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.tbTelLaboral);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.tbTelCelular);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.tbTelParticular);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.tbObervaciones);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.tbNroDocumento);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbApellido);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbNombres);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TabDatosPrincipales";
             this.Size = new System.Drawing.Size(444, 439);
@@ -463,43 +476,44 @@ namespace GI.UI.Clientes
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbNombres;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbApellido;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbCodigoPostal;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbDepto;
+        private System.Windows.Forms.TextBox tbPiso;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox tbAltura;
+        private System.Windows.Forms.TextBox tbCalle;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox1;
         private GI.Framework.ComboBox cbBarrio;
         private GI.Framework.ComboBox cbLocalidad;
-        private GI.Framework.ComboBox cbProvincia;
+        private GI.Framework.ComboBox cbTipoDocumento;
         private GI.Framework.ComboBox cbPais;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox tbNroDocumento;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox tbObervaciones;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox tbTelParticular;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox tbTelCelular;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox tbTelLaboral;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.DateTimePicker dtpFechaNac;
+        private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label label18;
+        private GI.Framework.ComboBox cbProvincia;
     }
 }

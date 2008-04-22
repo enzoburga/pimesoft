@@ -36,11 +36,11 @@ namespace GI.UI.Clientes
             this.imprimirListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.bBuscar = new System.Windows.Forms.Button();
             this.lvClientes = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.bBuscar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
             this.toolStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -76,7 +76,8 @@ namespace GI.UI.Clientes
             // 
             this.nuevaFichaToolStripMenuItem.Name = "nuevaFichaToolStripMenuItem";
             this.nuevaFichaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.nuevaFichaToolStripMenuItem.Text = "Nueva Cliente";
+            this.nuevaFichaToolStripMenuItem.Text = "Nuevo Cliente";
+            this.nuevaFichaToolStripMenuItem.Click += new System.EventHandler(this.nuevaFichaToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -115,6 +116,23 @@ namespace GI.UI.Clientes
             this.splitContainer1.SplitterDistance = 44;
             this.splitContainer1.TabIndex = 2;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 15);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(190, 20);
+            this.textBox1.TabIndex = 46;
+            // 
+            // bBuscar
+            // 
+            this.bBuscar.Location = new System.Drawing.Point(208, 13);
+            this.bBuscar.Name = "bBuscar";
+            this.bBuscar.Size = new System.Drawing.Size(75, 23);
+            this.bBuscar.TabIndex = 45;
+            this.bBuscar.Text = "Buscar";
+            this.bBuscar.UseVisualStyleBackColor = true;
+            this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
+            // 
             // lvClientes
             // 
             this.lvClientes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -125,6 +143,7 @@ namespace GI.UI.Clientes
             this.lvClientes.FullRowSelect = true;
             this.lvClientes.HideSelection = false;
             this.lvClientes.Location = new System.Drawing.Point(0, 0);
+            this.lvClientes.MultiSelect = false;
             this.lvClientes.Name = "lvClientes";
             this.lvClientes.Size = new System.Drawing.Size(880, 352);
             this.lvClientes.TabIndex = 0;
@@ -141,22 +160,6 @@ namespace GI.UI.Clientes
             // 
             this.columnHeader2.Text = "Telefono";
             this.columnHeader2.Width = 178;
-            // 
-            // bBuscar
-            // 
-            this.bBuscar.Location = new System.Drawing.Point(208, 13);
-            this.bBuscar.Name = "bBuscar";
-            this.bBuscar.Size = new System.Drawing.Size(75, 23);
-            this.bBuscar.TabIndex = 45;
-            this.bBuscar.Text = "Buscar";
-            this.bBuscar.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 20);
-            this.textBox1.TabIndex = 46;
             // 
             // columnHeader8
             // 
