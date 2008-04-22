@@ -16,19 +16,38 @@ namespace GI.UI.Clientes
             Inicializar();
         }
 
+        private GI.BR.Cliente cliente = null;
 
+        public GI.BR.Cliente Cliente
+        {
+            get { return cliente; }
+            set 
+            { 
+                cliente = value; 
+            
+            }
+        }
+        
 
         private void Inicializar()
         {
 
             System.Windows.Forms.TabPage tabPage;
-            System.Windows.Forms.Control control;
+            TabDatosPrincipales controlDatosPersonales;
 
             tabPage = new TabPage("Propiedad");
-            control = new TabDatosPrincipales();
-            control.Dock = DockStyle.Fill;
-            tabPage.Controls.Add(control);
+            controlDatosPersonales = new TabDatosPrincipales();
+            controlDatosPersonales.Dock = DockStyle.Fill;
+            tabPage.Controls.Add(controlDatosPersonales);
             tabControl.TabPages.Add(tabPage);
+
+            if (cliente != null)
+                CargarDatosCliente();
+        }
+
+        private void CargarDatosCliente()
+        {
+            throw new Exception("The method or operation is not implemented.");
         }
     }
 }
