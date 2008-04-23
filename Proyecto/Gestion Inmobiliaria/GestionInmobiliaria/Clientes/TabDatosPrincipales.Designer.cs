@@ -44,14 +44,15 @@ namespace GI.UI.Clientes
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbProvincia = new GI.Framework.ComboBox();
             this.cbBarrio = new GI.Framework.ComboBox();
             this.cbLocalidad = new GI.Framework.ComboBox();
-            this.cbTipoDocumento = new GI.Framework.ComboBox();
             this.cbPais = new GI.Framework.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.cbTipoDocumento = new GI.Framework.ComboBox();
             this.tbNroDocumento = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbObervaciones = new System.Windows.Forms.TextBox();
@@ -66,7 +67,6 @@ namespace GI.UI.Clientes
             this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.cbProvincia = new GI.Framework.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +77,6 @@ namespace GI.UI.Clientes
             this.tbNombres.Name = "tbNombres";
             this.tbNombres.Size = new System.Drawing.Size(106, 21);
             this.tbNombres.TabIndex = 0;
-            this.tbNombres.Text = "Emilio Luis";
             // 
             // label1
             // 
@@ -103,7 +102,6 @@ namespace GI.UI.Clientes
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(145, 21);
             this.tbApellido.TabIndex = 3;
-            this.tbApellido.Text = "Davidis";
             // 
             // groupBox2
             // 
@@ -130,7 +128,6 @@ namespace GI.UI.Clientes
             this.tbCodigoPostal.Name = "tbCodigoPostal";
             this.tbCodigoPostal.Size = new System.Drawing.Size(46, 21);
             this.tbCodigoPostal.TabIndex = 24;
-            this.tbCodigoPostal.Text = "1602";
             this.tbCodigoPostal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label13
@@ -148,7 +145,6 @@ namespace GI.UI.Clientes
             this.tbDepto.Name = "tbDepto";
             this.tbDepto.Size = new System.Drawing.Size(24, 21);
             this.tbDepto.TabIndex = 22;
-            this.tbDepto.Text = "2";
             this.tbDepto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbPiso
@@ -157,7 +153,6 @@ namespace GI.UI.Clientes
             this.tbPiso.Name = "tbPiso";
             this.tbPiso.Size = new System.Drawing.Size(38, 21);
             this.tbPiso.TabIndex = 21;
-            this.tbPiso.Text = "PB";
             // 
             // label12
             // 
@@ -174,7 +169,6 @@ namespace GI.UI.Clientes
             this.tbAltura.Name = "tbAltura";
             this.tbAltura.Size = new System.Drawing.Size(47, 21);
             this.tbAltura.TabIndex = 19;
-            this.tbAltura.Text = "2578";
             this.tbAltura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbCalle
@@ -183,7 +177,6 @@ namespace GI.UI.Clientes
             this.tbCalle.Name = "tbCalle";
             this.tbCalle.Size = new System.Drawing.Size(224, 21);
             this.tbCalle.TabIndex = 18;
-            this.tbCalle.Text = "Agustín Alvarez";
             // 
             // label11
             // 
@@ -229,6 +222,15 @@ namespace GI.UI.Clientes
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ubicación";
             // 
+            // cbProvincia
+            // 
+            this.cbProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbProvincia.FormattingEnabled = true;
+            this.cbProvincia.Location = new System.Drawing.Point(255, 20);
+            this.cbProvincia.Name = "cbProvincia";
+            this.cbProvincia.Size = new System.Drawing.Size(148, 21);
+            this.cbProvincia.TabIndex = 14;
+            // 
             // cbBarrio
             // 
             this.cbBarrio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -246,17 +248,6 @@ namespace GI.UI.Clientes
             this.cbLocalidad.Name = "cbLocalidad";
             this.cbLocalidad.Size = new System.Drawing.Size(123, 21);
             this.cbLocalidad.TabIndex = 13;
-            // 
-            // cbTipoDocumento
-            // 
-            this.cbTipoDocumento.FormattingEnabled = true;
-            this.cbTipoDocumento.Items.AddRange(new object[] {
-            "DNI",
-            "LC"});
-            this.cbTipoDocumento.Location = new System.Drawing.Point(176, 38);
-            this.cbTipoDocumento.Name = "cbTipoDocumento";
-            this.cbTipoDocumento.Size = new System.Drawing.Size(44, 21);
-            this.cbTipoDocumento.TabIndex = 12;
             // 
             // cbPais
             // 
@@ -303,13 +294,24 @@ namespace GI.UI.Clientes
             this.label5.TabIndex = 8;
             this.label5.Text = "País";
             // 
+            // cbTipoDocumento
+            // 
+            this.cbTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoDocumento.FormattingEnabled = true;
+            this.cbTipoDocumento.Items.AddRange(new object[] {
+            "DNI",
+            "LC"});
+            this.cbTipoDocumento.Location = new System.Drawing.Point(176, 38);
+            this.cbTipoDocumento.Name = "cbTipoDocumento";
+            this.cbTipoDocumento.Size = new System.Drawing.Size(44, 21);
+            this.cbTipoDocumento.TabIndex = 12;
+            // 
             // tbNroDocumento
             // 
             this.tbNroDocumento.Location = new System.Drawing.Point(114, 38);
             this.tbNroDocumento.Name = "tbNroDocumento";
             this.tbNroDocumento.Size = new System.Drawing.Size(56, 21);
             this.tbNroDocumento.TabIndex = 11;
-            this.tbNroDocumento.Text = "26816168";
             this.tbNroDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
@@ -329,7 +331,6 @@ namespace GI.UI.Clientes
             this.tbObervaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbObervaciones.Size = new System.Drawing.Size(407, 90);
             this.tbObervaciones.TabIndex = 27;
-            this.tbObervaciones.Text = "Este espacio esta destinado a comentarios.";
             // 
             // label14
             // 
@@ -346,7 +347,6 @@ namespace GI.UI.Clientes
             this.tbTelParticular.Name = "tbTelParticular";
             this.tbTelParticular.Size = new System.Drawing.Size(106, 21);
             this.tbTelParticular.TabIndex = 29;
-            this.tbTelParticular.Text = "011 4761-0137";
             this.tbTelParticular.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
@@ -364,7 +364,6 @@ namespace GI.UI.Clientes
             this.tbTelCelular.Name = "tbTelCelular";
             this.tbTelCelular.Size = new System.Drawing.Size(106, 21);
             this.tbTelCelular.TabIndex = 31;
-            this.tbTelCelular.Text = "153 590-5900";
             this.tbTelCelular.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label15
@@ -417,7 +416,6 @@ namespace GI.UI.Clientes
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(145, 21);
             this.tbEmail.TabIndex = 37;
-            this.tbEmail.Text = "davidis@nalejandria.com";
             // 
             // label18
             // 
@@ -427,15 +425,6 @@ namespace GI.UI.Clientes
             this.label18.Size = new System.Drawing.Size(35, 13);
             this.label18.TabIndex = 36;
             this.label18.Text = "E-Mail";
-            // 
-            // cbProvincia
-            // 
-            this.cbProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbProvincia.FormattingEnabled = true;
-            this.cbProvincia.Location = new System.Drawing.Point(255, 20);
-            this.cbProvincia.Name = "cbProvincia";
-            this.cbProvincia.Size = new System.Drawing.Size(148, 21);
-            this.cbProvincia.TabIndex = 14;
             // 
             // TabDatosPrincipales
             // 
