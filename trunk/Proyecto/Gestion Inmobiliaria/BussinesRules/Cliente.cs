@@ -21,6 +21,7 @@ namespace GI.BR
         private string observaciones;
         private DateTime fechaNacimiento;
         private string email;
+        private bool cargado = false;
         #endregion
 
 
@@ -34,109 +35,211 @@ namespace GI.BR
 
         public string Nombres
         {
-            get { return nombres; }
+            get
+            {
+                if (!cargado)
+                    Cargar();
+                return nombres; 
+            }
             set { nombres = value; }
         }
         
 
         public string Apellido
         {
-            get { return apellido; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return apellido;
+            }
             set { apellido = value; }
         }
         
 
         public string NroDocumento
         {
-            get { return nroDocumento; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return nroDocumento;
+            }
             set { nroDocumento = value; }
         }
 
 
         public General.enumTipoDocumento TipoDocumento
         {
-            get { return tipoDocumento; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return tipoDocumento;
+            }
             set { tipoDocumento = value; }
         }
         
         public int TelefonoParticular
         {
-            get { return telefonoParticular; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return telefonoParticular;
+            }
             set { telefonoParticular = value; }
         }
 
         public int TelefonoTrabajo
         {
-            get { return telefonoTrabajo; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return telefonoTrabajo;
+            }
             set { telefonoTrabajo = value; }
         }
 
         public int TelefonoCelular
         {
-            get { return telefonoCelular; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return telefonoCelular;
+            }
             set { telefonoCelular = value; }
         }
 
         public Propiedades.Ubicacion Ubicacion
         {
-            get { return ubicacion; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return ubicacion;
+            }
             set { ubicacion = value; }
         }
 
         public Propiedades.Direccion Direccion
         {
-            get { return direccion; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return direccion;
+            }
             set { direccion = value; }
         }
 
         public string Observaciones
         {
-            get { return observaciones; }
+            get 
+            {
+                if (!cargado)
+                    Cargar(); 
+                return observaciones;
+            }
             set { observaciones = value; }
         }
 
 
         public DateTime FechaNacimiento
         {
-            get { return fechaNacimiento; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return fechaNacimiento;
+            }
             set { fechaNacimiento = value; }
         }
 
 
         public string Email
         {
-            get { return email; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return email;
+            }
             set { email = value; }
         }
         #endregion
 
         #region Metodos Persistencia
 
+        private void Cargar()
+        {
+            GI.DA.ClientesData data = new GI.DA.ClientesData();
+            using (System.Data.IDataReader dr = data.RecuperarDatosClientePorId(this.idCliente))
+            {
+                if (dr.Read())
+                    llenar(dr);                
+            }
+        }
+
         public bool Guardar()
         {
 
             GI.DA.ClientesData data = new GI.DA.ClientesData();
-            this.IdCliente = data.Guardar(this.FechaNacimiento, this.Email, this.apellido, this.Nombres, this.NroDocumento, this.Observaciones, this.TelefonoCelular, this.TelefonoParticular, this.TelefonoTrabajo, (int)this.TipoDocumento, this.Ubicacion.Barrio.IdBarrio, this.Ubicacion.Provincia.IdProvincia, this.Direccion.Calle, this.Direccion.CodigoPostal, this.Direccion.Depto, this.Direccion.Numero, this.Direccion.Piso);
-            
-            
+            this.IdCliente = data.GuardarCliente(this.FechaNacimiento, this.Email, this.apellido, this.Nombres, this.NroDocumento, this.Observaciones, this.TelefonoCelular, this.TelefonoParticular, this.TelefonoTrabajo, (int)this.TipoDocumento, this.Ubicacion.Barrio.IdBarrio, this.Ubicacion.Provincia.IdProvincia, this.Direccion.Calle, this.Direccion.CodigoPostal, this.Direccion.Depto, this.Direccion.Numero, this.Direccion.Piso, this.Direccion.CalleEntre1, this.Direccion.CalleEntre2, this.Ubicacion.Pais.IdPais, this.Ubicacion.Localidad.IdLocalidad);
+
             return this.IdCliente > 0;
         }
 
         public bool Actualizar()
         {
             GI.DA.ClientesData data = new GI.DA.ClientesData();
-            return data.Actualizar(this.IdCliente, this.FechaNacimiento, this.Email, this.apellido, this.Nombres, this.NroDocumento, this.Observaciones, this.TelefonoCelular, this.TelefonoParticular, this.TelefonoTrabajo, (int)this.TipoDocumento, this.Ubicacion.Barrio.IdBarrio, this.Ubicacion.Provincia.IdProvincia, this.Direccion.Calle, this.Direccion.CodigoPostal, this.Direccion.Depto, this.Direccion.Numero, this.Direccion.Piso);
+            return data.Actualizar(this.IdCliente, this.FechaNacimiento, this.Email, this.apellido, this.Nombres, this.NroDocumento, this.Observaciones, this.TelefonoCelular, this.TelefonoParticular, this.TelefonoTrabajo, (int)this.TipoDocumento, this.Ubicacion.Barrio.IdBarrio, this.Ubicacion.Provincia.IdProvincia, this.Direccion.Calle, this.Direccion.CodigoPostal, this.Direccion.Depto, this.Direccion.Numero, this.Direccion.Piso, this.Direccion.CalleEntre1, this.Direccion.CalleEntre2, this.Ubicacion.Pais.IdPais, this.Ubicacion.Localidad.IdLocalidad);
 
         }
 
-        public bool Eliminar()
+
+
+        internal void llenar(System.Data.IDataReader dr)
         {
-            GI.DA.ClientesData data = new GI.DA.ClientesData();
-            return data.Eliminar(this.IdCliente);
+            this.Apellido = dr.GetString(dr.GetOrdinal("Apellido"));
+            this.Email = dr.GetString(dr.GetOrdinal("Email"));
+            this.FechaNacimiento = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
+            this.IdCliente = dr.GetInt32(dr.GetOrdinal("IdCliente"));
+            this.Nombres = dr.GetString(dr.GetOrdinal("Nombres"));
+            this.NroDocumento = dr.GetString(dr.GetOrdinal("NroDocumento"));
+            this.Observaciones = dr.GetString(dr.GetOrdinal("Observaciones"));
+            this.TelefonoCelular = dr.GetInt32(dr.GetOrdinal("TelefonoCelular"));
+            this.TelefonoParticular = dr.GetInt32(dr.GetOrdinal("TelefonoParticular"));
+            this.TelefonoTrabajo = dr.GetInt32(dr.GetOrdinal("TelefonoTrabajo"));
+            this.TipoDocumento = (GI.BR.General.enumTipoDocumento)dr.GetInt32(dr.GetOrdinal("TipoDocumento"));
+            this.Ubicacion = new GI.BR.Propiedades.Ubicacion();
+            this.Ubicacion.Barrio = new GI.BR.Propiedades.Ubicaciones.Barrio();
+            this.Ubicacion.Barrio.IdBarrio = dr.GetInt32(dr.GetOrdinal("IdBarrio"));
+            this.Ubicacion.Localidad = new GI.BR.Propiedades.Ubicaciones.Localidad();
+            this.Ubicacion.Localidad.IdLocalidad = dr.GetInt32(dr.GetOrdinal("IdLocalidad"));
+            this.Ubicacion.Pais = new GI.BR.Propiedades.Ubicaciones.Pais();
+            this.Ubicacion.Pais.IdPais = dr.GetInt32(dr.GetOrdinal("IdPais"));
+            this.Ubicacion.Provincia = new GI.BR.Propiedades.Ubicaciones.Provincia();
+            this.Ubicacion.Provincia.IdProvincia = dr.GetInt32(dr.GetOrdinal("IdProvincia"));
+            this.Direccion = new GI.BR.Propiedades.Direccion();
+            this.Direccion.Calle = dr.GetString(dr.GetOrdinal("Calle"));
+            this.Direccion.CalleEntre1 = dr.GetString(dr.GetOrdinal("CalleEntre1"));
+            this.Direccion.CalleEntre2 = dr.GetString(dr.GetOrdinal("CalleEntre2"));
+            this.Direccion.CodigoPostal = dr.GetString(dr.GetOrdinal("CodigoPostal"));
+            this.Direccion.Numero = dr.GetInt32(dr.GetOrdinal("Numero"));
+            this.Direccion.Piso = dr.GetString(dr.GetOrdinal("Piso"));
+            this.Direccion.Depto = dr.GetString(dr.GetOrdinal("Depto"));
         }
 
 
         #endregion
+
+        public override string ToString()
+        {
+            return this.Apellido + ", " + this.Nombres;
+        }
 
 
     }
