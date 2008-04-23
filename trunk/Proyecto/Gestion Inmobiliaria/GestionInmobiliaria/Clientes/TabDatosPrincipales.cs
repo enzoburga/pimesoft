@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GI.UI.Clientes
 {
-    public partial class TabDatosPrincipales : UserControl
+    public partial class TabDatosPrincipales : Framework.Seguridad.ControlGISeguridad
     {
         private GI.BR.Cliente cliente = null;
 
@@ -126,7 +126,6 @@ namespace GI.UI.Clientes
         public TabDatosPrincipales()
         {
             InitializeComponent();
-            Inicializar();
         }
 
         private void Inicializar()
@@ -135,10 +134,15 @@ namespace GI.UI.Clientes
             cbBarrio.Items.Add("Beccar");
             cbLocalidad.Items.Add("San Isidro");
             cbPais.Items.Add("Argentina");
-            cbProvincia.Items.Add("Buenos Aiers");
-            cbTipoDocumento.Items.Add(GI.BR.General.enumTipoDocumento.DNI.ToString());
-            cbTipoDocumento.Items.Add(GI.BR.General.enumTipoDocumento.LC.ToString());
+            cbProvincia.Items.Add("Buenos Aires");
+            cbTipoDocumento.Items.Add(GI.BR.General.enumTipoDocumento.DNI);
+            cbTipoDocumento.Items.Add(GI.BR.General.enumTipoDocumento.LC);
 
+        }
+
+        private void TabDatosPrincipales_Load(object sender, EventArgs e)
+        {
+            Inicializar();
         }
     }
 }

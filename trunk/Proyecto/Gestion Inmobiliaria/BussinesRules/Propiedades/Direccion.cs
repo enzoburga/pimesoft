@@ -61,5 +61,10 @@ namespace GI.BR.Propiedades
             get { return codigoPostal; }
             set { codigoPostal = value; }
         }
+
+        public override string ToString()
+        {
+            return this.Calle + " " + this.Numero.ToString();
+        }
     }
 }

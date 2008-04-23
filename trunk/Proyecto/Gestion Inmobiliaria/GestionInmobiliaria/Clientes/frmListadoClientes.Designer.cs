@@ -36,7 +36,7 @@ namespace GI.UI.Clientes
             this.imprimirListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbBuscar = new System.Windows.Forms.TextBox();
             this.bBuscar = new System.Windows.Forms.Button();
             this.lvClientes = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -95,6 +95,7 @@ namespace GI.UI.Clientes
             this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
             this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.cerrarToolStripMenuItem.Text = "Cerrar";
+            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -106,7 +107,7 @@ namespace GI.UI.Clientes
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.tbBuscar);
             this.splitContainer1.Panel1.Controls.Add(this.bBuscar);
             // 
             // splitContainer1.Panel2
@@ -116,12 +117,12 @@ namespace GI.UI.Clientes
             this.splitContainer1.SplitterDistance = 44;
             this.splitContainer1.TabIndex = 2;
             // 
-            // textBox1
+            // tbBuscar
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 20);
-            this.textBox1.TabIndex = 46;
+            this.tbBuscar.Location = new System.Drawing.Point(12, 15);
+            this.tbBuscar.Name = "tbBuscar";
+            this.tbBuscar.Size = new System.Drawing.Size(190, 20);
+            this.tbBuscar.TabIndex = 46;
             // 
             // bBuscar
             // 
@@ -199,7 +200,7 @@ namespace GI.UI.Clientes
         private System.Windows.Forms.ListView lvClientes;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbBuscar;
         private System.Windows.Forms.Button bBuscar;
         private System.Windows.Forms.ColumnHeader columnHeader8;
     }

@@ -298,9 +298,6 @@ namespace GI.UI.Clientes
             // 
             this.cbTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoDocumento.FormattingEnabled = true;
-            this.cbTipoDocumento.Items.AddRange(new object[] {
-            "DNI",
-            "LC"});
             this.cbTipoDocumento.Location = new System.Drawing.Point(176, 38);
             this.cbTipoDocumento.Name = "cbTipoDocumento";
             this.cbTipoDocumento.Size = new System.Drawing.Size(44, 21);
@@ -454,6 +451,7 @@ namespace GI.UI.Clientes
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TabDatosPrincipales";
             this.Size = new System.Drawing.Size(444, 439);
+            this.Load += new System.EventHandler(this.TabDatosPrincipales_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
