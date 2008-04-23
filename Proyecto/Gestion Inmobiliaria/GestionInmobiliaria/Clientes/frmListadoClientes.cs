@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GI.UI.Clientes
 {
-    public partial class frmListadoClientes : Form
+    public partial class frmListadoClientes : Form//GI.Framework.Seguridad.FrmGISeguridad
     {
         public frmListadoClientes()
         {
@@ -34,15 +34,13 @@ namespace GI.UI.Clientes
         private void nuevaFichaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmFichaCliente frm = new frmFichaCliente();
-            if (frm.ShowDialog() == DialogResult.OK)
-                if (frm.Cliente.Guardar() == false)
-                    MessageBox.Show("Error al guardar el cliente");
+            frm.Show();
         }
 
         private void bBuscar_Click(object sender, EventArgs e)
         {
             GI.BR.Clientes clientes = new GI.BR.Clientes();
-            clientes.RecuperarPropietarios();
+            clientes.RecuperarPropietarios(tbBuscar.Text);
 
             CargarClientes(clientes);
         }
@@ -59,6 +57,11 @@ namespace GI.UI.Clientes
                 lvi.Tag = c;
                 lvClientes.Items.Add(lvi);
             }
+        }
+
+        private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
