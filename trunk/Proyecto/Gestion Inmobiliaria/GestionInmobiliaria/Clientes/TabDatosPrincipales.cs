@@ -57,10 +57,10 @@ namespace GI.UI.Clientes
                 this.tbTelCelular.Text = cliente.TelefonoCelular.ToString();
                 this.tbTelLaboral.Text = cliente.TelefonoTrabajo.ToString();
                 this.tbTelParticular.Text = cliente.TelefonoParticular.ToString();
-                this.cbBarrio.SelectedIndex = GetIndiceBarrio(cliente.Ubicacion.Barrio);
-                this.cbLocalidad.SelectedIndex = GetIndiceLocalidad(cliente.Ubicacion.Localidad);
-                this.cbPais.SelectedIndex = GetIndicePais(cliente.Ubicacion.Pais);
-                this.cbProvincia.SelectedIndex = GetIndiceProvincia(cliente.Ubicacion.Provincia);
+                //this.cbBarrio.SelectedIndex = GetIndiceBarrio(cliente.Ubicacion.Barrio);
+                //this.cbLocalidad.SelectedIndex = GetIndiceLocalidad(cliente.Ubicacion.Localidad);
+                //this.cbPais.SelectedIndex = GetIndicePais(cliente.Ubicacion.Pais);
+                //this.cbProvincia.SelectedIndex = GetIndiceProvincia(cliente.Ubicacion.Provincia);
                 this.cbTipoDocumento.SelectedItem = cliente.TipoDocumento;            
             }
         }
@@ -79,6 +79,7 @@ namespace GI.UI.Clientes
                     return index;
                 index++;
             }
+            return 0;
             throw new Exception("Elemento no encontrado (Provincia).");
         }
 
@@ -91,6 +92,8 @@ namespace GI.UI.Clientes
                     return index;
                 index++;
             }
+
+            return 0;
             throw new Exception("Elemento no encontrado (Pais).");
         }
 
@@ -103,6 +106,7 @@ namespace GI.UI.Clientes
                     return index;
                 index++;
             }
+            return 0;
             throw new Exception("Elemento no encontrado (Localidad).");
         }
 
@@ -115,7 +119,8 @@ namespace GI.UI.Clientes
                     return index;
                 index++;
             }
-            throw new Exception("Elemento no encontrado (Localidad).");
+            return 0;
+            throw new Exception("Elemento no encontrado (Barrio).");
         }
 
         public TabDatosPrincipales()
@@ -127,7 +132,13 @@ namespace GI.UI.Clientes
         private void Inicializar()
         {
             //INICIALIZAR COMBOS
-            throw new Exception("The method or operation is not implemented.");
+            cbBarrio.Items.Add("Beccar");
+            cbLocalidad.Items.Add("San Isidro");
+            cbPais.Items.Add("Argentina");
+            cbProvincia.Items.Add("Buenos Aiers");
+            cbTipoDocumento.Items.Add(GI.BR.General.enumTipoDocumento.DNI.ToString());
+            cbTipoDocumento.Items.Add(GI.BR.General.enumTipoDocumento.LC.ToString());
+
         }
     }
 }

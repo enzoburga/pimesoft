@@ -42,13 +42,7 @@ namespace GI.UI.Clientes
         private void bBuscar_Click(object sender, EventArgs e)
         {
             GI.BR.Clientes clientes = new GI.BR.Clientes();
-
-            GI.BR.Propietario cliente = new GI.BR.Propietario();
-            cliente.Apellido = "Ledesma";
-            cliente.Direccion = new GI.BR.Propiedades.Direccion();
-            cliente.Direccion.Calle = "San Jose";
-            cliente.Email = "Email@ad.com";
-            clientes.Add(cliente);
+            clientes.RecuperarPropietarios();
 
             CargarClientes(clientes);
         }

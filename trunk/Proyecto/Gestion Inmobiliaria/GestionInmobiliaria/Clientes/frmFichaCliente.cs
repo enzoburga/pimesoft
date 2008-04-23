@@ -12,8 +12,7 @@ namespace GI.UI.Clientes
     {
         public frmFichaCliente()
         {
-            InitializeComponent();
-            Inicializar();
+            InitializeComponent();            
         }
 
         private GI.BR.Cliente cliente = null;
@@ -47,7 +46,13 @@ namespace GI.UI.Clientes
 
         private void CargarDatosCliente()
         {
-            throw new Exception("The method or operation is not implemented.");
+            //Implementado para 1 Tab.
+            ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).Cliente = cliente;
+        }
+
+        private void frmFichaCliente_Load(object sender, EventArgs e)
+        {
+            Inicializar();
         }
     }
 }

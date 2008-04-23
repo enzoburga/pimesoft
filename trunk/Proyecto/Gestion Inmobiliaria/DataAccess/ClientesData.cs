@@ -20,5 +20,13 @@ namespace GI.DA
         {
             throw new Exception("The method or operation is not implemented.");
         }
+
+        public System.Data.IDataReader RecuperarPropietarios(string nombre)
+        {
+            return AccesoDatos.RecuperarDatos(
+                "Propietarios_RecuperarPorNombre",
+                new object[] { nombre},
+                new string[] { "@Nombre"});
+        }
     }
 }
