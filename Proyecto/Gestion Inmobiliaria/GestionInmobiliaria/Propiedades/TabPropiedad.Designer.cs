@@ -84,10 +84,12 @@ namespace GI.UI.Propiedades
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.LinkPropietario = new System.Windows.Forms.LinkLabel();
+            this.valorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -400,6 +402,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxValorPublicacion
             // 
+            this.textBoxValorPublicacion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource, "Importe", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N2"));
             this.textBoxValorPublicacion.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxValorPublicacion.Location = new System.Drawing.Point(120, 98);
             this.textBoxValorPublicacion.Name = "textBoxValorPublicacion";
@@ -590,6 +593,10 @@ namespace GI.UI.Propiedades
             this.LinkPropietario.TabStop = true;
             this.LinkPropietario.Text = "Emilio Davidis";
             // 
+            // valorBindingSource
+            // 
+            this.valorBindingSource.DataSource = typeof(GI.BR.Valor);
+            // 
             // TabPropiedad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -628,6 +635,7 @@ namespace GI.UI.Propiedades
             ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -690,5 +698,6 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.TextBox textBoxEntreCalle1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.BindingSource propiedadBindingSource;
+        private System.Windows.Forms.BindingSource valorBindingSource;
     }
 }

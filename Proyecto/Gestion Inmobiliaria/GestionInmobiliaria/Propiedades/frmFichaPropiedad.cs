@@ -12,7 +12,7 @@ namespace GI.UI.Propiedades
     {
 
         private GI.BR.Propiedades.Propiedad propiedad;
-
+        private GI.BR.Propiedades.Propiedad propiedadClone;
 
 
         public frmFichaPropiedad()
@@ -29,7 +29,9 @@ namespace GI.UI.Propiedades
             get { return propiedad; }
             set
             {
+
                 propiedad = value;
+                propiedadClone = (GI.BR.Propiedades.Propiedad)propiedad.Clone();
                 this.Text += " " + propiedad.Codigo.ToString();
 
                 foreach (System.Windows.Forms.TabPage Page in this.tabControl.TabPages)
@@ -119,5 +121,23 @@ namespace GI.UI.Propiedades
 
         
         #endregion
+
+        private void bCancelar_Click(object sender, EventArgs e)
+        {
+            propiedad = (GI.BR.Propiedades.Propiedad)propiedadClone.Clone();
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
+
+        private void bAceptar_Click(object sender, EventArgs e)
+        {
+            if (!SoloLectura)
+            { 
+                //grabamos la propiedad
+            }
+
+            DialogResult = DialogResult.OK;
+            Close();
+        }
     }
 }

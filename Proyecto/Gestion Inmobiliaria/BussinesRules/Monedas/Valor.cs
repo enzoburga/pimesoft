@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GI.BR
 {
-    public class Valor
+    public class Valor : ICloneable
     {
 
 
@@ -19,7 +19,7 @@ namespace GI.BR
             get { return moneda; }
             set { moneda = value; }
         }
-        
+
 
         public decimal Importe
         {
@@ -33,6 +33,14 @@ namespace GI.BR
         }
 
 
-        
+        #region ICloneable Members
+
+        public object Clone()
+        {
+            return base.MemberwiseClone();
+        }
+
+        #endregion
+
     }
 }

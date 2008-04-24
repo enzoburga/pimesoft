@@ -17,11 +17,12 @@ namespace GI.UI.Propiedades
         }
 
 
-        
+
         protected override void Inicializar()
         {
 
 
+            #region inicializar combos
             GI.BR.Propiedades.CategoriasPropiedad Categorias = new GI.BR.Propiedades.CategoriasPropiedad();
             Categorias.RecuperarTodas();
             foreach (GI.BR.Propiedades.CategoriaPropiedad Cat in Categorias)
@@ -60,11 +61,13 @@ namespace GI.UI.Propiedades
             ambientes.RecuperarTodos();
             foreach (GI.BR.Propiedades.Ambiente a in ambientes)
                 cbAmbientes.Items.Add(a);
-            //cbAmbientes.SelectedIndex = 2;
+            
+            #endregion
 
-
-
+            
+            //databondig
             propiedadBindingSource.Add(Propiedad);
+            valorBindingSource.Add(Propiedad.ValorPublicacion);
 
 
         }
