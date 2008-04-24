@@ -99,6 +99,21 @@ namespace GI.BR.Propiedades.Ubicaciones
             Add(p);
 
         }
+
+        public Provincia GetDefault
+        {
+            get
+            {
+                foreach (Provincia b in this)
+                {
+                    if (b.EsDefault)
+                        return b;
+                }
+                if (this.Count > 0)
+                    return this[0];
+                return null;
+            }
+        }
     
     
     }
