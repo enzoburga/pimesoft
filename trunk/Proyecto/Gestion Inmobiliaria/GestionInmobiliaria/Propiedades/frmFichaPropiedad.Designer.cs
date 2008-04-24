@@ -94,31 +94,31 @@ namespace GI.UI.Propiedades
             this.enviarACorreoElectrónicoToolStripMenuItem,
             this.cerrarToolStripMenuItem});
             this.fichaToolStripMenuItem.Name = "fichaToolStripMenuItem";
-            this.fichaToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.fichaToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.fichaToolStripMenuItem.Text = "Ficha";
             // 
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.guardarToolStripMenuItem.Text = "Guardar";
             // 
             // imprimirToolStripMenuItem
             // 
             this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
-            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.imprimirToolStripMenuItem.Text = "Imprimir";
             // 
             // enviarACorreoElectrónicoToolStripMenuItem
             // 
             this.enviarACorreoElectrónicoToolStripMenuItem.Name = "enviarACorreoElectrónicoToolStripMenuItem";
-            this.enviarACorreoElectrónicoToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.enviarACorreoElectrónicoToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.enviarACorreoElectrónicoToolStripMenuItem.Text = "Enviar a correo electrónico";
             // 
             // cerrarToolStripMenuItem
             // 
             this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
-            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.cerrarToolStripMenuItem.Text = "Cerrar";
             // 
             // publicaciónToolStripMenuItem
@@ -126,13 +126,13 @@ namespace GI.UI.Propiedades
             this.publicaciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.publicarToolStripMenuItem});
             this.publicaciónToolStripMenuItem.Name = "publicaciónToolStripMenuItem";
-            this.publicaciónToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.publicaciónToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.publicaciónToolStripMenuItem.Text = "Publicación";
             // 
             // publicarToolStripMenuItem
             // 
             this.publicarToolStripMenuItem.Name = "publicarToolStripMenuItem";
-            this.publicarToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.publicarToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.publicarToolStripMenuItem.Text = "Publicar ficha";
             // 
             // bAceptar
@@ -143,6 +143,7 @@ namespace GI.UI.Propiedades
             this.bAceptar.TabIndex = 1;
             this.bAceptar.Text = "Aceptar";
             this.bAceptar.UseVisualStyleBackColor = true;
+            this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
             // bCancelar
             // 
@@ -152,6 +153,7 @@ namespace GI.UI.Propiedades
             this.bCancelar.TabIndex = 0;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
             // frmFichaPropiedad
             // 

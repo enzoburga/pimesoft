@@ -230,7 +230,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Propiedad.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Valor.datasource" />
     <Compile Include="Propiedades\Formularios\frmNota.cs">
       <SubType>Form</SubType>
     </Compile>
