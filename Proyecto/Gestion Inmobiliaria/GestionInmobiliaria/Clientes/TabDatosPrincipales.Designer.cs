@@ -230,6 +230,7 @@ namespace GI.UI.Clientes
             this.cbProvincia.Name = "cbProvincia";
             this.cbProvincia.Size = new System.Drawing.Size(148, 21);
             this.cbProvincia.TabIndex = 14;
+            this.cbProvincia.SelectedIndexChanged += new System.EventHandler(this.cbProvincia_SelectedIndexChanged);
             // 
             // cbBarrio
             // 
@@ -248,6 +249,7 @@ namespace GI.UI.Clientes
             this.cbLocalidad.Name = "cbLocalidad";
             this.cbLocalidad.Size = new System.Drawing.Size(123, 21);
             this.cbLocalidad.TabIndex = 13;
+            this.cbLocalidad.SelectedIndexChanged += new System.EventHandler(this.cbLocalidad_SelectedIndexChanged);
             // 
             // cbPais
             // 
@@ -257,6 +259,7 @@ namespace GI.UI.Clientes
             this.cbPais.Name = "cbPais";
             this.cbPais.Size = new System.Drawing.Size(123, 21);
             this.cbPais.TabIndex = 8;
+            this.cbPais.SelectedIndexChanged += new System.EventHandler(this.cbPais_SelectedIndexChanged);
             // 
             // label8
             // 

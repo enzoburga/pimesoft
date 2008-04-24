@@ -96,6 +96,21 @@ namespace GI.BR.Propiedades.Ubicaciones
 
 
         }
+        public Localidad GetDefault
+        {
+            get
+            {
+                foreach (Localidad b in this)
+                {
+                    if (b.EsDefault)
+                        return b;
+                }
+                if (this.Count > 0)
+                    return this[0];
+                return null;
+            }
+        }
+
     
     }
 

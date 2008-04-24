@@ -131,10 +131,21 @@ namespace GI.UI.Clientes
         private void Inicializar()
         {
             //INICIALIZAR COMBOS
-            cbBarrio.Items.Add("Beccar");
-            cbLocalidad.Items.Add("San Isidro");
-            cbPais.Items.Add("Argentina");
-            cbProvincia.Items.Add("Buenos Aires");
+            GI.BR.Propiedades.Ubicaciones.Barrios barrios = new GI.BR.Propiedades.Ubicaciones.Barrios();
+            barrios.RecuperarTodos();
+
+            GI.BR.Propiedades.Ubicaciones.Localidades localidades = new GI.BR.Propiedades.Ubicaciones.Localidades();
+            localidades.RecuperarTodas();
+
+            GI.BR.Propiedades.Ubicaciones.Paises paises = new GI.BR.Propiedades.Ubicaciones.Paises();
+            paises.RecuperarTodos();
+
+
+
+
+            cbPais.Items.AddRange(paises.ToArray());
+            cbPais.SelectedItem = paises.GetDefault;
+
             cbTipoDocumento.Items.Add(GI.BR.General.enumTipoDocumento.DNI);
             cbTipoDocumento.Items.Add(GI.BR.General.enumTipoDocumento.LC);
 
@@ -143,6 +154,34 @@ namespace GI.UI.Clientes
         private void TabDatosPrincipales_Load(object sender, EventArgs e)
         {
             Inicializar();
+        }
+
+        private void cbPais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GI.BR.Propiedades.Ubicaciones.Provincias provincias = new GI.BR.Propiedades.Ubicaciones.Provincias();
+            provincias.RecuperarTodas((GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem);
+            cbProvincia.Items.Clear();
+            cbProvincia.Items.AddRange(provincias.ToArray());
+            cbProvincia.SelectedItem = provincias.GetDefault;
+        }
+
+        private void cbLocalidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GI.BR.Propiedades.Ubicaciones.Barrios barrios = new GI.BR.Propiedades.Ubicaciones.Barrios();
+            barrios.RecuperarTodos((GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem);
+            cbBarrio.Items.Clear();
+            cbBarrio.Items.AddRange(barrios.ToArray());
+            cbBarrio.SelectedItem = barrios.GetDefault;
+        }
+
+        private void cbProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GI.BR.Propiedades.Ubicaciones.Localidades localidades = new GI.BR.Propiedades.Ubicaciones.Localidades();
+            localidades.RecuperarTodas((GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem);
+
+            cbLocalidad.Items.Clear();
+            cbLocalidad.Items.AddRange(localidades.ToArray());
+            cbLocalidad.SelectedItem = localidades.GetDefault;
         }
     }
 }

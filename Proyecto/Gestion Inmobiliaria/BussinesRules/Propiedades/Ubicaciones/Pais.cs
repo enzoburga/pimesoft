@@ -65,6 +65,20 @@ namespace GI.BR.Propiedades.Ubicaciones
             }
 
         }
+        public Pais GetDefault
+        {
+            get
+            {
+                foreach (Pais b in this)
+                {
+                    if (b.EsDefault)
+                        return b;
+                }
+                if (this.Count > 0)
+                    return this[0];
+                return null;
+            }
+        }
 
 
     }

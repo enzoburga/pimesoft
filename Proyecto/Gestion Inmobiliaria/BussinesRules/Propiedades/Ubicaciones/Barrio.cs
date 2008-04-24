@@ -105,6 +105,21 @@ namespace GI.BR.Propiedades.Ubicaciones
 
 
         }
+
+        public Barrio GetDefault
+        {
+            get 
+            {
+                foreach(Barrio b in this)
+                {
+                    if(b.EsDefault)
+                        return b;
+                }
+                if(this.Count > 0)
+                    return this[0];
+                return null;
+            }
+        }
         
     }
 }
