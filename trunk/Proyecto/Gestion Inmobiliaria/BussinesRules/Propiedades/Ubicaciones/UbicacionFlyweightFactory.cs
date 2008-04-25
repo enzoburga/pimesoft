@@ -51,6 +51,49 @@ namespace GI.BR.Propiedades.Ubicaciones
 
         }
 
+        public Provincias GetProvincias(int IdPais)
+        {
+            Provincias p = new Provincias();
+            foreach (int k in hashProvincias.Keys)
+            {
+                if (((Provincia)hashProvincias[k]).IdPais == IdPais)
+                    p.Add((Provincia)hashProvincias[k]);
+            }
+            return p;
+        }
+
+        public Paises GetPaises()
+        {
+            Paises p = new Paises();
+            foreach (int k in hashPaises.Keys)
+            {
+                p.Add((Pais)hashPaises[k]);
+            }
+            return p;
+        }
+
+        public Localidades GetLocalidades(int IdProvincia)
+        {
+            Localidades p = new Localidades();
+            foreach (int k in hashLocalidades.Keys)
+            {
+                if (((Localidad)hashLocalidades[k]).IdProvincia == IdProvincia)
+                    p.Add((Localidad)hashLocalidades[k]);
+            }
+            return p;
+        }
+
+        public Barrios GetBarrios(int IdLocalidad)
+        {
+            Barrios p = new Barrios();
+            foreach (int k in hashBarrios.Keys)
+            {
+                if (((Barrio)hashBarrios[k]).IdLocalidad == IdLocalidad)
+                    p.Add((Barrio)hashBarrios[k]);
+            }
+            return p;
+        }
+
         public Provincia GetProvincia(int IdProvincia)
         {
             return (Provincia)hashProvincias[IdProvincia];

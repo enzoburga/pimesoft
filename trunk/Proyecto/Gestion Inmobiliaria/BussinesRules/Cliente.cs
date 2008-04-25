@@ -181,21 +181,22 @@ namespace GI.BR
                 if (dr.Read())
                     llenar(dr);                
             }
+            this.cargado = true;
         }
 
-        public bool Guardar()
+        public virtual bool Guardar()
         {
 
             GI.DA.ClientesData data = new GI.DA.ClientesData();
-            this.IdCliente = data.GuardarCliente(this.FechaNacimiento, this.Email, this.apellido, this.Nombres, this.NroDocumento, this.Observaciones, this.TelefonoCelular, this.TelefonoParticular, this.TelefonoTrabajo, (int)this.TipoDocumento, this.Ubicacion.Barrio.IdBarrio, this.Ubicacion.Provincia.IdProvincia, this.Direccion.Calle, this.Direccion.CodigoPostal, this.Direccion.Depto, this.Direccion.Numero, this.Direccion.Piso, this.Direccion.CalleEntre1, this.Direccion.CalleEntre2, this.Ubicacion.Pais.IdPais, this.Ubicacion.Localidad.IdLocalidad);
+            this.IdCliente = data.GuardarCliente(this.fechaNacimiento, this.email, this.apellido, this.nombres, this.nroDocumento, this.observaciones, this.telefonoCelular, this.telefonoParticular, this.telefonoTrabajo, (int)this.tipoDocumento, this.ubicacion.Barrio.IdBarrio, this.ubicacion.Provincia.IdProvincia, this.direccion.Calle, this.direccion.CodigoPostal, this.direccion.Depto, this.direccion.Numero, this.direccion.Piso, this.direccion.CalleEntre1, this.direccion.CalleEntre2, this.ubicacion.Pais.IdPais, this.ubicacion.Localidad.IdLocalidad);
 
             return this.IdCliente > 0;
         }
 
-        public bool Actualizar()
+        public virtual bool Actualizar()
         {
             GI.DA.ClientesData data = new GI.DA.ClientesData();
-            return data.Actualizar(this.IdCliente, this.FechaNacimiento, this.Email, this.apellido, this.Nombres, this.NroDocumento, this.Observaciones, this.TelefonoCelular, this.TelefonoParticular, this.TelefonoTrabajo, (int)this.TipoDocumento, this.Ubicacion.Barrio.IdBarrio, this.Ubicacion.Provincia.IdProvincia, this.Direccion.Calle, this.Direccion.CodigoPostal, this.Direccion.Depto, this.Direccion.Numero, this.Direccion.Piso, this.Direccion.CalleEntre1, this.Direccion.CalleEntre2, this.Ubicacion.Pais.IdPais, this.Ubicacion.Localidad.IdLocalidad);
+            return data.Actualizar(this.IdCliente, this.fechaNacimiento, this.email, this.apellido, this.nombres, this.nroDocumento, this.observaciones, this.telefonoCelular, this.telefonoParticular, this.telefonoTrabajo, (int)this.tipoDocumento, this.ubicacion.Barrio.IdBarrio, this.ubicacion.Provincia.IdProvincia, this.direccion.Calle, this.direccion.CodigoPostal, this.direccion.Depto, this.direccion.Numero, this.direccion.Piso, this.direccion.CalleEntre1, this.direccion.CalleEntre2, this.ubicacion.Pais.IdPais, this.ubicacion.Localidad.IdLocalidad);
 
         }
 
@@ -203,6 +204,7 @@ namespace GI.BR
 
         internal void llenar(System.Data.IDataReader dr)
         {
+            this.cargado = true;
             this.Apellido = dr.GetString(dr.GetOrdinal("Apellido"));
             this.Email = dr.GetString(dr.GetOrdinal("Email"));
             this.FechaNacimiento = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));

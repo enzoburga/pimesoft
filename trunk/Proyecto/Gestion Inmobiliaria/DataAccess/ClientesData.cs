@@ -57,7 +57,54 @@ namespace GI.DA
 
         public bool Actualizar(int IdCliente, DateTime FechaNacimiento, string Email, string Apellido, string Nombres, string NroDocumento, string Observaciones, int TelefonoCelular, int TelefonoParticular, int TelefonoTrabajo, int TipoDocumento, int IdBarrio, int IdProvincia, string Calle, string CodigoPostal, string Depto, int Numero, string Piso, string CalleEntre1, string CalleEntre2, int IdPais, int IdLocalidad)
         {
-            throw new Exception("The method or operation is not implemented.");
+            return AccesoDatos.ActualizarRegistro(
+               "Cliente_Actualizar",
+               new object[] { 
+                   IdCliente,
+                   Nombres ,
+                   Apellido,
+                   NroDocumento,
+                   TipoDocumento,
+                   TelefonoParticular,
+                   TelefonoTrabajo,
+                   TelefonoCelular,
+                   Observaciones,
+                   FechaNacimiento,
+                   Email,
+                   Calle,
+                   Numero,
+                   Depto,
+                   Piso,
+                   CodigoPostal,
+                   CalleEntre1,
+                   CalleEntre2,
+                   IdBarrio,
+                   IdProvincia,
+                   IdPais,
+                   IdLocalidad },
+               new string[] { 
+                   "@IdCliente",
+                   "@Nombres" ,
+                   "@Apellido",
+                   "@NroDocumento",
+                   "@TipoDocumento",
+                   "@TelefonoParticular",
+                   "@TelefonoTrabajo",
+                   "@TelefonoCelular",
+                   "@Observaciones",
+                   "@FechaNacimiento",
+                   "@Email",
+                   "@Calle",
+                   "@Numero",
+                   "@Depto",
+                   "@Piso",
+                   "@CodigoPostal",
+                   "@CalleEntre1",
+                   "@CalleEntre2",
+                   "@IdBarrio",
+                   "@IdProvincia",
+                   "@IdPais",
+                   "@IdLocalidad" });
         }
 
         public bool Eliminar(int IdCliente)
@@ -70,8 +117,18 @@ namespace GI.DA
             return AccesoDatos.RecuperarDatos(
                 "Propietarios_RecuperarPorNombre",
                 new object[] { nombre},
-                new string[] { "@Nombre"});
+                new string[] { "@Cadena"});
         }
+
+
+        public System.Data.IDataReader RecuperarPropietarios()
+        {
+            return AccesoDatos.RecuperarDatos(
+                "Propietarios_RecuperarTodos",
+                new object[] { },
+                new string[] { });
+        }
+
 
         public System.Data.IDataReader RecuperarDatosClientePorId(int IdCliente)
         {
@@ -88,10 +145,13 @@ namespace GI.DA
                 new object[] { IdPropietario },
                 new string[] { "@IdPropietario" });
         }
-
-        public bool ActualizarPropietario(int p)
+        
+        public bool GuardarInquilino(int IdInquilino)
         {
-            throw new Exception("The method or operation is not implemented.");
+            return 0 < AccesoDatos.InsertarRegistro(
+                "Inquilino_Guardar",
+                new object[] { IdInquilino },
+                new string[] { "@IdInquilino" });
         }
     }
 }

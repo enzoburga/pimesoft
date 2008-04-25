@@ -69,7 +69,11 @@ namespace GI.UI.Clientes
         {
             try
             {
-                ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).Cliente.Guardar();
+                //Verifico si el cliente esta o no guardado. Si lo esta lo actualizo.
+                if(((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).Cliente.IdCliente == 0)
+                    ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).Cliente.Guardar();
+                else
+                    ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).Cliente.Actualizar();
             }
             catch (Exception ex)
             {

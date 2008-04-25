@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GI.BR
 {
-    public class Propietario : Cliente
+    public class Inquilino: Cliente
     {
         #region Persistencia
 
@@ -14,7 +14,7 @@ namespace GI.BR
             if (!base.Guardar())
                 return false;
             GI.DA.ClientesData data = new GI.DA.ClientesData();
-            return data.GuardarPropietario(this.IdCliente);
+            return data.GuardarInquilino(this.IdCliente);
         }
 
         public override bool Actualizar()
@@ -29,6 +29,5 @@ namespace GI.BR
             return data.Eliminar(this.IdCliente);
         }
         #endregion
-
     }
 }

@@ -51,6 +51,7 @@
     <Compile Include="Propiedades\EstadoPropiedad.cs" />
     <Compile Include="Propiedades\EstadoPropiedadFlyweigthFactory.cs" />
     <Compile Include="Propiedades\EstadosPropiedad.cs" />
+    <Compile Include="Inquilino.cs" />
     <Compile Include="Propiedades\MedidaAmbiente.cs" />
     <Compile Include="Propiedades\MedidaPropiedad.cs" />
     <Compile Include="Propiedades\MedidasAmbiente.cs" />
