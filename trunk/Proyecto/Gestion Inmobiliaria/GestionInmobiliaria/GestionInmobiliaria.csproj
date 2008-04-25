@@ -83,6 +83,7 @@
     <Compile Include="Clientes\frmListadoClientes.Designer.cs">
       <DependentUpon>frmListadoClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clientes\SeleccionadorClientes.cs" />
     <Compile Include="Clientes\TabDatosPrincipales.cs">
       <SubType>UserControl</SubType>
     </Compile>

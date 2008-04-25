@@ -132,6 +132,18 @@ namespace GI.UI.Propiedades
         private void LinkPropietario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+            if (LinkPropietario.Text == "Seleccione un propietario")
+            {
+                Framework.frmSeleccionador frmSeleccionador = new GI.Framework.frmSeleccionador(new Clientes.SeleccionadorClientes(typeof(GI.BR.Propietario)));
+                if (frmSeleccionador.ShowDialog() == DialogResult.OK)
+                { 
+                
+                
+                }
+            
+            }
+
+
         }
 
 

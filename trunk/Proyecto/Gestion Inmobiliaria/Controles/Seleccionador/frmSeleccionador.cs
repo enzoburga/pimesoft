@@ -98,11 +98,14 @@ namespace GI.Framework
 
         private void seleccionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (lvItems.SelectedItems.Count != 1) return;
             lvItems_DoubleClick(null, null);
         }
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (lvItems.SelectedItems.Count != 1) return;
+
             claseSeleccionador.ModificarObjeto(lvItems.SelectedItems[0].Tag);
 
             int index = lvItems.SelectedItems[0].Index;
