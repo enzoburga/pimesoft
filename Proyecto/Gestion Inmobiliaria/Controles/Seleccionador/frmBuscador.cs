@@ -25,7 +25,7 @@ namespace GI.Framework.Seleccionador
             : this()
         {
 
-            foreach (Seleccionador.MetodoBusqueda metodo in metodos)
+            foreach (Seleccionador.MetodoBusqueda metodo in Metodos)
                 cbCriterios.Items.Add(metodo);
 
             cbCriterios.SelectedIndex = 0;
