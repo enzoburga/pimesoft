@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GI.UI.Propiedades
 {
-    public partial class TabPropiedad : TabContenidoPropiedad
+    public partial class TabPropiedad :  TabContenidoPropiedad
     {
         public TabPropiedad() : base()
         {
@@ -61,15 +61,30 @@ namespace GI.UI.Propiedades
             ambientes.RecuperarTodos();
             foreach (GI.BR.Propiedades.Ambiente a in ambientes)
                 cbAmbientes.Items.Add(a);
-            
+
             #endregion
 
-            
+
             //databondig
             propiedadBindingSource.Add(Propiedad);
             valorBindingSource.Add(Propiedad.ValorPublicacion);
+            valorBindingSource1.Add(Propiedad.ValorMercado);
+            direccionBindingSource.Add(Propiedad.Direccion);
+
+            foreach (GI.BR.Propiedades.Ambiente a in cbAmbientes.Items)
+            {
+                if (a.CantidadAmbientes == Propiedad.CantidadAmbientes)
+                    cbAmbientes.SelectedItem = a;
+            }
 
 
+            if (Propiedad.Propietario == null)
+                LinkPropietario.Text = "Seleccione un propietario";
+            else
+            {
+                LinkPropietario.Text = Propiedad.Propietario.ToString();
+
+            }
         }
 
         protected override void CargarPropiedad()
@@ -99,6 +114,24 @@ namespace GI.UI.Propiedades
             }
 
             cbTipoPropiedad.SelectedIndex = 0;
+        }
+
+        private void textBoxEntreCalle2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbAmbientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbAmbientes.SelectedItem == null) return;
+
+            Propiedad.CantidadAmbientes = ((GI.BR.Propiedades.Ambiente)cbAmbientes.SelectedItem).CantidadAmbientes;
+
+        }
+
+        private void LinkPropietario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
 
 

@@ -8,7 +8,16 @@ namespace GI.BR.Propiedades
     public class CategoriasPropiedad : List<CategoriaPropiedad>
     {
 
+        public CategoriaPropiedad GetByIdCategoria(int IdCategoria)
+        {
+            foreach (CategoriaPropiedad categoria in this)
+            {
+                if (categoria.IdCategoria == IdCategoria)
+                    return categoria;
+            }
 
+            return null;
+        }
 
         public void RecuperarTodas()
         {
