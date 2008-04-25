@@ -32,6 +32,7 @@ namespace GI.UI.Propiedades
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbTipoPropiedad = new GI.Framework.ComboBox();
+            this.propiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbEstado = new GI.Framework.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,6 +47,7 @@ namespace GI.UI.Propiedades
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBoxEntreCalle2 = new System.Windows.Forms.TextBox();
+            this.direccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label21 = new System.Windows.Forms.Label();
             this.textBoxEntreCalle1 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -61,12 +63,13 @@ namespace GI.UI.Propiedades
             this.label9 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.cbMonedaReal = new GI.Framework.ComboBox();
+            this.valorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxVarorMercado = new System.Windows.Forms.TextBox();
             this.textBoxValorPublicacion = new System.Windows.Forms.TextBox();
+            this.valorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbMonedaPublicacion = new GI.Framework.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.textBoxCodigo = new System.Windows.Forms.TextBox();
-            this.propiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label17 = new System.Windows.Forms.Label();
             this.checkBoxEsOtraPropiedad = new System.Windows.Forms.CheckBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -84,12 +87,13 @@ namespace GI.UI.Propiedades
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.LinkPropietario = new System.Windows.Forms.LinkLabel();
-            this.valorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.direccionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -112,6 +116,8 @@ namespace GI.UI.Propiedades
             // 
             // cbTipoPropiedad
             // 
+            this.cbTipoPropiedad.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.propiedadBindingSource, "TipoPropiedad", true));
+            this.cbTipoPropiedad.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "TipoPropiedad", true));
             this.cbTipoPropiedad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoPropiedad.FormattingEnabled = true;
             this.cbTipoPropiedad.Location = new System.Drawing.Point(120, 44);
@@ -119,8 +125,14 @@ namespace GI.UI.Propiedades
             this.cbTipoPropiedad.Size = new System.Drawing.Size(106, 21);
             this.cbTipoPropiedad.TabIndex = 1;
             // 
+            // propiedadBindingSource
+            // 
+            this.propiedadBindingSource.DataSource = typeof(GI.BR.Propiedades.Propiedad);
+            // 
             // cbEstado
             // 
+            this.cbEstado.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.propiedadBindingSource, "Estado", true));
+            this.cbEstado.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "Estado", true));
             this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Location = new System.Drawing.Point(323, 17);
@@ -260,10 +272,16 @@ namespace GI.UI.Propiedades
             // 
             // textBoxEntreCalle2
             // 
+            this.textBoxEntreCalle2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.direccionBindingSource, "CalleEntre2", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxEntreCalle2.Location = new System.Drawing.Point(230, 69);
             this.textBoxEntreCalle2.Name = "textBoxEntreCalle2";
             this.textBoxEntreCalle2.Size = new System.Drawing.Size(164, 21);
             this.textBoxEntreCalle2.TabIndex = 6;
+            this.textBoxEntreCalle2.TextChanged += new System.EventHandler(this.textBoxEntreCalle2_TextChanged);
+            // 
+            // direccionBindingSource
+            // 
+            this.direccionBindingSource.DataSource = typeof(GI.BR.Propiedades.Direccion);
             // 
             // label21
             // 
@@ -276,6 +294,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxEntreCalle1
             // 
+            this.textBoxEntreCalle1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.direccionBindingSource, "CalleEntre1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxEntreCalle1.Location = new System.Drawing.Point(67, 69);
             this.textBoxEntreCalle1.Name = "textBoxEntreCalle1";
             this.textBoxEntreCalle1.Size = new System.Drawing.Size(138, 21);
@@ -292,6 +311,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxCodigoPostal
             // 
+            this.textBoxCodigoPostal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.direccionBindingSource, "CodigoPostal", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxCodigoPostal.Location = new System.Drawing.Point(245, 41);
             this.textBoxCodigoPostal.Name = "textBoxCodigoPostal";
             this.textBoxCodigoPostal.Size = new System.Drawing.Size(46, 21);
@@ -309,6 +329,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxDpto
             // 
+            this.textBoxDpto.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.direccionBindingSource, "Depto", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxDpto.Location = new System.Drawing.Point(166, 41);
             this.textBoxDpto.Name = "textBoxDpto";
             this.textBoxDpto.Size = new System.Drawing.Size(24, 21);
@@ -317,6 +338,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxPiso
             // 
+            this.textBoxPiso.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.direccionBindingSource, "Piso", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxPiso.Location = new System.Drawing.Point(67, 41);
             this.textBoxPiso.Name = "textBoxPiso";
             this.textBoxPiso.Size = new System.Drawing.Size(38, 21);
@@ -334,6 +356,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxNumero
             // 
+            this.textBoxNumero.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.direccionBindingSource, "Numero", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBoxNumero.Location = new System.Drawing.Point(347, 14);
             this.textBoxNumero.Name = "textBoxNumero";
             this.textBoxNumero.Size = new System.Drawing.Size(47, 21);
@@ -342,6 +365,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxCalle
             // 
+            this.textBoxCalle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.direccionBindingSource, "Calle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxCalle.Location = new System.Drawing.Point(67, 14);
             this.textBoxCalle.Name = "textBoxCalle";
             this.textBoxCalle.Size = new System.Drawing.Size(224, 21);
@@ -385,6 +409,8 @@ namespace GI.UI.Propiedades
             // 
             // cbMonedaReal
             // 
+            this.cbMonedaReal.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.valorBindingSource1, "Moneda", true));
+            this.cbMonedaReal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource1, "Moneda", true));
             this.cbMonedaReal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonedaReal.FormattingEnabled = true;
             this.cbMonedaReal.Location = new System.Drawing.Point(378, 100);
@@ -392,8 +418,13 @@ namespace GI.UI.Propiedades
             this.cbMonedaReal.Size = new System.Drawing.Size(48, 21);
             this.cbMonedaReal.TabIndex = 8;
             // 
+            // valorBindingSource1
+            // 
+            this.valorBindingSource1.DataSource = typeof(GI.BR.Valor);
+            // 
             // textBoxVarorMercado
             // 
+            this.textBoxVarorMercado.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource1, "Importe", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBoxVarorMercado.Location = new System.Drawing.Point(323, 100);
             this.textBoxVarorMercado.Name = "textBoxVarorMercado";
             this.textBoxVarorMercado.Size = new System.Drawing.Size(51, 21);
@@ -410,8 +441,14 @@ namespace GI.UI.Propiedades
             this.textBoxValorPublicacion.TabIndex = 5;
             this.textBoxValorPublicacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // valorBindingSource
+            // 
+            this.valorBindingSource.DataSource = typeof(GI.BR.Valor);
+            // 
             // cbMonedaPublicacion
             // 
+            this.cbMonedaPublicacion.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.valorBindingSource, "Moneda", true));
+            this.cbMonedaPublicacion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource, "Moneda", true));
             this.cbMonedaPublicacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonedaPublicacion.FormattingEnabled = true;
             this.cbMonedaPublicacion.Location = new System.Drawing.Point(183, 98);
@@ -439,13 +476,10 @@ namespace GI.UI.Propiedades
             this.textBoxCodigo.TabIndex = 31;
             this.textBoxCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // propiedadBindingSource
-            // 
-            this.propiedadBindingSource.DataSource = typeof(GI.BR.Propiedades.Propiedad);
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
+            this.label17.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "EsOtraInmobiliaria", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.label17.Location = new System.Drawing.Point(340, 74);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(86, 13);
@@ -472,17 +506,18 @@ namespace GI.UI.Propiedades
             // 
             // cbAmbientes
             // 
-            this.cbAmbientes.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.propiedadBindingSource, "CantidadAmbientes", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.cbAmbientes.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "CantidadAmbientes", true));
             this.cbAmbientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAmbientes.FormattingEnabled = true;
             this.cbAmbientes.Location = new System.Drawing.Point(120, 131);
             this.cbAmbientes.Name = "cbAmbientes";
             this.cbAmbientes.Size = new System.Drawing.Size(106, 21);
             this.cbAmbientes.TabIndex = 9;
+            this.cbAmbientes.SelectedIndexChanged += new System.EventHandler(this.cbAmbientes_SelectedIndexChanged);
             // 
             // cbEstadoProp
             // 
+            this.cbEstadoProp.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.propiedadBindingSource, "EnumEstado", true));
+            this.cbEstadoProp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "EnumEstado", true));
             this.cbEstadoProp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstadoProp.FormattingEnabled = true;
             this.cbEstadoProp.Location = new System.Drawing.Point(323, 132);
@@ -501,6 +536,8 @@ namespace GI.UI.Propiedades
             // 
             // cbCategoria
             // 
+            this.cbCategoria.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.propiedadBindingSource, "Categoria", true));
+            this.cbCategoria.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "Categoria", true));
             this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategoria.FormattingEnabled = true;
             this.cbCategoria.Location = new System.Drawing.Point(119, 17);
@@ -586,16 +623,14 @@ namespace GI.UI.Propiedades
             // LinkPropietario
             // 
             this.LinkPropietario.AutoSize = true;
+            this.LinkPropietario.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.propiedadBindingSource, "Propietario", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.LinkPropietario.Location = new System.Drawing.Point(320, 47);
             this.LinkPropietario.Name = "LinkPropietario";
-            this.LinkPropietario.Size = new System.Drawing.Size(70, 13);
+            this.LinkPropietario.Size = new System.Drawing.Size(127, 13);
             this.LinkPropietario.TabIndex = 3;
             this.LinkPropietario.TabStop = true;
-            this.LinkPropietario.Text = "Emilio Davidis";
-            // 
-            // valorBindingSource
-            // 
-            this.valorBindingSource.DataSource = typeof(GI.BR.Valor);
+            this.LinkPropietario.Text = "Seleccione un propietario";
+            this.LinkPropietario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkPropietario_LinkClicked);
             // 
             // TabPropiedad
             // 
@@ -628,14 +663,16 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.label1);
             this.Name = "TabPropiedad";
             this.Size = new System.Drawing.Size(494, 544);
+            ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.direccionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -699,5 +736,7 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.BindingSource propiedadBindingSource;
         private System.Windows.Forms.BindingSource valorBindingSource;
+        private System.Windows.Forms.BindingSource direccionBindingSource;
+        private System.Windows.Forms.BindingSource valorBindingSource1;
     }
 }

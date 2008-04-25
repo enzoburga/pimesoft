@@ -16,6 +16,7 @@ namespace GI.BR.Propiedades
         protected decimal cantidadAmbientes;
         protected string codigo;
         protected TipoPropiedad tipoPropiedad;
+        protected CategoriaPropiedad categoria;
         protected EstadoPropiedad estado;
         protected Estado enumEstado;
         protected Propietario propietario;
@@ -49,6 +50,22 @@ namespace GI.BR.Propiedades
         #endregion
 
         #region Propiedades
+
+        public CategoriaPropiedad Categoria
+        {
+            get
+            {
+                if (categoria == null && TipoPropiedad != null)
+                {
+                    CategoriasPropiedad categorias = new CategoriasPropiedad();
+                    categorias.RecuperarTodas();
+                    categoria = categorias.GetByIdCategoria(TipoPropiedad.IdCategoria);
+
+                }
+                return categoria; 
+            }
+            set { categoria = value; }
+        }
 
         public decimal CantidadAmbientes
         {
@@ -93,7 +110,11 @@ namespace GI.BR.Propiedades
 
         public Propietario Propietario
         {
-            get { return propietario; }
+            get 
+            {
+                
+                return propietario; 
+            }
             set { propietario = value; }
         }
 
