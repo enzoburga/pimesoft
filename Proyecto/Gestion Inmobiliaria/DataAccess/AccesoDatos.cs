@@ -22,7 +22,10 @@ namespace GI.DA
             get
             {
                 if (xConn.State != ConnectionState.Open)
+                {
+                    xConn.ConnectionString = GetConnString;
                     xConn.Open();
+                }
                 return xConn;
             }
         }

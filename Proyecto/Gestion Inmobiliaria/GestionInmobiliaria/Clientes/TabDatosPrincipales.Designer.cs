@@ -101,7 +101,7 @@ namespace GI.UI.Clientes
             this.tbApellido.Location = new System.Drawing.Point(278, 11);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(145, 21);
-            this.tbApellido.TabIndex = 3;
+            this.tbApellido.TabIndex = 1;
             // 
             // groupBox2
             // 
@@ -125,9 +125,10 @@ namespace GI.UI.Clientes
             // tbCodigoPostal
             // 
             this.tbCodigoPostal.Location = new System.Drawing.Point(245, 41);
+            this.tbCodigoPostal.MaxLength = 7;
             this.tbCodigoPostal.Name = "tbCodigoPostal";
             this.tbCodigoPostal.Size = new System.Drawing.Size(46, 21);
-            this.tbCodigoPostal.TabIndex = 24;
+            this.tbCodigoPostal.TabIndex = 17;
             this.tbCodigoPostal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label13
@@ -142,17 +143,19 @@ namespace GI.UI.Clientes
             // tbDepto
             // 
             this.tbDepto.Location = new System.Drawing.Point(166, 41);
+            this.tbDepto.MaxLength = 1;
             this.tbDepto.Name = "tbDepto";
             this.tbDepto.Size = new System.Drawing.Size(24, 21);
-            this.tbDepto.TabIndex = 22;
+            this.tbDepto.TabIndex = 16;
             this.tbDepto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbPiso
             // 
             this.tbPiso.Location = new System.Drawing.Point(67, 41);
+            this.tbPiso.MaxLength = 2;
             this.tbPiso.Name = "tbPiso";
             this.tbPiso.Size = new System.Drawing.Size(38, 21);
-            this.tbPiso.TabIndex = 21;
+            this.tbPiso.TabIndex = 15;
             // 
             // label12
             // 
@@ -166,9 +169,10 @@ namespace GI.UI.Clientes
             // tbAltura
             // 
             this.tbAltura.Location = new System.Drawing.Point(347, 14);
+            this.tbAltura.MaxLength = 5;
             this.tbAltura.Name = "tbAltura";
             this.tbAltura.Size = new System.Drawing.Size(47, 21);
-            this.tbAltura.TabIndex = 19;
+            this.tbAltura.TabIndex = 14;
             this.tbAltura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbCalle
@@ -176,7 +180,7 @@ namespace GI.UI.Clientes
             this.tbCalle.Location = new System.Drawing.Point(67, 14);
             this.tbCalle.Name = "tbCalle";
             this.tbCalle.Size = new System.Drawing.Size(224, 21);
-            this.tbCalle.TabIndex = 18;
+            this.tbCalle.TabIndex = 13;
             // 
             // label11
             // 
@@ -229,7 +233,7 @@ namespace GI.UI.Clientes
             this.cbProvincia.Location = new System.Drawing.Point(255, 20);
             this.cbProvincia.Name = "cbProvincia";
             this.cbProvincia.Size = new System.Drawing.Size(148, 21);
-            this.cbProvincia.TabIndex = 14;
+            this.cbProvincia.TabIndex = 10;
             this.cbProvincia.SelectedIndexChanged += new System.EventHandler(this.cbProvincia_SelectedIndexChanged);
             // 
             // cbBarrio
@@ -239,7 +243,7 @@ namespace GI.UI.Clientes
             this.cbBarrio.Location = new System.Drawing.Point(255, 47);
             this.cbBarrio.Name = "cbBarrio";
             this.cbBarrio.Size = new System.Drawing.Size(148, 21);
-            this.cbBarrio.TabIndex = 14;
+            this.cbBarrio.TabIndex = 12;
             // 
             // cbLocalidad
             // 
@@ -248,7 +252,7 @@ namespace GI.UI.Clientes
             this.cbLocalidad.Location = new System.Drawing.Point(67, 47);
             this.cbLocalidad.Name = "cbLocalidad";
             this.cbLocalidad.Size = new System.Drawing.Size(123, 21);
-            this.cbLocalidad.TabIndex = 13;
+            this.cbLocalidad.TabIndex = 11;
             this.cbLocalidad.SelectedIndexChanged += new System.EventHandler(this.cbLocalidad_SelectedIndexChanged);
             // 
             // cbPais
@@ -258,7 +262,7 @@ namespace GI.UI.Clientes
             this.cbPais.Location = new System.Drawing.Point(67, 20);
             this.cbPais.Name = "cbPais";
             this.cbPais.Size = new System.Drawing.Size(123, 21);
-            this.cbPais.TabIndex = 8;
+            this.cbPais.TabIndex = 9;
             this.cbPais.SelectedIndexChanged += new System.EventHandler(this.cbPais_SelectedIndexChanged);
             // 
             // label8
@@ -304,14 +308,15 @@ namespace GI.UI.Clientes
             this.cbTipoDocumento.Location = new System.Drawing.Point(176, 38);
             this.cbTipoDocumento.Name = "cbTipoDocumento";
             this.cbTipoDocumento.Size = new System.Drawing.Size(44, 21);
-            this.cbTipoDocumento.TabIndex = 12;
+            this.cbTipoDocumento.TabIndex = 3;
             // 
             // tbNroDocumento
             // 
             this.tbNroDocumento.Location = new System.Drawing.Point(114, 38);
+            this.tbNroDocumento.MaxLength = 8;
             this.tbNroDocumento.Name = "tbNroDocumento";
             this.tbNroDocumento.Size = new System.Drawing.Size(56, 21);
-            this.tbNroDocumento.TabIndex = 11;
+            this.tbNroDocumento.TabIndex = 2;
             this.tbNroDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
@@ -330,7 +335,7 @@ namespace GI.UI.Clientes
             this.tbObervaciones.Name = "tbObervaciones";
             this.tbObervaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbObervaciones.Size = new System.Drawing.Size(407, 90);
-            this.tbObervaciones.TabIndex = 27;
+            this.tbObervaciones.TabIndex = 18;
             // 
             // label14
             // 
@@ -346,7 +351,7 @@ namespace GI.UI.Clientes
             this.tbTelParticular.Location = new System.Drawing.Point(114, 67);
             this.tbTelParticular.Name = "tbTelParticular";
             this.tbTelParticular.Size = new System.Drawing.Size(106, 21);
-            this.tbTelParticular.TabIndex = 29;
+            this.tbTelParticular.TabIndex = 5;
             this.tbTelParticular.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
@@ -363,7 +368,7 @@ namespace GI.UI.Clientes
             this.tbTelCelular.Location = new System.Drawing.Point(114, 94);
             this.tbTelCelular.Name = "tbTelCelular";
             this.tbTelCelular.Size = new System.Drawing.Size(106, 21);
-            this.tbTelCelular.TabIndex = 31;
+            this.tbTelCelular.TabIndex = 7;
             this.tbTelCelular.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label15
@@ -380,7 +385,7 @@ namespace GI.UI.Clientes
             this.tbTelLaboral.Location = new System.Drawing.Point(318, 70);
             this.tbTelLaboral.Name = "tbTelLaboral";
             this.tbTelLaboral.Size = new System.Drawing.Size(105, 21);
-            this.tbTelLaboral.TabIndex = 33;
+            this.tbTelLaboral.TabIndex = 6;
             this.tbTelLaboral.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label16
@@ -407,7 +412,7 @@ namespace GI.UI.Clientes
             this.dtpFechaNac.Location = new System.Drawing.Point(320, 98);
             this.dtpFechaNac.Name = "dtpFechaNac";
             this.dtpFechaNac.Size = new System.Drawing.Size(106, 21);
-            this.dtpFechaNac.TabIndex = 35;
+            this.dtpFechaNac.TabIndex = 8;
             this.dtpFechaNac.Value = new System.DateTime(1978, 11, 16, 15, 35, 0, 0);
             // 
             // tbEmail
@@ -415,7 +420,7 @@ namespace GI.UI.Clientes
             this.tbEmail.Location = new System.Drawing.Point(278, 38);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(145, 21);
-            this.tbEmail.TabIndex = 37;
+            this.tbEmail.TabIndex = 4;
             // 
             // label18
             // 

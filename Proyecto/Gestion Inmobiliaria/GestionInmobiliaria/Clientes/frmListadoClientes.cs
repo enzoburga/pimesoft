@@ -31,16 +31,29 @@ namespace GI.UI.Clientes
             frm.ShowDialog();
         }
 
-        private void nuevaFichaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void nuevoPropietarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmFichaCliente frm = new frmFichaCliente();
+            frm.Cliente = new GI.BR.Propietario();
             frm.Show();
         }
 
         private void bBuscar_Click(object sender, EventArgs e)
         {
+            if(tbBuscar.Text.Length <2)
+            {
+                GI.Framework.General.GIMsgBox.Show("Debe ingresar al menos dos caracteres.", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
             GI.BR.Clientes clientes = new GI.BR.Clientes();
             clientes.RecuperarPropietarios(tbBuscar.Text);
+
+            if(clientes.Count <1)
+            {
+                GI.Framework.General.GIMsgBox.Show("No se han encontrado clientes coincidentes con el criterio.", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
+
 
             CargarClientes(clientes);
         }
@@ -48,6 +61,7 @@ namespace GI.UI.Clientes
         private void CargarClientes(GI.BR.Clientes clientes)
         {
             ListViewItem lvi;
+            lvClientes.Items.Clear();
             foreach(GI.BR.Cliente c in clientes)
             {
                 lvi  = new ListViewItem();
@@ -62,6 +76,13 @@ namespace GI.UI.Clientes
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void nuevoInquilinoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFichaCliente frm = new frmFichaCliente();
+            frm.Cliente = new GI.BR.Inquilino();
+            frm.Show();
         }
     }
 }

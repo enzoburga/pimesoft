@@ -31,7 +31,8 @@ namespace GI.UI.Clientes
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoClientes));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.nuevaFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoPropietarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoInquilinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.imprimirListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +63,8 @@ namespace GI.UI.Clientes
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevaFichaToolStripMenuItem,
+            this.nuevoPropietarioToolStripMenuItem,
+            this.nuevoInquilinoToolStripMenuItem,
             this.toolStripSeparator1,
             this.imprimirListToolStripMenuItem,
             this.cerrarToolStripMenuItem});
@@ -72,28 +74,35 @@ namespace GI.UI.Clientes
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(56, 22);
             this.toolStripDropDownButton1.Text = "Archivo";
             // 
-            // nuevaFichaToolStripMenuItem
+            // nuevoPropietarioToolStripMenuItem
             // 
-            this.nuevaFichaToolStripMenuItem.Name = "nuevaFichaToolStripMenuItem";
-            this.nuevaFichaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.nuevaFichaToolStripMenuItem.Text = "Nuevo Cliente";
-            this.nuevaFichaToolStripMenuItem.Click += new System.EventHandler(this.nuevaFichaToolStripMenuItem_Click);
+            this.nuevoPropietarioToolStripMenuItem.Name = "nuevoPropietarioToolStripMenuItem";
+            this.nuevoPropietarioToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.nuevoPropietarioToolStripMenuItem.Text = "Nuevo Propietario";
+            this.nuevoPropietarioToolStripMenuItem.Click += new System.EventHandler(this.nuevoPropietarioToolStripMenuItem_Click);
+            // 
+            // nuevoInquilinoToolStripMenuItem
+            // 
+            this.nuevoInquilinoToolStripMenuItem.Name = "nuevoInquilinoToolStripMenuItem";
+            this.nuevoInquilinoToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.nuevoInquilinoToolStripMenuItem.Text = "Nuevo Inquilino";
+            this.nuevoInquilinoToolStripMenuItem.Click += new System.EventHandler(this.nuevoInquilinoToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(154, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(168, 6);
             // 
             // imprimirListToolStripMenuItem
             // 
             this.imprimirListToolStripMenuItem.Name = "imprimirListToolStripMenuItem";
-            this.imprimirListToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.imprimirListToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.imprimirListToolStripMenuItem.Text = "Imprimir listado";
             // 
             // cerrarToolStripMenuItem
             // 
             this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
-            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.cerrarToolStripMenuItem.Text = "Cerrar";
             this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
             // 
@@ -192,7 +201,7 @@ namespace GI.UI.Clientes
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem nuevaFichaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nuevoPropietarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem imprimirListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
@@ -203,5 +212,6 @@ namespace GI.UI.Clientes
         private System.Windows.Forms.TextBox tbBuscar;
         private System.Windows.Forms.Button bBuscar;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ToolStripMenuItem nuevoInquilinoToolStripMenuItem;
     }
 }
