@@ -60,14 +60,14 @@ namespace GI.UI.Generales
         {
             cbLocalidad.Items.Clear();
             cbLocalidad.Items.AddRange(uff.GetLocalidades(((GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem).IdProvincia).ToArray());
-            //cbLocalidad.SelectedItem = uff.GetLocalidades(((GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem).IdProvincia).GetDefault;
+            cbLocalidad.SelectedItem = uff.GetLocalidades(((GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem).IdProvincia).GetDefault;
         }
 
         private void cbLocalidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbBarrio.Items.Clear();
             cbBarrio.Items.AddRange(uff.GetBarrios(((GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem).IdLocalidad).ToArray());
-            //cbBarrio.SelectedItem = uff.GetBarrios(((GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem).IdLocalidad).GetDefault;
+            cbBarrio.SelectedItem = uff.GetBarrios(((GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem).IdLocalidad).GetDefault;
         }
 
         private void cbBarrio_SelectedIndexChanged(object sender, EventArgs e)
