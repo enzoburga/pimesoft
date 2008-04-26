@@ -84,8 +84,9 @@ namespace GI.UI.Propiedades
                 Propiedad.EnumEstado = GI.BR.Propiedades.Estado.AEstrenar;
                 Propiedad.CantidadAmbientes = 1;
                 Propiedad.Medidas = new GI.BR.Propiedades.MedidasAmbiente();
-                Propiedad.Ubicacion = new GI.BR.Propiedades.Ubicacion();
+  
                 Propiedad.Direccion = new GI.BR.Propiedades.Direccion();
+
             }
 
             propiedadBindingSource.Add(Propiedad);
@@ -94,7 +95,8 @@ namespace GI.UI.Propiedades
             direccionBindingSource.Add(Propiedad.Direccion);
 
             ctrlUbicacion1.Inicializar();
-            ctrlUbicacion1.Ubicacion = Propiedad.Ubicacion;
+            if (Propiedad.IdPropiedad != 0)
+                ctrlUbicacion1.Ubicacion = Propiedad.Ubicacion;
 
             ctrlDireccion1.Direccion = Propiedad.Direccion;
 
