@@ -61,6 +61,8 @@
     <Compile Include="Propiedades\MedidaPropiedad.cs" />
     <Compile Include="Propiedades\MedidasAmbiente.cs" />
     <Compile Include="Propiedades\MedidasTerreno.cs" />
+    <Compile Include="Propiedades\Nota.cs" />
+    <Compile Include="Propiedades\Notas.cs" />
     <Compile Include="Propiedades\Propiedad.cs" />
     <Compile Include="Propiedades\TipoDePiso.cs" />
     <Compile Include="Propiedades\TipoPropiedad.cs" />
