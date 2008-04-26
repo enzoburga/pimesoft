@@ -23,6 +23,15 @@ namespace GI.DA
                 new string[] { "@Clase" });
         }
 
+        public IDataReader RecuperarTiposDePiso()
+        { 
+            
+            return AccesoDatos.RecuperarDatos(
+                "TiposDePiso_RecuperarTodos",
+                new object[] { },
+                new string[] { });
+        }
+
         public IDataReader RecuperarMedidasAmbientesPorPropiedad(int IdPropiedad)
         { 
             return AccesoDatos.RecuperarDatos(

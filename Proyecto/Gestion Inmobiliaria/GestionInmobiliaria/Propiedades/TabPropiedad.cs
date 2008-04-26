@@ -162,6 +162,38 @@ namespace GI.UI.Propiedades
 
         }
 
+        private void linkLabelAgregarMedida_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            GI.BR.Propiedades.MedidaAmbiente medidaAmb = new GI.BR.Propiedades.MedidaAmbiente();
+
+            Formularios.FrmMedida frm = new GI.UI.Propiedades.Formularios.FrmMedida();
+            frm.Medida = medidaAmb;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                Propiedad.Medidas.Add(medidaAmb);
+                ListViewItem item = new ListViewItem();
+                item.Text = medidaAmb.NombreAmbiente;
+                item.SubItems.Add(medidaAmb.Ancho.ToString());
+                item.SubItems.Add(medidaAmb.Largo.ToString());
+                item.SubItems.Add(medidaAmb.TipoDePiso.ToString());
+                item.Tag = medidaAmb;
+                lvMedidas.Items.Add(item);
+            
+            }
+        }
+
+        private void linkLabelEliminarMedida_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (lvMedidas.SelectedItems.Count != 1) return;
+            if (Framework.General.GIMsgBox.Show("¿Confirma eliminar la medida de ambiente seleccionada?", GI.Framework.General.enumTipoMensaje.Pregunta) == DialogResult.Yes)
+            {
+                GI.BR.Propiedades.MedidaAmbiente medida = (GI.BR.Propiedades.MedidaAmbiente)lvMedidas.SelectedItems[0].Tag;
+                Propiedad.Medidas.Remove(medida);
+                lvMedidas.Items.RemoveAt(lvMedidas.SelectedIndices[0]);
+
+            }
+        }
+
 
 
         

@@ -247,7 +247,9 @@
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.MedidaAmbiente.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Propiedad.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.TipoDePiso.datasource" />
     <None Include="Properties\DataSources\GI.BR.Valor.datasource" />
     <Compile Include="Propiedades\Formularios\FrmMedida.cs">
       <SubType>Form</SubType>

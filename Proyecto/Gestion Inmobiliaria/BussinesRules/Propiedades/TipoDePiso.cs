@@ -30,6 +30,12 @@ namespace GI.BR.Propiedades
         }
 
 
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
+
 
     }
 }
