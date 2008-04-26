@@ -32,17 +32,6 @@ namespace GI.UI.Clientes
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbApellido = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tbCodigoPostal = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tbDepto = new System.Windows.Forms.TextBox();
-            this.tbPiso = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tbAltura = new System.Windows.Forms.TextBox();
-            this.tbCalle = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.cbTipoDocumento = new GI.Framework.ComboBox();
             this.tbNroDocumento = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,7 +48,7 @@ namespace GI.UI.Clientes
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.ctrlUbicacion1 = new GI.UI.Generales.CtrlUbicacion();
-            this.groupBox2.SuspendLayout();
+            this.ctrlDireccion1 = new GI.UI.Generales.CtrlDireccion();
             this.SuspendLayout();
             // 
             // tbNombres
@@ -98,117 +87,6 @@ namespace GI.UI.Clientes
             this.tbApellido.TabIndex = 1;
             this.tbApellido.TextChanged += new System.EventHandler(this.tbApellido_TextChanged);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.tbCodigoPostal);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.tbDepto);
-            this.groupBox2.Controls.Add(this.tbPiso);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.tbAltura);
-            this.groupBox2.Controls.Add(this.tbCalle);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Location = new System.Drawing.Point(18, 226);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(409, 79);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Dirección";
-            // 
-            // tbCodigoPostal
-            // 
-            this.tbCodigoPostal.Location = new System.Drawing.Point(245, 41);
-            this.tbCodigoPostal.MaxLength = 7;
-            this.tbCodigoPostal.Name = "tbCodigoPostal";
-            this.tbCodigoPostal.Size = new System.Drawing.Size(46, 21);
-            this.tbCodigoPostal.TabIndex = 17;
-            this.tbCodigoPostal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tbCodigoPostal.TextChanged += new System.EventHandler(this.tbCodigoPostal_TextChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(219, 44);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(20, 13);
-            this.label13.TabIndex = 23;
-            this.label13.Text = "CP";
-            // 
-            // tbDepto
-            // 
-            this.tbDepto.Location = new System.Drawing.Point(166, 41);
-            this.tbDepto.MaxLength = 1;
-            this.tbDepto.Name = "tbDepto";
-            this.tbDepto.Size = new System.Drawing.Size(24, 21);
-            this.tbDepto.TabIndex = 16;
-            this.tbDepto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tbDepto.TextChanged += new System.EventHandler(this.tbDepto_TextChanged);
-            // 
-            // tbPiso
-            // 
-            this.tbPiso.Location = new System.Drawing.Point(67, 41);
-            this.tbPiso.MaxLength = 2;
-            this.tbPiso.Name = "tbPiso";
-            this.tbPiso.Size = new System.Drawing.Size(38, 21);
-            this.tbPiso.TabIndex = 15;
-            this.tbPiso.TextChanged += new System.EventHandler(this.tbPiso_TextChanged);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(120, 44);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 13);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "Depto.";
-            // 
-            // tbAltura
-            // 
-            this.tbAltura.Location = new System.Drawing.Point(347, 14);
-            this.tbAltura.MaxLength = 5;
-            this.tbAltura.Name = "tbAltura";
-            this.tbAltura.Size = new System.Drawing.Size(47, 21);
-            this.tbAltura.TabIndex = 14;
-            this.tbAltura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tbAltura.TextChanged += new System.EventHandler(this.tbAltura_TextChanged);
-            // 
-            // tbCalle
-            // 
-            this.tbCalle.Location = new System.Drawing.Point(67, 14);
-            this.tbCalle.Name = "tbCalle";
-            this.tbCalle.Size = new System.Drawing.Size(224, 21);
-            this.tbCalle.TabIndex = 13;
-            this.tbCalle.TextChanged += new System.EventHandler(this.tbCalle_TextChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(35, 44);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(26, 13);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Piso";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(297, 17);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Número";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(31, 17);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(30, 13);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Calle";
-            // 
             // cbTipoDocumento
             // 
             this.cbTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -240,7 +118,7 @@ namespace GI.UI.Clientes
             // 
             // tbObervaciones
             // 
-            this.tbObervaciones.Location = new System.Drawing.Point(16, 333);
+            this.tbObervaciones.Location = new System.Drawing.Point(19, 348);
             this.tbObervaciones.Multiline = true;
             this.tbObervaciones.Name = "tbObervaciones";
             this.tbObervaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -251,7 +129,7 @@ namespace GI.UI.Clientes
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(15, 317);
+            this.label14.Location = new System.Drawing.Point(15, 332);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(78, 13);
             this.label14.TabIndex = 26;
@@ -356,10 +234,20 @@ namespace GI.UI.Clientes
             this.ctrlUbicacion1.SoloLectura = false;
             this.ctrlUbicacion1.TabIndex = 37;
             // 
+            // ctrlDireccion1
+            // 
+            this.ctrlDireccion1.Direccion = null;
+            this.ctrlDireccion1.Location = new System.Drawing.Point(18, 217);
+            this.ctrlDireccion1.Name = "ctrlDireccion1";
+            this.ctrlDireccion1.Size = new System.Drawing.Size(417, 112);
+            this.ctrlDireccion1.SoloLectura = false;
+            this.ctrlDireccion1.TabIndex = 38;
+            // 
             // TabDatosPrincipales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ctrlDireccion1);
             this.Controls.Add(this.ctrlUbicacion1);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.label18);
@@ -376,17 +264,14 @@ namespace GI.UI.Clientes
             this.Controls.Add(this.label14);
             this.Controls.Add(this.tbNroDocumento);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.tbApellido);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbNombres);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TabDatosPrincipales";
-            this.Size = new System.Drawing.Size(444, 439);
+            this.Size = new System.Drawing.Size(444, 451);
             this.Load += new System.EventHandler(this.TabDatosPrincipales_Load);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,17 +283,6 @@ namespace GI.UI.Clientes
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbApellido;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox tbCodigoPostal;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox tbDepto;
-        private System.Windows.Forms.TextBox tbPiso;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox tbAltura;
-        private System.Windows.Forms.TextBox tbCalle;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private GI.Framework.ComboBox cbTipoDocumento;
         private System.Windows.Forms.TextBox tbNroDocumento;
         private System.Windows.Forms.Label label3;
@@ -425,5 +299,6 @@ namespace GI.UI.Clientes
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label label18;
         private GI.UI.Generales.CtrlUbicacion ctrlUbicacion1;
+        private GI.UI.Generales.CtrlDireccion ctrlDireccion1;
     }
 }

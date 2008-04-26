@@ -25,5 +25,25 @@ namespace GI.Managers.Clientes
 
             return clientes;
         }
+
+        public GI.BR.Clientes.Clientes RecuperarClientesTodos(GI.Managers.Clientes.enumTipoBusquedaCliente tipoCliente)
+        {
+            GI.BR.Clientes.Clientes clientes = new GI.BR.Clientes.Clientes();
+
+            switch (tipoCliente)
+            {
+                case enumTipoBusquedaCliente.Propietarios:
+                    clientes.RecuperarPropietarios();
+                    break;
+                case enumTipoBusquedaCliente.Inquilinos:
+                    clientes.RecuperarInquilinos();
+                    break;
+                case enumTipoBusquedaCliente.Todos:
+                    clientes.RecuperarTodos();
+                    break;
+            }
+
+            return clientes;
+        }
     }
 }

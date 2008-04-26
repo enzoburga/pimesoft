@@ -31,6 +31,7 @@ namespace GI.UI.Clientes
             this.bBuscar = new System.Windows.Forms.Button();
             this.tabControlTiposDeBusqueda = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tbNombres = new System.Windows.Forms.TextBox();
             this.lTipoCliente = new System.Windows.Forms.Label();
             this.cbTipoCliente = new GI.Framework.ComboBox();
@@ -42,7 +43,7 @@ namespace GI.UI.Clientes
             // bBuscar
             // 
             this.bBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bBuscar.Location = new System.Drawing.Point(158, 112);
+            this.bBuscar.Location = new System.Drawing.Point(158, 123);
             this.bBuscar.Name = "bBuscar";
             this.bBuscar.Size = new System.Drawing.Size(75, 23);
             this.bBuscar.TabIndex = 3;
@@ -59,12 +60,13 @@ namespace GI.UI.Clientes
             this.tabControlTiposDeBusqueda.Location = new System.Drawing.Point(0, 0);
             this.tabControlTiposDeBusqueda.Name = "tabControlTiposDeBusqueda";
             this.tabControlTiposDeBusqueda.SelectedIndex = 0;
-            this.tabControlTiposDeBusqueda.Size = new System.Drawing.Size(248, 110);
+            this.tabControlTiposDeBusqueda.Size = new System.Drawing.Size(248, 121);
             this.tabControlTiposDeBusqueda.TabIndex = 47;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage1.Controls.Add(this.checkBox1);
             this.tabPage1.Controls.Add(this.tbNombres);
             this.tabPage1.Controls.Add(this.lTipoCliente);
             this.tabPage1.Controls.Add(this.cbTipoCliente);
@@ -72,10 +74,21 @@ namespace GI.UI.Clientes
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(240, 84);
+            this.tabPage1.Size = new System.Drawing.Size(240, 95);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Buscar por Nombres / Apellido";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(109, 75);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(88, 17);
+            this.checkBox1.TabIndex = 48;
+            this.checkBox1.Text = "Buscar todos";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // tbNombres
             // 
@@ -115,7 +128,7 @@ namespace GI.UI.Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(248, 141);
+            this.ClientSize = new System.Drawing.Size(248, 152);
             this.Controls.Add(this.bBuscar);
             this.Controls.Add(this.tabControlTiposDeBusqueda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -142,5 +155,6 @@ namespace GI.UI.Clientes
         private System.Windows.Forms.Label lTipoCliente;
         private GI.Framework.ComboBox cbTipoCliente;
         private System.Windows.Forms.Label lNombreCliente;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
