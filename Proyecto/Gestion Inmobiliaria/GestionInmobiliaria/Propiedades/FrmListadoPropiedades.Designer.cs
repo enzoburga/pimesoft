@@ -85,6 +85,7 @@ namespace GI.UI.Propiedades
             this.toolStripButtonNuevaFicha.Name = "toolStripButtonNuevaFicha";
             this.toolStripButtonNuevaFicha.Size = new System.Drawing.Size(68, 68);
             this.toolStripButtonNuevaFicha.Text = "Nueva Ficha";
+            this.toolStripButtonNuevaFicha.Click += new System.EventHandler(this.toolStripButtonNuevaFicha_Click);
             // 
             // toolStripButtonEnviarMail
             // 
@@ -114,33 +115,33 @@ namespace GI.UI.Propiedades
             this.imprimirToolStripMenuItem,
             this.enviarACorreoElectrónicoToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(214, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(215, 92);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(213, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(214, 22);
             this.toolStripMenuItem1.Text = "Ver Ficha";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // editarFichaToolStripMenuItem
             // 
             this.editarFichaToolStripMenuItem.Name = "editarFichaToolStripMenuItem";
-            this.editarFichaToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.editarFichaToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.editarFichaToolStripMenuItem.Text = "Editar Ficha";
             this.editarFichaToolStripMenuItem.Click += new System.EventHandler(this.editarFichaToolStripMenuItem_Click);
             // 
             // imprimirToolStripMenuItem
             // 
             this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
-            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.imprimirToolStripMenuItem.Text = "Imprimir";
             // 
             // enviarACorreoElectrónicoToolStripMenuItem
             // 
             this.enviarACorreoElectrónicoToolStripMenuItem.Name = "enviarACorreoElectrónicoToolStripMenuItem";
-            this.enviarACorreoElectrónicoToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.enviarACorreoElectrónicoToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.enviarACorreoElectrónicoToolStripMenuItem.Text = "Enviar a correo electrónico";
             // 
             // lvPropiedades
