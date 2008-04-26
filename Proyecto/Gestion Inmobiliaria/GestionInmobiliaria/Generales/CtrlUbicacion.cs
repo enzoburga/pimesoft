@@ -13,25 +13,27 @@ namespace GI.UI.Generales
 
         private GI.BR.Propiedades.Ubicacion ubicacion;
         private GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory uff;
-
+        private bool inicializado = false;
         
 
 
         public CtrlUbicacion()
         {
             InitializeComponent();
-
-           
-
+            
         }
 
 
         public void Inicializar()
         {
-            uff = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+            if (!inicializado)
+            {
+                uff = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
 
-            cbPais.Items.AddRange(uff.GetPaises().ToArray());
-            cbPais.SelectedItem = uff.GetPaises().GetDefault;
+                cbPais.Items.AddRange(uff.GetPaises().ToArray());
+                cbPais.SelectedItem = uff.GetPaises().GetDefault;
+                inicializado = true;
+            }
         }
 
         
@@ -39,12 +41,21 @@ namespace GI.UI.Generales
         {
             get
             {
+                this.ubicacion.Barrio = (GI.BR.Propiedades.Ubicaciones.Barrio)cbBarrio.SelectedItem;
+                this.ubicacion.Pais = (GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem;
+                this.ubicacion.Provincia = (GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem;
+                this.ubicacion.Localidad = (GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem;
                 return ubicacion;
             }
             set
             {
-               
+                if (!inicializado)
+                    Inicializar();
                 ubicacion = value;
+                this.cbPais.SelectedIndex = GetIndicePais(ubicacion.Pais);
+                this.cbProvincia.SelectedIndex = GetIndiceProvincia(ubicacion.Provincia);
+                this.cbLocalidad.SelectedIndex = GetIndiceLocalidad(ubicacion.Localidad);
+                this.cbBarrio.SelectedIndex = GetIndiceBarrio(ubicacion.Barrio);  
             }
         }
 
@@ -69,9 +80,58 @@ namespace GI.UI.Generales
             cbBarrio.SelectedItem = uff.GetBarrios(((GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem).IdLocalidad).GetDefault;
         }
 
-        private void cbBarrio_SelectedIndexChanged(object sender, EventArgs e)
+        private void CtrlUbicacion_Load(object sender, EventArgs e)
         {
-
         }
+
+        #region GetIndices
+        private int GetIndiceProvincia(GI.BR.Propiedades.Ubicaciones.Provincia provincia)
+        {
+            int index = 0;
+            foreach (GI.BR.Propiedades.Ubicaciones.Provincia p in cbProvincia.Items)
+            {
+                if (p.IdProvincia == provincia.IdProvincia)
+                    return index;
+                index++;
+            }
+            throw new Exception("Elemento no encontrado (Provincia).");
+        }
+
+        private int GetIndicePais(GI.BR.Propiedades.Ubicaciones.Pais pais)
+        {
+            int index = 0;
+            foreach (GI.BR.Propiedades.Ubicaciones.Pais p in cbPais.Items)
+            {
+                if (p.IdPais == pais.IdPais)
+                    return index;
+                index++;
+            }
+            throw new Exception("Elemento no encontrado (Pais).");
+        }
+
+        private int GetIndiceLocalidad(GI.BR.Propiedades.Ubicaciones.Localidad localidad)
+        {
+            int index = 0;
+            foreach (GI.BR.Propiedades.Ubicaciones.Localidad l in cbLocalidad.Items)
+            {
+                if (l.IdLocalidad == localidad.IdLocalidad)
+                    return index;
+                index++;
+            }
+            throw new Exception("Elemento no encontrado (Localidad).");
+        }
+
+        private int GetIndiceBarrio(GI.BR.Propiedades.Ubicaciones.Barrio barrio)
+        {
+            int index = 0;
+            foreach (GI.BR.Propiedades.Ubicaciones.Barrio b in cbBarrio.Items)
+            {
+                if (b.IdBarrio == barrio.IdBarrio)
+                    return index;
+                index++;
+            }
+            throw new Exception("Elemento no encontrado (Barrio).");
+        } 
+        #endregion
     }
 }

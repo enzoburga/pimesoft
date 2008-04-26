@@ -29,8 +29,12 @@ namespace GI.UI.AdminAlquileres
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.LinkPropiedad = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.LinkPropietario = new System.Windows.Forms.LinkLabel();
             this.label13 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -39,27 +43,23 @@ namespace GI.UI.AdminAlquileres
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.LinkPropiedad = new System.Windows.Forms.LinkLabel();
-            this.LinkPropietario = new System.Windows.Forms.LinkLabel();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.LinkInquilino = new System.Windows.Forms.LinkLabel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.cbMonedaPublicacion = new GI.Framework.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new GI.Framework.ComboBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new GI.Framework.ComboBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.cbMonedaPublicacion = new GI.Framework.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LinkInquilino = new System.Windows.Forms.LinkLabel();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -87,6 +87,26 @@ namespace GI.UI.AdminAlquileres
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Propiedad";
             // 
+            // LinkPropiedad
+            // 
+            this.LinkPropiedad.AutoSize = true;
+            this.LinkPropiedad.Location = new System.Drawing.Point(74, 49);
+            this.LinkPropiedad.Name = "LinkPropiedad";
+            this.LinkPropiedad.Size = new System.Drawing.Size(129, 13);
+            this.LinkPropiedad.TabIndex = 26;
+            this.LinkPropiedad.TabStop = true;
+            this.LinkPropiedad.Text = "Seleccione una Propiedad";
+            this.LinkPropiedad.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkPropiedad_LinkClicked);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Código";
+            // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(252, 98);
@@ -96,6 +116,17 @@ namespace GI.UI.AdminAlquileres
             this.textBox5.Text = "1602";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // LinkPropietario
+            // 
+            this.LinkPropietario.AutoSize = true;
+            this.LinkPropietario.Location = new System.Drawing.Point(74, 26);
+            this.LinkPropietario.Name = "LinkPropietario";
+            this.LinkPropietario.Size = new System.Drawing.Size(127, 13);
+            this.LinkPropietario.TabIndex = 28;
+            this.LinkPropietario.TabStop = true;
+            this.LinkPropietario.Text = "Seleccione un Propietario";
+            this.LinkPropietario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkPropietario_LinkClicked);
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -104,6 +135,15 @@ namespace GI.UI.AdminAlquileres
             this.label13.Size = new System.Drawing.Size(20, 13);
             this.label13.TabIndex = 23;
             this.label13.Text = "CP";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Propietario";
             // 
             // textBox4
             // 
@@ -175,46 +215,6 @@ namespace GI.UI.AdminAlquileres
             this.label9.TabIndex = 15;
             this.label9.Text = "Calle";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Código";
-            // 
-            // LinkPropiedad
-            // 
-            this.LinkPropiedad.AutoSize = true;
-            this.LinkPropiedad.Location = new System.Drawing.Point(74, 49);
-            this.LinkPropiedad.Name = "LinkPropiedad";
-            this.LinkPropiedad.Size = new System.Drawing.Size(43, 13);
-            this.LinkPropiedad.TabIndex = 26;
-            this.LinkPropiedad.TabStop = true;
-            this.LinkPropiedad.Text = "P00032";
-            this.LinkPropiedad.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkPropiedad_LinkClicked);
-            // 
-            // LinkPropietario
-            // 
-            this.LinkPropietario.AutoSize = true;
-            this.LinkPropietario.Location = new System.Drawing.Point(74, 26);
-            this.LinkPropietario.Name = "LinkPropietario";
-            this.LinkPropietario.Size = new System.Drawing.Size(91, 13);
-            this.LinkPropietario.TabIndex = 28;
-            this.LinkPropietario.TabStop = true;
-            this.LinkPropietario.Text = "Emilio Luis Davidis";
-            this.LinkPropietario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkPropietario_LinkClicked);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Propietario";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.textBox9);
@@ -240,111 +240,24 @@ namespace GI.UI.AdminAlquileres
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contrato";
             // 
-            // LinkInquilino
+            // textBox9
             // 
-            this.LinkInquilino.AutoSize = true;
-            this.LinkInquilino.Location = new System.Drawing.Point(95, 26);
-            this.LinkInquilino.Name = "LinkInquilino";
-            this.LinkInquilino.Size = new System.Drawing.Size(91, 13);
-            this.LinkInquilino.TabIndex = 28;
-            this.LinkInquilino.TabStop = true;
-            this.LinkInquilino.Text = "Emilio Luis Davidis";
-            this.LinkInquilino.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkInquilino_LinkClicked);
+            this.textBox9.Location = new System.Drawing.Point(13, 159);
+            this.textBox9.Multiline = true;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox9.Size = new System.Drawing.Size(390, 105);
+            this.textBox9.TabIndex = 45;
+            this.textBox9.Text = "Este espacio esta destinado a comentarios.";
             // 
-            // label5
+            // label14
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(42, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 13);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Inquilino";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "Fecha Inicio";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(214, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 13);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Fecha Vencimiento";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(52, 82);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
-            this.label6.TabIndex = 32;
-            this.label6.Text = "Monto";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(233, 82);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 13);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "Día Vto. Cuota";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(40, 109);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 13);
-            this.label8.TabIndex = 34;
-            this.label8.Text = "Depósito";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(95, 49);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(86, 21);
-            this.dateTimePicker1.TabIndex = 35;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(316, 49);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(86, 21);
-            this.dateTimePicker2.TabIndex = 36;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(316, 79);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(29, 21);
-            this.textBox1.TabIndex = 37;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(95, 79);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(57, 21);
-            this.textBox8.TabIndex = 40;
-            this.textBox8.Text = "145700";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // cbMonedaPublicacion
-            // 
-            this.cbMonedaPublicacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMonedaPublicacion.FormattingEnabled = true;
-            this.cbMonedaPublicacion.Location = new System.Drawing.Point(158, 79);
-            this.cbMonedaPublicacion.Name = "cbMonedaPublicacion";
-            this.cbMonedaPublicacion.Size = new System.Drawing.Size(47, 21);
-            this.cbMonedaPublicacion.TabIndex = 41;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(9, 143);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(78, 13);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "Observaciones";
             // 
             // textBox2
             // 
@@ -364,24 +277,111 @@ namespace GI.UI.AdminAlquileres
             this.comboBox1.Size = new System.Drawing.Size(47, 21);
             this.comboBox1.TabIndex = 43;
             // 
-            // textBox9
+            // textBox8
             // 
-            this.textBox9.Location = new System.Drawing.Point(13, 159);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox9.Size = new System.Drawing.Size(390, 105);
-            this.textBox9.TabIndex = 45;
-            this.textBox9.Text = "Este espacio esta destinado a comentarios.";
+            this.textBox8.Location = new System.Drawing.Point(95, 79);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(57, 21);
+            this.textBox8.TabIndex = 40;
+            this.textBox8.Text = "145700";
+            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label14
+            // cbMonedaPublicacion
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 143);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(78, 13);
-            this.label14.TabIndex = 44;
-            this.label14.Text = "Observaciones";
+            this.cbMonedaPublicacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMonedaPublicacion.FormattingEnabled = true;
+            this.cbMonedaPublicacion.Location = new System.Drawing.Point(158, 79);
+            this.cbMonedaPublicacion.Name = "cbMonedaPublicacion";
+            this.cbMonedaPublicacion.Size = new System.Drawing.Size(47, 21);
+            this.cbMonedaPublicacion.TabIndex = 41;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(316, 79);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(29, 21);
+            this.textBox1.TabIndex = 37;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(316, 49);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(86, 21);
+            this.dateTimePicker2.TabIndex = 36;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(95, 49);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(86, 21);
+            this.dateTimePicker1.TabIndex = 35;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(40, 109);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 13);
+            this.label8.TabIndex = 34;
+            this.label8.Text = "Depósito";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(233, 82);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 13);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "Día Vto. Cuota";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(52, 82);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Monto";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(214, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 13);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Fecha Vencimiento";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Fecha Inicio";
+            // 
+            // LinkInquilino
+            // 
+            this.LinkInquilino.AutoSize = true;
+            this.LinkInquilino.Location = new System.Drawing.Point(95, 26);
+            this.LinkInquilino.Name = "LinkInquilino";
+            this.LinkInquilino.Size = new System.Drawing.Size(115, 13);
+            this.LinkInquilino.TabIndex = 28;
+            this.LinkInquilino.TabStop = true;
+            this.LinkInquilino.Text = "Seleccione un Inquilino";
+            this.LinkInquilino.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkInquilino_LinkClicked);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(42, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Inquilino";
             // 
             // TabDatosPrincipales
             // 

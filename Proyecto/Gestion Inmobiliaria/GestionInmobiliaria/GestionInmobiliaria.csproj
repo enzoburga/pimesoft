@@ -48,6 +48,12 @@
     <Compile Include="AdminAlquileres\frmFichaAdmAlquileres.Designer.cs">
       <DependentUpon>frmFichaAdmAlquileres.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminAlquileres\TabContenidoAdmAlquiler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabContenidoAdmAlquiler.Designer.cs">
+      <DependentUpon>TabContenidoAdmAlquiler.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminAlquileres\TabDatosPrincipales.cs">
       <SubType>UserControl</SubType>
     </Compile>

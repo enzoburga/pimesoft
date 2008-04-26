@@ -64,7 +64,17 @@ namespace GI.BR.Propiedades
 
         public override string ToString()
         {
-            return this.Calle + " " + this.Numero.ToString();
+            string sCalle;
+            string sNumero;
+
+            sCalle = calle;
+            sNumero = numero.ToString();
+
+            if (sCalle == "")
+                sCalle = "Sin Calle";
+            if (sNumero == "0")
+                sNumero = "Sin Número";
+            return sCalle + " - " + sNumero;
         }
     }
 }

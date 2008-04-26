@@ -28,10 +28,8 @@ namespace GI.UI.Generales
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbBarrio = new GI.Framework.ComboBox();
-            this.ubicacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbLocalidad = new GI.Framework.ComboBox();
             this.cbProvincia = new GI.Framework.ComboBox();
             this.cbPais = new GI.Framework.ComboBox();
@@ -40,7 +38,6 @@ namespace GI.UI.Generales
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ubicacionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -68,11 +65,6 @@ namespace GI.UI.Generales
             this.cbBarrio.Name = "cbBarrio";
             this.cbBarrio.Size = new System.Drawing.Size(148, 21);
             this.cbBarrio.TabIndex = 3;
-            this.cbBarrio.SelectedIndexChanged += new System.EventHandler(this.cbBarrio_SelectedIndexChanged);
-            // 
-            // ubicacionBindingSource
-            // 
-            this.ubicacionBindingSource.DataSource = typeof(GI.BR.Propiedades.Ubicacion);
             // 
             // cbLocalidad
             // 
@@ -148,9 +140,9 @@ namespace GI.UI.Generales
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "CtrlUbicacion";
             this.Size = new System.Drawing.Size(415, 89);
+            this.Load += new System.EventHandler(this.CtrlUbicacion_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ubicacionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -166,6 +158,5 @@ namespace GI.UI.Generales
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.BindingSource ubicacionBindingSource;
     }
 }

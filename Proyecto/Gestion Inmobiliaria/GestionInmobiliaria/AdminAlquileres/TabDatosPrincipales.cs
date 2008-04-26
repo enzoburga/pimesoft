@@ -8,11 +8,30 @@ using System.Windows.Forms;
 
 namespace GI.UI.AdminAlquileres
 {
-    public partial class TabDatosPrincipales : UserControl
+    public partial class TabDatosPrincipales : TabContenidoAdmAlquiler
     {
         public TabDatosPrincipales()
         {
             InitializeComponent();
+        }
+
+        protected override void  Inicializar()
+        {
+            if (AdmAlquiler.Alquiler.Propietario == null)
+                LinkPropietario.Text = "Seleccione un propietario";
+            else
+            {
+                LinkPropietario.Text = AdmAlquiler.Alquiler.Propietario.ToString();
+
+            }
+            
+            if (AdmAlquiler.ContratoVigente.Inquilino == null)
+                LinkInquilino.Text = "Seleccione un inquilino";
+            else
+            {
+                LinkInquilino.Text = AdmAlquiler.ContratoVigente.Inquilino.ToString();
+
+            }
         }
 
         private void LinkPropiedad_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -56,17 +56,6 @@ namespace GI.UI.Clientes
 
         private void frmFichaCliente_Load(object sender, EventArgs e)
         {
-
-            //if (cliente.IdCliente != 0)
-            //{
-            //    bAceptar.Visible = false;
-            //    bCancelar.Text = "Cerrar";
-            //}
-            //else
-            //{
-            //    bAceptar.Visible = true;
-            //    bCancelar.Text = "Cancelar";
-            //}
         }
 
         public override bool AsignarSoloLectura(Control Ctrl)
@@ -135,6 +124,7 @@ namespace GI.UI.Clientes
             catch (Exception ex)
             {
                 GI.Framework.General.GIMsgBox.Show(ex.Message, GI.Framework.General.enumTipoMensaje.Error);
+
             }
         }
 
@@ -144,17 +134,25 @@ namespace GI.UI.Clientes
                 switch (GI.Framework.General.GIMsgBox.ShowCancelarPerdidaDatos())
                 {
                     case DialogResult.Cancel: 
-                        break;
+                        return;
                     case DialogResult.Yes: 
                         bAceptar_Click(null, null); 
-                        break;
-                    case DialogResult.No:
-                        {
-                            DialogResult = DialogResult.Cancel;
-                            this.Close(); break;
-                        }
+                        return;
+                    case DialogResult.No: break;//Cierro.
+                        
                 }
+
+            DialogResult = DialogResult.Cancel;
+            this.Close();
            
+        }
+
+        private void frmFichaCliente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.AcceptButton == null)
+            {
+                int a = 0;
+            }
         }
     }
 }
