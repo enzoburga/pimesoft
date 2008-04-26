@@ -84,8 +84,8 @@ namespace GI.UI.Propiedades
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelEliminarMedida = new System.Windows.Forms.LinkLabel();
+            this.linkLabelAgregarMedida = new System.Windows.Forms.LinkLabel();
             this.LinkPropietario = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -413,7 +413,7 @@ namespace GI.UI.Propiedades
             this.cbMonedaReal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource1, "Moneda", true));
             this.cbMonedaReal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonedaReal.FormattingEnabled = true;
-            this.cbMonedaReal.Location = new System.Drawing.Point(378, 100);
+            this.cbMonedaReal.Location = new System.Drawing.Point(396, 100);
             this.cbMonedaReal.Name = "cbMonedaReal";
             this.cbMonedaReal.Size = new System.Drawing.Size(48, 21);
             this.cbMonedaReal.TabIndex = 8;
@@ -427,17 +427,17 @@ namespace GI.UI.Propiedades
             this.textBoxVarorMercado.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource1, "Importe", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBoxVarorMercado.Location = new System.Drawing.Point(323, 100);
             this.textBoxVarorMercado.Name = "textBoxVarorMercado";
-            this.textBoxVarorMercado.Size = new System.Drawing.Size(51, 21);
+            this.textBoxVarorMercado.Size = new System.Drawing.Size(67, 21);
             this.textBoxVarorMercado.TabIndex = 7;
             this.textBoxVarorMercado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxValorPublicacion
             // 
-            this.textBoxValorPublicacion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource, "Importe", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N2"));
+            this.textBoxValorPublicacion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource, "Importe", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBoxValorPublicacion.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxValorPublicacion.Location = new System.Drawing.Point(120, 98);
             this.textBoxValorPublicacion.Name = "textBoxValorPublicacion";
-            this.textBoxValorPublicacion.Size = new System.Drawing.Size(57, 21);
+            this.textBoxValorPublicacion.Size = new System.Drawing.Size(73, 21);
             this.textBoxValorPublicacion.TabIndex = 5;
             this.textBoxValorPublicacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -451,7 +451,7 @@ namespace GI.UI.Propiedades
             this.cbMonedaPublicacion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource, "Moneda", true));
             this.cbMonedaPublicacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonedaPublicacion.FormattingEnabled = true;
-            this.cbMonedaPublicacion.Location = new System.Drawing.Point(183, 98);
+            this.cbMonedaPublicacion.Location = new System.Drawing.Point(199, 98);
             this.cbMonedaPublicacion.Name = "cbMonedaPublicacion";
             this.cbMonedaPublicacion.Size = new System.Drawing.Size(47, 21);
             this.cbMonedaPublicacion.TabIndex = 6;
@@ -472,14 +472,13 @@ namespace GI.UI.Propiedades
             this.textBoxCodigo.Location = new System.Drawing.Point(120, 71);
             this.textBoxCodigo.Name = "textBoxCodigo";
             this.textBoxCodigo.ReadOnly = true;
-            this.textBoxCodigo.Size = new System.Drawing.Size(57, 21);
+            this.textBoxCodigo.Size = new System.Drawing.Size(73, 21);
             this.textBoxCodigo.TabIndex = 31;
             this.textBoxCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "EsOtraInmobiliaria", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.label17.Location = new System.Drawing.Point(340, 74);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(86, 13);
@@ -489,6 +488,7 @@ namespace GI.UI.Propiedades
             // checkBoxEsOtraPropiedad
             // 
             this.checkBoxEsOtraPropiedad.AutoSize = true;
+            this.checkBoxEsOtraPropiedad.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.propiedadBindingSource, "EsOtraInmobiliaria", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBoxEsOtraPropiedad.Location = new System.Drawing.Point(323, 74);
             this.checkBoxEsOtraPropiedad.Name = "checkBoxEsOtraPropiedad";
             this.checkBoxEsOtraPropiedad.Size = new System.Drawing.Size(15, 14);
@@ -498,7 +498,7 @@ namespace GI.UI.Propiedades
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(57, 132);
+            this.label18.Location = new System.Drawing.Point(264, 135);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(57, 13);
             this.label18.TabIndex = 33;
@@ -508,9 +508,9 @@ namespace GI.UI.Propiedades
             // 
             this.cbAmbientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAmbientes.FormattingEnabled = true;
-            this.cbAmbientes.Location = new System.Drawing.Point(120, 131);
+            this.cbAmbientes.Location = new System.Drawing.Point(323, 132);
             this.cbAmbientes.Name = "cbAmbientes";
-            this.cbAmbientes.Size = new System.Drawing.Size(106, 21);
+            this.cbAmbientes.Size = new System.Drawing.Size(121, 21);
             this.cbAmbientes.TabIndex = 9;
             this.cbAmbientes.SelectedIndexChanged += new System.EventHandler(this.cbAmbientes_SelectedIndexChanged);
             // 
@@ -520,15 +520,15 @@ namespace GI.UI.Propiedades
             this.cbEstadoProp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "EnumEstado", true));
             this.cbEstadoProp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstadoProp.FormattingEnabled = true;
-            this.cbEstadoProp.Location = new System.Drawing.Point(323, 132);
+            this.cbEstadoProp.Location = new System.Drawing.Point(120, 132);
             this.cbEstadoProp.Name = "cbEstadoProp";
-            this.cbEstadoProp.Size = new System.Drawing.Size(109, 21);
+            this.cbEstadoProp.Size = new System.Drawing.Size(127, 21);
             this.cbEstadoProp.TabIndex = 10;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(232, 135);
+            this.label19.Location = new System.Drawing.Point(29, 135);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(91, 13);
             this.label19.TabIndex = 35;
@@ -558,8 +558,8 @@ namespace GI.UI.Propiedades
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.lvMedidas);
-            this.groupBox3.Controls.Add(this.linkLabel2);
-            this.groupBox3.Controls.Add(this.linkLabel1);
+            this.groupBox3.Controls.Add(this.linkLabelEliminarMedida);
+            this.groupBox3.Controls.Add(this.linkLabelAgregarMedida);
             this.groupBox3.Location = new System.Drawing.Point(41, 159);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(409, 136);
@@ -600,25 +600,25 @@ namespace GI.UI.Propiedades
             this.columnHeader4.Text = "Tipo de Piso";
             this.columnHeader4.Width = 111;
             // 
-            // linkLabel2
+            // linkLabelEliminarMedida
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(303, 115);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(80, 13);
-            this.linkLabel2.TabIndex = 1;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Eliminar Medida";
+            this.linkLabelEliminarMedida.AutoSize = true;
+            this.linkLabelEliminarMedida.Location = new System.Drawing.Point(303, 115);
+            this.linkLabelEliminarMedida.Name = "linkLabelEliminarMedida";
+            this.linkLabelEliminarMedida.Size = new System.Drawing.Size(80, 13);
+            this.linkLabelEliminarMedida.TabIndex = 1;
+            this.linkLabelEliminarMedida.TabStop = true;
+            this.linkLabelEliminarMedida.Text = "Eliminar Medida";
             // 
-            // linkLabel1
+            // linkLabelAgregarMedida
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(218, 115);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(83, 13);
-            this.linkLabel1.TabIndex = 1;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Agregar Medida";
+            this.linkLabelAgregarMedida.AutoSize = true;
+            this.linkLabelAgregarMedida.Location = new System.Drawing.Point(218, 115);
+            this.linkLabelAgregarMedida.Name = "linkLabelAgregarMedida";
+            this.linkLabelAgregarMedida.Size = new System.Drawing.Size(83, 13);
+            this.linkLabelAgregarMedida.TabIndex = 1;
+            this.linkLabelAgregarMedida.TabStop = true;
+            this.linkLabelAgregarMedida.Text = "Agregar Medida";
             // 
             // LinkPropietario
             // 
@@ -639,11 +639,11 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.LinkPropietario);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label20);
+            this.Controls.Add(this.cbAmbientes);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.cbCategoria);
             this.Controls.Add(this.cbEstadoProp);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.cbAmbientes);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.checkBoxEsOtraPropiedad);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.textBoxCodigo);
@@ -727,8 +727,8 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabelEliminarMedida;
+        private System.Windows.Forms.LinkLabel linkLabelAgregarMedida;
         private System.Windows.Forms.LinkLabel LinkPropietario;
         private System.Windows.Forms.TextBox textBoxEntreCalle2;
         private System.Windows.Forms.Label label21;

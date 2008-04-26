@@ -175,6 +175,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\FrmMedida.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMedida.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Propiedades\Formularios\frmNota.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmNota.cs</DependentUpon>
@@ -245,6 +249,12 @@
     <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Propiedad.datasource" />
     <None Include="Properties\DataSources\GI.BR.Valor.datasource" />
+    <Compile Include="Propiedades\Formularios\FrmMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmMedida.Designer.cs">
+      <DependentUpon>FrmMedida.cs</DependentUpon>
+    </Compile>
     <Compile Include="Propiedades\Formularios\frmNota.cs">
       <SubType>Form</SubType>
     </Compile>

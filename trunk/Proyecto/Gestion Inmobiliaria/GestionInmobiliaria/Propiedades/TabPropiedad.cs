@@ -77,6 +77,8 @@ namespace GI.UI.Propiedades
                     cbAmbientes.SelectedItem = a;
             }
 
+            if (Propiedad.IdPropiedad > 0)
+                checkBoxEsOtraPropiedad.Enabled = false;
 
             if (Propiedad.Propietario == null)
                 LinkPropietario.Text = "Seleccione un propietario";
