@@ -25,6 +25,14 @@ namespace GI.UI.Propiedades
             cbDisposicion.Items.Add(GI.BR.Propiedades.DepartamentoDisposicion.Lateral);
             cbDisposicion.SelectedIndex = 0;
 
+
+            cbTipoZona.Items.Add(GI.BR.Propiedades.TipoZona.SinDefinir);
+             cbTipoZona.Items.Add(GI.BR.Propiedades.TipoZona.Comercial);
+             cbTipoZona.Items.Add(GI.BR.Propiedades.TipoZona.Industrial);
+             cbTipoZona.Items.Add(GI.BR.Propiedades.TipoZona.Residencial);
+             cbTipoZona.SelectedIndex = 0;
+
+
         }
 
         protected override void CargarPropiedad()
@@ -38,6 +46,7 @@ namespace GI.UI.Propiedades
                 Propiedad.MedidasTerreno = new GI.BR.Propiedades.MedidasTerreno();
                 Propiedad.MedidasPropiedad = new GI.BR.Propiedades.MedidaPropiedad();
                 Propiedad.Disposicion = GI.BR.Propiedades.DepartamentoDisposicion.SinDefinir;
+                Propiedad.TipoZona = GI.BR.Propiedades.TipoZona.SinDefinir;
             }
 
             medidaPropiedadBindingSource.Add(Propiedad.MedidasPropiedad);
@@ -63,6 +72,18 @@ namespace GI.UI.Propiedades
             textBoxAscensores.Text = "0";
             textBoxAscensoresServicio.Text = "0";
 
+            cbTipoZona.Enabled = false;
+            textBoxFOS.Enabled = false;
+            textBoxFOT.Enabled = false;
+            textBoxMetrosConstruibles.Enabled = false;
+            textBoxZonificacion.Enabled = false;
+
+            cbTipoZona.SelectedIndex = 0;
+            textBoxFOS.Text = "";
+            textBoxFOT.Text = "";
+            textBoxMetrosConstruibles.Text = "0";
+            textBoxZonificacion.Text = "";
+
             if (Tipo.IdTipoPropiedad == 1)
             {
                 cbDisposicion.Enabled = true;
@@ -73,6 +94,15 @@ namespace GI.UI.Propiedades
                 textBoxAscensoresServicio.Enabled = true;
             }
 
+
+            if (Tipo.IdTipoPropiedad==11 || Tipo.IdTipoPropiedad==18)
+            {
+                cbTipoZona.Enabled = true;
+                textBoxFOS.Enabled = true;
+                textBoxFOT.Enabled = true;
+                textBoxMetrosConstruibles.Enabled = true;
+                textBoxZonificacion.Enabled = true;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
