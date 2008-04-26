@@ -13,7 +13,9 @@ namespace GI.UI.Clientes
         public frmListadoClientes()
         {
             InitializeComponent();         
-        }       
+        }
+
+        private GI.BR.Clientes.Clientes clientes;
 
         private void lvClientes_DoubleClick(object sender, EventArgs e)
         {
@@ -22,7 +24,7 @@ namespace GI.UI.Clientes
             frmFichaCliente frm = new frmFichaCliente();
             frm.SoloLectura = true;
             frm.Cliente = (GI.BR.Clientes.Cliente)lvClientes.SelectedItems[0].Tag;            
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void nuevoPropietarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -30,7 +32,7 @@ namespace GI.UI.Clientes
             GI.BR.Clientes.ClienteFactory cf = new GI.BR.Clientes.ClienteFactory();
             frmFichaCliente frm = new frmFichaCliente();
             frm.Cliente = cf.CrearClaseCliente(typeof(GI.BR.Clientes.Propietario));
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void CargarClientes(GI.BR.Clientes.Clientes clientes)
@@ -59,11 +61,6 @@ namespace GI.UI.Clientes
             }
         }
 
-        private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void nuevoInquilinoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GI.BR.Clientes.ClienteFactory cf = new GI.BR.Clientes.ClienteFactory();
@@ -76,7 +73,10 @@ namespace GI.UI.Clientes
         {
             frmBuscarClientes frmBuscar = new frmBuscarClientes();
             if (frmBuscar.ShowDialog() == DialogResult.OK)
+            {
+                this.clientes = frmBuscar.Clientes;
                 this.CargarClientes(frmBuscar.Clientes);
+            }
         }
 
         private void verFichatoolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,7 +91,8 @@ namespace GI.UI.Clientes
             frmFichaCliente frm = new frmFichaCliente();
             
             frm.Cliente = (GI.BR.Clientes.Cliente)lvClientes.SelectedItems[0].Tag;
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.OK)
+                this.CargarClientes(clientes);
         }
     }
 }

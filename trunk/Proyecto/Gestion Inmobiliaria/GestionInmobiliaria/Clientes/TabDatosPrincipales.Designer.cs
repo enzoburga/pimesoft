@@ -47,8 +47,8 @@ namespace GI.UI.Clientes
             this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.ctrlUbicacion1 = new GI.UI.Generales.CtrlUbicacion();
             this.ctrlDireccion1 = new GI.UI.Generales.CtrlDireccion();
+            this.ctrlUbicacion1 = new GI.UI.Generales.CtrlUbicacion();
             this.SuspendLayout();
             // 
             // tbNombres
@@ -225,15 +225,6 @@ namespace GI.UI.Clientes
             this.label18.TabIndex = 36;
             this.label18.Text = "E-Mail";
             // 
-            // ctrlUbicacion1
-            // 
-            this.ctrlUbicacion1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlUbicacion1.Location = new System.Drawing.Point(18, 131);
-            this.ctrlUbicacion1.Name = "ctrlUbicacion1";
-            this.ctrlUbicacion1.Size = new System.Drawing.Size(415, 89);
-            this.ctrlUbicacion1.SoloLectura = false;
-            this.ctrlUbicacion1.TabIndex = 37;
-            // 
             // ctrlDireccion1
             // 
             this.ctrlDireccion1.Direccion = null;
@@ -242,6 +233,15 @@ namespace GI.UI.Clientes
             this.ctrlDireccion1.Size = new System.Drawing.Size(417, 112);
             this.ctrlDireccion1.SoloLectura = false;
             this.ctrlDireccion1.TabIndex = 38;
+            // 
+            // ctrlUbicacion1
+            // 
+            this.ctrlUbicacion1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlUbicacion1.Location = new System.Drawing.Point(18, 131);
+            this.ctrlUbicacion1.Name = "ctrlUbicacion1";
+            this.ctrlUbicacion1.Size = new System.Drawing.Size(415, 89);
+            this.ctrlUbicacion1.SoloLectura = false;
+            this.ctrlUbicacion1.TabIndex = 37;
             // 
             // TabDatosPrincipales
             // 

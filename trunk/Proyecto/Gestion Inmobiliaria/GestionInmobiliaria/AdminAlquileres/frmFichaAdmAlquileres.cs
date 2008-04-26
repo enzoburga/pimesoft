@@ -17,26 +17,28 @@ namespace GI.UI.AdminAlquileres
         }
 
         private GI.BR.AdmAlquileres.AdmAlquiler admAlquiler;
+        private GI.BR.AdmAlquileres.AdmAlquiler admAlquilerClone;
 
         public GI.BR.AdmAlquileres.AdmAlquiler AdmAlquiler
         {
             get { return admAlquiler; }
-            //set
-            //{
+            set
+            {
 
-            //    admAlquiler = value;
-            //    admAlquilerClone = (GI.BR.AdmAlquileres.AdmAlquiler)admAlquiler.Clone();
+                admAlquiler = value;
+                admAlquilerClone = (GI.BR.AdmAlquileres.AdmAlquiler)admAlquiler.Clone();
 
-            //    foreach (System.Windows.Forms.TabPage Page in this.tabControl.TabPages)
-            //    {
-            //        if (Page.Controls.Count != 1) continue;
-            //        if (Page.Controls[0] is TabContenidoPropiedad)
-            //            ((TabContenidoAdmAlquiler)Page.Controls[0]).AdmAlquiler = AdmAlquiler;
+                foreach (System.Windows.Forms.TabPage Page in this.tabControl.TabPages)
+                {
+                    if (Page.Controls.Count != 1) continue;
+                    if (Page.Controls[0] is TabContenidoAdmAlquiler)
+                        ((TabContenidoAdmAlquiler)Page.Controls[0]).AdmAlquiler = AdmAlquiler;
 
-            //    }
+                }
 
             }
         }
+    }
 
 
 
