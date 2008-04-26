@@ -29,7 +29,10 @@ namespace GI.UI.Clientes
                     throw new Exception(error);
 
                 cliente.Direccion = new GI.BR.Propiedades.Direccion();
-                cliente.Direccion.Numero = int.Parse(this.tbAltura.Text);
+                if (this.tbAltura.Text != "")
+                {
+                    cliente.Direccion.Numero = int.Parse(this.tbAltura.Text);
+                }
                 cliente.Apellido = this.tbApellido.Text;
                 cliente.Direccion.Calle = this.tbCalle.Text;
                 cliente.Direccion.CodigoPostal = this.tbCodigoPostal.Text;
@@ -42,15 +45,21 @@ namespace GI.UI.Clientes
 
                 if (this.tbTelCelular.Text != "")
                     cliente.TelefonoCelular = int.Parse(this.tbTelCelular.Text);
+                else
+                    cliente.TelefonoCelular = 0;
+
                 if (this.tbTelLaboral.Text != "")
-                    cliente.TelefonoTrabajo = int.Parse(this.tbTelLaboral.Text);                
-                
-                cliente.TelefonoParticular = int.Parse(this.tbTelParticular.Text);
-                cliente.Ubicacion = new GI.BR.Propiedades.Ubicacion();
-                cliente.Ubicacion.Barrio = (GI.BR.Propiedades.Ubicaciones.Barrio)this.cbBarrio.SelectedItem;
-                cliente.Ubicacion.Localidad = (GI.BR.Propiedades.Ubicaciones.Localidad)this.cbLocalidad.SelectedItem;
-                cliente.Ubicacion.Pais = (GI.BR.Propiedades.Ubicaciones.Pais)this.cbPais.SelectedItem;
-                cliente.Ubicacion.Provincia = (GI.BR.Propiedades.Ubicaciones.Provincia)this.cbProvincia.SelectedItem;
+                    cliente.TelefonoTrabajo = int.Parse(this.tbTelLaboral.Text);
+                else
+                    cliente.TelefonoTrabajo = 0;
+
+                if (this.tbTelParticular.Text != "")
+                    cliente.TelefonoParticular = int.Parse(this.tbTelParticular.Text);
+                else
+                    cliente.TelefonoParticular = 0;
+
+                cliente.Ubicacion = ctrlUbicacion1.Ubicacion;
+
                 cliente.TipoDocumento = (GI.BR.General.enumTipoDocumento)this.cbTipoDocumento.SelectedItem;
                 cliente.FechaNacimiento = dtpFechaNac.Value;
 
@@ -68,7 +77,10 @@ namespace GI.UI.Clientes
                 if (cliente.IdCliente == 0)
                     return;
 
-                this.tbAltura.Text = cliente.Direccion.Numero.ToString();
+                if (cliente.Direccion.Numero != 0)
+                {
+                    this.tbAltura.Text = cliente.Direccion.Numero.ToString();
+                }
                 this.tbApellido.Text = cliente.Apellido;
                 this.tbCalle.Text = cliente.Direccion.Calle;
                 this.tbCodigoPostal.Text = cliente.Direccion.CodigoPostal;
@@ -83,12 +95,10 @@ namespace GI.UI.Clientes
                     this.tbTelCelular.Text = cliente.TelefonoCelular.ToString();
                 if (cliente.TelefonoTrabajo != 0)
                     this.tbTelLaboral.Text = cliente.TelefonoTrabajo.ToString();
+                if (cliente.TelefonoParticular != 0)
+                    this.tbTelParticular.Text = cliente.TelefonoParticular.ToString();
 
-                this.tbTelParticular.Text = cliente.TelefonoParticular.ToString();
-                this.cbBarrio.SelectedIndex = GetIndiceBarrio(cliente.Ubicacion.Barrio);
-                this.cbLocalidad.SelectedIndex = GetIndiceLocalidad(cliente.Ubicacion.Localidad);
-                this.cbPais.SelectedIndex = GetIndicePais(cliente.Ubicacion.Pais);
-                this.cbProvincia.SelectedIndex = GetIndiceProvincia(cliente.Ubicacion.Provincia);
+                ctrlUbicacion1.Ubicacion = cliente.Ubicacion;
                 this.cbTipoDocumento.SelectedItem = cliente.TipoDocumento;
                 this.dtpFechaNac.Value = cliente.FechaNacimiento;
                 cambioDatos = false;
@@ -181,57 +191,9 @@ namespace GI.UI.Clientes
             return true;
         }
 
-        private int GetIndiceProvincia(GI.BR.Propiedades.Ubicaciones.Provincia provincia)
-        {
-            int index = 0;
-            foreach (GI.BR.Propiedades.Ubicaciones.Provincia p in cbProvincia.Items)
-            {
-                if (p.IdProvincia == provincia.IdProvincia)
-                    return index;
-                index++;
-            }
-            throw new Exception("Elemento no encontrado (Provincia).");
-        }
-
-        private int GetIndicePais(GI.BR.Propiedades.Ubicaciones.Pais pais)
-        {
-            int index = 0;
-            foreach (GI.BR.Propiedades.Ubicaciones.Pais p in cbPais.Items)
-            {
-                if (p.IdPais == pais.IdPais)
-                    return index;
-                index++;
-            }
-            throw new Exception("Elemento no encontrado (Pais).");
-        }
-
-        private int GetIndiceLocalidad(GI.BR.Propiedades.Ubicaciones.Localidad localidad)
-        {
-            int index = 0;
-            foreach (GI.BR.Propiedades.Ubicaciones.Localidad l in cbLocalidad.Items)
-            {
-                if (l.IdLocalidad == localidad.IdLocalidad)
-                    return index;
-                index++;
-            }
-            throw new Exception("Elemento no encontrado (Localidad).");
-        }
-
-        private int GetIndiceBarrio(GI.BR.Propiedades.Ubicaciones.Barrio barrio)
-        {
-            int index = 0;
-            foreach (GI.BR.Propiedades.Ubicaciones.Barrio b in cbBarrio.Items)
-            {
-                if (b.IdBarrio == barrio.IdBarrio)
-                    return index;
-                index++;
-            }
-            throw new Exception("Elemento no encontrado (Barrio).");
-        }
-
         public TabDatosPrincipales()
         {
-            
+
             InitializeComponent();
             Inicializar();
         }
@@ -241,11 +203,9 @@ namespace GI.UI.Clientes
             //INICIALIZAR COMBOS
 
             dtpFechaNac.Value = DateTime.Today;
+            ctrlUbicacion1.Inicializar();
 
             uff = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
-                
-            cbPais.Items.AddRange(uff.GetPaises().ToArray());
-            cbPais.SelectedItem = uff.GetPaises().GetDefault;
 
             cbTipoDocumento.Items.Add(GI.BR.General.enumTipoDocumento.DNI);
             cbTipoDocumento.Items.Add(GI.BR.General.enumTipoDocumento.LC);
@@ -257,28 +217,6 @@ namespace GI.UI.Clientes
         private void TabDatosPrincipales_Load(object sender, EventArgs e)
         {
             
-        }
-
-        private void cbPais_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbProvincia.Items.Clear();
-            cbProvincia.Items.AddRange(uff.GetProvincias(((GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem).IdPais).ToArray());
-            cbProvincia.SelectedItem = uff.GetProvincias(((GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem).IdPais).GetDefault;
-        }
-
-        private void cbLocalidad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbBarrio.Items.Clear();
-            cbBarrio.Items.AddRange(uff.GetBarrios(((GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem).IdLocalidad).ToArray());
-            cbBarrio.SelectedItem = uff.GetBarrios(((GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem).IdLocalidad).GetDefault;
-        }
-
-        private void cbProvincia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-            cbLocalidad.Items.Clear();
-            cbLocalidad.Items.AddRange(uff.GetLocalidades(((GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem).IdProvincia).ToArray());
-            cbLocalidad.SelectedItem = uff.GetLocalidades(((GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem).IdProvincia).GetDefault;
         }
 
         private void tbNombres_TextChanged(object sender, EventArgs e)

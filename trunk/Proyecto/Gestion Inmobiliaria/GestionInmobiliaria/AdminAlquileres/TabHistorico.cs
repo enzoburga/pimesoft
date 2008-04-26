@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GI.UI.AdminAlquileres
 {
-    public partial class TabHistorico : UserControl
+    public partial class TabHistorico : TabContenidoAdmAlquiler
     {
         public TabHistorico()
         {

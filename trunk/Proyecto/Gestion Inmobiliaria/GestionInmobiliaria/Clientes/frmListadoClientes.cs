@@ -41,7 +41,17 @@ namespace GI.UI.Clientes
             {
                 lvi  = new ListViewItem();
                 lvi.Text = c.ToString();
-                lvi.SubItems.Add(c.Direccion.ToString());
+
+
+                if(c.TelefonoParticular != 0)
+                    lvi.SubItems.Add(c.TelefonoParticular.ToString());
+                else
+                    if (c.TelefonoCelular != 0)
+                        lvi.SubItems.Add(c.TelefonoCelular.ToString());
+                    else
+                        if(c.TelefonoTrabajo != 0)
+                        lvi.SubItems.Add(c.TelefonoTrabajo.ToString());
+                
                 lvi.SubItems.Add(c.Email.ToString());
                 lvi.SubItems.Add(c.TipoCliente.ToString());
                 lvi.Tag = c;

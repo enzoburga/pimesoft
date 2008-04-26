@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="AdmAlquileres\AdmAlquiler.cs" />
     <Compile Include="AdmAlquileres\Contrato.cs" />
+    <Compile Include="AdmAlquileres\Contratos.cs" />
     <Compile Include="Clientes\Cliente.cs" />
     <Compile Include="Clientes\ClienteFactory.cs" />
     <Compile Include="Clientes\Clientes.cs" />

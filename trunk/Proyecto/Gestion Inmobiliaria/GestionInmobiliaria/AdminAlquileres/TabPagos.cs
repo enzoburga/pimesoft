@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GI.UI.AdminAlquileres
 {
-    public partial class TabPagos : UserControl
+    public partial class TabPagos : TabContenidoAdmAlquiler
     {
         public TabPagos()
         {

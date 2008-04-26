@@ -57,8 +57,8 @@ namespace GI.UI.Clientes
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.bAceptar);
             this.splitContainer1.Panel2.Controls.Add(this.bCancelar);
+            this.splitContainer1.Panel2.Controls.Add(this.bAceptar);
             this.splitContainer1.Size = new System.Drawing.Size(442, 516);
             this.splitContainer1.SplitterDistance = 475;
             this.splitContainer1.TabIndex = 0;
@@ -115,11 +115,10 @@ namespace GI.UI.Clientes
             // 
             // bAceptar
             // 
-            this.bAceptar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bAceptar.Location = new System.Drawing.Point(276, 5);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
-            this.bAceptar.TabIndex = 2;
+            this.bAceptar.TabIndex = 3;
             this.bAceptar.Text = "Aceptar";
             this.bAceptar.UseVisualStyleBackColor = true;
             this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
@@ -129,7 +128,7 @@ namespace GI.UI.Clientes
             this.bCancelar.Location = new System.Drawing.Point(357, 5);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
-            this.bCancelar.TabIndex = 1;
+            this.bCancelar.TabIndex = 4;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
             this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
@@ -147,7 +146,6 @@ namespace GI.UI.Clientes
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Cliente";
-            this.Load += new System.EventHandler(this.frmFichaCliente_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -167,7 +165,7 @@ namespace GI.UI.Clientes
         private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imprimirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
-        private System.Windows.Forms.Button bCancelar;
         private System.Windows.Forms.Button bAceptar;
+        private System.Windows.Forms.Button bCancelar;
     }
 }
