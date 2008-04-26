@@ -19,7 +19,6 @@ namespace GI.Framework.General
                 case enumTipoMensaje.Pregunta:
                     System.Windows.Forms.MessageBox.Show(mensaje, "Preguna", System.Windows.Forms.MessageBoxButtons.YesNoCancel, System.Windows.Forms.MessageBoxIcon.Question); break;
 
-
             }
         }
         public static void ShowSoloLectura()
