@@ -49,6 +49,19 @@ namespace GI.UI.Propiedades
 
         #region Metoros Privados
 
+        public override bool AsignarSoloLectura(Control Ctrl)
+        {
+            if (Ctrl.Name == "bAceptar") return true;
+
+            if (Ctrl.Name == "bCancelar")
+            {
+                Ctrl.Text = "Cerrar";
+                return false;
+            }
+
+            return base.AsignarSoloLectura(Ctrl);
+        }
+
         private void Inicializar()
         {
 
@@ -115,7 +128,7 @@ namespace GI.UI.Propiedades
             tabControl.TabPages.Add(tabPage);
 
 
-
+           
 
         }
 
