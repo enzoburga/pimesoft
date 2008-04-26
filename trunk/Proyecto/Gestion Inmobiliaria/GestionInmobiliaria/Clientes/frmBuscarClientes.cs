@@ -33,9 +33,7 @@ namespace GI.UI.Clientes
             #region Tipo de Propiedad
             cbTipoCliente.Items.Add("Seleccione opción...");
             cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.Propietarios);
-            cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.Inquilinos);            
-            cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.Todos);
-
+            cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.Inquilinos);  
 
             cbTipoCliente.SelectedIndex = 0;
             #endregion
