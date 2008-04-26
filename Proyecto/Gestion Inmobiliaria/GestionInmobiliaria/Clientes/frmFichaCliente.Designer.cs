@@ -90,26 +90,26 @@ namespace GI.UI.Clientes
             this.imprimirToolStripMenuItem,
             this.cerrarToolStripMenuItem});
             this.fichaToolStripMenuItem.Name = "fichaToolStripMenuItem";
-            this.fichaToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.fichaToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.fichaToolStripMenuItem.Text = "Ficha";
             // 
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.guardarToolStripMenuItem.Text = "Guardar";
             this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
             // imprimirToolStripMenuItem
             // 
             this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
-            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.imprimirToolStripMenuItem.Text = "Imprimir";
             // 
             // cerrarToolStripMenuItem
             // 
             this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
-            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.cerrarToolStripMenuItem.Text = "Cerrar";
             this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
             // 
@@ -126,12 +126,11 @@ namespace GI.UI.Clientes
             // 
             // bCancelar
             // 
-            this.bCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bCancelar.Location = new System.Drawing.Point(357, 5);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 1;
-            this.bCancelar.Text = "Cerrar";
+            this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
             this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
@@ -139,7 +138,6 @@ namespace GI.UI.Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.bCancelar;
             this.ClientSize = new System.Drawing.Size(442, 516);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
