@@ -269,6 +269,8 @@
     <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion1.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.MedidaAmbiente.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.MedidaPropiedad.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.MedidasTerreno.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Propiedad.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.TipoDePiso.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Ubicacion.datasource" />
