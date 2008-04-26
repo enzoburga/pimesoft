@@ -6,6 +6,10 @@ namespace GI.BR.Clientes
 {
     public class Propietario : Cliente
     {
+        public override enumTipoClientes TipoCliente
+        {
+            get { return enumTipoClientes.Propietario; }
+        }
         #region Persistencia
 
         public override bool Guardar()

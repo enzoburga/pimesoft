@@ -22,6 +22,7 @@ namespace GI.BR.Clientes
         private DateTime fechaNacimiento;
         private string email;
         private bool cargado = false;
+        private enumTipoClientes tipoCliente;
         #endregion
 
 
@@ -32,6 +33,10 @@ namespace GI.BR.Clientes
             get { return idCliente; }
             set { idCliente = value; }
         }
+
+        public abstract enumTipoClientes TipoCliente
+        { get;}
+        
 
         public string Nombres
         {
