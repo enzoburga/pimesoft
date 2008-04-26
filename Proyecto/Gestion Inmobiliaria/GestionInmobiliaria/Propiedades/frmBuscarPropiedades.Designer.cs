@@ -399,7 +399,7 @@ namespace GI.UI.Propiedades
             this.bBuscar.UseVisualStyleBackColor = true;
             this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
             // 
-            // frmBuscarPropiedades
+            // frmBuscarClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -409,7 +409,7 @@ namespace GI.UI.Propiedades
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmBuscarPropiedades";
+            this.Name = "frmBuscarClientes";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Buscar Propiedades";

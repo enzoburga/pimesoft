@@ -33,6 +33,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes\enumTipoCliente.cs" />
+    <Compile Include="Clientes\mngClientes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Propiedades\MngPropiedades.cs" />
     <Compile Include="Seguridad\ServicioSeguridad.cs" />

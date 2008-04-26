@@ -134,7 +134,7 @@ namespace GI.UI.Propiedades
 
             if (LinkPropietario.Text == "Seleccione un propietario")
             {
-                Framework.frmSeleccionador frmSeleccionador = new GI.Framework.frmSeleccionador(new Clientes.SeleccionadorClientes(typeof(GI.BR.Propietario)));
+                Framework.frmSeleccionador frmSeleccionador = new GI.Framework.frmSeleccionador(new Clientes.SeleccionadorClientes(typeof(GI.BR.Clientes.Propietario)));
                 if (frmSeleccionador.ShowDialog() == DialogResult.OK)
                 {
 
@@ -148,7 +148,7 @@ namespace GI.UI.Propiedades
                 {
                     Clientes.frmFichaCliente frm = new GI.UI.Clientes.frmFichaCliente();
                     frm.SoloLectura = SoloLectura;
-                    frm.Cliente = (GI.BR.Cliente)LinkPropietario.Tag;
+                    frm.Cliente = (GI.BR.Clientes.Cliente)LinkPropietario.Tag;
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         LinkPropietario.Text = frm.Cliente.ToString();

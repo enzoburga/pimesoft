@@ -33,9 +33,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cliente.cs" />
-    <Compile Include="ClienteFactory.cs" />
-    <Compile Include="Clientes.cs" />
+    <Compile Include="Clientes\Cliente.cs" />
+    <Compile Include="Clientes\ClienteFactory.cs" />
+    <Compile Include="Clientes\Clientes.cs" />
+    <Compile Include="Clientes\enumTipoClientes.cs" />
     <Compile Include="General\enumTipoDocumento.cs" />
     <Compile Include="Monedas\Moneda.cs" />
     <Compile Include="Monedas\Monedas.cs" />
@@ -52,7 +53,7 @@
     <Compile Include="Propiedades\EstadoPropiedad.cs" />
     <Compile Include="Propiedades\EstadoPropiedadFlyweigthFactory.cs" />
     <Compile Include="Propiedades\EstadosPropiedad.cs" />
-    <Compile Include="Inquilino.cs" />
+    <Compile Include="Clientes\Inquilino.cs" />
     <Compile Include="Propiedades\MedidaAmbiente.cs" />
     <Compile Include="Propiedades\MedidaPropiedad.cs" />
     <Compile Include="Propiedades\MedidasAmbiente.cs" />
@@ -72,7 +73,7 @@
     <Compile Include="Propiedades\Ubicaciones\Provincia.cs" />
     <Compile Include="Propiedades\Ubicaciones\UbicacionFlyweightFactory.cs" />
     <Compile Include="Propiedades\Venta.cs" />
-    <Compile Include="Propietario.cs" />
+    <Compile Include="Clientes\Propietario.cs" />
     <Compile Include="Seguridad\Usuario.cs" />
   </ItemGroup>
   <ItemGroup>

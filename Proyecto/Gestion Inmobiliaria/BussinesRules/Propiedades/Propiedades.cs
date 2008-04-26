@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using GI.BR.Clientes;
 
 namespace GI.BR.Propiedades
 {
