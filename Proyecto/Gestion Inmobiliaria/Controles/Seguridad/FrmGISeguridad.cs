@@ -52,6 +52,9 @@ namespace GI.Framework.Seguridad
             if (Ctrl is System.Windows.Forms.CheckBox)
                 return true;
 
+            if (Ctrl is System.Windows.Forms.DateTimePicker)
+                return true;
+
             if (Ctrl is Framework.ComboBox)
                 return true;
 

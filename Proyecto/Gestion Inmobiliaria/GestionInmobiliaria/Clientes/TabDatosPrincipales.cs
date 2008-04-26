@@ -82,7 +82,8 @@ namespace GI.UI.Clientes
                 this.cbLocalidad.SelectedIndex = GetIndiceLocalidad(cliente.Ubicacion.Localidad);
                 this.cbPais.SelectedIndex = GetIndicePais(cliente.Ubicacion.Pais);
                 this.cbProvincia.SelectedIndex = GetIndiceProvincia(cliente.Ubicacion.Provincia);
-                this.cbTipoDocumento.SelectedItem = cliente.TipoDocumento;            
+                this.cbTipoDocumento.SelectedItem = cliente.TipoDocumento;
+                this.dtpFechaNac.Value = cliente.FechaNacimiento;
             }
         }
 
@@ -194,7 +195,9 @@ namespace GI.UI.Clientes
 
         public TabDatosPrincipales()
         {
+            
             InitializeComponent();
+            Inicializar();
         }
 
         private void Inicializar()
@@ -217,7 +220,7 @@ namespace GI.UI.Clientes
 
         private void TabDatosPrincipales_Load(object sender, EventArgs e)
         {
-            Inicializar();
+            
         }
 
         private void cbPais_SelectedIndexChanged(object sender, EventArgs e)
@@ -240,5 +243,7 @@ namespace GI.UI.Clientes
             cbLocalidad.Items.AddRange(uff.GetLocalidades(((GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem).IdProvincia).ToArray());
             cbLocalidad.SelectedItem = uff.GetLocalidades(((GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem).IdProvincia).GetDefault;
         }
+
+       
     }
 }
