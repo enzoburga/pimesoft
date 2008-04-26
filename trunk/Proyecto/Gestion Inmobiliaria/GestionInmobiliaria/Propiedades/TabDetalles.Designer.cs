@@ -33,10 +33,12 @@ namespace GI.UI.Propiedades
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxMetrosCubiertos = new System.Windows.Forms.TextBox();
+            this.medidaPropiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxMetrosSemicubiertos = new System.Windows.Forms.TextBox();
             this.textBoxMestrosLibros = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxFrente = new System.Windows.Forms.TextBox();
+            this.medidasTerrenoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,6 +51,7 @@ namespace GI.UI.Propiedades
             this.textBoxTerreno = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBoxdormitorios = new System.Windows.Forms.TextBox();
+            this.propiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label17 = new System.Windows.Forms.Label();
             this.textBoxbanios = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -71,24 +74,21 @@ namespace GI.UI.Propiedades
             this.label26 = new System.Windows.Forms.Label();
             this.textBoxAscensoresServicio = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.comboBox2 = new GI.Framework.ComboBox();
+            this.cbTipoZona = new GI.Framework.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBoxFOT = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBoxFOS = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBoxZonificacion = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBoxMetrosConstruibles = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.propiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.medidaPropiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.medidasTerrenoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medidaPropiedadBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medidasTerrenoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -132,6 +132,10 @@ namespace GI.UI.Propiedades
             this.textBoxMetrosCubiertos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxMetrosCubiertos.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // medidaPropiedadBindingSource
+            // 
+            this.medidaPropiedadBindingSource.DataSource = typeof(GI.BR.Propiedades.MedidaPropiedad);
+            // 
             // textBoxMetrosSemicubiertos
             // 
             this.textBoxMetrosSemicubiertos.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidaPropiedadBindingSource, "MetrosSemicubiertos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N1"));
@@ -173,6 +177,10 @@ namespace GI.UI.Propiedades
             this.textBoxFrente.TabIndex = 29;
             this.textBoxFrente.Text = "0";
             this.textBoxFrente.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // medidasTerrenoBindingSource
+            // 
+            this.medidasTerrenoBindingSource.DataSource = typeof(GI.BR.Propiedades.MedidasTerreno);
             // 
             // label5
             // 
@@ -285,6 +293,10 @@ namespace GI.UI.Propiedades
             this.textBoxdormitorios.TabIndex = 45;
             this.textBoxdormitorios.Text = "0";
             this.textBoxdormitorios.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // propiedadBindingSource
+            // 
+            this.propiedadBindingSource.DataSource = typeof(GI.BR.Propiedades.Propiedad);
             // 
             // label17
             // 
@@ -401,6 +413,8 @@ namespace GI.UI.Propiedades
             // 
             // cbDisposicion
             // 
+            this.cbDisposicion.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.propiedadBindingSource, "Disposicion", true));
+            this.cbDisposicion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "Disposicion", true));
             this.cbDisposicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDisposicion.FormattingEnabled = true;
             this.cbDisposicion.Location = new System.Drawing.Point(127, 324);
@@ -421,6 +435,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxCantidadPisos
             // 
+            this.textBoxCantidadPisos.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.propiedadBindingSource, "CantidadPisos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBoxCantidadPisos.Location = new System.Drawing.Point(127, 351);
             this.textBoxCantidadPisos.Name = "textBoxCantidadPisos";
             this.textBoxCantidadPisos.Size = new System.Drawing.Size(58, 21);
@@ -439,6 +454,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxDepertamanetosPorPiso
             // 
+            this.textBoxDepertamanetosPorPiso.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "DepartamentosPorPiso", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBoxDepertamanetosPorPiso.Location = new System.Drawing.Point(350, 351);
             this.textBoxDepertamanetosPorPiso.Name = "textBoxDepertamanetosPorPiso";
             this.textBoxDepertamanetosPorPiso.Size = new System.Drawing.Size(58, 21);
@@ -458,6 +474,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxAscensores
             // 
+            this.textBoxAscensores.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "CantidadAscensores", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBoxAscensores.Location = new System.Drawing.Point(127, 378);
             this.textBoxAscensores.Name = "textBoxAscensores";
             this.textBoxAscensores.Size = new System.Drawing.Size(58, 21);
@@ -476,6 +493,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxAscensoresServicio
             // 
+            this.textBoxAscensoresServicio.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "CantidadAscensoresServicio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBoxAscensoresServicio.Location = new System.Drawing.Point(350, 378);
             this.textBoxAscensoresServicio.Name = "textBoxAscensoresServicio";
             this.textBoxAscensoresServicio.Size = new System.Drawing.Size(58, 21);
@@ -492,14 +510,16 @@ namespace GI.UI.Propiedades
             this.label27.TabIndex = 65;
             this.label27.Text = "Ascensores servicio";
             // 
-            // comboBox2
+            // cbTipoZona
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(126, 436);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(104, 21);
-            this.comboBox2.TabIndex = 68;
+            this.cbTipoZona.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.propiedadBindingSource, "TipoZona", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbTipoZona.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "TipoZona", true));
+            this.cbTipoZona.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoZona.FormattingEnabled = true;
+            this.cbTipoZona.Location = new System.Drawing.Point(126, 436);
+            this.cbTipoZona.Name = "cbTipoZona";
+            this.cbTipoZona.Size = new System.Drawing.Size(104, 21);
+            this.cbTipoZona.TabIndex = 68;
             // 
             // label28
             // 
@@ -510,14 +530,14 @@ namespace GI.UI.Propiedades
             this.label28.TabIndex = 67;
             this.label28.Text = "Tipo de Zona";
             // 
-            // textBox18
+            // textBoxFOT
             // 
-            this.textBox18.Location = new System.Drawing.Point(349, 436);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(58, 21);
-            this.textBox18.TabIndex = 71;
-            this.textBox18.Text = "0";
-            this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxFOT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "Fot", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxFOT.Location = new System.Drawing.Point(349, 436);
+            this.textBoxFOT.Name = "textBoxFOT";
+            this.textBoxFOT.Size = new System.Drawing.Size(107, 21);
+            this.textBoxFOT.TabIndex = 71;
+            this.textBoxFOT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label30
             // 
@@ -528,14 +548,14 @@ namespace GI.UI.Propiedades
             this.label30.TabIndex = 70;
             this.label30.Text = "FOT";
             // 
-            // textBox19
+            // textBoxFOS
             // 
-            this.textBox19.Location = new System.Drawing.Point(126, 466);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(58, 21);
-            this.textBox19.TabIndex = 73;
-            this.textBox19.Text = "0";
-            this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxFOS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "Fos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxFOS.Location = new System.Drawing.Point(126, 466);
+            this.textBoxFOS.Name = "textBoxFOS";
+            this.textBoxFOS.Size = new System.Drawing.Size(104, 21);
+            this.textBoxFOS.TabIndex = 73;
+            this.textBoxFOS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label31
             // 
@@ -546,14 +566,14 @@ namespace GI.UI.Propiedades
             this.label31.TabIndex = 72;
             this.label31.Text = "FOS";
             // 
-            // textBox6
+            // textBoxZonificacion
             // 
-            this.textBox6.Location = new System.Drawing.Point(349, 466);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(58, 21);
-            this.textBox6.TabIndex = 75;
-            this.textBox6.Text = "0";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxZonificacion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "Zonificacion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxZonificacion.Location = new System.Drawing.Point(349, 466);
+            this.textBoxZonificacion.Name = "textBoxZonificacion";
+            this.textBoxZonificacion.Size = new System.Drawing.Size(107, 21);
+            this.textBoxZonificacion.TabIndex = 75;
+            this.textBoxZonificacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label14
             // 
@@ -564,14 +584,15 @@ namespace GI.UI.Propiedades
             this.label14.TabIndex = 74;
             this.label14.Text = "Zonificación";
             // 
-            // textBox20
+            // textBoxMetrosConstruibles
             // 
-            this.textBox20.Location = new System.Drawing.Point(126, 493);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(58, 21);
-            this.textBox20.TabIndex = 77;
-            this.textBox20.Text = "0";
-            this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxMetrosConstruibles.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "MetrosConstruibles", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N1"));
+            this.textBoxMetrosConstruibles.Location = new System.Drawing.Point(126, 493);
+            this.textBoxMetrosConstruibles.Name = "textBoxMetrosConstruibles";
+            this.textBoxMetrosConstruibles.Size = new System.Drawing.Size(58, 21);
+            this.textBoxMetrosConstruibles.TabIndex = 77;
+            this.textBoxMetrosConstruibles.Text = "0";
+            this.textBoxMetrosConstruibles.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label32
             // 
@@ -602,33 +623,21 @@ namespace GI.UI.Propiedades
             this.label33.TabIndex = 79;
             this.label33.Text = "Detalles";
             // 
-            // propiedadBindingSource
-            // 
-            this.propiedadBindingSource.DataSource = typeof(GI.BR.Propiedades.Propiedad);
-            // 
-            // medidaPropiedadBindingSource
-            // 
-            this.medidaPropiedadBindingSource.DataSource = typeof(GI.BR.Propiedades.MedidaPropiedad);
-            // 
-            // medidasTerrenoBindingSource
-            // 
-            this.medidasTerrenoBindingSource.DataSource = typeof(GI.BR.Propiedades.MedidasTerreno);
-            // 
             // TabDetalles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label33);
             this.Controls.Add(this.label29);
-            this.Controls.Add(this.textBox20);
+            this.Controls.Add(this.textBoxMetrosConstruibles);
             this.Controls.Add(this.label32);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBoxZonificacion);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox19);
+            this.Controls.Add(this.textBoxFOS);
             this.Controls.Add(this.label31);
-            this.Controls.Add(this.textBox18);
+            this.Controls.Add(this.textBoxFOT);
             this.Controls.Add(this.label30);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cbTipoZona);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.textBoxAscensoresServicio);
             this.Controls.Add(this.label27);
@@ -675,9 +684,9 @@ namespace GI.UI.Propiedades
             this.Name = "TabDetalles";
             this.Size = new System.Drawing.Size(494, 544);
             this.Load += new System.EventHandler(this.TabDetalles_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medidaPropiedadBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medidasTerrenoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -727,15 +736,15 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox textBoxAscensoresServicio;
         private System.Windows.Forms.Label label27;
-        private GI.Framework.ComboBox comboBox2;
+        private GI.Framework.ComboBox cbTipoZona;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBoxFOT;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox textBoxFOS;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxZonificacion;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox textBoxMetrosConstruibles;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label33;
