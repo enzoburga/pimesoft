@@ -34,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cliente.cs" />
+    <Compile Include="ClienteFactory.cs" />
     <Compile Include="Clientes.cs" />
     <Compile Include="General\enumTipoDocumento.cs" />
     <Compile Include="Monedas\Moneda.cs" />

@@ -47,7 +47,7 @@ namespace GI.UI.Clientes
             GI.BR.Clientes clientes = new GI.BR.Clientes();
 
 
-            if (tipoCliente is GI.BR.Propietario)
+            if (tipoCliente.ToString() == "GI.BR.Propietario")
             {
                 if (Metodo.NombreBusqueda == "Buscar por apellido y nombre")
                 {
@@ -107,12 +107,25 @@ namespace GI.UI.Clientes
 
         public object NuevoObjeto()
         {
-            throw new Exception("The method or operation is not implemented.");
+            GI.BR.Cliente cliente = new GI.BR.ClienteFactory().CrearClaseCliente(tipoCliente);
+
+            frmFichaCliente frmFicha = new frmFichaCliente();
+            frmFicha.Cliente = cliente;
+            frmFicha.SoloLectura = false;
+            if (frmFicha.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                return cliente;
+
+            return null;
         }
 
         public void ModificarObjeto(object Objeto)
         {
-            throw new Exception("The method or operation is not implemented.");
+            frmFichaCliente frmFicha = new frmFichaCliente();
+            frmFicha.Cliente = (GI.BR.Cliente)Objeto;
+            frmFicha.SoloLectura = false;
+            frmFicha.ShowDialog();
+
+
         }
 
         #endregion
