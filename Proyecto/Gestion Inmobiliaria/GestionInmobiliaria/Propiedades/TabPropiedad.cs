@@ -85,6 +85,7 @@ namespace GI.UI.Propiedades
                 Propiedad.CantidadAmbientes = 1;
                 Propiedad.Medidas = new GI.BR.Propiedades.MedidasAmbiente();
                 Propiedad.Ubicacion = new GI.BR.Propiedades.Ubicacion();
+                Propiedad.Direccion = new GI.BR.Propiedades.Direccion();
             }
 
             propiedadBindingSource.Add(Propiedad);
