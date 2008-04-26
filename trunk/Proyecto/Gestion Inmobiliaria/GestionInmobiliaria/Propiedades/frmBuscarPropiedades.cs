@@ -12,6 +12,7 @@ namespace GI.UI.Propiedades
     {
         private Type tipo;
         private GI.BR.Propiedades.Propiedades propiedades;
+        GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory uff = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
 
 
 
@@ -91,7 +92,7 @@ namespace GI.UI.Propiedades
 
             GI.BR.Propiedades.Ubicaciones.Pais Pais = (GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem;
             GI.BR.Propiedades.Ubicaciones.Provincias Provincias = new GI.BR.Propiedades.Ubicaciones.Provincias();
-            Provincias.RecuperarTodas(Pais);
+            uff.GetProvincias(Pais.IdPais);
 
             cbProvincia.Items.Clear();
             cbLocalidad.Items.Clear();
@@ -107,8 +108,7 @@ namespace GI.UI.Propiedades
             if (cbProvincia.SelectedIndex <= 0) return;
 
             GI.BR.Propiedades.Ubicaciones.Provincia Provincia = (GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem;
-            GI.BR.Propiedades.Ubicaciones.Localidades Localidades = new GI.BR.Propiedades.Ubicaciones.Localidades();
-            Localidades.RecuperarTodas(Provincia);
+            GI.BR.Propiedades.Ubicaciones.Localidades Localidades = uff.GetLocalidades(Provincia.IdProvincia);
 
             cbLocalidad.Items.Clear();
             cbBarrio.Items.Clear();
@@ -126,8 +126,7 @@ namespace GI.UI.Propiedades
 
 
             GI.BR.Propiedades.Ubicaciones.Localidad Localidad = (GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem;
-            GI.BR.Propiedades.Ubicaciones.Barrios Barrios = new GI.BR.Propiedades.Ubicaciones.Barrios();
-            Barrios.RecuperarTodos(Localidad);
+            GI.BR.Propiedades.Ubicaciones.Barrios Barrios = uff.GetBarrios(Localidad.IdLocalidad);
 
             cbBarrio.Items.Clear();
             cbBarrio.Items.Add("Seleccione opción...");

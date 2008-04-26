@@ -71,55 +71,26 @@ namespace GI.BR.Propiedades.Ubicaciones
             }
         }
 
-        public void RecuperarTodos(Localidad Localidad)
-        {
-            Clear();
-
-            Barrio b = new Barrio();
-            b.EsDefault = true;
-            b.IdBarrio = 1;
-            b.IdLocalidad = Localidad.IdLocalidad;
-            b.Nombre = "Vicente López";
-            Add(b);
-
-            b = new Barrio();
-            b.EsDefault = true;
-            b.IdBarrio = 1;
-            b.IdLocalidad = Localidad.IdLocalidad;
-            b.Nombre = "Olivos";
-            Add(b);
-
-            b = new Barrio();
-            b.EsDefault = true;
-            b.IdBarrio = 1;
-            b.IdLocalidad = Localidad.IdLocalidad;
-            b.Nombre = "Florida M";
-            Add(b);
-
-            b = new Barrio();
-            b.EsDefault = true;
-            b.IdBarrio = 1;
-            b.IdLocalidad = Localidad.IdLocalidad;
-            b.Nombre = "Florida B";
-            Add(b);
 
 
-        }
+
+
 
         public Barrio GetDefault
         {
-            get 
+            get
             {
-                foreach(Barrio b in this)
+                foreach (Barrio b in this)
                 {
-                    if(b.EsDefault)
+                    if (b.EsDefault)
                         return b;
                 }
-                if(this.Count > 0)
+                if (this.Count > 0)
                     return this[0];
                 return null;
             }
         }
+
         
     }
 }

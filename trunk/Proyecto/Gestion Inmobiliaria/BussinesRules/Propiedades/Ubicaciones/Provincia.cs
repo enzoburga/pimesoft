@@ -73,32 +73,7 @@ namespace GI.BR.Propiedades.Ubicaciones
             }
         }
 
-        public void RecuperarTodas(Pais Pais)
-        {
-            Clear();
-
-            Provincia p = new Provincia();
-            p.EsDefault = true;
-            p.IdPais = p.IdPais;
-            p.IdProvincia = 1;
-            p.Nombre = "Gran Buenos Aires";
-            Add(p);
-
-            p = new Provincia();
-            p.EsDefault = false;
-            p.IdPais = p.IdPais;
-            p.IdProvincia = 1;
-            p.Nombre = "Capital Federal";
-            Add(p);
-
-            p = new Provincia();
-            p.EsDefault = false;
-            p.IdPais = p.IdPais;
-            p.IdProvincia = 1;
-            p.Nombre = "Córdoba";
-            Add(p);
-
-        }
+        
 
         public Provincia GetDefault
         {
