@@ -115,6 +115,12 @@
     <Compile Include="frmStartUp.Designer.cs">
       <DependentUpon>frmStartUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Generales\CtrlDireccion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Generales\CtrlDireccion.Designer.cs">
+      <DependentUpon>CtrlDireccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Generales\CtrlUbicacion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -175,6 +181,10 @@
     <EmbeddedResource Include="frmStartUp.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmStartUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generales\CtrlDireccion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CtrlDireccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generales\CtrlUbicacion.resx">
       <SubType>Designer</SubType>
@@ -257,6 +267,7 @@
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion1.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.MedidaAmbiente.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Propiedad.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.TipoDePiso.datasource" />
