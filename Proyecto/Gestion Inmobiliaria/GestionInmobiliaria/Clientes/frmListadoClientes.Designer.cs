@@ -31,16 +31,6 @@ namespace GI.UI.Clientes
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoClientes));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.nuevoPropietarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoInquilinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.imprimirListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButtonBuscar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonMailFicha = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonImprimirListado = new System.Windows.Forms.ToolStripButton();
             this.lvClientes = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -50,14 +40,18 @@ namespace GI.UI.Clientes
             this.editarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enviarACorreoElectrónicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButtonBuscar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonAgregar = new System.Windows.Forms.ToolStripSplitButton();
             this.nuevoPropietarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoInquilinoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButtonMailFicha = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonImprimirListado = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -76,97 +70,8 @@ namespace GI.UI.Clientes
             // 
             this.splitContainer1.Panel2.Controls.Add(this.lvClientes);
             this.splitContainer1.Size = new System.Drawing.Size(880, 425);
-            this.splitContainer1.SplitterDistance = 66;
+            this.splitContainer1.SplitterDistance = 69;
             this.splitContainer1.TabIndex = 2;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1,
-            this.toolStripButtonBuscar,
-            this.toolStripButtonAgregar,
-            this.toolStripButtonMailFicha,
-            this.toolStripButtonImprimirListado});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(880, 66);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoPropietarioToolStripMenuItem,
-            this.nuevoInquilinoToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.imprimirListToolStripMenuItem,
-            this.cerrarToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(56, 63);
-            this.toolStripDropDownButton1.Text = "Archivo";
-            // 
-            // nuevoPropietarioToolStripMenuItem
-            // 
-            this.nuevoPropietarioToolStripMenuItem.Name = "nuevoPropietarioToolStripMenuItem";
-            this.nuevoPropietarioToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.nuevoPropietarioToolStripMenuItem.Text = "Nuevo Propietario";
-            this.nuevoPropietarioToolStripMenuItem.Click += new System.EventHandler(this.nuevoPropietarioToolStripMenuItem_Click);
-            // 
-            // nuevoInquilinoToolStripMenuItem
-            // 
-            this.nuevoInquilinoToolStripMenuItem.Name = "nuevoInquilinoToolStripMenuItem";
-            this.nuevoInquilinoToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.nuevoInquilinoToolStripMenuItem.Text = "Nuevo Inquilino";
-            this.nuevoInquilinoToolStripMenuItem.Click += new System.EventHandler(this.nuevoInquilinoToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(168, 6);
-            // 
-            // imprimirListToolStripMenuItem
-            // 
-            this.imprimirListToolStripMenuItem.Name = "imprimirListToolStripMenuItem";
-            this.imprimirListToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.imprimirListToolStripMenuItem.Text = "Imprimir listado";
-            // 
-            // cerrarToolStripMenuItem
-            // 
-            this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
-            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.cerrarToolStripMenuItem.Text = "Cerrar";
-            // 
-            // toolStripButtonBuscar
-            // 
-            this.toolStripButtonBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonBuscar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBuscar.Image")));
-            this.toolStripButtonBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonBuscar.Name = "toolStripButtonBuscar";
-            this.toolStripButtonBuscar.Size = new System.Drawing.Size(23, 63);
-            this.toolStripButtonBuscar.Text = "Buscar Clientes";
-            this.toolStripButtonBuscar.Click += new System.EventHandler(this.toolStripButtonBuscar_Click);
-            // 
-            // toolStripButtonMailFicha
-            // 
-            this.toolStripButtonMailFicha.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonMailFicha.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMailFicha.Image")));
-            this.toolStripButtonMailFicha.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonMailFicha.Name = "toolStripButtonMailFicha";
-            this.toolStripButtonMailFicha.Size = new System.Drawing.Size(23, 63);
-            this.toolStripButtonMailFicha.Text = "Enviar Ficha por E-Mail";
-            // 
-            // toolStripButtonImprimirListado
-            // 
-            this.toolStripButtonImprimirListado.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonImprimirListado.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonImprimirListado.Image")));
-            this.toolStripButtonImprimirListado.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonImprimirListado.Name = "toolStripButtonImprimirListado";
-            this.toolStripButtonImprimirListado.Size = new System.Drawing.Size(23, 63);
-            this.toolStripButtonImprimirListado.Text = "Imprimir Listado";
             // 
             // lvClientes
             // 
@@ -181,7 +86,7 @@ namespace GI.UI.Clientes
             this.lvClientes.Location = new System.Drawing.Point(0, 0);
             this.lvClientes.MultiSelect = false;
             this.lvClientes.Name = "lvClientes";
-            this.lvClientes.Size = new System.Drawing.Size(880, 355);
+            this.lvClientes.Size = new System.Drawing.Size(880, 352);
             this.lvClientes.TabIndex = 0;
             this.lvClientes.UseCompatibleStateImageBehavior = false;
             this.lvClientes.View = System.Windows.Forms.View.Details;
@@ -239,6 +144,17 @@ namespace GI.UI.Clientes
             this.enviarACorreoElectrónicoToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.enviarACorreoElectrónicoToolStripMenuItem.Text = "Enviar a correo electrónico";
             // 
+            // toolStripButtonBuscar
+            // 
+            this.toolStripButtonBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonBuscar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBuscar.Image")));
+            this.toolStripButtonBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBuscar.Name = "toolStripButtonBuscar";
+            this.toolStripButtonBuscar.Size = new System.Drawing.Size(67, 66);
+            this.toolStripButtonBuscar.Text = "Buscar Clientes";
+            this.toolStripButtonBuscar.Click += new System.EventHandler(this.toolStripButtonBuscar_Click);
+            // 
             // toolStripButtonAgregar
             // 
             this.toolStripButtonAgregar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -246,9 +162,10 @@ namespace GI.UI.Clientes
             this.nuevoPropietarioToolStripMenuItem1,
             this.nuevoInquilinoToolStripMenuItem1});
             this.toolStripButtonAgregar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAgregar.Image")));
+            this.toolStripButtonAgregar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAgregar.Name = "toolStripButtonAgregar";
-            this.toolStripButtonAgregar.Size = new System.Drawing.Size(32, 63);
+            this.toolStripButtonAgregar.Size = new System.Drawing.Size(80, 66);
             this.toolStripButtonAgregar.Text = "Nuevo Cliente";
             // 
             // nuevoPropietarioToolStripMenuItem1
@@ -265,6 +182,40 @@ namespace GI.UI.Clientes
             this.nuevoInquilinoToolStripMenuItem1.Text = "Nuevo Inquilino";
             this.nuevoInquilinoToolStripMenuItem1.Click += new System.EventHandler(this.nuevoInquilinoToolStripMenuItem_Click);
             // 
+            // toolStripButtonMailFicha
+            // 
+            this.toolStripButtonMailFicha.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonMailFicha.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMailFicha.Image")));
+            this.toolStripButtonMailFicha.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonMailFicha.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonMailFicha.Name = "toolStripButtonMailFicha";
+            this.toolStripButtonMailFicha.Size = new System.Drawing.Size(68, 66);
+            this.toolStripButtonMailFicha.Text = "Enviar Ficha por E-Mail";
+            // 
+            // toolStripButtonImprimirListado
+            // 
+            this.toolStripButtonImprimirListado.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonImprimirListado.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonImprimirListado.Image")));
+            this.toolStripButtonImprimirListado.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonImprimirListado.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonImprimirListado.Name = "toolStripButtonImprimirListado";
+            this.toolStripButtonImprimirListado.Size = new System.Drawing.Size(68, 66);
+            this.toolStripButtonImprimirListado.Text = "Imprimir Listado";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonBuscar,
+            this.toolStripButtonAgregar,
+            this.toolStripButtonMailFicha,
+            this.toolStripButtonImprimirListado});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(880, 69);
+            this.toolStrip1.TabIndex = 2;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
             // frmListadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,9 +229,9 @@ namespace GI.UI.Clientes
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -292,23 +243,17 @@ namespace GI.UI.Clientes
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem nuevoPropietarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoInquilinoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem imprimirListToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripButtonBuscar;
-        private System.Windows.Forms.ToolStripButton toolStripButtonMailFicha;
-        private System.Windows.Forms.ToolStripButton toolStripButtonImprimirListado;
         private System.Windows.Forms.ToolStripMenuItem verFichatoolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarFichaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imprimirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enviarACorreoElectrónicoToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBuscar;
         private System.Windows.Forms.ToolStripSplitButton toolStripButtonAgregar;
         private System.Windows.Forms.ToolStripMenuItem nuevoPropietarioToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem nuevoInquilinoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonMailFicha;
+        private System.Windows.Forms.ToolStripButton toolStripButtonImprimirListado;
     }
 }
