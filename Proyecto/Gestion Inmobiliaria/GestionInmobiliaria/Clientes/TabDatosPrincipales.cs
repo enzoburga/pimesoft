@@ -29,19 +29,12 @@ namespace GI.UI.Clientes
                     throw new Exception(error);
 
                 cliente.Direccion = new GI.BR.Propiedades.Direccion();
-                if (this.tbAltura.Text != "")
-                {
-                    cliente.Direccion.Numero = int.Parse(this.tbAltura.Text);
-                }
+
                 cliente.Apellido = this.tbApellido.Text;
-                cliente.Direccion.Calle = this.tbCalle.Text;
-                cliente.Direccion.CodigoPostal = this.tbCodigoPostal.Text;
-                cliente.Direccion.Depto = this.tbDepto.Text;
                 cliente.Email = this.tbEmail.Text;
                 cliente.Nombres = this.tbNombres.Text;
                 cliente.NroDocumento = this.tbNroDocumento.Text;
                 cliente.Observaciones = this.tbObervaciones.Text;
-                cliente.Direccion.Piso = this.tbPiso.Text;
 
                 if (this.tbTelCelular.Text != "")
                     cliente.TelefonoCelular = int.Parse(this.tbTelCelular.Text);
@@ -59,6 +52,7 @@ namespace GI.UI.Clientes
                     cliente.TelefonoParticular = 0;
 
                 cliente.Ubicacion = ctrlUbicacion1.Ubicacion;
+                cliente.Direccion = ctrlDireccion1.Direccion;
 
                 cliente.TipoDocumento = (GI.BR.General.enumTipoDocumento)this.cbTipoDocumento.SelectedItem;
                 cliente.FechaNacimiento = dtpFechaNac.Value;
@@ -77,19 +71,12 @@ namespace GI.UI.Clientes
                 if (cliente.IdCliente == 0)
                     return;
 
-                if (cliente.Direccion.Numero != 0)
-                {
-                    this.tbAltura.Text = cliente.Direccion.Numero.ToString();
-                }
                 this.tbApellido.Text = cliente.Apellido;
-                this.tbCalle.Text = cliente.Direccion.Calle;
-                this.tbCodigoPostal.Text = cliente.Direccion.CodigoPostal;
-                this.tbDepto.Text = cliente.Direccion.Depto;
+
                 this.tbEmail.Text = cliente.Email;
                 this.tbNombres.Text = cliente.Nombres;
                 this.tbNroDocumento.Text = cliente.NroDocumento;
                 this.tbObervaciones.Text = cliente.Observaciones;
-                this.tbPiso.Text = cliente.Direccion.Piso;
 
                 if(cliente.TelefonoCelular != 0)
                     this.tbTelCelular.Text = cliente.TelefonoCelular.ToString();
@@ -99,6 +86,7 @@ namespace GI.UI.Clientes
                     this.tbTelParticular.Text = cliente.TelefonoParticular.ToString();
 
                 ctrlUbicacion1.Ubicacion = cliente.Ubicacion;
+                ctrlDireccion1.Direccion = cliente.Direccion;
                 this.cbTipoDocumento.SelectedItem = cliente.TipoDocumento;
                 this.dtpFechaNac.Value = cliente.FechaNacimiento;
                 cambioDatos = false;
@@ -133,17 +121,6 @@ namespace GI.UI.Clientes
 
             if (this.tbTelParticular.Text == "" && this.tbTelCelular.Text == "" && this.tbTelLaboral.Text == "")
                 return "Debe ingresar al menos un telefono.";
-
-            if (this.tbAltura.Text != "")
-            {
-                try { int.Parse(this.tbAltura.Text); }
-                catch
-                {
-                    {
-                        this.tbApellido.BackColor = Color.LightSalmon;
-                    } return "La altura es un campo numérico.";
-                }
-            }
 
             try
             {

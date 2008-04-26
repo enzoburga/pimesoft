@@ -88,5 +88,17 @@ namespace GI.BR.Clientes
             this.AddRange(inquilinos);
             this.AddRange(propietarios);            
         }
+
+        public void RecuperarTodos()
+        {
+            Clientes inquilinos = new Clientes();
+            Clientes propietarios = new Clientes();
+
+            inquilinos.RecuperarInquilinos();
+            propietarios.RecuperarPropietarios();
+
+            this.AddRange(inquilinos);
+            this.AddRange(propietarios);
+        }
     }
 }
