@@ -73,6 +73,8 @@ namespace GI.UI.Clientes
             // 
             // tbNombres
             // 
+            this.tbNombres.BackColor = System.Drawing.SystemColors.Window;
+            this.tbNombres.ForeColor = System.Drawing.SystemColors.WindowText;
             this.tbNombres.Location = new System.Drawing.Point(114, 11);
             this.tbNombres.Name = "tbNombres";
             this.tbNombres.Size = new System.Drawing.Size(106, 21);

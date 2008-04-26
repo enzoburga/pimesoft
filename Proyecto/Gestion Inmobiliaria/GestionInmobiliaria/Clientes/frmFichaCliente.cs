@@ -57,7 +57,7 @@ namespace GI.UI.Clientes
         private void frmFichaCliente_Load(object sender, EventArgs e)
         {
 
-            if (cliente != null)
+            if (cliente.IdCliente != 0)
             {
                 bAceptar.Visible = false;
                 bCancelar.Text = "Cerrar";

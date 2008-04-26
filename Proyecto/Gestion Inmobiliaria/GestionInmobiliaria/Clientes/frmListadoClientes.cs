@@ -17,7 +17,8 @@ namespace GI.UI.Clientes
 
         private void lvClientes_DoubleClick(object sender, EventArgs e)
         {
-            
+            if (lvClientes.SelectedItems.Count != 1)
+                return;
             frmFichaCliente frm = new frmFichaCliente();
             frm.SoloLectura = true;
             frm.Cliente = (GI.BR.Clientes.Cliente)lvClientes.SelectedItems[0].Tag;            
@@ -31,25 +32,6 @@ namespace GI.UI.Clientes
             frm.Cliente = cf.CrearClaseCliente(typeof(GI.BR.Clientes.Propietario));
             frm.Show();
         }
-
-        //private void bBuscar_Click(object sender, EventArgs e)
-        //{
-
-        //    GI.BR.Clientes.Clientes clientes = new GI.BR.Clientes.Clientes();
-        //    if(tbBuscar.Text == "")
-        //        clientes.RecuperarPropietarios();
-        //    else
-        //        clientes.RecuperarPropietarios(tbBuscar.Text);
-
-        //    if(clientes.Count <1)
-        //    {
-        //        GI.Framework.General.GIMsgBox.Show("No se han encontrado clientes coincidentes con el criterio.", GI.Framework.General.enumTipoMensaje.Advertencia);
-        //        return;
-        //    }
-
-
-        //    CargarClientes(clientes);
-        //}
 
         private void CargarClientes(GI.BR.Clientes.Clientes clientes)
         {
@@ -84,6 +66,21 @@ namespace GI.UI.Clientes
             frmBuscarClientes frmBuscar = new frmBuscarClientes();
             if (frmBuscar.ShowDialog() == DialogResult.OK)
                 this.CargarClientes(frmBuscar.Clientes);
+        }
+
+        private void verFichatoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lvClientes_DoubleClick( sender,  e);
+        }
+
+        private void editarFichaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvClientes.SelectedItems.Count != 1)
+                return;
+            frmFichaCliente frm = new frmFichaCliente();
+            
+            frm.Cliente = (GI.BR.Clientes.Cliente)lvClientes.SelectedItems[0].Tag;
+            frm.ShowDialog();
         }
     }
 }

@@ -89,33 +89,61 @@ namespace GI.UI.Clientes
 
         private string Validar()
         {
-            if (this.tbAltura.Text == "" ||
-            this.tbApellido.Text == "" ||
-            this.tbCalle.Text == "" ||
-            this.tbCodigoPostal.Text == "" ||
-            this.tbEmail.Text == "" ||
-            this.tbNombres.Text == "" ||
-            this.tbNroDocumento.Text == "" ||
-            this.tbTelParticular.Text == "")
+            //if(this.tbCalle.Text == "")
+            //    return "Debe completar los datos marcados en rojo para continuar.";
+            //if(this.tbCodigoPostal.Text == "")
+            //    return "Debe completar los datos marcados en rojo para continuar.";
+            //if(this.tbEmail.Text == "")
+            //    return "Debe completar los datos marcados en rojo para continuar.";
 
-                return "Debe completar los datos marcados en rojo para continuar.";
 
-            try { int.Parse(this.tbAltura.Text); }
-            catch { return "La altura es un campo numérico."; }
+
+            if (this.tbApellido.Text == "")
+            {
+                //this.tbApellido.BackColor = Color.LightSalmon;
+                return "Debe completar el campo Apellido.";
+            }
+
+            if (this.tbNombres.Text == "")
+            {
+                return "Debe completar el campo Nombres.";
+            }
+            if (this.tbNroDocumento.Text == "")
+            {
+                return "Debe completar el campo Numero de Documento.";
+            }
+
+            if (this.tbTelParticular.Text == "" && this.tbTelCelular.Text == "" && this.tbTelLaboral.Text == "")
+                return "Debe ingresar al menos un telefono.";
+
+            if (this.tbAltura.Text != "")
+            {
+                try { int.Parse(this.tbAltura.Text); }
+                catch
+                {
+                    {
+                        this.tbApellido.BackColor = Color.LightSalmon;
+                    } return "La altura es un campo numérico.";
+                }
+            }
 
             try
             {
-                int.Parse(this.tbTelParticular.Text);
-
-                if(this.tbTelCelular.Text != "")
+                if (this.tbTelParticular.Text != "")
+                    int.Parse(this.tbTelParticular.Text);
+                if (this.tbTelCelular.Text != "")
                     int.Parse(this.tbTelCelular.Text);
                 if (this.tbTelLaboral.Text != "")
                     int.Parse(this.tbTelLaboral.Text);
             }
             catch { return "Los telefonos son campos numéricos."; }
 
-            if (!ValidarEmail(this.tbEmail.Text))
-                return "La dirección de e-mail ingresada no es válida.";
+            if (this.tbEmail.Text != "")
+                if (!ValidarEmail(this.tbEmail.Text))
+                {
+                    return "La dirección de e-mail ingresada no es válida.";
+                }
+                    
 
             return "";
         }
