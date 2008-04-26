@@ -52,9 +52,11 @@ namespace GI.UI.Generales
                 if (!inicializado)
                     Inicializar();
 
+                if (value == null) return;
+
                 ubicacion = value;
 
-                if (value == null) return;
+                
 
                
                 this.cbPais.SelectedIndex = GetIndicePais(ubicacion.Pais);
