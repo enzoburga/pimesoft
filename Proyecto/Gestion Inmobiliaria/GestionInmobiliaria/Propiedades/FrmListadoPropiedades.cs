@@ -73,13 +73,32 @@ namespace GI.UI.Propiedades
         {
             this.lvPropiedades_DoubleClick_1(null, null);
         }
-
+        
         private void editarFichaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (lvPropiedades.SelectedItems.Count != 1) return;
+
             frmFichaPropiedad frmFicha = new frmFichaPropiedad();
             frmFicha.Propiedad = (GI.BR.Propiedades.Propiedad)lvPropiedades.SelectedItems[0].Tag;
             frmFicha.SoloLectura = false;
-            frmFicha.ShowDialog();
+            if (frmFicha.ShowDialog() == DialogResult.OK)
+            {
+                ListViewItem item = new ListViewItem();
+                GI.BR.Propiedades.Propiedad p = (GI.BR.Propiedades.Propiedad)lvPropiedades.SelectedItems[0].Tag;
+                item.Text = p.Codigo;
+                item.SubItems.Add(p.TipoPropiedad.ToString());
+                item.SubItems.Add(p.Estado.ToString());
+                item.SubItems.Add(p.CantidadAmbientes.ToString());
+                item.SubItems.Add(p.ValorPublicacion.ToString());
+                item.SubItems.Add(p.Ubicacion.Localidad.ToString());
+                item.SubItems.Add(p.Ubicacion.Barrio.ToString());
+                item.Tag = p;
+
+                int index = lvPropiedades.SelectedIndices[0];
+
+                lvPropiedades.Items.RemoveAt(index);
+                lvPropiedades.Items.Insert(index, item);
+            }
         }
 
         private void toolStripButtonBuscar_Click(object sender, EventArgs e)

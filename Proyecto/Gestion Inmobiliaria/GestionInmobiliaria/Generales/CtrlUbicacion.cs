@@ -41,6 +41,7 @@ namespace GI.UI.Generales
         {
             get
             {
+                if (ubicacion == null) ubicacion = new GI.BR.Propiedades.Ubicacion();
                 this.ubicacion.Barrio = (GI.BR.Propiedades.Ubicaciones.Barrio)cbBarrio.SelectedItem;
                 this.ubicacion.Pais = (GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem;
                 this.ubicacion.Provincia = (GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem;

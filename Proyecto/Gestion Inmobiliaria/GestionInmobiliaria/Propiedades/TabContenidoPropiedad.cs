@@ -43,6 +43,10 @@ namespace GI.UI.Propiedades
         }
 
 
+        public virtual GI.BR.Propiedades.Propiedad GetPropiedad()
+        {
+            return Propiedad;
+        }
 
 
     }

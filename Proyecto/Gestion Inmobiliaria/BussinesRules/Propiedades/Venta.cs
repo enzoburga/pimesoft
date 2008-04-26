@@ -11,7 +11,7 @@ namespace GI.BR.Propiedades
 
         public override bool Guardar()
         {
-            throw new Exception("The method or operation is not implemented.");
+            return true;
         }
     }
 }

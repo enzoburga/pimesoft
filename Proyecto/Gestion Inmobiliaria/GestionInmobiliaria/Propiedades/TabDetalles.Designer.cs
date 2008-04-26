@@ -435,7 +435,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxCantidadPisos
             // 
-            this.textBoxCantidadPisos.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.propiedadBindingSource, "CantidadPisos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
+            this.textBoxCantidadPisos.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "CantidadPisos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxCantidadPisos.Location = new System.Drawing.Point(127, 351);
             this.textBoxCantidadPisos.Name = "textBoxCantidadPisos";
             this.textBoxCantidadPisos.Size = new System.Drawing.Size(58, 21);

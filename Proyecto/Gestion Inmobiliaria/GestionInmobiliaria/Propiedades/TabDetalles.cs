@@ -15,6 +15,12 @@ namespace GI.UI.Propiedades
             InitializeComponent();
         }
 
+        public override GI.BR.Propiedades.Propiedad GetPropiedad()
+        {
+            Propiedad.EsAptoProfesional = chAptoProfesional.Checked;
+
+            return Propiedad;
+        }
 
         protected override void Inicializar()
         {
@@ -49,8 +55,10 @@ namespace GI.UI.Propiedades
                 Propiedad.TipoZona = GI.BR.Propiedades.TipoZona.SinDefinir;
             }
 
+            chAptoProfesional.Checked = Propiedad.EsAptoProfesional;
             medidaPropiedadBindingSource.Add(Propiedad.MedidasPropiedad);
             medidasTerrenoBindingSource.Add(Propiedad.MedidasTerreno);
+            propiedadBindingSource.Add(Propiedad);
   
 
 
