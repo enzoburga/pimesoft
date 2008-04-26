@@ -67,35 +67,7 @@ namespace GI.BR.Propiedades.Ubicaciones
             }
         }
 
-        public void RecuperarTodas(Provincia Provincia)
-        {
-            Clear();
 
-            Localidad l = new Localidad();
-            l.EsDefault = true;
-            l.IdLocalidad = 1;
-            l.IdProvincia = Provincia.IdProvincia;
-            l.Nombre = "Vicente López";
-            Add(l);
-
-            l = new Localidad();
-            l.EsDefault = true;
-            l.IdLocalidad = 1;
-            l.IdProvincia = Provincia.IdProvincia;
-            l.Nombre = "San Isidro";
-            Add(l);
-
-            l = new Localidad();
-            l.EsDefault = true;
-            l.IdLocalidad = 1;
-            l.IdProvincia = Provincia.IdProvincia;
-            l.Nombre = "Tigre";
-            Add(l);
-
-
-
-
-        }
         public Localidad GetDefault
         {
             get

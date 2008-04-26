@@ -71,6 +71,9 @@ namespace GI.UI.Propiedades
             valorBindingSource1.Add(Propiedad.ValorMercado);
             direccionBindingSource.Add(Propiedad.Direccion);
 
+            ctrlUbicacion1.Inicializar();
+            ctrlUbicacion1.Ubicacion = Propiedad.Ubicacion;
+
             foreach (GI.BR.Propiedades.Ambiente a in cbAmbientes.Items)
             {
                 if (a.CantidadAmbientes == Propiedad.CantidadAmbientes)
@@ -192,6 +195,11 @@ namespace GI.UI.Propiedades
                 lvMedidas.Items.RemoveAt(lvMedidas.SelectedIndices[0]);
 
             }
+        }
+
+        private void cbTipoPropiedad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
 

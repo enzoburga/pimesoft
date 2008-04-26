@@ -115,6 +115,12 @@
     <Compile Include="frmStartUp.Designer.cs">
       <DependentUpon>frmStartUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Generales\CtrlUbicacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Generales\CtrlUbicacion.Designer.cs">
+      <DependentUpon>CtrlUbicacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AdminAlquileres\frmListadoAdmAlquiler.resx">
@@ -169,6 +175,10 @@
     <EmbeddedResource Include="frmStartUp.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmStartUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generales\CtrlUbicacion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CtrlUbicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -250,6 +260,7 @@
     <None Include="Properties\DataSources\GI.BR.Propiedades.MedidaAmbiente.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Propiedad.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.TipoDePiso.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.Ubicacion.datasource" />
     <None Include="Properties\DataSources\GI.BR.Valor.datasource" />
     <Compile Include="Propiedades\Formularios\FrmMedida.cs">
       <SubType>Form</SubType>
