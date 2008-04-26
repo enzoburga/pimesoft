@@ -65,7 +65,27 @@ namespace GI.UI.Propiedades
             #endregion
 
 
-            //databondig
+            
+        }
+
+        protected override void CargarPropiedad()
+        {
+
+            if (Propiedad.IdPropiedad == 0)
+            {
+                Propiedad.TipoPropiedad = (GI.BR.Propiedades.TipoPropiedad)cbTipoPropiedad.SelectedItem;
+                Propiedad.Estado = (GI.BR.Propiedades.EstadoPropiedad)cbEstado.SelectedItem;
+                Propiedad.ValorPublicacion = new GI.BR.Valor();
+                Propiedad.ValorPublicacion.Importe = 0;
+                Propiedad.ValorPublicacion.Moneda = (GI.BR.Monedas.Moneda)cbMonedaPublicacion.SelectedItem;
+                Propiedad.ValorMercado = new GI.BR.Valor();
+                Propiedad.ValorMercado.Importe = 0;
+                Propiedad.ValorMercado.Moneda = (GI.BR.Monedas.Moneda)cbMonedaReal.SelectedItem;
+                Propiedad.EnumEstado = GI.BR.Propiedades.Estado.AEstrenar;
+                Propiedad.CantidadAmbientes = 1;
+                Propiedad.Medidas = new GI.BR.Propiedades.MedidasAmbiente();
+            }
+
             propiedadBindingSource.Add(Propiedad);
             valorBindingSource.Add(Propiedad.ValorPublicacion);
             valorBindingSource1.Add(Propiedad.ValorMercado);
@@ -92,11 +112,6 @@ namespace GI.UI.Propiedades
                 LinkPropietario.Text = Propiedad.Propietario.ToString();
 
             }
-        }
-
-        protected override void CargarPropiedad()
-        {
-            base.CargarPropiedad();
         }
 
 

@@ -5,8 +5,12 @@ using GI.BR.Clientes;
 
 namespace GI.BR.Propiedades
 {
+
+    public delegate void DelegateCambioTipoPropiedad(GI.BR.Propiedades.TipoPropiedad Tipo);
+
     public abstract class Propiedad : ICloneable
     {
+        public event DelegateCambioTipoPropiedad onCambioTipoPropiedad;
 
         public Propiedad()
         { }
@@ -91,7 +95,18 @@ namespace GI.BR.Propiedades
         public TipoPropiedad TipoPropiedad
         {
             get { return tipoPropiedad; }
-            set { tipoPropiedad = value; }
+            set
+            {
+                if (onCambioTipoPropiedad != null)
+                {
+                    if (value != null)
+                    {
+                        if (tipoPropiedad == null || (value.IdTipoPropiedad != tipoPropiedad.IdTipoPropiedad))
+                            onCambioTipoPropiedad(value);
+                    }
+                }
+                tipoPropiedad = value;
+            }
         }
 
 
