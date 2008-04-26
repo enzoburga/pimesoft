@@ -70,6 +70,12 @@ namespace GI.UI.Clientes
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            if (SoloLectura)
+            {
+                GI.Framework.General.GIMsgBox.Show("La ficha esta en modo solo lectura. No se pueden grabar los datos", GI.Framework.General.enumTipoMensaje.Informacion);
+                return;
+            }
             try
             {
                 //Verifico si el cliente esta o no guardado. Si lo esta lo actualizo.
@@ -91,11 +97,37 @@ namespace GI.UI.Clientes
 
         private void bAceptar_Click(object sender, EventArgs e)
         {
-            this.guardarToolStripMenuItem_Click(sender, e);
+
+            bool guardado = false;
+            if (SoloLectura)
+            {
+                GI.Framework.General.GIMsgBox.Show("La ficha esta en modo solo lectura. No se pueden grabar los datos", GI.Framework.General.enumTipoMensaje.Informacion);
+                return;
+            }
+            try
+            {
+                //Verifico si el cliente esta o no guardado. Si lo esta lo actualizo.
+                if (((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).Cliente.IdCliente == 0)
+                    guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).Cliente.Guardar();
+                else
+                    guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).Cliente.Actualizar();
+
+
+                if (guardado)
+                {
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                GI.Framework.General.GIMsgBox.Show(ex.Message, GI.Framework.General.enumTipoMensaje.Error);
+            }
         }
 
         private void bCancelar_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }
