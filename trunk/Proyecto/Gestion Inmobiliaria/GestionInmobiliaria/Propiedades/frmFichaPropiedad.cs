@@ -62,7 +62,7 @@ namespace GI.UI.Propiedades
             return base.AsignarSoloLectura(Ctrl);
         }
 
-        private void Inicializar()
+        public void Inicializar()
         {
 
             System.Windows.Forms.TabPage tabPage;
@@ -144,13 +144,77 @@ namespace GI.UI.Propiedades
 
         private void bAceptar_Click(object sender, EventArgs e)
         {
-            if (!SoloLectura)
-            { 
-                //grabamos la propiedad
+            try
+            {
+                bool guardado = false;
+                if (!SoloLectura)
+                {
+                    foreach (System.Windows.Forms.TabPage Page in this.tabControl.TabPages)
+                    {
+                        if (Page.Controls[0] is TabContenidoPropiedad)
+                            propiedad = ((TabContenidoPropiedad)Page.Controls[0]).GetPropiedad();
+
+
+                    }
+
+
+                    if (Propiedad.IdPropiedad == 0)
+                        guardado = Propiedad.Guardar();
+                    else
+                        guardado = Propiedad.Actualizar();
+
+                    if (!guardado)
+                        throw new Exception("No se puede grabar la propiedad");
+
+
+                    DialogResult = DialogResult.OK;
+                    Close();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Framework.General.GIMsgBox.Show(ex.Message, GI.Framework.General.enumTipoMensaje.Error);
             }
 
-            DialogResult = DialogResult.OK;
-            Close();
+        }
+
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool guardado = false;
+            if (SoloLectura)
+            {
+                GI.Framework.General.GIMsgBox.ShowSoloLectura();
+                return;
+            }
+            try
+            {
+                foreach (System.Windows.Forms.TabPage Page in this.tabControl.TabPages)
+                {
+                    if (Page.Controls[0] is TabContenidoPropiedad)
+                        propiedad = ((TabContenidoPropiedad)Page.Controls[0]).GetPropiedad();
+
+
+                }
+
+
+                if (Propiedad.IdPropiedad == 0)
+                    guardado = Propiedad.Guardar();
+                else
+                    guardado = Propiedad.Actualizar();
+
+                if (!guardado)
+                    throw new Exception("No se puede grabar la propiedad");
+        
+
+            }
+            catch (Exception ex)
+            {
+                GI.Framework.General.GIMsgBox.Show(ex.Message, GI.Framework.General.enumTipoMensaje.Error);
+
+            }
         }
     }
 }

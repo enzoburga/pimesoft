@@ -17,6 +17,16 @@ namespace GI.UI.Propiedades
         }
 
 
+        public override GI.BR.Propiedades.Propiedad GetPropiedad()
+        {
+            Propiedad.Ubicacion = ctrlUbicacion1.Ubicacion;
+            Propiedad.EsOtraInmobiliaria = checkBoxEsOtraPropiedad.Checked;
+
+
+            return Propiedad;
+        }
+
+        #region Inicializar
 
         protected override void Inicializar()
         {
@@ -65,7 +75,7 @@ namespace GI.UI.Propiedades
             #endregion
 
 
-            
+
         }
 
         protected override void CargarPropiedad()
@@ -84,7 +94,7 @@ namespace GI.UI.Propiedades
                 Propiedad.EnumEstado = GI.BR.Propiedades.Estado.AEstrenar;
                 Propiedad.CantidadAmbientes = 1;
                 Propiedad.Medidas = new GI.BR.Propiedades.MedidasAmbiente();
-  
+
                 Propiedad.Direccion = new GI.BR.Propiedades.Direccion();
 
             }
@@ -117,7 +127,10 @@ namespace GI.UI.Propiedades
 
             }
         }
+        
+        #endregion
 
+        #region Seguridad
 
         public override bool AsignarSoloLectura(Control Ctrl)
         {
@@ -126,6 +139,11 @@ namespace GI.UI.Propiedades
 
             return base.AsignarSoloLectura(Ctrl);
         }
+
+
+        #endregion
+
+        #region eventos
 
         private void cbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -179,7 +197,7 @@ namespace GI.UI.Propiedades
                     {
                         LinkPropietario.Text = frm.Cliente.ToString();
                     }
-                
+
                 }
             }
 
@@ -202,7 +220,7 @@ namespace GI.UI.Propiedades
                 item.SubItems.Add(medidaAmb.TipoDePiso.ToString());
                 item.Tag = medidaAmb;
                 lvMedidas.Items.Add(item);
-            
+
             }
         }
 
@@ -224,6 +242,7 @@ namespace GI.UI.Propiedades
         }
 
 
+        #endregion
 
         
     }
