@@ -61,6 +61,7 @@ namespace GI.UI.Clientes
             this.splitContainer1.Panel2.Controls.Add(this.bCancelar);
             this.splitContainer1.Size = new System.Drawing.Size(442, 516);
             this.splitContainer1.SplitterDistance = 475;
+            this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
             // 
             // tabControl
@@ -89,26 +90,26 @@ namespace GI.UI.Clientes
             this.imprimirToolStripMenuItem,
             this.cerrarToolStripMenuItem});
             this.fichaToolStripMenuItem.Name = "fichaToolStripMenuItem";
-            this.fichaToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.fichaToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.fichaToolStripMenuItem.Text = "Ficha";
             // 
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.guardarToolStripMenuItem.Text = "Guardar";
             this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
             // imprimirToolStripMenuItem
             // 
             this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
-            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.imprimirToolStripMenuItem.Text = "Imprimir";
             // 
             // cerrarToolStripMenuItem
             // 
             this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
-            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.cerrarToolStripMenuItem.Text = "Cerrar";
             this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
             // 
@@ -141,6 +142,7 @@ namespace GI.UI.Clientes
             this.CancelButton = this.bCancelar;
             this.ClientSize = new System.Drawing.Size(442, 516);
             this.Controls.Add(this.splitContainer1);
+            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmFichaCliente";
