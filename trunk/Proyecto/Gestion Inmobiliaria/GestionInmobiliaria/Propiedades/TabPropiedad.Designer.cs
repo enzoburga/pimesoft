@@ -574,7 +574,10 @@ namespace GI.UI.Propiedades
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
+            this.lvMedidas.FullRowSelect = true;
+            this.lvMedidas.HideSelection = false;
             this.lvMedidas.Location = new System.Drawing.Point(11, 20);
+            this.lvMedidas.MultiSelect = false;
             this.lvMedidas.Name = "lvMedidas";
             this.lvMedidas.Size = new System.Drawing.Size(392, 92);
             this.lvMedidas.TabIndex = 0;
@@ -609,6 +612,7 @@ namespace GI.UI.Propiedades
             this.linkLabelEliminarMedida.TabIndex = 1;
             this.linkLabelEliminarMedida.TabStop = true;
             this.linkLabelEliminarMedida.Text = "Eliminar Medida";
+            this.linkLabelEliminarMedida.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEliminarMedida_LinkClicked);
             // 
             // linkLabelAgregarMedida
             // 
@@ -619,6 +623,7 @@ namespace GI.UI.Propiedades
             this.linkLabelAgregarMedida.TabIndex = 1;
             this.linkLabelAgregarMedida.TabStop = true;
             this.linkLabelAgregarMedida.Text = "Agregar Medida";
+            this.linkLabelAgregarMedida.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAgregarMedida_LinkClicked);
             // 
             // LinkPropietario
             // 
