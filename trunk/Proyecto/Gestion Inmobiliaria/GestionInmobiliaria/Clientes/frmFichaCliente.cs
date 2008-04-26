@@ -57,16 +57,28 @@ namespace GI.UI.Clientes
         private void frmFichaCliente_Load(object sender, EventArgs e)
         {
 
-            if (cliente.IdCliente != 0)
+            //if (cliente.IdCliente != 0)
+            //{
+            //    bAceptar.Visible = false;
+            //    bCancelar.Text = "Cerrar";
+            //}
+            //else
+            //{
+            //    bAceptar.Visible = true;
+            //    bCancelar.Text = "Cancelar";
+            //}
+        }
+
+        public override bool AsignarSoloLectura(Control Ctrl)
+        {
+            if (Ctrl.Name == "bAceptar") return true;
+
+            if (Ctrl.Name == "bCancelar")
             {
-                bAceptar.Visible = false;
-                bCancelar.Text = "Cerrar";
+                Ctrl.Text = "Cerrar";
+                return false;
             }
-            else
-            {
-                bAceptar.Visible = true;
-                bCancelar.Text = "Cancelar";
-            }
+            return base.AsignarSoloLectura(Ctrl);
         }
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,7 +86,7 @@ namespace GI.UI.Clientes
 
             if (SoloLectura)
             {
-                GI.Framework.General.GIMsgBox.Show("La ficha esta en modo solo lectura. No se pueden grabar los datos", GI.Framework.General.enumTipoMensaje.Informacion);
+                GI.Framework.General.GIMsgBox.ShowSoloLectura();
                 return;
             }
             try
@@ -102,7 +114,7 @@ namespace GI.UI.Clientes
             bool guardado = false;
             if (SoloLectura)
             {
-                GI.Framework.General.GIMsgBox.Show("La ficha esta en modo solo lectura. No se pueden grabar los datos", GI.Framework.General.enumTipoMensaje.Informacion);
+                GI.Framework.General.GIMsgBox.ShowSoloLectura();
                 return;
             }
             try
@@ -128,8 +140,21 @@ namespace GI.UI.Clientes
 
         private void bCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
-            this.Close();
+            if(((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).CambioDatos)
+                switch (GI.Framework.General.GIMsgBox.ShowCancelarPerdidaDatos())
+                {
+                    case DialogResult.Cancel: 
+                        break;
+                    case DialogResult.Yes: 
+                        bAceptar_Click(null, null); 
+                        break;
+                    case DialogResult.No:
+                        {
+                            DialogResult = DialogResult.Cancel;
+                            this.Close(); break;
+                        }
+                }
+           
         }
     }
 }

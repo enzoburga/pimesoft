@@ -12,6 +12,13 @@ namespace GI.UI.Clientes
     {
         private GI.BR.Clientes.Cliente cliente = null;
         private GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory uff;
+        private bool cambioDatos = false;
+
+        public bool CambioDatos
+        {
+            get { return cambioDatos; }
+            set { cambioDatos = value; }
+        }
 
         public GI.BR.Clientes.Cliente Cliente
         {
@@ -84,6 +91,7 @@ namespace GI.UI.Clientes
                 this.cbProvincia.SelectedIndex = GetIndiceProvincia(cliente.Ubicacion.Provincia);
                 this.cbTipoDocumento.SelectedItem = cliente.TipoDocumento;
                 this.dtpFechaNac.Value = cliente.FechaNacimiento;
+                cambioDatos = false;
             }
         }
 
@@ -242,7 +250,7 @@ namespace GI.UI.Clientes
             cbTipoDocumento.Items.Add(GI.BR.General.enumTipoDocumento.DNI);
             cbTipoDocumento.Items.Add(GI.BR.General.enumTipoDocumento.LC);
 
-            cbTipoDocumento.SelectedIndex = 0; 
+            cbTipoDocumento.SelectedIndex = 0;
 
         }
 
@@ -267,9 +275,90 @@ namespace GI.UI.Clientes
 
         private void cbProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             cbLocalidad.Items.Clear();
             cbLocalidad.Items.AddRange(uff.GetLocalidades(((GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem).IdProvincia).ToArray());
             cbLocalidad.SelectedItem = uff.GetLocalidades(((GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem).IdProvincia).GetDefault;
+        }
+
+        private void tbNombres_TextChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void tbApellido_TextChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void tbNroDocumento_TextChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void cbTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void tbEmail_TextChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void tbTelParticular_TextChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void tbTelLaboral_TextChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void tbTelCelular_TextChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void dtpFechaNac_ValueChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void cbBarrio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void tbCalle_TextChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void tbAltura_TextChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void tbPiso_TextChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void tbDepto_TextChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void tbCodigoPostal_TextChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
+        }
+
+        private void tbObervaciones_TextChanged(object sender, EventArgs e)
+        {
+            cambioDatos = true;
         }
 
        

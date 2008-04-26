@@ -79,6 +79,7 @@ namespace GI.UI.Clientes
             this.tbNombres.Name = "tbNombres";
             this.tbNombres.Size = new System.Drawing.Size(106, 21);
             this.tbNombres.TabIndex = 0;
+            this.tbNombres.TextChanged += new System.EventHandler(this.tbNombres_TextChanged);
             // 
             // label1
             // 
@@ -104,6 +105,7 @@ namespace GI.UI.Clientes
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(145, 21);
             this.tbApellido.TabIndex = 1;
+            this.tbApellido.TextChanged += new System.EventHandler(this.tbApellido_TextChanged);
             // 
             // groupBox2
             // 
@@ -132,6 +134,7 @@ namespace GI.UI.Clientes
             this.tbCodigoPostal.Size = new System.Drawing.Size(46, 21);
             this.tbCodigoPostal.TabIndex = 17;
             this.tbCodigoPostal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbCodigoPostal.TextChanged += new System.EventHandler(this.tbCodigoPostal_TextChanged);
             // 
             // label13
             // 
@@ -150,6 +153,7 @@ namespace GI.UI.Clientes
             this.tbDepto.Size = new System.Drawing.Size(24, 21);
             this.tbDepto.TabIndex = 16;
             this.tbDepto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbDepto.TextChanged += new System.EventHandler(this.tbDepto_TextChanged);
             // 
             // tbPiso
             // 
@@ -158,6 +162,7 @@ namespace GI.UI.Clientes
             this.tbPiso.Name = "tbPiso";
             this.tbPiso.Size = new System.Drawing.Size(38, 21);
             this.tbPiso.TabIndex = 15;
+            this.tbPiso.TextChanged += new System.EventHandler(this.tbPiso_TextChanged);
             // 
             // label12
             // 
@@ -176,6 +181,7 @@ namespace GI.UI.Clientes
             this.tbAltura.Size = new System.Drawing.Size(47, 21);
             this.tbAltura.TabIndex = 14;
             this.tbAltura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbAltura.TextChanged += new System.EventHandler(this.tbAltura_TextChanged);
             // 
             // tbCalle
             // 
@@ -183,6 +189,7 @@ namespace GI.UI.Clientes
             this.tbCalle.Name = "tbCalle";
             this.tbCalle.Size = new System.Drawing.Size(224, 21);
             this.tbCalle.TabIndex = 13;
+            this.tbCalle.TextChanged += new System.EventHandler(this.tbCalle_TextChanged);
             // 
             // label11
             // 
@@ -246,6 +253,7 @@ namespace GI.UI.Clientes
             this.cbBarrio.Name = "cbBarrio";
             this.cbBarrio.Size = new System.Drawing.Size(148, 21);
             this.cbBarrio.TabIndex = 12;
+            this.cbBarrio.SelectedIndexChanged += new System.EventHandler(this.cbBarrio_SelectedIndexChanged);
             // 
             // cbLocalidad
             // 
@@ -311,6 +319,7 @@ namespace GI.UI.Clientes
             this.cbTipoDocumento.Name = "cbTipoDocumento";
             this.cbTipoDocumento.Size = new System.Drawing.Size(44, 21);
             this.cbTipoDocumento.TabIndex = 3;
+            this.cbTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cbTipoDocumento_SelectedIndexChanged);
             // 
             // tbNroDocumento
             // 
@@ -320,6 +329,7 @@ namespace GI.UI.Clientes
             this.tbNroDocumento.Size = new System.Drawing.Size(56, 21);
             this.tbNroDocumento.TabIndex = 2;
             this.tbNroDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbNroDocumento.TextChanged += new System.EventHandler(this.tbNroDocumento_TextChanged);
             // 
             // label3
             // 
@@ -338,6 +348,7 @@ namespace GI.UI.Clientes
             this.tbObervaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbObervaciones.Size = new System.Drawing.Size(407, 90);
             this.tbObervaciones.TabIndex = 18;
+            this.tbObervaciones.TextChanged += new System.EventHandler(this.tbObervaciones_TextChanged);
             // 
             // label14
             // 
@@ -355,6 +366,7 @@ namespace GI.UI.Clientes
             this.tbTelParticular.Size = new System.Drawing.Size(106, 21);
             this.tbTelParticular.TabIndex = 5;
             this.tbTelParticular.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTelParticular.TextChanged += new System.EventHandler(this.tbTelParticular_TextChanged);
             // 
             // label4
             // 
@@ -372,6 +384,7 @@ namespace GI.UI.Clientes
             this.tbTelCelular.Size = new System.Drawing.Size(106, 21);
             this.tbTelCelular.TabIndex = 7;
             this.tbTelCelular.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTelCelular.TextChanged += new System.EventHandler(this.tbTelCelular_TextChanged);
             // 
             // label15
             // 
@@ -389,6 +402,7 @@ namespace GI.UI.Clientes
             this.tbTelLaboral.Size = new System.Drawing.Size(105, 21);
             this.tbTelLaboral.TabIndex = 6;
             this.tbTelLaboral.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTelLaboral.TextChanged += new System.EventHandler(this.tbTelLaboral_TextChanged);
             // 
             // label16
             // 
@@ -416,6 +430,7 @@ namespace GI.UI.Clientes
             this.dtpFechaNac.Size = new System.Drawing.Size(106, 21);
             this.dtpFechaNac.TabIndex = 8;
             this.dtpFechaNac.Value = new System.DateTime(1978, 11, 16, 15, 35, 0, 0);
+            this.dtpFechaNac.ValueChanged += new System.EventHandler(this.dtpFechaNac_ValueChanged);
             // 
             // tbEmail
             // 
@@ -423,6 +438,7 @@ namespace GI.UI.Clientes
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(145, 21);
             this.tbEmail.TabIndex = 4;
+            this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             // 
             // label18
             // 

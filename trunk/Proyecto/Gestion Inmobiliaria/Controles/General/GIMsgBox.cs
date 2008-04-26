@@ -27,9 +27,9 @@ namespace GI.Framework.General
             System.Windows.Forms.MessageBox.Show("No se puede realizar esta acción. La ficha esta en modo solo lectura.", "¡Advertencia!", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation);            
         }
 
-        public static void ShowCancelarPerdidaDatos()
+        public static System.Windows.Forms.DialogResult ShowCancelarPerdidaDatos()
         {
-            System.Windows.Forms.MessageBox.Show("Si cancela en este momento se perderán los datos no guardados, ¿Desea guardar los datos?", "Pregunta", System.Windows.Forms.MessageBoxButtons.YesNoCancel, System.Windows.Forms.MessageBoxIcon.Question);
+            return System.Windows.Forms.MessageBox.Show("¿Desea guardar los cambios realizados?", "Pregunta", System.Windows.Forms.MessageBoxButtons.YesNoCancel, System.Windows.Forms.MessageBoxIcon.Question);
         }
 
     }
