@@ -100,7 +100,10 @@ namespace GI.Framework
             // 
             this.lvItems.ContextMenuStrip = this.contextMenuStrip1;
             this.lvItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvItems.FullRowSelect = true;
+            this.lvItems.HideSelection = false;
             this.lvItems.Location = new System.Drawing.Point(0, 0);
+            this.lvItems.MultiSelect = false;
             this.lvItems.Name = "lvItems";
             this.lvItems.Size = new System.Drawing.Size(688, 362);
             this.lvItems.TabIndex = 0;
@@ -114,20 +117,20 @@ namespace GI.Framework
             this.seleccionarToolStripMenuItem,
             this.editarToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 48);
             // 
             // seleccionarToolStripMenuItem
             // 
             this.seleccionarToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seleccionarToolStripMenuItem.Name = "seleccionarToolStripMenuItem";
-            this.seleccionarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.seleccionarToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.seleccionarToolStripMenuItem.Text = "Seleccionar";
             this.seleccionarToolStripMenuItem.Click += new System.EventHandler(this.seleccionarToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.editarToolStripMenuItem.Text = "Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 

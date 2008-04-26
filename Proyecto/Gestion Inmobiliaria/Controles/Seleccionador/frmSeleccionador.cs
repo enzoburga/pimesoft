@@ -71,6 +71,7 @@ namespace GI.Framework
                 }
 
 
+                if (lvItems.Items.Count > 0) lvItems.Items[0].Selected = true;
                 lvItems.EndUpdate();
 
             }
