@@ -113,7 +113,40 @@ namespace GI.UI.Propiedades
             }
         }
 
+        private void toolStripButtonNuevaFicha_Click(object sender, EventArgs e)
+        {
+            GI.BR.Propiedades.Propiedad p = null;
+            if (tipo.ToString() == "GI.BR.Propiedades.Venta")
+                p = new GI.BR.Propiedades.Venta();
+            else
+                p = new GI.BR.Propiedades.Alquiler();
+
+            p.Codigo = "";
+            
+
+            frmFichaPropiedad ficha = new frmFichaPropiedad();
+            ficha.Propiedad = p;
+            if (ficha.ShowDialog() == DialogResult.OK)
+            {
+                ListViewItem item = new ListViewItem();
+
+                item.Text = p.Codigo;
+                item.SubItems.Add(p.TipoPropiedad.ToString());
+                item.SubItems.Add(p.Estado.ToString());
+                item.SubItems.Add(p.CantidadAmbientes.ToString());
+                item.SubItems.Add(p.ValorPublicacion.ToString());
+                item.SubItems.Add(p.Ubicacion.Localidad.ToString());
+                item.SubItems.Add(p.Ubicacion.Barrio.ToString());
+                item.Tag = p;
+
+                lvPropiedades.Items.Add(item);
+            }
+
+        }
+
         #endregion
+
+
 
 
 
