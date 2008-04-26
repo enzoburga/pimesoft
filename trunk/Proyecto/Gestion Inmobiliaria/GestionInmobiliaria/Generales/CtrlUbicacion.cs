@@ -45,7 +45,6 @@ namespace GI.UI.Generales
             {
                
                 ubicacion = value;
-                ubicacionBindingSource.Add(ubicacion);
             }
         }
 
