@@ -38,18 +38,18 @@ namespace GI.BR.Propiedades
 
 
         public bool Guardar(Propiedad Propiedad)
-        { 
-            
+        {
+            return false;
         }
 
         public bool Actualizar()
-        { 
-        
+        {
+            return false;
         }
 
         public bool Eliminar()
-        { 
-            
+        {
+            return false;
         }
 
     }
