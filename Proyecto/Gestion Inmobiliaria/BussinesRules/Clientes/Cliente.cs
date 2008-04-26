@@ -22,7 +22,6 @@ namespace GI.BR.Clientes
         private DateTime fechaNacimiento;
         private string email;
         private bool cargado = false;
-        private enumTipoClientes tipoCliente;
         #endregion
 
 

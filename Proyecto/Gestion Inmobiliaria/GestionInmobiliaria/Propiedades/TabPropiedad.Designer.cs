@@ -386,7 +386,7 @@ namespace GI.UI.Propiedades
             this.ctrlUbicacion1.Size = new System.Drawing.Size(415, 89);
             this.ctrlUbicacion1.SoloLectura = false;
             this.ctrlUbicacion1.TabIndex = 40;
-            this.ctrlUbicacion1.Ubicacion = null;
+            //this.ctrlUbicacion1.Ubicacion = null;
             // 
             // ctrlDireccion1
             // 

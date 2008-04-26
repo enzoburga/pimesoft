@@ -50,8 +50,6 @@ namespace GI.UI.Generales
             }
             set
             {
-
-                
                 if (!inicializado)
                     Inicializar();
 

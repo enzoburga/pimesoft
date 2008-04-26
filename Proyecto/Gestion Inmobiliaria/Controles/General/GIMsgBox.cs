@@ -11,16 +11,15 @@ namespace GI.Framework.General
             switch (tipoMsg)
             { 
                 case enumTipoMensaje.Advertencia:
-                    return System.Windows.Forms.MessageBox.Show(mensaje, "¡Advertencia!", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation); break;
+                    return System.Windows.Forms.MessageBox.Show(mensaje, "¡Advertencia!", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation); 
                 case enumTipoMensaje.Error:
-                    return System.Windows.Forms.MessageBox.Show(mensaje, "¡Error!", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error); break;
+                    return System.Windows.Forms.MessageBox.Show(mensaje, "¡Error!", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error); 
                 case enumTipoMensaje.Informacion:
-                    System.Windows.Forms.MessageBox.Show(mensaje, "Información", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information); break;
+                    return System.Windows.Forms.MessageBox.Show(mensaje, "Información", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information); 
                 case enumTipoMensaje.Pregunta:
-                    return System.Windows.Forms.MessageBox.Show(mensaje, "Preguna", System.Windows.Forms.MessageBoxButtons.YesNoCancel, System.Windows.Forms.MessageBoxIcon.Question); break;
+                    return System.Windows.Forms.MessageBox.Show(mensaje, "Preguna", System.Windows.Forms.MessageBoxButtons.YesNoCancel, System.Windows.Forms.MessageBoxIcon.Question); 
                 default: return System.Windows.Forms.DialogResult.Abort;
             }
-            return System.Windows.Forms.DialogResult.Abort;
         }
         public static void ShowSoloLectura()
         { 

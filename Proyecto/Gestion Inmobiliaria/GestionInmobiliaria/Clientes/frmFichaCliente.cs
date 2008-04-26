@@ -146,13 +146,5 @@ namespace GI.UI.Clientes
             this.Close();
            
         }
-
-        private void frmFichaCliente_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (this.AcceptButton == null)
-            {
-                int a = 0;
-            }
-        }
     }
 }
