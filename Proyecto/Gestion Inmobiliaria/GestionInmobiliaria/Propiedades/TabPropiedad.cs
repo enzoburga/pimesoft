@@ -136,11 +136,25 @@ namespace GI.UI.Propiedades
             {
                 Framework.frmSeleccionador frmSeleccionador = new GI.Framework.frmSeleccionador(new Clientes.SeleccionadorClientes(typeof(GI.BR.Propietario)));
                 if (frmSeleccionador.ShowDialog() == DialogResult.OK)
-                { 
-                
+                {
+
+
+                }
+
+            }
+            else
+            {
+                if (LinkPropietario.Tag != null)
+                {
+                    Clientes.frmFichaCliente frm = new GI.UI.Clientes.frmFichaCliente();
+                    frm.SoloLectura = SoloLectura;
+                    frm.Cliente = (GI.BR.Cliente)LinkPropietario.Tag;
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        LinkPropietario.Text = frm.Cliente.ToString();
+                    }
                 
                 }
-            
             }
 
 
