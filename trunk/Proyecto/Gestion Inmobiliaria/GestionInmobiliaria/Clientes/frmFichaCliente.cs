@@ -8,11 +8,12 @@ using System.Windows.Forms;
 
 namespace GI.UI.Clientes
 {
-    public partial class frmFichaCliente : Form
+    public partial class frmFichaCliente : GI.Framework.Seguridad.FrmGISeguridad
     {
         public frmFichaCliente()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            Inicializar();
         }
 
         private GI.BR.Cliente cliente = null;
@@ -22,7 +23,8 @@ namespace GI.UI.Clientes
             get { return cliente; }
             set 
             { 
-                cliente = value; 
+                cliente = value;
+                CargarDatosCliente();
             
             }
         }
@@ -40,17 +42,8 @@ namespace GI.UI.Clientes
             tabPage.Controls.Add(controlDatosPersonales);
             tabControl.TabPages.Add(tabPage);
 
-            if (cliente != null)
-            {
-                bAceptar.Visible = false;
-                bCancelar.Text = "Cerrar";
-                CargarDatosCliente();
-            }
-            else
-            {
-                bAceptar.Visible = true;
-                bCancelar.Text = "Cancelar";
-            }
+
+
 
         }
 
@@ -62,7 +55,17 @@ namespace GI.UI.Clientes
 
         private void frmFichaCliente_Load(object sender, EventArgs e)
         {
-            Inicializar();
+
+            if (cliente != null)
+            {
+                bAceptar.Visible = false;
+                bCancelar.Text = "Cerrar";
+            }
+            else
+            {
+                bAceptar.Visible = true;
+                bCancelar.Text = "Cancelar";
+            }
         }
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)

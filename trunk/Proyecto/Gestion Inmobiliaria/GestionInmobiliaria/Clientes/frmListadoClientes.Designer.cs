@@ -132,6 +132,7 @@ namespace GI.UI.Clientes
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(190, 20);
             this.tbBuscar.TabIndex = 46;
+            this.tbBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbBuscar_KeyPress);
             // 
             // bBuscar
             // 

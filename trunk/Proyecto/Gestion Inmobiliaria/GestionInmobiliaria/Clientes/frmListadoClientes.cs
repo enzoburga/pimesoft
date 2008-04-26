@@ -8,26 +8,19 @@ using System.Windows.Forms;
 
 namespace GI.UI.Clientes
 {
-    public partial class frmListadoClientes : Form//GI.Framework.Seguridad.FrmGISeguridad
+    public partial class frmListadoClientes : GI.Framework.Seguridad.FrmGISeguridad
     {
         public frmListadoClientes()
         {
-            InitializeComponent();
-
-            Inicializar();          
-        }
-
-        private void Inicializar()
-        {
-            
-        }
-
-        
+            InitializeComponent();         
+        }       
 
         private void lvClientes_DoubleClick(object sender, EventArgs e)
         {
+            
             frmFichaCliente frm = new frmFichaCliente();
-            frm.Cliente = (GI.BR.Cliente)lvClientes.SelectedItems[0].Tag;
+            frm.SoloLectura = true;
+            frm.Cliente = (GI.BR.Cliente)lvClientes.SelectedItems[0].Tag;            
             frm.ShowDialog();
         }
 
@@ -40,13 +33,12 @@ namespace GI.UI.Clientes
 
         private void bBuscar_Click(object sender, EventArgs e)
         {
-            if(tbBuscar.Text.Length <2)
-            {
-                GI.Framework.General.GIMsgBox.Show("Debe ingresar al menos dos caracteres.", GI.Framework.General.enumTipoMensaje.Advertencia);
-                return;
-            }
+
             GI.BR.Clientes clientes = new GI.BR.Clientes();
-            clientes.RecuperarPropietarios(tbBuscar.Text);
+            if(tbBuscar.Text == "")
+                clientes.RecuperarPropietarios();
+            else
+                clientes.RecuperarPropietarios(tbBuscar.Text);
 
             if(clientes.Count <1)
             {
@@ -83,6 +75,12 @@ namespace GI.UI.Clientes
             frmFichaCliente frm = new frmFichaCliente();
             frm.Cliente = new GI.BR.Inquilino();
             frm.Show();
+        }
+
+        private void tbBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                bBuscar_Click(null, null);
         }
     }
 }

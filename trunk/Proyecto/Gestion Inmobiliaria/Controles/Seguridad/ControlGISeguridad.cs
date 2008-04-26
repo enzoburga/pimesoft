@@ -39,6 +39,9 @@ namespace GI.Framework.Seguridad
                 return true;
             }
 
+            if (Ctrl is System.Windows.Forms.DateTimePicker)
+                return true;
+
             if (Ctrl is System.Windows.Forms.CheckBox)
                 return true;
 
