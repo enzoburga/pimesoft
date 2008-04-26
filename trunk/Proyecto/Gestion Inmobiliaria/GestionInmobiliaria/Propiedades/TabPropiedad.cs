@@ -74,6 +74,8 @@ namespace GI.UI.Propiedades
             ctrlUbicacion1.Inicializar();
             ctrlUbicacion1.Ubicacion = Propiedad.Ubicacion;
 
+            ctrlDireccion1.Direccion = Propiedad.Direccion;
+
             foreach (GI.BR.Propiedades.Ambiente a in cbAmbientes.Items)
             {
                 if (a.CantidadAmbientes == Propiedad.CantidadAmbientes)
