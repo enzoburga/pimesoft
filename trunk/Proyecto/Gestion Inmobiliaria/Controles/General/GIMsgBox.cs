@@ -22,5 +22,15 @@ namespace GI.Framework.General
 
             }
         }
+        public static void ShowSoloLectura()
+        { 
+            System.Windows.Forms.MessageBox.Show("No se puede realizar esta acción. La ficha esta en modo solo lectura.", "¡Advertencia!", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation); break;            
+        }
+
+        public static void ShowCancelarPerdidaDatos()
+        {
+            System.Windows.Forms.MessageBox.Show("Si cancela en este momento se perderán los datos no guardados, ¿Desea guardar los datos?", "Pregunta", System.Windows.Forms.MessageBoxButtons.YesNoCancel, System.Windows.Forms.MessageBoxIcon.Question); break;
+        }
+
     }
 }
