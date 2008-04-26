@@ -7,7 +7,10 @@ namespace GI.BR.Clientes
     public class Inquilino: Cliente
     {
         #region Persistencia
-
+        public override enumTipoClientes TipoCliente
+        {
+            get { return enumTipoClientes.Inquilino; }
+        }
         public override bool Guardar()
         {
             //Antes llamo al guardar de la clase base.

@@ -15,9 +15,9 @@ namespace GI.UI.AdminAlquileres
             InitializeComponent();
 
 
-            cbFiltro.Items.Add("Alquileres con contrato vigente");
-            cbFiltro.Items.Add("Todos los Alquileres");
-            cbFiltro.SelectedIndex = 0;
+            //cbFiltro.Items.Add("Alquileres con contrato vigente");
+            //cbFiltro.Items.Add("Todos los Alquileres");
+            //cbFiltro.SelectedIndex = 0;
 
             ListViewItem item = new ListViewItem();
             item.Text = "Emilio Luis Davidis";

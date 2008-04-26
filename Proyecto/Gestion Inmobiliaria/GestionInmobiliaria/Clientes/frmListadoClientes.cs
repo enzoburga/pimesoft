@@ -43,6 +43,7 @@ namespace GI.UI.Clientes
                 lvi.Text = c.ToString();
                 lvi.SubItems.Add(c.Direccion.ToString());
                 lvi.SubItems.Add(c.Email.ToString());
+                lvi.SubItems.Add(c.TipoCliente.ToString());
                 lvi.Tag = c;
                 lvClientes.Items.Add(lvi);
             }
