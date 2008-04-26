@@ -52,13 +52,10 @@ namespace GI.UI.Generales
                 if (!inicializado)
                     Inicializar();
 
-                if (value == null) return;
-
                 ubicacion = value;
 
                 
 
-               
                 this.cbPais.SelectedIndex = GetIndicePais(ubicacion.Pais);
                 this.cbProvincia.SelectedIndex = GetIndiceProvincia(ubicacion.Provincia);
                 this.cbLocalidad.SelectedIndex = GetIndiceLocalidad(ubicacion.Localidad);
