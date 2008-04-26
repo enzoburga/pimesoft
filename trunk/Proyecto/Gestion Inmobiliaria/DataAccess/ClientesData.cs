@@ -153,5 +153,21 @@ namespace GI.DA
                 new object[] { IdInquilino },
                 new string[] { "@IdInquilino" });
         }
+
+        public System.Data.IDataReader RecuperarInquilinos(string Nombres)
+        {
+            return AccesoDatos.RecuperarDatos(
+                "Inquilinos_RecuperarPorNombre",
+                new object[] { Nombres },
+                new string[] { "@Cadena" });
+        }
+
+        public System.Data.IDataReader RecuperarInquilinos()
+        {
+            return AccesoDatos.RecuperarDatos(
+                "Inquilinos_RecuperarTodos",
+                new object[] { },
+                new string[] { });
+        }
     }
 }

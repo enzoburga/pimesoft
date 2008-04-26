@@ -10,10 +10,10 @@ namespace GI.UI.Clientes
 {
     public partial class TabDatosPrincipales : Framework.Seguridad.ControlGISeguridad
     {
-        private GI.BR.Cliente cliente = null;
+        private GI.BR.Clientes.Cliente cliente = null;
         private GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory uff;
 
-        public GI.BR.Cliente Cliente
+        public GI.BR.Clientes.Cliente Cliente
         {
             get 
             {

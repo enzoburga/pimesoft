@@ -71,6 +71,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Botonera.resx</DependentUpon>
     </Compile>
+    <Compile Include="Clientes\frmBuscarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmBuscarClientes.Designer.cs">
+      <DependentUpon>frmBuscarClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clientes\frmFichaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,10 @@
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Botonera.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmBuscarClientes.resx">
+      <DependentUpon>frmBuscarClientes.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes\frmFichaCliente.resx">
       <SubType>Designer</SubType>

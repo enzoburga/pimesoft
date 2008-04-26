@@ -20,41 +20,42 @@ namespace GI.UI.Clientes
             
             frmFichaCliente frm = new frmFichaCliente();
             frm.SoloLectura = true;
-            frm.Cliente = (GI.BR.Cliente)lvClientes.SelectedItems[0].Tag;            
+            frm.Cliente = (GI.BR.Clientes.Cliente)lvClientes.SelectedItems[0].Tag;            
             frm.ShowDialog();
         }
 
         private void nuevoPropietarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            GI.BR.Clientes.ClienteFactory cf = new GI.BR.Clientes.ClienteFactory();
             frmFichaCliente frm = new frmFichaCliente();
-            frm.Cliente = new GI.BR.Propietario();
+            frm.Cliente = cf.CrearClaseCliente(typeof(GI.BR.Clientes.Propietario));
             frm.Show();
         }
 
-        private void bBuscar_Click(object sender, EventArgs e)
-        {
+        //private void bBuscar_Click(object sender, EventArgs e)
+        //{
 
-            GI.BR.Clientes clientes = new GI.BR.Clientes();
-            if(tbBuscar.Text == "")
-                clientes.RecuperarPropietarios();
-            else
-                clientes.RecuperarPropietarios(tbBuscar.Text);
+        //    GI.BR.Clientes.Clientes clientes = new GI.BR.Clientes.Clientes();
+        //    if(tbBuscar.Text == "")
+        //        clientes.RecuperarPropietarios();
+        //    else
+        //        clientes.RecuperarPropietarios(tbBuscar.Text);
 
-            if(clientes.Count <1)
-            {
-                GI.Framework.General.GIMsgBox.Show("No se han encontrado clientes coincidentes con el criterio.", GI.Framework.General.enumTipoMensaje.Advertencia);
-                return;
-            }
+        //    if(clientes.Count <1)
+        //    {
+        //        GI.Framework.General.GIMsgBox.Show("No se han encontrado clientes coincidentes con el criterio.", GI.Framework.General.enumTipoMensaje.Advertencia);
+        //        return;
+        //    }
 
 
-            CargarClientes(clientes);
-        }
+        //    CargarClientes(clientes);
+        //}
 
-        private void CargarClientes(GI.BR.Clientes clientes)
+        private void CargarClientes(GI.BR.Clientes.Clientes clientes)
         {
             ListViewItem lvi;
             lvClientes.Items.Clear();
-            foreach(GI.BR.Cliente c in clientes)
+            foreach (GI.BR.Clientes.Cliente c in clientes)
             {
                 lvi  = new ListViewItem();
                 lvi.Text = c.ToString();
@@ -72,15 +73,17 @@ namespace GI.UI.Clientes
 
         private void nuevoInquilinoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            GI.BR.Clientes.ClienteFactory cf = new GI.BR.Clientes.ClienteFactory();
             frmFichaCliente frm = new frmFichaCliente();
-            frm.Cliente = new GI.BR.Inquilino();
+            frm.Cliente = cf.CrearClaseCliente(typeof(GI.BR.Clientes.Inquilino));
             frm.Show();
         }
 
-        private void tbBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        private void toolStripButtonBuscar_Click(object sender, EventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-                bBuscar_Click(null, null);
+            frmBuscarClientes frmBuscar = new frmBuscarClientes();
+            if (frmBuscar.ShowDialog() == DialogResult.OK)
+                this.CargarClientes(frmBuscar.Clientes);
         }
     }
 }

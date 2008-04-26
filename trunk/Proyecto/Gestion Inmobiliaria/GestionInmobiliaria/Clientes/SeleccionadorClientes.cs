@@ -44,7 +44,7 @@ namespace GI.UI.Clientes
         public List<object> Buscar(GI.Framework.Seleccionador.MetodoBusqueda Metodo)
         {
             List<object> objetos = new List<object>();
-            GI.BR.Clientes clientes = new GI.BR.Clientes();
+            GI.BR.Clientes.Clientes clientes = new GI.BR.Clientes.Clientes();
 
 
             if (tipoCliente.ToString() == "GI.BR.Propietario")
@@ -92,7 +92,7 @@ namespace GI.UI.Clientes
         public System.Windows.Forms.ListViewItem GenerarListViewItem(object Objeto)
         {
 
-            GI.BR.Cliente cliente = (GI.BR.Cliente)Objeto;
+            GI.BR.Clientes.Cliente cliente = (GI.BR.Clientes.Cliente)Objeto;
 
             System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem();
 
@@ -107,7 +107,7 @@ namespace GI.UI.Clientes
 
         public object NuevoObjeto()
         {
-            GI.BR.Cliente cliente = new GI.BR.ClienteFactory().CrearClaseCliente(tipoCliente);
+            GI.BR.Clientes.Cliente cliente = new GI.BR.Clientes.ClienteFactory().CrearClaseCliente(tipoCliente);
 
             frmFichaCliente frmFicha = new frmFichaCliente();
             frmFicha.Cliente = cliente;
@@ -121,7 +121,7 @@ namespace GI.UI.Clientes
         public void ModificarObjeto(object Objeto)
         {
             frmFichaCliente frmFicha = new frmFichaCliente();
-            frmFicha.Cliente = (GI.BR.Cliente)Objeto;
+            frmFicha.Cliente = (GI.BR.Clientes.Cliente)Objeto;
             frmFicha.SoloLectura = false;
             frmFicha.ShowDialog();
 

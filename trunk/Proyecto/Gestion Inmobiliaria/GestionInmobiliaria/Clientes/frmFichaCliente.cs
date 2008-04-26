@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using GI.BR.Clientes;
 
 namespace GI.UI.Clientes
 {
@@ -16,9 +17,9 @@ namespace GI.UI.Clientes
             Inicializar();
         }
 
-        private GI.BR.Cliente cliente = null;
+        private GI.BR.Clientes.Cliente cliente = null;
 
-        public GI.BR.Cliente Cliente
+        public GI.BR.Clientes.Cliente Cliente
         {
             get { return cliente; }
             set 
