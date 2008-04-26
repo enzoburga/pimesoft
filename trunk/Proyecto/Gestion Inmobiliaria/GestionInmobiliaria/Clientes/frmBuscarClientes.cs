@@ -37,7 +37,7 @@ namespace GI.UI.Clientes
             cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.Todos); 
 
             cbTipoCliente.SelectedIndex = 0;
-            #endregion
+            #endregion 
 
         }
 
