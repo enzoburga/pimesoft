@@ -11,10 +11,10 @@ namespace GI.BR.Clientes
 
         public Cliente CrearClaseCliente(Type Tipo)
         {
-            if (Tipo.ToString() == "GI.BR.Propietario")
+            if (Tipo.ToString() == "GI.BR.Clientes.Propietario")
                 return new Propietario();
 
-            else if (Tipo.ToString() == "GI.BR.Inquilino")
+            else if (Tipo.ToString() == "GI.BR.Clientes.Inquilino")
                 return new Inquilino();
 
             return null;

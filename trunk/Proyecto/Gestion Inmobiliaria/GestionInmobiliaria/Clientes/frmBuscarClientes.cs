@@ -11,15 +11,13 @@ namespace GI.UI.Clientes
     
     public partial class frmBuscarClientes : Form
     {
-        private Type tipo;
         private GI.BR.Clientes.Clientes clientes;
 
 
 
         public frmBuscarClientes()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
             
         }
 
@@ -51,11 +49,29 @@ namespace GI.UI.Clientes
                 GI.Framework.General.GIMsgBox.Show("Debe Seleccionar un tipo de cliente.", GI.Framework.General.enumTipoMensaje.Advertencia);
                 return;
             }
+            if (tbNombres.Text.Length < 2)
+            {
+                GI.Framework.General.GIMsgBox.Show("Debe al menos ingresar 2 caracteres en el campo Nombres / Apellido", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
 
             GI.Managers.Clientes.mngClientes mngClientes = new GI.Managers.Clientes.mngClientes();
 
             this.clientes = mngClientes.RecuperarClientes((GI.Managers.Clientes.enumTipoBusquedaCliente)cbTipoCliente.SelectedItem, this.tbNombres.Text);
 
+            if (clientes.Count < 1)
+            {
+                GI.Framework.General.GIMsgBox.Show("No se han encontrado clientes coincidentes con el criterio.", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+
+        }
+
+        private void frmBuscarClientes_Load(object sender, EventArgs e)
+        {
+            Inicializar();
         }
 
 

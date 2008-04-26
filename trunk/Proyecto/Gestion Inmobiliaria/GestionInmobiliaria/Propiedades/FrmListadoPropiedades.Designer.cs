@@ -114,7 +114,7 @@ namespace GI.UI.Propiedades
             this.imprimirToolStripMenuItem,
             this.enviarACorreoElectrónicoToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(214, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(214, 114);
             // 
             // toolStripMenuItem1
             // 

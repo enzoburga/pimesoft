@@ -48,7 +48,6 @@ namespace GI.UI.Clientes
             this.bBuscar.TabIndex = 3;
             this.bBuscar.Text = "Buscar";
             this.bBuscar.UseVisualStyleBackColor = true;
-            this.bBuscar.UseWaitCursor = true;
             this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
             // 
             // tabControlTiposDeBusqueda
@@ -126,6 +125,7 @@ namespace GI.UI.Clientes
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Buscar Clientes";
+            this.Load += new System.EventHandler(this.frmBuscarClientes_Load);
             this.tabControlTiposDeBusqueda.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
