@@ -31,5 +31,9 @@ namespace GI.BR.Propiedades
             set { metrosLibres = value; }
         }
 
+
+
+
+
     }
 }

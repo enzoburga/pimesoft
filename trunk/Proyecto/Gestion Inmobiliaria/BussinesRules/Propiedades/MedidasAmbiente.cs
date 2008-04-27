@@ -19,6 +19,7 @@ namespace GI.BR.Propiedades
                 while (dr.Read())
                 {
                     ambiente = new MedidaAmbiente();
+                    ambiente.IdMedidaAmbiente = dr.GetInt32(dr.GetOrdinal("IdAmbiente"));
                     ambiente.Ancho = dr.GetDecimal(dr.GetOrdinal("Ancho"));
                     ambiente.Largo = dr.GetDecimal(dr.GetOrdinal("Largo"));
                     ambiente.NombreAmbiente = dr.GetString(dr.GetOrdinal("Ambiente"));
