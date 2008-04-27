@@ -178,7 +178,7 @@ namespace GI.UI.Propiedades
 
             if (LinkPropietario.Text == "Seleccione un propietario")
             {
-                Framework.frmSeleccionador frmSeleccionador = new GI.Framework.frmSeleccionador(new Clientes.SeleccionadorClientes(typeof(GI.BR.Clientes.Propietario)));
+                Framework.frmSeleccionador frmSeleccionador = new GI.Framework.frmSeleccionador(new Clientes.SeleccionadorPropietarios(typeof(GI.BR.Clientes.Propietario)));
                 if (frmSeleccionador.ShowDialog() == DialogResult.OK)
                 {
                     LinkPropietario.Tag = (GI.BR.Clientes.Propietario)frmSeleccionador.ObjetoSeleccionado;

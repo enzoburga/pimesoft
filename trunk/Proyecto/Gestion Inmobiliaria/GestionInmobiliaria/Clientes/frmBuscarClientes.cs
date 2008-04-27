@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace GI.UI.Clientes
 {
     
-    public partial class frmBuscarClientes : Form
+    public partial class frmBuscarClientes : Form, GI.Framework.Interfaces.IBuscador
     {
         private GI.BR.Clientes.Clientes clientes;
 
@@ -17,7 +17,8 @@ namespace GI.UI.Clientes
 
         public frmBuscarClientes()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            Inicializar();
             
         }
 
@@ -30,7 +31,7 @@ namespace GI.UI.Clientes
         private void Inicializar()
         {
 
-            #region Tipo de Propiedad
+            #region Tipo de Cliente
             cbTipoCliente.Items.Add("Seleccione opción...");
             cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.Propietarios);
             cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.Inquilinos);
@@ -77,12 +78,52 @@ namespace GI.UI.Clientes
 
         private void frmBuscarClientes_Load(object sender, EventArgs e)
         {
-            Inicializar();
+            
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             tbNombres.Enabled = !checkBox1.Checked;
         }
+
+        #region IBuscador Members
+
+        public List<object> GetObjetosEncontrados()
+        {
+            List<object> lista = new List<object>();
+            lista.AddRange(this.Clientes.ToArray());
+            return lista;
+        }
+
+        public DialogResult MostrarBuscador()
+        {
+            return this.ShowDialog();
+        }
+
+        public void SetTipoBusqueda(Type type)
+        {
+            switch (type.ToString())
+            {
+                case "GI.BR.Clientes.Propietario":
+                    {
+                        this.cbTipoCliente.SelectedItem = GI.Managers.Clientes.enumTipoBusquedaCliente.Propietarios;
+                        this.cbTipoCliente.Enabled = false;
+                        break;
+                    }
+                case "GI.BR.Clientes.Inquilino":
+                    {
+                        this.cbTipoCliente.SelectedItem = GI.Managers.Clientes.enumTipoBusquedaCliente.Inquilinos;
+                        this.cbTipoCliente.Enabled = false;
+                        break;
+                    }
+                case null:
+                    {
+                        this.cbTipoCliente.SelectedItem = GI.Managers.Clientes.enumTipoBusquedaCliente.Todos;
+                        this.cbTipoCliente.Enabled = false;
+                        break;
+                    }
+            }
+        }
+        #endregion
     }
 }

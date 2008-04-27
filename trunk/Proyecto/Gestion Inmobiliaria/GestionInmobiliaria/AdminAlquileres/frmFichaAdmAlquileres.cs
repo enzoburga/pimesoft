@@ -8,12 +8,12 @@ using System.Windows.Forms;
 
 namespace GI.UI.AdminAlquileres
 {
-    public partial class frmFichaAdmAlquileres : Form
+    public partial class frmFichaAdmAlquileres : GI.Framework.Seguridad.FrmGISeguridad
     {
         public frmFichaAdmAlquileres()
         {
             InitializeComponent();
-            //Inicializar();
+            Inicializar();
         }
 
         private GI.BR.AdmAlquileres.AdmAlquiler admAlquiler;
@@ -38,34 +38,32 @@ namespace GI.UI.AdminAlquileres
 
             }
         }
+
+        private void Inicializar()
+        {
+            System.Windows.Forms.TabPage tabPage;
+            System.Windows.Forms.Control control;
+
+            tabPage = new TabPage("Datos Vigentes");
+            control = new TabDatosPrincipales();
+            control.Dock = DockStyle.Fill;
+            tabPage.Controls.Add(control);
+            tabControl.TabPages.Add(tabPage);
+
+            tabPage = new TabPage("Pagos Realizados");
+            control = new TabPagos();
+            control.Dock = DockStyle.Fill;
+            tabPage.Controls.Add(control);
+            tabControl.TabPages.Add(tabPage);
+
+            tabPage = new TabPage("Historico Inquilinos");
+            control = new TabHistorico();
+            control.Dock = DockStyle.Fill;
+            tabPage.Controls.Add(control);
+            tabControl.TabPages.Add(tabPage);
+
+
+        }
     }
-
-
-
-        //private override void Inicializar()
-        //{
-        //    System.Windows.Forms.TabPage tabPage;
-        //    System.Windows.Forms.Control control;
-
-        //    tabPage = new TabPage("Datos Vigentes");
-        //    control = new TabDatosPrincipales();
-        //    control.Dock = DockStyle.Fill;
-        //    tabPage.Controls.Add(control);
-        //    tabControl.TabPages.Add(tabPage);
-
-        //    tabPage = new TabPage("Pagos Realizados");
-        //    control = new TabPagos();
-        //    control.Dock = DockStyle.Fill;
-        //    tabPage.Controls.Add(control);
-        //    tabControl.TabPages.Add(tabPage);
-
-        //    tabPage = new TabPage("Historico Inquilinos");
-        //    control = new TabHistorico();
-        //    control.Dock = DockStyle.Fill;
-        //    tabPage.Controls.Add(control);
-        //    tabControl.TabPages.Add(tabPage);
-
-
-        //}
-    //}
+   
 }

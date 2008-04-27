@@ -34,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdmAlquileres\AdmAlquiler.cs" />
+    <Compile Include="AdmAlquileres\AdmAlquileres.cs" />
     <Compile Include="AdmAlquileres\Contrato.cs" />
     <Compile Include="AdmAlquileres\Contratos.cs" />
     <Compile Include="Clientes\Cliente.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Propiedades\TipoZona.cs" />
     <Compile Include="Propiedades\Ubicacion.cs" />
     <Compile Include="Propiedades\Ubicaciones\Barrio.cs" />
+    <Compile Include="Propiedades\PropiedadFactory.cs" />
     <Compile Include="Propiedades\Ubicaciones\Localidad.cs" />
     <Compile Include="Propiedades\Ubicaciones\Pais.cs" />
     <Compile Include="Propiedades\Propiedades.cs" />

@@ -4,14 +4,16 @@ using System.Text;
 
 namespace GI.UI.Clientes
 {
-    public class SeleccionadorClientes : Framework.Interfaces.ISeleccionadorObeto
+    public class SeleccionadorPropietarios : Framework.Interfaces.ISeleccionadorObeto
     {
 
         System.Type tipoCliente;
+        GI.UI.Clientes.frmBuscarClientes buscador = new GI.UI.Clientes.frmBuscarClientes();
 
-        public SeleccionadorClientes(Type TipoCliente)
+        public SeleccionadorPropietarios(Type TipoCliente)
         {
             tipoCliente = TipoCliente;
+            buscador.SetTipoBusqueda(tipoCliente);
         }
 
 
@@ -128,6 +130,16 @@ namespace GI.UI.Clientes
 
         }
 
+        
+
+
+        GI.Framework.Interfaces.IBuscador GI.Framework.Interfaces.ISeleccionadorObeto.GetBuscador()
+        {
+            return this.buscador;
+        }
+
+
         #endregion
+
     }
 }

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GI.UI.Propiedades
 {
-    public partial class frmBuscarPropiedades : Form
+    public partial class frmBuscarPropiedades : Form,GI.Framework.Interfaces.IBuscador
     {
         private Type tipo;
         private GI.BR.Propiedades.Propiedades propiedades;
@@ -151,5 +151,26 @@ namespace GI.UI.Propiedades
 
 
         }
+
+        #region IBuscador Members
+
+        public List<object> GetObjetosEncontrados()
+        {
+            List<object> lista = new List<object>();
+            lista.AddRange(this.Propiedades.ToArray());
+            return lista;
+        }
+
+        public void SetTipoBusqueda(Type tipoObjeto)
+        {
+            
+        }
+
+        public DialogResult MostrarBuscador()
+        {
+            return this.ShowDialog();
+        }
+
+        #endregion
     }
 }

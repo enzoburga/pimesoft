@@ -32,7 +32,7 @@ namespace GI.UI.AdminAlquileres
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.NuevoAlquilertoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.lvAdmAlquileres = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -69,7 +69,7 @@ namespace GI.UI.AdminAlquileres
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
-            this.toolStripButton2,
+            this.NuevoAlquilertoolStripButton,
             this.toolStripButton4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -87,15 +87,16 @@ namespace GI.UI.AdminAlquileres
             this.toolStripButton1.Size = new System.Drawing.Size(67, 68);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // toolStripButton2
+            // NuevoAlquilertoolStripButton
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(68, 68);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.NuevoAlquilertoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.NuevoAlquilertoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("NuevoAlquilertoolStripButton.Image")));
+            this.NuevoAlquilertoolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.NuevoAlquilertoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.NuevoAlquilertoolStripButton.Name = "NuevoAlquilertoolStripButton";
+            this.NuevoAlquilertoolStripButton.Size = new System.Drawing.Size(68, 68);
+            this.NuevoAlquilertoolStripButton.Text = "Nuevo Alquiler";
+            this.NuevoAlquilertoolStripButton.Click += new System.EventHandler(this.NuevoAlquilertoolStripButton_Click);
             // 
             // toolStripButton4
             // 
@@ -174,7 +175,7 @@ namespace GI.UI.AdminAlquileres
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton NuevoAlquilertoolStripButton;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ColumnHeader columnHeader3;
     }
