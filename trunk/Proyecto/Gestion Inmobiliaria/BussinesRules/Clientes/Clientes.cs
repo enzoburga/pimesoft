@@ -68,6 +68,19 @@ namespace GI.BR.Clientes
             }
         }
 
+        public void RecuperarInquilinosPorContrato(AdmAlquileres.Contrato contrato)
+        {
+            this.Clear();
+            GI.DA.ClientesData cd = new GI.DA.ClientesData();
+            using (IDataReader dr = cd.RecuperarInquilinosPorAlquiler(contrato.IdContrato))
+            {
+                while (dr.Read())
+                {
+                    this.Add(GetInquilino(dr));
+                }
+            }
+        }
+
         private Cliente GetInquilino(IDataReader dr)
         {
             Inquilino i = new Inquilino();

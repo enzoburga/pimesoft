@@ -169,5 +169,15 @@ namespace GI.DA
                 new object[] { },
                 new string[] { });
         }
+
+        public System.Data.IDataReader RecuperarInquilinosPorAlquiler(int IdAdmAlquiler)
+        {
+            //return AccesoDatos.RecuperarDatos(
+            //    "Inquilinos_RecuperarPorAlquiler",
+            //    new object[] { IdAdmAlquiler },
+            //    new string[] { "@IdAdmAlquiler"});
+
+            throw new Exception("The method or operation is not implemented.");
+        }
     }
 }

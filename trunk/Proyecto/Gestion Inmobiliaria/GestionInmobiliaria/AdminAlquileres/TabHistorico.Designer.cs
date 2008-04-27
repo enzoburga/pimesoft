@@ -44,7 +44,7 @@ namespace GI.UI.AdminAlquileres
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(16, 17);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(413, 404);
+            this.listView1.Size = new System.Drawing.Size(413, 461);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -71,7 +71,7 @@ namespace GI.UI.AdminAlquileres
             this.Controls.Add(this.listView1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TabHistorico";
-            this.Size = new System.Drawing.Size(444, 439);
+            this.Size = new System.Drawing.Size(444, 493);
             this.ResumeLayout(false);
 
         }
