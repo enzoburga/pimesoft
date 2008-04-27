@@ -181,8 +181,8 @@ namespace GI.UI.Propiedades
                 Framework.frmSeleccionador frmSeleccionador = new GI.Framework.frmSeleccionador(new Clientes.SeleccionadorClientes(typeof(GI.BR.Clientes.Propietario)));
                 if (frmSeleccionador.ShowDialog() == DialogResult.OK)
                 {
-
-
+                    LinkPropietario.Tag = (GI.BR.Clientes.Propietario)frmSeleccionador.ObjetoSeleccionado;
+                    LinkPropietario.Text = frmSeleccionador.ObjetoSeleccionado.ToString();
                 }
 
             }

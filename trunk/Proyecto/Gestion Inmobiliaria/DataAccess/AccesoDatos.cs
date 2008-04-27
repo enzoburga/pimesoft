@@ -200,7 +200,7 @@ namespace GI.DA
                 }
                 return ret;
             }
-            catch 
+            catch (Exception ex)
             {
                 return 0;
             }

@@ -47,7 +47,7 @@ namespace GI.UI.Clientes
             GI.BR.Clientes.Clientes clientes = new GI.BR.Clientes.Clientes();
 
 
-            if (tipoCliente.ToString() == "GI.BR.Propietario")
+            if (tipoCliente.ToString() == "GI.BR.Clientes.Propietario")
             {
                 if (Metodo.NombreBusqueda == "Buscar por apellido y nombre")
                 {

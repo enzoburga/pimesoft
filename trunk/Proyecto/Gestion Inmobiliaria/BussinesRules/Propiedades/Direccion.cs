@@ -7,6 +7,18 @@ namespace GI.BR.Propiedades
     public class Direccion
     {
 
+
+        public Direccion()
+        {
+            calle = "";
+            numero = 0;
+            depto = "";
+            codigoPostal = "";
+            calleEntre1 = "";
+            calleEntre2 = "";
+            piso = "";
+        }
+
         private string calle;
         private int numero;
         private string depto;
