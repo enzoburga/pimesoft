@@ -227,5 +227,27 @@ namespace GI.UI.Propiedades
 
             }
         }
+
+        private void enviarACorreoElectrónicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void publicarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            propiedad = (GI.BR.Propiedades.Propiedad)propiedadClone.Clone();
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
     }
 }
