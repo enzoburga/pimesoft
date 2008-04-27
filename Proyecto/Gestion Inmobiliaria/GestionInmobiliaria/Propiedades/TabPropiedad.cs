@@ -120,7 +120,10 @@ namespace GI.UI.Propiedades
                 checkBoxEsOtraPropiedad.Enabled = false;
 
             if (Propiedad.Propietario == null)
+            {
+                
                 LinkPropietario.Text = "Seleccione un propietario";
+            }
             else
             {
                 LinkPropietario.Text = Propiedad.Propietario.ToString();
@@ -134,7 +137,7 @@ namespace GI.UI.Propiedades
 
         public override bool AsignarSoloLectura(Control Ctrl)
         {
-            if (Ctrl.Name == "LinkPropietario")
+            if (Ctrl.Name == "LinkPropietario" && Ctrl.Text != "Seleccione un propietario")
                 return false;
 
             return base.AsignarSoloLectura(Ctrl);

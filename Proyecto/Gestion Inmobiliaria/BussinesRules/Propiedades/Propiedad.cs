@@ -13,13 +13,18 @@ namespace GI.BR.Propiedades
         public event DelegateCambioTipoPropiedad onCambioTipoPropiedad;
 
         public Propiedad()
-        { }
+        {
+
+            zonificacion = "";
+            fos = "";
+            fot = "";
+            orientacion = "";
+        }
 
         #region Miembros
 
         protected int idPropiedad;
         protected decimal cantidadAmbientes;
-        protected string codigo;
         protected TipoPropiedad tipoPropiedad;
         protected CategoriaPropiedad categoria;
         protected EstadoPropiedad estado;
@@ -87,8 +92,13 @@ namespace GI.BR.Propiedades
 
         public string Codigo
         {
-            get { return codigo; }
-            set { codigo = value; }
+            get
+            {
+                string codigo = (esOtraInmobiliaria) ? "O" : "P";
+                codigo += IdPropiedad.ToString("0000000");
+                return codigo;
+            }
+            
         }
 
 
@@ -328,58 +338,29 @@ namespace GI.BR.Propiedades
 
         public virtual bool Guardar() 
         {
-            /*
-            this.CantidadAmbientes,
-            this.CantidadAscensores,
-            this.CantidadAscensoresServicio,
-            this.CantidadBaños,
-            this.CantidadCocheras,
-            this.CantidadDormitorios,
-            this.CantidadPisos,
-            this.CantidadPlantas,
-            this.DepartamentosPorPiso,
-            this.Direccion.Calle,
-            this.Direccion.CalleEntre1,
-            this.Direccion.CalleEntre2,
-            this.Direccion.CodigoPostal,
-            this.Direccion.Depto,
-            this.Direccion.Numero,
-            this.Direccion.Piso,
-            this.Disposicion,
-            this.EnumEstado,
-            this.EsAptoProfesional,
-            this.EsOtraInmobiliaria,
-            this.Estado.IdEstadoPropiedad,
-            this.Fos,
-            this.Fot,
-            this.IdPropiedad,
-            this.MedidasPropiedad.MetrosCubiertos,
-            this.MedidasPropiedad.MetrosLibres,
-            this.MedidasPropiedad.MetrosSemicubiertos,
-            this.MedidasTerreno.Fondo,
-            this.MedidasTerreno.Frente,
-            this.MedidasTerreno.Metros,
-            this.MetrosConstruibles,
-            this.Orientacion,
-            this.Propietario.IdCliente,
-            this.TipoPropiedad.IdTipoPropiedad,
-            this.TipoZona,
-            this.Ubicacion.Barrio.IdBarrio,
-            this.Ubicacion.Localidad.IdLocalidad,
-            this.Ubicacion.Pais.IdPais,
-            this.Ubicacion.Provincia.IdProvincia,
-            this.ValorMercado.Importe,
-            this.ValorMercado.Moneda.IdMoneda,
-            this.ValorPublicacion.Importe,
-            this.ValorPublicacion.Moneda.IdMoneda,
-            this.Zonificacion,
-            */
+
+            int id = new DA.PropiedadesData().InsertarPropiedades(
+                CantidadAmbientes, TipoPropiedad.IdTipoPropiedad, Estado.IdEstadoPropiedad, (int)EnumEstado, (Propietario == null) ? 0 : Propietario.IdCliente, Ubicacion.Pais.IdPais, Ubicacion.Provincia.IdProvincia,
+                Ubicacion.Localidad.IdLocalidad, Ubicacion.Barrio.IdBarrio, Direccion.Calle, Direccion.Numero, Direccion.Depto, Direccion.Piso, Direccion.CodigoPostal, Direccion.CalleEntre1, Direccion.CalleEntre2,
+                ValorMercado.Importe, ValorMercado.Moneda.IdMoneda, ValorPublicacion.Importe, ValorPublicacion.Moneda.IdMoneda, EsOtraInmobiliaria,
+                MedidasPropiedad.MetrosCubiertos, MedidasPropiedad.MetrosSemicubiertos, MedidasPropiedad.MetrosLibres, MedidasTerreno.Metros, MedidasTerreno.Fondo, MedidasTerreno.Frente,
+                Orientacion, CantidadBaños, CantidadCocheras, CantidadDormitorios, CantidadPlantas, (int)Disposicion, EsAptoProfesional, CantidadPisos, DepartamentosPorPiso, CantidadAscensores, CantidadAscensoresServicio, (int)TipoZona,
+                Fos, Fot, Zonificacion, MetrosConstruibles);
+
+            IdPropiedad = id;
+
+            return IdPropiedad > 0;
         }
 
 
         public virtual bool Actualizar()
         {
-            throw new Exception("Metodo No Implementado");
+            return new DA.PropiedadesData().ActualizarPropiedad(IdPropiedad, CantidadAmbientes, TipoPropiedad.IdTipoPropiedad, Estado.IdEstadoPropiedad, (int)EnumEstado, (Propietario == null) ? 0 : Propietario.IdCliente, Ubicacion.Pais.IdPais, Ubicacion.Provincia.IdProvincia,
+                Ubicacion.Localidad.IdLocalidad, Ubicacion.Barrio.IdBarrio, Direccion.Calle, Direccion.Numero, Direccion.Depto, Direccion.Piso, Direccion.CodigoPostal, Direccion.CalleEntre1, Direccion.CalleEntre2,
+                ValorMercado.Importe, ValorMercado.Moneda.IdMoneda, ValorPublicacion.Importe, ValorPublicacion.Moneda.IdMoneda, EsOtraInmobiliaria,
+                MedidasPropiedad.MetrosCubiertos, MedidasPropiedad.MetrosSemicubiertos, MedidasPropiedad.MetrosLibres, MedidasTerreno.Metros, MedidasTerreno.Fondo, MedidasTerreno.Frente,
+                Orientacion, CantidadBaños, CantidadCocheras, CantidadDormitorios, CantidadPlantas, (int)Disposicion, EsAptoProfesional, CantidadPisos, DepartamentosPorPiso, CantidadAscensores, CantidadAscensoresServicio, (int)TipoZona,
+                Fos, Fot, Zonificacion, MetrosConstruibles);
         }
 
         public virtual bool Eliminar()
