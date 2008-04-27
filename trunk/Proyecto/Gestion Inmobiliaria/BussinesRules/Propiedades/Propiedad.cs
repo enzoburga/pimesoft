@@ -326,7 +326,56 @@ namespace GI.BR.Propiedades
 
         #region Metodos
 
-        public abstract bool Guardar();
+        public virtual bool Guardar() 
+        {
+            /*
+            this.CantidadAmbientes,
+            this.CantidadAscensores,
+            this.CantidadAscensoresServicio,
+            this.CantidadBaños,
+            this.CantidadCocheras,
+            this.CantidadDormitorios,
+            this.CantidadPisos,
+            this.CantidadPlantas,
+            this.DepartamentosPorPiso,
+            this.Direccion.Calle,
+            this.Direccion.CalleEntre1,
+            this.Direccion.CalleEntre2,
+            this.Direccion.CodigoPostal,
+            this.Direccion.Depto,
+            this.Direccion.Numero,
+            this.Direccion.Piso,
+            this.Disposicion,
+            this.EnumEstado,
+            this.EsAptoProfesional,
+            this.EsOtraInmobiliaria,
+            this.Estado.IdEstadoPropiedad,
+            this.Fos,
+            this.Fot,
+            this.IdPropiedad,
+            this.MedidasPropiedad.MetrosCubiertos,
+            this.MedidasPropiedad.MetrosLibres,
+            this.MedidasPropiedad.MetrosSemicubiertos,
+            this.MedidasTerreno.Fondo,
+            this.MedidasTerreno.Frente,
+            this.MedidasTerreno.Metros,
+            this.MetrosConstruibles,
+            this.Orientacion,
+            this.Propietario.IdCliente,
+            this.TipoPropiedad.IdTipoPropiedad,
+            this.TipoZona,
+            this.Ubicacion.Barrio.IdBarrio,
+            this.Ubicacion.Localidad.IdLocalidad,
+            this.Ubicacion.Pais.IdPais,
+            this.Ubicacion.Provincia.IdProvincia,
+            this.ValorMercado.Importe,
+            this.ValorMercado.Moneda.IdMoneda,
+            this.ValorPublicacion.Importe,
+            this.ValorPublicacion.Moneda.IdMoneda,
+            this.Zonificacion,
+            */
+        }
+
 
         public virtual bool Actualizar()
         {
