@@ -18,7 +18,7 @@ namespace GI.Framework.Interfaces
 
         System.Windows.Forms.ColumnHeader[] GetColumnsHeader();
         System.Windows.Forms.ListViewItem GenerarListViewItem(object Objeto);
-
+        GI.Framework.Interfaces.IBuscador GetBuscador();
         
         #endregion
 

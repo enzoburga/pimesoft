@@ -52,30 +52,49 @@ namespace GI.Framework
 
         private void toolStripButtonBuscar_Click(object sender, EventArgs e)
         {
+            if (claseSeleccionador.GetBuscador() == null)
+                BuscarGenerico();
+            else
+            {
+                if (claseSeleccionador.GetBuscador().MostrarBuscador() == DialogResult.OK)
+                {
+                    System.Collections.Generic.List<object> resultado = claseSeleccionador.GetBuscador().GetObjetosEncontrados();
+                    LlenarLista(resultado);
+                }
+            }
 
+        }
+
+        private void BuscarGenerico()
+        {
             Seleccionador.frmBuscador frmBuscar = new GI.Framework.Seleccionador.frmBuscador(claseSeleccionador.GetMetodosBusqueda());
+
 
             if (frmBuscar.ShowDialog() == DialogResult.OK)
             {
-                System.Collections.Generic.List<object> lista = claseSeleccionador.Buscar(frmBuscar.Metodo);
+                System.Collections.Generic.List<object> resultado = claseSeleccionador.Buscar(frmBuscar.Metodo);
 
+                LlenarLista(resultado);
 
-                lvItems.BeginUpdate();
-                lvItems.Items.Clear();
-
-                ListViewItem item;
-                foreach (object obj in lista)
-                {
-                    item = claseSeleccionador.GenerarListViewItem(obj);
-                    lvItems.Items.Add(item);
-                }
-
-
-                if (lvItems.Items.Count > 0) lvItems.Items[0].Selected = true;
-                lvItems.EndUpdate();
 
             }
+        }
 
+        private void LlenarLista(System.Collections.Generic.List<object> resultado)
+        {
+            lvItems.BeginUpdate();
+            lvItems.Items.Clear();
+
+            ListViewItem item;
+            foreach (object obj in resultado)
+            {
+                item = claseSeleccionador.GenerarListViewItem(obj);
+                lvItems.Items.Add(item);
+            }
+
+
+            if (lvItems.Items.Count > 0) lvItems.Items[0].Selected = true;
+            lvItems.EndUpdate();
         }
 
         private void toolStripButtonAgregar_Click(object sender, EventArgs e)

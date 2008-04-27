@@ -35,9 +35,26 @@ namespace GI.UI.AdminAlquileres
         private void lvAdmAlquileres_DoubleClick(object sender, EventArgs e)
         {
 
-            new frmFichaAdmAlquileres().ShowDialog();
+           frmFichaAdmAlquileres frm = new frmFichaAdmAlquileres();
+           frm.AdmAlquiler = (GI.BR.AdmAlquileres.AdmAlquiler)lvAdmAlquileres.SelectedItems[0].Tag;
+           frm.SoloLectura = true;
+           frm.ShowDialog();
 
 
+        }
+
+        private void NuevoAlquilertoolStripButton_Click(object sender, EventArgs e)
+        {
+            frmFichaAdmAlquileres frm = new frmFichaAdmAlquileres();
+
+            GI.BR.AdmAlquileres.AdmAlquiler admAlquiler = new GI.BR.AdmAlquileres.AdmAlquiler();
+            admAlquiler.ContratoVigente = new GI.BR.AdmAlquileres.Contrato();
+            admAlquiler.ContratoVigente.Deposito = new GI.BR.Valor();
+            admAlquiler.ContratoVigente.Monto = new GI.BR.Valor();
+
+            frm.AdmAlquiler = admAlquiler;
+
+            frm.ShowDialog();
         }
 
 

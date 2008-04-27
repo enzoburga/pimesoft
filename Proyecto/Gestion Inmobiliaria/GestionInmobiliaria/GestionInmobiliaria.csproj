@@ -320,6 +320,7 @@
     <Compile Include="Propiedades\FrmListadoPropiedades.Designer.cs">
       <DependentUpon>FrmListadoPropiedades.cs</DependentUpon>
     </Compile>
+    <Compile Include="Propiedades\SeleccionadorPropiedades.cs" />
     <Compile Include="Propiedades\TabContenidoPropiedad.cs">
       <SubType>UserControl</SubType>
     </Compile>
