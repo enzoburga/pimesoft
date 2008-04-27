@@ -64,7 +64,6 @@ namespace GI.BR.Propiedades
 
             p.IdPropiedad = dr.GetInt32(dr.GetOrdinal("IdPropiedad"));
             p.CantidadAmbientes = dr.GetDecimal(dr.GetOrdinal("CantidadAmbientes"));
-            p.Codigo = dr.GetString(dr.GetOrdinal("Codigo"));
             p.TipoPropiedad = tiposPropiedadFact.GetTipoPropiedad(dr.GetInt32(dr.GetOrdinal("IdTipoPropiedad")));
             p.Estado = estadosPropFactory.GetEstado(dr.GetInt32(dr.GetOrdinal("IdEstadoPropiedad")));
             p.EnumEstado = (Estado)dr.GetInt32(dr.GetOrdinal("EnumEstadoProp"));

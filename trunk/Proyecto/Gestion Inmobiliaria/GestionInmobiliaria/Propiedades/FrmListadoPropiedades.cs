@@ -140,7 +140,6 @@ namespace GI.UI.Propiedades
             else
                 p = new GI.BR.Propiedades.Alquiler();
 
-            p.Codigo = "";
             
 
             frmFichaPropiedad ficha = new frmFichaPropiedad();

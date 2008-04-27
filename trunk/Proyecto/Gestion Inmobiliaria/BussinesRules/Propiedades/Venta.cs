@@ -11,7 +11,14 @@ namespace GI.BR.Propiedades
 
         public override bool Guardar()
         {
-            return true;
+
+            if (!base.Guardar())
+                return false;
+
+            return new DA.PropiedadesData().InsertarPropiedadesEnVenta(base.IdPropiedad);
+
+
+
         }
     }
 }
