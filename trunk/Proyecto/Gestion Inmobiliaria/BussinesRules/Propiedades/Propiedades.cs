@@ -25,15 +25,66 @@ namespace GI.BR.Propiedades
         #endregion
 
         #region Metodos de Recuperacion VENTA
-
-        public void RecuperarPropiedadesVentasTodas()
+        public void RecuperarPropiedadesVentas(EstadoPropiedad Estado, TipoPropiedad Tipo)
         {
             tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
             estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Venta));
             monedasFactory = new GI.BR.Monedas.MonedasFlyweigthFactory();
             ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
 
-            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesVentasTodas())
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesVentas(Estado.IdEstadoPropiedad, Tipo.IdTipoPropiedad))
+            {
+                cargarColeccionVentas(dr);
+            }
+        }
+
+        public void RecuperarPropiedadesVentaPorDireccion(string Calle, int Numero)
+        {
+            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
+            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Venta));
+            monedasFactory = new GI.BR.Monedas.MonedasFlyweigthFactory();
+            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesVentaPorDireccion(Calle, Numero))
+            {
+                cargarColeccionVentas(dr);
+            }
+        }
+
+        public void RecuperarPropiedadesVentas(EstadoPropiedad Estado)
+        {
+            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
+            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Venta));
+            monedasFactory = new GI.BR.Monedas.MonedasFlyweigthFactory();
+            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesVentasPorEstado(Estado.IdEstadoPropiedad))
+            {
+                cargarColeccionVentas(dr);
+            }
+        }
+
+        public void RecuperarPropiedadesVentas(TipoPropiedad Tipo)
+        {
+            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
+            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Venta));
+            monedasFactory = new GI.BR.Monedas.MonedasFlyweigthFactory();
+            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesVentasPorTipo(Tipo.IdTipoPropiedad))
+            {
+                cargarColeccionVentas(dr);
+            }
+        }
+
+        public void RecuperarPropiedadesVentas()
+        {
+            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
+            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Venta));
+            monedasFactory = new GI.BR.Monedas.MonedasFlyweigthFactory();
+            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesVentas())
             {
                 cargarColeccionVentas(dr);
             }

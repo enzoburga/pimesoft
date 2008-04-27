@@ -31,10 +31,10 @@ namespace GI.UI.Propiedades
             this.tabControlTiposDeBusqueda = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.cbMonedaReal = new GI.Framework.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxValorHasta = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxValorDesde = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbBarrio = new GI.Framework.ComboBox();
@@ -50,14 +50,10 @@ namespace GI.UI.Propiedades
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxNumero = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new GI.Framework.ComboBox();
-            this.comboBox2 = new GI.Framework.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxDireccion = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -84,10 +80,10 @@ namespace GI.UI.Propiedades
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage1.Controls.Add(this.cbMonedaReal);
-            this.tabPage1.Controls.Add(this.textBox5);
+            this.tabPage1.Controls.Add(this.textBoxValorHasta);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.textBox4);
+            this.tabPage1.Controls.Add(this.textBoxValorDesde);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.cbBarrio);
@@ -118,12 +114,12 @@ namespace GI.UI.Propiedades
             this.cbMonedaReal.Size = new System.Drawing.Size(48, 21);
             this.cbMonedaReal.TabIndex = 57;
             // 
-            // textBox5
+            // textBoxValorHasta
             // 
-            this.textBox5.Location = new System.Drawing.Point(567, 50);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(40, 20);
-            this.textBox5.TabIndex = 56;
+            this.textBoxValorHasta.Location = new System.Drawing.Point(567, 50);
+            this.textBoxValorHasta.Name = "textBoxValorHasta";
+            this.textBoxValorHasta.Size = new System.Drawing.Size(40, 20);
+            this.textBoxValorHasta.TabIndex = 56;
             // 
             // label13
             // 
@@ -143,12 +139,12 @@ namespace GI.UI.Propiedades
             this.label12.TabIndex = 54;
             this.label12.Text = "Valor entre";
             // 
-            // textBox4
+            // textBoxValorDesde
             // 
-            this.textBox4.Location = new System.Drawing.Point(502, 50);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(40, 20);
-            this.textBox4.TabIndex = 53;
+            this.textBoxValorDesde.Location = new System.Drawing.Point(502, 50);
+            this.textBoxValorDesde.Name = "textBoxValorDesde";
+            this.textBoxValorDesde.Size = new System.Drawing.Size(40, 20);
+            this.textBoxValorDesde.TabIndex = 53;
             // 
             // label1
             // 
@@ -194,6 +190,7 @@ namespace GI.UI.Propiedades
             this.cbLocalidad.Name = "cbLocalidad";
             this.cbLocalidad.Size = new System.Drawing.Size(123, 21);
             this.cbLocalidad.TabIndex = 43;
+            this.cbLocalidad.SelectedIndexChanged += new System.EventHandler(this.cbLocalidad_SelectedIndexChanged_1);
             // 
             // cbEstadoPropiedad
             // 
@@ -212,6 +209,7 @@ namespace GI.UI.Propiedades
             this.cbProvincia.Name = "cbProvincia";
             this.cbProvincia.Size = new System.Drawing.Size(123, 21);
             this.cbProvincia.TabIndex = 42;
+            this.cbProvincia.SelectedIndexChanged += new System.EventHandler(this.cbProvincia_SelectedIndexChanged_1);
             // 
             // label18
             // 
@@ -230,6 +228,7 @@ namespace GI.UI.Propiedades
             this.cbPais.Name = "cbPais";
             this.cbPais.Size = new System.Drawing.Size(123, 21);
             this.cbPais.TabIndex = 37;
+            this.cbPais.SelectedIndexChanged += new System.EventHandler(this.cbPais_SelectedIndexChanged_1);
             // 
             // cbAmbientes
             // 
@@ -279,14 +278,10 @@ namespace GI.UI.Propiedades
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.textBoxNumero);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.comboBox2);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.textBoxDireccion);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -294,21 +289,21 @@ namespace GI.UI.Propiedades
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Buscar por Dirección";
             // 
-            // textBox2
+            // textBoxNumero
             // 
-            this.textBox2.Location = new System.Drawing.Point(310, 23);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(42, 20);
-            this.textBox2.TabIndex = 54;
+            this.textBoxNumero.Location = new System.Drawing.Point(407, 23);
+            this.textBoxNumero.Name = "textBoxNumero";
+            this.textBoxNumero.Size = new System.Drawing.Size(58, 20);
+            this.textBoxNumero.TabIndex = 54;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(260, 26);
+            this.label10.Location = new System.Drawing.Point(367, 26);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.Size = new System.Drawing.Size(34, 13);
             this.label10.TabIndex = 53;
-            this.label10.Text = "Número";
+            this.label10.Text = "Altura";
             // 
             // label9
             // 
@@ -319,48 +314,12 @@ namespace GI.UI.Propiedades
             this.label9.TabIndex = 52;
             this.label9.Text = "Calle";
             // 
-            // textBox1
+            // textBoxDireccion
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(123, 20);
-            this.textBox1.TabIndex = 51;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(310, 49);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(123, 21);
-            this.comboBox1.TabIndex = 49;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(105, 50);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(123, 21);
-            this.comboBox2.TabIndex = 48;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(269, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
-            this.label3.TabIndex = 47;
-            this.label3.Text = "Barrio";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(48, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Localidad";
+            this.textBoxDireccion.Location = new System.Drawing.Point(105, 23);
+            this.textBoxDireccion.Name = "textBoxDireccion";
+            this.textBoxDireccion.Size = new System.Drawing.Size(229, 20);
+            this.textBoxDireccion.TabIndex = 51;
             // 
             // tabPage3
             // 
@@ -399,7 +358,7 @@ namespace GI.UI.Propiedades
             this.bBuscar.UseVisualStyleBackColor = true;
             this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
             // 
-            // frmBuscarClientes
+            // frmBuscarPropiedades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -409,7 +368,7 @@ namespace GI.UI.Propiedades
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmBuscarClientes";
+            this.Name = "frmBuscarPropiedades";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Buscar Propiedades";
@@ -429,10 +388,10 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.TabControl tabControlTiposDeBusqueda;
         private System.Windows.Forms.TabPage tabPage1;
         private GI.Framework.ComboBox cbMonedaReal;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxValorHasta;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxValorDesde;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private GI.Framework.ComboBox cbBarrio;
@@ -448,14 +407,10 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxNumero;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
-        private GI.Framework.ComboBox comboBox1;
-        private GI.Framework.ComboBox comboBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxDireccion;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox3;
