@@ -27,8 +27,8 @@ namespace GI.UI.Clientes
                 string error = Validar();
                 if (error != "")
                     throw new Exception(error);
-
-                cliente.Direccion = new GI.BR.Propiedades.Direccion();
+                
+                //cliente.Direccion = new GI.BR.Propiedades.Direccion();
 
                 cliente.Apellido = this.tbApellido.Text;
                 cliente.Email = this.tbEmail.Text;
@@ -52,14 +52,15 @@ namespace GI.UI.Clientes
                     cliente.TelefonoParticular = 0;
 
                 cliente.Ubicacion = ctrlUbicacion1.Ubicacion;
-                cliente.Direccion = ctrlDireccion1.Direccion;
+                //usa databindig, no hace falta volver a setearlo
+                //cliente.Direccion = ctrlDireccion1.Direccion;
 
                 cliente.TipoDocumento = (GI.BR.General.enumTipoDocumento)this.cbTipoDocumento.SelectedItem;
                 cliente.FechaNacimiento = dtpFechaNac.Value;
 
                 //DATOS NO UTILIZADOS
-                cliente.Direccion.CalleEntre1 = "";
-                cliente.Direccion.CalleEntre2 = "";
+                //cliente.Direccion.CalleEntre1 = "";
+                //cliente.Direccion.CalleEntre2 = "";
                 
                 
                 return cliente;
@@ -68,6 +69,9 @@ namespace GI.UI.Clientes
             set //cargar datos del cliente en el TAB.
             { 
                 cliente = value;
+                if (cliente.Direccion == null)
+                    cliente.Direccion = new GI.BR.Propiedades.Direccion();
+                ctrlDireccion1.Direccion = cliente.Direccion;
                 if (cliente.IdCliente == 0)
                     return;
 
@@ -86,7 +90,7 @@ namespace GI.UI.Clientes
                     this.tbTelParticular.Text = cliente.TelefonoParticular.ToString();
 
                 ctrlUbicacion1.Ubicacion = cliente.Ubicacion;
-                ctrlDireccion1.Direccion = cliente.Direccion;
+                
                 this.cbTipoDocumento.SelectedItem = cliente.TipoDocumento;
                 this.dtpFechaNac.Value = cliente.FechaNacimiento;
                 cambioDatos = false;
