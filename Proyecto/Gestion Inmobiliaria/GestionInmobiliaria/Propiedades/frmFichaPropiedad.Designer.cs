@@ -109,18 +109,21 @@ namespace GI.UI.Propiedades
             this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
             this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.imprimirToolStripMenuItem.Text = "Imprimir";
+            this.imprimirToolStripMenuItem.Click += new System.EventHandler(this.imprimirToolStripMenuItem_Click);
             // 
             // enviarACorreoElectrónicoToolStripMenuItem
             // 
             this.enviarACorreoElectrónicoToolStripMenuItem.Name = "enviarACorreoElectrónicoToolStripMenuItem";
             this.enviarACorreoElectrónicoToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.enviarACorreoElectrónicoToolStripMenuItem.Text = "Enviar a correo electrónico";
+            this.enviarACorreoElectrónicoToolStripMenuItem.Click += new System.EventHandler(this.enviarACorreoElectrónicoToolStripMenuItem_Click);
             // 
             // cerrarToolStripMenuItem
             // 
             this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
             this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.cerrarToolStripMenuItem.Text = "Cerrar";
+            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
             // 
             // publicaciónToolStripMenuItem
             // 
@@ -133,8 +136,9 @@ namespace GI.UI.Propiedades
             // publicarToolStripMenuItem
             // 
             this.publicarToolStripMenuItem.Name = "publicarToolStripMenuItem";
-            this.publicarToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.publicarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.publicarToolStripMenuItem.Text = "Publicar ficha";
+            this.publicarToolStripMenuItem.Click += new System.EventHandler(this.publicarToolStripMenuItem_Click);
             // 
             // bAceptar
             // 
