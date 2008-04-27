@@ -7,6 +7,7 @@ namespace GI.BR.AdmAlquileres
     public class Contrato
     {
         #region Miembros Privados
+        private int idContrato;
         private GI.BR.Clientes.Inquilino inquilino;
         private DateTime fechaInicio;
         private DateTime fechaVencimiento;
@@ -15,9 +16,13 @@ namespace GI.BR.AdmAlquileres
         private GI.BR.Valor deposito; 
         private int diaCobro;
         private string observaciones;
+        private Contrato contratoAnterior;
+        private GI.BR.Propiedades.Alquiler alquiler;
         #endregion
 
         #region Propiedade Publicas
+
+        public int IdContrato { get { return idContrato; } set { idContrato = value; } }
 
         public GI.BR.Clientes.Inquilino Inquilino
         {
@@ -45,7 +50,27 @@ namespace GI.BR.AdmAlquileres
 
         public string Observaciones { get { return observaciones; } set { observaciones = value; } }
 
-        public int DiaCobro { get { return diaCobro; } set { diaCobro = value; } } 
+        public int DiaCobro { get { return diaCobro; } set { diaCobro = value; } }
+
+        public Contrato ContratoAnterior { get { return contratoAnterior; } set { contratoAnterior = value; } }
+
+        public GI.BR.Propiedades.Alquiler Alquiler { get { return alquiler; } set { alquiler = value; } }
+
+
         #endregion
+
+        public bool Guardar()
+        {
+            GI.DA.ContratosData cd = new GI.DA.ContratosData();
+            this.IdContrato = cd.GuardarConrato(Inquilino.IdCliente, Alquiler.IdPropiedad, FechaInicio, FechaVencimiento, Monto.Importe, Monto.Moneda.IdMoneda, Deposito.Importe, Deposito.Moneda.IdMoneda, DiaCobro, ContratoAnterior == null ? 0 : ContratoAnterior.IdContrato, FechaCancelacion.Value, Observaciones);
+            return IdContrato > 0;
+        }
+
+        public bool Actualizar()
+        {
+            GI.DA.ContratosData cd = new GI.DA.ContratosData();
+            return cd.ActualizarContrato(IdContrato,Inquilino.IdCliente, Alquiler.IdPropiedad, FechaInicio, FechaVencimiento, Monto.Importe, Monto.Moneda.IdMoneda, Deposito.Importe, Deposito.Moneda.IdMoneda, DiaCobro, ContratoAnterior == null ? 0 : ContratoAnterior.IdContrato, FechaCancelacion.Value, Observaciones);
+            
+        }
     }
 }

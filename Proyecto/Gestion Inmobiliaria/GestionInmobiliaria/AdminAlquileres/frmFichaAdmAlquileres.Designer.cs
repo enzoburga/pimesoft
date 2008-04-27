@@ -34,11 +34,11 @@ namespace GI.UI.AdminAlquileres
             this.fichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ingresarUnPagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enviarACorreoElectrónicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bAceptar = new System.Windows.Forms.Button();
             this.bCancelar = new System.Windows.Forms.Button();
-            this.ingresarUnPagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -61,8 +61,8 @@ namespace GI.UI.AdminAlquileres
             // 
             this.splitContainer1.Panel2.Controls.Add(this.bAceptar);
             this.splitContainer1.Panel2.Controls.Add(this.bCancelar);
-            this.splitContainer1.Size = new System.Drawing.Size(442, 516);
-            this.splitContainer1.SplitterDistance = 475;
+            this.splitContainer1.Size = new System.Drawing.Size(442, 576);
+            this.splitContainer1.SplitterDistance = 530;
             this.splitContainer1.TabIndex = 1;
             // 
             // tabControl
@@ -71,7 +71,7 @@ namespace GI.UI.AdminAlquileres
             this.tabControl.Location = new System.Drawing.Point(0, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(442, 451);
+            this.tabControl.Size = new System.Drawing.Size(442, 506);
             this.tabControl.TabIndex = 0;
             // 
             // menuStrip1
@@ -99,14 +99,20 @@ namespace GI.UI.AdminAlquileres
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.guardarToolStripMenuItem.Text = "Guardar";
             // 
             // imprimirToolStripMenuItem
             // 
             this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
-            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.imprimirToolStripMenuItem.Text = "Imprimir";
+            // 
+            // ingresarUnPagoToolStripMenuItem
+            // 
+            this.ingresarUnPagoToolStripMenuItem.Name = "ingresarUnPagoToolStripMenuItem";
+            this.ingresarUnPagoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.ingresarUnPagoToolStripMenuItem.Text = "Ingresar un pago";
             // 
             // enviarACorreoElectrónicoToolStripMenuItem
             // 
@@ -117,7 +123,7 @@ namespace GI.UI.AdminAlquileres
             // cerrarToolStripMenuItem
             // 
             this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
-            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.cerrarToolStripMenuItem.Text = "Cerrar";
             // 
             // bAceptar
@@ -128,6 +134,7 @@ namespace GI.UI.AdminAlquileres
             this.bAceptar.TabIndex = 1;
             this.bAceptar.Text = "Aceptar";
             this.bAceptar.UseVisualStyleBackColor = true;
+            this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
             // bCancelar
             // 
@@ -137,22 +144,18 @@ namespace GI.UI.AdminAlquileres
             this.bCancelar.TabIndex = 0;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
-            // ingresarUnPagoToolStripMenuItem
-            // 
-            this.ingresarUnPagoToolStripMenuItem.Name = "ingresarUnPagoToolStripMenuItem";
-            this.ingresarUnPagoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.ingresarUnPagoToolStripMenuItem.Text = "Ingresar un pago";
-            // 
-            // frmListaAdmAlquileres
+            // frmFichaAdmAlquileres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 516);
+            this.ClientSize = new System.Drawing.Size(442, 576);
             this.Controls.Add(this.splitContainer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmListaAdmAlquileres";
+            this.Name = "frmFichaAdmAlquileres";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Administración de Alquiler";

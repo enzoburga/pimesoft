@@ -64,6 +64,75 @@ namespace GI.UI.AdminAlquileres
 
 
         }
+
+        public override bool AsignarSoloLectura(Control Ctrl)
+        {
+            if (Ctrl.Name == "bAceptar") return true;
+
+            if (Ctrl.Name == "bCancelar")
+            {
+                Ctrl.Text = "Cerrar";
+                return false;
+            }
+            return base.AsignarSoloLectura(Ctrl);
+        }
+
+        private void bCancelar_Click(object sender, EventArgs e)
+        {
+            if (CambioDatosAdmAlquiler())
+                switch (GI.Framework.General.GIMsgBox.ShowCancelarPerdidaDatos())
+                {
+                    case DialogResult.Cancel:
+                        return;
+                    case DialogResult.Yes:
+                        bAceptar_Click(null, null);
+                        return;
+                    case DialogResult.No: break;//Cierro.
+
+                }
+
+            DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private bool CambioDatosAdmAlquiler()
+        {
+            return false;
+        }
+
+        private void bAceptar_Click(object sender, EventArgs e)
+        {
+            bool guardado = false;
+            if (SoloLectura)
+            {
+                GI.Framework.General.GIMsgBox.ShowSoloLectura();
+                return;
+            }
+            try
+            {
+                //Verifico si el cliente esta o no guardado. Si lo esta lo actualizo.
+                if (((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).AdmAlquiler.ContratoVigente.IdContrato == 0)
+                    guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).AdmAlquiler.ContratoVigente.Guardar();
+                else
+                    guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).AdmAlquiler.ContratoVigente.Actualizar();
+
+                if (guardado)
+                {
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+                else
+                {
+                    GI.Framework.General.GIMsgBox.Show("No se han guardado los cambios.", GI.Framework.General.enumTipoMensaje.Error);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                GI.Framework.General.GIMsgBox.Show(ex.Message, GI.Framework.General.enumTipoMensaje.Error);
+
+            }
+        }
     }
    
 }

@@ -41,9 +41,10 @@ namespace GI.UI.AdminAlquileres
             this.contratoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label14 = new System.Windows.Forms.Label();
             this.tbDepositoContrato = new System.Windows.Forms.TextBox();
-            this.MontoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DepositoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbMonedaDepositoContrato = new GI.Framework.ComboBox();
             this.tbMontoContrato = new System.Windows.Forms.TextBox();
+            this.MontoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbMonedaMontoContrato = new GI.Framework.ComboBox();
             this.tbDiaVto = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -58,14 +59,13 @@ namespace GI.UI.AdminAlquileres
             this.LinkInquilino = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
             this.ctrlDireccion1 = new GI.UI.Generales.CtrlDireccion();
-            this.DepositoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.admAlquilerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contratoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MontoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DepositoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MontoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -74,7 +74,7 @@ namespace GI.UI.AdminAlquileres
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.LinkPropietario);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(19, 12);
+            this.groupBox2.Location = new System.Drawing.Point(14, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(409, 71);
             this.groupBox2.TabIndex = 10;
@@ -152,7 +152,7 @@ namespace GI.UI.AdminAlquileres
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.LinkInquilino);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(19, 208);
+            this.groupBox1.Location = new System.Drawing.Point(14, 208);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(409, 270);
             this.groupBox1.TabIndex = 29;
@@ -193,9 +193,9 @@ namespace GI.UI.AdminAlquileres
             this.tbDepositoContrato.Text = "145700";
             this.tbDepositoContrato.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // MontoBindingSource
+            // DepositoBindingSource
             // 
-            this.MontoBindingSource.DataSource = typeof(GI.BR.Valor);
+            this.DepositoBindingSource.DataSource = typeof(GI.BR.Valor);
             // 
             // cbMonedaDepositoContrato
             // 
@@ -217,6 +217,10 @@ namespace GI.UI.AdminAlquileres
             this.tbMontoContrato.TabIndex = 40;
             this.tbMontoContrato.Text = "145700";
             this.tbMontoContrato.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // MontoBindingSource
+            // 
+            this.MontoBindingSource.DataSource = typeof(GI.BR.Valor);
             // 
             // cbMonedaMontoContrato
             // 
@@ -342,15 +346,11 @@ namespace GI.UI.AdminAlquileres
             // ctrlDireccion1
             // 
             this.ctrlDireccion1.Direccion = null;
-            this.ctrlDireccion1.Location = new System.Drawing.Point(19, 89);
+            this.ctrlDireccion1.Location = new System.Drawing.Point(14, 89);
             this.ctrlDireccion1.Name = "ctrlDireccion1";
             this.ctrlDireccion1.Size = new System.Drawing.Size(417, 113);
             this.ctrlDireccion1.SoloLectura = false;
             this.ctrlDireccion1.TabIndex = 30;
-            // 
-            // DepositoBindingSource
-            // 
-            this.DepositoBindingSource.DataSource = typeof(GI.BR.Valor);
             // 
             // TabDatosPrincipales
             // 
@@ -361,7 +361,7 @@ namespace GI.UI.AdminAlquileres
             this.Controls.Add(this.groupBox2);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TabDatosPrincipales";
-            this.Size = new System.Drawing.Size(444, 517);
+            this.Size = new System.Drawing.Size(444, 493);
             this.Load += new System.EventHandler(this.TabDatosPrincipales_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -370,8 +370,8 @@ namespace GI.UI.AdminAlquileres
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contratoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MontoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DepositoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MontoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

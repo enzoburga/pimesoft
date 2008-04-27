@@ -132,6 +132,7 @@ namespace GI.UI.Propiedades
             GI.BR.Propiedades.Propiedad propiedad = new GI.BR.Propiedades.PropiedadFactory().CrearClasePropiedad(tipoPropiedad);
 
             frmFichaPropiedad frmFicha = new frmFichaPropiedad();
+
             frmFicha.Propiedad = propiedad;
             frmFicha.SoloLectura = false;
             if (frmFicha.ShowDialog() == System.Windows.Forms.DialogResult.OK)

@@ -28,11 +28,5 @@ namespace GI.UI.Generales
                     direccionBindingSource.Add(direccion);
             }
         }
-
-
-
-
-
-
     }
 }
