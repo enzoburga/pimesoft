@@ -99,6 +99,19 @@ namespace GI.UI.Propiedades
 
             }
 
+            lvMedidas.Items.Clear();
+            foreach (GI.BR.Propiedades.MedidaAmbiente medidaAmb in Propiedad.Medidas)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = medidaAmb.NombreAmbiente;
+                item.SubItems.Add(medidaAmb.Ancho.ToString());
+                item.SubItems.Add(medidaAmb.Largo.ToString());
+                item.SubItems.Add(medidaAmb.TipoDePiso.ToString());
+                item.Tag = medidaAmb;
+                lvMedidas.Items.Add(item);
+            }
+
+
             propiedadBindingSource.Add(Propiedad);
             valorBindingSource.Add(Propiedad.ValorPublicacion);
             valorBindingSource1.Add(Propiedad.ValorMercado);
@@ -227,6 +240,14 @@ namespace GI.UI.Propiedades
             }
         }
 
+
+        private GI.BR.Propiedades.MedidasAmbiente ambientesAEliminar = new GI.BR.Propiedades.MedidasAmbiente();
+
+        public GI.BR.Propiedades.MedidasAmbiente AmbientesAEliminar
+        {
+            get { return ambientesAEliminar; }
+            
+        }
         private void linkLabelEliminarMedida_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (lvMedidas.SelectedItems.Count != 1) return;
@@ -235,6 +256,7 @@ namespace GI.UI.Propiedades
                 GI.BR.Propiedades.MedidaAmbiente medida = (GI.BR.Propiedades.MedidaAmbiente)lvMedidas.SelectedItems[0].Tag;
                 Propiedad.Medidas.Remove(medida);
                 lvMedidas.Items.RemoveAt(lvMedidas.SelectedIndices[0]);
+                ambientesAEliminar.Add(medida);
 
             }
         }

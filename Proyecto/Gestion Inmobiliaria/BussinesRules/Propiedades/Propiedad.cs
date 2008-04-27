@@ -349,18 +349,34 @@ namespace GI.BR.Propiedades
 
             IdPropiedad = id;
 
+            if (IdPropiedad > 0)
+            {
+                foreach (MedidaAmbiente ambiente in this.Medidas)
+                {
+                    ambiente.Crear(this);
+                }
+            }
+
             return IdPropiedad > 0;
         }
 
 
         public virtual bool Actualizar()
         {
-            return new DA.PropiedadesData().ActualizarPropiedad(IdPropiedad, CantidadAmbientes, TipoPropiedad.IdTipoPropiedad, Estado.IdEstadoPropiedad, (int)EnumEstado, (Propietario == null) ? 0 : Propietario.IdCliente, Ubicacion.Pais.IdPais, Ubicacion.Provincia.IdProvincia,
+            bool retVal = new DA.PropiedadesData().ActualizarPropiedad(IdPropiedad, CantidadAmbientes, TipoPropiedad.IdTipoPropiedad, Estado.IdEstadoPropiedad, (int)EnumEstado, (Propietario == null) ? 0 : Propietario.IdCliente, Ubicacion.Pais.IdPais, Ubicacion.Provincia.IdProvincia,
                 Ubicacion.Localidad.IdLocalidad, Ubicacion.Barrio.IdBarrio, Direccion.Calle, Direccion.Numero, Direccion.Depto, Direccion.Piso, Direccion.CodigoPostal, Direccion.CalleEntre1, Direccion.CalleEntre2,
                 ValorMercado.Importe, ValorMercado.Moneda.IdMoneda, ValorPublicacion.Importe, ValorPublicacion.Moneda.IdMoneda, EsOtraInmobiliaria,
                 MedidasPropiedad.MetrosCubiertos, MedidasPropiedad.MetrosSemicubiertos, MedidasPropiedad.MetrosLibres, MedidasTerreno.Metros, MedidasTerreno.Fondo, MedidasTerreno.Frente,
                 Orientacion, CantidadBaños, CantidadCocheras, CantidadDormitorios, CantidadPlantas, (int)Disposicion, EsAptoProfesional, CantidadPisos, DepartamentosPorPiso, CantidadAscensores, CantidadAscensoresServicio, (int)TipoZona,
                 Fos, Fot, Zonificacion, MetrosConstruibles);
+
+            foreach (MedidaAmbiente ambiente in this.Medidas)
+            {
+                if (ambiente.IdMedidaAmbiente == 0)
+                    ambiente.Crear(this);
+            }
+
+            return retVal;
         }
 
         public virtual bool Eliminar()

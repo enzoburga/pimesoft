@@ -7,6 +7,9 @@ namespace GI.DA
 {
     public class PropiedadesData
     {
+
+        #region Metodos Recuerar VENTAS
+
         public IDataReader RecuperarPropiedadesVentasTodas()
         {
             return AccesoDatos.RecuperarDatos(
@@ -14,6 +17,10 @@ namespace GI.DA
                 new object[] { },
                 new string[] { });
         }
+
+        #endregion
+
+        #region Metodos recuperar Alquileres
 
         public IDataReader RecuperarEstadoPropiedad(string ClasePropiedad)
         {
@@ -23,24 +30,16 @@ namespace GI.DA
                 new string[] { "@Clase" });
         }
 
-        public IDataReader RecuperarTiposDePiso()
-        { 
-            
-            return AccesoDatos.RecuperarDatos(
-                "TiposDePiso_RecuperarTodos",
-                new object[] { },
-                new string[] { });
-        }
 
-        public IDataReader RecuperarMedidasAmbientesPorPropiedad(int IdPropiedad)
-        { 
-            return AccesoDatos.RecuperarDatos(
-                "MedidasAmbientes_RecuperarPorPropiedad",
-                new object[] { IdPropiedad },
-                new string[] { "@IdPropiedad" });
-        }
+        #endregion
 
 
+
+
+
+
+        #region GRABAR Y ACTUALIZAR PROPIEDADES
+        
         public bool InsertarPropiedadesEnVenta(int IdPropiedad)
         {
             return AccesoDatos.ActualizarRegistro("Propiedades_CrearVenta", new object[] { IdPropiedad }, new string[] { "@IdPropiedad" });
@@ -107,6 +106,49 @@ namespace GI.DA
 			            "@CantidadAscensoresServicio","@TipoZona","@Fos","@Fot","@Zonificacion","@MetrosConstruibles"});
 
         }
+
+
+        #endregion
+
+        #region MEDIDAS DE AMBIENTES . PROPIEDADES
+
+        public IDataReader RecuperarTiposDePiso()
+        {
+
+            return AccesoDatos.RecuperarDatos(
+                "TiposDePiso_RecuperarTodos",
+                new object[] { },
+                new string[] { });
+        }
+
+        public IDataReader RecuperarMedidasAmbientesPorPropiedad(int IdPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                "MedidasAmbientes_RecuperarPorPropiedad",
+                new object[] { IdPropiedad },
+                new string[] { "@IdPropiedad" });
+        }
+
+
+        public bool EliminarMedidaAmbiente(int IdMedidaAmbiente)
+        {
+            return AccesoDatos.EliminarRegistro("Propiedades_MedidadasAmbiente_Eliminar",
+                new object[] { IdMedidaAmbiente },
+                new string[] { "@IdMedida" });
+        }
+
+        public int GuardarMedidaAmbiente(decimal Ancho, decimal Largo, string Ambiente, int IdTipoPiso, int IdPropiedad)
+        {
+            return AccesoDatos.InsertarRegistro(
+                "Propiedades_MedidadasAmbiente_Insertar",
+                new object[] { Ancho, Largo, Ambiente, IdTipoPiso, IdPropiedad },
+                new string[] { "@Ancho", "@Largo", "@Ambiente", "@IdTipoPiso", "@IdPropiedad" });
+        }
+
+        #endregion
+
+
+
 
 
 

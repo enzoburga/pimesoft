@@ -161,7 +161,13 @@ namespace GI.UI.Propiedades
                     if (Propiedad.IdPropiedad == 0)
                         guardado = Propiedad.Guardar();
                     else
+                    {
                         guardado = Propiedad.Actualizar();
+                        foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in ((TabPropiedad)tabControl.TabPages[0].Controls[0]).AmbientesAEliminar)
+                            ambiente.Eliminar();
+                    }
+
+      
 
                     if (!guardado)
                         throw new Exception("No se puede grabar la propiedad");
@@ -203,7 +209,12 @@ namespace GI.UI.Propiedades
                 if (Propiedad.IdPropiedad == 0)
                     guardado = Propiedad.Guardar();
                 else
+                {
                     guardado = Propiedad.Actualizar();
+                    foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in ((TabPropiedad)tabControl.TabPages[0].Controls[0]).AmbientesAEliminar)
+                        ambiente.Eliminar();
+                }
+
 
                 if (!guardado)
                     throw new Exception("No se puede grabar la propiedad");

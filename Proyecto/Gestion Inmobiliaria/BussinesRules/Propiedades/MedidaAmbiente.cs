@@ -8,9 +8,12 @@ namespace GI.BR.Propiedades
     {
 
         public MedidaAmbiente()
-        { 
-        
+        {
+            nombreAmbiente = "";
         }
+
+        private int idMedidaAmbiente;
+
 
         private decimal ancho;
         private decimal largo;
@@ -22,8 +25,12 @@ namespace GI.BR.Propiedades
             get { return ancho; }
             set { ancho = value; }
         }
-        
 
+        public int IdMedidaAmbiente
+        {
+            get { return idMedidaAmbiente; }
+            set { idMedidaAmbiente = value; }
+        }
 
         public decimal Largo
         {
@@ -45,6 +52,19 @@ namespace GI.BR.Propiedades
         }
 
 
+        public bool Eliminar()
+        {
+            return new DA.PropiedadesData().EliminarMedidaAmbiente(idMedidaAmbiente);
+        }
+
+
+        public bool Crear(Propiedad p)
+        {
+            int id = new DA.PropiedadesData().GuardarMedidaAmbiente(Ancho, Largo, NombreAmbiente, TipoDePiso.IdTipoPiso, p.IdPropiedad);
+            idMedidaAmbiente = id;
+
+            return idMedidaAmbiente > 0;
+        }
 
     }
 }
