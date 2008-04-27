@@ -86,7 +86,18 @@ namespace GI.BR.Propiedades
                 sCalle = "Sin Calle";
             if (sNumero == "0")
                 sNumero = "Sin Número";
-            return sCalle + " - " + sNumero;
+
+            string dir = sCalle + " - " + sNumero;
+
+            if (Piso != "")
+                dir += " " + Piso;
+
+
+            if (depto != "")
+                dir += " " + depto;
+
+
+            return dir;
         }
     }
 }

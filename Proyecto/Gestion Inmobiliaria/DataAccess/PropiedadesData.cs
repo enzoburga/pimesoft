@@ -10,7 +10,39 @@ namespace GI.DA
 
         #region Metodos Recuerar VENTAS
 
-        public IDataReader RecuperarPropiedadesVentasTodas()
+        public IDataReader RecuperarPropiedadesVentaPorDireccion(string Calle, int Numero)
+        { 
+        
+            return AccesoDatos.RecuperarDatos(
+                    "PropiedadesVentas_RecuperarPorDireccion",
+                    new object[] { Calle, Numero },
+                    new string[] { "@Calle", "@Numero" });
+        }
+
+        public IDataReader RecuperarPropiedadesVentas(int IdEstadoPropiedad, int IdTipoPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                    "PropiedadesVentas_RecuperarPorEstadoYtipo",
+                    new object[] { IdEstadoPropiedad, IdTipoPropiedad },
+                    new string[] { "@IdEstadoPropiedad", "@IdTipoPropiedad" });
+        }
+
+        public IDataReader RecuperarPropiedadesVentasPorEstado(int IdEstadoPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                    "PropiedadesVentas_RecuperarPorEstado",
+                    new object[] { IdEstadoPropiedad },
+                    new string[] { "@IdEstadoPropiedad" });
+        }
+
+        public IDataReader RecuperarPropiedadesVentasPorTipo(int IdTipoPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                    "PropiedadesVentas_RecuperarPorTipo",
+                    new object[] { IdTipoPropiedad},
+                    new string[] { "@IdTipoPropiedad" });
+        }
+        public IDataReader RecuperarPropiedadesVentas()
         {
             return AccesoDatos.RecuperarDatos(
                 "PropiedadesVentas_RecuperarTodas",
@@ -22,6 +54,12 @@ namespace GI.DA
 
         #region Metodos recuperar Alquileres
 
+        
+
+        
+        #endregion
+
+
         public IDataReader RecuperarEstadoPropiedad(string ClasePropiedad)
         {
             return AccesoDatos.RecuperarDatos(
@@ -29,12 +67,6 @@ namespace GI.DA
                 new object[] { ClasePropiedad },
                 new string[] { "@Clase" });
         }
-
-
-        #endregion
-
-
-
 
 
 

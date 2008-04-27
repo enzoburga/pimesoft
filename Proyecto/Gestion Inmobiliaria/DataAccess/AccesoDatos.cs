@@ -217,8 +217,8 @@ namespace GI.DA
                     return SqlHelper.ExecuteReader(mngConexion.GetTrans, CommandType.StoredProcedure, spName, parametros);
 
             }
-            //catch(Exception ex)
-            catch
+            catch(Exception ex)
+            //catch
             {
                 return null;
             }

@@ -92,6 +92,7 @@ namespace GI.UI.Propiedades
                 item.SubItems.Add(p.ValorPublicacion.ToString());
                 item.SubItems.Add(p.Ubicacion.Localidad.ToString());
                 item.SubItems.Add(p.Ubicacion.Barrio.ToString());
+                item.SubItems.Add(p.Direccion.ToString());
                 item.Tag = p;
 
                 int index = lvPropiedades.SelectedIndices[0];
@@ -123,6 +124,7 @@ namespace GI.UI.Propiedades
                     item.SubItems.Add(p.ValorPublicacion.ToString());
                     item.SubItems.Add(p.Ubicacion.Localidad.ToString());
                     item.SubItems.Add(p.Ubicacion.Barrio.ToString());
+                    item.SubItems.Add(p.Direccion.ToString());
                     item.Tag = p;
                     
                     lvPropiedades.Items.Add(item);
