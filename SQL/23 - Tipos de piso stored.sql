@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.TiposDePiso_RecuperarTodos 
+create PROCEDURE dbo.TiposDePiso_RecuperarTodos 
 
 AS
 
