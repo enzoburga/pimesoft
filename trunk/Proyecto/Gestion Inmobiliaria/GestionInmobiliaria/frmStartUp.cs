@@ -54,5 +54,10 @@ namespace GI.UI
         {
             new frmPopUpEventos().ShowDialog();
         }
+
+        private void alquilerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            builder.AbrirFormulario(typeof(Propiedades.FrmListadoPropiedadesEnAlquiler).ToString());
+        }
     }
 }

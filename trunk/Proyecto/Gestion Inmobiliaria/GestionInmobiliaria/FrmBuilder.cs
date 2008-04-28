@@ -77,6 +77,13 @@ namespace GI.UI
         private System.Windows.Forms.Form MostrarFormPorClaveSeguridad(string Type)
         {
 
+            if (Type == "GI.UI.Propiedades.FrmListadoPropiedadesEnAlquiler")
+            {
+                GI.UI.Propiedades.FrmListadoPropiedadesEnAlquiler frm = new GI.UI.Propiedades.FrmListadoPropiedadesEnAlquiler();
+                frm.MdiParent = this.parent;
+                frm.Show();
+                return frm;
+            }
             if (Type == "GI.UI.Propiedades.FrmListadoPropiedades")
             {
                 GI.UI.Propiedades.FrmListadoPropiedades FrmPropsVenta = new GI.UI.Propiedades.FrmListadoPropiedades(typeof(GI.BR.Propiedades.Venta));

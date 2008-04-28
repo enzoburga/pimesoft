@@ -215,7 +215,7 @@ namespace GI.UI.Propiedades
             {
                 int numero = 0;
                 Int32.TryParse(textBoxNumero.Text, out numero);
-                propiedades = mngPropiedades.RecuperarPropiedades(textBoxDireccion.Text, numero);
+                propiedades = mngPropiedades.RecuperarPropiedades(tipo, textBoxDireccion.Text, numero);
             }
             #endregion
 

@@ -225,6 +225,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>FrmListadoPropiedades.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\FrmListadoPropiedadesEnAlquiler.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmListadoPropiedadesEnAlquiler.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Propiedades\TabContenidoPropiedad.resx">
       <SubType>Designer</SubType>
       <DependentUpon>TabContenidoPropiedad.cs</DependentUpon>
@@ -319,6 +323,12 @@
     </Compile>
     <Compile Include="Propiedades\FrmListadoPropiedades.Designer.cs">
       <DependentUpon>FrmListadoPropiedades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\FrmListadoPropiedadesEnAlquiler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\FrmListadoPropiedadesEnAlquiler.Designer.cs">
+      <DependentUpon>FrmListadoPropiedadesEnAlquiler.cs</DependentUpon>
     </Compile>
     <Compile Include="Propiedades\SeleccionadorPropiedades.cs" />
     <Compile Include="Propiedades\TabContenidoPropiedad.cs">

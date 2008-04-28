@@ -88,7 +88,7 @@ namespace GI.UI.Propiedades
                 item.Text = p.Codigo;
                 item.SubItems.Add(p.TipoPropiedad.ToString());
                 item.SubItems.Add(p.Estado.ToString());
-                item.SubItems.Add(p.CantidadAmbientes.ToString());
+                item.SubItems.Add(p.Ambiente.ToString());
                 item.SubItems.Add(p.ValorPublicacion.ToString());
                 item.SubItems.Add(p.Ubicacion.Localidad.ToString());
                 item.SubItems.Add(p.Ubicacion.Barrio.ToString());
@@ -120,7 +120,7 @@ namespace GI.UI.Propiedades
                     item.Text = p.Codigo;
                     item.SubItems.Add(p.TipoPropiedad.ToString());
                     item.SubItems.Add(p.Estado.ToString());
-                    item.SubItems.Add(p.CantidadAmbientes.ToString());
+                    item.SubItems.Add(p.Ambiente.ToString());
                     item.SubItems.Add(p.ValorPublicacion.ToString());
                     item.SubItems.Add(p.Ubicacion.Localidad.ToString());
                     item.SubItems.Add(p.Ubicacion.Barrio.ToString());
@@ -153,7 +153,7 @@ namespace GI.UI.Propiedades
                 item.Text = p.Codigo;
                 item.SubItems.Add(p.TipoPropiedad.ToString());
                 item.SubItems.Add(p.Estado.ToString());
-                item.SubItems.Add(p.CantidadAmbientes.ToString());
+                item.SubItems.Add(p.Ambiente.ToString());
                 item.SubItems.Add(p.ValorPublicacion.ToString());
                 item.SubItems.Add(p.Ubicacion.Localidad.ToString());
                 item.SubItems.Add(p.Ubicacion.Barrio.ToString());

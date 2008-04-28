@@ -9,10 +9,20 @@ namespace GI.Managers.Propiedades
 
 
 
-        public GI.BR.Propiedades.Propiedades RecuperarPropiedades(string Calle, int Numero)
+        public GI.BR.Propiedades.Propiedades RecuperarPropiedades(Type Type, string Calle, int Numero)
         {
             GI.BR.Propiedades.Propiedades propiedades = new GI.BR.Propiedades.Propiedades();
-            propiedades.RecuperarPropiedadesVentaPorDireccion(Calle, Numero);
+            
+            if (Type.ToString() == "GI.BR.Propiedades.Venta")
+            {
+                propiedades.RecuperarPropiedadesVentaPorDireccion(Calle, Numero);
+            }
+            else if (Type.ToString() == "GI.BR.Propiedades.Alquiler")
+            {
+                propiedades.RecuperarPropiedadesAlquileresPorDireccion(Calle, Numero);
+            }
+            
+            
             return propiedades;
         }
 
@@ -35,6 +45,17 @@ namespace GI.Managers.Propiedades
                     propiedades.RecuperarPropiedadesVentas(Estado);
                 else
                     propiedades.RecuperarPropiedadesVentas(Tipo);
+            }
+            else if (Type.ToString() == "GI.BR.Propiedades.Alquiler")
+            {
+                if (Tipo == null && Estado == null)
+                    propiedades.RecuperarPropiedadesAlquileres();
+                else if (Estado != null && Tipo != null)
+                    propiedades.RecuperarPropiedadesAlquileres(Estado, Tipo);
+                else if (Estado != null)
+                    propiedades.RecuperarPropiedadesAlquileres(Estado);
+                else
+                    propiedades.RecuperarPropiedadesAlquileres(Tipo);
             }
 
 

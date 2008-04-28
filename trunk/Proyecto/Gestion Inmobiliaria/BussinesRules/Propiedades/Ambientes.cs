@@ -31,7 +31,7 @@ namespace GI.BR.Propiedades
             if (cantidadAmbientes == Convert.ToDecimal(4.5))
                 return "4 1/2";
 
-            return cantidadAmbientes.ToString();
+            return cantidadAmbientes.ToString("##");
 
         }
 

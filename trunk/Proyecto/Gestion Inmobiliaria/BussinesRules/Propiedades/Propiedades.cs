@@ -24,6 +24,77 @@ namespace GI.BR.Propiedades
         } 
         #endregion
 
+        #region Metodos de Recuperacion Alquileres
+
+        public void RecuperarPropiedadesAlquileres(EstadoPropiedad Estado, TipoPropiedad Tipo)
+        {
+            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
+            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Alquiler));
+            monedasFactory = new GI.BR.Monedas.MonedasFlyweigthFactory();
+            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesAlquileres(Estado.IdEstadoPropiedad, Tipo.IdTipoPropiedad))
+            {
+                cargarColeccionAlquileres(dr);
+            }
+        }
+
+        public void RecuperarPropiedadesAlquileresPorDireccion(string Calle, int Numero)
+        {
+            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
+            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Alquiler));
+            monedasFactory = new GI.BR.Monedas.MonedasFlyweigthFactory();
+            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesAlquileresPorDireccion(Calle, Numero))
+            {
+                cargarColeccionAlquileres(dr);
+            }
+        }
+
+        public void RecuperarPropiedadesAlquileres(EstadoPropiedad Estado)
+        {
+            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
+            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Alquiler));
+            monedasFactory = new GI.BR.Monedas.MonedasFlyweigthFactory();
+            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesAlquileresPorEstado(Estado.IdEstadoPropiedad))
+            {
+                cargarColeccionAlquileres(dr);
+            }
+        }
+
+        public void RecuperarPropiedadesAlquileres(TipoPropiedad Tipo)
+        {
+            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
+            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Alquiler));
+            monedasFactory = new GI.BR.Monedas.MonedasFlyweigthFactory();
+            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesAlquileresPorTipo(Tipo.IdTipoPropiedad))
+            {
+                cargarColeccionAlquileres(dr);
+            }
+        }
+
+        public void RecuperarPropiedadesAlquileres()
+        {
+            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
+            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Alquiler));
+            monedasFactory = new GI.BR.Monedas.MonedasFlyweigthFactory();
+            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesAlquileres())
+            {
+                cargarColeccionAlquileres(dr);
+            }
+
+        } 
+
+
+        #endregion
+
         #region Metodos de Recuperacion VENTA
         public void RecuperarPropiedadesVentas(EstadoPropiedad Estado, TipoPropiedad Tipo)
         {
@@ -107,6 +178,19 @@ namespace GI.BR.Propiedades
                 Add(Propiedad);
             }
         }
+        private void cargarColeccionAlquileres(IDataReader dr)
+        {
+            Clear();
+
+            Alquiler Propiedad;
+            while (dr.Read())
+            {
+                Propiedad = new Alquiler();
+                CargarPropiedad(Propiedad, dr);
+                Add(Propiedad);
+            }
+        }
+
 
 
         private void CargarPropiedad(GI.BR.Propiedades.Propiedad p, IDataReader dr)
