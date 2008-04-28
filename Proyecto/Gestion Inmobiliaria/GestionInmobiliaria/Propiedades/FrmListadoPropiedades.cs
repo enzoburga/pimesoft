@@ -12,6 +12,7 @@ namespace GI.UI.Propiedades
     {
 
         private Type tipo;
+        GI.BR.Propiedades.Propiedades propiedades;
 
         public FrmListadoPropiedades()
         {
@@ -93,6 +94,11 @@ namespace GI.UI.Propiedades
                 item.SubItems.Add(p.Ubicacion.Localidad.ToString());
                 item.SubItems.Add(p.Ubicacion.Barrio.ToString());
                 item.SubItems.Add(p.Direccion.ToString());
+                if (p.EsOtraInmobiliaria)
+                    item.ForeColor = System.Drawing.Color.Blue;
+                else
+                    item.ForeColor = System.Drawing.Color.Black;
+                   
                 item.Tag = p;
 
                 int index = lvPropiedades.SelectedIndices[0];
@@ -110,7 +116,7 @@ namespace GI.UI.Propiedades
                 lvPropiedades.BeginUpdate();
                 lvPropiedades.Items.Clear();
  
-                GI.BR.Propiedades.Propiedades propiedades = frmBusqueda.Propiedades;
+                propiedades = frmBusqueda.Propiedades;
                 ListViewItem item;
 
                 foreach (GI.BR.Propiedades.Propiedad p in propiedades)
@@ -125,6 +131,12 @@ namespace GI.UI.Propiedades
                     item.SubItems.Add(p.Ubicacion.Localidad.ToString());
                     item.SubItems.Add(p.Ubicacion.Barrio.ToString());
                     item.SubItems.Add(p.Direccion.ToString());
+
+                    if (p.EsOtraInmobiliaria)
+                        item.ForeColor = System.Drawing.Color.Blue;
+                    else
+                        item.ForeColor = System.Drawing.Color.Black;
+                    
                     item.Tag = p;
                     
                     lvPropiedades.Items.Add(item);
@@ -157,6 +169,15 @@ namespace GI.UI.Propiedades
                 item.SubItems.Add(p.ValorPublicacion.ToString());
                 item.SubItems.Add(p.Ubicacion.Localidad.ToString());
                 item.SubItems.Add(p.Ubicacion.Barrio.ToString());
+                item.SubItems.Add(p.Direccion.ToString());
+
+                if (p.EsOtraInmobiliaria)
+                    item.ForeColor = System.Drawing.Color.Blue;
+                else
+                    item.ForeColor = System.Drawing.Color.Black;
+                   
+
+
                 item.Tag = p;
 
                 lvPropiedades.Items.Add(item);
@@ -164,7 +185,28 @@ namespace GI.UI.Propiedades
 
         }
 
+        private void toolStripButtonImprimir_Click(object sender, EventArgs e)
+        {
+
+            if (propiedades == null || propiedades.Count == 0)
+            {
+                Framework.General.GIMsgBox.Show("No hay propiedades para la vista actual", GI.Framework.General.enumTipoMensaje.Informacion);
+                return;
+            }
+
+            GI.Reportes.Clases.Propiedades.ReporteListadoPropiedades reporte = new GI.Reportes.Clases.Propiedades.ReporteListadoPropiedades(tipo, propiedades);
+
+            GI.Reportes.Visor.FrmVisorReporte frmVisor = new GI.Reportes.Visor.FrmVisorReporte(reporte);
+
+            frmVisor.ShowDialog();
+
+
+        }
+
+
         #endregion
+
+
 
 
 
