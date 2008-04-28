@@ -12,6 +12,8 @@ namespace GI.BR.AdmAlquileres
 
         #region Miembros Privados
 
+
+        private Clientes.Cliente contacto;
         private Contrato contratoVigente;
         private Contratos contratos;
         #endregion
