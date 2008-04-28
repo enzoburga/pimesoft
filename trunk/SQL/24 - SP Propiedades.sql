@@ -1,5 +1,4 @@
-ALTER PROCEDURE dbo.Propiedades_Crear 
-ALTER PROCEDURE dbo.Propiedades_Crear 
+create PROCEDURE dbo.Propiedades_Crear 
 (
         @CantidadAmbientes decimal,
         @CantidadAscensores int,
@@ -74,7 +73,7 @@ select @@IDENTITY
 
 ;
 
-ALTER PROCEDURE dbo.Propiedades_CrearVenta
+create PROCEDURE dbo.Propiedades_CrearVenta
 (
        @IdPropiedad INT
 )
@@ -93,7 +92,7 @@ select @@ROWCOUNT
 ;
 
 
-ALTER PROCEDURE dbo.Propiedades_Actualizar
+create PROCEDURE dbo.Propiedades_Actualizar
 (
 	@IdPropiedad int,
     @CantidadAmbientes decimal,

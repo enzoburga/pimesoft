@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.Propiedades_MedidadasAmbiente_Insertar 
+create PROCEDURE dbo.Propiedades_MedidadasAmbiente_Insertar 
 (
 	@Ancho decimal,
 	@Largo decimal,
@@ -15,7 +15,7 @@ select  @@identity
 
 ;
 
-ALTER PROCEDURE dbo.Propiedades_MedidadasAmbiente_Eliminar
+create PROCEDURE dbo.Propiedades_MedidadasAmbiente_Eliminar
 (
 	@IdMedida int
 )
@@ -28,7 +28,7 @@ select  @@rowcount
 
 ;
 
-ALTER PROCEDURE dbo.MedidasAmbientes_RecuperarPorPropiedad 
+create PROCEDURE dbo.MedidasAmbientes_RecuperarPorPropiedad 
 (
 	@IdPropiedad int
 )
