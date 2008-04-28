@@ -101,6 +101,15 @@ namespace GI.BR.Propiedades
             
         }
 
+        public Ambiente Ambiente
+        {
+            get 
+            {
+                GI.BR.Propiedades.Ambiente a = new Ambiente();
+                a.CantidadAmbientes = CantidadAmbientes;
+                return a;
+            }
+        }
 
         public TipoPropiedad TipoPropiedad
         {

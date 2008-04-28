@@ -54,7 +54,46 @@ namespace GI.DA
 
         #region Metodos recuperar Alquileres
 
-        
+        public IDataReader RecuperarPropiedadesAlquileresPorDireccion(string Calle, int Numero)
+        {
+
+            return AccesoDatos.RecuperarDatos(
+                    "PropiedadesAlquileres_RecuperarPorDireccion",
+                    new object[] { Calle, Numero },
+                    new string[] { "@Calle", "@Numero" });
+        }
+
+        public IDataReader RecuperarPropiedadesAlquileres(int IdEstadoPropiedad, int IdTipoPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                    "PropiedadesAlquileres_RecuperarPorEstadoYtipo",
+                    new object[] { IdEstadoPropiedad, IdTipoPropiedad },
+                    new string[] { "@IdEstadoPropiedad", "@IdTipoPropiedad" });
+        }
+
+        public IDataReader RecuperarPropiedadesAlquileresPorEstado(int IdEstadoPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                    "PropiedadesAlquileres_RecuperarPorEstado",
+                    new object[] { IdEstadoPropiedad },
+                    new string[] { "@IdEstadoPropiedad" });
+        }
+
+        public IDataReader RecuperarPropiedadesAlquileresPorTipo(int IdTipoPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                    "PropiedadesAlquileres_RecuperarPorTipo",
+                    new object[] { IdTipoPropiedad },
+                    new string[] { "@IdTipoPropiedad" });
+        }
+        public IDataReader RecuperarPropiedadesAlquileres()
+        {
+            return AccesoDatos.RecuperarDatos(
+                "PropiedadesAlquileres_RecuperarTodas",
+                new object[] { },
+                new string[] { });
+        }
+
 
         
         #endregion
@@ -71,7 +110,13 @@ namespace GI.DA
 
 
         #region GRABAR Y ACTUALIZAR PROPIEDADES
-        
+
+
+        public bool InsertarPropiedadesEnAlquiler(int IdPropiedad)
+        {
+            return AccesoDatos.ActualizarRegistro("Propiedades_CrearAlquiler", new object[] { IdPropiedad }, new string[] { "@IdPropiedad" });
+        }
+
         public bool InsertarPropiedadesEnVenta(int IdPropiedad)
         {
             return AccesoDatos.ActualizarRegistro("Propiedades_CrearVenta", new object[] { IdPropiedad }, new string[] { "@IdPropiedad" });
