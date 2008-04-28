@@ -221,11 +221,15 @@ namespace GI.UI.Propiedades
 
 
 
-            
 
 
 
 
+            if (this.Propiedades.Count == 0)
+            {
+                GI.Framework.General.GIMsgBox.ShowNoSeEncontraronDatos();
+                return;
+            }
             this.DialogResult = DialogResult.OK;
             this.Close();
 

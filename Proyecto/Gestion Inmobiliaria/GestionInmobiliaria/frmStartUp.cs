@@ -32,16 +32,12 @@ namespace GI.UI
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Clientes.frmListadoClientes frmListado = new GI.UI.Clientes.frmListadoClientes();
-            frmListado.MdiParent = this;
-            frmListado.Show();
+            builder.AbrirFormulario(typeof(GI.UI.Clientes.frmListadoClientes).ToString());
         }
 
         private void administraciónDeAlquileresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AdminAlquileres.frmListadoAdmAlquiler frmListado = new AdminAlquileres.frmListadoAdmAlquiler();
-            frmListado.MdiParent = this;
-            frmListado.Show();
+            builder.AbrirFormulario(typeof(AdminAlquileres.frmListadoAdmAlquiler).ToString());
         }
 
         private void toolStripStatusEventos_DoubleClick(object sender, EventArgs e)

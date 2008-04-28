@@ -31,5 +31,9 @@ namespace GI.Framework.General
             return System.Windows.Forms.MessageBox.Show("¿Desea guardar los cambios realizados?", "Pregunta", System.Windows.Forms.MessageBoxButtons.YesNoCancel, System.Windows.Forms.MessageBoxIcon.Question);
         }
 
+        public static System.Windows.Forms.DialogResult ShowNoSeEncontraronDatos()
+        {
+            return System.Windows.Forms.MessageBox.Show("No se han encontrado resultados coincidentes con el criterio.", "¡Advertencia!", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation);            
+        }
     }
 }

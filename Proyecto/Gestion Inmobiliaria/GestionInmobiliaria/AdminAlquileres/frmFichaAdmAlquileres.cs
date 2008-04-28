@@ -33,7 +33,6 @@ namespace GI.UI.AdminAlquileres
                     if (Page.Controls.Count != 1) continue;
                     if (Page.Controls[0] is TabContenidoAdmAlquiler)
                         ((TabContenidoAdmAlquiler)Page.Controls[0]).AdmAlquiler = AdmAlquiler;
-
                 }
 
             }

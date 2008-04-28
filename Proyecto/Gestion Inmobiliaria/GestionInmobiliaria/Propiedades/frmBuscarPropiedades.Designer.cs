@@ -371,6 +371,7 @@ namespace GI.UI.Propiedades
             this.Name = "frmBuscarPropiedades";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Propiedades";
             this.tabControlTiposDeBusqueda.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
