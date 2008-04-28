@@ -30,7 +30,7 @@ namespace GI.Reportes.Clases.Propiedades
 
             DataSet.DSListadoPropiedades.ParametrosRow rowParam = ds.Parametros.NewParametrosRow();
 
-            if (tipo is GI.BR.Propiedades.Venta)
+            if (tipo.ToString() == "GI.BR.Propiedades.Venta")
                 rowParam.TipoListado = "Listado de Propiedades en Venta";
             else
                 rowParam.TipoListado = "Listado de Propiedades en Alquiler";
