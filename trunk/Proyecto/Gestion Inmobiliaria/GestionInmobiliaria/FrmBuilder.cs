@@ -85,6 +85,21 @@ namespace GI.UI
                 return FrmPropsVenta;
             }
 
+            if (Type == "GI.UI.AdminAlquileres.frmListadoAdmAlquiler")
+            {
+                GI.UI.AdminAlquileres.frmListadoAdmAlquiler Frm = new GI.UI.AdminAlquileres.frmListadoAdmAlquiler();
+                Frm.MdiParent = this.parent;
+                Frm.Show();
+                return Frm;
+            }
+
+            if (Type == "GI.UI.Clientes.frmListadoClientes")
+            {
+                GI.UI.Clientes.frmListadoClientes Frm = new GI.UI.Clientes.frmListadoClientes();
+                Frm.MdiParent = this.parent;
+                Frm.Show();
+                return Frm;
+            }
 
             return null;
         }

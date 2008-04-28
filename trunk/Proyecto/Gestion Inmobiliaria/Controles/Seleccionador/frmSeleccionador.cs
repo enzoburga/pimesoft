@@ -59,7 +59,14 @@ namespace GI.Framework
                 if (claseSeleccionador.GetBuscador().MostrarBuscador() == DialogResult.OK)
                 {
                     System.Collections.Generic.List<object> resultado = claseSeleccionador.GetBuscador().GetObjetosEncontrados();
-                    LlenarLista(resultado);
+                    //if (resultado.Count == 0)
+                    //{
+                    //    GI.Framework.General.GIMsgBox.ShowNoSeEncontraronDatos();
+                    //    return;
+                    //}
+
+                    if (resultado.Count > 0)
+                        LlenarLista(resultado);
                 }
             }
 
@@ -73,8 +80,8 @@ namespace GI.Framework
             if (frmBuscar.ShowDialog() == DialogResult.OK)
             {
                 System.Collections.Generic.List<object> resultado = claseSeleccionador.Buscar(frmBuscar.Metodo);
-
-                LlenarLista(resultado);
+                if (resultado.Count > 0)
+                    LlenarLista(resultado);
 
 
             }
