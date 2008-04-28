@@ -28,6 +28,8 @@ namespace GI.UI.Propiedades
         {
             tipo = Tipo;
             Inicializar();
+
+            bBuscar.Focus();
         }
 
 

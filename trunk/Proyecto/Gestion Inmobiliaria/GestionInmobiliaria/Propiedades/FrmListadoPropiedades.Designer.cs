@@ -107,6 +107,7 @@ namespace GI.UI.Propiedades
             this.toolStripButtonImprimir.Name = "toolStripButtonImprimir";
             this.toolStripButtonImprimir.Size = new System.Drawing.Size(68, 68);
             this.toolStripButtonImprimir.Text = "Imprimir Listado";
+            this.toolStripButtonImprimir.Click += new System.EventHandler(this.toolStripButtonImprimir_Click);
             // 
             // contextMenuStrip1
             // 

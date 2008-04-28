@@ -406,6 +406,10 @@
       <Project>{DA938C06-AE00-447E-8675-C0F97DF9273F}</Project>
       <Name>Managers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Reportes\Reportes.csproj">
+      <Project>{2483B3D5-E6A6-4527-8815-DFD81B0BA85A}</Project>
+      <Name>Reportes</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Carteles\" />
