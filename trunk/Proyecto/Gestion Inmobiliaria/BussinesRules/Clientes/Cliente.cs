@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GI.BR.Clientes
 {
-    public abstract class Cliente
+    public abstract class Cliente: ICloneable
     {
         #region Miembros Privados
 
@@ -248,5 +248,14 @@ namespace GI.BR.Clientes
         }
 
 
+
+        #region ICloneable Members
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
+        #endregion
     }
 }

@@ -18,6 +18,7 @@ namespace GI.UI.Clientes
         }
 
         private GI.BR.Clientes.Cliente cliente = null;
+        private GI.BR.Clientes.Cliente clienteClone = null;
 
         public GI.BR.Clientes.Cliente Cliente
         {
@@ -42,6 +43,8 @@ namespace GI.UI.Clientes
             controlDatosPersonales.Dock = DockStyle.Fill;
             tabPage.Controls.Add(controlDatosPersonales);
             tabControl.TabPages.Add(tabPage);
+
+            clienteClone = (GI.BR.Clientes.Cliente)cliente.Clone();
 
 
 
@@ -130,21 +133,28 @@ namespace GI.UI.Clientes
 
         private void bCancelar_Click(object sender, EventArgs e)
         {
-            if(((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).CambioDatos)
+            if (((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).CambioDatos)
+
                 switch (GI.Framework.General.GIMsgBox.ShowCancelarPerdidaDatos())
                 {
-                    case DialogResult.Cancel: 
+                    case DialogResult.Cancel:
                         return;
-                    case DialogResult.Yes: 
-                        bAceptar_Click(null, null); 
-                        return;
-                    case DialogResult.No: break;//Cierro.
-                        
+                    case DialogResult.Yes:
+                        bAceptar_Click(null, null);
+                        DialogResult = DialogResult.OK;
+                        this.Close();
+                        break;
+                    case DialogResult.No:
+                        cliente = (GI.BR.Clientes.Cliente)clienteClone.Clone();
+                        DialogResult = DialogResult.Cancel;
+                        Close();
+                        break;//Cierro.
+
                 }
 
             DialogResult = DialogResult.Cancel;
             this.Close();
-           
+
         }
     }
 }

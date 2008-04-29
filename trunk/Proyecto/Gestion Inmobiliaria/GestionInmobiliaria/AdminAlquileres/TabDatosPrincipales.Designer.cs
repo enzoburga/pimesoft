@@ -30,12 +30,13 @@ namespace GI.UI.AdminAlquileres
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cBoxEsPropietario = new System.Windows.Forms.CheckBox();
             this.LinkPropiedad = new System.Windows.Forms.LinkLabel();
             this.admAlquilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.LinkPropietario = new System.Windows.Forms.LinkLabel();
-            this.propiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
+            this.propiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbObservaciones = new System.Windows.Forms.TextBox();
             this.contratoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -70,6 +71,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cBoxEsPropietario);
             this.groupBox2.Controls.Add(this.LinkPropiedad);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.LinkPropietario);
@@ -81,10 +83,21 @@ namespace GI.UI.AdminAlquileres
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Propiedad";
             // 
+            // cBoxEsPropietario
+            // 
+            this.cBoxEsPropietario.AutoSize = true;
+            this.cBoxEsPropietario.Location = new System.Drawing.Point(310, 26);
+            this.cBoxEsPropietario.Name = "cBoxEsPropietario";
+            this.cBoxEsPropietario.Size = new System.Drawing.Size(92, 17);
+            this.cBoxEsPropietario.TabIndex = 29;
+            this.cBoxEsPropietario.Text = "Es Propietario";
+            this.cBoxEsPropietario.UseVisualStyleBackColor = true;
+            this.cBoxEsPropietario.CheckedChanged += new System.EventHandler(this.cBoxEsPropietario_CheckedChanged);
+            // 
             // LinkPropiedad
             // 
             this.LinkPropiedad.AutoSize = true;
-            this.LinkPropiedad.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.admAlquilerBindingSource, "Alquiler", true));
+            this.LinkPropiedad.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.admAlquilerBindingSource, "Alquiler", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.LinkPropiedad.Location = new System.Drawing.Point(74, 49);
             this.LinkPropiedad.Name = "LinkPropiedad";
             this.LinkPropiedad.Size = new System.Drawing.Size(129, 13);
@@ -109,28 +122,28 @@ namespace GI.UI.AdminAlquileres
             // LinkPropietario
             // 
             this.LinkPropietario.AutoSize = true;
-            this.LinkPropietario.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.propiedadBindingSource, "Propietario", true));
-            this.LinkPropietario.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "Propietario", true));
+            this.LinkPropietario.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.admAlquilerBindingSource, "Contacto", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.LinkPropietario.Location = new System.Drawing.Point(74, 26);
             this.LinkPropietario.Name = "LinkPropietario";
-            this.LinkPropietario.Size = new System.Drawing.Size(127, 13);
+            this.LinkPropietario.Size = new System.Drawing.Size(119, 13);
             this.LinkPropietario.TabIndex = 28;
             this.LinkPropietario.TabStop = true;
-            this.LinkPropietario.Text = "Seleccione un Propietario";
+            this.LinkPropietario.Text = "Seleccione un Contacto";
             this.LinkPropietario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkPropietario_LinkClicked);
-            // 
-            // propiedadBindingSource
-            // 
-            this.propiedadBindingSource.DataSource = typeof(GI.BR.Propiedades.Propiedad);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 26);
+            this.label2.Location = new System.Drawing.Point(17, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 27;
-            this.label2.Text = "Propietario";
+            this.label2.Text = "Contacto";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // propiedadBindingSource
+            // 
+            this.propiedadBindingSource.DataSource = typeof(GI.BR.Propiedades.Propiedad);
             // 
             // groupBox1
             // 
@@ -161,7 +174,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // tbObservaciones
             // 
-            this.tbObservaciones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratoBindingSource, "Observaciones", true));
+            this.tbObservaciones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratoBindingSource, "Observaciones", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "\"\""));
             this.tbObservaciones.Location = new System.Drawing.Point(13, 175);
             this.tbObservaciones.Multiline = true;
             this.tbObservaciones.Name = "tbObservaciones";
@@ -199,8 +212,8 @@ namespace GI.UI.AdminAlquileres
             // 
             // cbMonedaDepositoContrato
             // 
-            this.cbMonedaDepositoContrato.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.DepositoBindingSource, "Moneda", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.cbMonedaDepositoContrato.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.DepositoBindingSource, "Moneda", true));
+            this.cbMonedaDepositoContrato.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.DepositoBindingSource, "Moneda", true));
             this.cbMonedaDepositoContrato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonedaDepositoContrato.FormattingEnabled = true;
             this.cbMonedaDepositoContrato.Location = new System.Drawing.Point(149, 104);
@@ -224,7 +237,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // cbMonedaMontoContrato
             // 
-            this.cbMonedaMontoContrato.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.MontoBindingSource, "Moneda", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbMonedaMontoContrato.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.MontoBindingSource, "Moneda", true));
             this.cbMonedaMontoContrato.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MontoBindingSource, "Moneda", true));
             this.cbMonedaMontoContrato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonedaMontoContrato.FormattingEnabled = true;
@@ -243,7 +256,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contratoBindingSource, "FechaCancelacion", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "-----", "d"));
+            this.dateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contratoBindingSource, "FechaCancelacion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "d"));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(316, 103);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -325,7 +338,7 @@ namespace GI.UI.AdminAlquileres
             // LinkInquilino
             // 
             this.LinkInquilino.AutoSize = true;
-            this.LinkInquilino.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.contratoBindingSource, "Inquilino", true));
+            this.LinkInquilino.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.contratoBindingSource, "Inquilino", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.LinkInquilino.Location = new System.Drawing.Point(86, 26);
             this.LinkInquilino.Name = "LinkInquilino";
             this.LinkInquilino.Size = new System.Drawing.Size(115, 13);
@@ -408,6 +421,7 @@ namespace GI.UI.AdminAlquileres
         private System.Windows.Forms.BindingSource contratoBindingSource;
         private System.Windows.Forms.BindingSource admAlquilerBindingSource;
         private System.Windows.Forms.BindingSource DepositoBindingSource;
+        private System.Windows.Forms.CheckBox cBoxEsPropietario;
 
     }
 }

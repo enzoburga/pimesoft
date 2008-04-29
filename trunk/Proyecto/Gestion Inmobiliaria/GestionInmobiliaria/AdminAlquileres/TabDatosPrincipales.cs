@@ -33,34 +33,24 @@ namespace GI.UI.AdminAlquileres
             MontoBindingSource.Add(AdmAlquiler.ContratoVigente.Monto);
             DepositoBindingSource.Add(AdmAlquiler.ContratoVigente.Deposito);
             contratoBindingSource.Add(AdmAlquiler.ContratoVigente);
+            admAlquilerBindingSource.Add(AdmAlquiler);
 
             ctrlDireccion1.SoloLectura = true;
             ctrlDireccion1.RefrezcarSoloLectura(ctrlDireccion1.Controls);
 
+            LinkPropietario.Text = "Seleccione un Contacto";
+
             if (AdmAlquiler.Alquiler == null)
             {
                 LinkPropiedad.Text = "Seleccione una Propiedad";
-                LinkPropietario.Text = "Seleccione una Propiedad";
-                LinkPropietario.Enabled = false;
+                cBoxEsPropietario.Enabled = false;
             }
             else
             {
-                if (AdmAlquiler.Alquiler.Propietario == null)
-                {
-                    LinkPropietario.Text = "Seleccione una Propiedad";
-                    LinkPropietario.Enabled = false;
-                }
-                else
-                {
-                    LinkPropietario.Text = AdmAlquiler.Alquiler.Propietario.ToString();
-                    LinkPropietario.Enabled = true;
-                }
-
                 propiedadBindingSource.Add(AdmAlquiler.Alquiler);
                 LinkPropiedad.Text = AdmAlquiler.Alquiler.Codigo.ToString();
+                cBoxEsPropietario.Enabled = true;
             }
-       
-
 
             if (AdmAlquiler.ContratoVigente.Inquilino == null)
                 LinkInquilino.Text = "Seleccione un Inquilino";
@@ -81,19 +71,8 @@ namespace GI.UI.AdminAlquileres
                     LinkPropiedad.Tag = (GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado;
                     LinkPropiedad.Text = ((GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado).Codigo.ToString();
                     ctrlDireccion1.Direccion = ((GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado).Direccion;
-
-                    if (((GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado).Propietario != null)
-                    {
-                        LinkPropietario.Text = ((GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado).Propietario.ToString();
-                        LinkPropietario.Tag = ((GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado).Propietario;
-                    }
-                    else
-                    {
-                        LinkPropietario.Text = "Propiedad sin propietario, haga click aqui para asignar uno.";
-                        
-                    }
-                    LinkPropietario.Enabled = true;
-                   
+                    if(((GI.BR.Propiedades.Propiedad)LinkPropiedad.Tag).Propietario != null)
+                        cBoxEsPropietario.Enabled = true;
                 }
 
             }
@@ -106,7 +85,7 @@ namespace GI.UI.AdminAlquileres
                     frm.Propiedad = (GI.BR.Propiedades.Propiedad)LinkPropiedad.Tag;
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
-                        LinkPropiedad.Text = frm.Propiedad.ToString();
+                        LinkPropiedad.Text = frm.Propiedad.Codigo.ToString();
                     }
 
                 }
@@ -115,17 +94,13 @@ namespace GI.UI.AdminAlquileres
 
         private void LinkPropietario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (LinkPropietario.Text == "Propiedad sin propietario, haga click aqui para asignar uno.")
+            if (LinkPropietario.Text == "Seleccione un Contacto")
             {
                 Framework.frmSeleccionador frmSeleccionador = new GI.Framework.frmSeleccionador(new Clientes.SeleccionadorPropietarios(typeof(GI.BR.Clientes.Propietario)));
                 if (frmSeleccionador.ShowDialog() == DialogResult.OK)
                 {
                     LinkPropietario.Tag = (GI.BR.Clientes.Propietario)frmSeleccionador.ObjetoSeleccionado;
                     LinkPropietario.Text = ((GI.BR.Clientes.Propietario)frmSeleccionador.ObjetoSeleccionado).ToString();
-                    if (!VincularPropietarioConPropiedad((GI.BR.Clientes.Propietario)LinkPropietario.Tag, (GI.BR.Propiedades.Propiedad)LinkPropiedad.Tag))
-                    {
-                        GI.Framework.General.GIMsgBox.Show("No se pudo asociar el propietario a la propiedad.", GI.Framework.General.enumTipoMensaje.Advertencia);
-                    }
                 }
 
             }
@@ -143,12 +118,6 @@ namespace GI.UI.AdminAlquileres
 
                 }
             }
-        }
-
-        private bool VincularPropietarioConPropiedad(GI.BR.Clientes.Propietario propietario, GI.BR.Propiedades.Propiedad propiedad)
-        {
-            propiedad.Propietario = propietario;
-            return propiedad.Actualizar();
         }
 
         private void LinkInquilino_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -181,6 +150,22 @@ namespace GI.UI.AdminAlquileres
 
         private void TabDatosPrincipales_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void cBoxEsPropietario_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (cBoxEsPropietario.Checked == true)
+            {
+                LinkPropietario.Tag = ((GI.BR.Propiedades.Propiedad)LinkPropiedad.Tag).Propietario;
+                LinkPropietario.Text = ((GI.BR.Propiedades.Propiedad)LinkPropiedad.Tag).Propietario.ToString();
+            }
+            else
+            {
+                LinkPropietario.Tag = null;
+                LinkPropietario.Text = "Seleccione un Contacto";
+            }
 
         }
     }
