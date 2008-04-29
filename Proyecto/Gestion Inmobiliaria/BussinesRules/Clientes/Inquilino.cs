@@ -32,5 +32,14 @@ namespace GI.BR.Clientes
             return data.Eliminar(this.IdCliente);
         }
         #endregion
+
+        #region ICloneable Members
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
+        #endregion
     }
 }
