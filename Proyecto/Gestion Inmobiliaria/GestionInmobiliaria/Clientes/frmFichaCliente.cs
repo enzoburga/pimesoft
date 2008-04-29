@@ -26,6 +26,7 @@ namespace GI.UI.Clientes
             set 
             { 
                 cliente = value;
+                clienteClone = (GI.BR.Clientes.Cliente)cliente.Clone();
                 CargarDatosCliente();
             
             }
@@ -44,7 +45,7 @@ namespace GI.UI.Clientes
             tabPage.Controls.Add(controlDatosPersonales);
             tabControl.TabPages.Add(tabPage);
 
-            clienteClone = (GI.BR.Clientes.Cliente)cliente.Clone();
+            
 
 
 
