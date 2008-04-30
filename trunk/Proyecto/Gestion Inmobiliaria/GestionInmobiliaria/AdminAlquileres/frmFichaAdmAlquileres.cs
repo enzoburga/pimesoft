@@ -113,33 +113,41 @@ namespace GI.UI.AdminAlquileres
         private void bAceptar_Click(object sender, EventArgs e)
         {
             bool guardado = false;
+
+
             if (SoloLectura)
             {
                 GI.Framework.General.GIMsgBox.ShowSoloLectura();
                 return;
             }
+            if (AdmAlquiler.Alquiler == null)
+            {
+                GI.Framework.General.GIMsgBox.Show("Debe seleccionar una Propiedad en Alquiler.", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
             try
             {
+
+                //Verifico si la adm de alquiler esta o no guardado. Si lo esta lo actualizo.
+                //Busco la administracion en el primer Tab.
                 if (nuevoAdmAlquiler)
                 {
-                    //Verifico si la adm de alquiler esta o no guardado. Si lo esta lo actualizo.
-                    //Busco la administracion en el primer Tab.
-                    if (nuevoAdmAlquiler)
+                    if ((guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).AdmAlquiler.Guardar()))
                     {
-                        if ((guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).AdmAlquiler.Guardar()))
-                        {
-                            nuevoAdmAlquiler = false;
-                            //Guardo el contrato vigente.
-                            guardado = AdmAlquiler.ContratoVigente.Guardar();
-                        }
+                        nuevoAdmAlquiler = false;
+                        //Guardo el contrato vigente.
+                        guardado = AdmAlquiler.ContratoVigente.Guardar();
                     }
-                    else
+                }
+                else
+                {
+                    if ((guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).AdmAlquiler.Actualizar()))
                     {
-                        if ((guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).AdmAlquiler.Actualizar()))
-                        {
-                            //Actualizo el contrato vigente.
+                        //Actualizo el contrato vigente.
+                        if(AdmAlquiler.ContratoVigente.IdContrato == 0)
                             guardado = AdmAlquiler.ContratoVigente.Actualizar();
-                        }
+                        else
+                            guardado = AdmAlquiler.ContratoVigente.Guardar();
                     }
                 }
 

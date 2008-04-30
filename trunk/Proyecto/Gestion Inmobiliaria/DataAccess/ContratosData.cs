@@ -8,17 +8,43 @@ namespace GI.DA
     {
         public int GuardarConrato(int IdInquilino, int IdPropiedad, DateTime FechaInicio, DateTime FechaVencimiento, decimal MontoCuota, int IdMonedaMonto, decimal MontoDeposito, int IdMonedaDeposito, int DiaVencimientoCuota, int IdContratoAnterior, Nullable<DateTime> FechaCancelacion, string Observaciones)
         {
+            object Inquilino = IdInquilino;
+            object contratoAnterior = IdContratoAnterior;
+            object fechaCanc = FechaCancelacion;
+
+            if (IdInquilino == 0)
+                Inquilino = System.DBNull.Value;
+
+            if (IdContratoAnterior == 0)
+                contratoAnterior = System.DBNull.Value;
+
+            if (FechaCancelacion == null)
+                fechaCanc = System.DBNull.Value;
+
             return AccesoDatos.InsertarRegistro(
                 "Contrato_Guardar",
-                new object[] { IdInquilino, IdPropiedad, FechaInicio, FechaVencimiento, MontoCuota, IdMonedaMonto, MontoDeposito, IdMonedaDeposito, DiaVencimientoCuota, IdContratoAnterior, FechaCancelacion, Observaciones },
+                new object[] { Inquilino, IdPropiedad, FechaInicio, FechaVencimiento, MontoCuota, IdMonedaMonto, MontoDeposito, IdMonedaDeposito, DiaVencimientoCuota, contratoAnterior, fechaCanc, Observaciones },
                 new string[] { "@IdInquilino", "@IdPropiedad", "@FechaInicio", "@FechaVencimiento", "@MontoCuota", "@IdMonedaMonto", "@MontoDeposito", "@IdMonedaDeposito", "@DiaVencimientoCuota", "@IdContratoAnterior", "@FechaCancelacion", "@Observaciones" });
         }
 
-                public bool ActualizarContrato(int IdContrato, int IdInquilino,int IdPropiedad,DateTime FechaInicio,DateTime FechaVencimiento,decimal MontoCuota,int IdMonedaMonto,decimal MontoDeposito,int IdMonedaDeposito,int DiaVencimientoCuota,int IdContratoAnterior,Nullable<DateTime> FechaCancelacion,string Observaciones)
+        public bool ActualizarContrato(int IdContrato, int IdInquilino, int IdPropiedad, DateTime FechaInicio, DateTime FechaVencimiento, decimal MontoCuota, int IdMonedaMonto, decimal MontoDeposito, int IdMonedaDeposito, int DiaVencimientoCuota, int IdContratoAnterior, Nullable<DateTime> FechaCancelacion, string Observaciones)
         {
+            object Inquilino = IdInquilino;
+            object contratoAnterior = IdContratoAnterior;
+            object fechaCanc = FechaCancelacion;
+
+            if (IdInquilino == 0)
+                Inquilino = System.DBNull.Value;
+
+            if (IdContratoAnterior == 0)
+                contratoAnterior = System.DBNull.Value;
+
+            if (FechaCancelacion == null)
+                fechaCanc = System.DBNull.Value;
+
             return AccesoDatos.ActualizarRegistro(
                 "Contrato_Actualizar",
-                new object[] { IdContrato, IdInquilino, IdPropiedad, FechaInicio, FechaVencimiento, MontoCuota, IdMonedaMonto, MontoDeposito, IdMonedaDeposito, DiaVencimientoCuota, IdContratoAnterior, FechaCancelacion, Observaciones },
+                new object[] { IdContrato, Inquilino, IdPropiedad, FechaInicio, FechaVencimiento, MontoCuota, IdMonedaMonto, MontoDeposito, IdMonedaDeposito, DiaVencimientoCuota, contratoAnterior, fechaCanc, Observaciones },
                 new string[] { "@IdContrato", "@IdInquilino", "@IdPropiedad", "@FechaInicio", "@FechaVencimiento", "@MontoCuota", "@IdMonedaMonto", "@MontoDeposito", "@IdMonedaDeposito", "@DiaVencimientoCuota", "@IdContratoAnterior", "@FechaCancelacion", "@Observaciones" });
         }
     }

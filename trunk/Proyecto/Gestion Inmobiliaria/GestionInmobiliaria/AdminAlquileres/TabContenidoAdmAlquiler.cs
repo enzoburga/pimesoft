@@ -25,7 +25,7 @@ namespace GI.UI.AdminAlquileres
             {
                 admAlquiler = value;
                 Inicializar();
-                CargarPropiedad();
+                CargarAlquiler();
             }
         }
 
@@ -34,7 +34,7 @@ namespace GI.UI.AdminAlquileres
             return;
         }
 
-        protected virtual void CargarPropiedad()
+        protected virtual void CargarAlquiler()
         {
             return;
         }

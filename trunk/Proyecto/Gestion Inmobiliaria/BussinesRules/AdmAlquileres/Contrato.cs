@@ -62,14 +62,14 @@ namespace GI.BR.AdmAlquileres
         public bool Guardar()
         {
             GI.DA.ContratosData cd = new GI.DA.ContratosData();
-            this.IdContrato = cd.GuardarConrato(Inquilino.IdCliente, Alquiler.IdPropiedad, FechaInicio, FechaVencimiento, Monto.Importe, Monto.Moneda.IdMoneda, Deposito.Importe, Deposito.Moneda.IdMoneda, DiaCobro, ContratoAnterior == null ? 0 : ContratoAnterior.IdContrato, FechaCancelacion.Value, Observaciones);
+            this.IdContrato = cd.GuardarConrato((Inquilino == null) ? 0:Inquilino.IdCliente, Alquiler.IdPropiedad, FechaInicio, FechaVencimiento, Monto.Importe, Monto.Moneda.IdMoneda, Deposito.Importe, Deposito.Moneda.IdMoneda, DiaCobro, (ContratoAnterior == null) ? 0 : ContratoAnterior.IdContrato, FechaCancelacion, Observaciones);
             return IdContrato > 0;
         }
 
         public bool Actualizar()
         {
             GI.DA.ContratosData cd = new GI.DA.ContratosData();
-            return cd.ActualizarContrato(IdContrato,Inquilino.IdCliente, Alquiler.IdPropiedad, FechaInicio, FechaVencimiento, Monto.Importe, Monto.Moneda.IdMoneda, Deposito.Importe, Deposito.Moneda.IdMoneda, DiaCobro, ContratoAnterior == null ? 0 : ContratoAnterior.IdContrato, FechaCancelacion.Value, Observaciones);
+            return cd.ActualizarContrato(IdContrato, (Inquilino == null) ? 0 : Inquilino.IdCliente, Alquiler.IdPropiedad, FechaInicio, FechaVencimiento, Monto.Importe, Monto.Moneda.IdMoneda, Deposito.Importe, Deposito.Moneda.IdMoneda, DiaCobro, (ContratoAnterior == null) ? 0 : ContratoAnterior.IdContrato, FechaCancelacion, Observaciones);
             
         }
     }

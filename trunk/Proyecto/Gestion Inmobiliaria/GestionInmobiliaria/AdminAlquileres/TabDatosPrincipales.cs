@@ -17,28 +17,54 @@ namespace GI.UI.AdminAlquileres
 
         protected override void Inicializar()
         {
-            #region Inicializar Combos
-
-            GI.BR.Monedas.Monedas Monedas = new GI.BR.Monedas.Monedas();
-            Monedas.RecuperarTodas();
-            foreach (GI.BR.Monedas.Moneda M in Monedas)
-            {
-                cbMonedaDepositoContrato.Items.Add(M);
-                cbMonedaMontoContrato.Items.Add(M);
-            }
-            cbMonedaDepositoContrato.SelectedIndex = 0;
-            cbMonedaMontoContrato.SelectedIndex = 0;
-            #endregion
-
             MontoBindingSource.Add(AdmAlquiler.ContratoVigente.Monto);
             DepositoBindingSource.Add(AdmAlquiler.ContratoVigente.Deposito);
             contratoBindingSource.Add(AdmAlquiler.ContratoVigente);
             admAlquilerBindingSource.Add(AdmAlquiler);
+            
+
+            cBoxCancelado.Checked = false;
+            dtpFechaCancelacion.Enabled = false;
+
+            #region Inicializar Combos
+
+            GI.BR.Monedas.Monedas Monedas = new GI.BR.Monedas.Monedas();
+            Monedas.RecuperarTodas();
+            int indexMonedaDeposito = 0;
+            int indexMonedaMonto = 0;
+            int cont = 0;
+            foreach (GI.BR.Monedas.Moneda M in Monedas)
+            {
+
+                if (AdmAlquiler.ContratoVigente != null)
+                {
+                    if (AdmAlquiler.ContratoVigente.Monto.Moneda.IdMoneda == M.IdMoneda)
+                        indexMonedaMonto = cont;
+                    if (AdmAlquiler.ContratoVigente.Deposito.Moneda.IdMoneda == M.IdMoneda)
+                        indexMonedaDeposito = cont;
+                }
+                cbMonedaDepositoContrato.Items.Add(M);
+                cbMonedaMontoContrato.Items.Add(M);
+                
+                cont++;
+            }
+            cbMonedaDepositoContrato.SelectedIndex = indexMonedaDeposito;
+            cbMonedaMontoContrato.SelectedIndex = indexMonedaMonto;
+            #endregion
+
+
 
             ctrlDireccion1.SoloLectura = true;
             ctrlDireccion1.RefrezcarSoloLectura(ctrlDireccion1.Controls);
 
-            LinkPropietario.Text = "Seleccione un Contacto";
+            if (AdmAlquiler.Contacto == null)
+                LinkInquilino.Text = "Seleccione un Contacto";
+            else
+            {
+                LinkPropietario.Text = AdmAlquiler.Contacto.ToString();
+                LinkPropietario.Tag = AdmAlquiler.Contacto;
+
+            }
 
             if (AdmAlquiler.Alquiler == null)
             {
@@ -57,8 +83,34 @@ namespace GI.UI.AdminAlquileres
             else
             {
                 LinkInquilino.Text = AdmAlquiler.ContratoVigente.Inquilino.ToString();
+                LinkInquilino.Tag = AdmAlquiler.ContratoVigente.Inquilino;
 
             }
+
+            //Cargo solo si es un contrato nuevo.
+            if (this.AdmAlquiler.ContratoVigente.IdContrato != 0)
+            {
+                if (this.AdmAlquiler.ContratoVigente.FechaCancelacion.HasValue)
+                    dtpFechaCancelacion.Value = this.AdmAlquiler.ContratoVigente.FechaCancelacion.Value;
+
+                dtpFechaInicio.Value = this.AdmAlquiler.ContratoVigente.FechaInicio;
+                dtpFechaVencimiento.Value = this.AdmAlquiler.ContratoVigente.FechaVencimiento;
+
+                cbMonedaDepositoContrato.SelectedItem = this.AdmAlquiler.ContratoVigente.Deposito.Moneda;
+                cbMonedaMontoContrato.SelectedItem = this.AdmAlquiler.ContratoVigente.Monto.Moneda;
+            }
+        }
+
+    
+
+        protected override void CargarAlquiler()
+        {
+            this.AdmAlquiler.ContratoVigente.FechaVencimiento = dtpFechaVencimiento.Value;
+            this.AdmAlquiler.ContratoVigente.FechaInicio = dtpFechaInicio.Value;
+            if (cBoxCancelado.Checked)
+                this.AdmAlquiler.ContratoVigente.FechaCancelacion = dtpFechaCancelacion.Value;
+            this.AdmAlquiler.ContratoVigente.Deposito.Moneda = (GI.BR.Monedas.Moneda)cbMonedaDepositoContrato.SelectedItem;
+            this.AdmAlquiler.ContratoVigente.Monto.Moneda = (GI.BR.Monedas.Moneda)cbMonedaMontoContrato.SelectedItem;
         }
 
         private void LinkPropiedad_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -160,13 +212,32 @@ namespace GI.UI.AdminAlquileres
             {
                 LinkPropietario.Tag = ((GI.BR.Propiedades.Propiedad)LinkPropiedad.Tag).Propietario;
                 LinkPropietario.Text = ((GI.BR.Propiedades.Propiedad)LinkPropiedad.Tag).Propietario.ToString();
+                this.AdmAlquiler.Contacto = ((GI.BR.Propiedades.Propiedad)LinkPropiedad.Tag).Propietario;
             }
             else
             {
                 LinkPropietario.Tag = null;
+                this.AdmAlquiler.Contacto = null;
                 LinkPropietario.Text = "Seleccione un Contacto";
             }
 
         }
+
+        private void dtpFechaInicio_ValueChanged(object sender, EventArgs e)
+        {
+            this.AdmAlquiler.ContratoVigente.FechaInicio = dtpFechaInicio.Value;
+        }
+
+        private void dtpFechaVencimiento_ValueChanged(object sender, EventArgs e)
+        {
+            this.AdmAlquiler.ContratoVigente.FechaVencimiento = dtpFechaVencimiento.Value;
+        }
+
+        private void cBoxCancelado_CheckedChanged(object sender, EventArgs e)
+        {
+            this.dtpFechaCancelacion.Enabled = cBoxCancelado.Checked;
+        }
+
+
     }
 }
