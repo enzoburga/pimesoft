@@ -225,7 +225,32 @@ namespace GI.DA
         #endregion
 
 
+        #region GALERIA DE FOTOS
 
+
+        public IDataReader RecuperarGaleria(int idPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos("Propiedades_RecuperarGaleria", new object[] { idPropiedad }, new string[] { "@IdPropiedad" });
+        
+        }
+
+        public bool FotoEliminar(int idFoto)
+        {
+            return AccesoDatos.EliminarRegistro("Propiedades_EliminarFoto", new object[] { idFoto }, new string[] { "@IdFoto" });
+        }
+
+
+        public int FotoGuardar(int IdPropiedad, bool EsFachada, string Descripcion, byte[] Foto)
+        {
+            return AccesoDatos.InsertarRegistro(
+                "Propiedades_GuardarFoto",
+                new object[] { IdPropiedad, EsFachada, Descripcion, Foto },
+                new string[] { "@IdPropiedad", "@EsFachada", "@Descripcion", "@Foto" });
+        }
+
+
+
+        #endregion
 
 
 

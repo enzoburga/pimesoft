@@ -54,12 +54,26 @@ namespace GI.BR.Propiedades
         protected string fot;
         protected string zonificacion;
         protected int metrosConstruibles;
+        protected Galeria.GaleriaFotos galeria;
 
         protected MedidasAmbiente medidas;
         
         #endregion
 
         #region Propiedades
+
+        public Galeria.GaleriaFotos GaleriaFotos
+        {
+            get
+            {
+                if (galeria == null)
+                {
+                    galeria = new GI.BR.Propiedades.Galeria.GaleriaFotos();
+                    galeria.RecuperarPorPropiedad(this);
+                }
+                return galeria;
+            }
+        }
 
         public CategoriaPropiedad Categoria
         {

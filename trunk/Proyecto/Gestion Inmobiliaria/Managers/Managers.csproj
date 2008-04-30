@@ -37,6 +37,7 @@
     <Compile Include="Clientes\mngClientes.cs" />
     <Compile Include="AdmAlquileres\MngAdmAlquileres.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Propiedades\MngGaleriaFotos.cs" />
     <Compile Include="Propiedades\MngPropiedades.cs" />
     <Compile Include="Seguridad\ServicioSeguridad.cs" />
   </ItemGroup>
