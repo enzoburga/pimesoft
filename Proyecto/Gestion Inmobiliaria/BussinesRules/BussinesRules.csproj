@@ -30,6 +30,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +59,8 @@
     <Compile Include="Propiedades\EstadoPropiedadFlyweigthFactory.cs" />
     <Compile Include="Propiedades\EstadosPropiedad.cs" />
     <Compile Include="Clientes\Inquilino.cs" />
+    <Compile Include="Propiedades\Galeria\Foto.cs" />
+    <Compile Include="Propiedades\Galeria\GaleriaFotos.cs" />
     <Compile Include="Propiedades\MedidaAmbiente.cs" />
     <Compile Include="Propiedades\MedidaPropiedad.cs" />
     <Compile Include="Propiedades\MedidasAmbiente.cs" />

@@ -211,6 +211,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\FrmFoto.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmFoto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Propiedades\Formularios\FrmMedida.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FrmMedida.cs</DependentUpon>
@@ -298,6 +302,12 @@
     <None Include="Properties\DataSources\GI.BR.Propiedades.TipoDePiso.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Ubicacion.datasource" />
     <None Include="Properties\DataSources\GI.BR.Valor.datasource" />
+    <Compile Include="Propiedades\Formularios\FrmFoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmFoto.Designer.cs">
+      <DependentUpon>FrmFoto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Propiedades\Formularios\FrmMedida.cs">
       <SubType>Form</SubType>
     </Compile>
