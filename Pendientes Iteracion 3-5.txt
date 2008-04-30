@@ -1,0 +1,18 @@
+
+
+Emilio:
+
+Reporte de ficha de Propiedad
+Enviar por email ficha
+Carga de localidades y partidos (ampliar a un combo barrio )
+buscar propiedades por codigo
+recuperar propiedades por id (carga parcial)
+
+
+Daniel
+
+hisotorico de inquilinos
+pago de alquiler
+reporte de adm de alquiler y contratos
+
+
