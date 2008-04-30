@@ -13,24 +13,9 @@ namespace GI.UI.AdminAlquileres
         public frmListadoAdmAlquiler()
         {
             InitializeComponent();
-
-
-            //cbFiltro.Items.Add("Alquileres con contrato vigente");
-            //cbFiltro.Items.Add("Todos los Alquileres");
-            //cbFiltro.SelectedIndex = 0;
-
-            ListViewItem item = new ListViewItem();
-            item.Text = "Emilio Luis Davidis";
-            item.SubItems.Add("P00032 - Agustin Alvarez 2578 PB '2'");
-            item.SubItems.Add("Carlos Perez");
-
-            lvAdmAlquileres.Items.Add(item);
-
-            lvAdmAlquileres.Focus();
-
-
-
         }
+
+        private GI.BR.AdmAlquileres.AdmAlquileres admAlquileres = new GI.BR.AdmAlquileres.AdmAlquileres();
 
         private void lvAdmAlquileres_DoubleClick(object sender, EventArgs e)
         {
@@ -50,13 +35,71 @@ namespace GI.UI.AdminAlquileres
             GI.BR.AdmAlquileres.AdmAlquiler admAlquiler = new GI.BR.AdmAlquileres.AdmAlquiler();
             admAlquiler.ContratoVigente = new GI.BR.AdmAlquileres.Contrato();
             admAlquiler.ContratoVigente.Deposito = new GI.BR.Valor();
+            admAlquiler.ContratoVigente.Deposito.Moneda = new GI.BR.Monedas.Moneda();
             admAlquiler.ContratoVigente.Monto = new GI.BR.Valor();
+            admAlquiler.ContratoVigente.Monto.Moneda = new GI.BR.Monedas.Moneda();
+            admAlquiler.ContratoVigente.Observaciones = "";
             
 
             frm.AdmAlquiler = admAlquiler;
 
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                admAlquileres.Add(admAlquiler);
+                LlenarLista();
+            }
         }
+
+        private void LlenarLista()
+        {
+            ListViewItem lvi;
+            lvAdmAlquileres.BeginUpdate();
+
+            lvAdmAlquileres.Items.Clear();
+            foreach (GI.BR.AdmAlquileres.AdmAlquiler a in admAlquileres)
+            {
+                lvi = new ListViewItem();
+
+                if (a.Contacto == null)
+                    lvi.Text = "No hay un Contacto asociado.";
+                else
+                    lvi.Text = a.Contacto.ToString();
+
+                //HACER GET PROPIEDAD POR ID
+                //lvi.SubItems.Add(a.Alquiler.Codigo + " - " + a.Alquiler.Direccion.ToString());
+
+                lvi.SubItems.Add("HACER CARGADO DE PROPIEDAD POR ID");
+
+                if (a.ContratoVigente.Inquilino == null)
+                    lvi.SubItems.Add("No hay Inquilino.");
+                else
+                    lvi.SubItems.Add(a.ContratoVigente.Inquilino.ToString());
+
+                lvi.SubItems.Add(a.ContratoVigente.FechaVencimiento.ToShortDateString());
+                lvi.Tag = a;
+                lvAdmAlquileres.Items.Add(lvi);
+
+
+                
+                
+            }
+            lvAdmAlquileres.EndUpdate();
+
+            lvAdmAlquileres.Focus();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            frmBuscarAdminAlquileres frmBuscar = new frmBuscarAdminAlquileres();
+
+            if (frmBuscar.ShowDialog() == DialogResult.OK)
+            {
+                this.admAlquileres = frmBuscar.AdmAlquileres;
+                this.LlenarLista();
+            }
+        }
+
+        
 
 
 

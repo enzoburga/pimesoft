@@ -86,6 +86,7 @@ namespace GI.UI.AdminAlquileres
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(67, 68);
             this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // NuevoAlquilertoolStripButton
             // 
@@ -128,7 +129,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Propietario";
+            this.columnHeader1.Text = "Contacto";
             this.columnHeader1.Width = 231;
             // 
             // columnHeader2

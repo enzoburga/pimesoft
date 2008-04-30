@@ -38,6 +38,7 @@ namespace GI.UI.AdminAlquileres
             this.label2 = new System.Windows.Forms.Label();
             this.propiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cBoxCancelado = new System.Windows.Forms.CheckBox();
             this.tbObservaciones = new System.Windows.Forms.TextBox();
             this.contratoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label14 = new System.Windows.Forms.Label();
@@ -48,7 +49,7 @@ namespace GI.UI.AdminAlquileres
             this.MontoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbMonedaMontoContrato = new GI.Framework.ComboBox();
             this.tbDiaVto = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaCancelacion = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaVencimiento = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
@@ -147,6 +148,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cBoxCancelado);
             this.groupBox1.Controls.Add(this.tbObservaciones);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.tbDepositoContrato);
@@ -154,7 +156,7 @@ namespace GI.UI.AdminAlquileres
             this.groupBox1.Controls.Add(this.tbMontoContrato);
             this.groupBox1.Controls.Add(this.cbMonedaMontoContrato);
             this.groupBox1.Controls.Add(this.tbDiaVto);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtpFechaCancelacion);
             this.groupBox1.Controls.Add(this.dtpFechaVencimiento);
             this.groupBox1.Controls.Add(this.dtpFechaInicio);
             this.groupBox1.Controls.Add(this.label8);
@@ -172,16 +174,26 @@ namespace GI.UI.AdminAlquileres
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contrato";
             // 
+            // cBoxCancelado
+            // 
+            this.cBoxCancelado.AutoSize = true;
+            this.cBoxCancelado.Location = new System.Drawing.Point(316, 131);
+            this.cBoxCancelado.Name = "cBoxCancelado";
+            this.cBoxCancelado.Size = new System.Drawing.Size(76, 17);
+            this.cBoxCancelado.TabIndex = 46;
+            this.cBoxCancelado.Text = "Cancelado";
+            this.cBoxCancelado.UseVisualStyleBackColor = true;
+            this.cBoxCancelado.CheckedChanged += new System.EventHandler(this.cBoxCancelado_CheckedChanged);
+            // 
             // tbObservaciones
             // 
-            this.tbObservaciones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratoBindingSource, "Observaciones", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "\"\""));
+            this.tbObservaciones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratoBindingSource, "Observaciones", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.tbObservaciones.Location = new System.Drawing.Point(13, 175);
             this.tbObservaciones.Multiline = true;
             this.tbObservaciones.Name = "tbObservaciones";
             this.tbObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbObservaciones.Size = new System.Drawing.Size(390, 89);
             this.tbObservaciones.TabIndex = 45;
-            this.tbObservaciones.Text = "Este espacio esta destinado a comentarios.";
             // 
             // contratoBindingSource
             // 
@@ -212,14 +224,16 @@ namespace GI.UI.AdminAlquileres
             // 
             // cbMonedaDepositoContrato
             // 
+            this.cbMonedaDepositoContrato.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.DepositoBindingSource, "Moneda", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.cbMonedaDepositoContrato.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.DepositoBindingSource, "Moneda", true));
-            this.cbMonedaDepositoContrato.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.DepositoBindingSource, "Moneda", true));
+            this.cbMonedaDepositoContrato.DisplayMember = "Moneda";
             this.cbMonedaDepositoContrato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonedaDepositoContrato.FormattingEnabled = true;
             this.cbMonedaDepositoContrato.Location = new System.Drawing.Point(149, 104);
             this.cbMonedaDepositoContrato.Name = "cbMonedaDepositoContrato";
             this.cbMonedaDepositoContrato.Size = new System.Drawing.Size(47, 21);
             this.cbMonedaDepositoContrato.TabIndex = 43;
+            this.cbMonedaDepositoContrato.ValueMember = "Moneda";
             // 
             // tbMontoContrato
             // 
@@ -237,14 +251,16 @@ namespace GI.UI.AdminAlquileres
             // 
             // cbMonedaMontoContrato
             // 
-            this.cbMonedaMontoContrato.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.MontoBindingSource, "Moneda", true));
+            this.cbMonedaMontoContrato.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.MontoBindingSource, "Moneda", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.cbMonedaMontoContrato.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MontoBindingSource, "Moneda", true));
+            this.cbMonedaMontoContrato.DisplayMember = "Moneda";
             this.cbMonedaMontoContrato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonedaMontoContrato.FormattingEnabled = true;
             this.cbMonedaMontoContrato.Location = new System.Drawing.Point(149, 76);
             this.cbMonedaMontoContrato.Name = "cbMonedaMontoContrato";
             this.cbMonedaMontoContrato.Size = new System.Drawing.Size(47, 21);
             this.cbMonedaMontoContrato.TabIndex = 41;
+            this.cbMonedaMontoContrato.ValueMember = "Moneda";
             // 
             // tbDiaVto
             // 
@@ -254,14 +270,14 @@ namespace GI.UI.AdminAlquileres
             this.tbDiaVto.Size = new System.Drawing.Size(29, 21);
             this.tbDiaVto.TabIndex = 37;
             // 
-            // dateTimePicker1
+            // dtpFechaCancelacion
             // 
-            this.dateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contratoBindingSource, "FechaCancelacion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "d"));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(316, 103);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(86, 21);
-            this.dateTimePicker1.TabIndex = 36;
+            this.dtpFechaCancelacion.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contratoBindingSource, "FechaCancelacion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "d"));
+            this.dtpFechaCancelacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaCancelacion.Location = new System.Drawing.Point(316, 103);
+            this.dtpFechaCancelacion.Name = "dtpFechaCancelacion";
+            this.dtpFechaCancelacion.Size = new System.Drawing.Size(86, 21);
+            this.dtpFechaCancelacion.TabIndex = 36;
             // 
             // dtpFechaVencimiento
             // 
@@ -271,6 +287,7 @@ namespace GI.UI.AdminAlquileres
             this.dtpFechaVencimiento.Name = "dtpFechaVencimiento";
             this.dtpFechaVencimiento.Size = new System.Drawing.Size(86, 21);
             this.dtpFechaVencimiento.TabIndex = 36;
+            this.dtpFechaVencimiento.ValueChanged += new System.EventHandler(this.dtpFechaVencimiento_ValueChanged);
             // 
             // dtpFechaInicio
             // 
@@ -280,6 +297,7 @@ namespace GI.UI.AdminAlquileres
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(86, 21);
             this.dtpFechaInicio.TabIndex = 35;
+            this.dtpFechaInicio.ValueChanged += new System.EventHandler(this.dtpFechaInicio_ValueChanged);
             // 
             // label8
             // 
@@ -414,7 +432,7 @@ namespace GI.UI.AdminAlquileres
         private System.Windows.Forms.TextBox tbObservaciones;
         private System.Windows.Forms.Label label14;
         private GI.UI.Generales.CtrlDireccion ctrlDireccion1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFechaCancelacion;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.BindingSource propiedadBindingSource;
         private System.Windows.Forms.BindingSource MontoBindingSource;
@@ -422,6 +440,7 @@ namespace GI.UI.AdminAlquileres
         private System.Windows.Forms.BindingSource admAlquilerBindingSource;
         private System.Windows.Forms.BindingSource DepositoBindingSource;
         private System.Windows.Forms.CheckBox cBoxEsPropietario;
+        private System.Windows.Forms.CheckBox cBoxCancelado;
 
     }
 }
