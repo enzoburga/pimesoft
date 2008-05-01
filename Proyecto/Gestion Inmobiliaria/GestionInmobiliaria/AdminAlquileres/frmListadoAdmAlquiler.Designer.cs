@@ -34,7 +34,7 @@ namespace GI.UI.AdminAlquileres
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.NuevoAlquilertoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.imprimirListadotoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.lvAdmAlquileres = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -76,7 +76,7 @@ namespace GI.UI.AdminAlquileres
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.NuevoAlquilertoolStripButton,
-            this.toolStripButton4});
+            this.imprimirListadotoolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(832, 71);
@@ -105,15 +105,16 @@ namespace GI.UI.AdminAlquileres
             this.NuevoAlquilertoolStripButton.Text = "Nuevo Alquiler";
             this.NuevoAlquilertoolStripButton.Click += new System.EventHandler(this.NuevoAlquilertoolStripButton_Click);
             // 
-            // toolStripButton4
+            // imprimirListadotoolStripButton
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(68, 68);
-            this.toolStripButton4.Text = "Imprimir listado";
+            this.imprimirListadotoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.imprimirListadotoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("imprimirListadotoolStripButton.Image")));
+            this.imprimirListadotoolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.imprimirListadotoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.imprimirListadotoolStripButton.Name = "imprimirListadotoolStripButton";
+            this.imprimirListadotoolStripButton.Size = new System.Drawing.Size(68, 68);
+            this.imprimirListadotoolStripButton.Text = "Imprimir listado";
+            this.imprimirListadotoolStripButton.Click += new System.EventHandler(this.imprimirListadotoolStripButton_Click);
             // 
             // lvAdmAlquileres
             // 
@@ -216,7 +217,7 @@ namespace GI.UI.AdminAlquileres
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton NuevoAlquilertoolStripButton;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton imprimirListadotoolStripButton;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem verFichaToolStripMenuItem;
