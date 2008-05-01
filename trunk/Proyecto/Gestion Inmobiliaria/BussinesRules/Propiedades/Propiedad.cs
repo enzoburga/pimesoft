@@ -363,7 +363,7 @@ namespace GI.BR.Propiedades
         {
 
             int id = new DA.PropiedadesData().InsertarPropiedades(
-                CantidadAmbientes, TipoPropiedad.IdTipoPropiedad, Estado.IdEstadoPropiedad, (int)EnumEstado, (Propietario == null) ? 0 : Propietario.IdCliente, Ubicacion.Pais.IdPais, Ubicacion.Provincia.IdProvincia,
+                Observaciones, CantidadAmbientes, TipoPropiedad.IdTipoPropiedad, Estado.IdEstadoPropiedad, (int)EnumEstado, (Propietario == null) ? 0 : Propietario.IdCliente, Ubicacion.Pais.IdPais, Ubicacion.Provincia.IdProvincia,
                 Ubicacion.Localidad.IdLocalidad, Ubicacion.Barrio.IdBarrio, Direccion.Calle, Direccion.Numero, Direccion.Depto, Direccion.Piso, Direccion.CodigoPostal, Direccion.CalleEntre1, Direccion.CalleEntre2,
                 ValorMercado.Importe, ValorMercado.Moneda.IdMoneda, ValorPublicacion.Importe, ValorPublicacion.Moneda.IdMoneda, EsOtraInmobiliaria,
                 MedidasPropiedad.MetrosCubiertos, MedidasPropiedad.MetrosSemicubiertos, MedidasPropiedad.MetrosLibres, MedidasTerreno.Metros, MedidasTerreno.Fondo, MedidasTerreno.Frente,
@@ -387,7 +387,7 @@ namespace GI.BR.Propiedades
 
         public virtual bool Actualizar()
         {
-            bool retVal = new DA.PropiedadesData().ActualizarPropiedad(IdPropiedad, CantidadAmbientes, TipoPropiedad.IdTipoPropiedad, Estado.IdEstadoPropiedad, (int)EnumEstado, (Propietario == null) ? 0 : Propietario.IdCliente, Ubicacion.Pais.IdPais, Ubicacion.Provincia.IdProvincia,
+            bool retVal = new DA.PropiedadesData().ActualizarPropiedad(Observaciones, IdPropiedad, CantidadAmbientes, TipoPropiedad.IdTipoPropiedad, Estado.IdEstadoPropiedad, (int)EnumEstado, (Propietario == null) ? 0 : Propietario.IdCliente, Ubicacion.Pais.IdPais, Ubicacion.Provincia.IdProvincia,
                 Ubicacion.Localidad.IdLocalidad, Ubicacion.Barrio.IdBarrio, Direccion.Calle, Direccion.Numero, Direccion.Depto, Direccion.Piso, Direccion.CodigoPostal, Direccion.CalleEntre1, Direccion.CalleEntre2,
                 ValorMercado.Importe, ValorMercado.Moneda.IdMoneda, ValorPublicacion.Importe, ValorPublicacion.Moneda.IdMoneda, EsOtraInmobiliaria,
                 MedidasPropiedad.MetrosCubiertos, MedidasPropiedad.MetrosSemicubiertos, MedidasPropiedad.MetrosLibres, MedidasTerreno.Metros, MedidasTerreno.Fondo, MedidasTerreno.Frente,
