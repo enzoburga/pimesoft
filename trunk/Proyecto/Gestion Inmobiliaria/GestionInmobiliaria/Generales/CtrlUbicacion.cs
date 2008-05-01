@@ -55,7 +55,7 @@ namespace GI.UI.Generales
 
                 ubicacion = value;
 
-                if (ubicacion == null) return;
+                if (ubicacion == null || ubicacion.Pais==null) return;
                 this.cbPais.SelectedIndex = GetIndicePais(ubicacion.Pais);
                 this.cbProvincia.SelectedIndex = GetIndiceProvincia(ubicacion.Provincia);
                 this.cbLocalidad.SelectedIndex = GetIndiceLocalidad(ubicacion.Localidad);

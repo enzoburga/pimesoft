@@ -7,37 +7,22 @@ namespace GI.BR.Propiedades.Ubicaciones
 {
     public class UbicacionFlyweightFactory
     {
-        private Hashtable hashPaises;
-        private Hashtable hashProvincias;
-        private Hashtable hashLocalidades;
-        private Hashtable hashBarrios;
+        private GI.BR.Propiedades.Ubicaciones.Paises hashPaises;
+        private GI.BR.Propiedades.Ubicaciones.Provincias hashProvincias;
+        private GI.BR.Propiedades.Ubicaciones.Localidades hashLocalidades;
+        private GI.BR.Propiedades.Ubicaciones.Barrios hashBarrios;
 
         public UbicacionFlyweightFactory()
         {
-            hashBarrios = new Hashtable();
-            hashLocalidades = new Hashtable();
-            hashPaises = new Hashtable();
-            hashProvincias = new Hashtable();
+            hashBarrios = new Barrios();
+            hashLocalidades = new Localidades();
+            hashPaises = new Paises();
+            hashProvincias = new Provincias();
 
-            Paises paises = new Paises();
-            paises.RecuperarTodos();
-            foreach (Pais p in paises)
-                hashPaises.Add(p.IdPais, p);
-
-            Provincias provincias = new Provincias();
-            provincias.RecuperarTodas();
-            foreach (Provincia p in provincias)
-                hashProvincias.Add(p.IdProvincia, p);
-
-            Localidades localidades = new Localidades();
-            localidades.RecuperarTodas();
-            foreach (Localidad l in localidades)
-                hashLocalidades.Add(l.IdLocalidad, l);
-
-            Barrios barrios = new Barrios();
-            barrios.RecuperarTodos();
-            foreach (Barrio b in barrios)
-                hashBarrios.Add(b.IdBarrio, b);
+            hashBarrios.RecuperarTodos();
+            hashLocalidades.RecuperarTodas();
+            hashPaises.RecuperarTodos();
+            hashProvincias.RecuperarTodas();
         
         
         }
@@ -47,38 +32,39 @@ namespace GI.BR.Propiedades.Ubicaciones
 
         public Pais GetPais(int IdPais)
         {
-            return (Pais)hashPaises[IdPais];
+            foreach (GI.BR.Propiedades.Ubicaciones.Pais p in hashPaises)
+            {
+                if (p.IdPais == IdPais)
+                    return p;
+            }
+
+            return null;
 
         }
 
         public Provincias GetProvincias(int IdPais)
         {
             Provincias p = new Provincias();
-            foreach (int k in hashProvincias.Keys)
+            foreach (GI.BR.Propiedades.Ubicaciones.Provincia pr in hashProvincias)
             {
-                if (((Provincia)hashProvincias[k]).IdPais == IdPais)
-                    p.Add((Provincia)hashProvincias[k]);
+                if (pr.IdPais == IdPais)
+                    p.Add(pr);
             }
             return p;
         }
 
         public Paises GetPaises()
         {
-            Paises p = new Paises();
-            foreach (int k in hashPaises.Keys)
-            {
-                p.Add((Pais)hashPaises[k]);
-            }
-            return p;
+            return hashPaises;
         }
 
         public Localidades GetLocalidades(int IdProvincia)
         {
             Localidades p = new Localidades();
-            foreach (int k in hashLocalidades.Keys)
+            foreach (GI.BR.Propiedades.Ubicaciones.Localidad l in hashLocalidades)
             {
-                if (((Localidad)hashLocalidades[k]).IdProvincia == IdProvincia)
-                    p.Add((Localidad)hashLocalidades[k]);
+                if (l.IdProvincia == IdProvincia)
+                    p.Add(l);
             }
             return p;
         }
@@ -86,27 +72,45 @@ namespace GI.BR.Propiedades.Ubicaciones
         public Barrios GetBarrios(int IdLocalidad)
         {
             Barrios p = new Barrios();
-            foreach (int k in hashBarrios.Keys)
+            foreach (GI.BR.Propiedades.Ubicaciones.Barrio b in hashBarrios)
             {
-                if (((Barrio)hashBarrios[k]).IdLocalidad == IdLocalidad)
-                    p.Add((Barrio)hashBarrios[k]);
+                if (b.IdLocalidad == IdLocalidad)
+                    p.Add(b);
             }
             return p;
         }
 
         public Provincia GetProvincia(int IdProvincia)
         {
-            return (Provincia)hashProvincias[IdProvincia];
+            foreach (GI.BR.Propiedades.Ubicaciones.Provincia p in hashProvincias)
+            {
+                if (p.IdProvincia == IdProvincia)
+                    return p;
+            }
+
+            return null;
         }
 
         public Localidad GetLocalidad(int IdLocalidad)
         {
-            return (Localidad)hashLocalidades[IdLocalidad];
+            foreach (GI.BR.Propiedades.Ubicaciones.Localidad l in hashLocalidades)
+            {
+                if (l.IdLocalidad == IdLocalidad)
+                    return l;
+            }
+
+            return null;
         }
 
         public Barrio GetBarrio(int IdBarrio)
         {
-            return (Barrio)hashBarrios[IdBarrio];
+            foreach (GI.BR.Propiedades.Ubicaciones.Barrio b in hashBarrios)
+            {
+                if (b.IdBarrio == IdBarrio)
+                    return b;
+            }
+
+            return null;
         }
 
     }

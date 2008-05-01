@@ -15,7 +15,15 @@ namespace GI.UI.Propiedades
             InitializeComponent();
         }
 
+        public override bool AsignarSoloLectura(Control Ctrl)
+        {
 
+            if (Ctrl.Name == "cbFotos")
+                return false;
+
+
+            return base.AsignarSoloLectura(Ctrl);
+        }
 
         public override GI.BR.Propiedades.Propiedad GetPropiedad()
         {

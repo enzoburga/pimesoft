@@ -62,8 +62,8 @@ namespace GI.UI.Propiedades
             // 
             this.splitContainer1.Panel2.Controls.Add(this.bAceptar);
             this.splitContainer1.Panel2.Controls.Add(this.bCancelar);
-            this.splitContainer1.Size = new System.Drawing.Size(494, 618);
-            this.splitContainer1.SplitterDistance = 568;
+            this.splitContainer1.Size = new System.Drawing.Size(494, 641);
+            this.splitContainer1.SplitterDistance = 589;
             this.splitContainer1.TabIndex = 0;
             // 
             // tabControl
@@ -72,7 +72,7 @@ namespace GI.UI.Propiedades
             this.tabControl.Location = new System.Drawing.Point(0, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(494, 544);
+            this.tabControl.Size = new System.Drawing.Size(494, 565);
             this.tabControl.TabIndex = 0;
             // 
             // menuStrip1
@@ -136,7 +136,7 @@ namespace GI.UI.Propiedades
             // publicarToolStripMenuItem
             // 
             this.publicarToolStripMenuItem.Name = "publicarToolStripMenuItem";
-            this.publicarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.publicarToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.publicarToolStripMenuItem.Text = "Publicar ficha";
             this.publicarToolStripMenuItem.Click += new System.EventHandler(this.publicarToolStripMenuItem_Click);
             // 
@@ -164,7 +164,7 @@ namespace GI.UI.Propiedades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 618);
+            this.ClientSize = new System.Drawing.Size(494, 641);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
