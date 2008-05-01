@@ -50,7 +50,10 @@ namespace GI.DA
 
         public System.Data.IDataReader RecuperarPorAdmAlquiler(int IdAdmAlquiler)
         {
-            throw new Exception("The method or operation is not implemented.");
+            return AccesoDatos.RecuperarDatos(
+                "Contratos_RecuperarPorAdmAlquiler",
+                new object[] { IdAdmAlquiler },
+                new string[] { "@IdAdmAlquiler" });
         }
     }
 }
