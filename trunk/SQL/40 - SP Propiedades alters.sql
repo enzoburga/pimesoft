@@ -66,7 +66,7 @@ CantidadAmbientes= @CantidadAmbientes, IdTipoPropiedad=@IdTipoPropiedad , IdEsta
 
 select @@rowcount
 
-;
+GO
 
 ALTER PROCEDURE dbo.Propiedades_Crear 
 (

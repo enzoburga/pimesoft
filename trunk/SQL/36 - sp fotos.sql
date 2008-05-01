@@ -12,7 +12,7 @@ insert into GaleriaFotos values (@IdPropiedad,@Foto,@EsFachada,@Descripcion)
 
 
 select @@identity
-;
+GO
 create PROCEDURE dbo.Propiedades_EliminarFoto 
 (
 	@IdFoto int
@@ -24,7 +24,7 @@ delete from GaleriaFotos where idfoto = @IdFoto
 
 
 select @@rowcount
-;
+GO
 
 create PROCEDURE dbo.Propiedades_RecuperarGaleria 
 (
