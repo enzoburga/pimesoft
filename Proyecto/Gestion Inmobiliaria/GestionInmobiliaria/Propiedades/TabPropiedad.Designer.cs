@@ -422,7 +422,7 @@ namespace GI.UI.Propiedades
             this.textBoxDetalles.Name = "textBoxDetalles";
             this.textBoxDetalles.Size = new System.Drawing.Size(415, 43);
             this.textBoxDetalles.TabIndex = 43;
-            this.textBoxDetalles.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxDetalles.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // TabPropiedad
             // 
