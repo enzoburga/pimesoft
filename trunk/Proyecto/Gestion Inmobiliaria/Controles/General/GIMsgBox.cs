@@ -35,5 +35,10 @@ namespace GI.Framework.General
         {
             return System.Windows.Forms.MessageBox.Show("No se han encontrado resultados coincidentes con el criterio.", "¡Advertencia!", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation);            
         }
+
+        public static System.Windows.Forms.DialogResult ShowConfirmarEliminacion()
+        {
+            return System.Windows.Forms.MessageBox.Show("¿Confirma que desea eliminar los elementos seleccionados?", "¡Advertencia!", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question);
+        }
     }
 }
