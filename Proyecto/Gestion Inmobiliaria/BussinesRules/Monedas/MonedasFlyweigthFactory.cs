@@ -9,7 +9,7 @@ namespace GI.BR.Monedas
 
         private System.Collections.Hashtable hashMonedas;
 
-        public MonedasFlyweigthFactory()
+        private MonedasFlyweigthFactory()
         {
             Monedas monedas = new Monedas();
             hashMonedas = new System.Collections.Hashtable();
@@ -22,6 +22,17 @@ namespace GI.BR.Monedas
         public Moneda GetMoneda(int IdMoneda)
         {
             return (Moneda)hashMonedas[IdMoneda];
+        }
+
+        private static MonedasFlyweigthFactory instancia;
+        public static MonedasFlyweigthFactory GetInstancia
+        {
+            get
+            {
+                if (instancia == null)
+                    instancia = new MonedasFlyweigthFactory();
+                return instancia;
+            }
         }
 
     }

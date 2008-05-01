@@ -47,5 +47,10 @@ namespace GI.DA
                 new object[] { IdContrato, Inquilino, IdPropiedad, FechaInicio, FechaVencimiento, MontoCuota, IdMonedaMonto, MontoDeposito, IdMonedaDeposito, DiaVencimientoCuota, contratoAnterior, fechaCanc, Observaciones, vigente },
                 new string[] { "@IdContrato", "@IdInquilino", "@IdPropiedad", "@FechaInicio", "@FechaVencimiento", "@MontoCuota", "@IdMonedaMonto", "@MontoDeposito", "@IdMonedaDeposito", "@DiaVencimientoCuota", "@IdContratoAnterior", "@FechaCancelacion", "@Observaciones", "@Vigente" });
         }
+
+        public System.Data.IDataReader RecuperarPorAdmAlquiler(int IdAdmAlquiler)
+        {
+            throw new Exception("The method or operation is not implemented.");
+        }
     }
 }
