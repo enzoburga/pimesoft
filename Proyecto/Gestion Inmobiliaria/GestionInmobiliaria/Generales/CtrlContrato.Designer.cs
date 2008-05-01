@@ -64,7 +64,7 @@ namespace GI.UI.Generales
             this.tbDepositoContrato.Location = new System.Drawing.Point(86, 104);
             this.tbDepositoContrato.Name = "tbDepositoContrato";
             this.tbDepositoContrato.Size = new System.Drawing.Size(57, 20);
-            this.tbDepositoContrato.TabIndex = 42;
+            this.tbDepositoContrato.TabIndex = 6;
             this.tbDepositoContrato.Text = "145700";
             this.tbDepositoContrato.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -78,7 +78,7 @@ namespace GI.UI.Generales
             this.tbMontoContrato.Location = new System.Drawing.Point(86, 76);
             this.tbMontoContrato.Name = "tbMontoContrato";
             this.tbMontoContrato.Size = new System.Drawing.Size(57, 20);
-            this.tbMontoContrato.TabIndex = 40;
+            this.tbMontoContrato.TabIndex = 3;
             this.tbMontoContrato.Text = "145700";
             this.tbMontoContrato.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -93,7 +93,7 @@ namespace GI.UI.Generales
             this.dtpFechaInicio.Location = new System.Drawing.Point(86, 49);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(86, 20);
-            this.dtpFechaInicio.TabIndex = 35;
+            this.dtpFechaInicio.TabIndex = 1;
             this.dtpFechaInicio.ValueChanged += new System.EventHandler(this.dtpFechaInicio_ValueChanged);
             // 
             // contratoBindingSource
@@ -134,7 +134,7 @@ namespace GI.UI.Generales
             this.LinkInquilino.Location = new System.Drawing.Point(86, 26);
             this.LinkInquilino.Name = "LinkInquilino";
             this.LinkInquilino.Size = new System.Drawing.Size(117, 13);
-            this.LinkInquilino.TabIndex = 28;
+            this.LinkInquilino.TabIndex = 0;
             this.LinkInquilino.TabStop = true;
             this.LinkInquilino.Text = "Seleccione un Inquilino";
             this.LinkInquilino.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkInquilino_LinkClicked);
@@ -163,7 +163,7 @@ namespace GI.UI.Generales
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(409, 270);
-            this.groupBox1.TabIndex = 30;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contrato";
             // 
@@ -173,7 +173,7 @@ namespace GI.UI.Generales
             this.cBoxCancelado.Location = new System.Drawing.Point(316, 131);
             this.cBoxCancelado.Name = "cBoxCancelado";
             this.cBoxCancelado.Size = new System.Drawing.Size(77, 17);
-            this.cBoxCancelado.TabIndex = 46;
+            this.cBoxCancelado.TabIndex = 8;
             this.cBoxCancelado.Text = "Cancelado";
             this.cBoxCancelado.UseVisualStyleBackColor = true;
             this.cBoxCancelado.CheckedChanged += new System.EventHandler(this.cBoxCancelado_CheckedChanged);
@@ -186,7 +186,7 @@ namespace GI.UI.Generales
             this.tbObservaciones.Name = "tbObservaciones";
             this.tbObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbObservaciones.Size = new System.Drawing.Size(390, 89);
-            this.tbObservaciones.TabIndex = 45;
+            this.tbObservaciones.TabIndex = 10;
             // 
             // label14
             // 
@@ -207,7 +207,7 @@ namespace GI.UI.Generales
             this.cbMonedaDepositoContrato.Location = new System.Drawing.Point(149, 104);
             this.cbMonedaDepositoContrato.Name = "cbMonedaDepositoContrato";
             this.cbMonedaDepositoContrato.Size = new System.Drawing.Size(47, 21);
-            this.cbMonedaDepositoContrato.TabIndex = 43;
+            this.cbMonedaDepositoContrato.TabIndex = 7;
             this.cbMonedaDepositoContrato.ValueMember = "Moneda";
             // 
             // cbMonedaMontoContrato
@@ -220,7 +220,7 @@ namespace GI.UI.Generales
             this.cbMonedaMontoContrato.Location = new System.Drawing.Point(149, 76);
             this.cbMonedaMontoContrato.Name = "cbMonedaMontoContrato";
             this.cbMonedaMontoContrato.Size = new System.Drawing.Size(47, 21);
-            this.cbMonedaMontoContrato.TabIndex = 41;
+            this.cbMonedaMontoContrato.TabIndex = 4;
             this.cbMonedaMontoContrato.ValueMember = "Moneda";
             // 
             // tbDiaVto
@@ -229,7 +229,7 @@ namespace GI.UI.Generales
             this.tbDiaVto.Location = new System.Drawing.Point(316, 76);
             this.tbDiaVto.Name = "tbDiaVto";
             this.tbDiaVto.Size = new System.Drawing.Size(29, 20);
-            this.tbDiaVto.TabIndex = 37;
+            this.tbDiaVto.TabIndex = 5;
             // 
             // dtpFechaCancelacion
             // 
@@ -238,7 +238,7 @@ namespace GI.UI.Generales
             this.dtpFechaCancelacion.Location = new System.Drawing.Point(316, 103);
             this.dtpFechaCancelacion.Name = "dtpFechaCancelacion";
             this.dtpFechaCancelacion.Size = new System.Drawing.Size(86, 20);
-            this.dtpFechaCancelacion.TabIndex = 36;
+            this.dtpFechaCancelacion.TabIndex = 9;
             // 
             // dtpFechaVencimiento
             // 
@@ -247,7 +247,7 @@ namespace GI.UI.Generales
             this.dtpFechaVencimiento.Location = new System.Drawing.Point(316, 49);
             this.dtpFechaVencimiento.Name = "dtpFechaVencimiento";
             this.dtpFechaVencimiento.Size = new System.Drawing.Size(86, 20);
-            this.dtpFechaVencimiento.TabIndex = 36;
+            this.dtpFechaVencimiento.TabIndex = 2;
             this.dtpFechaVencimiento.ValueChanged += new System.EventHandler(this.dtpFechaVencimiento_ValueChanged);
             // 
             // label7

@@ -28,26 +28,26 @@ namespace GI.UI.AdminAlquileres
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvContratos = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
-            // listView1
+            // lvContratos
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvContratos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listView1.FullRowSelect = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(16, 17);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(413, 461);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvContratos.FullRowSelect = true;
+            this.lvContratos.HideSelection = false;
+            this.lvContratos.Location = new System.Drawing.Point(16, 17);
+            this.lvContratos.Name = "lvContratos";
+            this.lvContratos.Size = new System.Drawing.Size(413, 461);
+            this.lvContratos.TabIndex = 0;
+            this.lvContratos.UseCompatibleStateImageBehavior = false;
+            this.lvContratos.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -68,7 +68,7 @@ namespace GI.UI.AdminAlquileres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lvContratos);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TabHistorico";
             this.Size = new System.Drawing.Size(444, 493);
@@ -78,7 +78,7 @@ namespace GI.UI.AdminAlquileres
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvContratos;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;

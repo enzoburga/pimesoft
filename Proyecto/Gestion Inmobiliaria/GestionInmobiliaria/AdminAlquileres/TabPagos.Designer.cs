@@ -28,26 +28,33 @@ namespace GI.UI.AdminAlquileres
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.components = new System.ComponentModel.Container();
+            this.lvPagos = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.nuevoPagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarPagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarPagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listView1
+            // lvPagos
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvPagos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listView1.FullRowSelect = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(16, 17);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(413, 461);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvPagos.ContextMenuStrip = this.contextMenuStrip1;
+            this.lvPagos.FullRowSelect = true;
+            this.lvPagos.HideSelection = false;
+            this.lvPagos.Location = new System.Drawing.Point(16, 17);
+            this.lvPagos.Name = "lvPagos";
+            this.lvPagos.Size = new System.Drawing.Size(413, 461);
+            this.lvPagos.TabIndex = 1;
+            this.lvPagos.UseCompatibleStateImageBehavior = false;
+            this.lvPagos.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -64,23 +71,58 @@ namespace GI.UI.AdminAlquileres
             this.columnHeader3.Text = "Importe";
             this.columnHeader3.Width = 99;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevoPagoToolStripMenuItem,
+            this.modificarPagoToolStripMenuItem,
+            this.eliminarPagoToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 92);
+            // 
+            // nuevoPagoToolStripMenuItem
+            // 
+            this.nuevoPagoToolStripMenuItem.Name = "nuevoPagoToolStripMenuItem";
+            this.nuevoPagoToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.nuevoPagoToolStripMenuItem.Text = "Nuevo Pago";
+            this.nuevoPagoToolStripMenuItem.Click += new System.EventHandler(this.nuevoPagoToolStripMenuItem_Click);
+            // 
+            // modificarPagoToolStripMenuItem
+            // 
+            this.modificarPagoToolStripMenuItem.Name = "modificarPagoToolStripMenuItem";
+            this.modificarPagoToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.modificarPagoToolStripMenuItem.Text = "Modificar Pago";
+            this.modificarPagoToolStripMenuItem.Click += new System.EventHandler(this.modificarPagoToolStripMenuItem_Click);
+            // 
+            // eliminarPagoToolStripMenuItem
+            // 
+            this.eliminarPagoToolStripMenuItem.Name = "eliminarPagoToolStripMenuItem";
+            this.eliminarPagoToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.eliminarPagoToolStripMenuItem.Text = "Eliminar Pago";
+            this.eliminarPagoToolStripMenuItem.Click += new System.EventHandler(this.eliminarPagoToolStripMenuItem_Click);
+            // 
             // TabPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lvPagos);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TabPagos";
             this.Size = new System.Drawing.Size(444, 493);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvPagos;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem nuevoPagoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarPagoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarPagoToolStripMenuItem;
     }
 }

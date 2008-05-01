@@ -13,30 +13,106 @@ namespace GI.UI.AdminAlquileres
         public TabPagos()
         {
             InitializeComponent();
+        }
 
-            ListViewItem item;
+        protected override void Inicializar()
+        {
+            pagos = new GI.BR.AdmAlquileres.Pagos();
+            pagos.RecuperarPorContrato(AdmAlquiler.ContratoVigente);
+            LlenarLista();
+        }
 
-            item = new ListViewItem();
-            item.Text = DateTime.Now.ToShortDateString();
-            item.SubItems.Add("Dic 07");
-            item.SubItems.Add("$ 1400");
-            listView1.Items.Add(item);
+        public override bool SoloLectura
+        {
+            get
+            {
+                return base.SoloLectura;
+            }
+            set
+            {
+                base.SoloLectura = value;
+                this.contextMenuStrip1.Enabled = !SoloLectura;
+            }
+        }
 
-            item = new ListViewItem();
-            item.Text = DateTime.Now.ToShortDateString();
-            item.SubItems.Add("Ene 08");
-            item.SubItems.Add("$ 1400");
-            listView1.Items.Add(item);
+        private GI.BR.AdmAlquileres.Pagos pagos;
 
+        private void LlenarLista()
+        {
+            lvPagos.Items.Clear();
+            lvPagos.BeginUpdate();
 
-            item = new ListViewItem();
-            item.Text = DateTime.Now.ToShortDateString();
-            item.SubItems.Add("Feb 08");
-            item.SubItems.Add("$ 1400");
-            listView1.Items.Add(item);
+            ListViewItem lvi;
+            foreach (GI.BR.AdmAlquileres.Pago p in pagos)
+            {
+                lvi = new ListViewItem();
+                lvi.Text = p.FechaPago.ToShortDateString();
+                lvi.SubItems.Add((System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(p.MesCancelado)).ToUpper());
+                lvi.SubItems.Add(p.Importe.ToString());
+                lvi.Tag = p;
+                lvPagos.Items.Add(lvi);
+            }
 
+            lvPagos.EndUpdate();            
+        }
 
+        private void nuevoPagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNuevoPago frm = new frmNuevoPago();
+            frm.Contrato = AdmAlquiler.ContratoVigente;
+            frm.Pago = new GI.BR.AdmAlquileres.Pago();
+            frm.Pagos = pagos;
+            frm.Text = "Nuevo Pago";
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                if (!frm.Pago.Guardar())
+                {
+                    
+                    GI.Framework.General.GIMsgBox.Show("No se han guardado los cambios.", GI.Framework.General.enumTipoMensaje.Advertencia);
+                    return;
+                }
+                this.pagos.Add(frm.Pago);
+                LlenarLista();
+            }
+        }
 
+        private void modificarPagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvPagos.SelectedItems.Count != 1)
+                return;
+
+            frmNuevoPago frm = new frmNuevoPago();
+            frm.Contrato = AdmAlquiler.ContratoVigente;
+            frm.Pago = (GI.BR.AdmAlquileres.Pago)lvPagos.SelectedItems[0].Tag;
+            frm.Text = "Modificar Pago";
+            frm.Pagos = pagos;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                if(!frm.Pago.Actualizar())
+                {
+
+                    GI.Framework.General.GIMsgBox.Show("No se han guardado los cambios.", GI.Framework.General.enumTipoMensaje.Advertencia);
+                    return;
+                }
+                LlenarLista();
+            }
+        }
+
+        private void eliminarPagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvPagos.SelectedItems.Count != 1)
+                return;
+
+            switch (GI.Framework.General.GIMsgBox.ShowConfirmarEliminacion())
+            {
+                case DialogResult.Yes:
+                    {
+                        ((GI.BR.AdmAlquileres.Pago)lvPagos.SelectedItems[0].Tag).Anular();
+                        pagos.Remove((GI.BR.AdmAlquileres.Pago)lvPagos.SelectedItems[0].Tag);
+                        LlenarLista();
+                        return;
+                    }
+            }
         }
     }
 }

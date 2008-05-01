@@ -49,12 +49,6 @@ namespace GI.UI.AdminAlquileres
             this.ctrlContrato1.Contrato = AdmAlquiler.ContratoVigente;
         }
 
-    
-
-        protected override void CargarAlquiler()
-        {
-            
-        }
 
         private void LinkPropiedad_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -115,13 +109,6 @@ namespace GI.UI.AdminAlquileres
             }
         }
 
-
-
-        private void TabDatosPrincipales_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void cBoxEsPropietario_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -139,23 +126,5 @@ namespace GI.UI.AdminAlquileres
             }
 
         }
-
-        //private void dtpFechaInicio_ValueChanged(object sender, EventArgs e)
-        //{
-        //    this.AdmAlquiler.ContratoVigente.FechaInicio = dtpFechaInicio.Value;
-        //}
-
-        //private void dtpFechaVencimiento_ValueChanged(object sender, EventArgs e)
-        //{
-        //    this.AdmAlquiler.ContratoVigente.FechaVencimiento = dtpFechaVencimiento.Value;
-        //}
-
-        //private void cBoxCancelado_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (SoloLectura) return;
-        //    this.dtpFechaCancelacion.Enabled = cBoxCancelado.Checked;
-        //}
-
-
     }
 }
