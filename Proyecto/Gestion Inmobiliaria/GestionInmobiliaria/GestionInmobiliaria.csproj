@@ -453,7 +453,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Carteles\" />
-    <Folder Include="Eventos\" />
+    <Folder Include="Generales\Eventos\" />
     <Folder Include="Pedidos\" />
     <Folder Include="Resources\" />
     <Folder Include="Tasaciones\" />

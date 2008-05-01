@@ -6,5 +6,9 @@ namespace GI.BR.AdmAlquileres
 {
     public class Contratos : List<Contrato>
     {
+        public void RecuperarPorAdmAlquiler(AdmAlquiler admAlquiler)
+        { 
+            
+        }
     }
 }
