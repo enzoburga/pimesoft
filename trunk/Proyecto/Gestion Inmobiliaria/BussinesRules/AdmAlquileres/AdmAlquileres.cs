@@ -9,7 +9,7 @@ namespace GI.BR.AdmAlquileres
     {
 
         public void RecuperarAdmAlquileresPorDireccion(string Calle, int Numero)
-        {
+        {            
             using (IDataReader dr = new GI.DA.AdmAlquileresData().RecuperarAdmAlquileresPorDireccion(Calle, Numero))
             {
                 GI.BR.AdmAlquileres.AdmAlquiler adm;

@@ -38,6 +38,11 @@
     <Compile Include="AdmAlquileres\AdmAlquileres.cs" />
     <Compile Include="AdmAlquileres\Contrato.cs" />
     <Compile Include="AdmAlquileres\Contratos.cs" />
+    <Compile Include="AdmAlquileres\Pago.cs" />
+    <Compile Include="AdmAlquileres\Pagos.cs" />
+    <Compile Include="AdmAlquileres\TipoPago.cs" />
+    <Compile Include="AdmAlquileres\TiposPago.cs" />
+    <Compile Include="AdmAlquileres\TiposPagoFlyweigthFactory.cs" />
     <Compile Include="Clientes\Cliente.cs" />
     <Compile Include="Clientes\ClienteFactory.cs" />
     <Compile Include="Clientes\Clientes.cs" />
