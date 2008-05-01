@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GI.BR.Monedas
 {
-    public class Moneda
+    public class Moneda: ICloneable
     {
         private int idMoneda;
 
@@ -33,5 +33,14 @@ namespace GI.BR.Monedas
             return Simbolo.ToString();
         }
 
+
+        #region ICloneable Members
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
+        #endregion
     }
 }
