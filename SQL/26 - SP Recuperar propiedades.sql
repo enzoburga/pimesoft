@@ -19,7 +19,7 @@ FROM         Propiedades INNER JOIN
                       Ventas ON Propiedades.IdPropiedad = Ventas.IdPropiedad
                       where IdTipoPropiedad = @IdTipoPropiedad
 
-;
+GO
 
 ALTER PROCEDURE dbo.PropiedadesVentas_RecuperarPorEstadoYtipo
 (
@@ -44,7 +44,7 @@ FROM         Propiedades INNER JOIN
                       where IdEstadoPropiedad = @IdEstadoPropiedad
 						and idTipoPropiedad = @IdTipoPropiedad
 
-;
+GO
 ALTER PROCEDURE dbo.PropiedadesVentas_RecuperarPorEstado
 (
 	@IdEstadoPropiedad int
@@ -66,7 +66,7 @@ FROM         Propiedades INNER JOIN
                       Ventas ON Propiedades.IdPropiedad = Ventas.IdPropiedad
                       where IdEstadoPropiedad = @IdEstadoPropiedad
 
-;
+GO
 
 
 ALTER PROCEDURE dbo.PropiedadesVentas_RecuperarPorDireccion

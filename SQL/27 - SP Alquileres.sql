@@ -15,7 +15,7 @@ SELECT     Propiedades.IdPropiedad, Propiedades.CantidadAmbientes, Propiedades.C
                       Propiedades.MetrosContruibles
 FROM         Propiedades INNER JOIN
                       Alquileres ON Propiedades.IdPropiedad = Alquileres.IdPropiedad
-;
+GO
 
 ALTER PROCEDURE dbo.PropiedadesAlquileres_RecuperarPorDireccion
 (
@@ -39,7 +39,7 @@ FROM         Propiedades INNER JOIN
                       Alquileres ON Propiedades.IdPropiedad = Alquileres.IdPropiedad
                       where Calle like  '%' + @Calle + '%' And NumeroPostal = @Numero
 
-;
+GO
 
 ALTER PROCEDURE dbo.PropiedadesAlquileres_RecuperarPorEstado
 (
@@ -62,7 +62,7 @@ FROM         Propiedades INNER JOIN
                       Alquileres ON Propiedades.IdPropiedad = Alquileres.IdPropiedad
                       where IdEstadoPropiedad = @IdEstadoPropiedad
 
-;
+GO
 
 ALTER PROCEDURE dbo.PropiedadesAlquileres_RecuperarPorEstadoYtipo
 (
@@ -86,7 +86,7 @@ FROM         Propiedades INNER JOIN
                       Alquileres ON Propiedades.IdPropiedad = Alquileres.IdPropiedad
                       where IdEstadoPropiedad = @IdEstadoPropiedad
 						and idTipoPropiedad = @IdTipoPropiedad
-;
+GO
 
 ALTER PROCEDURE dbo.PropiedadesAlquileres_RecuperarPorTipo
 (
@@ -110,7 +110,7 @@ FROM         Propiedades INNER JOIN
                       where IdTipoPropiedad = @IdTipoPropiedad
 
 
-;
+GO
 
 ALTER PROCEDURE dbo.Propiedades_CrearAlquiler
 (

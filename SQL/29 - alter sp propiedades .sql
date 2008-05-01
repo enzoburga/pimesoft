@@ -1,4 +1,4 @@
-ALTER PROCEDURE dbo.Propiedades_MedidadasAmbiente_Insertar 
+alter PROCEDURE dbo.Propiedades_MedidadasAmbiente_Insertar 
 (
 	@Ancho decimal(18,1),
 	@Largo decimal(18,1),
@@ -13,9 +13,9 @@ insert into MedidasAmbientesPropiedad values (@Ancho,@Largo,@Ambiente,@IdTipoPis
 
 select  @@identity
 
-;
+GO
 
-ALTER PROCEDURE dbo.Propiedades_Actualizar
+alter PROCEDURE dbo.Propiedades_Actualizar
 (
 	@IdPropiedad int,
     @CantidadAmbientes decimal(18,1),
@@ -82,9 +82,9 @@ CantidadAmbientes= @CantidadAmbientes, IdTipoPropiedad=@IdTipoPropiedad , IdEsta
 
 select @@rowcount
 
-;
+GO
 
-ALTER PROCEDURE dbo.Propiedades_Crear 
+alter PROCEDURE dbo.Propiedades_Crear 
 (
         @CantidadAmbientes decimal(18,1),
         @CantidadAscensores int,
