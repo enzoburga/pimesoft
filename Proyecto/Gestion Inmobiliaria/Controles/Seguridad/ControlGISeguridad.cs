@@ -51,6 +51,9 @@ namespace GI.Framework.Seguridad
             if (Ctrl is System.Windows.Forms.LinkLabel)
                 return true;
 
+            if (Ctrl is System.Windows.Forms.ListView)
+                return true;
+
 
         
             return false;
