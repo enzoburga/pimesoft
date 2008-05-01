@@ -113,6 +113,22 @@ namespace GI.UI.AdminAlquileres
                 LlenarLista();
         }
 
+        private void imprimirListadotoolStripButton_Click(object sender, EventArgs e)
+        {
+
+            if (admAlquileres == null || admAlquileres.Count == 0)
+            {
+                Framework.General.GIMsgBox.Show("No hay alquileres para la vista actual", GI.Framework.General.enumTipoMensaje.Informacion);
+                return;
+            }
+
+            GI.Reportes.Clases.AdmAlquileres.ReporteListadoAdmAlquileres reporte = new GI.Reportes.Clases.AdmAlquileres.ReporteListadoAdmAlquileres("Listado de Alquileres Administrados", admAlquileres);
+
+            GI.Reportes.Visor.FrmVisorReporte frmVisor = new GI.Reportes.Visor.FrmVisorReporte(reporte);
+
+            frmVisor.ShowDialog();
+        }
+
         
 
 
