@@ -35,7 +35,7 @@ namespace GI.UI.AdminAlquileres
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresarUnPagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enviarACorreoElectrónicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoContratoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bAceptar = new System.Windows.Forms.Button();
             this.bCancelar = new System.Windows.Forms.Button();
@@ -90,7 +90,7 @@ namespace GI.UI.AdminAlquileres
             this.guardarToolStripMenuItem,
             this.imprimirToolStripMenuItem,
             this.ingresarUnPagoToolStripMenuItem,
-            this.enviarACorreoElectrónicoToolStripMenuItem,
+            this.nuevoContratoToolStripMenuItem,
             this.cerrarToolStripMenuItem});
             this.fichaToolStripMenuItem.Name = "fichaToolStripMenuItem";
             this.fichaToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
@@ -114,11 +114,12 @@ namespace GI.UI.AdminAlquileres
             this.ingresarUnPagoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.ingresarUnPagoToolStripMenuItem.Text = "Ingresar un pago";
             // 
-            // enviarACorreoElectrónicoToolStripMenuItem
+            // nuevoContratoToolStripMenuItem
             // 
-            this.enviarACorreoElectrónicoToolStripMenuItem.Name = "enviarACorreoElectrónicoToolStripMenuItem";
-            this.enviarACorreoElectrónicoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.enviarACorreoElectrónicoToolStripMenuItem.Text = "Generar nuevo contrato";
+            this.nuevoContratoToolStripMenuItem.Name = "nuevoContratoToolStripMenuItem";
+            this.nuevoContratoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.nuevoContratoToolStripMenuItem.Text = "Generar nuevo contrato";
+            this.nuevoContratoToolStripMenuItem.Click += new System.EventHandler(this.nuevoContratoToolStripMenuItem_Click);
             // 
             // cerrarToolStripMenuItem
             // 
@@ -177,7 +178,7 @@ namespace GI.UI.AdminAlquileres
         private System.Windows.Forms.ToolStripMenuItem fichaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imprimirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem enviarACorreoElectrónicoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nuevoContratoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
         private System.Windows.Forms.Button bAceptar;
         private System.Windows.Forms.Button bCancelar;

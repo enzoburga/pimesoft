@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GI.BR.AdmAlquileres
 {
-    public class Contrato
+    public class Contrato : ICloneable
     {
         #region Miembros Privados
         private int idContrato;
@@ -18,6 +18,7 @@ namespace GI.BR.AdmAlquileres
         private string observaciones;
         private Contrato contratoAnterior;
         private GI.BR.Propiedades.Alquiler alquiler;
+        private bool vigente;
         #endregion
 
         #region Propiedade Publicas
@@ -56,21 +57,61 @@ namespace GI.BR.AdmAlquileres
 
         public GI.BR.Propiedades.Alquiler Alquiler { get { return alquiler; } set { alquiler = value; } }
 
+        public bool Vigente { get { return vigente; } set { vigente = value; } }
 
         #endregion
 
         public bool Guardar()
         {
             GI.DA.ContratosData cd = new GI.DA.ContratosData();
-            this.IdContrato = cd.GuardarConrato((Inquilino == null) ? 0:Inquilino.IdCliente, Alquiler.IdPropiedad, FechaInicio, FechaVencimiento, Monto.Importe, Monto.Moneda.IdMoneda, Deposito.Importe, Deposito.Moneda.IdMoneda, DiaCobro, (ContratoAnterior == null) ? 0 : ContratoAnterior.IdContrato, FechaCancelacion, Observaciones);
+            this.IdContrato = cd.GuardarConrato((Inquilino == null) ? 0:Inquilino.IdCliente, Alquiler.IdPropiedad, FechaInicio, FechaVencimiento, Monto.Importe, Monto.Moneda.IdMoneda, Deposito.Importe, Deposito.Moneda.IdMoneda, DiaCobro, (ContratoAnterior == null) ? 0 : ContratoAnterior.IdContrato, FechaCancelacion, Observaciones,vigente);
             return IdContrato > 0;
         }
 
         public bool Actualizar()
         {
             GI.DA.ContratosData cd = new GI.DA.ContratosData();
-            return cd.ActualizarContrato(IdContrato, (Inquilino == null) ? 0 : Inquilino.IdCliente, Alquiler.IdPropiedad, FechaInicio, FechaVencimiento, Monto.Importe, Monto.Moneda.IdMoneda, Deposito.Importe, Deposito.Moneda.IdMoneda, DiaCobro, (ContratoAnterior == null) ? 0 : ContratoAnterior.IdContrato, FechaCancelacion, Observaciones);
-            
+            return cd.ActualizarContrato(IdContrato, (Inquilino == null) ? 0 : Inquilino.IdCliente, Alquiler.IdPropiedad, FechaInicio, FechaVencimiento, Monto.Importe, Monto.Moneda.IdMoneda, Deposito.Importe, Deposito.Moneda.IdMoneda, DiaCobro, (ContratoAnterior == null) ? 0 : ContratoAnterior.IdContrato, FechaCancelacion, Observaciones,vigente);            
         }
+
+        public void fill(System.Data.IDataReader dr)
+        {
+            this.Deposito = new Valor();
+            this.Deposito.Importe = dr.GetDecimal(dr.GetOrdinal("MontoDeposito"));
+            this.Deposito.Moneda = new GI.BR.Monedas.Moneda();
+            this.Deposito.Moneda.IdMoneda = dr.GetInt32(dr.GetOrdinal("IdMonedaDeposito"));
+            this.DiaCobro = dr.GetByte(dr.GetOrdinal("DiaVencimientoCuota"));
+
+            if (dr.IsDBNull(dr.GetOrdinal("FechaCancelacion")))
+                this.FechaCancelacion = null;
+            else
+                this.FechaCancelacion = dr.GetDateTime(dr.GetOrdinal("FechaCancelacion"));
+
+            this.FechaInicio = dr.GetDateTime(dr.GetOrdinal("FechaInicio"));
+            this.FechaVencimiento = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
+
+            if (!dr.IsDBNull(dr.GetOrdinal("IdInquilino")))
+            {
+                this.Inquilino = new GI.BR.Clientes.Inquilino();
+                this.Inquilino.IdCliente = dr.GetInt32(dr.GetOrdinal("IdInquilino"));
+            }
+
+            this.Monto = new Valor();
+            this.Monto.Importe = dr.GetDecimal(dr.GetOrdinal("MontoCuota"));
+            this.Monto.Moneda = new GI.BR.Monedas.Moneda();
+            this.Monto.Moneda.IdMoneda = dr.GetInt32(dr.GetOrdinal("IdMonedaMonto"));
+            this.Observaciones = dr.GetString(dr.GetOrdinal("Observaciones"));
+            this.IdContrato = dr.GetInt32(dr.GetOrdinal("IdContrato"));
+            this.vigente = dr.GetBoolean(dr.GetOrdinal("Vigente"));
+        }
+
+        #region ICloneable Members
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
+        #endregion
     }
 }

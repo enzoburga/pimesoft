@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GI.UI.AdminAlquileres
 {
-    public partial class frmListadoAdmAlquiler : Form
+    public partial class frmListadoAdmAlquiler : GI.Framework.Seguridad.FrmGISeguridad
     {
         public frmListadoAdmAlquiler()
         {
@@ -38,6 +38,7 @@ namespace GI.UI.AdminAlquileres
             admAlquiler.ContratoVigente.Deposito.Moneda = new GI.BR.Monedas.Moneda();
             admAlquiler.ContratoVigente.Monto = new GI.BR.Valor();
             admAlquiler.ContratoVigente.Monto.Moneda = new GI.BR.Monedas.Moneda();
+            admAlquiler.ContratoVigente.Vigente = true;
             admAlquiler.ContratoVigente.Observaciones = "";
             
 
@@ -97,6 +98,19 @@ namespace GI.UI.AdminAlquileres
                 this.admAlquileres = frmBuscar.AdmAlquileres;
                 this.LlenarLista();
             }
+        }
+
+        private void verFichaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lvAdmAlquileres_DoubleClick(sender, e);
+        }
+
+        private void editarFichaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFichaAdmAlquileres frm = new frmFichaAdmAlquileres();
+            frm.AdmAlquiler = (GI.BR.AdmAlquileres.AdmAlquiler)lvAdmAlquileres.SelectedItems[0].Tag;
+            if (frm.ShowDialog() == DialogResult.OK)
+                LlenarLista();
         }
 
         

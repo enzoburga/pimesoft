@@ -34,12 +34,7 @@ namespace GI.UI.AdminAlquileres
                     nuevoAdmAlquiler = true;
 
 
-                foreach (System.Windows.Forms.TabPage Page in this.tabControl.TabPages)
-                {
-                    if (Page.Controls.Count != 1) continue;
-                    if (Page.Controls[0] is TabContenidoAdmAlquiler)
-                        ((TabContenidoAdmAlquiler)Page.Controls[0]).AdmAlquiler = AdmAlquiler;
-                }
+                InicializarTabs();
 
             }
         }
@@ -144,10 +139,10 @@ namespace GI.UI.AdminAlquileres
                     if ((guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).AdmAlquiler.Actualizar()))
                     {
                         //Actualizo el contrato vigente.
-                        if(AdmAlquiler.ContratoVigente.IdContrato == 0)
-                            guardado = AdmAlquiler.ContratoVigente.Actualizar();
-                        else
+                        if (AdmAlquiler.ContratoVigente.IdContrato == 0)
                             guardado = AdmAlquiler.ContratoVigente.Guardar();
+                        else
+                            guardado = AdmAlquiler.ContratoVigente.Actualizar();
                     }
                 }
 
@@ -166,6 +161,65 @@ namespace GI.UI.AdminAlquileres
             {
                 GI.Framework.General.GIMsgBox.Show(ex.Message, GI.Framework.General.enumTipoMensaje.Error);
 
+            }
+        }
+
+
+        private void nuevoContratoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SoloLectura)
+            {
+                GI.Framework.General.GIMsgBox.ShowSoloLectura();
+                return;
+            }
+            if (AdmAlquiler.Alquiler == null)
+            {
+                GI.Framework.General.GIMsgBox.Show("Debe seleccionar una Propiedad en Alquiler.", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
+
+            GI.BR.AdmAlquileres.Contrato nuevoContrato = new GI.BR.AdmAlquileres.Contrato();
+            nuevoContrato.Deposito = new GI.BR.Valor();
+            nuevoContrato.Deposito.Moneda = new GI.BR.Monedas.Moneda();
+            nuevoContrato.Monto = new GI.BR.Valor();
+            nuevoContrato.Monto.Moneda = new GI.BR.Monedas.Moneda();
+            nuevoContrato.Vigente = true;
+            nuevoContrato.Observaciones = "";
+
+            frmNuevoContrato frmNuevoContrato = new frmNuevoContrato();
+            frmNuevoContrato.Contrato = nuevoContrato;
+
+            if (frmNuevoContrato.ShowDialog() == DialogResult.OK)
+            {
+                nuevoContrato.Alquiler = AdmAlquiler.Alquiler;
+                if (nuevoContrato.Guardar())
+                {
+                    this.AdmAlquiler.ContratoVigente.Vigente = false;
+                    this.AdmAlquiler.ContratoVigente.ContratoAnterior = nuevoContrato;
+                    this.AdmAlquiler.ContratoVigente.Actualizar();
+                    this.AdmAlquiler.ContratoVigente = nuevoContrato;
+
+                    InicializarTabs();
+
+                    
+                }
+                else
+                {
+                    GI.Framework.General.GIMsgBox.Show("No se han guardado los cambios.", GI.Framework.General.enumTipoMensaje.Error);
+
+                }
+
+                
+            }
+        }
+
+        private void InicializarTabs()
+        {
+            foreach (System.Windows.Forms.TabPage Page in this.tabControl.TabPages)
+            {
+                if (Page.Controls.Count != 1) continue;
+                if (Page.Controls[0] is TabContenidoAdmAlquiler)
+                    ((TabContenidoAdmAlquiler)Page.Controls[0]).AdmAlquiler = AdmAlquiler;
             }
         }
     }

@@ -61,6 +61,7 @@ namespace GI.UI.AdminAlquileres
             this.tbNombresInquilinos = new System.Windows.Forms.TextBox();
             this.lNombreCliente = new System.Windows.Forms.Label();
             this.bBuscar = new System.Windows.Forms.Button();
+            this.cBoxRecuperarVencidos = new System.Windows.Forms.CheckBox();
             this.tabControlTiposDeBusqueda.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -395,11 +396,24 @@ namespace GI.UI.AdminAlquileres
             this.bBuscar.UseVisualStyleBackColor = true;
             this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
             // 
+            // cBoxRecuperarVencidos
+            // 
+            this.cBoxRecuperarVencidos.AutoSize = true;
+            this.cBoxRecuperarVencidos.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cBoxRecuperarVencidos.Location = new System.Drawing.Point(370, 140);
+            this.cBoxRecuperarVencidos.Name = "cBoxRecuperarVencidos";
+            this.cBoxRecuperarVencidos.Size = new System.Drawing.Size(214, 17);
+            this.cBoxRecuperarVencidos.TabIndex = 49;
+            this.cBoxRecuperarVencidos.Text = "Incluir contratos vencidos o cancelados";
+            this.cBoxRecuperarVencidos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cBoxRecuperarVencidos.UseVisualStyleBackColor = true;
+            // 
             // frmBuscarAdminAlquileres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 165);
+            this.Controls.Add(this.cBoxRecuperarVencidos);
             this.Controls.Add(this.bBuscar);
             this.Controls.Add(this.tabControlTiposDeBusqueda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -420,6 +434,7 @@ namespace GI.UI.AdminAlquileres
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -458,5 +473,6 @@ namespace GI.UI.AdminAlquileres
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TextBox tbNombresInquilinos;
         private System.Windows.Forms.Label lNombreCliente;
+        private System.Windows.Forms.CheckBox cBoxRecuperarVencidos;
     }
 }
