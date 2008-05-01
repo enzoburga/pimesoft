@@ -9,7 +9,6 @@ namespace GI.BR.AdmAlquileres
         public void RecuperarPorContrato(Contrato contrato)
         {
             GI.BR.Monedas.MonedasFlyweigthFactory mff = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia;
-            GI.BR.AdmAlquileres.TiposPagoFlyweigthFactory tpff = TiposPagoFlyweigthFactory.GetInstancia;
 
             GI.DA.PagosData pd = new GI.DA.PagosData();
             Pago p;
@@ -26,8 +25,9 @@ namespace GI.BR.AdmAlquileres
             foreach (Pago pago in this)
             {
                 pago.Importe.Moneda = mff.GetMoneda(pago.Importe.Moneda.IdMoneda);
-                pago.TipoPago = tpff.GetTipoPago(pago.TipoPago.IdTipoPago);
             }
         }
+
+        
     }
 }
