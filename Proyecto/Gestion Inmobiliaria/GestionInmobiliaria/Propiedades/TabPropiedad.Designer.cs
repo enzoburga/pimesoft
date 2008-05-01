@@ -29,6 +29,7 @@ namespace GI.UI.Propiedades
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            GI.BR.Propiedades.Ubicacion ubicacion2 = new GI.BR.Propiedades.Ubicacion();
             this.propiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.direccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.valorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -65,6 +66,8 @@ namespace GI.UI.Propiedades
             this.label1 = new System.Windows.Forms.Label();
             this.ctrlUbicacion1 = new GI.UI.Generales.CtrlUbicacion();
             this.ctrlDireccion1 = new GI.UI.Generales.CtrlDireccion();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxDetalles = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.direccionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource1)).BeginInit();
@@ -107,7 +110,7 @@ namespace GI.UI.Propiedades
             this.groupBox3.Controls.Add(this.linkLabelAgregarMedida);
             this.groupBox3.Location = new System.Drawing.Point(41, 159);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(409, 136);
+            this.groupBox3.Size = new System.Drawing.Size(409, 119);
             this.groupBox3.TabIndex = 39;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Medidas";
@@ -124,7 +127,7 @@ namespace GI.UI.Propiedades
             this.lvMedidas.Location = new System.Drawing.Point(11, 20);
             this.lvMedidas.MultiSelect = false;
             this.lvMedidas.Name = "lvMedidas";
-            this.lvMedidas.Size = new System.Drawing.Size(392, 92);
+            this.lvMedidas.Size = new System.Drawing.Size(392, 80);
             this.lvMedidas.TabIndex = 0;
             this.lvMedidas.UseCompatibleStateImageBehavior = false;
             this.lvMedidas.View = System.Windows.Forms.View.Details;
@@ -151,7 +154,7 @@ namespace GI.UI.Propiedades
             // linkLabelEliminarMedida
             // 
             this.linkLabelEliminarMedida.AutoSize = true;
-            this.linkLabelEliminarMedida.Location = new System.Drawing.Point(303, 115);
+            this.linkLabelEliminarMedida.Location = new System.Drawing.Point(303, 100);
             this.linkLabelEliminarMedida.Name = "linkLabelEliminarMedida";
             this.linkLabelEliminarMedida.Size = new System.Drawing.Size(80, 13);
             this.linkLabelEliminarMedida.TabIndex = 1;
@@ -162,7 +165,7 @@ namespace GI.UI.Propiedades
             // linkLabelAgregarMedida
             // 
             this.linkLabelAgregarMedida.AutoSize = true;
-            this.linkLabelAgregarMedida.Location = new System.Drawing.Point(218, 115);
+            this.linkLabelAgregarMedida.Location = new System.Drawing.Point(218, 100);
             this.linkLabelAgregarMedida.Name = "linkLabelAgregarMedida";
             this.linkLabelAgregarMedida.Size = new System.Drawing.Size(83, 13);
             this.linkLabelAgregarMedida.TabIndex = 1;
@@ -381,26 +384,52 @@ namespace GI.UI.Propiedades
             // ctrlUbicacion1
             // 
             this.ctrlUbicacion1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlUbicacion1.Location = new System.Drawing.Point(41, 298);
+            this.ctrlUbicacion1.Location = new System.Drawing.Point(41, 278);
             this.ctrlUbicacion1.Name = "ctrlUbicacion1";
             this.ctrlUbicacion1.Size = new System.Drawing.Size(415, 89);
             this.ctrlUbicacion1.SoloLectura = false;
             this.ctrlUbicacion1.TabIndex = 40;
-            //this.ctrlUbicacion1.Ubicacion = null;
+            ubicacion2.Barrio = null;
+            ubicacion2.Localidad = null;
+            ubicacion2.Pais = null;
+            ubicacion2.Provincia = null;
+            this.ctrlUbicacion1.Ubicacion = ubicacion2;
             // 
             // ctrlDireccion1
             // 
             this.ctrlDireccion1.Direccion = null;
-            this.ctrlDireccion1.Location = new System.Drawing.Point(41, 393);
+            this.ctrlDireccion1.Location = new System.Drawing.Point(41, 366);
             this.ctrlDireccion1.Name = "ctrlDireccion1";
             this.ctrlDireccion1.Size = new System.Drawing.Size(417, 113);
             this.ctrlDireccion1.SoloLectura = false;
             this.ctrlDireccion1.TabIndex = 41;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(38, 476);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Detalles";
+            // 
+            // textBoxDetalles
+            // 
+            this.textBoxDetalles.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "Observaciones", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
+            this.textBoxDetalles.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDetalles.Location = new System.Drawing.Point(41, 492);
+            this.textBoxDetalles.Multiline = true;
+            this.textBoxDetalles.Name = "textBoxDetalles";
+            this.textBoxDetalles.Size = new System.Drawing.Size(415, 43);
+            this.textBoxDetalles.TabIndex = 43;
+            this.textBoxDetalles.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // TabPropiedad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBoxDetalles);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.ctrlDireccion1);
             this.Controls.Add(this.ctrlUbicacion1);
             this.Controls.Add(this.LinkPropietario);
@@ -477,5 +506,7 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.BindingSource valorBindingSource1;
         private GI.UI.Generales.CtrlUbicacion ctrlUbicacion1;
         private GI.UI.Generales.CtrlDireccion ctrlDireccion1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxDetalles;
     }
 }

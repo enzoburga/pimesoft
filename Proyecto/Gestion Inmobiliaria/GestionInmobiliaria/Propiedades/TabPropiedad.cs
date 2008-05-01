@@ -96,6 +96,7 @@ namespace GI.UI.Propiedades
                 Propiedad.Medidas = new GI.BR.Propiedades.MedidasAmbiente();
 
                 Propiedad.Direccion = new GI.BR.Propiedades.Direccion();
+                
 
             }
 
