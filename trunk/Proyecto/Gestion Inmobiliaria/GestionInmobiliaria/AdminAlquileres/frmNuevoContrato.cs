@@ -25,7 +25,7 @@ namespace GI.UI.AdminAlquileres
             {
                 
                 contrato = value;
-                contratoClone = contrato.Clone();
+                contratoClone = (GI.BR.AdmAlquileres.Contrato)contrato.Clone();
                 this.ctrlContrato1.Contrato = value;
             }
         }
@@ -46,7 +46,7 @@ namespace GI.UI.AdminAlquileres
 
         private void bCancelar_Click(object sender, EventArgs e)
         {
-            contrato = contratoClone.Clone();
+            contrato = (GI.BR.AdmAlquileres.Contrato)contratoClone.Clone();
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }

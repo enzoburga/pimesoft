@@ -16,7 +16,6 @@ namespace GI.UI.Generales
         }
 
 
-        private GI.BR.AdmAlquileres.Contrato contratoClone;
         private GI.BR.AdmAlquileres.Contrato contrato;
         public GI.BR.AdmAlquileres.Contrato Contrato
         {
@@ -34,9 +33,6 @@ namespace GI.UI.Generales
 
         protected void Inicializar()
         {
-            //CLONAR!!!!!
-            contratoClone = contrato.Clone();
-
             valorBindingSource.Clear();
             valorBindingSource1.Clear();
             contratoBindingSource.Clear();
