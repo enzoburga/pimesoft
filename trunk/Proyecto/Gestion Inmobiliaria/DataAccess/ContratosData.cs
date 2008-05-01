@@ -6,7 +6,7 @@ namespace GI.DA
 {
     public class ContratosData
     {
-        public int GuardarConrato(int IdInquilino, int IdPropiedad, DateTime FechaInicio, DateTime FechaVencimiento, decimal MontoCuota, int IdMonedaMonto, decimal MontoDeposito, int IdMonedaDeposito, int DiaVencimientoCuota, int IdContratoAnterior, Nullable<DateTime> FechaCancelacion, string Observaciones)
+        public int GuardarConrato(int IdInquilino, int IdPropiedad, DateTime FechaInicio, DateTime FechaVencimiento, decimal MontoCuota, int IdMonedaMonto, decimal MontoDeposito, int IdMonedaDeposito, int DiaVencimientoCuota, int IdContratoAnterior, Nullable<DateTime> FechaCancelacion, string Observaciones, bool vigente)
         {
             object Inquilino = IdInquilino;
             object contratoAnterior = IdContratoAnterior;
@@ -23,11 +23,11 @@ namespace GI.DA
 
             return AccesoDatos.InsertarRegistro(
                 "Contrato_Guardar",
-                new object[] { Inquilino, IdPropiedad, FechaInicio, FechaVencimiento, MontoCuota, IdMonedaMonto, MontoDeposito, IdMonedaDeposito, DiaVencimientoCuota, contratoAnterior, fechaCanc, Observaciones },
-                new string[] { "@IdInquilino", "@IdPropiedad", "@FechaInicio", "@FechaVencimiento", "@MontoCuota", "@IdMonedaMonto", "@MontoDeposito", "@IdMonedaDeposito", "@DiaVencimientoCuota", "@IdContratoAnterior", "@FechaCancelacion", "@Observaciones" });
+                new object[] { Inquilino, IdPropiedad, FechaInicio, FechaVencimiento, MontoCuota, IdMonedaMonto, MontoDeposito, IdMonedaDeposito, DiaVencimientoCuota, contratoAnterior, fechaCanc, Observaciones, vigente},
+                new string[] { "@IdInquilino", "@IdPropiedad", "@FechaInicio", "@FechaVencimiento", "@MontoCuota", "@IdMonedaMonto", "@MontoDeposito", "@IdMonedaDeposito", "@DiaVencimientoCuota", "@IdContratoAnterior", "@FechaCancelacion", "@Observaciones" , "@Vigente"});
         }
 
-        public bool ActualizarContrato(int IdContrato, int IdInquilino, int IdPropiedad, DateTime FechaInicio, DateTime FechaVencimiento, decimal MontoCuota, int IdMonedaMonto, decimal MontoDeposito, int IdMonedaDeposito, int DiaVencimientoCuota, int IdContratoAnterior, Nullable<DateTime> FechaCancelacion, string Observaciones)
+        public bool ActualizarContrato(int IdContrato, int IdInquilino, int IdPropiedad, DateTime FechaInicio, DateTime FechaVencimiento, decimal MontoCuota, int IdMonedaMonto, decimal MontoDeposito, int IdMonedaDeposito, int DiaVencimientoCuota, int IdContratoAnterior, Nullable<DateTime> FechaCancelacion, string Observaciones, bool vigente)
         {
             object Inquilino = IdInquilino;
             object contratoAnterior = IdContratoAnterior;
@@ -44,8 +44,8 @@ namespace GI.DA
 
             return AccesoDatos.ActualizarRegistro(
                 "Contrato_Actualizar",
-                new object[] { IdContrato, Inquilino, IdPropiedad, FechaInicio, FechaVencimiento, MontoCuota, IdMonedaMonto, MontoDeposito, IdMonedaDeposito, DiaVencimientoCuota, contratoAnterior, fechaCanc, Observaciones },
-                new string[] { "@IdContrato", "@IdInquilino", "@IdPropiedad", "@FechaInicio", "@FechaVencimiento", "@MontoCuota", "@IdMonedaMonto", "@MontoDeposito", "@IdMonedaDeposito", "@DiaVencimientoCuota", "@IdContratoAnterior", "@FechaCancelacion", "@Observaciones" });
+                new object[] { IdContrato, Inquilino, IdPropiedad, FechaInicio, FechaVencimiento, MontoCuota, IdMonedaMonto, MontoDeposito, IdMonedaDeposito, DiaVencimientoCuota, contratoAnterior, fechaCanc, Observaciones, vigente },
+                new string[] { "@IdContrato", "@IdInquilino", "@IdPropiedad", "@FechaInicio", "@FechaVencimiento", "@MontoCuota", "@IdMonedaMonto", "@MontoDeposito", "@IdMonedaDeposito", "@DiaVencimientoCuota", "@IdContratoAnterior", "@FechaCancelacion", "@Observaciones", "@Vigente" });
         }
     }
 }

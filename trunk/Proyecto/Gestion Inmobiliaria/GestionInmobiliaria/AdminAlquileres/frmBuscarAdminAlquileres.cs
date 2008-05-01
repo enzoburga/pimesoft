@@ -200,7 +200,7 @@ namespace GI.UI.AdminAlquileres
 
                 }
 
-                admAlquileres = mngAdmAlquileres.RecuperarAdmAlquileres(TipoProp, Estado, Ambiente, Ubicacion, ValorDesde, ValorHasta);
+                admAlquileres = mngAdmAlquileres.RecuperarAdmAlquileres(TipoProp, Estado, Ambiente, Ubicacion, ValorDesde, ValorHasta ,cBoxRecuperarVencidos.Checked);
                 
 
             } 
@@ -211,7 +211,7 @@ namespace GI.UI.AdminAlquileres
             {
                 int numero = 0;
                 Int32.TryParse(textBoxNumero.Text, out numero);
-                admAlquileres = mngAdmAlquileres.RecuperarAdmAlquileres(textBoxDireccion.Text, numero);
+                admAlquileres = mngAdmAlquileres.RecuperarAdmAlquileres(textBoxDireccion.Text, numero, cBoxRecuperarVencidos.Checked);
             }
             #endregion          
 
@@ -221,7 +221,7 @@ namespace GI.UI.AdminAlquileres
             {
                 int numero = 0;
                 Int32.TryParse(textBoxNumero.Text, out numero);
-                admAlquileres = mngAdmAlquileres.RecuperarAdmAlquileresPorCodigoPropiedad(tbCodigo.Text);
+                admAlquileres = mngAdmAlquileres.RecuperarAdmAlquileresPorCodigoPropiedad(tbCodigo.Text, cBoxRecuperarVencidos.Checked);
             }
 
             #endregion
@@ -231,7 +231,7 @@ namespace GI.UI.AdminAlquileres
             if (tabControlTiposDeBusqueda.SelectedIndex == 3)
             {
 
-                admAlquileres = mngAdmAlquileres.RecuperarAdmAlquileresPorInquilinos(tbNombresInquilinos.Text);
+                admAlquileres = mngAdmAlquileres.RecuperarAdmAlquileresPorInquilinos(tbNombresInquilinos.Text, cBoxRecuperarVencidos.Checked);
             }
 
             #endregion

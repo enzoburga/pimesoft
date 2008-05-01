@@ -54,6 +54,12 @@
     <Compile Include="AdminAlquileres\frmFichaAdmAlquileres.Designer.cs">
       <DependentUpon>frmFichaAdmAlquileres.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminAlquileres\frmNuevoContrato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmNuevoContrato.Designer.cs">
+      <DependentUpon>frmNuevoContrato.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminAlquileres\TabContenidoAdmAlquiler.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,6 +133,12 @@
     <Compile Include="frmStartUp.Designer.cs">
       <DependentUpon>frmStartUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Generales\CtrlContrato.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Generales\CtrlContrato.Designer.cs">
+      <DependentUpon>CtrlContrato.cs</DependentUpon>
+    </Compile>
     <Compile Include="Generales\CtrlDireccion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -152,6 +164,10 @@
     <EmbeddedResource Include="AdminAlquileres\frmFichaAdmAlquileres.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmFichaAdmAlquileres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\frmNuevoContrato.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNuevoContrato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminAlquileres\TabDatosPrincipales.resx">
       <SubType>Designer</SubType>
@@ -197,6 +213,10 @@
     <EmbeddedResource Include="frmStartUp.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmStartUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generales\CtrlContrato.resx">
+      <DependentUpon>CtrlContrato.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Generales\CtrlDireccion.resx">
       <SubType>Designer</SubType>

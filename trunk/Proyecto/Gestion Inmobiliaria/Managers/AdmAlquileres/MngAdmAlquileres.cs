@@ -6,19 +6,16 @@ namespace GI.Managers.AdmAlquileres
 {
     public class MngAdmAlquileres
     {
-        public GI.BR.AdmAlquileres.AdmAlquileres RecuperarAdmAlquileres(string Calle, int Numero)
+        public GI.BR.AdmAlquileres.AdmAlquileres RecuperarAdmAlquileres(string Calle, int Numero, bool IncluirVencidos)
         {
             GI.BR.AdmAlquileres.AdmAlquileres admAlquileres = new GI.BR.AdmAlquileres.AdmAlquileres();
-
-                admAlquileres.RecuperarAdmAlquileresPorDireccion(Calle, Numero);
-
-
-            return admAlquileres;
+            admAlquileres.RecuperarAdmAlquileresPorDireccion(Calle, Numero);
+            return AplicarFiltros(admAlquileres, null, null, null, null, IncluirVencidos); ;
         }
 
         public GI.BR.AdmAlquileres.AdmAlquileres RecuperarAdmAlquileres(GI.BR.Propiedades.TipoPropiedad Tipo,
                     GI.BR.Propiedades.EstadoPropiedad Estado, GI.BR.Propiedades.Ambiente Ambientes,
-                    GI.BR.Propiedades.Ubicacion Ubicacion, GI.BR.Valor ValorDesde, GI.BR.Valor ValorHasta)
+                    GI.BR.Propiedades.Ubicacion Ubicacion, GI.BR.Valor ValorDesde, GI.BR.Valor ValorHasta, bool IncluirVencidos)
         {
 
 
@@ -34,7 +31,7 @@ namespace GI.Managers.AdmAlquileres
                     admAlquileres.RecuperarAdmAlquileres(Tipo);
 
 
-            return AplicarFiltros(admAlquileres, Ambientes, Ubicacion, ValorDesde, ValorHasta);
+            return AplicarFiltros(admAlquileres, Ambientes, Ubicacion, ValorDesde, ValorHasta,IncluirVencidos);
 
 
         }
@@ -43,7 +40,7 @@ namespace GI.Managers.AdmAlquileres
 
 
         private GI.BR.AdmAlquileres.AdmAlquileres AplicarFiltros(GI.BR.AdmAlquileres.AdmAlquileres admAlquileres, GI.BR.Propiedades.Ambiente Ambientes,
-                    GI.BR.Propiedades.Ubicacion Ubicacion, GI.BR.Valor ValorDesde, GI.BR.Valor ValorHasta)
+                    GI.BR.Propiedades.Ubicacion Ubicacion, GI.BR.Valor ValorDesde, GI.BR.Valor ValorHasta, bool IncluirVencidos)
         {
             GI.BR.AdmAlquileres.AdmAlquileres filtro = new GI.BR.AdmAlquileres.AdmAlquileres();
 
@@ -51,30 +48,32 @@ namespace GI.Managers.AdmAlquileres
             {
 
 
-
-                if (Ubicacion.Pais != null)
+                if (Ubicacion != null)
                 {
-                    if (adm.Alquiler.Ubicacion.Pais.IdPais != Ubicacion.Pais.IdPais)
-                        continue;
-                }
-                if (Ubicacion.Provincia != null)
-                {
-                    if (adm.Alquiler.Ubicacion.Provincia.IdProvincia != Ubicacion.Provincia.IdProvincia)
-                        continue;
-                }
+                    if (Ubicacion.Pais != null)
+                    {
+                        if (adm.Alquiler.Ubicacion.Pais.IdPais != Ubicacion.Pais.IdPais)
+                            continue;
+                    }
+                    if (Ubicacion.Provincia != null)
+                    {
+                        if (adm.Alquiler.Ubicacion.Provincia.IdProvincia != Ubicacion.Provincia.IdProvincia)
+                            continue;
+                    }
 
 
 
-                if (Ubicacion.Localidad != null)
-                {
-                    if (adm.Alquiler.Ubicacion.Localidad.IdLocalidad != Ubicacion.Localidad.IdLocalidad)
-                        continue;
-                }
+                    if (Ubicacion.Localidad != null)
+                    {
+                        if (adm.Alquiler.Ubicacion.Localidad.IdLocalidad != Ubicacion.Localidad.IdLocalidad)
+                            continue;
+                    }
 
-                if (Ubicacion.Barrio != null)
-                {
-                    if (adm.Alquiler.Ubicacion.Barrio.IdBarrio != Ubicacion.Barrio.IdBarrio)
-                        continue;
+                    if (Ubicacion.Barrio != null)
+                    {
+                        if (adm.Alquiler.Ubicacion.Barrio.IdBarrio != Ubicacion.Barrio.IdBarrio)
+                            continue;
+                    }
                 }
 
 
@@ -99,29 +98,33 @@ namespace GI.Managers.AdmAlquileres
                         continue;
                 }
 
+                if (!IncluirVencidos)
+                {
+                    if (adm.ContratoVigente.FechaCancelacion.HasValue)
+                        if (adm.ContratoVigente.FechaCancelacion.Value < DateTime.Today)
+                            continue;
+                    if (adm.ContratoVigente.FechaVencimiento < DateTime.Today)
+                        continue;
+                }
 
                 filtro.Add(adm);
-
             }
-
-
             return filtro;
-
         }
 
 
-        public GI.BR.AdmAlquileres.AdmAlquileres RecuperarAdmAlquileresPorInquilinos(string Nombres)
+        public GI.BR.AdmAlquileres.AdmAlquileres RecuperarAdmAlquileresPorInquilinos(string Nombres, bool IncluirVencidos)
         {
             GI.BR.AdmAlquileres.AdmAlquileres admAlquileres = new GI.BR.AdmAlquileres.AdmAlquileres();
             admAlquileres.RecuperarAdmAlquileresPorNombreInquilino(Nombres);
-            return admAlquileres;
+            return AplicarFiltros(admAlquileres,null,null,null,null,IncluirVencidos);
         }
 
-        public GI.BR.AdmAlquileres.AdmAlquileres RecuperarAdmAlquileresPorCodigoPropiedad(string CodigoPropiedad)
+        public GI.BR.AdmAlquileres.AdmAlquileres RecuperarAdmAlquileresPorCodigoPropiedad(string CodigoPropiedad, bool IncluirVencidos)
         {
             GI.BR.AdmAlquileres.AdmAlquileres admAlquileres = new GI.BR.AdmAlquileres.AdmAlquileres();
             admAlquileres.RecuperarAdmAlquileresPorCodigoPropiedad(CodigoPropiedad);
-            return admAlquileres;
+            return AplicarFiltros(admAlquileres,null,null,null,null,IncluirVencidos);;
         }
     }
 }

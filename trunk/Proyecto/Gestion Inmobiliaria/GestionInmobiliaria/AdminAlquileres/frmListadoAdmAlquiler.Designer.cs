@@ -28,6 +28,7 @@ namespace GI.UI.AdminAlquileres
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoAdmAlquiler));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -39,10 +40,15 @@ namespace GI.UI.AdminAlquileres
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.verFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imprimirFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -85,7 +91,7 @@ namespace GI.UI.AdminAlquileres
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(67, 68);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Text = "Buscar Alquileres";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // NuevoAlquilertoolStripButton
@@ -107,7 +113,7 @@ namespace GI.UI.AdminAlquileres
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(68, 68);
-            this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.Text = "Imprimir listado";
             // 
             // lvAdmAlquileres
             // 
@@ -116,6 +122,7 @@ namespace GI.UI.AdminAlquileres
             this.columnHeader2,
             this.columnHeader8,
             this.columnHeader3});
+            this.lvAdmAlquileres.ContextMenuStrip = this.contextMenuStrip1;
             this.lvAdmAlquileres.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvAdmAlquileres.FullRowSelect = true;
             this.lvAdmAlquileres.HideSelection = false;
@@ -147,6 +154,37 @@ namespace GI.UI.AdminAlquileres
             this.columnHeader3.Text = "Fecha Vencimiento Contrato";
             this.columnHeader3.Width = 153;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verFichaToolStripMenuItem,
+            this.editarFichaToolStripMenuItem,
+            this.imprimirFichaToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(142, 70);
+            // 
+            // verFichaToolStripMenuItem
+            // 
+            this.verFichaToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.verFichaToolStripMenuItem.Name = "verFichaToolStripMenuItem";
+            this.verFichaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.verFichaToolStripMenuItem.Text = "Ver Ficha";
+            this.verFichaToolStripMenuItem.Click += new System.EventHandler(this.verFichaToolStripMenuItem_Click);
+            // 
+            // editarFichaToolStripMenuItem
+            // 
+            this.editarFichaToolStripMenuItem.Name = "editarFichaToolStripMenuItem";
+            this.editarFichaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.editarFichaToolStripMenuItem.Text = "Editar Ficha";
+            this.editarFichaToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.editarFichaToolStripMenuItem.Click += new System.EventHandler(this.editarFichaToolStripMenuItem_Click);
+            // 
+            // imprimirFichaToolStripMenuItem
+            // 
+            this.imprimirFichaToolStripMenuItem.Name = "imprimirFichaToolStripMenuItem";
+            this.imprimirFichaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.imprimirFichaToolStripMenuItem.Text = "Imprimir";
+            // 
             // frmListadoAdmAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,6 +201,7 @@ namespace GI.UI.AdminAlquileres
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -179,5 +218,9 @@ namespace GI.UI.AdminAlquileres
         private System.Windows.Forms.ToolStripButton NuevoAlquilertoolStripButton;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem verFichaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarFichaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imprimirFichaToolStripMenuItem;
     }
 }

@@ -41,12 +41,12 @@ namespace GI.UI.Clientes
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.verFichatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enviarACorreoElectrónicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -168,6 +168,11 @@ namespace GI.UI.Clientes
             this.columnHeader8.Text = "Mail";
             this.columnHeader8.Width = 272;
             // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Tipo de Cliente";
+            this.columnHeader3.Width = 107;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -205,11 +210,6 @@ namespace GI.UI.Clientes
             this.enviarACorreoElectrónicoToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.enviarACorreoElectrónicoToolStripMenuItem.Text = "Enviar a correo electrónico";
             // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Tipo de Cliente";
-            this.columnHeader3.Width = 107;
-            // 
             // frmListadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,6 +218,7 @@ namespace GI.UI.Clientes
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmListadoClientes";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Listado de Clientes";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
