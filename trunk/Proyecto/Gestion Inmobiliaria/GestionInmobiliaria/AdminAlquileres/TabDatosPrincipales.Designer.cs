@@ -60,7 +60,7 @@ namespace GI.UI.AdminAlquileres
             this.groupBox2.Location = new System.Drawing.Point(14, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(409, 71);
-            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Propiedad";
             // 
@@ -70,7 +70,7 @@ namespace GI.UI.AdminAlquileres
             this.cBoxEsPropietario.Location = new System.Drawing.Point(310, 26);
             this.cBoxEsPropietario.Name = "cBoxEsPropietario";
             this.cBoxEsPropietario.Size = new System.Drawing.Size(92, 17);
-            this.cBoxEsPropietario.TabIndex = 29;
+            this.cBoxEsPropietario.TabIndex = 1;
             this.cBoxEsPropietario.Text = "Es Propietario";
             this.cBoxEsPropietario.UseVisualStyleBackColor = true;
             this.cBoxEsPropietario.CheckedChanged += new System.EventHandler(this.cBoxEsPropietario_CheckedChanged);
@@ -82,7 +82,7 @@ namespace GI.UI.AdminAlquileres
             this.LinkPropiedad.Location = new System.Drawing.Point(74, 49);
             this.LinkPropiedad.Name = "LinkPropiedad";
             this.LinkPropiedad.Size = new System.Drawing.Size(129, 13);
-            this.LinkPropiedad.TabIndex = 26;
+            this.LinkPropiedad.TabIndex = 0;
             this.LinkPropiedad.TabStop = true;
             this.LinkPropiedad.Text = "Seleccione una Propiedad";
             this.LinkPropiedad.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkPropiedad_LinkClicked);
@@ -107,7 +107,7 @@ namespace GI.UI.AdminAlquileres
             this.LinkPropietario.Location = new System.Drawing.Point(74, 26);
             this.LinkPropietario.Name = "LinkPropietario";
             this.LinkPropietario.Size = new System.Drawing.Size(119, 13);
-            this.LinkPropietario.TabIndex = 28;
+            this.LinkPropietario.TabIndex = 2;
             this.LinkPropietario.TabStop = true;
             this.LinkPropietario.Text = "Seleccione un Contacto";
             this.LinkPropietario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkPropietario_LinkClicked);
@@ -145,7 +145,7 @@ namespace GI.UI.AdminAlquileres
             this.ctrlDireccion1.Name = "ctrlDireccion1";
             this.ctrlDireccion1.Size = new System.Drawing.Size(417, 113);
             this.ctrlDireccion1.SoloLectura = false;
-            this.ctrlDireccion1.TabIndex = 30;
+            this.ctrlDireccion1.TabIndex = 0;
             // 
             // ctrlContrato1
             // 
@@ -153,7 +153,8 @@ namespace GI.UI.AdminAlquileres
             this.ctrlContrato1.Location = new System.Drawing.Point(14, 209);
             this.ctrlContrato1.Name = "ctrlContrato1";
             this.ctrlContrato1.Size = new System.Drawing.Size(409, 270);
-            this.ctrlContrato1.TabIndex = 31;
+            this.ctrlContrato1.SoloLectura = false;
+            this.ctrlContrato1.TabIndex = 1;
             // 
             // TabDatosPrincipales
             // 
@@ -165,7 +166,6 @@ namespace GI.UI.AdminAlquileres
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TabDatosPrincipales";
             this.Size = new System.Drawing.Size(444, 493);
-            this.Load += new System.EventHandler(this.TabDatosPrincipales_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.admAlquilerBindingSource)).EndInit();

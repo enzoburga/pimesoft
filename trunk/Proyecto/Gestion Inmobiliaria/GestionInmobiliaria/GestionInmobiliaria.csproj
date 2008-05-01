@@ -60,6 +60,12 @@
     <Compile Include="AdminAlquileres\frmNuevoContrato.Designer.cs">
       <DependentUpon>frmNuevoContrato.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminAlquileres\frmNuevoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmNuevoPago.Designer.cs">
+      <DependentUpon>frmNuevoPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminAlquileres\TabContenidoAdmAlquiler.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -168,6 +174,10 @@
     <EmbeddedResource Include="AdminAlquileres\frmNuevoContrato.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmNuevoContrato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\frmNuevoPago.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNuevoPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminAlquileres\TabDatosPrincipales.resx">
       <SubType>Designer</SubType>
