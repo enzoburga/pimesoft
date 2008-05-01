@@ -98,8 +98,7 @@ namespace GI.BR.AdmAlquileres
 
             this.Monto = new Valor();
             this.Monto.Importe = dr.GetDecimal(dr.GetOrdinal("MontoCuota"));
-            this.Monto.Moneda = new GI.BR.Monedas.Moneda();
-            this.Monto.Moneda.IdMoneda = dr.GetInt32(dr.GetOrdinal("IdMonedaMonto"));
+            this.Monto.Moneda = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia.GetMoneda(dr.GetInt32(dr.GetOrdinal("IdMonedaMonto")));
             this.Observaciones = dr.GetString(dr.GetOrdinal("Observaciones"));
             this.IdContrato = dr.GetInt32(dr.GetOrdinal("IdContrato"));
             this.vigente = dr.GetBoolean(dr.GetOrdinal("Vigente"));
