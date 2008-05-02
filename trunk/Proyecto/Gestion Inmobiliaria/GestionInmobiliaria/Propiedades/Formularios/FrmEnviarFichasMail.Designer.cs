@@ -32,11 +32,15 @@ namespace GI.UI.Propiedades.Formularios
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bCerrar = new System.Windows.Forms.Button();
+            this.bEnviar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lPropiedadesCodigo = new System.Windows.Forms.Label();
             this.bConfigurarCorreo = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabelEstado = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -61,7 +65,7 @@ namespace GI.UI.Propiedades.Formularios
             // 
             this.textBox1.Location = new System.Drawing.Point(123, 27);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 21);
+            this.textBox1.Size = new System.Drawing.Size(191, 21);
             this.textBox1.TabIndex = 2;
             // 
             // textBox2
@@ -72,23 +76,23 @@ namespace GI.UI.Propiedades.Formularios
             this.textBox2.Size = new System.Drawing.Size(326, 68);
             this.textBox2.TabIndex = 3;
             // 
-            // button1
+            // bCerrar
             // 
-            this.button1.Location = new System.Drawing.Point(374, 160);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bCerrar.Location = new System.Drawing.Point(374, 162);
+            this.bCerrar.Name = "bCerrar";
+            this.bCerrar.Size = new System.Drawing.Size(75, 23);
+            this.bCerrar.TabIndex = 4;
+            this.bCerrar.Text = "Cerrar";
+            this.bCerrar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // bEnviar
             // 
-            this.button2.Location = new System.Drawing.Point(293, 160);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Enviar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bEnviar.Location = new System.Drawing.Point(293, 162);
+            this.bEnviar.Name = "bEnviar";
+            this.bEnviar.Size = new System.Drawing.Size(75, 23);
+            this.bEnviar.TabIndex = 5;
+            this.bEnviar.Text = "Enviar";
+            this.bEnviar.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -110,7 +114,7 @@ namespace GI.UI.Propiedades.Formularios
             // 
             // bConfigurarCorreo
             // 
-            this.bConfigurarCorreo.Location = new System.Drawing.Point(123, 160);
+            this.bConfigurarCorreo.Location = new System.Drawing.Point(153, 162);
             this.bConfigurarCorreo.Name = "bConfigurarCorreo";
             this.bConfigurarCorreo.Size = new System.Drawing.Size(118, 23);
             this.bConfigurarCorreo.TabIndex = 8;
@@ -118,16 +122,39 @@ namespace GI.UI.Propiedades.Formularios
             this.bConfigurarCorreo.UseVisualStyleBackColor = true;
             this.bConfigurarCorreo.Click += new System.EventHandler(this.bConfigurarCorreo_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripProgressBar,
+            this.toolStripStatusLabelEstado});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 199);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(466, 22);
+            this.statusStrip1.TabIndex = 9;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripProgressBar
+            // 
+            this.toolStripProgressBar.Name = "toolStripProgressBar";
+            this.toolStripProgressBar.Size = new System.Drawing.Size(100, 16);
+            // 
+            // toolStripStatusLabelEstado
+            // 
+            this.toolStripStatusLabelEstado.Name = "toolStripStatusLabelEstado";
+            this.toolStripStatusLabelEstado.Size = new System.Drawing.Size(200, 17);
+            this.toolStripStatusLabelEstado.Text = "Haga clic en Enviar para enviar el correo";
+            // 
             // FrmEnviarFichasMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 195);
+            this.ClientSize = new System.Drawing.Size(466, 221);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.bConfigurarCorreo);
             this.Controls.Add(this.lPropiedadesCodigo);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bEnviar);
+            this.Controls.Add(this.bCerrar);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
@@ -140,6 +167,8 @@ namespace GI.UI.Propiedades.Formularios
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Enviar fichas por mail";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,10 +180,13 @@ namespace GI.UI.Propiedades.Formularios
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bCerrar;
+        private System.Windows.Forms.Button bEnviar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lPropiedadesCodigo;
         private System.Windows.Forms.Button bConfigurarCorreo;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelEstado;
     }
 }
