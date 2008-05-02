@@ -157,6 +157,12 @@
     <Compile Include="Generales\CtrlUbicacion.Designer.cs">
       <DependentUpon>CtrlUbicacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Generales\FrmSmtpConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generales\FrmSmtpConfig.Designer.cs">
+      <DependentUpon>FrmSmtpConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AdminAlquileres\frmBuscarAdminAlquileres.resx">
@@ -235,6 +241,10 @@
     <EmbeddedResource Include="Generales\CtrlUbicacion.resx">
       <SubType>Designer</SubType>
       <DependentUpon>CtrlUbicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generales\FrmSmtpConfig.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmSmtpConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
