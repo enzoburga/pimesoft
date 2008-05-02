@@ -48,6 +48,15 @@
   <ItemGroup>
     <Compile Include="Clases\AdmAlquileres\ReporteListadoAdmAlquileres.cs" />
     <Compile Include="Clases\Propiedades\ReporteListadoPropiedades.cs" />
+    <Compile Include="DataSet\DSFichaPropiedad.cs">
+      <DependentUpon>DSFichaPropiedad.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet\DSFichaPropiedad.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSFichaPropiedad.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\DSListadoAdmAlquileres.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -117,6 +126,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DataSet\DSFichaPropiedad.xsc">
+      <DependentUpon>DSFichaPropiedad.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DSFichaPropiedad.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSFichaPropiedad.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\DSFichaPropiedad.xss">
+      <DependentUpon>DSFichaPropiedad.xsd</DependentUpon>
+    </None>
     <None Include="DataSet\DSListadoAdmAlquileres.xsc">
       <DependentUpon>DSListadoAdmAlquileres.xsd</DependentUpon>
     </None>
