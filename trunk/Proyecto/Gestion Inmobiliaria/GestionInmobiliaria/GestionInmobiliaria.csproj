@@ -54,6 +54,12 @@
     <Compile Include="AdminAlquileres\frmFichaAdmAlquileres.Designer.cs">
       <DependentUpon>frmFichaAdmAlquileres.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminAlquileres\frmNuevaRenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmNuevaRenta.Designer.cs">
+      <DependentUpon>frmNuevaRenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminAlquileres\frmNuevoContrato.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +182,10 @@
     <EmbeddedResource Include="AdminAlquileres\frmFichaAdmAlquileres.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmFichaAdmAlquileres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\frmNuevaRenta.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNuevaRenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminAlquileres\frmNuevoContrato.resx">
       <SubType>Designer</SubType>
