@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSFichaPropiedad" targetNamespace="http://tempuri.org/DSFichaPropiedad.xsd" xmlns:mstns="http://tempuri.org/DSFichaPropiedad.xsd" xmlns="http://tempuri.org/DSFichaPropiedad.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSFichaPropiedad" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSFichaPropiedad" msprop:Generator_DataSetName="DSFichaPropiedad">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Propiedad" msprop:Generator_UserTableName="Propiedad" msprop:Generator_RowDeletedName="PropiedadRowDeleted" msprop:Generator_TableClassName="PropiedadDataTable" msprop:Generator_RowChangedName="PropiedadRowChanged" msprop:Generator_RowClassName="PropiedadRow" msprop:Generator_RowChangingName="PropiedadRowChanging" msprop:Generator_RowEvArgName="PropiedadRowChangeEvent" msprop:Generator_RowEvHandlerName="PropiedadRowChangeEventHandler" msprop:Generator_TablePropName="Propiedad" msprop:Generator_TableVarName="tablePropiedad" msprop:Generator_RowDeletingName="PropiedadRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdPropiedad" msprop:Generator_UserColumnName="IdPropiedad" msprop:Generator_ColumnPropNameInRow="IdPropiedad" msprop:Generator_ColumnVarNameInTable="columnIdPropiedad" msprop:Generator_ColumnPropNameInTable="IdPropiedadColumn" type="xs:int" />
+              <xs:element name="FotoFachada" msprop:Generator_UserColumnName="FotoFachada" msprop:Generator_ColumnPropNameInRow="FotoFachada" msprop:Generator_ColumnVarNameInTable="columnFotoFachada" msprop:Generator_ColumnPropNameInTable="FotoFachadaColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Codigo" msprop:Generator_UserColumnName="Codigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Medidas" msprop:Generator_UserTableName="Medidas" msprop:Generator_RowDeletedName="MedidasRowDeleted" msprop:Generator_TableClassName="MedidasDataTable" msprop:Generator_RowChangedName="MedidasRowChanged" msprop:Generator_RowClassName="MedidasRow" msprop:Generator_RowChangingName="MedidasRowChanging" msprop:Generator_RowEvArgName="MedidasRowChangeEvent" msprop:Generator_RowEvHandlerName="MedidasRowChangeEventHandler" msprop:Generator_TablePropName="Medidas" msprop:Generator_TableVarName="tableMedidas" msprop:Generator_RowDeletingName="MedidasRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdPropiedad" msprop:Generator_UserColumnName="IdPropiedad" msprop:Generator_ColumnPropNameInRow="IdPropiedad" msprop:Generator_ColumnVarNameInTable="columnIdPropiedad" msprop:Generator_ColumnPropNameInTable="IdPropiedadColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="IdMedida" msprop:Generator_UserColumnName="IdMedida" msprop:Generator_ColumnPropNameInRow="IdMedida" msprop:Generator_ColumnVarNameInTable="columnIdMedida" msprop:Generator_ColumnPropNameInTable="IdMedidaColumn" type="xs:int" />
+              <xs:element name="Ancho" msprop:Generator_UserColumnName="Ancho" msprop:Generator_ColumnPropNameInRow="Ancho" msprop:Generator_ColumnVarNameInTable="columnAncho" msprop:Generator_ColumnPropNameInTable="AnchoColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Largo" msprop:Generator_UserColumnName="Largo" msprop:Generator_ColumnPropNameInRow="Largo" msprop:Generator_ColumnVarNameInTable="columnLargo" msprop:Generator_ColumnPropNameInTable="LargoColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Nombre" msprop:Generator_UserColumnName="Nombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Piso" msprop:Generator_UserColumnName="Piso" msprop:Generator_ColumnPropNameInRow="Piso" msprop:Generator_ColumnVarNameInTable="columnPiso" msprop:Generator_ColumnPropNameInTable="PisoColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Propiedad" />
+      <xs:field xpath="mstns:IdPropiedad" />
+    </xs:unique>
+    <xs:unique name="Medidas_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Medidas" />
+      <xs:field xpath="mstns:IdMedida" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="Propiedad_Medidas" msdata:parent="Propiedad" msdata:child="Medidas" msdata:parentkey="IdPropiedad" msdata:childkey="IdPropiedad" msprop:Generator_UserRelationName="Propiedad_Medidas" msprop:Generator_RelationVarName="relationPropiedad_Medidas" msprop:Generator_UserChildTable="Medidas" msprop:Generator_UserParentTable="Propiedad" msprop:Generator_ParentPropName="PropiedadRow" msprop:Generator_ChildPropName="GetMedidasRows" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
