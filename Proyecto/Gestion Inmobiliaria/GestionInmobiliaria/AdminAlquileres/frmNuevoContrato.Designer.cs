@@ -56,21 +56,22 @@ namespace GI.UI.AdminAlquileres
             // ctrlContrato1
             // 
             this.ctrlContrato1.Contrato = null;
-            this.ctrlContrato1.Location = new System.Drawing.Point(13, 13);
+            this.ctrlContrato1.Location = new System.Drawing.Point(13, 9);
             this.ctrlContrato1.Name = "ctrlContrato1";
-            this.ctrlContrato1.Size = new System.Drawing.Size(409, 270);
+            this.ctrlContrato1.Size = new System.Drawing.Size(409, 279);
+            this.ctrlContrato1.SoloLectura = false;
             this.ctrlContrato1.TabIndex = 4;
             // 
             // frmNuevoContrato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 326);
+            this.ClientSize = new System.Drawing.Size(434, 319);
             this.Controls.Add(this.ctrlContrato1);
             this.Controls.Add(this.bAceptar);
             this.Controls.Add(this.bCancelar);
             this.Name = "frmNuevoContrato";
-            this.Text = "frmNuevoContrato";
+            this.Text = "Nuevo contrato";
             this.ResumeLayout(false);
 
         }
