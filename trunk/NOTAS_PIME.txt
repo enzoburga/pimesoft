@@ -1,0 +1,34 @@
+CONVENCIONES
+------------
+
+nombre base InmobiliariaDb
+
+Capa de datos - nombreClaseData
+AdmAlquiler
+
+Adm Alq
+-------
+
+Buscador.
+Una columna mas FechaVencimiento contrato vigente.
+Contrato --> Fecha Canelacion.
+
+Archivo nueva Adm de Alquiler.
+Misma ventana de adm de alq.
+En propietario "Seleccione nuevo usuario" "Seleccione nueva propiedad"
+
+Contrato Inquilino si no hay contrato vigente grisar todo. Ir a Generar nuevo contrato.
+
+Ingresar pago --> Fecha de pago, Mes Importe (importe automatico del contrato)
+
+Imprimir, depende de la solapa.
+
+------------------------
+
+Clientes
+
+Inquilino
+Dueño
+
+Puede ser varios tipos al mismo tiempo.
+Cada tipo implementa metodos propios. Dueño --> Propiedades, Inquilino --> Prop en alquiler.

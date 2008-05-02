@@ -141,7 +141,7 @@ namespace GI.UI.AdminAlquileres
             // ctrlDireccion1
             // 
             this.ctrlDireccion1.Direccion = null;
-            this.ctrlDireccion1.Location = new System.Drawing.Point(14, 89);
+            this.ctrlDireccion1.Location = new System.Drawing.Point(14, 88);
             this.ctrlDireccion1.Name = "ctrlDireccion1";
             this.ctrlDireccion1.Size = new System.Drawing.Size(417, 113);
             this.ctrlDireccion1.SoloLectura = false;
@@ -150,9 +150,9 @@ namespace GI.UI.AdminAlquileres
             // ctrlContrato1
             // 
             this.ctrlContrato1.Contrato = null;
-            this.ctrlContrato1.Location = new System.Drawing.Point(14, 209);
+            this.ctrlContrato1.Location = new System.Drawing.Point(14, 204);
             this.ctrlContrato1.Name = "ctrlContrato1";
-            this.ctrlContrato1.Size = new System.Drawing.Size(409, 270);
+            this.ctrlContrato1.Size = new System.Drawing.Size(409, 281);
             this.ctrlContrato1.SoloLectura = false;
             this.ctrlContrato1.TabIndex = 1;
             // 

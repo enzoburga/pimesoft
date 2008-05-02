@@ -19,9 +19,27 @@ namespace GI.BR.AdmAlquileres
         private Contrato contratoAnterior;
         private GI.BR.Propiedades.Alquiler alquiler;
         private bool vigente;
+        private ValoresRenta valoresRenta = null;
+
+        public ValoresRenta ValoresRenta
+        {
+            get
+            {
+                if (valoresRenta == null)
+                {
+                    valoresRenta = new ValoresRenta();
+                    valoresRenta.RecuperarMontosPorContrato(this);
+                }
+                return valoresRenta;
+            }
+            set
+            {
+                valoresRenta = value;
+            }
+        }
         #endregion
 
-        #region Propiedade Publicas
+        #region Propiedades Publicas
 
         public int IdContrato { get { return idContrato; } set { idContrato = value; } }
 
@@ -47,7 +65,46 @@ namespace GI.BR.AdmAlquileres
 
         public Nullable<DateTime> FechaCancelacion { get { return fechaCancelacion; } set { fechaCancelacion = value; } }
 
-        public GI.BR.Valor Monto { get { return monto; } set { monto = value; } }
+        public GI.BR.Valor Monto
+        {
+            get
+            {
+                return monto;
+            }
+            set
+            {
+                monto = value;
+            }
+        }
+
+        public GI.BR.Valor GetMonto(int Mes, int Anio)
+        { 
+            bool esMenorHasta = false;
+            bool esMayorDesde = false;
+            foreach(GI.BR.AdmAlquileres.ValorRenta vr in this.ValoresRenta )
+            {
+                if (Anio == vr.AnioVigenciaDesde)
+                {
+                    if (Mes >= vr.MesVigenciaDesde)
+                        esMayorDesde = true;
+                }
+                else
+                    esMayorDesde = (Anio > vr.AnioVigenciaDesde);
+
+                if (Anio == vr.AnioVigenciaHasta)
+                {
+                    if (Mes <= vr.MesVigenciaHasta)
+                        esMenorHasta = true;
+                }
+                else
+                    esMenorHasta = (Anio < vr.AnioVigenciaHasta);
+
+                if (esMenorHasta && esMayorDesde)
+                    return vr.Monto;
+            }
+
+            return null;
+        }
 
         public string Observaciones { get { return observaciones; } set { observaciones = value; } }
 
