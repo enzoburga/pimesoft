@@ -32,10 +32,9 @@ namespace GI.UI.Clientes
         {
 
             #region Tipo de Cliente
-            cbTipoCliente.Items.Add("Seleccione opción...");
+            cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.Todos); 
             cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.Propietarios);
             cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.Inquilinos);
-            cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.Todos); 
 
             cbTipoCliente.SelectedIndex = 0;
             #endregion 
@@ -44,12 +43,6 @@ namespace GI.UI.Clientes
 
         private void bBuscar_Click(object sender, EventArgs e)
         {
-            if (cbTipoCliente.SelectedIndex == 0)
-            {
-                GI.Framework.General.GIMsgBox.Show("Debe Seleccionar un tipo de cliente.", GI.Framework.General.enumTipoMensaje.Advertencia);
-                return;
-            }
-
             if (!checkBox1.Checked)
             {
                 if (tbNombres.Text.Length < 2)
