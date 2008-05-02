@@ -76,6 +76,11 @@ namespace GI.UI.AdminAlquileres
             }
         }
 
+        public void IngresarNuevoPago()
+        {
+            nuevoPagoToolStripMenuItem_Click(null, null);
+        }
+
         private void modificarPagoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (lvPagos.SelectedItems.Count != 1)
