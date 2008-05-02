@@ -113,6 +113,7 @@ namespace GI.UI.AdminAlquileres
             this.ingresarUnPagoToolStripMenuItem.Name = "ingresarUnPagoToolStripMenuItem";
             this.ingresarUnPagoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.ingresarUnPagoToolStripMenuItem.Text = "Ingresar un pago";
+            this.ingresarUnPagoToolStripMenuItem.Click += new System.EventHandler(this.ingresarUnPagoToolStripMenuItem_Click);
             // 
             // nuevoContratoToolStripMenuItem
             // 

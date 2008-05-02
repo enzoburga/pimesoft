@@ -79,7 +79,7 @@ namespace GI.DA
         {
             return AccesoDatos.RecuperarDatos("AdmAlquileres_RecuperarPorCodigoPropiedad",
                 new object[] { Codigo },
-                new string[] { "@Codigo"});
+                new string[] { "@IdPropiedad" });
         }
 
         public IDataReader RecuperarAdmAlquileresPorNombreInquilino(string Nombres)

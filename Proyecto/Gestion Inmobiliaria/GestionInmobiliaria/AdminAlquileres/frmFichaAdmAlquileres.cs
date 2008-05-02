@@ -222,6 +222,18 @@ namespace GI.UI.AdminAlquileres
                     ((TabContenidoAdmAlquiler)Page.Controls[0]).AdmAlquiler = AdmAlquiler;
             }
         }
+
+        private void ingresarUnPagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SoloLectura)
+            {
+                GI.Framework.General.GIMsgBox.ShowSoloLectura();
+                return;
+            }
+
+            this.tabControl.SelectedIndex = 1;
+            ((TabPagos)this.tabControl.TabPages[1].Controls[0]).IngresarNuevoPago();
+        }
     }
    
 }
