@@ -39,6 +39,7 @@ namespace GI.UI.AdminAlquileres
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bAceptar = new System.Windows.Forms.Button();
             this.bCancelar = new System.Windows.Forms.Button();
+            this.renovarContratoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -90,6 +91,7 @@ namespace GI.UI.AdminAlquileres
             this.guardarToolStripMenuItem,
             this.imprimirToolStripMenuItem,
             this.ingresarUnPagoToolStripMenuItem,
+            this.renovarContratoToolStripMenuItem,
             this.nuevoContratoToolStripMenuItem,
             this.cerrarToolStripMenuItem});
             this.fichaToolStripMenuItem.Name = "fichaToolStripMenuItem";
@@ -127,6 +129,7 @@ namespace GI.UI.AdminAlquileres
             this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
             this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.cerrarToolStripMenuItem.Text = "Cerrar";
+            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
             // 
             // bAceptar
             // 
@@ -147,6 +150,13 @@ namespace GI.UI.AdminAlquileres
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
             this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
+            // 
+            // renovarContratoToolStripMenuItem
+            // 
+            this.renovarContratoToolStripMenuItem.Name = "renovarContratoToolStripMenuItem";
+            this.renovarContratoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.renovarContratoToolStripMenuItem.Text = "Renovar Contrato";
+            this.renovarContratoToolStripMenuItem.Click += new System.EventHandler(this.renovarContratoToolStripMenuItem_Click);
             // 
             // frmFichaAdmAlquileres
             // 
@@ -184,6 +194,7 @@ namespace GI.UI.AdminAlquileres
         private System.Windows.Forms.Button bAceptar;
         private System.Windows.Forms.Button bCancelar;
         private System.Windows.Forms.ToolStripMenuItem ingresarUnPagoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renovarContratoToolStripMenuItem;
 
     }
 }

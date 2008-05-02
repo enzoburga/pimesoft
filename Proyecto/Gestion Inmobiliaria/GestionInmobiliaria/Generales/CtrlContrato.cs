@@ -33,10 +33,9 @@ namespace GI.UI.Generales
 
         protected void Inicializar()
         {
-            valorBindingSource.Clear();
+
             valorBindingSource1.Clear();
             contratoBindingSource.Clear();
-            valorBindingSource.Add(Contrato.Monto);
             valorBindingSource1.Add(Contrato.Deposito);
             contratoBindingSource.Add(Contrato);
 
@@ -58,15 +57,27 @@ namespace GI.UI.Generales
                         indexMonedaDeposito = cont;
                 }
                 cbMonedaDepositoContrato.Items.Add(M);
-                cbMonedaMontoContrato.Items.Add(M);
 
                 cont++;
             }
             cbMonedaDepositoContrato.SelectedIndex = indexMonedaDeposito;
-            cbMonedaMontoContrato.SelectedIndex = indexMonedaMonto;
             #endregion
 
+            #region Maximos y minimos de Fechas
 
+            dtpFechaCancelacion.MaxDate = dtpFechaVencimiento.Value;
+            dtpFechaCancelacion.MinDate = dtpFechaInicio.Value;
+
+            dtpFechaInicio.MaxDate = dtpFechaVencimiento.Value;
+            dtpFechaVencimiento.MinDate = dtpFechaInicio.Value;
+
+            #endregion
+
+            #region Inicializar Rentas
+
+            LlenarListaRentas();
+
+            #endregion
 
             if (contrato.Inquilino == null)
                 LinkInquilino.Text = "Seleccione un Inquilino";
@@ -99,8 +110,25 @@ namespace GI.UI.Generales
                 dtpFechaVencimiento.Value = this.Contrato.FechaVencimiento;
 
                 cbMonedaDepositoContrato.SelectedItem = this.Contrato.Deposito.Moneda;
-                cbMonedaMontoContrato.SelectedItem = this.Contrato.Monto.Moneda;
             }
+        }
+
+        private void LlenarListaRentas()
+        {
+            lvMontos.Items.Clear();
+            lvMontos.BeginUpdate();
+            ListViewItem lvi;
+            foreach (GI.BR.AdmAlquileres.ValorRenta vr in this.contrato.ValoresRenta)
+            {
+                lvi = new ListViewItem();
+                lvi.Text = vr.Monto.ToString();
+                lvi.SubItems.Add((System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(vr.MesVigenciaDesde)).ToUpper());
+                lvi.SubItems.Add(vr.AnioVigenciaDesde.ToString());
+                lvi.Tag = vr;
+                lvMontos.Items.Add(lvi);
+            }
+
+            lvMontos.EndUpdate();
         }
 
 
@@ -112,7 +140,7 @@ namespace GI.UI.Generales
             if (cBoxCancelado.Checked)
                 this.Contrato.FechaCancelacion = dtpFechaCancelacion.Value;
             this.Contrato.Deposito.Moneda = (GI.BR.Monedas.Moneda)cbMonedaDepositoContrato.SelectedItem;
-            this.Contrato.Monto.Moneda = (GI.BR.Monedas.Moneda)cbMonedaMontoContrato.SelectedItem;
+            
         }
 
 
@@ -122,11 +150,16 @@ namespace GI.UI.Generales
         private void dtpFechaInicio_ValueChanged(object sender, EventArgs e)
         {
             this.contrato.FechaInicio = dtpFechaInicio.Value;
+            dtpFechaCancelacion.MinDate = dtpFechaInicio.Value;
+            dtpFechaVencimiento.MinDate = dtpFechaInicio.Value;
         }
 
         private void dtpFechaVencimiento_ValueChanged(object sender, EventArgs e)
         {
             this.contrato.FechaVencimiento = dtpFechaVencimiento.Value;
+            dtpFechaCancelacion.MaxDate = dtpFechaVencimiento.Value;
+            dtpFechaInicio.MaxDate = dtpFechaVencimiento.Value;
+
         }
 
         private void cBoxCancelado_CheckedChanged(object sender, EventArgs e)

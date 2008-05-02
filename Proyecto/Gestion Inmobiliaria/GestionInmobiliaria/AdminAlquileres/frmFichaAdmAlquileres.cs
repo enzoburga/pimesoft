@@ -188,6 +188,7 @@ namespace GI.UI.AdminAlquileres
 
             frmNuevoContrato frmNuevoContrato = new frmNuevoContrato();
             frmNuevoContrato.Contrato = nuevoContrato;
+            frmNuevoContrato.ContratosHistoricos = AdmAlquiler.Contratos;
 
             if (frmNuevoContrato.ShowDialog() == DialogResult.OK)
             {
@@ -233,6 +234,61 @@ namespace GI.UI.AdminAlquileres
 
             this.tabControl.SelectedIndex = 1;
             ((TabPagos)this.tabControl.TabPages[1].Controls[0]).IngresarNuevoPago();
+        }
+
+        private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bCancelar_Click(sender, e);
+        }
+
+        private void renovarContratoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SoloLectura)
+            {
+                GI.Framework.General.GIMsgBox.ShowSoloLectura();
+                return;
+            }
+            if (AdmAlquiler.Alquiler == null)
+            {
+                GI.Framework.General.GIMsgBox.Show("Debe seleccionar una Propiedad en Alquiler.", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
+
+            GI.BR.AdmAlquileres.Contrato nuevoContrato = new GI.BR.AdmAlquileres.Contrato();
+            nuevoContrato.Deposito = AdmAlquiler.ContratoVigente.Deposito;
+            nuevoContrato.Monto = AdmAlquiler.ContratoVigente.Monto;
+            nuevoContrato.DiaCobro = AdmAlquiler.ContratoVigente.DiaCobro;
+            nuevoContrato.FechaInicio = AdmAlquiler.ContratoVigente.FechaVencimiento.AddDays(1);
+
+            nuevoContrato.Vigente = true;
+            nuevoContrato.Observaciones = "";
+
+            frmNuevoContrato frmNuevoContrato = new frmNuevoContrato();
+            frmNuevoContrato.Contrato = nuevoContrato;
+            frmNuevoContrato.ContratosHistoricos = AdmAlquiler.Contratos;
+
+            if (frmNuevoContrato.ShowDialog() == DialogResult.OK)
+            {
+                nuevoContrato.Alquiler = AdmAlquiler.Alquiler;
+                if (nuevoContrato.Guardar())
+                {
+                    this.AdmAlquiler.ContratoVigente.Vigente = false;
+                    this.AdmAlquiler.ContratoVigente.ContratoAnterior = nuevoContrato;
+                    this.AdmAlquiler.ContratoVigente.Actualizar();
+                    this.AdmAlquiler.ContratoVigente = nuevoContrato;
+
+                    InicializarTabs();
+
+
+                }
+                else
+                {
+                    GI.Framework.General.GIMsgBox.Show("No se han guardado los cambios.", GI.Framework.General.enumTipoMensaje.Error);
+
+                }
+
+
+            }
         }
     }
    

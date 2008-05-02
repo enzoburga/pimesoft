@@ -26,10 +26,28 @@ namespace GI.BR.AdmAlquileres
             get { return contratoVigente; }
             set { contratoVigente = value; }
         }
+
+        /// <summary>
+        /// Historico de contratos para esta administración de alquiler.
+        /// Contiene el contrato vigente.
+        /// </summary>
         public Contratos Contratos
         {
-            get { return contratos; }
-            set { contratos = value; }
+            get
+            {
+                
+                if (contratos == null && this.Alquiler != null)
+                {
+                    contratos = new Contratos();
+                    contratos.RecuperarPorAdmAlquiler(this);
+                }
+
+                return contratos;
+            }
+            set
+            {
+                contratos = value;
+            }
         }
 
         public GI.BR.Propiedades.Alquiler Alquiler

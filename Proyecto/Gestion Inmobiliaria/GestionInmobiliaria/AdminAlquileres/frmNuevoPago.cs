@@ -49,7 +49,7 @@ namespace GI.UI.AdminAlquileres
             pago.IdContrato = Contrato.IdContrato;
 
             if(pagoClone.IdPago == 0)
-                pago.Importe = Contrato.Monto;
+                pago.Importe = contrato.GetMonto(cbMeses.SelectedIndex + 1, DateTime.Today.Year + cbAnio.SelectedIndex - 1);
 
             pago.MesCancelado = cbMeses.SelectedIndex+1;
 
@@ -59,6 +59,9 @@ namespace GI.UI.AdminAlquileres
 
         private string Validar()
         {
+            if (contrato.GetMonto(cbMeses.SelectedIndex + 1, DateTime.Today.Year + cbAnio.SelectedIndex - 1) == null)
+                return "No hay una renta definida para el mes y el año seleccionados.";
+
             //Valido que no sea de un mes repetido.
             foreach (GI.BR.AdmAlquileres.Pago p in pagos)
             {
@@ -81,6 +84,12 @@ namespace GI.UI.AdminAlquileres
 
         private void frmNuevoPago_Load(object sender, EventArgs e)
         {
+            cbAnio.Items.Add(DateTime.Today.Year - 1);
+            cbAnio.Items.Add(DateTime.Today.Year);
+            cbAnio.Items.Add(DateTime.Today.Year + 1);
+
+            cbAnio.SelectedIndex = 1;
+
             cbMeses.Items.Add("Enero");
             cbMeses.Items.Add("Febrero");
             cbMeses.Items.Add("Marzo");
@@ -94,9 +103,26 @@ namespace GI.UI.AdminAlquileres
             cbMeses.Items.Add("Noviembre");
             cbMeses.Items.Add("Diciembre");
 
-            cbMeses.SelectedIndex = 0;
+            cbMeses.SelectedIndex = DateTime.Today.Month-1;           
+        }
 
-            lImporte.Text = contrato.Monto.ToString();
+        private void cbMeses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetImporte();
+        }
+
+        private void SetImporte()
+        {
+            GI.BR.Valor monto = contrato.GetMonto(cbMeses.SelectedIndex + 1, DateTime.Today.Year + cbAnio.SelectedIndex - 1);
+            if (monto == null)
+                lImporte.Text = "--------";
+            else
+                lImporte.Text = monto.ToString();
+        }
+
+        private void cbAnio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetImporte();
         }
     }
 }
