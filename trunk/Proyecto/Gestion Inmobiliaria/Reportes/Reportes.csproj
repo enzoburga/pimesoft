@@ -51,7 +51,6 @@
     <Compile Include="Clases\Propiedades\ReporteListadoPropiedades.cs" />
     <Compile Include="DataSet\DSFichaPropiedad.cs">
       <DependentUpon>DSFichaPropiedad.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataSet\DSFichaPropiedad.Designer.cs">
       <AutoGen>True</AutoGen>
