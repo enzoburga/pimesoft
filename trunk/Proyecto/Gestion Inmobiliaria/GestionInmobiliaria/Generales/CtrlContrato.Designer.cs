@@ -40,6 +40,7 @@ namespace GI.UI.Generales
             this.llModificarMonto = new System.Windows.Forms.LinkLabel();
             this.llEliminarMonto = new System.Windows.Forms.LinkLabel();
             this.llAgregarMonto = new System.Windows.Forms.LinkLabel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lvMontos = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
@@ -58,6 +59,7 @@ namespace GI.UI.Generales
             ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contratoBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbDepositoContrato
@@ -123,7 +125,7 @@ namespace GI.UI.Generales
             this.groupBox1.Controls.Add(this.llModificarMonto);
             this.groupBox1.Controls.Add(this.llEliminarMonto);
             this.groupBox1.Controls.Add(this.llAgregarMonto);
-            this.groupBox1.Controls.Add(this.lvMontos);
+            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.cBoxCancelado);
             this.groupBox1.Controls.Add(this.tbObservaciones);
             this.groupBox1.Controls.Add(this.label14);
@@ -142,7 +144,7 @@ namespace GI.UI.Generales
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(409, 276);
+            this.groupBox1.Size = new System.Drawing.Size(409, 314);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contrato";
@@ -150,32 +152,45 @@ namespace GI.UI.Generales
             // llModificarMonto
             // 
             this.llModificarMonto.AutoSize = true;
-            this.llModificarMonto.Location = new System.Drawing.Point(300, 189);
+            this.llModificarMonto.Location = new System.Drawing.Point(296, 209);
             this.llModificarMonto.Name = "llModificarMonto";
             this.llModificarMonto.Size = new System.Drawing.Size(50, 13);
             this.llModificarMonto.TabIndex = 46;
             this.llModificarMonto.TabStop = true;
             this.llModificarMonto.Text = "Modificar";
+            this.llModificarMonto.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llModificarMonto_LinkClicked);
             // 
             // llEliminarMonto
             // 
             this.llEliminarMonto.AutoSize = true;
-            this.llEliminarMonto.Location = new System.Drawing.Point(356, 189);
+            this.llEliminarMonto.Location = new System.Drawing.Point(352, 209);
             this.llEliminarMonto.Name = "llEliminarMonto";
             this.llEliminarMonto.Size = new System.Drawing.Size(43, 13);
             this.llEliminarMonto.TabIndex = 46;
             this.llEliminarMonto.TabStop = true;
             this.llEliminarMonto.Text = "Eliminar";
+            this.llEliminarMonto.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llEliminarMonto_LinkClicked);
             // 
             // llAgregarMonto
             // 
             this.llAgregarMonto.AutoSize = true;
-            this.llAgregarMonto.Location = new System.Drawing.Point(250, 189);
+            this.llAgregarMonto.Location = new System.Drawing.Point(246, 209);
             this.llAgregarMonto.Name = "llAgregarMonto";
             this.llAgregarMonto.Size = new System.Drawing.Size(44, 13);
             this.llAgregarMonto.TabIndex = 46;
             this.llAgregarMonto.TabStop = true;
             this.llAgregarMonto.Text = "Agregar";
+            this.llAgregarMonto.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llAgregarMonto_LinkClicked);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lvMontos);
+            this.groupBox2.Location = new System.Drawing.Point(13, 118);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(389, 109);
+            this.groupBox2.TabIndex = 47;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Montos Alquiler";
             // 
             // lvMontos
             // 
@@ -183,12 +198,14 @@ namespace GI.UI.Generales
             this.columnHeader1,
             this.columnHeader3,
             this.columnHeader4});
-            this.lvMontos.Location = new System.Drawing.Point(13, 117);
+            this.lvMontos.FullRowSelect = true;
+            this.lvMontos.Location = new System.Drawing.Point(6, 17);
             this.lvMontos.Name = "lvMontos";
-            this.lvMontos.Size = new System.Drawing.Size(389, 69);
+            this.lvMontos.Size = new System.Drawing.Size(377, 71);
             this.lvMontos.TabIndex = 45;
             this.lvMontos.UseCompatibleStateImageBehavior = false;
             this.lvMontos.View = System.Windows.Forms.View.Details;
+            this.lvMontos.DoubleClick += new System.EventHandler(this.lvMontos_DoubleClick);
             // 
             // columnHeader1
             // 
@@ -219,7 +236,7 @@ namespace GI.UI.Generales
             // tbObservaciones
             // 
             this.tbObservaciones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratoBindingSource, "Observaciones", true));
-            this.tbObservaciones.Location = new System.Drawing.Point(13, 208);
+            this.tbObservaciones.Location = new System.Drawing.Point(13, 246);
             this.tbObservaciones.Multiline = true;
             this.tbObservaciones.Name = "tbObservaciones";
             this.tbObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -229,7 +246,7 @@ namespace GI.UI.Generales
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(16, 193);
+            this.label14.Location = new System.Drawing.Point(16, 230);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(78, 13);
             this.label14.TabIndex = 44;
@@ -317,11 +334,12 @@ namespace GI.UI.Generales
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "CtrlContrato";
-            this.Size = new System.Drawing.Size(409, 278);
+            this.Size = new System.Drawing.Size(409, 317);
             ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contratoBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -354,5 +372,6 @@ namespace GI.UI.Generales
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

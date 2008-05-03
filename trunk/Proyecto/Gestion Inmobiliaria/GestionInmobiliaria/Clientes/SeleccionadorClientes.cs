@@ -12,7 +12,7 @@ namespace GI.UI.Clientes
 
         public SeleccionadorPropietarios(Type TipoCliente)
         {
-            tipoCliente = TipoCliente;
+            tipoCliente = TipoCliente; 
             buscador.SetTipoBusqueda(tipoCliente);
         }
 

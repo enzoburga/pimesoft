@@ -28,20 +28,21 @@ namespace GI.UI.AdminAlquileres
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.tbMonto = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbMesDesde = new System.Windows.Forms.ComboBox();
-            this.tbAnioDesde = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.tbAnioDesde = new System.Windows.Forms.TextBox();
+            this.cbMesDesde = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbMoneda = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbAnioHasta = new System.Windows.Forms.TextBox();
             this.cbMesHasta = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbMoneda = new System.Windows.Forms.ComboBox();
             this.bCancelar = new System.Windows.Forms.Button();
             this.bAceptar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
@@ -78,14 +79,21 @@ namespace GI.UI.AdminAlquileres
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Desde";
             // 
-            // label2
+            // label3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Mes";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(150, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Año";
+            // 
+            // tbAnioDesde
+            // 
+            this.tbAnioDesde.Location = new System.Drawing.Point(182, 19);
+            this.tbAnioDesde.Name = "tbAnioDesde";
+            this.tbAnioDesde.Size = new System.Drawing.Size(51, 20);
+            this.tbAnioDesde.TabIndex = 1;
             // 
             // cbMesDesde
             // 
@@ -95,21 +103,14 @@ namespace GI.UI.AdminAlquileres
             this.cbMesDesde.Size = new System.Drawing.Size(103, 21);
             this.cbMesDesde.TabIndex = 1;
             // 
-            // tbAnioDesde
+            // label2
             // 
-            this.tbAnioDesde.Location = new System.Drawing.Point(182, 19);
-            this.tbAnioDesde.Name = "tbAnioDesde";
-            this.tbAnioDesde.Size = new System.Drawing.Size(51, 20);
-            this.tbAnioDesde.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(150, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Año";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Mes";
             // 
             // groupBox1
             // 
@@ -124,6 +125,14 @@ namespace GI.UI.AdminAlquileres
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles Monto Alquiler";
+            // 
+            // cbMoneda
+            // 
+            this.cbMoneda.FormattingEnabled = true;
+            this.cbMoneda.Location = new System.Drawing.Point(189, 20);
+            this.cbMoneda.Name = "cbMoneda";
+            this.cbMoneda.Size = new System.Drawing.Size(60, 21);
+            this.cbMoneda.TabIndex = 3;
             // 
             // groupBox3
             // 
@@ -171,14 +180,6 @@ namespace GI.UI.AdminAlquileres
             this.label5.TabIndex = 0;
             this.label5.Text = "Mes";
             // 
-            // cbMoneda
-            // 
-            this.cbMoneda.FormattingEnabled = true;
-            this.cbMoneda.Location = new System.Drawing.Point(189, 20);
-            this.cbMoneda.Name = "cbMoneda";
-            this.cbMoneda.Size = new System.Drawing.Size(60, 21);
-            this.cbMoneda.TabIndex = 3;
-            // 
             // bCancelar
             // 
             this.bCancelar.Location = new System.Drawing.Point(194, 175);
@@ -187,6 +188,7 @@ namespace GI.UI.AdminAlquileres
             this.bCancelar.TabIndex = 1;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
             // bAceptar
             // 
@@ -196,6 +198,7 @@ namespace GI.UI.AdminAlquileres
             this.bAceptar.TabIndex = 1;
             this.bAceptar.Text = "Aceptar";
             this.bAceptar.UseVisualStyleBackColor = true;
+            this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
             // frmNuevaRenta
             // 
