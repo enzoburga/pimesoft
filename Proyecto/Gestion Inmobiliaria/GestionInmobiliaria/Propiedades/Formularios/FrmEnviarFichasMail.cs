@@ -36,6 +36,7 @@ namespace GI.UI.Propiedades.Formularios
         private void bConfigurarCorreo_Click(object sender, EventArgs e)
         {
             UI.Generales.FrmSmtpConfig frm = new GI.UI.Generales.FrmSmtpConfig();
+            frm.Inicializar();
             frm.ShowDialog();
 
         }
@@ -95,7 +96,7 @@ namespace GI.UI.Propiedades.Formularios
 
         private void mngPropMail_onEnvioFinalizado(GI.BR.Propiedades.Propiedad p, string Mensaje, bool Error)
         {
-            toolStripStatusLabelEstado.Text = Mensaje;
+            //toolStripStatusLabelEstado.Text = Mensaje;
 
             if (Error)
                 Framework.General.GIMsgBox.Show(Mensaje, GI.Framework.General.enumTipoMensaje.Error);

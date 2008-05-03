@@ -15,14 +15,35 @@ namespace GI.BR.Mail
         public static SmtpConfig GetSmtp()
         {
             SmtpConfig smtp = new SmtpConfig();
-            smtp.AutenticacionSmtp = true;
-            smtp.Email = "edavidis@nalejandria.com";
-            smtp.Host = "smtp.nalejandria.com";
-            smtp.Nombre = "Emilio Davidis";
-            smtp.Password = "0774";
+            smtp.AutenticacionSmtp = false;
+            smtp.Email = "info@inmobiliaria.com";
+            smtp.Host = "localhost";
+            smtp.Nombre = "Info";
+            smtp.Password = "";
             smtp.Puerto = 25;
             smtp.Ssl = false;
-            smtp.UserName = "edavidis@nalejandria.com";
+            smtp.UserName = "";
+
+            using (System.Data.IDataReader dr = new DA.SmtpConfigData().RecuperarConfiguracion())
+            {
+                if (dr.Read())
+                {
+                    
+                    smtp.UserName = dr.GetString(dr.GetOrdinal("UserName")).Trim();
+                    smtp.Ssl = dr.GetBoolean(dr.GetOrdinal("SSL"));
+                    smtp.Puerto = dr.GetInt32(dr.GetOrdinal("Puerto"));
+                    smtp.Password = dr.GetString(dr.GetOrdinal("Password")).Trim();
+                    smtp.Nombre = dr.GetString(dr.GetOrdinal("Nombre")).Trim();
+                    smtp.Host = dr.GetString(dr.GetOrdinal("Host")).Trim();
+                    smtp.Email = dr.GetString(dr.GetOrdinal("Email")).Trim();
+                    smtp.AutenticacionSmtp = dr.GetBoolean(dr.GetOrdinal("AutenticacionSmtp"));
+                    
+
+                
+                
+                }
+            }
+
 
             return smtp;
         }
@@ -97,7 +118,15 @@ namespace GI.BR.Mail
 
         public bool Actualizar()
         {
-            return false;
+            return new DA.SmtpConfigData().GuardarConfiduracion(
+                AutenticacionSmtp,
+                Email,
+                Host,
+                Nombre,
+                Password,
+                Puerto,
+                Ssl,
+                UserName);
         }
 
     }
