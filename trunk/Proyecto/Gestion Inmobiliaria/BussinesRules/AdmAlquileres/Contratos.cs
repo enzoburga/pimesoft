@@ -22,7 +22,7 @@ namespace GI.BR.AdmAlquileres
 
             foreach (Contrato cont in this)
             {
-                cont.Monto.Moneda = mff.GetMoneda(cont.Monto.Moneda.IdMoneda);
+                //cont.Monto.Moneda = mff.GetMoneda(cont.Monto.Moneda.IdMoneda);
                 cont.Deposito.Moneda = mff.GetMoneda(cont.Deposito.Moneda.IdMoneda);
             }
         }

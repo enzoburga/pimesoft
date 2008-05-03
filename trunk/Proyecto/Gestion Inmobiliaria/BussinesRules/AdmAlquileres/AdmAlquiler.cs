@@ -110,6 +110,13 @@ namespace GI.BR.AdmAlquileres
             GI.DA.AdmAlquileresData ad = new GI.DA.AdmAlquileresData();
             return ad.Actualizar(this.Alquiler.IdPropiedad, (this.Contacto == null) ? 0 : this.Contacto.IdCliente);
         }
+
+        public bool Eliminar()
+        {
+            GI.DA.AdmAlquileresData ad = new GI.DA.AdmAlquileresData();
+            return ad.Eliminar(this.Alquiler.IdPropiedad);
+
+        }
         #endregion
 
         #region ICloneable Members
@@ -120,5 +127,7 @@ namespace GI.BR.AdmAlquileres
         }
 
         #endregion
+
+
     }
 }
