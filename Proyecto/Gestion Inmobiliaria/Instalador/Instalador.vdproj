@@ -15,92 +15,122 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_232B9E1E4C2E437C8814DBFBD0105CCF"
+        "OwnerKey" = "8:_37E68C2D158B4AB2905996EAF582401C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_232B9E1E4C2E437C8814DBFBD0105CCF"
+        "OwnerKey" = "8:_AEEC8941B2074BB7BC039AF4330FA143"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_37E68C2D158B4AB2905996EAF582401C"
+        "OwnerKey" = "8:_AEEC8941B2074BB7BC039AF4330FA143"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_43D03550D64C4C1B82EF7A0A6F31640D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_569DCDFDC21B2340DB04FED23010A971"
+        "MsmKey" = "8:_8F480CBFE0936DF1D6BF1CC6E4269CA9"
+        "OwnerKey" = "8:_969C6608EFA09D28BEED3D2596EC22CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8F480CBFE0936DF1D6BF1CC6E4269CA9"
         "OwnerKey" = "8:_43D03550D64C4C1B82EF7A0A6F31640D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_5DF091B5DB68BDE90A4A1BB0054A1CC1"
-        "OwnerKey" = "8:_6DE0CB72A646D04516176691ECE39152"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5DF091B5DB68BDE90A4A1BB0054A1CC1"
+        "MsmKey" = "8:_969C6608EFA09D28BEED3D2596EC22CD"
         "OwnerKey" = "8:_43D03550D64C4C1B82EF7A0A6F31640D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6DE0CB72A646D04516176691ECE39152"
+        "MsmKey" = "8:_969C6608EFA09D28BEED3D2596EC22CD"
+        "OwnerKey" = "8:_A38AFFB8388AAE83FFCC71D1CBF2E98F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_969C6608EFA09D28BEED3D2596EC22CD"
+        "OwnerKey" = "8:_B06857DB6E9022DE5470CCD17E8AC79B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A38AFFB8388AAE83FFCC71D1CBF2E98F"
         "OwnerKey" = "8:_43D03550D64C4C1B82EF7A0A6F31640D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6DE0CB72A646D04516176691ECE39152"
-        "OwnerKey" = "8:_B4C5D418F0031F134BE1BDDE6AD32D91"
+        "MsmKey" = "8:_AEEC8941B2074BB7BC039AF4330FA143"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6DE0CB72A646D04516176691ECE39152"
-        "OwnerKey" = "8:_569DCDFDC21B2340DB04FED23010A971"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_744B5D50DA0EA59397E1EB838956B300"
+        "MsmKey" = "8:_B06857DB6E9022DE5470CCD17E8AC79B"
         "OwnerKey" = "8:_43D03550D64C4C1B82EF7A0A6F31640D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B4C5D418F0031F134BE1BDDE6AD32D91"
+        "MsmKey" = "8:_FD7D3AD807F039B53188AF717CD83321"
         "OwnerKey" = "8:_43D03550D64C4C1B82EF7A0A6F31640D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B4C5D418F0031F134BE1BDDE6AD32D91"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_569DCDFDC21B2340DB04FED23010A971"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_744B5D50DA0EA59397E1EB838956B300"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6DE0CB72A646D04516176691ECE39152"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5DF091B5DB68BDE90A4A1BB0054A1CC1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_43D03550D64C4C1B82EF7A0A6F31640D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_AEEC8941B2074BB7BC039AF4330FA143"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_A38AFFB8388AAE83FFCC71D1CBF2E98F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B06857DB6E9022DE5470CCD17E8AC79B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FD7D3AD807F039B53188AF717CD83321"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_969C6608EFA09D28BEED3D2596EC22CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8F480CBFE0936DF1D6BF1CC6E4269CA9"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -188,45 +218,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_569DCDFDC21B2340DB04FED23010A971"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:GI.Managers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_569DCDFDC21B2340DB04FED23010A971"
-                    {
-                    "Name" = "8:GI.Managers.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:GI.Managers.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_0ECB06516102486B89791E8AFBBCE249"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5DF091B5DB68BDE90A4A1BB0054A1CC1"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8F480CBFE0936DF1D6BF1CC6E4269CA9"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:GI.DA, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_5DF091B5DB68BDE90A4A1BB0054A1CC1"
+                    "_8F480CBFE0936DF1D6BF1CC6E4269CA9"
                     {
                     "Name" = "8:GI.DA.dll"
                     "Attributes" = "3:512"
@@ -250,14 +249,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6DE0CB72A646D04516176691ECE39152"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_969C6608EFA09D28BEED3D2596EC22CD"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:GI.BR, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_6DE0CB72A646D04516176691ECE39152"
+                    "_969C6608EFA09D28BEED3D2596EC22CD"
                     {
                     "Name" = "8:GI.BR.dll"
                     "Attributes" = "3:512"
@@ -281,20 +280,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_744B5D50DA0EA59397E1EB838956B300"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A38AFFB8388AAE83FFCC71D1CBF2E98F"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:GI.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:GI.Reportes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_744B5D50DA0EA59397E1EB838956B300"
+                    "_A38AFFB8388AAE83FFCC71D1CBF2E98F"
                     {
-                    "Name" = "8:GI.Framework.dll"
+                    "Name" = "8:GI.Reportes.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:GI.Framework.dll"
+            "SourcePath" = "8:GI.Reportes.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0ECB06516102486B89791E8AFBBCE249"
@@ -312,20 +311,51 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B4C5D418F0031F134BE1BDDE6AD32D91"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B06857DB6E9022DE5470CCD17E8AC79B"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:GI.Reportes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:GI.Managers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B4C5D418F0031F134BE1BDDE6AD32D91"
+                    "_B06857DB6E9022DE5470CCD17E8AC79B"
                     {
-                    "Name" = "8:GI.Reportes.dll"
+                    "Name" = "8:GI.Managers.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:GI.Reportes.dll"
+            "SourcePath" = "8:GI.Managers.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_0ECB06516102486B89791E8AFBBCE249"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FD7D3AD807F039B53188AF717CD83321"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:GI.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_FD7D3AD807F039B53188AF717CD83321"
+                    {
+                    "Name" = "8:GI.Framework.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:GI.Framework.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0ECB06516102486B89791E8AFBBCE249"
@@ -518,17 +548,17 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_19510AAE40CF4672B743BFFFDF7D3DD3"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_525C26E8CE764F1A98B62076E38A1DA7"
             {
-            "Name" = "8:Gestión Inmobiliaria"
+            "Name" = "8:Gestion Inmobiliaria"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_E22FBDBB77AC4EC9B8F0CC2D6DDF96B2"
+            "Target" = "8:_43D03550D64C4C1B82EF7A0A6F31640D"
             "Folder" = "8:_E22FBDBB77AC4EC9B8F0CC2D6DDF96B2"
-            "WorkingFolder" = "8:_E22FBDBB77AC4EC9B8F0CC2D6DDF96B2"
+            "WorkingFolder" = "8:_0ECB06516102486B89791E8AFBBCE249"
             "Icon" = "8:"
             "Feature" = "8:"
             }
@@ -928,9 +958,144 @@
         }
         "MergeModule"
         {
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_232B9E1E4C2E437C8814DBFBD0105CCF"
+            {
+            "UseDynamicProperties" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "SourcePath" = "8:policy_8_0_microsoft_vc80_atl_x86.msm"
+                "Properties"
+                {
+                }
+            "LanguageId" = "3:0"
+            "Exclude" = "11:FALSE"
+            "Folder" = "8:"
+            "Feature" = "8:"
+            "IsolateTo" = "8:"
+            }
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_37E68C2D158B4AB2905996EAF582401C"
+            {
+            "UseDynamicProperties" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "SourcePath" = "8:microsoft_vc80_atl_x86.msm"
+                "Properties"
+                {
+                }
+            "LanguageId" = "3:0"
+            "Exclude" = "11:FALSE"
+            "Folder" = "8:"
+            "Feature" = "8:"
+            "IsolateTo" = "8:"
+            }
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_AEEC8941B2074BB7BC039AF4330FA143"
+            {
+            "UseDynamicProperties" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
+            "SourcePath" = "8:..\\..\\..\\Deploy\\CrystalReportsRedist2005_x86.msm"
+                "Properties"
+                {
+                    "InstallCRDB_ADO"
+                    {
+                    "Name" = "8:InstallCRDB_ADO"
+                    "DisplayName" = "8:InstallCRDB_ADO"
+                    "Description" = "8:Property to determine whether to install the Crystal Reports database driver for Microsoft ActiveX Data Objects. A value of 1 (default) will install it, and a value of 0 will disable its installation."
+                    "Type" = "3:3"
+                    "ContextData" = "8:"
+                    "Attributes" = "3:2"
+                    "Setting" = "3:1"
+                    "Value" = "8:1"
+                    "DefaultValue" = "8:1"
+                    "UsePlugInResources" = "11:FALSE"
+                    }
+                    "InstallCRDB_ADOPLUS"
+                    {
+                    "Name" = "8:InstallCRDB_ADOPLUS"
+                    "DisplayName" = "8:InstallCRDB_ADOPLUS"
+                    "Description" = "8:Property to determine whether to install the Crystal Reports database driver for Microsoft ADO.NET. A value of 1 (default) will install it, and a value of 0 will disable its installation."
+                    "Type" = "3:3"
+                    "ContextData" = "8:"
+                    "Attributes" = "3:2"
+                    "Setting" = "3:1"
+                    "Value" = "8:1"
+                    "DefaultValue" = "8:1"
+                    "UsePlugInResources" = "11:FALSE"
+                    }
+                    "InstallCRDB_DAO"
+                    {
+                    "Name" = "8:InstallCRDB_DAO"
+                    "DisplayName" = "8:InstallCRDB_DAO"
+                    "Description" = "8:Property to determine whether to install the Crystal Reports database driver for Microsoft Data Access Objects. A value of 1 (default) will install it, and a value of 0 will disable its installation."
+                    "Type" = "3:3"
+                    "ContextData" = "8:"
+                    "Attributes" = "3:2"
+                    "Setting" = "3:1"
+                    "Value" = "8:1"
+                    "DefaultValue" = "8:1"
+                    "UsePlugInResources" = "11:FALSE"
+                    }
+                    "InstallCRDB_DATASET"
+                    {
+                    "Name" = "8:InstallCRDB_DATASET"
+                    "DisplayName" = "8:InstallCRDB_DATASET"
+                    "Description" = "8:Property to determine whether to install the Crystal Reports database driver for DataSet provider. A value of 1 (default) will install it, and a value of 0 will disable its installation."
+                    "Type" = "3:3"
+                    "ContextData" = "8:"
+                    "Attributes" = "3:2"
+                    "Setting" = "3:1"
+                    "Value" = "8:1"
+                    "DefaultValue" = "8:1"
+                    "UsePlugInResources" = "11:FALSE"
+                    }
+                    "InstallCRDB_ODBC"
+                    {
+                    "Name" = "8:InstallCRDB_ODBC"
+                    "DisplayName" = "8:InstallCRDB_ODBC"
+                    "Description" = "8:Property to determine whether to install the Crystal Reports database driver for ODBC. A value of 1 (default) will install it, and a value of 0 will disable its installation."
+                    "Type" = "3:3"
+                    "ContextData" = "8:"
+                    "Attributes" = "3:2"
+                    "Setting" = "3:1"
+                    "Value" = "8:1"
+                    "DefaultValue" = "8:1"
+                    "UsePlugInResources" = "11:FALSE"
+                    }
+                }
+            "LanguageId" = "3:0"
+            "Exclude" = "11:FALSE"
+            "Folder" = "8:"
+            "Feature" = "8:"
+            "IsolateTo" = "8:"
+            }
         }
         "ProjectOutput"
         {
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_02EB8CFB10C34D11A04A7EFBEE9F25FC"
+            {
+            "SourcePath" = "8:"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_0ECB06516102486B89791E8AFBBCE249"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:SourceFiles"
+            "OutputProjectGuid" = "8:{2483B3D5-E6A6-4527-8815-DFD81B0BA85A}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_43D03550D64C4C1B82EF7A0A6F31640D"
             {
             "SourcePath" = "8:..\\GestionInmobiliaria\\obj\\Release\\GestionInmobiliaria.exe"
@@ -957,6 +1122,10 @@
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
+                "ExcludeFilter" = "8:*.resx"
+                "ExcludeFilter" = "8:*.xsd"
+                "ExcludeFilter" = "8:*.xsc"
+                "ExcludeFilter" = "8:*.cs"
                 }
             }
         }

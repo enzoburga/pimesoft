@@ -48,6 +48,7 @@
               <xs:element name="MetrosConstruibles" msprop:Generator_UserColumnName="MetrosConstruibles" msprop:Generator_ColumnVarNameInTable="columnMetrosConstruibles" msprop:Generator_ColumnPropNameInRow="MetrosConstruibles" msprop:Generator_ColumnPropNameInTable="MetrosConstruiblesColumn" type="xs:string" minOccurs="0" />
               <xs:element name="Zonificacion" msprop:Generator_UserColumnName="Zonificacion" msprop:Generator_ColumnVarNameInTable="columnZonificacion" msprop:Generator_ColumnPropNameInRow="Zonificacion" msprop:Generator_ColumnPropNameInTable="ZonificacionColumn" type="xs:string" minOccurs="0" />
               <xs:element name="Estado" msprop:Generator_UserColumnName="Estado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Ambientes" msprop:Generator_UserColumnName="Ambientes" msprop:Generator_ColumnPropNameInRow="Ambientes" msprop:Generator_ColumnVarNameInTable="columnAmbientes" msprop:Generator_ColumnPropNameInTable="AmbientesColumn" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -12,7 +12,17 @@ namespace GI.BR.Propiedades.Galeria
 
         public Foto GetFotoFachada
         {
-            get { return new Foto(); }
+            get 
+            {
+                
+                foreach (Foto f in this)
+                {
+                    if (f.EsFachada)
+                        return f;
+                }
+
+                return null;
+            }
         }
 
         public void RecuperarPorPropiedad(Propiedad p)

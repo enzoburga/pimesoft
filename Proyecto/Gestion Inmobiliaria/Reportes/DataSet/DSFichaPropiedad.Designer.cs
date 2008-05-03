@@ -316,6 +316,8 @@ namespace GI.Reportes.DataSet {
             
             private System.Data.DataColumn columnEstado;
             
+            private System.Data.DataColumn columnAmbientes;
+            
             [System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public PropiedadDataTable() {
                 this.TableName = "Propiedad";
@@ -557,6 +559,13 @@ namespace GI.Reportes.DataSet {
             }
             
             [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public System.Data.DataColumn AmbientesColumn {
+                get {
+                    return this.columnAmbientes;
+                }
+            }
+            
+            [System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -615,7 +624,8 @@ namespace GI.Reportes.DataSet {
                         string FOS, 
                         string MetrosConstruibles, 
                         string Zonificacion, 
-                        string Estado) {
+                        string Estado, 
+                        string Ambientes) {
                 PropiedadRow rowPropiedadRow = ((PropiedadRow)(this.NewRow()));
                 rowPropiedadRow.ItemArray = new object[] {
                         IdPropiedad,
@@ -647,7 +657,8 @@ namespace GI.Reportes.DataSet {
                         FOS,
                         MetrosConstruibles,
                         Zonificacion,
-                        Estado};
+                        Estado,
+                        Ambientes};
                 this.Rows.Add(rowPropiedadRow);
                 return rowPropiedadRow;
             }
@@ -707,6 +718,7 @@ namespace GI.Reportes.DataSet {
                 this.columnMetrosConstruibles = base.Columns["MetrosConstruibles"];
                 this.columnZonificacion = base.Columns["Zonificacion"];
                 this.columnEstado = base.Columns["Estado"];
+                this.columnAmbientes = base.Columns["Ambientes"];
             }
             
             [System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -771,6 +783,8 @@ namespace GI.Reportes.DataSet {
                 base.Columns.Add(this.columnZonificacion);
                 this.columnEstado = new System.Data.DataColumn("Estado", typeof(string), null, System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstado);
+                this.columnAmbientes = new System.Data.DataColumn("Ambientes", typeof(string), null, System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmbientes);
                 this.Constraints.Add(new System.Data.UniqueConstraint("Constraint1", new System.Data.DataColumn[] {
                                 this.columnIdPropiedad}, true));
                 this.columnIdPropiedad.AllowDBNull = false;
@@ -1830,6 +1844,21 @@ namespace GI.Reportes.DataSet {
             }
             
             [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Ambientes {
+                get {
+                    try {
+                        return ((string)(this[this.tablePropiedad.AmbientesColumn]));
+                    }
+                    catch (System.InvalidCastException e) {
+                        throw new System.Data.StrongTypingException("The value for column \'Ambientes\' in table \'Propiedad\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePropiedad.AmbientesColumn] = value;
+                }
+            }
+            
+            [System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsFotoFachadaNull() {
                 return this.IsNull(this.tablePropiedad.FotoFachadaColumn);
             }
@@ -2117,6 +2146,16 @@ namespace GI.Reportes.DataSet {
             [System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetEstadoNull() {
                 this[this.tablePropiedad.EstadoColumn] = System.Convert.DBNull;
+            }
+            
+            [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsAmbientesNull() {
+                return this.IsNull(this.tablePropiedad.AmbientesColumn);
+            }
+            
+            [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetAmbientesNull() {
+                this[this.tablePropiedad.AmbientesColumn] = System.Convert.DBNull;
             }
         }
         
