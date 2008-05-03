@@ -34,7 +34,15 @@ namespace GI.DA
                "AdmAlquiler_Actualizar",
                new object[] { IdPropiedad, contacto },
                new string[] { "@IdPropiedad", "@IdContacto" });
-        } 
+        }
+
+        public bool Eliminar(int IdPropiedad)
+        {
+            return AccesoDatos.EliminarRegistro(
+               "AdmAlquiler_Eliminar",
+               new object[] { IdPropiedad },
+               new string[] { "@IdPropiedad" });
+        }
         #endregion
 
 
@@ -89,5 +97,7 @@ namespace GI.DA
                 new string[] { "@Cadena" });
         } 
         #endregion
+
+
     }
 }

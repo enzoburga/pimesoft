@@ -9,7 +9,7 @@ namespace GI.DA
         public System.Data.IDataReader RecuperarMontosPorContrato(int IdContrato)
         {
             return AccesoDatos.RecuperarDatos(
-                "ValoresRenta_RecuperarMontosPorContrato",
+                "ValoresRenta_RecuperarPorContrato",
                 new object[] { IdContrato },
                 new string[] { "@IdContrato" });
 
@@ -23,12 +23,12 @@ namespace GI.DA
                 new string[] { "@IdContrato", "@Importe", "@IdMoneda", "@MesDesde", "@AnioDesde", "@MesHasta", "@AnioHasta" });
         }
 
-        public bool Actualizar(int IdValorRenta, int IdContrato, decimal Importe, int IdMoneda, int MesDesde, int AnioDesde, int MesHasta, int AnioHasta)
+        public bool Actualizar(int IdValorRenta, decimal Importe, int IdMoneda, int MesDesde, int AnioDesde, int MesHasta, int AnioHasta)
         {
             return AccesoDatos.ActualizarRegistro(
                 "ValorRenta_Actualizar",
-                new object[] { IdValorRenta, IdContrato, Importe, IdMoneda, MesDesde, AnioDesde, MesHasta, AnioHasta },
-                new string[] { "@IdValorRenta", "@IdContrato", "@Importe", "@IdMoneda", "@MesDesde", "@AnioDesde", "@MesHasta", "@AnioHasta" });
+                new object[] { IdValorRenta,Importe, IdMoneda, MesDesde, AnioDesde, MesHasta, AnioHasta },
+                new string[] { "@IdValorRenta", "@Importe", "@IdMoneda", "@MesDesde", "@AnioDesde", "@MesHasta", "@AnioHasta" });
         }
 
         public bool Eliminar(int IdValorRenta)
