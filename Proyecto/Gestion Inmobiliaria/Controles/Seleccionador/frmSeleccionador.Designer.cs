@@ -82,7 +82,7 @@ namespace GI.Framework
             this.toolStripButtonBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonBuscar.Name = "toolStripButtonBuscar";
             this.toolStripButtonBuscar.Size = new System.Drawing.Size(67, 68);
-            this.toolStripButtonBuscar.Text = "toolStripButton1";
+            this.toolStripButtonBuscar.Text = "Buscar";
             this.toolStripButtonBuscar.Click += new System.EventHandler(this.toolStripButtonBuscar_Click);
             // 
             // toolStripButtonAgregar
@@ -93,7 +93,7 @@ namespace GI.Framework
             this.toolStripButtonAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAgregar.Name = "toolStripButtonAgregar";
             this.toolStripButtonAgregar.Size = new System.Drawing.Size(68, 68);
-            this.toolStripButtonAgregar.Text = "toolStripButton2";
+            this.toolStripButtonAgregar.Text = "Nuevo";
             this.toolStripButtonAgregar.Click += new System.EventHandler(this.toolStripButtonAgregar_Click);
             // 
             // lvItems
@@ -117,20 +117,20 @@ namespace GI.Framework
             this.seleccionarToolStripMenuItem,
             this.editarToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 48);
             // 
             // seleccionarToolStripMenuItem
             // 
-            this.seleccionarToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seleccionarToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seleccionarToolStripMenuItem.Name = "seleccionarToolStripMenuItem";
-            this.seleccionarToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.seleccionarToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.seleccionarToolStripMenuItem.Text = "Seleccionar";
             this.seleccionarToolStripMenuItem.Click += new System.EventHandler(this.seleccionarToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.editarToolStripMenuItem.Text = "Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
