@@ -206,6 +206,36 @@ namespace GI.UI.Propiedades
 
         #endregion
 
+        private void toolStripButtonEnviarMail_Click(object sender, EventArgs e)
+        {
+            if (lvPropiedades.SelectedItems.Count != 1)
+            {
+                Framework.General.GIMsgBox.Show("Debe seleccionar una propiedad", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
+
+
+
+            Formularios.FrmEnviarFichasMail frm = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail(
+                (GI.BR.Propiedades.Propiedad)lvPropiedades.SelectedItems[0].Tag);
+            frm.ShowDialog();
+
+
+
+
+
+        }
+
+        private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripButtonImprimir_Click(null, null);
+        }
+
+        private void enviarACorreoElectrónicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripButtonEnviarMail_Click(null, null);
+        }
+
 
 
 

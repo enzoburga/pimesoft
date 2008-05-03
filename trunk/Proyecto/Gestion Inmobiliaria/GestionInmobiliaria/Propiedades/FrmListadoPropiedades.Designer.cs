@@ -97,6 +97,7 @@ namespace GI.UI.Propiedades
             this.toolStripButtonEnviarMail.Name = "toolStripButtonEnviarMail";
             this.toolStripButtonEnviarMail.Size = new System.Drawing.Size(68, 68);
             this.toolStripButtonEnviarMail.Text = "Enviar a correo electrónico";
+            this.toolStripButtonEnviarMail.Click += new System.EventHandler(this.toolStripButtonEnviarMail_Click);
             // 
             // toolStripButtonImprimir
             // 
@@ -117,7 +118,7 @@ namespace GI.UI.Propiedades
             this.imprimirToolStripMenuItem,
             this.enviarACorreoElectrónicoToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(215, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(215, 114);
             // 
             // toolStripMenuItem1
             // 
@@ -139,12 +140,14 @@ namespace GI.UI.Propiedades
             this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
             this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.imprimirToolStripMenuItem.Text = "Imprimir";
+            this.imprimirToolStripMenuItem.Click += new System.EventHandler(this.imprimirToolStripMenuItem_Click);
             // 
             // enviarACorreoElectrónicoToolStripMenuItem
             // 
             this.enviarACorreoElectrónicoToolStripMenuItem.Name = "enviarACorreoElectrónicoToolStripMenuItem";
             this.enviarACorreoElectrónicoToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.enviarACorreoElectrónicoToolStripMenuItem.Text = "Enviar a correo electrónico";
+            this.enviarACorreoElectrónicoToolStripMenuItem.Click += new System.EventHandler(this.enviarACorreoElectrónicoToolStripMenuItem_Click);
             // 
             // lvPropiedades
             // 

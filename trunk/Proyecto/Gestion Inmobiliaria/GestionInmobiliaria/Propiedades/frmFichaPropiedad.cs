@@ -255,6 +255,13 @@ namespace GI.UI.Propiedades
                 Framework.General.GIMsgBox.Show("Debe primero guardar la propiedad para subir fotos", GI.Framework.General.enumTipoMensaje.Advertencia);
                 return;
             }
+
+
+
+
+            GI.Reportes.Clases.Propiedades.ReporteFichaPropiedad reporte = new GI.Reportes.Clases.Propiedades.ReporteFichaPropiedad(Propiedad);
+            GI.Reportes.Visor.FrmVisorReporte frmVisor = new GI.Reportes.Visor.FrmVisorReporte(reporte);
+            frmVisor.ShowDialog();
         }
 
         private void publicarToolStripMenuItem_Click(object sender, EventArgs e)
