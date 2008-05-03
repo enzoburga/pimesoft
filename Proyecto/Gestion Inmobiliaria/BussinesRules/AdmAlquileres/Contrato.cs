@@ -12,7 +12,7 @@ namespace GI.BR.AdmAlquileres
         private DateTime fechaInicio;
         private DateTime fechaVencimiento;
         private Nullable<DateTime> fechaCancelacion;
-        private GI.BR.Valor monto;
+        //private GI.BR.Valor monto;
         private GI.BR.Valor deposito; 
         private int diaCobro;
         private string observaciones;
@@ -65,17 +65,17 @@ namespace GI.BR.AdmAlquileres
 
         public Nullable<DateTime> FechaCancelacion { get { return fechaCancelacion; } set { fechaCancelacion = value; } }
 
-        public GI.BR.Valor Monto
-        {
-            get
-            {
-                return monto;
-            }
-            set
-            {
-                monto = value;
-            }
-        }
+        //public GI.BR.Valor Monto
+        //{
+        //    get
+        //    {
+        //        return monto;
+        //    }
+        //    set
+        //    {
+        //        monto = value;
+        //    }
+        //}
 
         public GI.BR.Valor GetMonto(int Mes, int Anio)
         { 
@@ -83,23 +83,7 @@ namespace GI.BR.AdmAlquileres
             bool esMayorDesde = false;
             foreach(GI.BR.AdmAlquileres.ValorRenta vr in this.ValoresRenta )
             {
-                if (Anio == vr.AnioVigenciaDesde)
-                {
-                    if (Mes >= vr.MesVigenciaDesde)
-                        esMayorDesde = true;
-                }
-                else
-                    esMayorDesde = (Anio > vr.AnioVigenciaDesde);
-
-                if (Anio == vr.AnioVigenciaHasta)
-                {
-                    if (Mes <= vr.MesVigenciaHasta)
-                        esMenorHasta = true;
-                }
-                else
-                    esMenorHasta = (Anio < vr.AnioVigenciaHasta);
-
-                if (esMenorHasta && esMayorDesde)
+                if(vr.FechaPerteneceARango(Mes,Anio))
                     return vr.Monto;
             }
 
@@ -121,14 +105,14 @@ namespace GI.BR.AdmAlquileres
         public bool Guardar()
         {
             GI.DA.ContratosData cd = new GI.DA.ContratosData();
-            this.IdContrato = cd.GuardarConrato((Inquilino == null) ? 0:Inquilino.IdCliente, Alquiler.IdPropiedad, FechaInicio, FechaVencimiento, Monto.Importe, Monto.Moneda.IdMoneda, Deposito.Importe, Deposito.Moneda.IdMoneda, DiaCobro, (ContratoAnterior == null) ? 0 : ContratoAnterior.IdContrato, FechaCancelacion, Observaciones,vigente);
+            this.IdContrato = cd.GuardarConrato((Inquilino == null) ? 0:Inquilino.IdCliente, Alquiler.IdPropiedad, FechaInicio, FechaVencimiento, Deposito.Importe, Deposito.Moneda.IdMoneda, DiaCobro, (ContratoAnterior == null) ? 0 : ContratoAnterior.IdContrato, FechaCancelacion, Observaciones,vigente);
             return IdContrato > 0;
         }
 
         public bool Actualizar()
         {
             GI.DA.ContratosData cd = new GI.DA.ContratosData();
-            return cd.ActualizarContrato(IdContrato, (Inquilino == null) ? 0 : Inquilino.IdCliente, Alquiler.IdPropiedad, FechaInicio, FechaVencimiento, Monto.Importe, Monto.Moneda.IdMoneda, Deposito.Importe, Deposito.Moneda.IdMoneda, DiaCobro, (ContratoAnterior == null) ? 0 : ContratoAnterior.IdContrato, FechaCancelacion, Observaciones,vigente);            
+            return cd.ActualizarContrato(IdContrato, (Inquilino == null) ? 0 : Inquilino.IdCliente, Alquiler.IdPropiedad, FechaInicio, FechaVencimiento, Deposito.Importe, Deposito.Moneda.IdMoneda, DiaCobro, (ContratoAnterior == null) ? 0 : ContratoAnterior.IdContrato, FechaCancelacion, Observaciones,vigente);            
         }
 
         public void fill(System.Data.IDataReader dr)
@@ -136,7 +120,7 @@ namespace GI.BR.AdmAlquileres
             this.Deposito = new Valor();
             this.Deposito.Importe = dr.GetDecimal(dr.GetOrdinal("MontoDeposito"));
             this.Deposito.Moneda = new GI.BR.Monedas.Moneda();
-            this.Deposito.Moneda.IdMoneda = dr.GetInt32(dr.GetOrdinal("IdMonedaDeposito"));
+            this.Deposito.Moneda = Monedas.MonedasFlyweigthFactory.GetInstancia.GetMoneda(dr.GetInt32(dr.GetOrdinal("IdMonedaDeposito")));
             this.DiaCobro = dr.GetByte(dr.GetOrdinal("DiaVencimientoCuota"));
 
             if (dr.IsDBNull(dr.GetOrdinal("FechaCancelacion")))
@@ -153,9 +137,6 @@ namespace GI.BR.AdmAlquileres
                 this.Inquilino.IdCliente = dr.GetInt32(dr.GetOrdinal("IdInquilino"));
             }
 
-            this.Monto = new Valor();
-            this.Monto.Importe = dr.GetDecimal(dr.GetOrdinal("MontoCuota"));
-            this.Monto.Moneda = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia.GetMoneda(dr.GetInt32(dr.GetOrdinal("IdMonedaMonto")));
             this.Observaciones = dr.GetString(dr.GetOrdinal("Observaciones"));
             this.IdContrato = dr.GetInt32(dr.GetOrdinal("IdContrato"));
             this.vigente = dr.GetBoolean(dr.GetOrdinal("Vigente"));

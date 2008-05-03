@@ -14,6 +14,7 @@ namespace GI.BR.AdmAlquileres
         private DateTime fechaPago;
         private DateTime fechaAlta;
         private int mesCancelado;
+        private int anioPagado;
         #endregion
 
         #region Miembros Publicos
@@ -32,6 +33,8 @@ namespace GI.BR.AdmAlquileres
 
         public DateTime FechaAlta { get { return fechaAlta; } set { fechaAlta = value; } }
 
+        public int AnioPagado { get { return anioPagado; } set { anioPagado = value; } }
+
         #endregion
 
         internal virtual void fill(System.Data.IDataReader dr)
@@ -46,19 +49,20 @@ namespace GI.BR.AdmAlquileres
             this.FechaPago = dr.GetDateTime(dr.GetOrdinal("FechaPago"));
             this.FechaAlta = dr.GetDateTime(dr.GetOrdinal("FechaAlta"));
             this.mesCancelado = dr.GetInt32(dr.GetOrdinal("MesCancelado"));
+            this.anioPagado = dr.GetInt32(dr.GetOrdinal("AnioPagado"));
         }
 
         public bool Guardar()
         {
             GI.DA.PagosData pd = new GI.DA.PagosData();
-            this.IdPago = pd.Guardar(false, this.FechaPago, this.IdContrato, this.Importe.Importe, this.Importe.Moneda.IdMoneda, this.MesCancelado, this.FechaAlta);
+            this.IdPago = pd.Guardar(false, this.FechaPago, this.IdContrato, this.Importe.Importe, this.Importe.Moneda.IdMoneda, this.MesCancelado, this.FechaAlta, this.AnioPagado);
             return IdPago > 0;
         }
 
         public bool Actualizar()
         {
             GI.DA.PagosData pd = new GI.DA.PagosData();
-            return pd.Actualizar(this.IdPago, false, this.FechaPago, this.IdContrato, this.Importe.Importe, this.Importe.Moneda.IdMoneda, this.MesCancelado, this.FechaAlta);
+            return pd.Actualizar(this.IdPago, false, this.FechaPago, this.IdContrato, this.Importe.Importe, this.Importe.Moneda.IdMoneda, this.MesCancelado, this.FechaAlta, this.AnioPagado);
 
         }
 
