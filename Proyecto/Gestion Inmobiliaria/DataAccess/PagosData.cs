@@ -14,20 +14,20 @@ namespace GI.DA
                 new string[] {"@IdContrato" });
         }
 
-        public bool Actualizar(int IdPago, bool Anulado, DateTime FechaPago, int IdContrato, decimal Importe, int IdMoneda, int MesCancelado, DateTime FechaAlta)
+        public bool Actualizar(int IdPago, bool Anulado, DateTime FechaPago, int IdContrato, decimal Importe, int IdMoneda, int MesCancelado, DateTime FechaAlta, int AnioPagado)
         {
             return AccesoDatos.ActualizarRegistro(
                 "Pago_Actualizar",
-                new object[] { IdPago, Anulado, FechaPago, IdContrato, Importe, IdMoneda, MesCancelado ,FechaAlta},
-                new string[] { "@IdPago", "@Anulado", "@FechaPago", "@IdContrato", "@Importe", "@IdMoneda", "@MesCancelado", "@FechaAlta" });
+                new object[] { IdPago, Anulado, FechaPago, IdContrato, Importe, IdMoneda, MesCancelado, FechaAlta, AnioPagado },
+                new string[] { "@IdPago", "@Anulado", "@FechaPago", "@IdContrato", "@Importe", "@IdMoneda", "@MesCancelado", "@FechaAlta", "@AnioPagado" });
         }
 
-        public int Guardar(bool Anulado, DateTime FechaPago, int IdContrato, decimal Importe, int IdMoneda, int MesCancelado, DateTime FechaAlta)
+        public int Guardar(bool Anulado, DateTime FechaPago, int IdContrato, decimal Importe, int IdMoneda, int MesCancelado, DateTime FechaAlta, int AnioPagado)
         {
             return AccesoDatos.InsertarRegistro(
                 "Pago_Guardar",
-                new object[] { Anulado,FechaPago,IdContrato,Importe,IdMoneda,MesCancelado,FechaAlta},
-                new string[] { "@Anulado", "@FechaPago", "@IdContrato", "@Importe", "@IdMoneda", "@MesCancelado", "@FechaAlta" });
+                new object[] { Anulado, FechaPago, IdContrato, Importe, IdMoneda, MesCancelado, FechaAlta, AnioPagado },
+                new string[] { "@Anulado", "@FechaPago", "@IdContrato", "@Importe", "@IdMoneda", "@MesCancelado", "@FechaAlta", "@AnioPagado" });
         }
 
         public bool Anular(int IdPago)
@@ -36,7 +36,6 @@ namespace GI.DA
                 "Pago_Anular",
                 new object[] { IdPago},
                 new string[] { "@IdPago"});
-
         }
     }
 }
