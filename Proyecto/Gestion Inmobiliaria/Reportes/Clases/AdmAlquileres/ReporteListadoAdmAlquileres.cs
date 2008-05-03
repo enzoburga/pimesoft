@@ -40,7 +40,7 @@ namespace GI.Reportes.Clases.AdmAlquileres
                 rowDetalles = ds.Detalles.NewDetallesRow();
 
                 rowDetalles.DiaCobro = a.ContratoVigente.DiaCobro;
-                rowDetalles.DireccionPropiedad = "CARGAR PROP POR ID";//c.Alquiler.Direccion.ToString();
+                rowDetalles.DireccionPropiedad = a.Alquiler.Direccion.ToString();
                 rowDetalles.FechaInicio = a.ContratoVigente.FechaInicio;
                 rowDetalles.FechaVencimiento = a.ContratoVigente.FechaVencimiento;
                 GI.BR.Valor monto = a.ContratoVigente.GetMonto(DateTime.Today.Month, DateTime.Today.Year);
@@ -48,7 +48,12 @@ namespace GI.Reportes.Clases.AdmAlquileres
                     rowDetalles.Monto = monto.ToString();
                 else
                     rowDetalles.Monto = "------";
-                rowDetalles.NombreContacto = a.Contacto.ToString();
+
+                if(a.Contacto == null)
+                    rowDetalles.NombreContacto = "------";
+                else
+                    rowDetalles.NombreContacto = a.Contacto.ToString();
+
                 if (a.ContratoVigente.Inquilino == null)
                     rowDetalles.NombreInquilino = "No hay Inquilino.";
                 else

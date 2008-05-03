@@ -98,6 +98,13 @@ namespace GI.DA
         
         #endregion
 
+        public IDataReader RecuperarPropiedadPorId(int IdPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                "Propiedad_RecuperarPorId",
+                new object[] { IdPropiedad },
+                new string[] { "@IdPropiedad" });
+        }
 
         public IDataReader RecuperarEstadoPropiedad(string ClasePropiedad)
         {
@@ -253,6 +260,8 @@ namespace GI.DA
 
 
         #endregion
+
+
 
 
 

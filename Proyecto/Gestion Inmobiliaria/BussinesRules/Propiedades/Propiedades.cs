@@ -10,10 +10,10 @@ namespace GI.BR.Propiedades
     {
 
         #region Members
-        TiposPropiedadFlyweightFactory tiposPropiedadFact;
+        TiposPropiedadFlyweightFactory tiposPropiedadFact = TiposPropiedadFlyweightFactory.GetInstancia;
         EstadoPropiedadFlyweigthFactory estadosPropFactory;
-        Monedas.MonedasFlyweigthFactory monedasFactory;
-        Ubicaciones.UbicacionFlyweightFactory ubicacionesFactory;
+        Monedas.MonedasFlyweigthFactory monedasFactory = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia;
+        Ubicaciones.UbicacionFlyweightFactory ubicacionesFactory = Ubicaciones.UbicacionFlyweightFactory.GetInstancia;
 
         #endregion
 
@@ -28,10 +28,7 @@ namespace GI.BR.Propiedades
 
         public void RecuperarPropiedadesAlquileres(EstadoPropiedad Estado, TipoPropiedad Tipo)
         {
-            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
-            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Alquiler));
-            monedasFactory = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia;
-            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+            estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Alquiler));
 
             using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesAlquileres(Estado.IdEstadoPropiedad, Tipo.IdTipoPropiedad))
             {
@@ -41,10 +38,7 @@ namespace GI.BR.Propiedades
 
         public void RecuperarPropiedadesAlquileresPorDireccion(string Calle, int Numero)
         {
-            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
-            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Alquiler));
-            monedasFactory = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia;
-            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+            estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Alquiler));
 
             using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesAlquileresPorDireccion(Calle, Numero))
             {
@@ -54,10 +48,7 @@ namespace GI.BR.Propiedades
 
         public void RecuperarPropiedadesAlquileres(EstadoPropiedad Estado)
         {
-            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
-            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Alquiler));
-            monedasFactory = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia;
-            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+            estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Alquiler));
 
             using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesAlquileresPorEstado(Estado.IdEstadoPropiedad))
             {
@@ -67,10 +58,7 @@ namespace GI.BR.Propiedades
 
         public void RecuperarPropiedadesAlquileres(TipoPropiedad Tipo)
         {
-            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
-            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Alquiler));
-            monedasFactory = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia;
-            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+            estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Alquiler));
 
             using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesAlquileresPorTipo(Tipo.IdTipoPropiedad))
             {
@@ -80,10 +68,7 @@ namespace GI.BR.Propiedades
 
         public void RecuperarPropiedadesAlquileres()
         {
-            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
-            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Alquiler));
-            monedasFactory = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia;
-            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+            estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Alquiler));
 
             using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesAlquileres())
             {
@@ -98,10 +83,7 @@ namespace GI.BR.Propiedades
         #region Metodos de Recuperacion VENTA
         public void RecuperarPropiedadesVentas(EstadoPropiedad Estado, TipoPropiedad Tipo)
         {
-            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
-            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Venta));
-            monedasFactory = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia;
-            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+            estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Venta));
 
             using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesVentas(Estado.IdEstadoPropiedad, Tipo.IdTipoPropiedad))
             {
@@ -111,10 +93,7 @@ namespace GI.BR.Propiedades
 
         public void RecuperarPropiedadesVentaPorDireccion(string Calle, int Numero)
         {
-            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
-            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Venta));
-            monedasFactory = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia;
-            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+            estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Venta));
 
             using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesVentaPorDireccion(Calle, Numero))
             {
@@ -124,10 +103,7 @@ namespace GI.BR.Propiedades
 
         public void RecuperarPropiedadesVentas(EstadoPropiedad Estado)
         {
-            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
-            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Venta));
-            monedasFactory = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia;
-            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+            estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Venta));
 
             using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesVentasPorEstado(Estado.IdEstadoPropiedad))
             {
@@ -137,10 +113,7 @@ namespace GI.BR.Propiedades
 
         public void RecuperarPropiedadesVentas(TipoPropiedad Tipo)
         {
-            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
-            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Venta));
-            monedasFactory = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia;
-            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+            estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Venta));
 
             using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesVentasPorTipo(Tipo.IdTipoPropiedad))
             {
@@ -150,10 +123,7 @@ namespace GI.BR.Propiedades
 
         public void RecuperarPropiedadesVentas()
         {
-            tiposPropiedadFact = new TiposPropiedadFlyweightFactory();
-            estadosPropFactory = new EstadoPropiedadFlyweigthFactory(typeof(GI.BR.Propiedades.Venta));
-            monedasFactory = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia;
-            ubicacionesFactory = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+            estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Venta));
 
             using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesVentas())
             {

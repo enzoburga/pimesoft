@@ -186,7 +186,7 @@ namespace GI.UI.Clientes
             dtpFechaNac.Value = DateTime.Today;
             ctrlUbicacion1.Inicializar();
 
-            uff = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+            uff = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia;
 
             cbTipoDocumento.Items.Add(GI.BR.General.enumTipoDocumento.DNI);
             cbTipoDocumento.Items.Add(GI.BR.General.enumTipoDocumento.LC);

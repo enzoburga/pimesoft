@@ -12,7 +12,7 @@ namespace GI.UI.Propiedades
     {
         private Type tipo;
         private GI.BR.Propiedades.Propiedades propiedades;
-        GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory uff = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+        GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory uff =GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia;
          
 
 

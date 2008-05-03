@@ -18,5 +18,17 @@ namespace GI.BR.Propiedades
 
 
         }
+
+        public override EstadoPropiedad Estado
+        {
+            get
+            {
+                return EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(Alquiler)).GetEstado(base.Estado.IdEstadoPropiedad);
+            }
+            set
+            {
+                base.Estado = value;
+            }
+        }
     }
 }

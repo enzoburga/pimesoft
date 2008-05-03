@@ -12,7 +12,7 @@ namespace GI.BR.Propiedades.Ubicaciones
         private GI.BR.Propiedades.Ubicaciones.Localidades hashLocalidades;
         private GI.BR.Propiedades.Ubicaciones.Barrios hashBarrios;
 
-        public UbicacionFlyweightFactory()
+        private UbicacionFlyweightFactory()
         {
             hashBarrios = new Barrios();
             hashLocalidades = new Localidades();
@@ -25,6 +25,17 @@ namespace GI.BR.Propiedades.Ubicaciones
             hashProvincias.RecuperarTodas();
         
         
+        }
+
+        private static UbicacionFlyweightFactory instancia;
+        public static UbicacionFlyweightFactory GetInstancia
+        {
+            get
+            {
+                if (instancia == null)
+                    instancia = new UbicacionFlyweightFactory();
+                return instancia;
+            }
         }
 
 
