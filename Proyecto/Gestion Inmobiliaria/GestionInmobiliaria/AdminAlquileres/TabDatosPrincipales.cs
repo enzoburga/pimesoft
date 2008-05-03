@@ -58,6 +58,7 @@ namespace GI.UI.AdminAlquileres
                 if (frmSeleccionador.ShowDialog() == DialogResult.OK)
                 {
                     LinkPropiedad.Tag = (GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado;
+                    this.AdmAlquiler.Alquiler = (GI.BR.Propiedades.Alquiler)frmSeleccionador.ObjetoSeleccionado;
                     LinkPropiedad.Text = ((GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado).Codigo.ToString();
                     ctrlDireccion1.Direccion = ((GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado).Direccion;
                     if(((GI.BR.Propiedades.Propiedad)LinkPropiedad.Tag).Propietario != null)

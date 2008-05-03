@@ -130,8 +130,11 @@ namespace GI.UI.AdminAlquileres
                     if ((guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).AdmAlquiler.Guardar()))
                     {
                         nuevoAdmAlquiler = false;
-                        //Guardo el contrato vigente.
-                        guardado = AdmAlquiler.ContratoVigente.Guardar();
+                        //Guardo el contrato vigente.                        
+                        if (!(guardado = AdmAlquiler.ContratoVigente.Guardar()))
+                        {
+                            AdmAlquiler.Eliminar();
+                        }
                     }
                 }
                 else
@@ -165,6 +168,8 @@ namespace GI.UI.AdminAlquileres
         }
 
 
+
+
         private void nuevoContratoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (SoloLectura)
@@ -181,8 +186,6 @@ namespace GI.UI.AdminAlquileres
             GI.BR.AdmAlquileres.Contrato nuevoContrato = new GI.BR.AdmAlquileres.Contrato();
             nuevoContrato.Deposito = new GI.BR.Valor();
             nuevoContrato.Deposito.Moneda = new GI.BR.Monedas.Moneda();
-            nuevoContrato.Monto = new GI.BR.Valor();
-            nuevoContrato.Monto.Moneda = new GI.BR.Monedas.Moneda();
             nuevoContrato.Vigente = true;
             nuevoContrato.Observaciones = "";
 
@@ -256,7 +259,6 @@ namespace GI.UI.AdminAlquileres
 
             GI.BR.AdmAlquileres.Contrato nuevoContrato = new GI.BR.AdmAlquileres.Contrato();
             nuevoContrato.Deposito = AdmAlquiler.ContratoVigente.Deposito;
-            nuevoContrato.Monto = AdmAlquiler.ContratoVigente.Monto;
             nuevoContrato.DiaCobro = AdmAlquiler.ContratoVigente.DiaCobro;
             nuevoContrato.FechaInicio = AdmAlquiler.ContratoVigente.FechaVencimiento.AddDays(1);
 
@@ -287,6 +289,70 @@ namespace GI.UI.AdminAlquileres
 
                 }
 
+
+            }
+        }
+
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool guardado = false;
+
+
+            if (SoloLectura)
+            {
+                GI.Framework.General.GIMsgBox.ShowSoloLectura();
+                return;
+            }
+            if (AdmAlquiler.Alquiler == null)
+            {
+                GI.Framework.General.GIMsgBox.Show("Debe seleccionar una Propiedad en Alquiler.", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
+            try
+            {
+
+                //Verifico si la adm de alquiler esta o no guardado. Si lo esta lo actualizo.
+                //Busco la administracion en el primer Tab.
+                if (nuevoAdmAlquiler)
+                {
+                    if ((guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).AdmAlquiler.Guardar()))
+                    {
+                        nuevoAdmAlquiler = false;
+                        //Guardo el contrato vigente.
+                        if (!(guardado = AdmAlquiler.ContratoVigente.Guardar()))
+                        {
+                            AdmAlquiler.Eliminar();
+                            nuevoAdmAlquiler = false;
+                        }
+
+                    }
+                }
+                else
+                {
+                    if ((guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).AdmAlquiler.Actualizar()))
+                    {
+                        //Actualizo el contrato vigente.
+                        if (AdmAlquiler.ContratoVigente.IdContrato == 0)
+                            guardado = AdmAlquiler.ContratoVigente.Guardar();
+                        else
+                            guardado = AdmAlquiler.ContratoVigente.Actualizar();
+                    }
+                }
+
+                if (guardado)
+                {
+                    InicializarTabs();
+                }
+                else
+                {
+
+                    GI.Framework.General.GIMsgBox.Show("No se han guardado los cambios.", GI.Framework.General.enumTipoMensaje.Error);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                GI.Framework.General.GIMsgBox.Show(ex.Message, GI.Framework.General.enumTipoMensaje.Error);
 
             }
         }

@@ -52,6 +52,7 @@ namespace GI.UI.AdminAlquileres
                 pago.Importe = contrato.GetMonto(cbMeses.SelectedIndex + 1, DateTime.Today.Year + cbAnio.SelectedIndex - 1);
 
             pago.MesCancelado = cbMeses.SelectedIndex+1;
+            pago.AnioPagado = DateTime.Today.Year + cbAnio.SelectedIndex - 1;
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -62,13 +63,16 @@ namespace GI.UI.AdminAlquileres
             if (contrato.GetMonto(cbMeses.SelectedIndex + 1, DateTime.Today.Year + cbAnio.SelectedIndex - 1) == null)
                 return "No hay una renta definida para el mes y el año seleccionados.";
 
+            int anio;
+
             //Valido que no sea de un mes repetido.
             foreach (GI.BR.AdmAlquileres.Pago p in pagos)
             {
+                anio = DateTime.Today.Year + cbAnio.SelectedIndex - 1;
                 if (p.IdPago != pago.IdPago)
                 {
-                    if (p.MesCancelado == cbMeses.SelectedIndex + 1)
-                        return "Ya hay un pago generado para el mes: " + (System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(p.MesCancelado)).ToUpper();
+                    if (p.MesCancelado == cbMeses.SelectedIndex + 1 && p.AnioPagado == DateTime.Today.Year + cbAnio.SelectedIndex - 1)
+                        return "Ya hay un pago generado para el mes " + (System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(p.MesCancelado)).ToUpper() + " de " + anio.ToString();
                 }
             }
 

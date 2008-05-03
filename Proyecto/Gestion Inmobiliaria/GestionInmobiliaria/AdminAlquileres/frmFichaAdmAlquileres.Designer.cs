@@ -35,11 +35,11 @@ namespace GI.UI.AdminAlquileres
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresarUnPagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renovarContratoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoContratoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bAceptar = new System.Windows.Forms.Button();
             this.bCancelar = new System.Windows.Forms.Button();
-            this.renovarContratoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -62,8 +62,8 @@ namespace GI.UI.AdminAlquileres
             // 
             this.splitContainer1.Panel2.Controls.Add(this.bAceptar);
             this.splitContainer1.Panel2.Controls.Add(this.bCancelar);
-            this.splitContainer1.Size = new System.Drawing.Size(442, 576);
-            this.splitContainer1.SplitterDistance = 530;
+            this.splitContainer1.Size = new System.Drawing.Size(442, 606);
+            this.splitContainer1.SplitterDistance = 567;
             this.splitContainer1.TabIndex = 1;
             // 
             // tabControl
@@ -72,7 +72,7 @@ namespace GI.UI.AdminAlquileres
             this.tabControl.Location = new System.Drawing.Point(0, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(442, 506);
+            this.tabControl.Size = new System.Drawing.Size(442, 543);
             this.tabControl.TabIndex = 0;
             // 
             // menuStrip1
@@ -103,6 +103,7 @@ namespace GI.UI.AdminAlquileres
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
             this.guardarToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.guardarToolStripMenuItem.Text = "Guardar";
+            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
             // imprimirToolStripMenuItem
             // 
@@ -116,6 +117,13 @@ namespace GI.UI.AdminAlquileres
             this.ingresarUnPagoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.ingresarUnPagoToolStripMenuItem.Text = "Ingresar un pago";
             this.ingresarUnPagoToolStripMenuItem.Click += new System.EventHandler(this.ingresarUnPagoToolStripMenuItem_Click);
+            // 
+            // renovarContratoToolStripMenuItem
+            // 
+            this.renovarContratoToolStripMenuItem.Name = "renovarContratoToolStripMenuItem";
+            this.renovarContratoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.renovarContratoToolStripMenuItem.Text = "Renovar Contrato";
+            this.renovarContratoToolStripMenuItem.Click += new System.EventHandler(this.renovarContratoToolStripMenuItem_Click);
             // 
             // nuevoContratoToolStripMenuItem
             // 
@@ -133,7 +141,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // bAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(267, 5);
+            this.bAceptar.Location = new System.Drawing.Point(267, 7);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
             this.bAceptar.TabIndex = 1;
@@ -143,7 +151,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // bCancelar
             // 
-            this.bCancelar.Location = new System.Drawing.Point(357, 5);
+            this.bCancelar.Location = new System.Drawing.Point(357, 7);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 0;
@@ -151,18 +159,11 @@ namespace GI.UI.AdminAlquileres
             this.bCancelar.UseVisualStyleBackColor = true;
             this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
-            // renovarContratoToolStripMenuItem
-            // 
-            this.renovarContratoToolStripMenuItem.Name = "renovarContratoToolStripMenuItem";
-            this.renovarContratoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.renovarContratoToolStripMenuItem.Text = "Renovar Contrato";
-            this.renovarContratoToolStripMenuItem.Click += new System.EventHandler(this.renovarContratoToolStripMenuItem_Click);
-            // 
             // frmFichaAdmAlquileres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 576);
+            this.ClientSize = new System.Drawing.Size(442, 606);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;

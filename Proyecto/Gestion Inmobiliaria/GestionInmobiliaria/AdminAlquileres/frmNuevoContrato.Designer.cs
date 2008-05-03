@@ -35,7 +35,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // bAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(255, 291);
+            this.bAceptar.Location = new System.Drawing.Point(257, 328);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
             this.bAceptar.TabIndex = 3;
@@ -45,7 +45,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // bCancelar
             // 
-            this.bCancelar.Location = new System.Drawing.Point(345, 291);
+            this.bCancelar.Location = new System.Drawing.Point(347, 328);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 2;
@@ -58,7 +58,7 @@ namespace GI.UI.AdminAlquileres
             this.ctrlContrato1.Contrato = null;
             this.ctrlContrato1.Location = new System.Drawing.Point(13, 9);
             this.ctrlContrato1.Name = "ctrlContrato1";
-            this.ctrlContrato1.Size = new System.Drawing.Size(409, 279);
+            this.ctrlContrato1.Size = new System.Drawing.Size(409, 320);
             this.ctrlContrato1.SoloLectura = false;
             this.ctrlContrato1.TabIndex = 4;
             // 
@@ -66,7 +66,7 @@ namespace GI.UI.AdminAlquileres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 319);
+            this.ClientSize = new System.Drawing.Size(434, 358);
             this.Controls.Add(this.ctrlContrato1);
             this.Controls.Add(this.bAceptar);
             this.Controls.Add(this.bCancelar);

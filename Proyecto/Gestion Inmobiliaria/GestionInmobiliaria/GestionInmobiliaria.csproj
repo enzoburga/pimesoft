@@ -347,6 +347,7 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\DataSources\GI.BR.AdmAlquileres.AdmAlquiler.datasource" />
     <None Include="Properties\DataSources\GI.BR.AdmAlquileres.Contrato.datasource" />
+    <None Include="Properties\DataSources\GI.BR.AdmAlquileres.ValorRenta.datasource" />
     <None Include="Properties\DataSources\GI.BR.Clientes.Inquilino.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion1.datasource" />

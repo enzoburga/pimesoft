@@ -36,8 +36,6 @@ namespace GI.UI.AdminAlquileres
             admAlquiler.ContratoVigente = new GI.BR.AdmAlquileres.Contrato();
             admAlquiler.ContratoVigente.Deposito = new GI.BR.Valor();
             admAlquiler.ContratoVigente.Deposito.Moneda = new GI.BR.Monedas.Moneda();
-            admAlquiler.ContratoVigente.Monto = new GI.BR.Valor();
-            admAlquiler.ContratoVigente.Monto.Moneda = new GI.BR.Monedas.Moneda();
             admAlquiler.ContratoVigente.Vigente = true;
             admAlquiler.ContratoVigente.Observaciones = "";
             

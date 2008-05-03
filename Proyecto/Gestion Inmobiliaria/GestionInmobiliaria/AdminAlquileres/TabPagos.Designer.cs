@@ -51,7 +51,7 @@ namespace GI.UI.AdminAlquileres
             this.lvPagos.HideSelection = false;
             this.lvPagos.Location = new System.Drawing.Point(16, 17);
             this.lvPagos.Name = "lvPagos";
-            this.lvPagos.Size = new System.Drawing.Size(413, 461);
+            this.lvPagos.Size = new System.Drawing.Size(413, 498);
             this.lvPagos.TabIndex = 1;
             this.lvPagos.UseCompatibleStateImageBehavior = false;
             this.lvPagos.View = System.Windows.Forms.View.Details;
@@ -78,7 +78,7 @@ namespace GI.UI.AdminAlquileres
             this.modificarPagoToolStripMenuItem,
             this.eliminarPagoToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 70);
             // 
             // nuevoPagoToolStripMenuItem
             // 
@@ -108,7 +108,7 @@ namespace GI.UI.AdminAlquileres
             this.Controls.Add(this.lvPagos);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TabPagos";
-            this.Size = new System.Drawing.Size(444, 493);
+            this.Size = new System.Drawing.Size(444, 518);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 

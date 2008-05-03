@@ -44,7 +44,7 @@ namespace GI.UI.AdminAlquileres
             this.lvContratos.HideSelection = false;
             this.lvContratos.Location = new System.Drawing.Point(16, 17);
             this.lvContratos.Name = "lvContratos";
-            this.lvContratos.Size = new System.Drawing.Size(413, 461);
+            this.lvContratos.Size = new System.Drawing.Size(413, 498);
             this.lvContratos.TabIndex = 0;
             this.lvContratos.UseCompatibleStateImageBehavior = false;
             this.lvContratos.View = System.Windows.Forms.View.Details;
@@ -71,7 +71,7 @@ namespace GI.UI.AdminAlquileres
             this.Controls.Add(this.lvContratos);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TabHistorico";
-            this.Size = new System.Drawing.Size(444, 493);
+            this.Size = new System.Drawing.Size(444, 518);
             this.ResumeLayout(false);
 
         }
