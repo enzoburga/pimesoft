@@ -217,7 +217,11 @@ namespace GI.UI.Propiedades
 
 
                 if (!guardado)
-                    throw new Exception("No se puede grabar la propiedad");
+                    throw new Exception("No se puede grabar la propiedad. Verifique los datos ingresados");
+
+                Framework.General.GIMsgBox.Show("La propiedad se guardó con éxito", GI.Framework.General.enumTipoMensaje.Informacion);
+                this.Text = Propiedad.Codigo;
+                
         
 
             }

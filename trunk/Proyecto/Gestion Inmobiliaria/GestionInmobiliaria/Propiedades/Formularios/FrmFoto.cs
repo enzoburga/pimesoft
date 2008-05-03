@@ -73,7 +73,7 @@ namespace GI.UI.Propiedades.Formularios
 
 
             GI.Managers.Propiedades.MngGaleriaFotos mng = new GI.Managers.Propiedades.MngGaleriaFotos();
-            if (mng.AgregarFotoAGaleria(Foto, propiedad))
+            if ((Foto = mng.AgregarFotoAGaleria(new Bitmap(textBoxUrlFoto.Text), textBoxNombre.Text, checkBoxEsFechada.Checked, propiedad)) != null)
             {
                 DialogResult = DialogResult.OK;
                 Close();

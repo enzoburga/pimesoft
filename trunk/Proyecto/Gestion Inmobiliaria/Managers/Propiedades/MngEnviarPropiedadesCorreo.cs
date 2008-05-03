@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GI.Managers.Propiedades
 {
-    public delegate void EnvioCorreoFinalizado(GI.BR.Propiedades.Propiedades p, string Mensaje, bool Error);
+    public delegate void EnvioCorreoFinalizado(GI.BR.Propiedades.Propiedad p, string Mensaje, bool Error);
 
     public class MngEnviarPropiedadesCorreo
     {
