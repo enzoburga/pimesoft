@@ -228,9 +228,14 @@ namespace GI.UI.Generales
 
         private void lvMontos_DoubleClick(object sender, EventArgs e)
         {
+            if (lvMontos.SelectedItems.Count != 1)
+            {
+                return;
+            }
             GI.UI.AdminAlquileres.frmNuevaRenta frm = new GI.UI.AdminAlquileres.frmNuevaRenta();
             frm.ValorRenta = (GI.BR.AdmAlquileres.ValorRenta)lvMontos.SelectedItems[0].Tag;
-            frm.Valores = this.Contrato.ValoresRenta;
+            frm.SoloLectura = true;
+            frm.ShowDialog();
         }
 
         private void llEliminarMonto_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -277,6 +282,12 @@ namespace GI.UI.Generales
             if (lvMontos.SelectedItems.Count != 1)
             {
                 GI.Framework.General.GIMsgBox.Show("Debe seleccionar un monto.", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
+
+            if (!ValidarRentaConPagos((GI.BR.AdmAlquileres.ValorRenta)lvMontos.SelectedItems[0].Tag))
+            {
+                GI.Framework.General.GIMsgBox.Show("No se puede modificar el monto, ya tiene pagos realizados.", GI.Framework.General.enumTipoMensaje.Advertencia);
                 return;
             }
 

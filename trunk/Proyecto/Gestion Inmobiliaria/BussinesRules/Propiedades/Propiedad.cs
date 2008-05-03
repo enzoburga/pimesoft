@@ -58,6 +58,9 @@ namespace GI.BR.Propiedades
         protected Galeria.GaleriaFotos galeria;
 
         protected MedidasAmbiente medidas;
+
+
+        private bool cargado = false;
         
         #endregion
 
@@ -94,7 +97,12 @@ namespace GI.BR.Propiedades
 
         public decimal CantidadAmbientes
         {
-            get { return cantidadAmbientes; }
+            get
+            {
+                if (!cargado)
+                    Cargar();
+                return cantidadAmbientes;
+            }
             set { cantidadAmbientes = value; }
         }
 
@@ -128,7 +136,12 @@ namespace GI.BR.Propiedades
 
         public TipoPropiedad TipoPropiedad
         {
-            get { return tipoPropiedad; }
+            get
+            {
+                if (!cargado)
+                    Cargar();
+                return tipoPropiedad;
+            }
             set
             {
                 if (onCambioTipoPropiedad != null)
@@ -144,16 +157,26 @@ namespace GI.BR.Propiedades
         }
 
 
-        public EstadoPropiedad Estado
+        public virtual EstadoPropiedad Estado
         {
-            get { return estado; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return estado;
+            }
             set { estado = value; }
         }
 
 
         public Estado EnumEstado
         {
-            get { return enumEstado; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return enumEstado;
+            }
             set { enumEstado = value; }
         }
 
@@ -162,7 +185,8 @@ namespace GI.BR.Propiedades
         {
             get 
             {
-                
+                if (!cargado)
+                    Cargar();
                 return propietario; 
             }
             set { propietario = value; }
@@ -171,42 +195,72 @@ namespace GI.BR.Propiedades
 
         public Ubicacion Ubicacion
         {
-            get { return ubicacion; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return ubicacion;
+            }
             set { ubicacion = value; }
         }
 
 
         public Direccion Direccion
         {
-            get { return direccion; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return direccion;
+            }
             set { direccion = value; }
         }
 
 
         public Valor ValorMercado
         {
-            get { return valorMercado; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return valorMercado;
+            }
             set { valorMercado = value; }
         }
 
 
         public Valor ValorPublicacion
         {
-            get { return valorPublicacion; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return valorPublicacion;
+            }
             set { valorPublicacion = value; }
         }
 
 
         public string Observaciones
         {
-            get { return observaciones; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return observaciones;
+            }
             set { observaciones = value; }
         }
 
 
         public bool EsOtraInmobiliaria
         {
-            get { return esOtraInmobiliaria; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return esOtraInmobiliaria;
+            }
             set { esOtraInmobiliaria = value; }
         }
 
@@ -215,6 +269,8 @@ namespace GI.BR.Propiedades
         {
             get 
             {
+                if (!cargado)
+                    Cargar();
                 if (medidas == null)
                 {
                     medidas = new MedidasAmbiente();
@@ -228,49 +284,84 @@ namespace GI.BR.Propiedades
 
         public MedidaPropiedad MedidasPropiedad
         {
-            get { return medidasPropiedad; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return medidasPropiedad;
+            }
             set { medidasPropiedad = value; }
         }
 
 
         public MedidasTerreno MedidasTerreno
         {
-            get { return medidasTerreno; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return medidasTerreno;
+            }
             set { medidasTerreno = value; }
         }
 
 
         public string Orientacion
         {
-            get { return orientacion; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return orientacion;
+            }
             set { orientacion = value; }
         }
 
 
         public int CantidadBaños
         {
-            get { return cantidadBaños; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return cantidadBaños;
+            }
             set { cantidadBaños = value; }
         }
 
 
         public int CantidadCocheras
         {
-            get { return cantidadCocheras; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return cantidadCocheras;
+            }
             set { cantidadCocheras = value; }
         }
 
 
         public int CantidadDormitorios
         {
-            get { return cantidadDormitorios; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return cantidadDormitorios;
+            }
             set { cantidadDormitorios = value; }
         }
 
 
         public int CantidadPlantas
         {
-            get { return cantidadPlantas; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return cantidadPlantas;
+            }
             set { cantidadPlantas = value; }
         }
 
@@ -278,42 +369,72 @@ namespace GI.BR.Propiedades
 
         public DepartamentoDisposicion Disposicion
         {
-            get { return disposicion; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return disposicion;
+            }
             set { disposicion = value; }
         }
 
 
         public bool EsAptoProfesional
         {
-            get { return esAptoProfesional; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return esAptoProfesional;
+            }
             set { esAptoProfesional = value; }
         }
 
 
         public int CantidadPisos
         {
-            get { return cantidadPisos; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return cantidadPisos;
+            }
             set { cantidadPisos = value; }
         }
 
 
         public int DepartamentosPorPiso
         {
-            get { return departamentosPorPiso; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return departamentosPorPiso;
+            }
             set { departamentosPorPiso = value; }
         }
 
 
         public int CantidadAscensores
         {
-            get { return cantidadAscensores; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return cantidadAscensores;
+            }
             set { cantidadAscensores = value; }
         }
 
 
         public int CantidadAscensoresServicio
         {
-            get { return cantidadAscensoresServicio; }
+            get
+            {
+                if (!cargado)
+                    Cargar();
+                return cantidadAscensoresServicio;
+            }
             set { cantidadAscensoresServicio = value; }
         }
 
@@ -321,35 +442,60 @@ namespace GI.BR.Propiedades
 
         public TipoZona TipoZona
         {
-            get { return tipoZona; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return tipoZona;
+            }
             set { tipoZona = value; }
         }
 
 
         public string Fos
         {
-            get { return fos; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return fos;
+            }
             set { fos = value; }
         }
 
 
         public string Fot
         {
-            get { return fot; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return fot;
+            }
             set { fot = value; }
         }
 
 
         public string Zonificacion
         {
-            get { return zonificacion; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return zonificacion;
+            }
             set { zonificacion = value; }
         }
 
 
         public int MetrosConstruibles
         {
-            get { return metrosConstruibles; }
+            get
+            {
+                if (!cargado)
+                    Cargar(); 
+                return metrosConstruibles;
+            }
             set { metrosConstruibles = value; }
         }
 
@@ -359,6 +505,94 @@ namespace GI.BR.Propiedades
         #endregion
 
         #region Metodos
+
+        private void Cargar()
+        {
+            GI.DA.PropiedadesData data = new GI.DA.PropiedadesData();
+            using (System.Data.IDataReader dr = data.RecuperarPropiedadPorId(this.idPropiedad))
+            {
+                if (dr.Read())
+                    CargarPropiedad(dr);
+            }
+            this.cargado = true;
+        }
+
+        private void CargarPropiedad(System.Data.IDataReader dr)
+        {
+
+            this.cargado = true;
+
+            this.IdPropiedad = dr.GetInt32(dr.GetOrdinal("IdPropiedad"));
+            this.CantidadAmbientes = dr.GetDecimal(dr.GetOrdinal("CantidadAmbientes"));
+            this.TipoPropiedad = TiposPropiedadFlyweightFactory.GetInstancia.GetTipoPropiedad(dr.GetInt32(dr.GetOrdinal("IdTipoPropiedad")));
+            this.estado = new EstadoPropiedad();
+            this.estado.IdEstadoPropiedad = dr.GetInt32(dr.GetOrdinal("IdEstadoPropiedad"));
+            this.EnumEstado = (Estado)dr.GetInt32(dr.GetOrdinal("EnumEstadoProp"));
+
+            if (!dr.IsDBNull(dr.GetOrdinal("IdPropietario")))
+            {
+                this.Propietario = new Propietario();
+                this.Propietario.IdCliente = dr.GetInt32(dr.GetOrdinal("IdPropietario"));
+            }
+
+            this.Direccion = new Direccion();
+            this.Direccion.Calle = dr.GetString(dr.GetOrdinal("Calle"));
+            this.Direccion.Numero = dr.GetInt32(dr.GetOrdinal("NumeroPostal"));
+            this.Direccion.Depto = dr.GetString(dr.GetOrdinal("Depto"));
+            this.Direccion.Piso = dr.GetString(dr.GetOrdinal("Piso"));
+            this.Direccion.CodigoPostal = dr.GetString(dr.GetOrdinal("CodigoPostal"));
+            this.Direccion.CalleEntre1 = dr.GetString(dr.GetOrdinal("CalleEntre1"));
+            this.Direccion.CalleEntre2 = dr.GetString(dr.GetOrdinal("CalleEntre2"));
+
+            this.ValorMercado = new Valor();
+            this.ValorMercado.Importe = dr.GetDecimal(dr.GetOrdinal("ValorMercadoImporte"));
+            this.ValorMercado.Moneda = Monedas.MonedasFlyweigthFactory.GetInstancia.GetMoneda(dr.GetInt32(dr.GetOrdinal("ValorMercadoMoneda")));
+
+            this.ValorPublicacion = new Valor();
+            this.ValorPublicacion.Importe = dr.GetDecimal(dr.GetOrdinal("ValorPublicacionImporte"));
+            this.ValorPublicacion.Moneda = Monedas.MonedasFlyweigthFactory.GetInstancia.GetMoneda(dr.GetInt32(dr.GetOrdinal("ValorPublicacionMoneda")));
+
+            this.Observaciones = dr.IsDBNull(dr.GetOrdinal("Observaciones")) ? "" : dr.GetString(dr.GetOrdinal("Observaciones"));
+            this.EsOtraInmobiliaria = dr.IsDBNull(dr.GetOrdinal("EsOtraInmobiliaria")) ? false : dr.GetBoolean(dr.GetOrdinal("EsOtraInmobiliaria"));
+
+            this.MedidasPropiedad = new MedidaPropiedad();
+            this.MedidasPropiedad.MetrosCubiertos = dr.GetDecimal(dr.GetOrdinal("MetrosCubiertos"));
+            this.MedidasPropiedad.MetrosLibres = dr.GetDecimal(dr.GetOrdinal("MetrosLibres"));
+            this.MedidasPropiedad.MetrosSemicubiertos = dr.GetDecimal(dr.GetOrdinal("MetrosSemicubiertos"));
+
+            this.MedidasTerreno = new MedidasTerreno();
+            this.MedidasTerreno.Fondo = dr.GetDecimal(dr.GetOrdinal("TerrenoFondo"));
+            this.MedidasTerreno.Frente = dr.GetDecimal(dr.GetOrdinal("TerrenosFrente"));
+            this.MedidasTerreno.Metros = dr.GetDecimal(dr.GetOrdinal("TerrenoMetros"));
+            this.Orientacion = dr.GetString(dr.GetOrdinal("Orientacion"));
+            this.CantidadBaños = dr.GetInt32(dr.GetOrdinal("CantidadBanos"));
+            this.CantidadCocheras = dr.GetInt32(dr.GetOrdinal("CantidadCocheras"));
+            this.CantidadDormitorios = dr.GetInt32(dr.GetOrdinal("CantidadDomritorios"));
+            this.CantidadPlantas = dr.GetInt32(dr.GetOrdinal("CantidadPlantas"));
+
+            this.Disposicion = dr.IsDBNull(dr.GetOrdinal("IdDepartamentoDisposicion")) ? DepartamentoDisposicion.SinDefinir : (DepartamentoDisposicion)dr.GetInt32(dr.GetOrdinal("IdDepartamentoDisposicion"));
+            this.EsAptoProfesional = dr.IsDBNull(dr.GetOrdinal("EsAptoProfesional")) ? false : dr.GetBoolean(dr.GetOrdinal("EsAptoProfesional"));
+            this.CantidadPisos = dr.IsDBNull(dr.GetOrdinal("DeptoCantidadPisos")) ? 0 : dr.GetInt32(dr.GetOrdinal("DeptoCantidadPisos"));
+            this.DepartamentosPorPiso = dr.IsDBNull(dr.GetOrdinal("DeptoDepartamentosPorPiso")) ? 0 : dr.GetInt32(dr.GetOrdinal("DeptoDepartamentosPorPiso"));
+            this.CantidadAscensores = dr.IsDBNull(dr.GetOrdinal("CantidadAscensores")) ? 0 : dr.GetInt32(dr.GetOrdinal("CantidadAscensores"));
+            this.CantidadAscensoresServicio = dr.IsDBNull(dr.GetOrdinal("CantidadAscensoresServicio")) ? 0 : dr.GetInt32(dr.GetOrdinal("CantidadAscensoresServicio"));
+
+
+            this.TipoZona = dr.IsDBNull(dr.GetOrdinal("IdTipoZona")) ? TipoZona.SinDefinir : (TipoZona)dr.GetInt32(dr.GetOrdinal("IdTipoZona"));
+            this.Fos = dr.IsDBNull(dr.GetOrdinal("Fos")) ? "" : dr.GetString(dr.GetOrdinal("Fos"));
+            this.Fot = dr.IsDBNull(dr.GetOrdinal("Fot")) ? "" : dr.GetString(dr.GetOrdinal("Fot"));
+            this.Zonificacion = dr.IsDBNull(dr.GetOrdinal("Zonificacion")) ? "" : dr.GetString(dr.GetOrdinal("Zonificacion"));
+            this.MetrosConstruibles = dr.IsDBNull(dr.GetOrdinal("MetrosContruibles")) ? 0 : dr.GetInt32(dr.GetOrdinal("MetrosContruibles"));
+
+            this.Ubicacion = new Ubicacion();
+            this.Ubicacion.Barrio = Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetBarrio(dr.GetInt32(dr.GetOrdinal("IdBarrio")));
+            this.Ubicacion.Localidad = Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetLocalidad(dr.GetInt32(dr.GetOrdinal("IdLocalidad")));
+            this.Ubicacion.Pais = Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetPais(dr.GetInt32(dr.GetOrdinal("IdPais")));
+            this.Ubicacion.Provincia = Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetProvincia(dr.GetInt32(dr.GetOrdinal("IdProvincia")));
+
+
+
+        }
 
         public virtual bool Guardar() 
         {

@@ -28,7 +28,7 @@ namespace GI.UI.Generales
         {
             if (!inicializado)
             {
-                uff = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+                uff = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia;
 
                 cbPais.Items.AddRange(uff.GetPaises().ToArray());
                 cbPais.SelectedItem = uff.GetPaises().GetDefault;

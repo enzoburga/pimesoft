@@ -10,7 +10,7 @@ namespace GI.BR.Propiedades
 
         private Hashtable tiposPropiedad;
 
-        public TiposPropiedadFlyweightFactory()
+        private TiposPropiedadFlyweightFactory()
         {
 
             tiposPropiedad = new Hashtable();
@@ -27,6 +27,17 @@ namespace GI.BR.Propiedades
         public TipoPropiedad GetTipoPropiedad(int IdTipoPropiedad)
         {
             return (TipoPropiedad)tiposPropiedad[IdTipoPropiedad];
+        }
+
+        private static TiposPropiedadFlyweightFactory instancia;
+        public static TiposPropiedadFlyweightFactory GetInstancia
+        {
+            get
+            {
+                if (instancia == null)
+                    instancia = new TiposPropiedadFlyweightFactory();
+                return instancia;
+            }
         }
 
 

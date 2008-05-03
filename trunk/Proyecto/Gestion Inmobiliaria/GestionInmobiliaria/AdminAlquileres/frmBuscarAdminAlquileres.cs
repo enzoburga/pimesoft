@@ -12,8 +12,8 @@ namespace GI.UI.AdminAlquileres
     {
         private Type tipo;
         private GI.BR.AdmAlquileres.AdmAlquileres admAlquileres;
-        private GI.BR.Propiedades.Propiedades propiedades;
-        GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory uff = new GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory();
+        //private GI.BR.Propiedades.Propiedades propiedades;
+        GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory uff = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia;
 
 
 

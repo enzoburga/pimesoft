@@ -65,9 +65,9 @@ namespace GI.UI.AdminAlquileres
                     lvi.Text = a.Contacto.ToString();
 
                 //HACER GET PROPIEDAD POR ID
-                //lvi.SubItems.Add(a.Alquiler.Codigo + " - " + a.Alquiler.Direccion.ToString());
+                lvi.SubItems.Add(a.Alquiler.Codigo + " - " + a.Alquiler.Direccion.ToString());
 
-                lvi.SubItems.Add("HACER CARGADO DE PROPIEDAD POR ID");
+                //lvi.SubItems.Add("HACER CARGADO DE PROPIEDAD POR ID");
 
                 if (a.ContratoVigente.Inquilino == null)
                     lvi.SubItems.Add("No hay Inquilino.");
