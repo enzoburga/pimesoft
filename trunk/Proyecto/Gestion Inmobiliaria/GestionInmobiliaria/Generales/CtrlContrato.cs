@@ -39,14 +39,6 @@ namespace GI.UI.Generales
             valorBindingSource1.Add(Contrato.Deposito);
             contratoBindingSource.Add(Contrato);
 
-            if (contrato.IdContrato == 0)
-            {
-                this.lvMontos.Enabled = false;
-                this.llAgregarMonto.Enabled = false;
-                this.llModificarMonto.Enabled = false;
-                this.llEliminarMonto.Enabled = false;
-            }
-
             #region Inicializar Combos
 
             GI.BR.Monedas.Monedas Monedas = new GI.BR.Monedas.Monedas();
@@ -109,6 +101,11 @@ namespace GI.UI.Generales
             //Cargo solo si no es un contrato nuevo.
             if (this.Contrato.IdContrato != 0)
             {
+                                                this.lvMontos.Enabled = true;
+                this.llAgregarMonto.Enabled = true;
+                this.llModificarMonto.Enabled = true;
+                this.llEliminarMonto.Enabled = true;
+
                 if (this.Contrato.FechaCancelacion.HasValue)
                     dtpFechaCancelacion.Value = Contrato.FechaCancelacion.Value;
 
@@ -116,6 +113,13 @@ namespace GI.UI.Generales
                 dtpFechaVencimiento.Value = this.Contrato.FechaVencimiento;
 
                 cbMonedaDepositoContrato.SelectedItem = this.Contrato.Deposito.Moneda;
+            }
+            else
+            {
+                                this.lvMontos.Enabled = false;
+                this.llAgregarMonto.Enabled = false;
+                this.llModificarMonto.Enabled = false;
+                this.llEliminarMonto.Enabled = false;
             }
         }
 
