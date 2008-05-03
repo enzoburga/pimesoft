@@ -19,6 +19,7 @@ namespace GI.BR.Propiedades
             fos = "";
             fot = "";
             orientacion = "";
+            observaciones = "";
         }
 
         #region Miembros
