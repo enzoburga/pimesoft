@@ -234,17 +234,37 @@ namespace GI.UI.Propiedades
 
         private void enviarACorreoElectrónicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (Propiedad.IdPropiedad == 0)
+            {
+
+                Framework.General.GIMsgBox.Show("Debe primero guardar la propiedad para subir fotos", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
+
+
+            Formularios.FrmEnviarFichasMail frmMail = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail(Propiedad);
+            frmMail.ShowDialog();
 
         }
 
         private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (Propiedad.IdPropiedad == 0)
+            {
 
+                Framework.General.GIMsgBox.Show("Debe primero guardar la propiedad para subir fotos", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
         }
 
         private void publicarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            if (Propiedad.IdPropiedad == 0)
+            {
+
+                Framework.General.GIMsgBox.Show("Debe primero guardar la propiedad para subir fotos", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
         }
 
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
