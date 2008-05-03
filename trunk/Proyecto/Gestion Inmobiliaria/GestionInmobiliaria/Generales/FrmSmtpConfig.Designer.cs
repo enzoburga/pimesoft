@@ -41,9 +41,9 @@ namespace GI.UI.Generales
             this.checkBoxAutenticacion = new System.Windows.Forms.CheckBox();
             this.textBoxUsuario = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxSSL = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxPort = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBoxSmtpHost
@@ -70,6 +70,7 @@ namespace GI.UI.Generales
             this.bAceptar.TabIndex = 7;
             this.bAceptar.Text = "Aceptar";
             this.bAceptar.UseVisualStyleBackColor = true;
+            this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
             // bCancelar
             // 
@@ -79,6 +80,7 @@ namespace GI.UI.Generales
             this.bCancelar.TabIndex = 6;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
             // label2
             // 
@@ -156,15 +158,15 @@ namespace GI.UI.Generales
             this.textBoxPassword.Size = new System.Drawing.Size(241, 21);
             this.textBoxPassword.TabIndex = 16;
             // 
-            // checkBox1
+            // checkBoxSSL
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(114, 180);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(43, 17);
-            this.checkBox1.TabIndex = 17;
-            this.checkBox1.Text = "SSL";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxSSL.AutoSize = true;
+            this.checkBoxSSL.Location = new System.Drawing.Point(114, 180);
+            this.checkBoxSSL.Name = "checkBoxSSL";
+            this.checkBoxSSL.Size = new System.Drawing.Size(43, 17);
+            this.checkBoxSSL.TabIndex = 17;
+            this.checkBoxSSL.Text = "SSL";
+            this.checkBoxSSL.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -175,21 +177,21 @@ namespace GI.UI.Generales
             this.label6.TabIndex = 18;
             this.label6.Text = "Puerto";
             // 
-            // textBox1
+            // textBoxPort
             // 
-            this.textBox1.Location = new System.Drawing.Point(309, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(46, 21);
-            this.textBox1.TabIndex = 19;
+            this.textBoxPort.Location = new System.Drawing.Point(309, 12);
+            this.textBoxPort.Name = "textBoxPort";
+            this.textBoxPort.Size = new System.Drawing.Size(46, 21);
+            this.textBoxPort.TabIndex = 19;
             // 
             // FrmSmtpConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 244);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxPort);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkBoxSSL);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUsuario);
             this.Controls.Add(this.checkBoxAutenticacion);
@@ -231,8 +233,8 @@ namespace GI.UI.Generales
         private System.Windows.Forms.CheckBox checkBoxAutenticacion;
         private System.Windows.Forms.TextBox textBoxUsuario;
         private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxSSL;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxPort;
     }
 }
