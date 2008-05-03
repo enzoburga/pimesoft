@@ -14,18 +14,45 @@ namespace GI.BR.Mail
 
         public static SmtpConfig GetSmtp()
         {
-            return new SmtpConfig();
+            SmtpConfig smtp = new SmtpConfig();
+            smtp.AutenticacionSmtp = true;
+            smtp.Email = "edavidis@nalejandria.com";
+            smtp.Host = "smtp.nalejandria.com";
+            smtp.Nombre = "Emilio Davidis";
+            smtp.Password = "0774";
+            smtp.Puerto = 25;
+            smtp.Ssl = false;
+            smtp.UserName = "edavidis@nalejandria.com";
+
+            return smtp;
         }
 
 
 
+        private string host;
         private string userName;
         private string password;
         private bool autenticacionSmtp;
         private string nombre;
         private string email;
+        private int puerto;
+        private bool ssl;
 
-        private string host;
+
+
+        public int Puerto
+        {
+            get { return puerto; }
+            set { puerto = value; }
+        }
+        
+
+        public bool Ssl
+        {
+            get { return ssl; }
+            set { ssl = value; }
+        }
+
 
         public string Host
         {

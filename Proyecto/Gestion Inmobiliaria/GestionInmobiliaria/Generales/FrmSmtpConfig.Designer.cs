@@ -41,13 +41,16 @@ namespace GI.UI.Generales
             this.checkBoxAutenticacion = new System.Windows.Forms.CheckBox();
             this.textBoxUsuario = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBoxSmtpHost
             // 
             this.textBoxSmtpHost.Location = new System.Drawing.Point(114, 12);
             this.textBoxSmtpHost.Name = "textBoxSmtpHost";
-            this.textBoxSmtpHost.Size = new System.Drawing.Size(196, 21);
+            this.textBoxSmtpHost.Size = new System.Drawing.Size(130, 21);
             this.textBoxSmtpHost.TabIndex = 4;
             // 
             // label1
@@ -61,7 +64,7 @@ namespace GI.UI.Generales
             // 
             // bAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(169, 195);
+            this.bAceptar.Location = new System.Drawing.Point(219, 209);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
             this.bAceptar.TabIndex = 7;
@@ -70,7 +73,7 @@ namespace GI.UI.Generales
             // 
             // bCancelar
             // 
-            this.bCancelar.Location = new System.Drawing.Point(250, 195);
+            this.bCancelar.Location = new System.Drawing.Point(300, 209);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 6;
@@ -117,20 +120,20 @@ namespace GI.UI.Generales
             // 
             this.textBoxNombre.Location = new System.Drawing.Point(114, 39);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(196, 21);
+            this.textBoxNombre.Size = new System.Drawing.Size(241, 21);
             this.textBoxNombre.TabIndex = 12;
             // 
             // textBoxMail
             // 
             this.textBoxMail.Location = new System.Drawing.Point(114, 66);
             this.textBoxMail.Name = "textBoxMail";
-            this.textBoxMail.Size = new System.Drawing.Size(196, 21);
+            this.textBoxMail.Size = new System.Drawing.Size(241, 21);
             this.textBoxMail.TabIndex = 13;
             // 
             // checkBoxAutenticacion
             // 
             this.checkBoxAutenticacion.AutoSize = true;
-            this.checkBoxAutenticacion.Location = new System.Drawing.Point(114, 103);
+            this.checkBoxAutenticacion.Location = new System.Drawing.Point(108, 103);
             this.checkBoxAutenticacion.Name = "checkBoxAutenticacion";
             this.checkBoxAutenticacion.Size = new System.Drawing.Size(186, 17);
             this.checkBoxAutenticacion.TabIndex = 14;
@@ -142,7 +145,7 @@ namespace GI.UI.Generales
             // 
             this.textBoxUsuario.Location = new System.Drawing.Point(114, 126);
             this.textBoxUsuario.Name = "textBoxUsuario";
-            this.textBoxUsuario.Size = new System.Drawing.Size(109, 21);
+            this.textBoxUsuario.Size = new System.Drawing.Size(241, 21);
             this.textBoxUsuario.TabIndex = 15;
             // 
             // textBoxPassword
@@ -150,14 +153,43 @@ namespace GI.UI.Generales
             this.textBoxPassword.Location = new System.Drawing.Point(114, 153);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
-            this.textBoxPassword.Size = new System.Drawing.Size(109, 21);
+            this.textBoxPassword.Size = new System.Drawing.Size(241, 21);
             this.textBoxPassword.TabIndex = 16;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(114, 180);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(43, 17);
+            this.checkBox1.TabIndex = 17;
+            this.checkBox1.Text = "SSL";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(264, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Puerto";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(309, 12);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(46, 21);
+            this.textBox1.TabIndex = 19;
             // 
             // FrmSmtpConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 229);
+            this.ClientSize = new System.Drawing.Size(387, 244);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUsuario);
             this.Controls.Add(this.checkBoxAutenticacion);
@@ -199,5 +231,8 @@ namespace GI.UI.Generales
         private System.Windows.Forms.CheckBox checkBoxAutenticacion;
         private System.Windows.Forms.TextBox textBoxUsuario;
         private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
