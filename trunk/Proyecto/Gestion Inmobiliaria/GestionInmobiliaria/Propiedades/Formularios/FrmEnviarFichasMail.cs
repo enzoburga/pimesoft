@@ -83,12 +83,14 @@ namespace GI.UI.Propiedades.Formularios
             textBoxEmailTo.Text,
             textBoxMessage.Text);
 
-            System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ThreadStart(mngPropMail.EnviarPropiedad));
-            thread.IsBackground = true;
+            //System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ThreadStart(mngPropMail.EnviarPropiedad));
+            //thread.IsBackground = true;
 
             mngPropMail.onEnvioFinalizado += new GI.Managers.Propiedades.EnvioCorreoFinalizado(mngPropMail_onEnvioFinalizado);
             bEnviar.Enabled = true;
-            thread.Start();
+
+            mngPropMail.EnviarPropiedad();
+            //thread.Start();
 
 
 
@@ -103,6 +105,7 @@ namespace GI.UI.Propiedades.Formularios
 
             else
             {
+                toolStripStatusLabelEstado.Text = "Correo Enviado!";
                 Framework.General.GIMsgBox.Show(Mensaje, GI.Framework.General.enumTipoMensaje.Informacion);
                 
             }

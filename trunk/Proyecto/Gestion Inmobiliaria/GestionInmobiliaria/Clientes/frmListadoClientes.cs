@@ -15,7 +15,7 @@ namespace GI.UI.Clientes
             InitializeComponent();         
         }
 
-        private GI.BR.Clientes.Clientes clientes;
+        private GI.BR.Clientes.Clientes clientes = new GI.BR.Clientes.Clientes();
 
         private void lvClientes_DoubleClick(object sender, EventArgs e)
         {
@@ -32,7 +32,11 @@ namespace GI.UI.Clientes
             GI.BR.Clientes.ClienteFactory cf = new GI.BR.Clientes.ClienteFactory();
             frmFichaCliente frm = new frmFichaCliente();
             frm.Cliente = cf.CrearClaseCliente(typeof(GI.BR.Clientes.Propietario));
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                this.clientes.Add(frm.Cliente);
+                this.CargarClientes(clientes);
+            }
         }
 
         private void CargarClientes(GI.BR.Clientes.Clientes clientes)
@@ -66,7 +70,11 @@ namespace GI.UI.Clientes
             GI.BR.Clientes.ClienteFactory cf = new GI.BR.Clientes.ClienteFactory();
             frmFichaCliente frm = new frmFichaCliente();
             frm.Cliente = cf.CrearClaseCliente(typeof(GI.BR.Clientes.Inquilino));
-            frm.Show();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                this.clientes.Add(frm.Cliente);
+                this.CargarClientes(clientes);
+            }
         }
 
         private void toolStripButtonBuscar_Click(object sender, EventArgs e)

@@ -27,8 +27,7 @@ namespace GI.Reportes
             reportDocument.SetDataSource(GetDatosReporte());
 
 
-            return reportDocument.ExportToStream(Formato);
-            
+            return reportDocument.ExportToStream(Formato);           
 
         }
         
