@@ -1,0 +1,7 @@
+Requerimientos de cambio.
+
+
+1. Poner barra en el frm principal con acceso directo a las principales funciones. (ED)
+2. al abrir los listados mostrar por default la lista con lo vigente. (ED)
+3. al buscar propiedades solo mostrar ubicaciones con propiedades. (ED)
+
