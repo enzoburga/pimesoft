@@ -81,6 +81,8 @@ namespace GI.UI
             {
                 GI.UI.Propiedades.FrmListadoPropiedadesEnAlquiler frm = new GI.UI.Propiedades.FrmListadoPropiedadesEnAlquiler();
                 frm.MdiParent = this.parent;
+                frm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+                frm.Inicializar();
                 frm.Show();
                 return frm;
             }
@@ -88,7 +90,9 @@ namespace GI.UI
             {
                 GI.UI.Propiedades.FrmListadoPropiedades FrmPropsVenta = new GI.UI.Propiedades.FrmListadoPropiedades(typeof(GI.BR.Propiedades.Venta));
                 FrmPropsVenta.MdiParent = this.parent;
+                FrmPropsVenta.Inicializar();
                 FrmPropsVenta.Show();
+                FrmPropsVenta.WindowState = System.Windows.Forms.FormWindowState.Maximized;
                 return FrmPropsVenta;
             }
 
@@ -96,6 +100,8 @@ namespace GI.UI
             {
                 GI.UI.AdminAlquileres.frmListadoAdmAlquiler Frm = new GI.UI.AdminAlquileres.frmListadoAdmAlquiler();
                 Frm.MdiParent = this.parent;
+                Frm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+                Frm.Inicializar();
                 Frm.Show();
                 return Frm;
             }
@@ -104,6 +110,8 @@ namespace GI.UI
             {
                 GI.UI.Clientes.frmListadoClientes Frm = new GI.UI.Clientes.frmListadoClientes();
                 Frm.MdiParent = this.parent;
+                Frm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+                Frm.Inicializar();
                 Frm.Show();
                 return Frm;
             }

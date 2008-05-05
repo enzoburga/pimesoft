@@ -14,6 +14,13 @@ namespace GI.UI.AdminAlquileres
         {
             InitializeComponent();
         }
+        public void Inicializar()
+        {
+            admAlquileres = new GI.Managers.AdmAlquileres.MngAdmAlquileres().RecuperarAdmAlquileres(
+                null, null, null, new GI.BR.Propiedades.Ubicacion(), null, null, false);
+            LlenarLista();
+           
+        }
 
         private GI.BR.AdmAlquileres.AdmAlquileres admAlquileres = new GI.BR.AdmAlquileres.AdmAlquileres();
 
