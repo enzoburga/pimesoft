@@ -39,6 +39,16 @@ namespace GI.UI.Clientes
             }
         }
 
+
+        public void Inicializar()
+        {
+            clientes = new GI.BR.Clientes.Clientes();
+            clientes.RecuperarTodos();
+            CargarClientes(clientes);
+        
+        
+        }
+
         private void CargarClientes(GI.BR.Clientes.Clientes clientes)
         {
             ListViewItem lvi;

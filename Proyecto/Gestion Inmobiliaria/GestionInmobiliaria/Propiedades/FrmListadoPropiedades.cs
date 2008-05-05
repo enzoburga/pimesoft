@@ -42,8 +42,69 @@ namespace GI.UI.Propiedades
         }
 
 
-        private void Inicializar()
+        public void Inicializar()
         {
+            GI.BR.Propiedades.EstadosPropiedad estados = new GI.BR.Propiedades.EstadosPropiedad();
+            estados.RecuperarEstados(tipo);
+
+            GI.BR.Propiedades.EstadoPropiedad estado = null;
+            foreach (GI.BR.Propiedades.EstadoPropiedad e in estados)
+            {
+                if (tipo.ToString() == "GI.BR.Propiedades.Venta")
+                {
+                    if (e.IdEstadoPropiedad == 1)
+                    {
+                        estado = e;
+                        break;
+                    }
+                }
+                else
+                {
+                    if (e.IdEstadoPropiedad == 6)
+                    {
+                        estado = e;
+                        break;
+                    }
+                }
+            }
+
+            propiedades = new GI.BR.Propiedades.Propiedades();
+            if (tipo.ToString() == "GI.BR.Propiedades.Venta")
+                propiedades.RecuperarPropiedadesVentas(estado);
+            else
+                propiedades.RecuperarPropiedadesAlquileres(estado);
+
+
+            lvPropiedades.BeginUpdate();
+            lvPropiedades.Items.Clear();
+
+            
+            ListViewItem item;
+
+            foreach (GI.BR.Propiedades.Propiedad p in propiedades)
+            {
+                item = new ListViewItem();
+
+                item.Text = p.Codigo;
+                item.SubItems.Add(p.TipoPropiedad.ToString());
+                item.SubItems.Add(p.Estado.ToString());
+                item.SubItems.Add(p.Ambiente.ToString());
+                item.SubItems.Add(p.ValorPublicacion.ToString());
+                item.SubItems.Add(p.Ubicacion.Localidad.ToString());
+                item.SubItems.Add(p.Ubicacion.Barrio.ToString());
+                item.SubItems.Add(p.Direccion.ToString());
+
+                if (p.EsOtraInmobiliaria)
+                    item.ForeColor = System.Drawing.Color.Blue;
+                else
+                    item.ForeColor = System.Drawing.Color.Black;
+
+                item.Tag = p;
+
+                lvPropiedades.Items.Add(item);
+            }
+
+            lvPropiedades.EndUpdate();
 
 
         }

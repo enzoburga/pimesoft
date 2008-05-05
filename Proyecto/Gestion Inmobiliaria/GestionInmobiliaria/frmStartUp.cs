@@ -59,5 +59,30 @@ namespace GI.UI
         {
             builder.AbrirFormulario(typeof(Propiedades.FrmListadoPropiedadesEnAlquiler).ToString());
         }
+
+        private void propiedadesEnVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ventaToolStripMenuItem_Click(null, null);
+        }
+
+        private void propiedadesEnAlquilerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            alquilerToolStripMenuItem_Click(null, null);
+        }
+
+        private void frmStartUp_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButtonAdmAlq_Click(object sender, EventArgs e)
+        {
+            administraciónDeAlquileresToolStripMenuItem_Click(null, null);
+        }
+
+        private void toolStripButtonClientes_Click(object sender, EventArgs e)
+        {
+            clientesToolStripMenuItem_Click(null, null);
+        }
     }
 }

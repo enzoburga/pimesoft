@@ -1105,7 +1105,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_43D03550D64C4C1B82EF7A0A6F31640D"
             {
-            "SourcePath" = "8:..\\GestionInmobiliaria\\obj\\Debug\\GestionInmobiliaria.exe"
+            "SourcePath" = "8:..\\GestionInmobiliaria\\obj\\Release\\GestionInmobiliaria.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0ECB06516102486B89791E8AFBBCE249"
