@@ -19,8 +19,6 @@ namespace GI.UI.Propiedades
         public frmBuscarPropiedades()
         {
             InitializeComponent();
-            
-            
         }
 
         public frmBuscarPropiedades(Type Tipo)
