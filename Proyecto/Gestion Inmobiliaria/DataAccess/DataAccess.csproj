@@ -41,6 +41,7 @@
     <Compile Include="ClientesData.cs" />
     <Compile Include="ContratosData.cs" />
     <Compile Include="PagosData.cs" />
+    <Compile Include="PedidosData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropiedadesData.cs" />
     <Compile Include="SmtpConfigData.cs" />

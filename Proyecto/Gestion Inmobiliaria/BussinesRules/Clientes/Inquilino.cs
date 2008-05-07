@@ -26,11 +26,11 @@ namespace GI.BR.Clientes
             return base.Actualizar();
         }
 
-        public bool Eliminar()
-        {
-            GI.DA.ClientesData data = new GI.DA.ClientesData();
-            return data.Eliminar(this.IdCliente);
-        }
+        //public bool Eliminar()
+        //{
+        //    GI.DA.ClientesData data = new GI.DA.ClientesData();
+        //    return data.Eliminar(this.IdCliente);
+        //}
         #endregion
 
         #region ICloneable Members

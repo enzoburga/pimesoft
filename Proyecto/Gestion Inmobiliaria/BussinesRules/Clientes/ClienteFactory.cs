@@ -17,6 +17,9 @@ namespace GI.BR.Clientes
             else if (Tipo.ToString() == "GI.BR.Clientes.Inquilino")
                 return new Inquilino();
 
+            else if (Tipo.ToString() == "GI.BR.Clientes.ClientePedido")
+                return new ClientePedido();
+
             return null;
         
         

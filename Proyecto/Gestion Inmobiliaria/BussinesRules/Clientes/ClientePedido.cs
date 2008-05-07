@@ -4,11 +4,11 @@ using System.Text;
 
 namespace GI.BR.Clientes
 {
-    public class Propietario : Cliente
+    public class ClientePedido : Cliente
     {
         public override enumTipoClientes TipoCliente
         {
-            get { return enumTipoClientes.Propietario; }
+            get { return enumTipoClientes.ClientePedido; }
         }
         #region Persistencia
 
@@ -18,7 +18,7 @@ namespace GI.BR.Clientes
             if (!base.Guardar())
                 return false;
             GI.DA.ClientesData data = new GI.DA.ClientesData();
-            return data.GuardarPropietario(this.IdCliente);
+            return data.GuardarClientePedido(this.IdCliente);
         }
 
         public override bool Actualizar()
@@ -27,11 +27,6 @@ namespace GI.BR.Clientes
             return base.Actualizar();
         }
 
-        //public bool Eliminar()
-        //{
-        //    GI.DA.ClientesData data = new GI.DA.ClientesData();
-        //    return data.Eliminar(this.IdCliente);
-        //}
         #endregion
 
         #region ICloneable Members
@@ -42,6 +37,5 @@ namespace GI.BR.Clientes
         }
 
         #endregion
-
     }
 }

@@ -44,6 +44,7 @@
     <Compile Include="AdmAlquileres\ValoresRenta.cs" />
     <Compile Include="Clientes\Cliente.cs" />
     <Compile Include="Clientes\ClienteFactory.cs" />
+    <Compile Include="Clientes\ClientePedido.cs" />
     <Compile Include="Clientes\Clientes.cs" />
     <Compile Include="Clientes\enumTipoClientes.cs" />
     <Compile Include="General\enumTipoDocumento.cs" />
@@ -52,6 +53,8 @@
     <Compile Include="Monedas\Monedas.cs" />
     <Compile Include="Monedas\MonedasFlyweigthFactory.cs" />
     <Compile Include="Monedas\Valor.cs" />
+    <Compile Include="Pedidos\Pedido.cs" />
+    <Compile Include="Pedidos\Pedidos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Propiedades\Alquiler.cs" />
     <Compile Include="Propiedades\Ambientes.cs" />
