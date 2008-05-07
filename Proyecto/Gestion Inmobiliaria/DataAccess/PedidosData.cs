@@ -38,7 +38,7 @@ namespace GI.DA
             int IdMonedaImporteInicial)
         {
 
-            //SETEAR VARIABLES NULEABLES
+            //SETEAR VARIABLES NULLEABLES
 
             return AccesoDatos.ActualizarRegistro(
                 "Pedido_Actualizar",
@@ -53,7 +53,7 @@ namespace GI.DA
                     EsAptoProfesional,
                     EsDepartamento,
                     IdEstadoPropiedad,
-                    EstadoPropiedad,
+                    EstadoPropiedad.ToString(),
                     MetrosConstruiblesFinal,
                     MetrosConstruiblesInicial,
                     MetrosCubiertosFinal, MetrosCubiertosInicial,
@@ -127,7 +127,7 @@ namespace GI.DA
             int IdMonedaImporteInicial)
         {
 
-
+            //SETEAR VARIABLES NULLEABLES
             return AccesoDatos.InsertarRegistro(
                 "Pedido_Guardar",
                 new object[] {   
@@ -140,7 +140,7 @@ namespace GI.DA
                     EsAptoProfesional,
                     EsDepartamento,
                     IdEstadoPropiedad,
-                    EstadoPropiedad,
+                    EstadoPropiedad.ToString(),
                     MetrosConstruiblesFinal,
                     MetrosConstruiblesInicial,
                     MetrosCubiertosFinal, MetrosCubiertosInicial,
