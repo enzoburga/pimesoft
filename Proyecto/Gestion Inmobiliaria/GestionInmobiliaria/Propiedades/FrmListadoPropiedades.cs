@@ -13,10 +13,12 @@ namespace GI.UI.Propiedades
 
         private Type tipo;
         GI.BR.Propiedades.Propiedades propiedades;
+        Framework.ListView.ListViewColumnSorter sorter = new GI.Framework.ListView.ListViewColumnSorter();
 
         public FrmListadoPropiedades()
         {
             InitializeComponent();
+            lvPropiedades.ListViewItemSorter = sorter;
             
         }
 
@@ -295,6 +297,33 @@ namespace GI.UI.Propiedades
         private void enviarACorreoElectrónicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             toolStripButtonEnviarMail_Click(null, null);
+        }
+
+        private void lvPropiedades_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.STRING);
+
+            if (e.Column == sorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (sorter.Order == SortOrder.Ascending)
+                {
+                    sorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    sorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                sorter.SortColumn = e.Column;
+                sorter.Order = SortOrder.Ascending;
+            }
+
+            // Perform the sort with these new sort options.
+            this.lvPropiedades.Sort();
         }
 
 
