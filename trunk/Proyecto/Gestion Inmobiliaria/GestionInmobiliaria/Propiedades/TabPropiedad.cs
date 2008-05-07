@@ -61,6 +61,7 @@ namespace GI.UI.Propiedades
             cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.AEstrenar);
             cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.AReciclar);
             cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.Bueno);
+            cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.MuyBueno);
             cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.Malo);
             cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.NoEspecifica);
             cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.Reciclado);

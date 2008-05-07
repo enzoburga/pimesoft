@@ -7,32 +7,28 @@ namespace GI.Managers.Propiedades
 {
     public delegate void EnvioCorreoFinalizado(GI.BR.Propiedades.Propiedad p, string Mensaje, bool Error);
 
-    public enum FormatoEnvio
-    {
-        Pdf, Word
-    
-    }
+
 
     public class MngEnviarPropiedadesCorreo
     {
 
-        public MngEnviarPropiedadesCorreo(GI.BR.Propiedades.Propiedad Propiedad, System.IO.Stream StreamRpt, FormatoEnvio Formato ,string EmailTo, string Message)
+        public MngEnviarPropiedadesCorreo(GI.BR.Propiedades.Propiedad Propiedad, string Body, string EmailTo, string Message)
         {
             p = Propiedad;
-            streamRpt = StreamRpt;
+           
             emailTo = EmailTo;
             message = Message;
-            formato = Formato;
+            
+            body = Body;
         }
 
         public event EnvioCorreoFinalizado onEnvioFinalizado;
 
+        private string body;
         private GI.BR.Mail.SmtpConfig smtp = GI.BR.Mail.SmtpConfig.GetSmtp();
         private GI.BR.Propiedades.Propiedad p;
-        private System.IO.Stream streamRpt;
         private string emailTo;
         private string message;
-        private FormatoEnvio formato;
 
         private SmtpClient smtpClient;
 
@@ -51,18 +47,31 @@ namespace GI.Managers.Propiedades
 
 
                 MailMessage mail = new MailMessage(smtp.Email,emailTo, "Ficha de Propiedad " + p.Codigo,message);
+                mail.IsBodyHtml = true;
+
+                mail.Body = body;
+              
 
 
-                string name = p.Codigo;
-                name += formato == FormatoEnvio.Pdf ? ".pdf" : ".doc";
-                Attachment attach = new Attachment(streamRpt, name);
+
+                System.Drawing.Bitmap foto = p.GaleriaFotos.GetFotoFachada.Imagen;
+                System.IO.MemoryStream stream = new System.IO.MemoryStream();
+                foto.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                System.IO.StreamWriter streamWriter = new System.IO.StreamWriter(stream);
+                streamWriter.Flush();
+                // this is quite important
+                stream.Position = 0;
+
+                Attachment attach = new Attachment(stream, "image/jpeg");
+                attach.ContentDisposition.FileName = p.Codigo + ".jpg";
                 attach.ContentType = new System.Net.Mime.ContentType();
-                attach.ContentType.Name = p.Codigo;
-            
-
+                attach.ContentType.Name = p.Codigo + ".jpg";
                 attach.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
-
                 mail.Attachments.Add(attach);
+
+
+
+
 
                 smtpClient = new SmtpClient(smtp.Host, smtp.Puerto);
                 if (smtp.AutenticacionSmtp)

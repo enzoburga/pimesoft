@@ -115,7 +115,7 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lvPedidos);
             this.Name = "TabPedidos";
-            this.Size = new System.Drawing.Size(494, 544);
+            this.Size = new System.Drawing.Size(501, 544);
             this.ResumeLayout(false);
             this.PerformLayout();
 

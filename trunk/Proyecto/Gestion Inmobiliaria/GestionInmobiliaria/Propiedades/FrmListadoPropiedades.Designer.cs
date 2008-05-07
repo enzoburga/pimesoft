@@ -118,7 +118,7 @@ namespace GI.UI.Propiedades
             this.imprimirToolStripMenuItem,
             this.enviarACorreoElectrónicoToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(215, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(215, 92);
             // 
             // toolStripMenuItem1
             // 
@@ -173,6 +173,7 @@ namespace GI.UI.Propiedades
             this.lvPropiedades.UseCompatibleStateImageBehavior = false;
             this.lvPropiedades.View = System.Windows.Forms.View.Details;
             this.lvPropiedades.DoubleClick += new System.EventHandler(this.lvPropiedades_DoubleClick_1);
+            this.lvPropiedades.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvPropiedades_ColumnClick);
             // 
             // columnHeader1
             // 

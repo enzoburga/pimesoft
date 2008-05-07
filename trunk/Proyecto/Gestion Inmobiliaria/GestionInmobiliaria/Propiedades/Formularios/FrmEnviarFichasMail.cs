@@ -72,14 +72,16 @@ namespace GI.UI.Propiedades.Formularios
             toolStripStatusLabelEstado.Text = "Enviando correo...";
 
             GI.Reportes.Clases.Propiedades.ReporteFichaPropiedad ficha = new GI.Reportes.Clases.Propiedades.ReporteFichaPropiedad(propiedad);
-            
-            CrystalDecisions.Shared.ExportFormatType formato = radioButtonPdf.Checked ? CrystalDecisions.Shared.ExportFormatType.PortableDocFormat: CrystalDecisions.Shared.ExportFormatType.WordForWindows;
-            stream = ficha.GetStreamReporte(formato);
+
+            //CrystalDecisions.Shared.ExportFormatType formato = radioButtonPdf.Checked ? CrystalDecisions.Shared.ExportFormatType.PortableDocFormat: CrystalDecisions.Shared.ExportFormatType.WordForWindows;
+            //stream = ficha.GetStreamReporte(formato);
+
+            string body = ficha.GetReporteHtml();
+
  
             mngPropMail = new GI.Managers.Propiedades.MngEnviarPropiedadesCorreo(
             propiedad,
-            stream,
-            radioButtonPdf.Checked ? GI.Managers.Propiedades.FormatoEnvio.Pdf : GI.Managers.Propiedades.FormatoEnvio.Word,
+            body,
             textBoxEmailTo.Text,
             textBoxMessage.Text);
 
