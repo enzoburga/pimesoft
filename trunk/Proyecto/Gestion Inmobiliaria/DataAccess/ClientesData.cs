@@ -107,10 +107,6 @@ namespace GI.DA
                    "@IdLocalidad" });
         }
 
-        public bool Eliminar(int IdCliente)
-        {
-            throw new Exception("The method or operation is not implemented.");
-        }
 
         public System.Data.IDataReader RecuperarPropietarios(string nombre)
         {
@@ -170,14 +166,12 @@ namespace GI.DA
                 new string[] { });
         }
 
-        public System.Data.IDataReader RecuperarInquilinosPorAlquiler(int IdAdmAlquiler)
+        public bool GuardarClientePedido(int IdClientePedido)
         {
-            //return AccesoDatos.RecuperarDatos(
-            //    "Inquilinos_RecuperarPorAlquiler",
-            //    new object[] { IdAdmAlquiler },
-            //    new string[] { "@IdAdmAlquiler"});
-
-            throw new Exception("The method or operation is not implemented.");
+            return 0 < AccesoDatos.InsertarRegistro(
+                "ClientePedido_Guardar",
+                new object[] { IdClientePedido },
+                new string[] { "@IdClientePedido" });
         }
     }
 }
