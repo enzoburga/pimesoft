@@ -5,7 +5,7 @@ using GI.BR.Propiedades;
 
 namespace GI.BR.Pedidos
 {
-    public class Pedido
+    public class Pedido: ICloneable
     {
         #region Miembros
 
@@ -153,5 +153,14 @@ namespace GI.BR.Pedidos
 
         #endregion
 
+
+        #region ICloneable Members
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
+        #endregion
     }
 }
