@@ -170,6 +170,48 @@
     <Compile Include="Generales\FrmSmtpConfig.Designer.cs">
       <DependentUpon>FrmSmtpConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pedidos\frmBuscarPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\frmBuscarPedidos.Designer.cs">
+      <DependentUpon>frmBuscarPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\frmFichaPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\frmFichaPedidos.Designer.cs">
+      <DependentUpon>frmFichaPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\frmListadoPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\frmListadoPedidos.Designer.cs">
+      <DependentUpon>frmListadoPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\TabContenidoPedidos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pedidos\TabContenidoPedidos.Designer.cs">
+      <DependentUpon>TabContenidoPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\TabDatosPrincipales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pedidos\TabDatosPrincipales.Designer.cs">
+      <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\TabPropiedadesOfrecidas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pedidos\TabPropiedadesOfrecidas.Designer.cs">
+      <DependentUpon>TabPropiedadesOfrecidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\TabPropiedadesSinOfrecer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pedidos\TabPropiedadesSinOfrecer.Designer.cs">
+      <DependentUpon>TabPropiedadesSinOfrecer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AdminAlquileres\frmBuscarAdminAlquileres.resx">
@@ -256,6 +298,22 @@
     <EmbeddedResource Include="Generales\FrmSmtpConfig.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FrmSmtpConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\frmBuscarPedidos.resx">
+      <DependentUpon>frmBuscarPedidos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\frmFichaPedidos.resx">
+      <DependentUpon>frmFichaPedidos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\frmListadoPedidos.resx">
+      <DependentUpon>frmListadoPedidos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\TabDatosPrincipales.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -348,7 +406,9 @@
     <None Include="Properties\DataSources\GI.BR.AdmAlquileres.AdmAlquiler.datasource" />
     <None Include="Properties\DataSources\GI.BR.AdmAlquileres.Contrato.datasource" />
     <None Include="Properties\DataSources\GI.BR.AdmAlquileres.ValorRenta.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Clientes.Cliente.datasource" />
     <None Include="Properties\DataSources\GI.BR.Clientes.Inquilino.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Pedidos.Pedido.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion1.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.MedidaAmbiente.datasource" />
@@ -496,7 +556,6 @@
   <ItemGroup>
     <Folder Include="Carteles\" />
     <Folder Include="Generales\Eventos\" />
-    <Folder Include="Pedidos\" />
     <Folder Include="Resources\" />
     <Folder Include="Tasaciones\" />
   </ItemGroup>
