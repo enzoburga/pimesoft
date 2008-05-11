@@ -50,7 +50,7 @@ namespace GI.UI.Generales
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(1, 1);
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(409, 84);
             this.groupBox1.TabIndex = 7;
@@ -139,7 +139,7 @@ namespace GI.UI.Generales
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "CtrlUbicacion";
-            this.Size = new System.Drawing.Size(415, 89);
+            this.Size = new System.Drawing.Size(409, 84);
             this.Load += new System.EventHandler(this.CtrlUbicacion_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
