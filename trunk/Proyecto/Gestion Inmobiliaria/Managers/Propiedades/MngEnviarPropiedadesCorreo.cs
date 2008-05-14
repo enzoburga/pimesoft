@@ -45,13 +45,13 @@ namespace GI.Managers.Propiedades
             try
             {
 
+                GI.BR.Inmobiliaria inm = GI.BR.Inmobiliaria.GetInmobiliaria();
 
-                MailMessage mail = new MailMessage(smtp.Email,emailTo, "Ficha de Propiedad " + p.Codigo,message);
+                MailMessage mail = new MailMessage(smtp.Email, emailTo, "Propiedad ofrecida por " + inm.Nombre, body);
                 mail.IsBodyHtml = true;
 
-                mail.Body = body;
-              
 
+                
 
 
                 System.Drawing.Bitmap foto = p.GaleriaFotos.GetFotoFachada.Imagen;
