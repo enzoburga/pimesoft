@@ -18,6 +18,24 @@ namespace GI.Framework
             
         }
 
+        
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            
+            if (this.Enabled)
+            {
+                SolidBrush drawBrush = new SolidBrush(Color.Red); //Use the ForeColor property
+                // Draw string to screen.
+                e.Graphics.DrawString(Text, Font, drawBrush, 0f, 0f); //Use the Font property
+            }
+            else
+            {
+                SolidBrush drawBrush = new SolidBrush(Color.Blue); //Use the ForeColor property
+                // Draw string to screen.
+                e.Graphics.DrawString(Text, Font, drawBrush, 0f, 0f); //Use the Font property
+            }
+        }
+
         void SGMComboBox_DropDown(object sender, EventArgs e)
         {
             ComboBox senderComboBox = (ComboBox)sender;

@@ -72,7 +72,15 @@ namespace GI.Framework.Seguridad
 
                 if (AsignarSoloLectura(c))
                 {
-                    c.Enabled = !SoloLectura;
+                    if (c is System.Windows.Forms.TextBox)
+                    {
+                        ((System.Windows.Forms.TextBox)c).ReadOnly = SoloLectura;
+                    }
+
+                    else
+                    {
+                        c.Enabled = !SoloLectura;
+                    }
                 }
 
                 if (c.Controls.Count > 0)

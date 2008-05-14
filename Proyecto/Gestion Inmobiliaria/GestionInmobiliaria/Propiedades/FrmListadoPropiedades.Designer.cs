@@ -49,6 +49,7 @@ namespace GI.UI.Propiedades
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
+            this.Moneda = new System.Windows.Forms.ColumnHeader();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -156,6 +157,7 @@ namespace GI.UI.Propiedades
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
+            this.Moneda,
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7,
@@ -199,22 +201,30 @@ namespace GI.UI.Propiedades
             // 
             this.columnHeader5.Text = "Valor";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader5.Width = 120;
+            this.columnHeader5.Width = 96;
             // 
             // columnHeader6
             // 
+            this.columnHeader6.DisplayIndex = 6;
             this.columnHeader6.Text = "Partido";
             this.columnHeader6.Width = 170;
             // 
             // columnHeader7
             // 
+            this.columnHeader7.DisplayIndex = 7;
             this.columnHeader7.Text = "Barrio";
             this.columnHeader7.Width = 228;
             // 
             // columnHeader8
             // 
+            this.columnHeader8.DisplayIndex = 8;
             this.columnHeader8.Text = "Dirección";
             this.columnHeader8.Width = 268;
+            // 
+            // Moneda
+            // 
+            this.Moneda.Text = "Moneda";
+            this.Moneda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FrmListadoPropiedades
             // 
@@ -257,6 +267,7 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ToolStripButton toolStripButtonBuscar;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader Moneda;
 
     }
 }
