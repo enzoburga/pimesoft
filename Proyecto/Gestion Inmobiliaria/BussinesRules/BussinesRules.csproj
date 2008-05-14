@@ -48,6 +48,7 @@
     <Compile Include="Clientes\Clientes.cs" />
     <Compile Include="Clientes\enumTipoClientes.cs" />
     <Compile Include="General\enumTipoDocumento.cs" />
+    <Compile Include="Inmobiliaria.cs" />
     <Compile Include="Mail\SmtpConfig.cs" />
     <Compile Include="Monedas\Moneda.cs" />
     <Compile Include="Monedas\Monedas.cs" />
