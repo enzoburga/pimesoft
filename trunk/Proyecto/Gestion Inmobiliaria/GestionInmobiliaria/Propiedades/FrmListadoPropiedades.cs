@@ -44,6 +44,32 @@ namespace GI.UI.Propiedades
         }
 
 
+        private ListViewItem generarLVItem(GI.BR.Propiedades.Propiedad p)
+        {
+            ListViewItem item = new ListViewItem();
+
+            item.Text = p.Codigo;
+            item.SubItems.Add(p.TipoPropiedad.ToString());
+            item.SubItems.Add(p.Estado.ToString());
+            item.SubItems.Add(p.Ambiente.ToString());
+            item.SubItems.Add(p.ValorPublicacion.Moneda.ToString());
+            item.SubItems.Add(p.ValorPublicacion.Importe.ToString());
+            item.SubItems.Add(p.Ubicacion.Localidad.ToString());
+            item.SubItems.Add(p.Ubicacion.Barrio.ToString());
+            item.SubItems.Add(p.Direccion.ToString());
+
+            if (p.EsOtraInmobiliaria)
+                item.ForeColor = System.Drawing.Color.Blue;
+            else
+                item.ForeColor = System.Drawing.Color.Black;
+
+            item.Tag = p;
+
+
+            return item;
+        }
+
+
         public void Inicializar()
         {
             GI.BR.Propiedades.EstadosPropiedad estados = new GI.BR.Propiedades.EstadosPropiedad();
@@ -85,25 +111,9 @@ namespace GI.UI.Propiedades
 
             foreach (GI.BR.Propiedades.Propiedad p in propiedades)
             {
-                item = new ListViewItem();
 
-                item.Text = p.Codigo;
-                item.SubItems.Add(p.TipoPropiedad.ToString());
-                item.SubItems.Add(p.Estado.ToString());
-                item.SubItems.Add(p.Ambiente.ToString());
-                item.SubItems.Add(p.ValorPublicacion.ToString());
-                item.SubItems.Add(p.Ubicacion.Localidad.ToString());
-                item.SubItems.Add(p.Ubicacion.Barrio.ToString());
-                item.SubItems.Add(p.Direccion.ToString());
 
-                if (p.EsOtraInmobiliaria)
-                    item.ForeColor = System.Drawing.Color.Blue;
-                else
-                    item.ForeColor = System.Drawing.Color.Black;
-
-                item.Tag = p;
-
-                lvPropiedades.Items.Add(item);
+                lvPropiedades.Items.Add(generarLVItem(p));
             }
 
             lvPropiedades.EndUpdate();
@@ -147,22 +157,12 @@ namespace GI.UI.Propiedades
             frmFicha.SoloLectura = false;
             if (frmFicha.ShowDialog() == DialogResult.OK)
             {
-                ListViewItem item = new ListViewItem();
+
                 GI.BR.Propiedades.Propiedad p = (GI.BR.Propiedades.Propiedad)lvPropiedades.SelectedItems[0].Tag;
-                item.Text = p.Codigo;
-                item.SubItems.Add(p.TipoPropiedad.ToString());
-                item.SubItems.Add(p.Estado.ToString());
-                item.SubItems.Add(p.Ambiente.ToString());
-                item.SubItems.Add(p.ValorPublicacion.ToString());
-                item.SubItems.Add(p.Ubicacion.Localidad.ToString());
-                item.SubItems.Add(p.Ubicacion.Barrio.ToString());
-                item.SubItems.Add(p.Direccion.ToString());
-                if (p.EsOtraInmobiliaria)
-                    item.ForeColor = System.Drawing.Color.Blue;
-                else
-                    item.ForeColor = System.Drawing.Color.Black;
-                   
-                item.Tag = p;
+
+                ListViewItem item = generarLVItem(p);
+                
+
 
                 int index = lvPropiedades.SelectedIndices[0];
 
@@ -184,24 +184,9 @@ namespace GI.UI.Propiedades
 
                 foreach (GI.BR.Propiedades.Propiedad p in propiedades)
                 {
-                    item = new ListViewItem();
+                    item = generarLVItem(p);
 
-                    item.Text = p.Codigo;
-                    item.SubItems.Add(p.TipoPropiedad.ToString());
-                    item.SubItems.Add(p.Estado.ToString());
-                    item.SubItems.Add(p.Ambiente.ToString());
-                    item.SubItems.Add(p.ValorPublicacion.ToString());
-                    item.SubItems.Add(p.Ubicacion.Localidad.ToString());
-                    item.SubItems.Add(p.Ubicacion.Barrio.ToString());
-                    item.SubItems.Add(p.Direccion.ToString());
 
-                    if (p.EsOtraInmobiliaria)
-                        item.ForeColor = System.Drawing.Color.Blue;
-                    else
-                        item.ForeColor = System.Drawing.Color.Black;
-                    
-                    item.Tag = p;
-                    
                     lvPropiedades.Items.Add(item);
                 }
 
@@ -225,23 +210,8 @@ namespace GI.UI.Propiedades
             {
                 ListViewItem item = new ListViewItem();
 
-                item.Text = p.Codigo;
-                item.SubItems.Add(p.TipoPropiedad.ToString());
-                item.SubItems.Add(p.Estado.ToString());
-                item.SubItems.Add(p.Ambiente.ToString());
-                item.SubItems.Add(p.ValorPublicacion.ToString());
-                item.SubItems.Add(p.Ubicacion.Localidad.ToString());
-                item.SubItems.Add(p.Ubicacion.Barrio.ToString());
-                item.SubItems.Add(p.Direccion.ToString());
+                item = generarLVItem(p);
 
-                if (p.EsOtraInmobiliaria)
-                    item.ForeColor = System.Drawing.Color.Blue;
-                else
-                    item.ForeColor = System.Drawing.Color.Black;
-                   
-
-
-                item.Tag = p;
 
                 lvPropiedades.Items.Add(item);
             }
@@ -266,8 +236,6 @@ namespace GI.UI.Propiedades
 
         }
 
-
-        #endregion
 
         private void toolStripButtonEnviarMail_Click(object sender, EventArgs e)
         {
@@ -301,7 +269,10 @@ namespace GI.UI.Propiedades
 
         private void lvPropiedades_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.STRING);
+            if (e.Column == 5)
+                sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.INT);
+            else
+                sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.STRING);
 
             if (e.Column == sorter.SortColumn)
             {
@@ -326,6 +297,11 @@ namespace GI.UI.Propiedades
             this.lvPropiedades.Sort();
         }
 
+
+
+
+
+        #endregion
 
 
 

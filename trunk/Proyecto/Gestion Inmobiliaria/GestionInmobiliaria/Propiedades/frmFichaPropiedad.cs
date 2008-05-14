@@ -34,7 +34,7 @@ namespace GI.UI.Propiedades
                 propiedadClone = (GI.BR.Propiedades.Propiedad)propiedad.Clone();
                 this.Text += " " + propiedad.Codigo.ToString();
 
-                foreach (System.Windows.Forms.TabPage Page in this.tabControl.TabPages)
+                foreach (System.Windows.Forms.TabPage Page in this.tabControl1.TabPages)
                 {
                     if (Page.Controls.Count != 1) continue;
                     if (Page.Controls[0] is TabContenidoPropiedad)
@@ -68,64 +68,66 @@ namespace GI.UI.Propiedades
             System.Windows.Forms.TabPage tabPage;
             System.Windows.Forms.Control control;
 
+            tabControl1.TabPages.Clear();
+
             tabPage = new TabPage("Propiedad");
             control = new TabPropiedad();
             control.Dock = DockStyle.Fill;
             tabPage.Controls.Add(control);
-            tabControl.TabPages.Add(tabPage);
+            tabControl1.TabPages.Add(tabPage);
 
 
             tabPage = new TabPage("Detalles");
             control = new TabDetalles();
             control.Dock = DockStyle.Fill;
             tabPage.Controls.Add(control);
-            tabControl.TabPages.Add(tabPage);
+            tabControl1.TabPages.Add(tabPage);
 
 
             tabPage = new TabPage("Notas");
             control = new TabNotas();
             control.Dock = DockStyle.Fill;
             tabPage.Controls.Add(control);
-            tabControl.TabPages.Add(tabPage);
+            tabControl1.TabPages.Add(tabPage);
 
 
             tabPage = new TabPage("Visitas");
             control = new TabVisitas();
             control.Dock = DockStyle.Fill;
             tabPage.Controls.Add(control);
-            tabControl.TabPages.Add(tabPage);
+            tabControl1.TabPages.Add(tabPage);
 
             tabPage = new TabPage("Llamados");
             control = new TabVisitas();
             control.Dock = DockStyle.Fill;
             tabPage.Controls.Add(control);
-            tabControl.TabPages.Add(tabPage);
+            tabControl1.TabPages.Add(tabPage);
 
             tabPage = new TabPage("Publicaciones");
             control = new TabPublicaciones();
             control.Dock = DockStyle.Fill;
             tabPage.Controls.Add(control);
-            tabControl.TabPages.Add(tabPage);
+            tabControl1.TabPages.Add(tabPage);
 
 
             tabPage = new TabPage("Pedidos");
             control = new TabPedidos();
             control.Dock = DockStyle.Fill;
             tabPage.Controls.Add(control);
-            tabControl.TabPages.Add(tabPage);
+            tabControl1.TabPages.Add(tabPage);
 
 
             tabPage = new TabPage("Tasaciones");
             control = new TabTasaciones();
             control.Dock = DockStyle.Fill;
             tabPage.Controls.Add(control);
-            tabControl.TabPages.Add(tabPage);
+            tabControl1.TabPages.Add(tabPage);
 
             tabPage = new TabPage("Galería");
             control = new TabGaleriaFotos();
             control.Dock = DockStyle.Fill;
             tabPage.Controls.Add(control);
-            tabControl.TabPages.Add(tabPage);
+            tabControl1.TabPages.Add(tabPage);
 
 
            
@@ -149,7 +151,7 @@ namespace GI.UI.Propiedades
                 bool guardado = false;
                 if (!SoloLectura)
                 {
-                    foreach (System.Windows.Forms.TabPage Page in this.tabControl.TabPages)
+                    foreach (System.Windows.Forms.TabPage Page in this.tabControl1.TabPages)
                     {
                         if (Page.Controls[0] is TabContenidoPropiedad)
                             propiedad = ((TabContenidoPropiedad)Page.Controls[0]).GetPropiedad();
@@ -163,7 +165,7 @@ namespace GI.UI.Propiedades
                     else
                     {
                         guardado = Propiedad.Actualizar();
-                        foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in ((TabPropiedad)tabControl.TabPages[0].Controls[0]).AmbientesAEliminar)
+                        foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in ((TabPropiedad)tabControl1.TabPages[0].Controls[0]).AmbientesAEliminar)
                             ambiente.Eliminar();
                     }
 
@@ -197,7 +199,7 @@ namespace GI.UI.Propiedades
             }
             try
             {
-                foreach (System.Windows.Forms.TabPage Page in this.tabControl.TabPages)
+                foreach (System.Windows.Forms.TabPage Page in this.tabControl1.TabPages)
                 {
                     if (Page.Controls[0] is TabContenidoPropiedad)
                         propiedad = ((TabContenidoPropiedad)Page.Controls[0]).GetPropiedad();
@@ -211,7 +213,7 @@ namespace GI.UI.Propiedades
                 else
                 {
                     guardado = Propiedad.Actualizar();
-                    foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in ((TabPropiedad)tabControl.TabPages[0].Controls[0]).AmbientesAEliminar)
+                    foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in ((TabPropiedad)tabControl1.TabPages[0].Controls[0]).AmbientesAEliminar)
                         ambiente.Eliminar();
                 }
 
@@ -279,6 +281,21 @@ namespace GI.UI.Propiedades
             propiedad = (GI.BR.Propiedades.Propiedad)propiedadClone.Clone();
             DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        private void toolStripButtonImprimir_Click(object sender, EventArgs e)
+        {
+            imprimirToolStripMenuItem_Click(null, null);
+        }
+
+        private void toolStripButtonenviarxmail_Click(object sender, EventArgs e)
+        {
+            enviarACorreoElectrónicoToolStripMenuItem_Click(null, null);
+        }
+
+        private void toolStripButtonPublicar_Click(object sender, EventArgs e)
+        {
+            publicarToolStripMenuItem_Click(null, null);
         }
     }
 }
