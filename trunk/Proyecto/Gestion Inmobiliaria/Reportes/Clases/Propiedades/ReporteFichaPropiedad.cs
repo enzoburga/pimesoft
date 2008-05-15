@@ -35,7 +35,7 @@ namespace GI.Reportes.Clases.Propiedades
             row.Cocheras = propiedad.CantidadCocheras.ToString();
             row.DeptosPorPiso = propiedad.DepartamentosPorPiso.ToString();
             row.Detalles = propiedad.Observaciones;
-            row.Direccion = propiedad.Direccion.ToString();
+            row.Direccion = propiedad.Direccion.ToStringReporte();
             row.Dormitorios = propiedad.CantidadDormitorios.ToString();
             row.EntreCalles = propiedad.Direccion.CalleEntre1 != "" ? propiedad.Direccion.CalleEntre1 + " y " + propiedad.Direccion.CalleEntre2 : "";
             row.Estado = propiedad.EnumEstado.ToString();

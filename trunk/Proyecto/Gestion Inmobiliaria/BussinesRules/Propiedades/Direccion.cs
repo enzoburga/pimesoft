@@ -74,6 +74,26 @@ namespace GI.BR.Propiedades
             set { codigoPostal = value; }
         }
 
+
+        public string ToStringReporte()
+        {
+            RedondeoNumeroDireccion redondeo = new RedondeoNumeroDireccion();
+
+            string sCalle;
+            string sNumero;
+
+            sCalle = calle;
+            sNumero = redondeo.AproximarNumeroDireccion(Numero).ToString();
+
+            if (sCalle == "")
+                sCalle = "Sin Calle";
+            if (sNumero == "0")
+                sNumero = "Sin Número";
+
+            return sCalle + " - " + sNumero;
+
+        }
+
         public override string ToString()
         {
             string sCalle;
