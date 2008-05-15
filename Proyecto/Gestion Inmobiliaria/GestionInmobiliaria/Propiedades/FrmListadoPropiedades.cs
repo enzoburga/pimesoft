@@ -131,12 +131,12 @@ namespace GI.UI.Propiedades
         {
             if (lvPropiedades.SelectedItems.Count == 1)
             {
-                //frmFichaPropiedad frmFicha = new frmFichaPropiedad();
-                //frmFicha.Propiedad = (GI.BR.Propiedades.Propiedad)lvPropiedades.SelectedItems[0].Tag;
-                //frmFicha.SoloLectura = true;
-                //frmFicha.ShowDialog();
+                frmFichaPropiedad frmFicha = new frmFichaPropiedad();
+                frmFicha.Propiedad = (GI.BR.Propiedades.Propiedad)lvPropiedades.SelectedItems[0].Tag;
+                frmFicha.SoloLectura = true;
+                frmFicha.ShowDialog();
 
-                MessageBox.Show(((GI.BR.Propiedades.Propiedad)lvPropiedades.SelectedItems[0].Tag).Direccion.ToStringReporte());
+                
             }
         }
 

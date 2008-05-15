@@ -78,8 +78,10 @@
     <Compile Include="Propiedades\Notas.cs" />
     <Compile Include="Propiedades\Propiedad.cs" />
     <Compile Include="Propiedades\RedondeoNumeroDireccion.cs" />
+    <Compile Include="Propiedades\TipoAmbiente.cs" />
     <Compile Include="Propiedades\TipoDePiso.cs" />
     <Compile Include="Propiedades\TipoPropiedad.cs" />
+    <Compile Include="Propiedades\TiposAmbiente.cs" />
     <Compile Include="Propiedades\TiposDePiso.cs" />
     <Compile Include="Propiedades\TiposPropiedad.cs" />
     <Compile Include="Propiedades\TiposPropiedadFlyweightFactory.cs" />
