@@ -19,6 +19,13 @@ namespace GI.BR.Propiedades
         private decimal largo;
         private string nombreAmbiente;
         private TipoDePiso tipoDePiso;
+        private TipoAmbiente tipoAmbiente;
+
+        public TipoAmbiente TipoAmbiente
+        {
+            get { return tipoAmbiente; }
+            set { tipoAmbiente = value; }
+        }
 
         public decimal Ancho
         {
