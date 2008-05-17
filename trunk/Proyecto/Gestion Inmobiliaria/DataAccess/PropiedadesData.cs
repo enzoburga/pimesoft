@@ -307,6 +307,49 @@ namespace GI.DA
         
         }
 
+        public int CrearVisita(	long TimpoAlarma,
+	            DateTime FechaHora,
+	            bool Realizada,
+	            string Visita ,
+	            string Telefono ,
+	            string Comentario ,
+	            bool ConAlarma ,
+	            int IdPropiedad )
+        {
+            return AccesoDatos.InsertarRegistro(
+                "Propiedades_GuardarVisita",
+                 new object[] { FechaHora, Realizada, Visita, Telefono, Comentario, ConAlarma, IdPropiedad },
+                new string[] { "@FechaHora", "@Realizada", "@Visita", "@Telefono", "@Comentario", "@ConAlarma", "@IdPropiedad" });
+
+        
+        }
+
+        public bool ActualizarVisita(long TimpoAlarma,
+                DateTime FechaHora,
+                bool Realizada,
+                string Visita,
+                string Telefono,
+                string Comentario,
+                bool ConAlarma,
+                int IdVisita)
+        {
+            return AccesoDatos.ActualizarRegistro(
+         "Propiedades_ActualizarVisita",
+          new object[] { FechaHora, Realizada, Visita, Telefono, Comentario, ConAlarma, IdVisita },
+         new string[] { "@FechaHora", "@Realizada", "@Visita", "@Telefono", "@Comentario", "@ConAlarma", "@IdVisita" });
+
+        
+        
+        }
+
+        public bool EliminarVisita(int IdVisita)
+        { 
+            return AccesoDatos.EliminarRegistro(
+                "Propiedades_EliminarVisita",
+                new object[] { IdVisita },
+                new string[] { "@IdVisita" });
+        }
+
 
         #endregion
     }
