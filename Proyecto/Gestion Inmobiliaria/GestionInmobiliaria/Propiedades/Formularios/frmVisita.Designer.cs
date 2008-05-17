@@ -150,7 +150,7 @@ namespace GI.UI.Propiedades.Formularios
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox3.Size = new System.Drawing.Size(224, 69);
+            this.textBox3.Size = new System.Drawing.Size(224, 105);
             this.textBox3.TabIndex = 12;
             this.textBox3.Text = "un detalle de la visita";
             // 

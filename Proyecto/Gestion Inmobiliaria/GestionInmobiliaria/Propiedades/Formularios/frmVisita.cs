@@ -19,14 +19,11 @@ namespace GI.UI.Propiedades.Formularios
 
         private void inicializar()
         {
-            cbAviso.Items.Add("15 Minutos");
-            cbAviso.Items.Add("30 Minutos");
-            cbAviso.Items.Add("45 Minutos");
-            cbAviso.Items.Add("1 Hora");
-            cbAviso.Items.Add("2 Horas");
-            cbAviso.Items.Add("5 Horas");
-            cbAviso.Items.Add("1 Día");
-            cbAviso.Items.Add("2 Días");
+            GI.BR.Propiedades.TiemposAlarmaFactory tiempos = new GI.BR.Propiedades.TiemposAlarmaFactory();
+            foreach (GI.BR.Propiedades.TiempoAlarma t in tiempos.RecuperarTodos())
+            {
+                cbAviso.Items.Add(t);
+            }
 
             cbAviso.SelectedIndex = 0;
         }

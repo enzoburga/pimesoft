@@ -294,5 +294,20 @@ namespace GI.DA
 
         #endregion
 
+
+        #region Visitas
+
+
+        public IDataReader RecuperarVisitas(int IdPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                "Propiedades_RecuperarVisitas",
+                new object[] { IdPropiedad },
+                new string[] { "@IdPropiedad" });
+        
+        }
+
+
+        #endregion
     }
 }

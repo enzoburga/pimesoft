@@ -78,6 +78,7 @@
     <Compile Include="Propiedades\Notas.cs" />
     <Compile Include="Propiedades\Propiedad.cs" />
     <Compile Include="Propiedades\RedondeoNumeroDireccion.cs" />
+    <Compile Include="Propiedades\TimpoAlarma.cs" />
     <Compile Include="Propiedades\TipoAmbiente.cs" />
     <Compile Include="Propiedades\TipoDePiso.cs" />
     <Compile Include="Propiedades\TipoPropiedad.cs" />
@@ -96,6 +97,8 @@
     <Compile Include="Propiedades\Ubicaciones\UbicacionFlyweightFactory.cs" />
     <Compile Include="Propiedades\Venta.cs" />
     <Compile Include="Clientes\Propietario.cs" />
+    <Compile Include="Propiedades\VisitaPropiedad.cs" />
+    <Compile Include="Propiedades\VisitasPropiedad.cs" />
     <Compile Include="Seguridad\Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
