@@ -10,7 +10,7 @@ namespace GI.UI.Propiedades
 {
     public partial class TabPropiedad :  TabContenidoPropiedad
     {
-        public TabPropiedad() : base()
+        public TabPropiedad()
         {
             InitializeComponent();
             
@@ -97,7 +97,7 @@ namespace GI.UI.Propiedades
                 Propiedad.Medidas = new GI.BR.Propiedades.MedidasAmbiente();
 
                 Propiedad.Direccion = new GI.BR.Propiedades.Direccion();
-                
+
 
             }
 
@@ -136,7 +136,7 @@ namespace GI.UI.Propiedades
 
             if (Propiedad.Propietario == null)
             {
-                
+
                 LinkPropietario.Text = "Seleccione un propietario";
             }
             else
@@ -145,7 +145,7 @@ namespace GI.UI.Propiedades
 
             }
         }
-        
+
         #endregion
 
         #region Seguridad
@@ -248,7 +248,7 @@ namespace GI.UI.Propiedades
         public GI.BR.Propiedades.MedidasAmbiente AmbientesAEliminar
         {
             get { return ambientesAEliminar; }
-            
+
         }
         private void linkLabelEliminarMedida_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
