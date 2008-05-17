@@ -26,14 +26,18 @@ namespace GI.UI.Generales
 
         public void Inicializar()
         {
-            if (!inicializado)
+            try
             {
-                uff = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia;
+                if (!inicializado)
+                {
+                    uff = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia;
 
-                cbPais.Items.AddRange(uff.GetPaises().ToArray());
-                cbPais.SelectedItem = uff.GetPaises().GetDefault;
-                inicializado = true;
+                    cbPais.Items.AddRange(uff.GetPaises().ToArray());
+                    cbPais.SelectedItem = uff.GetPaises().GetDefault;
+                    inicializado = true;
+                }
             }
+            catch { }
         }
 
         
