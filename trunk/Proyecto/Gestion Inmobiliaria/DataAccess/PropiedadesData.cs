@@ -263,7 +263,36 @@ namespace GI.DA
 
 
 
+        #region Notas
 
+
+        public bool EliminarNota(int IdNota)
+        { 
+            return AccesoDatos.EliminarRegistro(
+                "Propiedades_EliminarNota",
+                new object[] { IdNota },
+                new string[] { "@IdNota" });
+        }
+
+        public int CrearNota(int IdPropiedad, string Nota, DateTime Fecha)
+        { 
+            return AccesoDatos.InsertarRegistro(
+                "Propiedades_InsertarNota",
+                 new object[] { IdPropiedad, Nota, Fecha },
+                new string[] { "@IdPropiedad", "@Nota", "@Fecha" });
+        
+        }
+
+        public IDataReader RecuperarNotasPropiedad(int IdPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                "Propiedades_RecuperarNotas",
+                new object[] { IdPropiedad },
+                new string[] { "@IdPropiedad" });
+        
+        }
+
+        #endregion
 
     }
 }

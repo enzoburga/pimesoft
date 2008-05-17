@@ -31,8 +31,8 @@ namespace GI.UI.Propiedades
             this.lvNotas = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelAgregar = new System.Windows.Forms.LinkLabel();
+            this.linkLabelEliminar = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -62,25 +62,27 @@ namespace GI.UI.Propiedades
             this.columnHeader2.Text = "Nota";
             this.columnHeader2.Width = 318;
             // 
-            // linkLabel1
+            // linkLabelAgregar
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(409, 472);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(72, 13);
-            this.linkLabel1.TabIndex = 1;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Agregar Nota";
+            this.linkLabelAgregar.AutoSize = true;
+            this.linkLabelAgregar.Location = new System.Drawing.Point(409, 472);
+            this.linkLabelAgregar.Name = "linkLabelAgregar";
+            this.linkLabelAgregar.Size = new System.Drawing.Size(72, 13);
+            this.linkLabelAgregar.TabIndex = 1;
+            this.linkLabelAgregar.TabStop = true;
+            this.linkLabelAgregar.Text = "Agregar Nota";
+            this.linkLabelAgregar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAgregar_LinkClicked);
             // 
-            // linkLabel2
+            // linkLabelEliminar
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(410, 488);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(69, 13);
-            this.linkLabel2.TabIndex = 2;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Eliminar Nota";
+            this.linkLabelEliminar.AutoSize = true;
+            this.linkLabelEliminar.Location = new System.Drawing.Point(410, 488);
+            this.linkLabelEliminar.Name = "linkLabelEliminar";
+            this.linkLabelEliminar.Size = new System.Drawing.Size(69, 13);
+            this.linkLabelEliminar.TabIndex = 2;
+            this.linkLabelEliminar.TabStop = true;
+            this.linkLabelEliminar.Text = "Eliminar Nota";
+            this.linkLabelEliminar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEliminar_LinkClicked);
             // 
             // label1
             // 
@@ -105,8 +107,8 @@ namespace GI.UI.Propiedades
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.linkLabelEliminar);
+            this.Controls.Add(this.linkLabelAgregar);
             this.Controls.Add(this.lvNotas);
             this.Name = "TabNotas";
             this.Size = new System.Drawing.Size(494, 544);
@@ -120,8 +122,8 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.ListView lvNotas;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabelAgregar;
+        private System.Windows.Forms.LinkLabel linkLabelEliminar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

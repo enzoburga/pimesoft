@@ -39,17 +39,18 @@ namespace GI.BR.Propiedades
 
         public bool Guardar(Propiedad Propiedad)
         {
-            return false;
+            IdNota = new DA.PropiedadesData().CrearNota(Propiedad.IdPropiedad, Comentario, Fecha);
+            return IdNota > 0;
         }
 
         public bool Actualizar()
         {
-            return false;
+            throw new Exception("Metodo no Implementado");
         }
 
         public bool Eliminar()
         {
-            return false;
+            return new DA.PropiedadesData().EliminarNota(IdNota);
         }
 
     }
