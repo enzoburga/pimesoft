@@ -393,7 +393,7 @@ namespace GI.UI.Propiedades
             ubicacion2.Localidad = null;
             ubicacion2.Pais = null;
             ubicacion2.Provincia = null;
-            this.ctrlUbicacion1.Ubicacion = ubicacion2;
+            //this.ctrlUbicacion1.Ubicacion = ubicacion2;
             // 
             // ctrlDireccion1
             // 
