@@ -90,14 +90,37 @@ namespace GI.BR.Propiedades
 
         public bool Guardar()
         {
-            return false;
+            IdVisita = new DA.PropiedadesData().CrearVisita(
+                TiempoAlarma.Tiempo.Ticks,
+                FechaHora,
+                Realizada,
+                Visita,
+                TelefonoContacto,
+                Detalles,
+                ConAlarma,
+                IdPropiedad);
+            return IdVisita > 0;
         }
 
         public bool Actualizar()
-        { return false; }
+        {
+            return new DA.PropiedadesData().ActualizarVisita(
+                TiempoAlarma.Tiempo.Ticks,
+                FechaHora,
+                Realizada,
+                Visita,
+                TelefonoContacto,
+                Detalles,
+                ConAlarma,
+                IdVisita);
+
+        }
 
         public bool Eliminar()
-        { return false; }
+        {
+            return new DA.PropiedadesData().EliminarVisita(IdVisita);
+        
+        }
 
 
 
