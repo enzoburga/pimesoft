@@ -46,7 +46,7 @@ namespace GI.UI.Propiedades
             this.lvNotas.HideSelection = false;
             this.lvNotas.Location = new System.Drawing.Point(15, 17);
             this.lvNotas.Name = "lvNotas";
-            this.lvNotas.Size = new System.Drawing.Size(464, 446);
+            this.lvNotas.Size = new System.Drawing.Size(608, 407);
             this.lvNotas.TabIndex = 0;
             this.lvNotas.UseCompatibleStateImageBehavior = false;
             this.lvNotas.View = System.Windows.Forms.View.Details;
@@ -65,7 +65,7 @@ namespace GI.UI.Propiedades
             // linkLabelAgregar
             // 
             this.linkLabelAgregar.AutoSize = true;
-            this.linkLabelAgregar.Location = new System.Drawing.Point(409, 472);
+            this.linkLabelAgregar.Location = new System.Drawing.Point(551, 427);
             this.linkLabelAgregar.Name = "linkLabelAgregar";
             this.linkLabelAgregar.Size = new System.Drawing.Size(72, 13);
             this.linkLabelAgregar.TabIndex = 1;
@@ -76,7 +76,7 @@ namespace GI.UI.Propiedades
             // linkLabelEliminar
             // 
             this.linkLabelEliminar.AutoSize = true;
-            this.linkLabelEliminar.Location = new System.Drawing.Point(410, 488);
+            this.linkLabelEliminar.Location = new System.Drawing.Point(552, 443);
             this.linkLabelEliminar.Name = "linkLabelEliminar";
             this.linkLabelEliminar.Size = new System.Drawing.Size(69, 13);
             this.linkLabelEliminar.TabIndex = 2;
@@ -87,7 +87,7 @@ namespace GI.UI.Propiedades
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(355, 472);
+            this.label1.Location = new System.Drawing.Point(497, 427);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 3;
@@ -96,7 +96,7 @@ namespace GI.UI.Propiedades
             // label2
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(407, 475);
+            this.label2.Location = new System.Drawing.Point(549, 430);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(1, 30);
             this.label2.TabIndex = 4;
@@ -111,7 +111,7 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.linkLabelAgregar);
             this.Controls.Add(this.lvNotas);
             this.Name = "TabNotas";
-            this.Size = new System.Drawing.Size(494, 544);
+            this.Size = new System.Drawing.Size(640, 480);
             this.ResumeLayout(false);
             this.PerformLayout();
 

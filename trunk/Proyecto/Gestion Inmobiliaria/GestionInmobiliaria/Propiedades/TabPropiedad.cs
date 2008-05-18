@@ -144,6 +144,14 @@ namespace GI.UI.Propiedades
                 LinkPropietario.Text = Propiedad.Propietario.ToString();
 
             }
+
+            GI.BR.Propiedades.Galeria.Foto foto = null;
+            if ((foto = Propiedad.GaleriaFotos.GetFotoFachada) != null)
+            {
+                pictureBoxFechada.Image = foto.Imagen;
+
+            }
+            
         }
 
         #endregion

@@ -30,7 +30,13 @@ namespace GI.UI.Propiedades
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFichaPropiedad));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControl = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonImprimir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonenviarxmail = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonPublicar = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,18 +47,12 @@ namespace GI.UI.Propiedades
             this.publicarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bAceptar = new System.Windows.Forms.Button();
             this.bCancelar = new System.Windows.Forms.Button();
-            this.toolStripButtonImprimir = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonenviarxmail = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonPublicar = new System.Windows.Forms.ToolStripButton();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabControl = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -72,9 +72,40 @@ namespace GI.UI.Propiedades
             // 
             this.splitContainer1.Panel2.Controls.Add(this.bAceptar);
             this.splitContainer1.Panel2.Controls.Add(this.bCancelar);
-            this.splitContainer1.Size = new System.Drawing.Size(494, 691);
-            this.splitContainer1.SplitterDistance = 656;
+            this.splitContainer1.Size = new System.Drawing.Size(685, 606);
+            this.splitContainer1.SplitterDistance = 575;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabControl);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 69);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(685, 506);
+            this.tabControl1.TabIndex = 3;
+            // 
+            // tabControl
+            // 
+            this.tabControl.Location = new System.Drawing.Point(4, 22);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.Padding = new System.Windows.Forms.Padding(3);
+            this.tabControl.Size = new System.Drawing.Size(677, 480);
+            this.tabControl.TabIndex = 0;
+            this.tabControl.Text = "tabPage1";
+            this.tabControl.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(486, 561);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // toolStrip1
             // 
@@ -84,9 +115,42 @@ namespace GI.UI.Propiedades
             this.toolStripButtonPublicar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(494, 45);
+            this.toolStrip1.Size = new System.Drawing.Size(685, 45);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonImprimir
+            // 
+            this.toolStripButtonImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonImprimir.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonImprimir.Image")));
+            this.toolStripButtonImprimir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonImprimir.Name = "toolStripButtonImprimir";
+            this.toolStripButtonImprimir.Size = new System.Drawing.Size(42, 42);
+            this.toolStripButtonImprimir.Text = "Imprimir";
+            this.toolStripButtonImprimir.Click += new System.EventHandler(this.toolStripButtonImprimir_Click);
+            // 
+            // toolStripButtonenviarxmail
+            // 
+            this.toolStripButtonenviarxmail.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonenviarxmail.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonenviarxmail.Image")));
+            this.toolStripButtonenviarxmail.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonenviarxmail.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonenviarxmail.Name = "toolStripButtonenviarxmail";
+            this.toolStripButtonenviarxmail.Size = new System.Drawing.Size(42, 42);
+            this.toolStripButtonenviarxmail.Text = "Enviar por correo";
+            this.toolStripButtonenviarxmail.Click += new System.EventHandler(this.toolStripButtonenviarxmail_Click);
+            // 
+            // toolStripButtonPublicar
+            // 
+            this.toolStripButtonPublicar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonPublicar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPublicar.Image")));
+            this.toolStripButtonPublicar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonPublicar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPublicar.Name = "toolStripButtonPublicar";
+            this.toolStripButtonPublicar.Size = new System.Drawing.Size(42, 42);
+            this.toolStripButtonPublicar.Text = "Publicar";
+            this.toolStripButtonPublicar.Click += new System.EventHandler(this.toolStripButtonPublicar_Click);
             // 
             // menuStrip1
             // 
@@ -95,7 +159,7 @@ namespace GI.UI.Propiedades
             this.publicaciónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(494, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(685, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -155,7 +219,7 @@ namespace GI.UI.Propiedades
             // 
             // bAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(320, 3);
+            this.bAceptar.Location = new System.Drawing.Point(526, 1);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
             this.bAceptar.TabIndex = 1;
@@ -165,7 +229,7 @@ namespace GI.UI.Propiedades
             // 
             // bCancelar
             // 
-            this.bCancelar.Location = new System.Drawing.Point(407, 3);
+            this.bCancelar.Location = new System.Drawing.Point(607, 1);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 0;
@@ -173,75 +237,11 @@ namespace GI.UI.Propiedades
             this.bCancelar.UseVisualStyleBackColor = true;
             this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
-            // toolStripButtonImprimir
-            // 
-            this.toolStripButtonImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonImprimir.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonImprimir.Image")));
-            this.toolStripButtonImprimir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonImprimir.Name = "toolStripButtonImprimir";
-            this.toolStripButtonImprimir.Size = new System.Drawing.Size(42, 42);
-            this.toolStripButtonImprimir.Text = "Imprimir";
-            this.toolStripButtonImprimir.Click += new System.EventHandler(this.toolStripButtonImprimir_Click);
-            // 
-            // toolStripButtonenviarxmail
-            // 
-            this.toolStripButtonenviarxmail.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonenviarxmail.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonenviarxmail.Image")));
-            this.toolStripButtonenviarxmail.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonenviarxmail.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonenviarxmail.Name = "toolStripButtonenviarxmail";
-            this.toolStripButtonenviarxmail.Size = new System.Drawing.Size(42, 42);
-            this.toolStripButtonenviarxmail.Text = "Enviar por correo";
-            this.toolStripButtonenviarxmail.Click += new System.EventHandler(this.toolStripButtonenviarxmail_Click);
-            // 
-            // toolStripButtonPublicar
-            // 
-            this.toolStripButtonPublicar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonPublicar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPublicar.Image")));
-            this.toolStripButtonPublicar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonPublicar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonPublicar.Name = "toolStripButtonPublicar";
-            this.toolStripButtonPublicar.Size = new System.Drawing.Size(42, 42);
-            this.toolStripButtonPublicar.Text = "Publicar";
-            this.toolStripButtonPublicar.Click += new System.EventHandler(this.toolStripButtonPublicar_Click);
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabControl);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 69);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(494, 587);
-            this.tabControl1.TabIndex = 3;
-            // 
-            // tabControl
-            // 
-            this.tabControl.Location = new System.Drawing.Point(4, 22);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.Padding = new System.Windows.Forms.Padding(3);
-            this.tabControl.Size = new System.Drawing.Size(486, 561);
-            this.tabControl.TabIndex = 0;
-            this.tabControl.Text = "tabPage1";
-            this.tabControl.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(486, 444);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // frmFichaPropiedad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 691);
+            this.ClientSize = new System.Drawing.Size(685, 606);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -256,11 +256,11 @@ namespace GI.UI.Propiedades
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

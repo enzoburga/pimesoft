@@ -42,7 +42,7 @@ namespace GI.UI.Propiedades
             // label2
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(400, 470);
+            this.label2.Location = new System.Drawing.Point(547, 430);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(1, 30);
             this.label2.TabIndex = 9;
@@ -50,7 +50,7 @@ namespace GI.UI.Propiedades
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(348, 467);
+            this.label1.Location = new System.Drawing.Point(495, 427);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 8;
@@ -59,7 +59,7 @@ namespace GI.UI.Propiedades
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(403, 483);
+            this.linkLabel2.Location = new System.Drawing.Point(550, 443);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(71, 13);
             this.linkLabel2.TabIndex = 7;
@@ -69,7 +69,7 @@ namespace GI.UI.Propiedades
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(402, 467);
+            this.linkLabel1.Location = new System.Drawing.Point(549, 427);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(74, 13);
             this.linkLabel1.TabIndex = 6;
@@ -87,7 +87,7 @@ namespace GI.UI.Propiedades
             this.lvVisitas.HideSelection = false;
             this.lvVisitas.Location = new System.Drawing.Point(15, 17);
             this.lvVisitas.Name = "lvVisitas";
-            this.lvVisitas.Size = new System.Drawing.Size(464, 446);
+            this.lvVisitas.Size = new System.Drawing.Size(608, 407);
             this.lvVisitas.TabIndex = 5;
             this.lvVisitas.UseCompatibleStateImageBehavior = false;
             this.lvVisitas.View = System.Windows.Forms.View.Details;
@@ -123,7 +123,7 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lvVisitas);
             this.Name = "TabVisitas";
-            this.Size = new System.Drawing.Size(494, 544);
+            this.Size = new System.Drawing.Size(640, 480);
             this.ResumeLayout(false);
             this.PerformLayout();
 
