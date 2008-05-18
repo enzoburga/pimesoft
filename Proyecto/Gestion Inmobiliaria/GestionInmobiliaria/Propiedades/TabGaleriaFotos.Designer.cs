@@ -40,9 +40,9 @@ namespace GI.UI.Propiedades
             this.pictureBox1.BackColor = System.Drawing.Color.Lavender;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(35, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(45, 19);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(429, 466);
+            this.pictureBox1.Size = new System.Drawing.Size(537, 393);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -51,7 +51,7 @@ namespace GI.UI.Propiedades
             // 
             this.cbFotos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFotos.FormattingEnabled = true;
-            this.cbFotos.Location = new System.Drawing.Point(129, 484);
+            this.cbFotos.Location = new System.Drawing.Point(121, 424);
             this.cbFotos.Name = "cbFotos";
             this.cbFotos.Size = new System.Drawing.Size(229, 21);
             this.cbFotos.TabIndex = 1;
@@ -60,7 +60,7 @@ namespace GI.UI.Propiedades
             // linkLabelAgregarFoto
             // 
             this.linkLabelAgregarFoto.AutoSize = true;
-            this.linkLabelAgregarFoto.Location = new System.Drawing.Point(372, 487);
+            this.linkLabelAgregarFoto.Location = new System.Drawing.Point(376, 424);
             this.linkLabelAgregarFoto.Name = "linkLabelAgregarFoto";
             this.linkLabelAgregarFoto.Size = new System.Drawing.Size(92, 13);
             this.linkLabelAgregarFoto.TabIndex = 2;
@@ -71,7 +71,7 @@ namespace GI.UI.Propiedades
             // linkLabelEliminarFoto
             // 
             this.linkLabelEliminarFoto.AutoSize = true;
-            this.linkLabelEliminarFoto.Location = new System.Drawing.Point(396, 503);
+            this.linkLabelEliminarFoto.Location = new System.Drawing.Point(400, 440);
             this.linkLabelEliminarFoto.Name = "linkLabelEliminarFoto";
             this.linkLabelEliminarFoto.Size = new System.Drawing.Size(68, 13);
             this.linkLabelEliminarFoto.TabIndex = 3;
@@ -89,7 +89,7 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.pictureBox1);
             this.Name = "TabGaleriaFotos";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Size = new System.Drawing.Size(494, 544);
+            this.Size = new System.Drawing.Size(640, 480);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
