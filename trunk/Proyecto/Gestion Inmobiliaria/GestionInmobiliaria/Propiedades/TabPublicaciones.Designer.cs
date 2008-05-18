@@ -42,7 +42,7 @@ namespace GI.UI.Propiedades
             // label2
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(377, 468);
+            this.label2.Location = new System.Drawing.Point(520, 430);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(1, 30);
             this.label2.TabIndex = 14;
@@ -50,7 +50,7 @@ namespace GI.UI.Propiedades
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(325, 465);
+            this.label1.Location = new System.Drawing.Point(468, 427);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 13;
@@ -59,7 +59,7 @@ namespace GI.UI.Propiedades
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(380, 481);
+            this.linkLabel2.Location = new System.Drawing.Point(523, 443);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(98, 13);
             this.linkLabel2.TabIndex = 12;
@@ -69,7 +69,7 @@ namespace GI.UI.Propiedades
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(379, 465);
+            this.linkLabel1.Location = new System.Drawing.Point(522, 427);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(101, 13);
             this.linkLabel1.TabIndex = 11;
@@ -87,7 +87,7 @@ namespace GI.UI.Propiedades
             this.lvPublicaciones.HideSelection = false;
             this.lvPublicaciones.Location = new System.Drawing.Point(15, 17);
             this.lvPublicaciones.Name = "lvPublicaciones";
-            this.lvPublicaciones.Size = new System.Drawing.Size(464, 446);
+            this.lvPublicaciones.Size = new System.Drawing.Size(608, 407);
             this.lvPublicaciones.TabIndex = 10;
             this.lvPublicaciones.UseCompatibleStateImageBehavior = false;
             this.lvPublicaciones.View = System.Windows.Forms.View.Details;
@@ -122,7 +122,7 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lvPublicaciones);
             this.Name = "TabPublicaciones";
-            this.Size = new System.Drawing.Size(494, 544);
+            this.Size = new System.Drawing.Size(640, 480);
             this.ResumeLayout(false);
             this.PerformLayout();
 

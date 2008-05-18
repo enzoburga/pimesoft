@@ -48,7 +48,7 @@ namespace GI.UI.Propiedades
             this.lvPedidos.HideSelection = false;
             this.lvPedidos.Location = new System.Drawing.Point(15, 17);
             this.lvPedidos.Name = "lvPedidos";
-            this.lvPedidos.Size = new System.Drawing.Size(464, 446);
+            this.lvPedidos.Size = new System.Drawing.Size(608, 407);
             this.lvPedidos.TabIndex = 11;
             this.lvPedidos.UseCompatibleStateImageBehavior = false;
             this.lvPedidos.View = System.Windows.Forms.View.Details;
@@ -71,7 +71,7 @@ namespace GI.UI.Propiedades
             // label2
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(314, 471);
+            this.label2.Location = new System.Drawing.Point(459, 435);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(1, 30);
             this.label2.TabIndex = 15;
@@ -79,7 +79,7 @@ namespace GI.UI.Propiedades
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(262, 468);
+            this.label1.Location = new System.Drawing.Point(407, 432);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 14;
@@ -88,7 +88,7 @@ namespace GI.UI.Propiedades
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(317, 484);
+            this.linkLabel2.Location = new System.Drawing.Point(462, 448);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(161, 13);
             this.linkLabel2.TabIndex = 13;
@@ -98,7 +98,7 @@ namespace GI.UI.Propiedades
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(316, 468);
+            this.linkLabel1.Location = new System.Drawing.Point(461, 432);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(154, 13);
             this.linkLabel1.TabIndex = 12;
@@ -115,7 +115,7 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lvPedidos);
             this.Name = "TabPedidos";
-            this.Size = new System.Drawing.Size(501, 544);
+            this.Size = new System.Drawing.Size(640, 480);
             this.ResumeLayout(false);
             this.PerformLayout();
 
