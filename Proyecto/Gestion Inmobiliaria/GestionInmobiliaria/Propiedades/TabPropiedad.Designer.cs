@@ -29,7 +29,8 @@ namespace GI.UI.Propiedades
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            GI.BR.Propiedades.Ubicacion ubicacion2 = new GI.BR.Propiedades.Ubicacion();
+            GI.BR.Propiedades.Ubicacion ubicacion1 = new GI.BR.Propiedades.Ubicacion();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabPropiedad));
             this.propiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.direccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.valorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -68,11 +69,13 @@ namespace GI.UI.Propiedades
             this.ctrlDireccion1 = new GI.UI.Generales.CtrlDireccion();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxDetalles = new System.Windows.Forms.TextBox();
+            this.pictureBoxFechada = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.direccionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFechada)).BeginInit();
             this.SuspendLayout();
             // 
             // propiedadBindingSource
@@ -95,7 +98,7 @@ namespace GI.UI.Propiedades
             // 
             this.LinkPropietario.AutoSize = true;
             this.LinkPropietario.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.propiedadBindingSource, "Propietario", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.LinkPropietario.Location = new System.Drawing.Point(320, 47);
+            this.LinkPropietario.Location = new System.Drawing.Point(309, 38);
             this.LinkPropietario.Name = "LinkPropietario";
             this.LinkPropietario.Size = new System.Drawing.Size(127, 13);
             this.LinkPropietario.TabIndex = 3;
@@ -108,9 +111,9 @@ namespace GI.UI.Propiedades
             this.groupBox3.Controls.Add(this.lvMedidas);
             this.groupBox3.Controls.Add(this.linkLabelEliminarMedida);
             this.groupBox3.Controls.Add(this.linkLabelAgregarMedida);
-            this.groupBox3.Location = new System.Drawing.Point(41, 159);
+            this.groupBox3.Location = new System.Drawing.Point(16, 150);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(409, 119);
+            this.groupBox3.Size = new System.Drawing.Size(420, 119);
             this.groupBox3.TabIndex = 39;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Medidas";
@@ -124,7 +127,7 @@ namespace GI.UI.Propiedades
             this.columnHeader4});
             this.lvMedidas.FullRowSelect = true;
             this.lvMedidas.HideSelection = false;
-            this.lvMedidas.Location = new System.Drawing.Point(11, 20);
+            this.lvMedidas.Location = new System.Drawing.Point(14, 20);
             this.lvMedidas.MultiSelect = false;
             this.lvMedidas.Name = "lvMedidas";
             this.lvMedidas.Size = new System.Drawing.Size(392, 80);
@@ -154,7 +157,7 @@ namespace GI.UI.Propiedades
             // linkLabelEliminarMedida
             // 
             this.linkLabelEliminarMedida.AutoSize = true;
-            this.linkLabelEliminarMedida.Location = new System.Drawing.Point(303, 100);
+            this.linkLabelEliminarMedida.Location = new System.Drawing.Point(327, 100);
             this.linkLabelEliminarMedida.Name = "linkLabelEliminarMedida";
             this.linkLabelEliminarMedida.Size = new System.Drawing.Size(80, 13);
             this.linkLabelEliminarMedida.TabIndex = 1;
@@ -165,7 +168,7 @@ namespace GI.UI.Propiedades
             // linkLabelAgregarMedida
             // 
             this.linkLabelAgregarMedida.AutoSize = true;
-            this.linkLabelAgregarMedida.Location = new System.Drawing.Point(218, 100);
+            this.linkLabelAgregarMedida.Location = new System.Drawing.Point(242, 100);
             this.linkLabelAgregarMedida.Name = "linkLabelAgregarMedida";
             this.linkLabelAgregarMedida.Size = new System.Drawing.Size(83, 13);
             this.linkLabelAgregarMedida.TabIndex = 1;
@@ -176,7 +179,7 @@ namespace GI.UI.Propiedades
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(21, 47);
+            this.label20.Location = new System.Drawing.Point(10, 38);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(93, 13);
             this.label20.TabIndex = 38;
@@ -186,7 +189,7 @@ namespace GI.UI.Propiedades
             // 
             this.cbAmbientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAmbientes.FormattingEnabled = true;
-            this.cbAmbientes.Location = new System.Drawing.Point(323, 132);
+            this.cbAmbientes.Location = new System.Drawing.Point(312, 123);
             this.cbAmbientes.Name = "cbAmbientes";
             this.cbAmbientes.Size = new System.Drawing.Size(121, 21);
             this.cbAmbientes.TabIndex = 9;
@@ -195,7 +198,7 @@ namespace GI.UI.Propiedades
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(264, 135);
+            this.label18.Location = new System.Drawing.Point(253, 126);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(57, 13);
             this.label18.TabIndex = 33;
@@ -207,7 +210,7 @@ namespace GI.UI.Propiedades
             this.cbCategoria.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "Categoria", true));
             this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(119, 17);
+            this.cbCategoria.Location = new System.Drawing.Point(108, 8);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(106, 21);
             this.cbCategoria.TabIndex = 0;
@@ -219,7 +222,7 @@ namespace GI.UI.Propiedades
             this.cbEstadoProp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "EnumEstado", true));
             this.cbEstadoProp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstadoProp.FormattingEnabled = true;
-            this.cbEstadoProp.Location = new System.Drawing.Point(120, 132);
+            this.cbEstadoProp.Location = new System.Drawing.Point(109, 123);
             this.cbEstadoProp.Name = "cbEstadoProp";
             this.cbEstadoProp.Size = new System.Drawing.Size(127, 21);
             this.cbEstadoProp.TabIndex = 10;
@@ -227,7 +230,7 @@ namespace GI.UI.Propiedades
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(29, 135);
+            this.label19.Location = new System.Drawing.Point(18, 126);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(91, 13);
             this.label19.TabIndex = 35;
@@ -237,7 +240,7 @@ namespace GI.UI.Propiedades
             // 
             this.checkBoxEsOtraPropiedad.AutoSize = true;
             this.checkBoxEsOtraPropiedad.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.propiedadBindingSource, "EsOtraInmobiliaria", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxEsOtraPropiedad.Location = new System.Drawing.Point(323, 74);
+            this.checkBoxEsOtraPropiedad.Location = new System.Drawing.Point(312, 65);
             this.checkBoxEsOtraPropiedad.Name = "checkBoxEsOtraPropiedad";
             this.checkBoxEsOtraPropiedad.Size = new System.Drawing.Size(15, 14);
             this.checkBoxEsOtraPropiedad.TabIndex = 4;
@@ -246,7 +249,7 @@ namespace GI.UI.Propiedades
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(340, 74);
+            this.label17.Location = new System.Drawing.Point(329, 65);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(86, 13);
             this.label17.TabIndex = 32;
@@ -255,7 +258,7 @@ namespace GI.UI.Propiedades
             // textBoxCodigo
             // 
             this.textBoxCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "Codigo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxCodigo.Location = new System.Drawing.Point(120, 71);
+            this.textBoxCodigo.Location = new System.Drawing.Point(109, 62);
             this.textBoxCodigo.Name = "textBoxCodigo";
             this.textBoxCodigo.ReadOnly = true;
             this.textBoxCodigo.Size = new System.Drawing.Size(73, 21);
@@ -266,7 +269,7 @@ namespace GI.UI.Propiedades
             // 
             this.textBoxValorPublicacion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource, "Importe", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBoxValorPublicacion.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxValorPublicacion.Location = new System.Drawing.Point(120, 98);
+            this.textBoxValorPublicacion.Location = new System.Drawing.Point(109, 89);
             this.textBoxValorPublicacion.Name = "textBoxValorPublicacion";
             this.textBoxValorPublicacion.Size = new System.Drawing.Size(73, 21);
             this.textBoxValorPublicacion.TabIndex = 5;
@@ -278,7 +281,7 @@ namespace GI.UI.Propiedades
             this.cbMonedaPublicacion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource, "Moneda", true));
             this.cbMonedaPublicacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonedaPublicacion.FormattingEnabled = true;
-            this.cbMonedaPublicacion.Location = new System.Drawing.Point(199, 98);
+            this.cbMonedaPublicacion.Location = new System.Drawing.Point(188, 89);
             this.cbMonedaPublicacion.Name = "cbMonedaPublicacion";
             this.cbMonedaPublicacion.Size = new System.Drawing.Size(47, 21);
             this.cbMonedaPublicacion.TabIndex = 6;
@@ -287,7 +290,7 @@ namespace GI.UI.Propiedades
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(28, 103);
+            this.label16.Location = new System.Drawing.Point(17, 94);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(86, 13);
             this.label16.TabIndex = 29;
@@ -296,7 +299,7 @@ namespace GI.UI.Propiedades
             // textBoxVarorMercado
             // 
             this.textBoxVarorMercado.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource1, "Importe", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
-            this.textBoxVarorMercado.Location = new System.Drawing.Point(323, 100);
+            this.textBoxVarorMercado.Location = new System.Drawing.Point(312, 91);
             this.textBoxVarorMercado.Name = "textBoxVarorMercado";
             this.textBoxVarorMercado.Size = new System.Drawing.Size(67, 21);
             this.textBoxVarorMercado.TabIndex = 7;
@@ -308,7 +311,7 @@ namespace GI.UI.Propiedades
             this.cbMonedaReal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource1, "Moneda", true));
             this.cbMonedaReal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonedaReal.FormattingEnabled = true;
-            this.cbMonedaReal.Location = new System.Drawing.Point(396, 100);
+            this.cbMonedaReal.Location = new System.Drawing.Point(385, 91);
             this.cbMonedaReal.Name = "cbMonedaReal";
             this.cbMonedaReal.Size = new System.Drawing.Size(48, 21);
             this.cbMonedaReal.TabIndex = 8;
@@ -316,7 +319,7 @@ namespace GI.UI.Propiedades
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(268, 103);
+            this.label15.Location = new System.Drawing.Point(257, 94);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(55, 13);
             this.label15.TabIndex = 26;
@@ -325,7 +328,7 @@ namespace GI.UI.Propiedades
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(74, 74);
+            this.label4.Location = new System.Drawing.Point(63, 65);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 5;
@@ -334,7 +337,7 @@ namespace GI.UI.Propiedades
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(259, 47);
+            this.label3.Location = new System.Drawing.Point(248, 38);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 4;
@@ -346,7 +349,7 @@ namespace GI.UI.Propiedades
             this.cbEstado.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "Estado", true));
             this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Location = new System.Drawing.Point(323, 17);
+            this.cbEstado.Location = new System.Drawing.Point(312, 8);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(109, 21);
             this.cbEstado.TabIndex = 2;
@@ -357,7 +360,7 @@ namespace GI.UI.Propiedades
             this.cbTipoPropiedad.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "TipoPropiedad", true));
             this.cbTipoPropiedad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoPropiedad.FormattingEnabled = true;
-            this.cbTipoPropiedad.Location = new System.Drawing.Point(120, 44);
+            this.cbTipoPropiedad.Location = new System.Drawing.Point(109, 35);
             this.cbTipoPropiedad.Name = "cbTipoPropiedad";
             this.cbTipoPropiedad.Size = new System.Drawing.Size(106, 21);
             this.cbTipoPropiedad.TabIndex = 1;
@@ -366,7 +369,7 @@ namespace GI.UI.Propiedades
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(281, 20);
+            this.label2.Location = new System.Drawing.Point(270, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 1;
@@ -375,7 +378,7 @@ namespace GI.UI.Propiedades
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 20);
+            this.label1.Location = new System.Drawing.Point(45, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 0;
@@ -384,30 +387,30 @@ namespace GI.UI.Propiedades
             // ctrlUbicacion1
             // 
             this.ctrlUbicacion1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlUbicacion1.Location = new System.Drawing.Point(41, 278);
+            this.ctrlUbicacion1.Location = new System.Drawing.Point(16, 274);
             this.ctrlUbicacion1.Name = "ctrlUbicacion1";
-            this.ctrlUbicacion1.Size = new System.Drawing.Size(415, 89);
+            this.ctrlUbicacion1.Size = new System.Drawing.Size(443, 89);
             this.ctrlUbicacion1.SoloLectura = false;
             this.ctrlUbicacion1.TabIndex = 40;
-            ubicacion2.Barrio = null;
-            ubicacion2.Localidad = null;
-            ubicacion2.Pais = null;
-            ubicacion2.Provincia = null;
-            //this.ctrlUbicacion1.Ubicacion = ubicacion2;
+            ubicacion1.Barrio = null;
+            ubicacion1.Localidad = null;
+            ubicacion1.Pais = null;
+            ubicacion1.Provincia = null;
+            this.ctrlUbicacion1.Ubicacion = ubicacion1;
             // 
             // ctrlDireccion1
             // 
             this.ctrlDireccion1.Direccion = null;
-            this.ctrlDireccion1.Location = new System.Drawing.Point(41, 366);
+            this.ctrlDireccion1.Location = new System.Drawing.Point(13, 364);
             this.ctrlDireccion1.Name = "ctrlDireccion1";
-            this.ctrlDireccion1.Size = new System.Drawing.Size(417, 113);
+            this.ctrlDireccion1.Size = new System.Drawing.Size(425, 113);
             this.ctrlDireccion1.SoloLectura = false;
             this.ctrlDireccion1.TabIndex = 41;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(38, 476);
+            this.label5.Location = new System.Drawing.Point(446, 239);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 42;
@@ -417,17 +420,29 @@ namespace GI.UI.Propiedades
             // 
             this.textBoxDetalles.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "Observaciones", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBoxDetalles.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDetalles.Location = new System.Drawing.Point(41, 492);
+            this.textBoxDetalles.Location = new System.Drawing.Point(449, 258);
             this.textBoxDetalles.Multiline = true;
             this.textBoxDetalles.Name = "textBoxDetalles";
-            this.textBoxDetalles.Size = new System.Drawing.Size(415, 43);
+            this.textBoxDetalles.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxDetalles.Size = new System.Drawing.Size(220, 210);
             this.textBoxDetalles.TabIndex = 43;
-            this.textBoxDetalles.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // pictureBoxFechada
+            // 
+            this.pictureBoxFechada.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxFechada.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxFechada.InitialImage")));
+            this.pictureBoxFechada.Location = new System.Drawing.Point(449, 11);
+            this.pictureBoxFechada.Name = "pictureBoxFechada";
+            this.pictureBoxFechada.Size = new System.Drawing.Size(220, 220);
+            this.pictureBoxFechada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFechada.TabIndex = 44;
+            this.pictureBoxFechada.TabStop = false;
             // 
             // TabPropiedad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBoxFechada);
             this.Controls.Add(this.textBoxDetalles);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ctrlDireccion1);
@@ -456,13 +471,14 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TabPropiedad";
-            this.Size = new System.Drawing.Size(494, 544);
+            this.Size = new System.Drawing.Size(680, 480);
             ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.direccionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFechada)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -508,5 +524,6 @@ namespace GI.UI.Propiedades
         private GI.UI.Generales.CtrlDireccion ctrlDireccion1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxDetalles;
+        private System.Windows.Forms.PictureBox pictureBoxFechada;
     }
 }
