@@ -35,6 +35,8 @@ namespace GI.UI.Clientes
             cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.Todos); 
             cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.Propietarios);
             cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.Inquilinos);
+            cbTipoCliente.Items.Add(GI.Managers.Clientes.enumTipoBusquedaCliente.ClientePedido);
+
 
             cbTipoCliente.SelectedIndex = 0;
             #endregion 
@@ -106,6 +108,12 @@ namespace GI.UI.Clientes
                 case "GI.BR.Clientes.Inquilino":
                     {
                         this.cbTipoCliente.SelectedItem = GI.Managers.Clientes.enumTipoBusquedaCliente.Inquilinos;
+                        this.cbTipoCliente.Enabled = false;
+                        break;
+                    }
+                case "GI.BR.Clientes.ClientePedido":
+                    {
+                        this.cbTipoCliente.SelectedItem = GI.Managers.Clientes.enumTipoBusquedaCliente.ClientePedido;
                         this.cbTipoCliente.Enabled = false;
                         break;
                     }

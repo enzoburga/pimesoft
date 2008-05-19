@@ -8,7 +8,8 @@ namespace GI.Managers.Clientes
     {
         Propietarios =1,
         Inquilinos =2,
-        Todos = 3
+        Todos = 3,
+        ClientePedido = 4
 
     }
 }

@@ -112,5 +112,17 @@ namespace GI.UI.Clientes
             if (frm.ShowDialog() == DialogResult.OK)
                 this.CargarClientes(clientes);
         }
+
+        private void nuevoClientePedidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GI.BR.Clientes.ClienteFactory cf = new GI.BR.Clientes.ClienteFactory();
+            frmFichaCliente frm = new frmFichaCliente();
+            frm.Cliente = cf.CrearClaseCliente(typeof(GI.BR.Clientes.ClientePedido));
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                this.clientes.Add(frm.Cliente);
+                this.CargarClientes(clientes);
+            }
+        }
     }
 }

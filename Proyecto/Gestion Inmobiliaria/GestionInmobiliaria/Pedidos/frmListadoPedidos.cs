@@ -16,7 +16,8 @@ namespace GI.UI.Pedidos
         }
         public void Inicializar()
         {
-           
+            pedidos.RecuperarPedidosTodos();
+            LlenarLista();
         }
 
         private GI.BR.Pedidos.Pedidos pedidos = new GI.BR.Pedidos.Pedidos();
@@ -43,7 +44,13 @@ namespace GI.UI.Pedidos
                 lvi = new ListViewItem();
                 
                 //TODO: LLENAR LISTA
-                lvi.Text = "LLENAR LISTA";
+                lvi.Text = p.ClientePedido.ToString();
+
+                if (p.EstadoPropiedad == typeof(GI.BR.Propiedades.Venta))
+                    lvi.SubItems.Add("Venta");
+                if (p.EstadoPropiedad == typeof(GI.BR.Propiedades.Alquiler))
+                    lvi.SubItems.Add("Alquiler");
+
                 lvi.Tag = p;
                 lvPedidos.Items.Add(lvi);
 
@@ -86,24 +93,13 @@ namespace GI.UI.Pedidos
             //frmVisor.ShowDialog();
         }
 
-        private void BuscarPedidostoolStripButton_Click(object sender, EventArgs e)
-        {
-            frmBuscarPedidos frmBuscar = new frmBuscarPedidos();
-
-            if (frmBuscar.ShowDialog() == DialogResult.OK)
-            {
-                this.pedidos = frmBuscar.Pedidos;
-                this.LlenarLista();
-            }
-        }
-
         private void nuevoPedidoDeVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmFichaPedidos frm = new frmFichaPedidos();
-
+            
             GI.BR.Pedidos.Pedido pedido = new GI.BR.Pedidos.Pedido();
             pedido.EstadoPropiedad = typeof(GI.BR.Propiedades.Venta);
-
+            
             frm.Pedido = pedido;
 
             if (frm.ShowDialog() == DialogResult.OK)
@@ -116,16 +112,38 @@ namespace GI.UI.Pedidos
         private void nuevoPedidoDeAlquilerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmFichaPedidos frm = new frmFichaPedidos();
-
+            
             GI.BR.Pedidos.Pedido pedido = new GI.BR.Pedidos.Pedido();
             pedido.EstadoPropiedad = typeof(GI.BR.Propiedades.Alquiler);
-
+            
             frm.Pedido = pedido;
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 pedidos.Add(pedido);
                 LlenarLista();
+            }
+        }
+
+        private void pedidosDeAlquilerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBuscarPedidos frmBuscar = new frmBuscarPedidos(typeof(GI.BR.Propiedades.Alquiler));
+
+            if (frmBuscar.ShowDialog() == DialogResult.OK)
+            {
+                this.pedidos = frmBuscar.Pedidos;
+                this.LlenarLista();
+            }
+        }
+
+        private void pedidosDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBuscarPedidos frmBuscar = new frmBuscarPedidos(typeof(GI.BR.Propiedades.Venta));
+
+            if (frmBuscar.ShowDialog() == DialogResult.OK)
+            {
+                this.pedidos = frmBuscar.Pedidos;
+                this.LlenarLista();
             }
         }
 

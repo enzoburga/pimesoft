@@ -84,5 +84,15 @@ namespace GI.UI
         {
             clientesToolStripMenuItem_Click(null, null);
         }
+
+        private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PedidostoolStripButton_Click(null, null);
+        }
+
+        private void PedidostoolStripButton_Click(object sender, EventArgs e)
+        {
+            builder.AbrirFormulario(typeof(Pedidos.frmListadoPedidos).ToString());
+        }
     }
 }

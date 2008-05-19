@@ -28,6 +28,10 @@ namespace GI.UI.Pedidos
 
                 pedido = value;
                 pedidoClone = (GI.BR.Pedidos.Pedido)pedido.Clone();
+                if(pedido.EstadoPropiedad == typeof(GI.BR.Propiedades.Venta))
+                    this.Text = "Pedido de Venta";
+                else
+                    this.Text = "Pedido de Alquiler";
 
                 InicializarTabs();
 
@@ -74,7 +78,7 @@ namespace GI.UI.Pedidos
 
         private void bCancelar_Click(object sender, EventArgs e)
         {
-            if (CambioDatosAdmAlquiler())
+            if (CambioDatosPedido())
                 switch (GI.Framework.General.GIMsgBox.ShowCancelarPerdidaDatos())
                 {
                     case DialogResult.Cancel:
@@ -95,7 +99,7 @@ namespace GI.UI.Pedidos
             this.Close();
         }
 
-        private bool CambioDatosAdmAlquiler()
+        private bool CambioDatosPedido()
         {
             return false;
         }
@@ -112,13 +116,12 @@ namespace GI.UI.Pedidos
             }
             try
             {
+                ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).Validar();
 
-                //Verifico si la adm de alquiler esta o no guardado. Si lo esta lo actualizo.
-                //Busco la administracion en el primer Tab.
                 if (pedido.IdPedido == 0)
-                    guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).Pedido.Guardar();
+                    guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).getPedido().Guardar();
                 else
-                    guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).Pedido.Actualizar();
+                    guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).getPedido().Actualizar();
 
                 if (guardado)
                 {
@@ -171,9 +174,9 @@ namespace GI.UI.Pedidos
                 //Verifico si la adm de alquiler esta o no guardado. Si lo esta lo actualizo.
                 //Busco la administracion en el primer Tab.
                 if (pedido.IdPedido == 0)
-                    guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).Pedido.Guardar();
+                    guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).getPedido().Guardar();
                 else
-                    guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).Pedido.Actualizar();
+                    guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).getPedido().Actualizar();
 
                 if (guardado)
                 {
@@ -188,7 +191,6 @@ namespace GI.UI.Pedidos
             catch (Exception ex)
             {
                 GI.Framework.General.GIMsgBox.Show(ex.Message, GI.Framework.General.enumTipoMensaje.Error);
-
             }
 
         }

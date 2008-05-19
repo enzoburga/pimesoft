@@ -197,7 +197,7 @@
     <Compile Include="Pedidos\TabDatosPrincipales.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pedidos\TabDatosPrincipales.Designer.cs">
+    <Compile Include="Pedidos\TabDatosPrincipales.designer.cs">
       <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
     </Compile>
     <Compile Include="Pedidos\TabPropiedadesOfrecidas.cs">
@@ -408,6 +408,7 @@
     <None Include="Properties\DataSources\GI.BR.AdmAlquileres.ValorRenta.datasource" />
     <None Include="Properties\DataSources\GI.BR.Clientes.Cliente.datasource" />
     <None Include="Properties\DataSources\GI.BR.Clientes.Inquilino.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Monedas.Moneda.datasource" />
     <None Include="Properties\DataSources\GI.BR.Pedidos.Pedido.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion1.datasource" />
