@@ -173,5 +173,21 @@ namespace GI.DA
                 new object[] { IdClientePedido },
                 new string[] { "@IdClientePedido" });
         }
+
+        public System.Data.IDataReader RecuperarClientesPedido(string Nombres)
+        {
+            return AccesoDatos.RecuperarDatos(
+                "ClientesPedido_RecuperarPorNombre",
+                new object[] { Nombres },
+                new string[] { "@Cadena" });
+        }
+
+        public System.Data.IDataReader RecuperarClientesPedido()
+        {
+            return AccesoDatos.RecuperarDatos(
+                "ClientesPedido_RecuperarTodos",
+                new object[] {  },
+                new string[] {  });
+        }
     }
 }

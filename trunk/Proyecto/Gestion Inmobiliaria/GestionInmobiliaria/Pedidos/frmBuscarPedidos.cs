@@ -16,10 +16,10 @@ namespace GI.UI.Pedidos
 
 
 
-        public frmBuscarPedidos()
+        public frmBuscarPedidos(Type tipoPropiedad)
         {
             InitializeComponent();
-            this.tipo = typeof(GI.BR.Pedidos.Pedido);
+            this.tipo = tipoPropiedad;
             Inicializar();
 
             bBuscar.Focus();            
@@ -90,17 +90,16 @@ namespace GI.UI.Pedidos
 
 
             #endregion
+
         }
-
-
 
         private void cbPais_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (cbPais.SelectedIndex > 0) return;
 
             GI.BR.Propiedades.Ubicaciones.Pais Pais = (GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem;
-            GI.BR.Propiedades.Ubicaciones.Provincias Provincias = uff.GetProvincias(Pais.IdPais); 
-            
+            GI.BR.Propiedades.Ubicaciones.Provincias Provincias = uff.GetProvincias(Pais.IdPais);
+
 
             cbProvincia.Items.Clear();
             cbLocalidad.Items.Clear();
@@ -150,97 +149,78 @@ namespace GI.UI.Pedidos
 
         private void bBuscar_Click(object sender, EventArgs e)
         {
-            throw new Exception("No implementado");
-            GI.Managers.AdmAlquileres.MngAdmAlquileres mngAdmAlquileres = new GI.Managers.AdmAlquileres.MngAdmAlquileres();
+            GI.Managers.Pedidos.MngPedidos mngPedidos = new GI.Managers.Pedidos.MngPedidos();
 
-            //#region Por Ubicación
+            #region Por Ubicación
 
-            //if (tabControlTiposDeBusqueda.SelectedIndex == 0)
-            //{
+            if (tabControlTiposDeBusqueda.SelectedIndex == 0)
+            {
 
-            //    GI.BR.Propiedades.TipoPropiedad TipoProp = null;
-            //    GI.BR.Propiedades.Ubicacion Ubicacion = new GI.BR.Propiedades.Ubicacion();
-            //    GI.BR.Propiedades.Ambiente Ambiente = null;
-            //    GI.BR.Propiedades.EstadoPropiedad Estado = null;
-            //    GI.BR.Valor ValorDesde = null;
-            //    GI.BR.Valor ValorHasta = null;
-            //    if (cbTipoPropiedad.SelectedIndex > 0)
-            //        TipoProp = (GI.BR.Propiedades.TipoPropiedad)cbTipoPropiedad.SelectedItem;
+                GI.BR.Propiedades.TipoPropiedad TipoProp = null;
+                GI.BR.Propiedades.Ubicacion Ubicacion = new GI.BR.Propiedades.Ubicacion();
+                GI.BR.Propiedades.Ambiente Ambiente = null;
+                GI.BR.Propiedades.EstadoPropiedad Estado = null;
+                GI.BR.Valor ValorDesde = null;
+                GI.BR.Valor ValorHasta = null;
+                if (cbTipoPropiedad.SelectedIndex > 0)
+                    TipoProp = (GI.BR.Propiedades.TipoPropiedad)cbTipoPropiedad.SelectedItem;
 
-            //    if (cbPais.SelectedIndex > 0)
-            //        Ubicacion.Pais = (GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem;
-            //    if (cbProvincia.SelectedIndex > 0)
-            //        Ubicacion.Provincia = (GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem;
-            //    if (cbLocalidad.SelectedIndex > 0)
-            //        Ubicacion.Localidad = (GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem;
-            //    if (cbBarrio.SelectedIndex > 0)
-            //        Ubicacion.Barrio = (GI.BR.Propiedades.Ubicaciones.Barrio)cbBarrio.SelectedItem;
+                if (cbPais.SelectedIndex > 0)
+                    Ubicacion.Pais = (GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem;
+                if (cbProvincia.SelectedIndex > 0)
+                    Ubicacion.Provincia = (GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem;
+                if (cbLocalidad.SelectedIndex > 0)
+                    Ubicacion.Localidad = (GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem;
+                if (cbBarrio.SelectedIndex > 0)
+                    Ubicacion.Barrio = (GI.BR.Propiedades.Ubicaciones.Barrio)cbBarrio.SelectedItem;
 
-            //    if (cbAmbientes.SelectedIndex > 0)
-            //        Ambiente = (GI.BR.Propiedades.Ambiente)cbAmbientes.SelectedItem;
+                if (cbAmbientes.SelectedIndex > 0)
+                    Ambiente = (GI.BR.Propiedades.Ambiente)cbAmbientes.SelectedItem;
 
-            //    if (cbEstadoPropiedad.SelectedIndex > 0)
-            //        Estado = (GI.BR.Propiedades.EstadoPropiedad)cbEstadoPropiedad.SelectedItem;
+                if (cbEstadoPropiedad.SelectedIndex > 0)
+                    Estado = (GI.BR.Propiedades.EstadoPropiedad)cbEstadoPropiedad.SelectedItem;
 
-            //    decimal importeDesde = 0;
-            //    if (decimal.TryParse(textBoxValorDesde.Text, out importeDesde))
-            //    {
-            //        ValorDesde = new GI.BR.Valor();
-            //        ValorDesde.Importe = importeDesde;
-            //        ValorDesde.Moneda = (GI.BR.Monedas.Moneda)cbMonedaReal.SelectedItem;
+                decimal importeDesde = 0;
+                if (decimal.TryParse(textBoxValorDesde.Text, out importeDesde))
+                {
+                    ValorDesde = new GI.BR.Valor();
+                    ValorDesde.Importe = importeDesde;
+                    ValorDesde.Moneda = (GI.BR.Monedas.Moneda)cbMonedaReal.SelectedItem;
 
-            //    }
+                }
 
-            //    decimal importeHasta = 0;
-            //    if (decimal.TryParse(textBoxValorHasta.Text, out importeHasta))
-            //    {
-            //        ValorHasta = new GI.BR.Valor();
-            //        ValorHasta.Importe = importeHasta;
-            //        ValorHasta.Moneda = (GI.BR.Monedas.Moneda)cbMonedaReal.SelectedItem;
+                decimal importeHasta = 0;
+                if (decimal.TryParse(textBoxValorHasta.Text, out importeHasta))
+                {
+                    ValorHasta = new GI.BR.Valor();
+                    ValorHasta.Importe = importeHasta;
+                    ValorHasta.Moneda = (GI.BR.Monedas.Moneda)cbMonedaReal.SelectedItem;
 
-            //    }
+                }
 
-            //    admAlquileres = mngAdmAlquileres.RecuperarAdmAlquileres(TipoProp, Estado, Ambiente, Ubicacion, ValorDesde, ValorHasta ,cBoxRecuperarVencidos.Checked);
-                
+                pedidos = mngPedidos.RecuperarPedidos(TipoProp, Estado, Ambiente, Ubicacion, ValorDesde, ValorHasta, tipo);
 
-            //} 
-            //#endregion
 
-            //#region Por Dirección
-            //if (tabControlTiposDeBusqueda.SelectedIndex == 1)
-            //{
-            //    int numero = 0;
-            //    Int32.TryParse(textBoxNumero.Text, out numero);
-            //    admAlquileres = mngAdmAlquileres.RecuperarAdmAlquileres(textBoxDireccion.Text, numero, cBoxRecuperarVencidos.Checked);
-            //}
-            //#endregion          
+            }
+            #endregion
 
-            //#region Por Código
 
-            //if (tabControlTiposDeBusqueda.SelectedIndex == 2)
-            //{
-            //    int numero = 0;
-            //    Int32.TryParse(textBoxNumero.Text, out numero);
-            //    admAlquileres = mngAdmAlquileres.RecuperarAdmAlquileresPorCodigoPropiedad(tbCodigo.Text, cBoxRecuperarVencidos.Checked);
-            //}
 
-            //#endregion
+            #region Por Contacto
 
-            //#region Por Inquilino
+            if (tabControlTiposDeBusqueda.SelectedIndex == 1)
+            {
 
-            //if (tabControlTiposDeBusqueda.SelectedIndex == 3)
-            //{
+                pedidos = mngPedidos.RecuperarPedidosPorContacto(tbNombresInquilinos.Text, tipo);
+            }
 
-            //    admAlquileres = mngAdmAlquileres.RecuperarAdmAlquileresPorInquilinos(tbNombresInquilinos.Text, cBoxRecuperarVencidos.Checked);
-            //}
+            #endregion
 
-            //#endregion
-
-            //if (this.admAlquileres.Count == 0)
-            //{
-            //    GI.Framework.General.GIMsgBox.ShowNoSeEncontraronDatos();
-            //    return;
-            //}
+            if (this.pedidos.Count == 0)
+            {
+                GI.Framework.General.GIMsgBox.ShowNoSeEncontraronDatos();
+                return;
+            }
 
 
             this.DialogResult = DialogResult.OK;
@@ -261,7 +241,6 @@ namespace GI.UI.Pedidos
 
         public void SetTipoBusqueda(Type tipoObjeto)
         {
-            
         }
 
         public DialogResult MostrarBuscador()

@@ -15,6 +15,9 @@ namespace GI.Managers.Clientes
                 case enumTipoBusquedaCliente.Propietarios:
                     clientes.RecuperarPropietarios(Nombres);
                     break;
+                case enumTipoBusquedaCliente.ClientePedido:
+                    clientes.RecuperarClientesPedido(Nombres);
+                    break;
                 case enumTipoBusquedaCliente.Inquilinos:
                     clientes.RecuperarInquilinos(Nombres);
                     break;
@@ -34,6 +37,9 @@ namespace GI.Managers.Clientes
             {
                 case enumTipoBusquedaCliente.Propietarios:
                     clientes.RecuperarPropietarios();
+                    break;
+                case enumTipoBusquedaCliente.ClientePedido:
+                    clientes.RecuperarClientesPedido();
                     break;
                 case enumTipoBusquedaCliente.Inquilinos:
                     clientes.RecuperarInquilinos();

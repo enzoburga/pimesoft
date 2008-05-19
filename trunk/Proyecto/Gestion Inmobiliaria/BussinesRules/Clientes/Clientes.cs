@@ -77,28 +77,73 @@ namespace GI.BR.Clientes
 
         #endregion
 
+        #region Clientes Pedidos
+
+        public void RecuperarClientesPedido(string Nombres)
+        {
+            this.Clear();
+            GI.DA.ClientesData cd = new GI.DA.ClientesData();
+            using (IDataReader dr = cd.RecuperarClientesPedido(Nombres))
+            {
+                while (dr.Read())
+                {
+                    this.Add(GetClientePedido(dr));
+                }
+            }
+        }
+
+        public void RecuperarClientesPedido()
+        {
+            this.Clear();
+            GI.DA.ClientesData cd = new GI.DA.ClientesData();
+            using (IDataReader dr = cd.RecuperarClientesPedido())
+            {
+                while (dr.Read())
+                {
+                    this.Add(GetClientePedido(dr));
+                }
+            }
+        }
+
+        private Cliente GetClientePedido(IDataReader dr)
+        {
+            ClientePedido c = new ClientePedido();
+            c.llenar(dr);
+            return c;
+        }
+
+        #endregion
+
         public void RecuperarTodos(string Nombres)
         {
             Clientes inquilinos = new Clientes();
             Clientes propietarios = new Clientes();
+            Clientes clientesPedido = new Clientes();
 
             inquilinos.RecuperarInquilinos(Nombres);
             propietarios.RecuperarPropietarios(Nombres);
+            clientesPedido.RecuperarClientesPedido(Nombres);
 
             this.AddRange(inquilinos);
-            this.AddRange(propietarios);            
+            this.AddRange(propietarios);
+            this.AddRange(clientesPedido);  
         }
 
         public void RecuperarTodos()
         {
             Clientes inquilinos = new Clientes();
             Clientes propietarios = new Clientes();
+            Clientes clientesPedido = new Clientes();
 
             inquilinos.RecuperarInquilinos();
             propietarios.RecuperarPropietarios();
+            clientesPedido.RecuperarClientesPedido();
 
             this.AddRange(inquilinos);
             this.AddRange(propietarios);
+            this.AddRange(clientesPedido); 
         }
+
+
     }
 }

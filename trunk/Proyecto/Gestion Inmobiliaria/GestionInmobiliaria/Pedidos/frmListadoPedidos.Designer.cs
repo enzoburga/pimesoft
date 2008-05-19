@@ -32,7 +32,9 @@ namespace GI.UI.Pedidos
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoPedidos));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.BuscarPedidostoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.BuscarPedidostoolStripButton = new System.Windows.Forms.ToolStripSplitButton();
+            this.pedidosDeAlquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pedidosDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NuevoPedidotoolStripButton = new System.Windows.Forms.ToolStripSplitButton();
             this.nuevoPedidoDeVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPedidoDeAlquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,8 +42,6 @@ namespace GI.UI.Pedidos
             this.lvPedidos = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.verFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,13 +88,29 @@ namespace GI.UI.Pedidos
             // BuscarPedidostoolStripButton
             // 
             this.BuscarPedidostoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BuscarPedidostoolStripButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pedidosDeAlquilerToolStripMenuItem,
+            this.pedidosDeVentasToolStripMenuItem});
             this.BuscarPedidostoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("BuscarPedidostoolStripButton.Image")));
             this.BuscarPedidostoolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.BuscarPedidostoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BuscarPedidostoolStripButton.Name = "BuscarPedidostoolStripButton";
-            this.BuscarPedidostoolStripButton.Size = new System.Drawing.Size(67, 68);
+            this.BuscarPedidostoolStripButton.Size = new System.Drawing.Size(79, 68);
             this.BuscarPedidostoolStripButton.Text = "Buscar Pedidos";
-            this.BuscarPedidostoolStripButton.Click += new System.EventHandler(this.BuscarPedidostoolStripButton_Click);
+            // 
+            // pedidosDeAlquilerToolStripMenuItem
+            // 
+            this.pedidosDeAlquilerToolStripMenuItem.Name = "pedidosDeAlquilerToolStripMenuItem";
+            this.pedidosDeAlquilerToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.pedidosDeAlquilerToolStripMenuItem.Text = "Pedidos de Alquileres";
+            this.pedidosDeAlquilerToolStripMenuItem.Click += new System.EventHandler(this.pedidosDeAlquilerToolStripMenuItem_Click);
+            // 
+            // pedidosDeVentasToolStripMenuItem
+            // 
+            this.pedidosDeVentasToolStripMenuItem.Name = "pedidosDeVentasToolStripMenuItem";
+            this.pedidosDeVentasToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.pedidosDeVentasToolStripMenuItem.Text = "Pedidos de Ventas";
+            this.pedidosDeVentasToolStripMenuItem.Click += new System.EventHandler(this.pedidosDeVentasToolStripMenuItem_Click);
             // 
             // NuevoPedidotoolStripButton
             // 
@@ -138,9 +154,7 @@ namespace GI.UI.Pedidos
             // 
             this.lvPedidos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader8,
-            this.columnHeader3});
+            this.columnHeader2});
             this.lvPedidos.ContextMenuStrip = this.contextMenuStrip1;
             this.lvPedidos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvPedidos.FullRowSelect = true;
@@ -151,6 +165,7 @@ namespace GI.UI.Pedidos
             this.lvPedidos.TabIndex = 0;
             this.lvPedidos.UseCompatibleStateImageBehavior = false;
             this.lvPedidos.View = System.Windows.Forms.View.Details;
+            this.lvPedidos.DoubleClick += new System.EventHandler(this.lvPedidos_DoubleClick);
             // 
             // columnHeader1
             // 
@@ -159,18 +174,8 @@ namespace GI.UI.Pedidos
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Propiedad";
+            this.columnHeader2.Text = "Estado Propiedad";
             this.columnHeader2.Width = 206;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Inquilino";
-            this.columnHeader8.Width = 177;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Fecha Vencimiento Contrato";
-            this.columnHeader3.Width = 153;
             // 
             // contextMenuStrip1
             // 
@@ -230,11 +235,8 @@ namespace GI.UI.Pedidos
         private System.Windows.Forms.ListView lvPedidos;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton BuscarPedidostoolStripButton;
         private System.Windows.Forms.ToolStripButton imprimirListadotoolStripButton;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem verFichaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarFichaToolStripMenuItem;
@@ -242,5 +244,8 @@ namespace GI.UI.Pedidos
         private System.Windows.Forms.ToolStripSplitButton NuevoPedidotoolStripButton;
         private System.Windows.Forms.ToolStripMenuItem nuevoPedidoDeVentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoPedidoDeAlquilerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSplitButton BuscarPedidostoolStripButton;
+        private System.Windows.Forms.ToolStripMenuItem pedidosDeAlquilerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pedidosDeVentasToolStripMenuItem;
     }
 }

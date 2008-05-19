@@ -20,12 +20,15 @@ namespace GI.UI.Pedidos
 
         public GI.BR.Pedidos.Pedido Pedido
         {
-            get { return pedido; }
+            get
+            {
+                return pedido;
+            }
             set
             {
                 pedido = value;
                 Inicializar();
-                CargarAlquiler();
+                CargarPedido();
             }
         }
 
@@ -34,9 +37,14 @@ namespace GI.UI.Pedidos
             return;
         }
 
-        protected virtual void CargarAlquiler()
+        protected virtual void CargarPedido()
         {
             return;
+        }
+
+        public virtual GI.BR.Pedidos.Pedido getPedido()
+        {
+            return pedido;
         }
     }
 }

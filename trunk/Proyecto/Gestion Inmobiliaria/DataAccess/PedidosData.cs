@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 
 namespace GI.DA
 {
@@ -10,15 +11,14 @@ namespace GI.DA
 
         public bool Actualizar(
             int IdPedido,
-            decimal CantidadAmbientesFinal,
-            decimal CantidadAmbientesInicial,
-            int IdCategoria,
+            Nullable<decimal> CantidadAmbientesFinal,
+            Nullable<decimal> CantidadAmbientesInicial,
+            Nullable<int> IdCategoria,
             int IdCliente,
-            int Disposicion,
-            int EnumEstado,
-            bool EsAptoProfesional,
-            bool EsDepartamento,
-            int IdEstadoPropiedad,
+            Nullable<int> Disposicion,
+            Nullable<int> EnumEstado,
+            Nullable<bool> EsAptoProfesional,
+            Nullable<int> IdEstadoPropiedad,
             Type EstadoPropiedad,
             int MetrosConstruiblesFinal,
             int MetrosConstruiblesInicial,
@@ -26,48 +26,119 @@ namespace GI.DA
             int MetrosCubiertosInicial,
             int MetrosTerrenoFinal,
             int MetrosTerrenoInicial,
-            int IdTipoPropiedad,
-            int TipoZona,
-            int IdBarrio,
-            int IdLocalidad,
-            int IdPais,
-            int IdProvincia,
-            decimal ImporteFinal,
-            int IdMonedaImporteFinal,
-            decimal ImporteInicial,
-            int IdMonedaImporteInicial)
+            Nullable<int> IdTipoPropiedad,
+            Nullable<int> TipoZona,
+            Nullable<int> IdBarrio,
+            Nullable<int> IdLocalidad,
+            Nullable<int> IdPais,
+            Nullable<int> IdProvincia,
+            Nullable<decimal> ImporteFinal,
+            Nullable<decimal> ImporteInicial,
+            Nullable<int> IdMoneda)
         {
 
-            //SETEAR VARIABLES NULLEABLES
+            object cantidadAmbientesFinal = CantidadAmbientesFinal;
+            if (null == CantidadAmbientesFinal)
+                cantidadAmbientesFinal = System.DBNull.Value;
 
+            object cantidadAmbientesInicial = CantidadAmbientesInicial;
+            if (null == CantidadAmbientesInicial)
+                cantidadAmbientesInicial = System.DBNull.Value;
+
+            object idCategoria = IdCategoria;
+            if (!IdCategoria.HasValue)
+                idCategoria = System.DBNull.Value;
+
+            object disposicion = Disposicion;
+            if (!Disposicion.HasValue)
+                disposicion = System.DBNull.Value;
+
+            object enumEstado = EnumEstado;
+            if (!EnumEstado.HasValue)
+                enumEstado = System.DBNull.Value;
+
+            object esAptoProfesional = EsAptoProfesional;
+            if (!EsAptoProfesional.HasValue)
+                esAptoProfesional = System.DBNull.Value;
+
+            object idEstadoPropiedad = IdEstadoPropiedad;
+            if (!IdEstadoPropiedad.HasValue)
+                idEstadoPropiedad = System.DBNull.Value;
+
+            object metrosConstruiblesFinal = MetrosConstruiblesFinal;
+            if (0 == MetrosConstruiblesFinal)
+                metrosConstruiblesFinal = System.DBNull.Value;
+
+            object metrosCubiertosFinal = MetrosCubiertosFinal;
+            if (0 == MetrosCubiertosFinal)
+                metrosCubiertosFinal = System.DBNull.Value;
+
+            object metrosTerrenoFinal = MetrosTerrenoFinal;
+            if (0 == MetrosTerrenoFinal)
+                metrosTerrenoFinal = System.DBNull.Value;
+
+            object idTipoPropiedad = IdTipoPropiedad;
+            if (!IdTipoPropiedad.HasValue)
+                idTipoPropiedad = System.DBNull.Value;
+
+            object tipoZona = TipoZona;
+            if (!TipoZona.HasValue)
+                tipoZona = System.DBNull.Value;
+
+            object importeFinal = ImporteFinal;
+            if (!ImporteFinal.HasValue)
+                importeFinal = System.DBNull.Value;
+
+            object importeInicial = ImporteInicial;
+            if (!ImporteInicial.HasValue)
+                importeInicial = System.DBNull.Value;
+
+            object idMoneda = IdMoneda;
+            if (!IdMoneda.HasValue)
+                idMoneda = System.DBNull.Value;
+
+            object idBarrio = IdBarrio;
+            if (!IdBarrio.HasValue)
+                idBarrio = System.DBNull.Value;
+
+            object idLocalidad = IdLocalidad;
+            if (!IdLocalidad.HasValue)
+                idLocalidad = System.DBNull.Value;
+
+            object idPais = IdPais;
+            if (!IdPais.HasValue)
+                idPais = System.DBNull.Value;
+
+            object idProvincia = IdProvincia;
+            if (!IdProvincia.HasValue)
+                idProvincia = System.DBNull.Value;
+            
+            
             return AccesoDatos.ActualizarRegistro(
                 "Pedido_Actualizar",
                 new object[] {   
                     IdPedido,
-                    CantidadAmbientesFinal,
-                    CantidadAmbientesInicial,
-                    IdCategoria,
+                    cantidadAmbientesFinal,
+                    cantidadAmbientesInicial,
+                    idCategoria,
                     IdCliente,
-                    Disposicion,
-                    EnumEstado,
-                    EsAptoProfesional,
-                    EsDepartamento,
-                    IdEstadoPropiedad,
+                    disposicion,
+                    enumEstado,
+                    esAptoProfesional,
+                    idEstadoPropiedad,
                     EstadoPropiedad.ToString(),
-                    MetrosConstruiblesFinal,
-                    MetrosConstruiblesInicial,
-                    MetrosCubiertosFinal, MetrosCubiertosInicial,
-                    MetrosTerrenoFinal, MetrosTerrenoInicial,
-                    IdTipoPropiedad,
-                    TipoZona,
-                    IdBarrio,
-                    IdLocalidad,
-                    IdPais,
-                    IdProvincia,
-                    ImporteFinal,
-                    IdMonedaImporteFinal,
-                    ImporteInicial,
-                    IdMonedaImporteInicial },
+                    metrosConstruiblesFinal, MetrosConstruiblesInicial,
+                    metrosCubiertosFinal, MetrosCubiertosInicial,
+                    metrosTerrenoFinal, MetrosTerrenoInicial,
+                    idTipoPropiedad,
+                    tipoZona,
+                    idBarrio,
+                    idLocalidad,
+                    idPais,
+                    idProvincia,
+                    importeFinal,
+                    importeInicial,
+                    idMoneda },
                 new string[] {    
                     "@IdPedido",
                     "@CantidadAmbientesFinal",
@@ -77,7 +148,6 @@ namespace GI.DA
                     "@Disposicion",
                     "@EnumEstado",
                     "@EsAptoProfesional",
-                    "@EsDepartamento",
                     "@IdEstadoPropiedad",
                     "@EstadoPropiedad",
                     "@MetrosConstruiblesFinal",
@@ -93,68 +163,138 @@ namespace GI.DA
                     "@IdPais",
                     "@IdProvincia",
                     "@ImporteFinal",
-                    "@IdMonedaImporteFinal",
                     "@ImporteInicial",
-                    "@IdMonedaImporteInicial"});
+                    "@IdMoneda"});
         }
 
         public int Guardar(
-            decimal CantidadAmbientesFinal,
-            decimal CantidadAmbientesInicial,
-            int IdCategoria,
+            Nullable<decimal> CantidadAmbientesFinal,
+            Nullable<decimal> CantidadAmbientesInicial,
+            Nullable<int> IdCategoria,
             int IdCliente,
-            int Disposicion,
-            int EnumEstado,
-            bool EsAptoProfesional,
-            bool EsDepartamento,
-            int IdEstadoPropiedad,
+            Nullable<int> Disposicion,
+            Nullable<int> EnumEstado,
+            Nullable<bool> EsAptoProfesional,
+            Nullable<int> IdEstadoPropiedad,
             Type EstadoPropiedad,
             int MetrosConstruiblesFinal,
             int MetrosConstruiblesInicial,
             int MetrosCubiertosFinal,
             int MetrosCubiertosInicial,
             int MetrosTerrenoFinal,
-            int MetrosTerrenoInicial, 
-            int IdTipoPropiedad, 
-            int TipoZona, 
-            int IdBarrio,
-            int IdLocalidad,
-            int IdPais,
-            int IdProvincia,
-            decimal ImporteFinal,
-            int IdMonedaImporteFinal,
-            decimal ImporteInicial,
-            int IdMonedaImporteInicial)
+            int MetrosTerrenoInicial,
+            Nullable<int> IdTipoPropiedad,
+            Nullable<int> TipoZona,
+            Nullable<int> IdBarrio,
+            Nullable<int> IdLocalidad,
+            Nullable<int> IdPais,
+            Nullable<int> IdProvincia,
+            Nullable<decimal> ImporteFinal,
+            Nullable<decimal> ImporteInicial,
+            Nullable<int> IdMoneda)
         {
 
-            //SETEAR VARIABLES NULLEABLES
+            object cantidadAmbientesFinal = CantidadAmbientesFinal;
+            if (null == CantidadAmbientesFinal)
+                cantidadAmbientesFinal = System.DBNull.Value;
+
+            object cantidadAmbientesInicial = CantidadAmbientesInicial;
+            if (null == CantidadAmbientesInicial)
+                cantidadAmbientesInicial = System.DBNull.Value;
+
+            object idCategoria = IdCategoria;
+            if (!IdCategoria.HasValue)
+                idCategoria = System.DBNull.Value;
+
+            object disposicion = Disposicion;
+            if (!Disposicion.HasValue)
+                disposicion = System.DBNull.Value;
+
+            object enumEstado = EnumEstado;
+            if (!EnumEstado.HasValue)
+                enumEstado = System.DBNull.Value;
+
+            object esAptoProfesional = EsAptoProfesional;
+            if (!EsAptoProfesional.HasValue)
+                esAptoProfesional = System.DBNull.Value;
+
+            object idEstadoPropiedad = IdEstadoPropiedad;
+            if (!IdEstadoPropiedad.HasValue)
+                idEstadoPropiedad = System.DBNull.Value;
+
+            object metrosConstruiblesFinal = MetrosConstruiblesFinal;
+            if (0 == MetrosConstruiblesFinal)
+                metrosConstruiblesFinal = System.DBNull.Value;
+
+            object metrosCubiertosFinal = MetrosCubiertosFinal;
+            if (0 == MetrosCubiertosFinal)
+                metrosCubiertosFinal = System.DBNull.Value;
+
+            object metrosTerrenoFinal = MetrosTerrenoFinal;
+            if (0 == MetrosTerrenoFinal)
+                metrosTerrenoFinal = System.DBNull.Value;
+
+            object idTipoPropiedad = IdTipoPropiedad;
+            if (!IdTipoPropiedad.HasValue)
+                idTipoPropiedad = System.DBNull.Value;
+
+            object tipoZona = TipoZona;
+            if (!TipoZona.HasValue)
+                tipoZona = System.DBNull.Value;
+
+            object importeFinal = ImporteFinal;
+            if (!ImporteFinal.HasValue)
+                importeFinal = System.DBNull.Value;
+
+            object importeInicial = ImporteInicial;
+            if (!ImporteInicial.HasValue)
+                importeInicial = System.DBNull.Value;
+
+            object idMoneda = IdMoneda;
+            if (!IdMoneda.HasValue)
+                idMoneda = System.DBNull.Value;
+
+            object idBarrio = IdBarrio;
+            if (!IdBarrio.HasValue)
+                idBarrio = System.DBNull.Value;
+
+            object idLocalidad = IdLocalidad;
+            if (!IdLocalidad.HasValue)
+                idLocalidad = System.DBNull.Value;
+
+            object idPais = IdPais;
+            if (!IdPais.HasValue)
+                idPais = System.DBNull.Value;
+
+            object idProvincia = IdProvincia;
+            if (!IdProvincia.HasValue)
+                idProvincia = System.DBNull.Value;
+
+
             return AccesoDatos.InsertarRegistro(
                 "Pedido_Guardar",
                 new object[] {   
-                    CantidadAmbientesFinal,
-                    CantidadAmbientesInicial,
-                    IdCategoria,
+                    cantidadAmbientesFinal,
+                    cantidadAmbientesInicial,
+                    idCategoria,
                     IdCliente,
-                    Disposicion,
-                    EnumEstado,
-                    EsAptoProfesional,
-                    EsDepartamento,
-                    IdEstadoPropiedad,
+                    disposicion,
+                    enumEstado,
+                    esAptoProfesional,
+                    idEstadoPropiedad,
                     EstadoPropiedad.ToString(),
-                    MetrosConstruiblesFinal,
-                    MetrosConstruiblesInicial,
-                    MetrosCubiertosFinal, MetrosCubiertosInicial,
-                    MetrosTerrenoFinal, MetrosTerrenoInicial,
-                    IdTipoPropiedad,
-                    TipoZona,
-                    IdBarrio,
-                    IdLocalidad,
-                    IdPais,
-                    IdProvincia,
-                    ImporteFinal,
-                    IdMonedaImporteFinal,
-                    ImporteInicial,
-                    IdMonedaImporteInicial },
+                    metrosConstruiblesFinal, MetrosConstruiblesInicial,
+                    metrosCubiertosFinal, MetrosCubiertosInicial,
+                    metrosTerrenoFinal, MetrosTerrenoInicial,
+                    idTipoPropiedad,
+                    tipoZona,
+                    idBarrio,
+                    idLocalidad,
+                    idPais,
+                    idProvincia,
+                    importeFinal,
+                    importeInicial,
+                    idMoneda },
                 new string[] {    
                     "@CantidadAmbientesFinal",
                     "@CantidadAmbientesInicial",
@@ -163,7 +303,6 @@ namespace GI.DA
                     "@Disposicion",
                     "@EnumEstado",
                     "@EsAptoProfesional",
-                    "@EsDepartamento",
                     "@IdEstadoPropiedad",
                     "@EstadoPropiedad",
                     "@MetrosConstruiblesFinal",
@@ -179,9 +318,22 @@ namespace GI.DA
                     "@IdPais",
                     "@IdProvincia",
                     "@ImporteFinal",
-                    "@IdMonedaImporteFinal",
                     "@ImporteInicial",
-                    "@IdMonedaImporteInicial"});
+                    "@IdMoneda"});
+        }
+
+        public IDataReader RecuperarPedidosTodos()
+        {
+            return AccesoDatos.RecuperarDatos("Pedidos_RecuperarTodos",
+                new object[] { },
+                new string[] { });
+        }
+
+        public IDataReader RecuperarPedidosPorNombreContacto(string Nombres)
+        {
+            return AccesoDatos.RecuperarDatos("Pedidos_RecuperarPorNombreContacto",
+                 new object[] { Nombres},
+                 new string[] { "@Cadena"});
         }
     }
 }

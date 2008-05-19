@@ -34,6 +34,5 @@ namespace GI.BR.Propiedades
                 hashTipoEstados[Tipo.ToString()] = new EstadoPropiedadFlyweigthFactory(Tipo);
             return (EstadoPropiedadFlyweigthFactory)hashTipoEstados[Tipo.ToString()];
         }
-
     }
 }

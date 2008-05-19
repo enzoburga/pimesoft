@@ -47,6 +47,7 @@ namespace GI.UI.Clientes
             this.editarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enviarACorreoElectrónicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoClientePedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -101,7 +102,8 @@ namespace GI.UI.Clientes
             this.toolStripButtonAgregar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonAgregar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoPropietarioToolStripMenuItem1,
-            this.nuevoInquilinoToolStripMenuItem1});
+            this.nuevoInquilinoToolStripMenuItem1,
+            this.nuevoClientePedidoToolStripMenuItem});
             this.toolStripButtonAgregar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAgregar.Image")));
             this.toolStripButtonAgregar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -112,14 +114,14 @@ namespace GI.UI.Clientes
             // nuevoPropietarioToolStripMenuItem1
             // 
             this.nuevoPropietarioToolStripMenuItem1.Name = "nuevoPropietarioToolStripMenuItem1";
-            this.nuevoPropietarioToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
+            this.nuevoPropietarioToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
             this.nuevoPropietarioToolStripMenuItem1.Text = "Nuevo Propietario";
             this.nuevoPropietarioToolStripMenuItem1.Click += new System.EventHandler(this.nuevoPropietarioToolStripMenuItem_Click);
             // 
             // nuevoInquilinoToolStripMenuItem1
             // 
             this.nuevoInquilinoToolStripMenuItem1.Name = "nuevoInquilinoToolStripMenuItem1";
-            this.nuevoInquilinoToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
+            this.nuevoInquilinoToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
             this.nuevoInquilinoToolStripMenuItem1.Text = "Nuevo Inquilino";
             this.nuevoInquilinoToolStripMenuItem1.Click += new System.EventHandler(this.nuevoInquilinoToolStripMenuItem_Click);
             // 
@@ -210,6 +212,13 @@ namespace GI.UI.Clientes
             this.enviarACorreoElectrónicoToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.enviarACorreoElectrónicoToolStripMenuItem.Text = "Enviar a correo electrónico";
             // 
+            // nuevoClientePedidoToolStripMenuItem
+            // 
+            this.nuevoClientePedidoToolStripMenuItem.Name = "nuevoClientePedidoToolStripMenuItem";
+            this.nuevoClientePedidoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.nuevoClientePedidoToolStripMenuItem.Text = "Nuevo Cliente Pedido";
+            this.nuevoClientePedidoToolStripMenuItem.Click += new System.EventHandler(this.nuevoClientePedidoToolStripMenuItem_Click);
+            // 
             // frmListadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,5 +259,6 @@ namespace GI.UI.Clientes
         private System.Windows.Forms.ToolStripMenuItem nuevoInquilinoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripButton toolStripButtonImprimirListado;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ToolStripMenuItem nuevoClientePedidoToolStripMenuItem;
     }
 }

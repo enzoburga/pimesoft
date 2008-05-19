@@ -28,6 +28,10 @@ namespace GI.UI.Pedidos
         /// </summary>
         private void InitializeComponent()
         {
+            this.bBuscar = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tbNombresInquilinos = new System.Windows.Forms.TextBox();
+            this.lNombreCliente = new System.Windows.Forms.Label();
             this.tabControlTiposDeBusqueda = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.cbMonedaReal = new GI.Framework.ComboBox();
@@ -49,37 +53,60 @@ namespace GI.UI.Pedidos
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBoxNumero = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBoxDireccion = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tbCodigo = new System.Windows.Forms.TextBox();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tbNombresInquilinos = new System.Windows.Forms.TextBox();
-            this.lNombreCliente = new System.Windows.Forms.Label();
-            this.bBuscar = new System.Windows.Forms.Button();
-            this.cBoxRecuperarVencidos = new System.Windows.Forms.CheckBox();
+            this.tabPage4.SuspendLayout();
             this.tabControlTiposDeBusqueda.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // bBuscar
+            // 
+            this.bBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bBuscar.Location = new System.Drawing.Point(597, 136);
+            this.bBuscar.Name = "bBuscar";
+            this.bBuscar.Size = new System.Drawing.Size(75, 23);
+            this.bBuscar.TabIndex = 48;
+            this.bBuscar.Text = "Buscar";
+            this.bBuscar.UseVisualStyleBackColor = true;
+            this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage4.Controls.Add(this.tbNombresInquilinos);
+            this.tabPage4.Controls.Add(this.lNombreCliente);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(679, 108);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Buscar por contacto";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tbNombresInquilinos
+            // 
+            this.tbNombresInquilinos.Location = new System.Drawing.Point(105, 23);
+            this.tbNombresInquilinos.Name = "tbNombresInquilinos";
+            this.tbNombresInquilinos.Size = new System.Drawing.Size(123, 20);
+            this.tbNombresInquilinos.TabIndex = 50;
+            // 
+            // lNombreCliente
+            // 
+            this.lNombreCliente.AutoSize = true;
+            this.lNombreCliente.Location = new System.Drawing.Point(3, 26);
+            this.lNombreCliente.Name = "lNombreCliente";
+            this.lNombreCliente.Size = new System.Drawing.Size(97, 13);
+            this.lNombreCliente.TabIndex = 49;
+            this.lNombreCliente.Text = "Nombres / Apellido";
             // 
             // tabControlTiposDeBusqueda
             // 
             this.tabControlTiposDeBusqueda.Controls.Add(this.tabPage1);
-            this.tabControlTiposDeBusqueda.Controls.Add(this.tabPage2);
-            this.tabControlTiposDeBusqueda.Controls.Add(this.tabPage3);
             this.tabControlTiposDeBusqueda.Controls.Add(this.tabPage4);
             this.tabControlTiposDeBusqueda.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControlTiposDeBusqueda.Location = new System.Drawing.Point(0, 0);
             this.tabControlTiposDeBusqueda.Name = "tabControlTiposDeBusqueda";
             this.tabControlTiposDeBusqueda.SelectedIndex = 0;
-            this.tabControlTiposDeBusqueda.Size = new System.Drawing.Size(680, 134);
+            this.tabControlTiposDeBusqueda.Size = new System.Drawing.Size(687, 134);
             this.tabControlTiposDeBusqueda.TabIndex = 47;
             // 
             // tabPage1
@@ -107,9 +134,9 @@ namespace GI.UI.Pedidos
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(672, 108);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Buscar por Ubicación";
+            this.tabPage1.Size = new System.Drawing.Size(679, 108);
+            this.tabPage1.TabIndex = 4;
+            this.tabPage1.Text = "Buscar por propiedad";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // cbMonedaReal
@@ -179,6 +206,7 @@ namespace GI.UI.Pedidos
             this.cbBarrio.Name = "cbBarrio";
             this.cbBarrio.Size = new System.Drawing.Size(123, 21);
             this.cbBarrio.TabIndex = 44;
+            this.cbBarrio.SelectedIndexChanged += new System.EventHandler(this.cbBarrio_SelectedIndexChanged);
             // 
             // cbTipoPropiedad
             // 
@@ -282,164 +310,36 @@ namespace GI.UI.Pedidos
             this.label6.TabIndex = 39;
             this.label6.Text = "Provincia";
             // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage2.Controls.Add(this.textBoxNumero);
-            this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.textBoxDireccion);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(672, 108);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Buscar por Dirección";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // textBoxNumero
-            // 
-            this.textBoxNumero.Location = new System.Drawing.Point(407, 23);
-            this.textBoxNumero.Name = "textBoxNumero";
-            this.textBoxNumero.Size = new System.Drawing.Size(58, 20);
-            this.textBoxNumero.TabIndex = 54;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(367, 26);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 13);
-            this.label10.TabIndex = 53;
-            this.label10.Text = "Altura";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(69, 26);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(30, 13);
-            this.label9.TabIndex = 52;
-            this.label9.Text = "Calle";
-            // 
-            // textBoxDireccion
-            // 
-            this.textBoxDireccion.Location = new System.Drawing.Point(105, 23);
-            this.textBoxDireccion.Name = "textBoxDireccion";
-            this.textBoxDireccion.Size = new System.Drawing.Size(229, 20);
-            this.textBoxDireccion.TabIndex = 51;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Controls.Add(this.tbCodigo);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(672, 108);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Buscar por Código";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 26);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(91, 13);
-            this.label11.TabIndex = 54;
-            this.label11.Text = "Código Propiedad";
-            // 
-            // tbCodigo
-            // 
-            this.tbCodigo.Location = new System.Drawing.Point(105, 23);
-            this.tbCodigo.Name = "tbCodigo";
-            this.tbCodigo.Size = new System.Drawing.Size(123, 20);
-            this.tbCodigo.TabIndex = 53;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage4.Controls.Add(this.tbNombresInquilinos);
-            this.tabPage4.Controls.Add(this.lNombreCliente);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(672, 108);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Buscar por Inquilino";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tbNombresInquilinos
-            // 
-            this.tbNombresInquilinos.Location = new System.Drawing.Point(105, 23);
-            this.tbNombresInquilinos.Name = "tbNombresInquilinos";
-            this.tbNombresInquilinos.Size = new System.Drawing.Size(123, 20);
-            this.tbNombresInquilinos.TabIndex = 50;
-            // 
-            // lNombreCliente
-            // 
-            this.lNombreCliente.AutoSize = true;
-            this.lNombreCliente.Location = new System.Drawing.Point(3, 26);
-            this.lNombreCliente.Name = "lNombreCliente";
-            this.lNombreCliente.Size = new System.Drawing.Size(97, 13);
-            this.lNombreCliente.TabIndex = 49;
-            this.lNombreCliente.Text = "Nombres / Apellido";
-            // 
-            // bBuscar
-            // 
-            this.bBuscar.Location = new System.Drawing.Point(590, 136);
-            this.bBuscar.Name = "bBuscar";
-            this.bBuscar.Size = new System.Drawing.Size(75, 23);
-            this.bBuscar.TabIndex = 48;
-            this.bBuscar.Text = "Buscar";
-            this.bBuscar.UseVisualStyleBackColor = true;
-            this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
-            // 
-            // cBoxRecuperarVencidos
-            // 
-            this.cBoxRecuperarVencidos.AutoSize = true;
-            this.cBoxRecuperarVencidos.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cBoxRecuperarVencidos.Location = new System.Drawing.Point(370, 140);
-            this.cBoxRecuperarVencidos.Name = "cBoxRecuperarVencidos";
-            this.cBoxRecuperarVencidos.Size = new System.Drawing.Size(214, 17);
-            this.cBoxRecuperarVencidos.TabIndex = 49;
-            this.cBoxRecuperarVencidos.Text = "Incluir contratos vencidos o cancelados";
-            this.cBoxRecuperarVencidos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cBoxRecuperarVencidos.UseVisualStyleBackColor = true;
-            // 
-            // frmBuscarAdminAlquileres
+            // frmBuscarPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 165);
-            this.Controls.Add(this.cBoxRecuperarVencidos);
+            this.ClientSize = new System.Drawing.Size(687, 165);
             this.Controls.Add(this.bBuscar);
             this.Controls.Add(this.tabControlTiposDeBusqueda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmBuscarAdminAlquileres";
+            this.Name = "frmBuscarPedidos";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Buscar Alquileres";
+            this.Text = "Buscar Pedidos";
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.tabControlTiposDeBusqueda.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Button bBuscar;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TextBox tbNombresInquilinos;
+        private System.Windows.Forms.Label lNombreCliente;
         private System.Windows.Forms.TabControl tabControlTiposDeBusqueda;
         private System.Windows.Forms.TabPage tabPage1;
         private GI.Framework.ComboBox cbMonedaReal;
@@ -461,18 +361,5 @@ namespace GI.UI.Pedidos
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBoxNumero;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxDireccion;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox tbCodigo;
-        private System.Windows.Forms.Button bBuscar;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TextBox tbNombresInquilinos;
-        private System.Windows.Forms.Label lNombreCliente;
-        private System.Windows.Forms.CheckBox cBoxRecuperarVencidos;
     }
 }

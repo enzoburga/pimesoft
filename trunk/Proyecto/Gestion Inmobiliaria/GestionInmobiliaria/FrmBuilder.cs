@@ -116,6 +116,16 @@ namespace GI.UI
                 return Frm;
             }
 
+            if (Type == typeof(GI.UI.Pedidos.frmListadoPedidos).ToString())
+            {
+                GI.UI.Pedidos.frmListadoPedidos Frm = new GI.UI.Pedidos.frmListadoPedidos();
+                Frm.MdiParent = this.parent;
+                Frm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+                Frm.Inicializar();
+                Frm.Show();
+                return Frm;
+            }
+
             return null;
         }
 
