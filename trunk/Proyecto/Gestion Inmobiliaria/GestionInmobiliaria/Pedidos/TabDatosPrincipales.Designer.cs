@@ -77,6 +77,8 @@ namespace GI.UI.Pedidos
             this.cbTipoZona = new GI.Framework.ComboBox();
             this.cbEstadoProp = new GI.Framework.ComboBox();
             this.ctrlUbicacion1 = new GI.UI.Generales.CtrlUbicacion();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.tbObervaciones = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -85,12 +87,13 @@ namespace GI.UI.Pedidos
             this.gbDepartamento.SuspendLayout();
             this.gbTerreno.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // LinkContacto
             // 
             this.LinkContacto.AutoSize = true;
-            this.LinkContacto.Location = new System.Drawing.Point(307, 35);
+            this.LinkContacto.Location = new System.Drawing.Point(307, 39);
             this.LinkContacto.Name = "LinkContacto";
             this.LinkContacto.Size = new System.Drawing.Size(120, 13);
             this.LinkContacto.TabIndex = 44;
@@ -101,7 +104,7 @@ namespace GI.UI.Pedidos
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(8, 35);
+            this.label20.Location = new System.Drawing.Point(8, 39);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(94, 13);
             this.label20.TabIndex = 56;
@@ -113,7 +116,7 @@ namespace GI.UI.Pedidos
             this.cbCategoria.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pedidoBindingSource, "Categoria", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "Sin Definir"));
             this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(106, 4);
+            this.cbCategoria.Location = new System.Drawing.Point(106, 8);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(127, 21);
             this.cbCategoria.TabIndex = 39;
@@ -126,7 +129,7 @@ namespace GI.UI.Pedidos
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(11, 61);
+            this.label19.Location = new System.Drawing.Point(11, 65);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(91, 13);
             this.label19.TabIndex = 55;
@@ -176,7 +179,7 @@ namespace GI.UI.Pedidos
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(258, 35);
+            this.label3.Location = new System.Drawing.Point(258, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 45;
@@ -188,7 +191,7 @@ namespace GI.UI.Pedidos
             this.cbEstado.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pedidoBindingSource, "Estado", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "Sin Definir"));
             this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Location = new System.Drawing.Point(310, 4);
+            this.cbEstado.Location = new System.Drawing.Point(310, 8);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(120, 21);
             this.cbEstado.TabIndex = 43;
@@ -197,7 +200,7 @@ namespace GI.UI.Pedidos
             // 
             this.cbTipoPropiedad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoPropiedad.FormattingEnabled = true;
-            this.cbTipoPropiedad.Location = new System.Drawing.Point(106, 31);
+            this.cbTipoPropiedad.Location = new System.Drawing.Point(106, 35);
             this.cbTipoPropiedad.Name = "cbTipoPropiedad";
             this.cbTipoPropiedad.Size = new System.Drawing.Size(127, 21);
             this.cbTipoPropiedad.TabIndex = 41;
@@ -206,7 +209,7 @@ namespace GI.UI.Pedidos
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(268, 8);
+            this.label2.Location = new System.Drawing.Point(268, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 42;
@@ -215,7 +218,7 @@ namespace GI.UI.Pedidos
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 8);
+            this.label1.Location = new System.Drawing.Point(48, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 40;
@@ -238,7 +241,7 @@ namespace GI.UI.Pedidos
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.cbMoneda);
-            this.groupBox1.Location = new System.Drawing.Point(21, 180);
+            this.groupBox1.Location = new System.Drawing.Point(21, 184);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(409, 52);
             this.groupBox1.TabIndex = 57;
@@ -261,7 +264,7 @@ namespace GI.UI.Pedidos
             this.groupBox2.Controls.Add(this.tbMedidaTerrenoHasta);
             this.groupBox2.Controls.Add(this.tbMedidaTerrenoDesde);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(21, 238);
+            this.groupBox2.Location = new System.Drawing.Point(21, 242);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(409, 52);
             this.groupBox2.TabIndex = 57;
@@ -313,7 +316,7 @@ namespace GI.UI.Pedidos
             this.groupBox3.Controls.Add(this.tbMetrosCubiertosHasta);
             this.groupBox3.Controls.Add(this.tbMetrosCubiertosDesde);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Location = new System.Drawing.Point(21, 296);
+            this.groupBox3.Location = new System.Drawing.Point(21, 300);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(409, 52);
             this.groupBox3.TabIndex = 57;
@@ -376,7 +379,7 @@ namespace GI.UI.Pedidos
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.cbAmbientesFinal);
             this.groupBox4.Controls.Add(this.cbAmbientesInicial);
-            this.groupBox4.Location = new System.Drawing.Point(21, 354);
+            this.groupBox4.Location = new System.Drawing.Point(21, 358);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(409, 52);
             this.groupBox4.TabIndex = 57;
@@ -419,7 +422,7 @@ namespace GI.UI.Pedidos
             this.gbDepartamento.Controls.Add(this.cbEsAptoProfesional);
             this.gbDepartamento.Controls.Add(this.label12);
             this.gbDepartamento.Controls.Add(this.cbDisposicion);
-            this.gbDepartamento.Location = new System.Drawing.Point(21, 412);
+            this.gbDepartamento.Location = new System.Drawing.Point(21, 416);
             this.gbDepartamento.Name = "gbDepartamento";
             this.gbDepartamento.Size = new System.Drawing.Size(409, 52);
             this.gbDepartamento.TabIndex = 57;
@@ -471,7 +474,7 @@ namespace GI.UI.Pedidos
             this.gbTerreno.Controls.Add(this.groupBox7);
             this.gbTerreno.Controls.Add(this.label17);
             this.gbTerreno.Controls.Add(this.cbTipoZona);
-            this.gbTerreno.Location = new System.Drawing.Point(21, 470);
+            this.gbTerreno.Location = new System.Drawing.Point(21, 474);
             this.gbTerreno.Name = "gbTerreno";
             this.gbTerreno.Size = new System.Drawing.Size(409, 69);
             this.gbTerreno.TabIndex = 57;
@@ -556,7 +559,7 @@ namespace GI.UI.Pedidos
             this.cbEstadoProp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pedidoBindingSource, "EnumEstado", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "Sin Definir"));
             this.cbEstadoProp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstadoProp.FormattingEnabled = true;
-            this.cbEstadoProp.Location = new System.Drawing.Point(106, 58);
+            this.cbEstadoProp.Location = new System.Drawing.Point(106, 62);
             this.cbEstadoProp.Name = "cbEstadoProp";
             this.cbEstadoProp.Size = new System.Drawing.Size(127, 21);
             this.cbEstadoProp.TabIndex = 51;
@@ -564,7 +567,7 @@ namespace GI.UI.Pedidos
             // ctrlUbicacion1
             // 
             this.ctrlUbicacion1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlUbicacion1.Location = new System.Drawing.Point(21, 85);
+            this.ctrlUbicacion1.Location = new System.Drawing.Point(21, 89);
             this.ctrlUbicacion1.Name = "ctrlUbicacion1";
             this.ctrlUbicacion1.OpcionTodos = true;
             this.ctrlUbicacion1.Size = new System.Drawing.Size(415, 89);
@@ -576,10 +579,31 @@ namespace GI.UI.Pedidos
             ubicacion1.Provincia = null;
             this.ctrlUbicacion1.Ubicacion = ubicacion1;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.tbObervaciones);
+            this.groupBox5.Location = new System.Drawing.Point(21, 549);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(409, 101);
+            this.groupBox5.TabIndex = 59;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Observaciones";
+            // 
+            // tbObervaciones
+            // 
+            this.tbObervaciones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pedidoBindingSource, "Observaciones", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tbObervaciones.Location = new System.Drawing.Point(7, 19);
+            this.tbObervaciones.Multiline = true;
+            this.tbObervaciones.Name = "tbObervaciones";
+            this.tbObervaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbObervaciones.Size = new System.Drawing.Size(396, 76);
+            this.tbObervaciones.TabIndex = 19;
+            // 
             // TabDatosPrincipales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.ctrlUbicacion1);
             this.Controls.Add(this.LinkContacto);
             this.Controls.Add(this.label20);
@@ -598,7 +622,7 @@ namespace GI.UI.Pedidos
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "TabDatosPrincipales";
-            this.Size = new System.Drawing.Size(457, 542);
+            this.Size = new System.Drawing.Size(457, 653);
             ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -614,6 +638,8 @@ namespace GI.UI.Pedidos
             this.gbTerreno.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -668,5 +694,7 @@ namespace GI.UI.Pedidos
         private GI.Framework.ComboBox cbEstadoProp;
         private System.Windows.Forms.Label label11;
         private GI.Framework.ComboBox cbEsAptoProfesional;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox tbObervaciones;
     }
 }

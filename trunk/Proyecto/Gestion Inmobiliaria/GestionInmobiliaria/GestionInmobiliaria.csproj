@@ -315,6 +315,14 @@
       <SubType>Designer</SubType>
       <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\TabPropiedadesOfrecidas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabPropiedadesOfrecidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\TabPropiedadesSinOfrecer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabPropiedadesSinOfrecer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

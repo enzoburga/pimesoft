@@ -37,7 +37,6 @@ namespace GI.UI.Clientes
             this.tbNroDocumento = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbObervaciones = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.tbTelParticular = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbTelCelular = new System.Windows.Forms.TextBox();
@@ -50,6 +49,8 @@ namespace GI.UI.Clientes
             this.label18 = new System.Windows.Forms.Label();
             this.ctrlDireccion1 = new GI.UI.Generales.CtrlDireccion();
             this.ctrlUbicacion1 = new GI.UI.Generales.CtrlUbicacion();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbNombres
@@ -119,22 +120,13 @@ namespace GI.UI.Clientes
             // 
             // tbObervaciones
             // 
-            this.tbObervaciones.Location = new System.Drawing.Point(19, 348);
+            this.tbObervaciones.Location = new System.Drawing.Point(6, 20);
             this.tbObervaciones.Multiline = true;
             this.tbObervaciones.Name = "tbObervaciones";
             this.tbObervaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbObervaciones.Size = new System.Drawing.Size(407, 90);
+            this.tbObervaciones.Size = new System.Drawing.Size(399, 75);
             this.tbObervaciones.TabIndex = 18;
             this.tbObervaciones.TextChanged += new System.EventHandler(this.tbObervaciones_TextChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(15, 332);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(78, 13);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "Observaciones";
             // 
             // tbTelParticular
             // 
@@ -250,10 +242,21 @@ namespace GI.UI.Clientes
             ubicacion1.Provincia = null;
             this.ctrlUbicacion1.Ubicacion = ubicacion1;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.tbObervaciones);
+            this.groupBox5.Location = new System.Drawing.Point(17, 335);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(411, 101);
+            this.groupBox5.TabIndex = 60;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Observaciones";
+            // 
             // TabDatosPrincipales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.ctrlDireccion1);
             this.Controls.Add(this.ctrlUbicacion1);
             this.Controls.Add(this.tbEmail);
@@ -267,8 +270,6 @@ namespace GI.UI.Clientes
             this.Controls.Add(this.label15);
             this.Controls.Add(this.tbTelParticular);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tbObervaciones);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.tbNroDocumento);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbApellido);
@@ -279,6 +280,8 @@ namespace GI.UI.Clientes
             this.Name = "TabDatosPrincipales";
             this.Size = new System.Drawing.Size(444, 451);
             this.Load += new System.EventHandler(this.TabDatosPrincipales_Load);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,7 +297,6 @@ namespace GI.UI.Clientes
         private System.Windows.Forms.TextBox tbNroDocumento;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbObervaciones;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox tbTelParticular;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbTelCelular;
@@ -307,5 +309,6 @@ namespace GI.UI.Clientes
         private System.Windows.Forms.Label label18;
         private GI.UI.Generales.CtrlUbicacion ctrlUbicacion1;
         private GI.UI.Generales.CtrlDireccion ctrlDireccion1;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }

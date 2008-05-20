@@ -12,6 +12,7 @@ namespace GI.BR.Pedidos
             using (IDataReader dr = new GI.DA.PedidosData().RecuperarPedidosTodos())
             {
                 GI.BR.Pedidos.Pedido pedido;
+                this.Clear();
                 while (dr.Read())
                 {
                     pedido = new Pedido();
@@ -41,6 +42,7 @@ namespace GI.BR.Pedidos
             using (IDataReader dr = new GI.DA.PedidosData().RecuperarPedidosPorNombreContacto(Nombres))
             {
                 GI.BR.Pedidos.Pedido pedido;
+                this.Clear();
                 while (dr.Read())
                 {
                     pedido = new Pedido();
