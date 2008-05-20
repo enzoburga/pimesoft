@@ -159,7 +159,7 @@ namespace GI.UI.Pedidos
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Validate();
             bool guardado = false;
 
 

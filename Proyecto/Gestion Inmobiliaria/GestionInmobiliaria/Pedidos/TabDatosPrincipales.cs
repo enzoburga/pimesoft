@@ -19,8 +19,6 @@ namespace GI.UI.Pedidos
 
         public override GI.BR.Pedidos.Pedido getPedido()
         {
-            Pedido.Ubicacion = ctrlUbicacion1.Ubicacion;
-
             if (cbTipoPropiedad.SelectedItem.ToString() == "Sin Definir")
                 Pedido.TipoPropiedad = null;
             else
@@ -44,6 +42,21 @@ namespace GI.UI.Pedidos
             else
                 Pedido.TipoZona = (GI.BR.Propiedades.TipoZona)cbTipoZona.SelectedItem;
 
+            if (cbAmbientesFinal.SelectedIndex == 0)
+                Pedido.CantidadAmbientesFinal = null;
+            else
+                Pedido.CantidadAmbientesFinal = (GI.BR.Propiedades.Ambiente)cbAmbientesFinal.SelectedItem;
+
+            if (cbAmbientesInicial.SelectedIndex == 0)
+                Pedido.CantidadAmbientesInicial = null;
+            else
+                Pedido.CantidadAmbientesInicial = (GI.BR.Propiedades.Ambiente)cbAmbientesInicial.SelectedItem;
+
+            if (cbMoneda.SelectedIndex == 0)
+                Pedido.Moneda = null;
+            else
+                Pedido.Moneda = (GI.BR.Monedas.Moneda)cbMoneda.SelectedItem;
+
             return Pedido;
 
         }
@@ -52,6 +65,12 @@ namespace GI.UI.Pedidos
         {
             if (validado)
                 return;
+
+
+            Pedido.Ubicacion = ctrlUbicacion1.Ubicacion;
+            if (tbValorDesde.Text != "0" || tbValorHasta.Text != "0")
+                if (cbMoneda.SelectedIndex == 0)
+                    throw new Exception("Debe seleccionar una moneda.");
 
             if( Pedido.ClientePedido == null)
                 throw new Exception("Debe seleccionar un contacto.");
@@ -86,7 +105,7 @@ namespace GI.UI.Pedidos
 
 
             #region inicializar combos
-
+            cbEsAptoProfesional.Items.Clear();
             cbEsAptoProfesional.Items.Add("Sin Definir");
             cbEsAptoProfesional.Items.Add("Si");
             cbEsAptoProfesional.Items.Add("No");
@@ -103,7 +122,7 @@ namespace GI.UI.Pedidos
 
 
 
-
+            cbDisposicion.Items.Clear();
             cbDisposicion.Items.Add(GI.BR.Propiedades.DepartamentoDisposicion.SinDefinir);
             cbDisposicion.Items.Add(GI.BR.Propiedades.DepartamentoDisposicion.Frente);
             cbDisposicion.Items.Add(GI.BR.Propiedades.DepartamentoDisposicion.Contrafrente);
@@ -124,6 +143,7 @@ namespace GI.UI.Pedidos
             }
 
 
+            cbTipoZona.Items.Clear();
             cbTipoZona.Items.Add(GI.BR.Propiedades.TipoZona.SinDefinir);
             cbTipoZona.Items.Add(GI.BR.Propiedades.TipoZona.Comercial);
             cbTipoZona.Items.Add(GI.BR.Propiedades.TipoZona.Industrial);
@@ -145,6 +165,7 @@ namespace GI.UI.Pedidos
 
             GI.BR.Propiedades.CategoriasPropiedad Categorias = new GI.BR.Propiedades.CategoriasPropiedad();
             Categorias.RecuperarTodas();
+            cbCategoria.Items.Clear();
             cbCategoria.Items.Add("Sin Definir");
             foreach (GI.BR.Propiedades.CategoriaPropiedad Cat in Categorias)
             {
@@ -157,6 +178,7 @@ namespace GI.UI.Pedidos
 
             GI.BR.Propiedades.EstadosPropiedad Estados = new GI.BR.Propiedades.EstadosPropiedad();
             Estados.RecuperarEstados(Pedido.EstadoPropiedad);
+            cbEstado.Items.Clear();
             cbEstado.Items.Add("Sin Definir");
             foreach (GI.BR.Propiedades.EstadoPropiedad Estado in Estados)
                 cbEstado.Items.Add(Estado);
@@ -164,6 +186,7 @@ namespace GI.UI.Pedidos
 
             GI.BR.Monedas.Monedas Monedas = new GI.BR.Monedas.Monedas();
             Monedas.RecuperarTodas();
+            cbMoneda.Items.Clear();
             cbMoneda.Items.Add("---");
             foreach (GI.BR.Monedas.Moneda M in Monedas)
             {
@@ -171,6 +194,7 @@ namespace GI.UI.Pedidos
             }
             cbMoneda.SelectedIndex = 0;
 
+            cbEstadoProp.Items.Clear();
             cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.NoEspecifica);
             cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.AEstrenar);
             cbEstadoProp.Items.Add(GI.BR.Propiedades.Estado.AReciclar);
@@ -184,6 +208,8 @@ namespace GI.UI.Pedidos
             GI.BR.Propiedades.Ambientes ambientes = new GI.BR.Propiedades.Ambientes();
             ambientes.RecuperarTodos();
 
+            cbAmbientesFinal.Items.Clear();
+            cbAmbientesInicial.Items.Clear();
             cbAmbientesInicial.Items.Add("Sin Definir");
             cbAmbientesFinal.Items.Add("Sin Definir");  
             foreach (GI.BR.Propiedades.Ambiente a in ambientes)
@@ -285,51 +311,6 @@ namespace GI.UI.Pedidos
             }
         }
 
-        //private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    Pedido.EsAptoProfesional = checkBox1.Checked;
-        //}
-
-        //private void tbValorDesde_Enter(object sender, EventArgs e)
-        //{
-        //    if(tbValorDesde.Text == "Sin Definir")
-        //        tbValorDesde.Text = "";
-        //}
-
-        //private void tbValorDesde_Leave(object sender, EventArgs e)
-        //{
-        //    if (tbValorDesde.Text == "")
-        //        tbValorDesde.Text = "Sin Definir";
-
-        //    if (tbValorDesde.Text == "" && tbValorDesde.Text == "")
-        //    {
-        //        cbMoneda.SelectedIndex = 0;
-        //        cbMoneda.Enabled = false;
-        //    }
-        //}
-
-        //private void tbValorHasta_Enter(object sender, EventArgs e)
-        //{
-        //    if (tbValorHasta.Text == "Sin Definir")            
-        //        tbValorHasta.Text = "";
-        //}
-
-        //private void tbValorHasta_Leave(object sender, EventArgs e)
-        //{
-        //    if (tbValorHasta.Text == "")
-        //        tbValorHasta.Text = "Sin Definir";
-
-        //    if (tbValorDesde.Text == "" && tbValorDesde.Text == "")
-        //    {
-        //        cbMoneda.SelectedIndex = 0;
-        //        cbMoneda.Enabled = false;
-        //    }
-        //}
-
-        private void cbMoneda_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void LinkContacto_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -360,15 +341,6 @@ namespace GI.UI.Pedidos
             }
         }
 
-        //private void cbEsAptoProfesional_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    switch (cbEsAptoProfesional.SelectedItem.ToString())
-        //    {
-        //        case "Sin Definir": Pedido.EsAptoProfesional = null; break;
-        //        case "Si": Pedido.EsAptoProfesional = true; break;
-        //        case "No": Pedido.EsAptoProfesional = false; break;
-        //    }
-        //}
 
         private void gbTerreno_EnabledChanged(object sender, EventArgs e)
         {
@@ -390,20 +362,6 @@ namespace GI.UI.Pedidos
                     cbDisposicion.SelectedIndex = 0;
                     cbEsAptoProfesional.SelectedIndex = 0;
                 }
-
-            //    Pedido.Disposicion = (GI.BR.Propiedades.DepartamentoDisposicion)cbDisposicion.SelectedItem;
-            //else
-            //{
-            //    //Pedido.Disposicion = null;
-            //    cbDisposicion.SelectedIndex = 0;
-            //}
-
-            //cbEsAptoProfesional.SelectedIndex = 0;
-        }
-
-        private void cbDisposicion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int a = 0;
         }
     }
 }

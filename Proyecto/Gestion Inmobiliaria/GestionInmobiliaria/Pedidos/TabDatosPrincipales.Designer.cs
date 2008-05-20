@@ -165,7 +165,6 @@ namespace GI.UI.Pedidos
             this.cbMoneda.Name = "cbMoneda";
             this.cbMoneda.Size = new System.Drawing.Size(48, 21);
             this.cbMoneda.TabIndex = 49;
-            this.cbMoneda.SelectedIndexChanged += new System.EventHandler(this.cbMoneda_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -467,7 +466,6 @@ namespace GI.UI.Pedidos
             this.cbDisposicion.Name = "cbDisposicion";
             this.cbDisposicion.Size = new System.Drawing.Size(73, 21);
             this.cbDisposicion.TabIndex = 50;
-            this.cbDisposicion.SelectedIndexChanged += new System.EventHandler(this.cbDisposicion_SelectedIndexChanged);
             // 
             // gbTerreno
             // 
