@@ -75,7 +75,18 @@ namespace GI.BR.Propiedades
                 cargarColeccionAlquileres(dr);
             }
 
-        } 
+        }
+
+
+        public void RecuperarPropiedadesAlquileresSinOfrecer(GI.BR.Pedidos.Pedido pedido)
+        {
+            estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Alquiler));
+
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesAlquileresSinOfrecer(pedido.IdPedido))
+            {
+                cargarColeccionAlquileres(dr);
+            }
+        }
 
 
         #endregion
@@ -130,7 +141,17 @@ namespace GI.BR.Propiedades
                 cargarColeccionVentas(dr);
             }
 
-        } 
+        }
+
+        public void RecuperarPropiedadesVentasSinOfrecer(GI.BR.Pedidos.Pedido pedido)
+        {
+            estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Venta));
+
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesVentasSinOfrecer(pedido.IdPedido))
+            {
+                cargarColeccionVentas(dr);
+            }
+        }
         #endregion
 
         #region Metodos Privados
@@ -241,6 +262,9 @@ namespace GI.BR.Propiedades
 
 
         #endregion
+
+
+
 
     }
 }
