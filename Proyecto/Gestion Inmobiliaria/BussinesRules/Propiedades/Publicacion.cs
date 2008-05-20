@@ -73,7 +73,7 @@ namespace GI.BR.Propiedades
         public bool Actualizar()
         {
             return new DA.PropiedadesData().ActualizarPublicacion(
-                IdPropiedad,
+                IdPublicacion,
                 Medio,
                 Detalles,
                 Fecha,

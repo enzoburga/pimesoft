@@ -70,10 +70,27 @@ namespace GI.UI.Propiedades.Formularios
         private void bAceptar_Click(object sender, EventArgs e)
         {
 
+            if (textBoxMedio.Text == "")
+            {
+                Framework.General.GIMsgBox.Show("Debe ingresar un medio de publicación", GI.Framework.General.enumTipoMensaje.Error);
+                textBoxMedio.Focus();
+                return;
+            }
+            
+            decimal importe = 0;
+            if (!Decimal.TryParse(textBoxValor.Text, out importe))
+            {
+                Framework.General.GIMsgBox.Show("El importe debe ser un valor numérico", GI.Framework.General.enumTipoMensaje.Error);
+                textBoxValor.Focus();
+                return;
+            }
+
+
+
             publicacion.Fecha = dateTimePickerFecha.Value;
             publicacion.Detalles = textBoxComentarios.Text;
             publicacion.Medio = textBoxMedio.Text;
-            publicacion.ValorPublicacion.Importe = decimal.Parse(textBoxValor.Text);
+            publicacion.ValorPublicacion.Importe = importe;
             publicacion.ValorPublicacion.Moneda = (GI.BR.Monedas.Moneda)comboBoxMonedas.SelectedItem;
 
             if (publicacion.IdPublicacion == 0)
