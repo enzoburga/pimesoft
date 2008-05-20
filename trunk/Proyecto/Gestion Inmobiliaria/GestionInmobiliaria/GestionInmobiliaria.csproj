@@ -328,6 +328,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\FrmLlamado.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLlamado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Propiedades\Formularios\FrmEnviarFichasMail.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FrmEnviarFichasMail.cs</DependentUpon>
@@ -343,6 +347,10 @@
     <EmbeddedResource Include="Propiedades\Formularios\frmNota.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmNota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\FrmPublicacion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmPublicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Propiedades\Formularios\frmVisita.resx">
       <SubType>Designer</SubType>
@@ -375,6 +383,10 @@
     <EmbeddedResource Include="Propiedades\TabGaleriaFotos.resx">
       <SubType>Designer</SubType>
       <DependentUpon>TabGaleriaFotos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabLlamadas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabLlamadas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Propiedades\TabNotas.resx">
       <SubType>Designer</SubType>
@@ -427,6 +439,12 @@
     <None Include="Properties\DataSources\GI.BR.Propiedades.TipoDePiso.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Ubicacion.datasource" />
     <None Include="Properties\DataSources\GI.BR.Valor.datasource" />
+    <Compile Include="Propiedades\Formularios\FrmLlamado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmLlamado.Designer.cs">
+      <DependentUpon>FrmLlamado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Propiedades\Formularios\FrmEnviarFichasMail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -450,6 +468,12 @@
     </Compile>
     <Compile Include="Propiedades\Formularios\frmNota.Designer.cs">
       <DependentUpon>frmNota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmPublicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmPublicacion.Designer.cs">
+      <DependentUpon>FrmPublicacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Propiedades\Formularios\frmVisita.cs">
       <SubType>Form</SubType>
@@ -499,6 +523,12 @@
     </Compile>
     <Compile Include="Propiedades\TabGaleriaFotos.Designer.cs">
       <DependentUpon>TabGaleriaFotos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabLlamadas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabLlamadas.Designer.cs">
+      <DependentUpon>TabLlamadas.cs</DependentUpon>
     </Compile>
     <Compile Include="Propiedades\TabNotas.cs">
       <SubType>UserControl</SubType>

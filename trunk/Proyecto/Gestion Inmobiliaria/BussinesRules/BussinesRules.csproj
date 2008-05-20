@@ -70,6 +70,8 @@
     <Compile Include="Clientes\Inquilino.cs" />
     <Compile Include="Propiedades\Galeria\Foto.cs" />
     <Compile Include="Propiedades\Galeria\GaleriaFotos.cs" />
+    <Compile Include="Propiedades\Llamado.cs" />
+    <Compile Include="Propiedades\Llamados.cs" />
     <Compile Include="Propiedades\MedidaAmbiente.cs" />
     <Compile Include="Propiedades\MedidaPropiedad.cs" />
     <Compile Include="Propiedades\MedidasAmbiente.cs" />
@@ -77,6 +79,8 @@
     <Compile Include="Propiedades\Nota.cs" />
     <Compile Include="Propiedades\Notas.cs" />
     <Compile Include="Propiedades\Propiedad.cs" />
+    <Compile Include="Propiedades\Publicacion.cs" />
+    <Compile Include="Propiedades\Publicaciones.cs" />
     <Compile Include="Propiedades\RedondeoNumeroDireccion.cs" />
     <Compile Include="Propiedades\TimpoAlarma.cs" />
     <Compile Include="Propiedades\TipoAmbiente.cs" />

@@ -334,8 +334,8 @@ namespace GI.DA
         {
             return AccesoDatos.InsertarRegistro(
                 "Propiedades_GuardarVisita",
-                 new object[] { FechaHora, Realizada, Visita, Telefono, Comentario, ConAlarma, IdPropiedad },
-                new string[] { "@FechaHora", "@Realizada", "@Visita", "@Telefono", "@Comentario", "@ConAlarma", "@IdPropiedad" });
+                 new object[] { TimpoAlarma, FechaHora, Realizada, Visita, Telefono, Comentario, ConAlarma, IdPropiedad },
+                new string[] { "@TimpoAlarma", "@FechaHora", "@Realizada", "@Visita", "@Telefono", "@Comentario", "@ConAlarma", "@IdPropiedad" });
 
         
         }
@@ -351,8 +351,8 @@ namespace GI.DA
         {
             return AccesoDatos.ActualizarRegistro(
          "Propiedades_ActualizarVisita",
-          new object[] { FechaHora, Realizada, Visita, Telefono, Comentario, ConAlarma, IdVisita },
-         new string[] { "@FechaHora", "@Realizada", "@Visita", "@Telefono", "@Comentario", "@ConAlarma", "@IdVisita" });
+          new object[] { TimpoAlarma, FechaHora, Realizada, Visita, Telefono, Comentario, ConAlarma, IdVisita },
+         new string[] { "@TimpoAlarma", "@FechaHora", "@Realizada", "@Visita", "@Telefono", "@Comentario", "@ConAlarma", "@IdVisita" });
 
         
         
@@ -367,6 +367,102 @@ namespace GI.DA
         }
 
 
+        #endregion
+
+
+
+        #region Llamados
+
+        public IDataReader RecuperarLlamados(int IdPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                 "Propiedades_RecuperarLlamados",
+                 new object[] { IdPropiedad },
+                 new string[] { "@IdPropiedad" });
+
+        }
+
+        public int CrearLlamado(
+               DateTime FechaHora,
+               string Contacto,
+               string Telefono,
+               string Comentarios,
+               int IdPropiedad)
+        {
+            return AccesoDatos.InsertarRegistro(
+                "Propiedades_CrearLlamado",
+                 new object[] { FechaHora, Contacto, Telefono, Comentarios, IdPropiedad },
+                new string[] { "@FechaHora", "@Contacto", "@Telefono", "@Comentarios", "@IdPropiedad" });
+
+
+        }
+
+        public bool EliminarLlamado(int IdLlamado)
+        {
+            return AccesoDatos.EliminarRegistro(
+                "Propiedades_EliminarLlamado",
+                new object[] { IdLlamado },
+                new string[] { "@IdLlamado " });
+        }
+
+        public bool ActualizarLlamado(
+       DateTime FechaHora,
+       string Contacto,
+       string Telefono,
+       string Comentarios,
+       int IdLlamado)
+        {
+            return AccesoDatos.ActualizarRegistro(
+                "Propiedades_ActualizarLlamado",
+                 new object[] { FechaHora, Contacto, Telefono, Comentarios, IdLlamado },
+                new string[] { "@FechaHora", "@Contacto", "@Telefono", "@Comentarios", "@IdLlamado" });
+
+
+        }
+
+        #endregion
+
+
+        #region Publicaciones
+
+
+        public IDataReader RecuperarPublicaciones(int IdPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                  "Propiedades_RecuperarPublicaciones",
+                  new object[] { IdPropiedad },
+                  new string[] { "@IdPropiedad" });
+
+        
+        }
+
+        public int CrearPublicacion(int IdPropiedad, string Medio, string Detalles, DateTime Fecha, int IdMoneda, decimal Importe)
+        {
+            return AccesoDatos.InsertarRegistro(
+                "Propiedades_CrearPublicacion",
+                new object[] { IdPropiedad, Medio, Detalles, Fecha, IdMoneda, Importe },
+                new string[] { "@IdPropiedad", "@Medio", "@Detalles", "@Fecha", "@IdMoneda", "@Importe" });
+        
+        }
+
+
+        public bool ActualizarPublicacion(int IdPublicacion, string Medio, string Detalles, DateTime Fecha, int IdMoneda, decimal Importe)
+        {
+            return AccesoDatos.ActualizarRegistro(
+                "Propiedades_ActualizarPublicacion",
+                new object[] { IdPublicacion, Medio, Detalles, Fecha, IdMoneda, Importe },
+                new string[] { "@IdPublicacion", "@Medio", "@Detalles", "@Fecha", "@IdMoneda", "@Importe" });
+
+        }
+
+
+        public bool EliminarPublicacion(int IdPublicacion)
+        {
+            return AccesoDatos.EliminarRegistro(
+                "Propiedades_EliminarPublicacion",
+                new object[] { IdPublicacion },
+                new string[] { "@IdPublicacion " });
+        }
         #endregion
 
 

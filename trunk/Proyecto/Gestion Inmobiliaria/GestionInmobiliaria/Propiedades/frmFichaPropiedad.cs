@@ -98,7 +98,7 @@ namespace GI.UI.Propiedades
             tabControl1.TabPages.Add(tabPage);
 
             tabPage = new TabPage("Llamados");
-            control = new TabVisitas();
+            control = new TabLlamadas();
             control.Dock = DockStyle.Fill;
             tabPage.Controls.Add(control);
             tabControl1.TabPages.Add(tabPage);

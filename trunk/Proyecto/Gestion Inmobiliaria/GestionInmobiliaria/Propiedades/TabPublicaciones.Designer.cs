@@ -30,8 +30,8 @@ namespace GI.UI.Propiedades
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelEliminar = new System.Windows.Forms.LinkLabel();
+            this.linkLabelAgregarPublicacion = new System.Windows.Forms.LinkLabel();
             this.lvPublicaciones = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -56,25 +56,27 @@ namespace GI.UI.Propiedades
             this.label1.TabIndex = 13;
             this.label1.Text = "Opciones";
             // 
-            // linkLabel2
+            // linkLabelEliminar
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(523, 443);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(98, 13);
-            this.linkLabel2.TabIndex = 12;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Eliminar Publicación";
+            this.linkLabelEliminar.AutoSize = true;
+            this.linkLabelEliminar.Location = new System.Drawing.Point(523, 443);
+            this.linkLabelEliminar.Name = "linkLabelEliminar";
+            this.linkLabelEliminar.Size = new System.Drawing.Size(98, 13);
+            this.linkLabelEliminar.TabIndex = 12;
+            this.linkLabelEliminar.TabStop = true;
+            this.linkLabelEliminar.Text = "Eliminar Publicación";
+            this.linkLabelEliminar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEliminar_LinkClicked);
             // 
-            // linkLabel1
+            // linkLabelAgregarPublicacion
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(522, 427);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(101, 13);
-            this.linkLabel1.TabIndex = 11;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Agregar Publicación";
+            this.linkLabelAgregarPublicacion.AutoSize = true;
+            this.linkLabelAgregarPublicacion.Location = new System.Drawing.Point(522, 427);
+            this.linkLabelAgregarPublicacion.Name = "linkLabelAgregarPublicacion";
+            this.linkLabelAgregarPublicacion.Size = new System.Drawing.Size(101, 13);
+            this.linkLabelAgregarPublicacion.TabIndex = 11;
+            this.linkLabelAgregarPublicacion.TabStop = true;
+            this.linkLabelAgregarPublicacion.Text = "Agregar Publicación";
+            this.linkLabelAgregarPublicacion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAgregarPublicacion_LinkClicked);
             // 
             // lvPublicaciones
             // 
@@ -91,6 +93,7 @@ namespace GI.UI.Propiedades
             this.lvPublicaciones.TabIndex = 10;
             this.lvPublicaciones.UseCompatibleStateImageBehavior = false;
             this.lvPublicaciones.View = System.Windows.Forms.View.Details;
+            this.lvPublicaciones.DoubleClick += new System.EventHandler(this.lvPublicaciones_DoubleClick);
             // 
             // columnHeader1
             // 
@@ -110,7 +113,7 @@ namespace GI.UI.Propiedades
             // columnHeader4
             // 
             this.columnHeader4.Text = "Detalles";
-            this.columnHeader4.Width = 137;
+            this.columnHeader4.Width = 251;
             // 
             // TabPublicaciones
             // 
@@ -118,8 +121,8 @@ namespace GI.UI.Propiedades
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.linkLabelEliminar);
+            this.Controls.Add(this.linkLabelAgregarPublicacion);
             this.Controls.Add(this.lvPublicaciones);
             this.Name = "TabPublicaciones";
             this.Size = new System.Drawing.Size(640, 480);
@@ -132,8 +135,8 @@ namespace GI.UI.Propiedades
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabelEliminar;
+        private System.Windows.Forms.LinkLabel linkLabelAgregarPublicacion;
         private System.Windows.Forms.ListView lvPublicaciones;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;

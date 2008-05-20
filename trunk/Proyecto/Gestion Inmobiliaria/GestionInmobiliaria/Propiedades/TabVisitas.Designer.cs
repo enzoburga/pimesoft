@@ -30,13 +30,14 @@ namespace GI.UI.Propiedades
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelEliminarVisita = new System.Windows.Forms.LinkLabel();
+            this.linkLabelAgregarVisita = new System.Windows.Forms.LinkLabel();
             this.lvVisitas = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // label2
@@ -56,25 +57,27 @@ namespace GI.UI.Propiedades
             this.label1.TabIndex = 8;
             this.label1.Text = "Opciones";
             // 
-            // linkLabel2
+            // linkLabelEliminarVisita
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(550, 443);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(71, 13);
-            this.linkLabel2.TabIndex = 7;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Eliminar Visita";
+            this.linkLabelEliminarVisita.AutoSize = true;
+            this.linkLabelEliminarVisita.Location = new System.Drawing.Point(550, 443);
+            this.linkLabelEliminarVisita.Name = "linkLabelEliminarVisita";
+            this.linkLabelEliminarVisita.Size = new System.Drawing.Size(71, 13);
+            this.linkLabelEliminarVisita.TabIndex = 7;
+            this.linkLabelEliminarVisita.TabStop = true;
+            this.linkLabelEliminarVisita.Text = "Eliminar Visita";
+            this.linkLabelEliminarVisita.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEliminarVisita_LinkClicked);
             // 
-            // linkLabel1
+            // linkLabelAgregarVisita
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(549, 427);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(74, 13);
-            this.linkLabel1.TabIndex = 6;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Agregar Visita";
+            this.linkLabelAgregarVisita.AutoSize = true;
+            this.linkLabelAgregarVisita.Location = new System.Drawing.Point(549, 427);
+            this.linkLabelAgregarVisita.Name = "linkLabelAgregarVisita";
+            this.linkLabelAgregarVisita.Size = new System.Drawing.Size(74, 13);
+            this.linkLabelAgregarVisita.TabIndex = 6;
+            this.linkLabelAgregarVisita.TabStop = true;
+            this.linkLabelAgregarVisita.Text = "Agregar Visita";
+            this.linkLabelAgregarVisita.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAgregarVisita_LinkClicked);
             // 
             // lvVisitas
             // 
@@ -82,7 +85,8 @@ namespace GI.UI.Propiedades
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader4,
+            this.columnHeader5});
             this.lvVisitas.FullRowSelect = true;
             this.lvVisitas.HideSelection = false;
             this.lvVisitas.Location = new System.Drawing.Point(15, 17);
@@ -96,12 +100,12 @@ namespace GI.UI.Propiedades
             // columnHeader1
             // 
             this.columnHeader1.Text = "Fecha";
-            this.columnHeader1.Width = 70;
+            this.columnHeader1.Width = 82;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Hora";
-            this.columnHeader2.Width = 96;
+            this.columnHeader2.Width = 65;
             // 
             // columnHeader3
             // 
@@ -110,8 +114,13 @@ namespace GI.UI.Propiedades
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Detalles";
-            this.columnHeader4.Width = 160;
+            this.columnHeader4.Text = "Contacto";
+            this.columnHeader4.Width = 124;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Detalles";
+            this.columnHeader5.Width = 217;
             // 
             // TabVisitas
             // 
@@ -119,8 +128,8 @@ namespace GI.UI.Propiedades
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.linkLabelEliminarVisita);
+            this.Controls.Add(this.linkLabelAgregarVisita);
             this.Controls.Add(this.lvVisitas);
             this.Name = "TabVisitas";
             this.Size = new System.Drawing.Size(640, 480);
@@ -133,12 +142,13 @@ namespace GI.UI.Propiedades
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabelEliminarVisita;
+        private System.Windows.Forms.LinkLabel linkLabelAgregarVisita;
         private System.Windows.Forms.ListView lvVisitas;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
