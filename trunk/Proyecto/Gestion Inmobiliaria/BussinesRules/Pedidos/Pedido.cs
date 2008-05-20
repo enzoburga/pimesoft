@@ -7,6 +7,14 @@ namespace GI.BR.Pedidos
 {
     public class Pedido: ICloneable
     {
+
+
+        public Pedido()
+        {
+            ubicacion = new Ubicacion();
+        }
+
+
         #region Miembros
 
         private int idPedido;

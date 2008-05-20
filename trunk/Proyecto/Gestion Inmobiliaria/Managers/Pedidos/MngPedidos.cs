@@ -111,6 +111,7 @@ namespace GI.Managers.Pedidos
                     if (p.TipoZona != pedido.TipoZona)
                         continue;
 
+                
                 if (pedido.Ubicacion.Barrio != null && p.Ubicacion.Barrio != null)
                     if (pedido.Ubicacion.Barrio.IdBarrio != p.Ubicacion.Barrio.IdBarrio)
                         continue;

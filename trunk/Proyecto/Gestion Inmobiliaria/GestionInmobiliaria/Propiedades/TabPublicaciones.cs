@@ -33,7 +33,11 @@ namespace GI.UI.Propiedades
         {
             ListViewItem item = new ListViewItem();
 
-           
+            item.Text = p.Fecha.ToShortDateString();
+            item.SubItems.Add(p.Medio);
+            item.SubItems.Add(p.ValorPublicacion.ToString());
+            item.SubItems.Add(p.Detalles);
+            item.Tag = p;
 
             return item;
 
@@ -41,19 +45,29 @@ namespace GI.UI.Propiedades
 
         protected override void CargarPropiedad()
         {
-            ListViewItem item = new ListViewItem();
+            GI.BR.Propiedades.Publicaciones publicaciones = new GI.BR.Propiedades.Publicaciones();
+            publicaciones.Recuperar(Propiedad);
 
-            item.Text = DateTime.Now.ToShortDateString();
-            item.SubItems.Add("Clarín");
-            item.SubItems.Add("$ 120");
-            item.SubItems.Add("detalles...");
-
-            lvPublicaciones.Items.Add(item);
+            foreach (GI.BR.Propiedades.Publicacion p in publicaciones)
+                lvPublicaciones.Items.Add(generarLVI(p));
         }
 
         private void lvPublicaciones_DoubleClick(object sender, EventArgs e)
         {
             if (lvPublicaciones.SelectedItems.Count != 1) return;
+
+            GI.BR.Propiedades.Publicacion p = (GI.BR.Propiedades.Publicacion)lvPublicaciones.SelectedItems[0].Tag;
+
+            Formularios.FrmPublicacion frm = new GI.UI.Propiedades.Formularios.FrmPublicacion(p);
+            frm.SoloLectura = this.SoloLectura;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                ListViewItem item = generarLVI(p);
+                int index = lvPublicaciones.SelectedIndices[0];
+                lvPublicaciones.Items.RemoveAt(index);
+                lvPublicaciones.Items.Insert(index, item);
+            }
+
         }
 
         private void linkLabelAgregarPublicacion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -63,6 +77,24 @@ namespace GI.UI.Propiedades
 
                 Framework.General.GIMsgBox.Show("Debe primero guardar la propiedad para cargar publicaciones", GI.Framework.General.enumTipoMensaje.Advertencia);
                 return;
+            }
+
+
+            GI.BR.Propiedades.Publicacion p = new GI.BR.Propiedades.Publicacion();
+            p.Detalles = "";
+            p.Fecha = DateTime.Now;
+            p.IdPropiedad = Propiedad.IdPropiedad;
+            p.Medio = "";
+            p.ValorPublicacion = new GI.BR.Valor();
+            p.ValorPublicacion.Importe = 0;
+
+
+
+            Formularios.FrmPublicacion frm = new GI.UI.Propiedades.Formularios.FrmPublicacion(p);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                ListViewItem item = generarLVI(p);
+                lvPublicaciones.Items.Add(item);
             }
         }
 
@@ -76,6 +108,17 @@ namespace GI.UI.Propiedades
             }
 
             if (lvPublicaciones.SelectedItems.Count != 1) return;
+
+
+
+
+            GI.BR.Propiedades.Publicacion p = (GI.BR.Propiedades.Publicacion)lvPublicaciones.SelectedItems[0].Tag;
+
+            if (Framework.General.GIMsgBox.Show("¿Desea eliminar la publicación seleccionada?", GI.Framework.General.enumTipoMensaje.Pregunta) == DialogResult.Yes)
+            {
+                p.Eliminar();
+                lvPublicaciones.Items.Remove(lvPublicaciones.SelectedItems[0]);
+            }
         }
     }
 }
