@@ -29,92 +29,75 @@ namespace GI.UI.Propiedades.Formularios
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.dateTimePickerFecha = new System.Windows.Forms.DateTimePicker();
+            this.checkBoxAlarma = new System.Windows.Forms.CheckBox();
             this.cbAviso = new GI.Framework.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.textBoxVisitante = new System.Windows.Forms.TextBox();
+            this.textBoxTelefonoContacto = new System.Windows.Forms.TextBox();
+            this.textBoxDetalle = new System.Windows.Forms.TextBox();
+            this.bAceptar = new System.Windows.Forms.Button();
+            this.bCancelar = new System.Windows.Forms.Button();
+            this.checkBoxRealizada = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 14);
+            this.label1.Location = new System.Drawing.Point(5, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Fecha";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Hora";
+            this.label1.Text = "Fecha / Hora";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 94);
+            this.label4.Location = new System.Drawing.Point(26, 68);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.Size = new System.Drawing.Size(51, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Visitante";
+            this.label4.Text = "Contacto";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 148);
+            this.label5.Location = new System.Drawing.Point(28, 122);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Detalles";
             // 
-            // dateTimePicker1
+            // dateTimePickerFecha
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(77, 10);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(98, 21);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dateTimePickerFecha.CustomFormat = "d/MM/yy HH:mm";
+            this.dateTimePickerFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerFecha.Location = new System.Drawing.Point(77, 8);
+            this.dateTimePickerFecha.Name = "dateTimePickerFecha";
+            this.dateTimePickerFecha.Size = new System.Drawing.Size(114, 21);
+            this.dateTimePickerFecha.TabIndex = 5;
             // 
-            // dateTimePicker2
+            // checkBoxAlarma
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(77, 37);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(98, 21);
-            this.dateTimePicker2.TabIndex = 6;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(14, 66);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(59, 17);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "Alarma";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxAlarma.AutoSize = true;
+            this.checkBoxAlarma.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxAlarma.Checked = true;
+            this.checkBoxAlarma.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxAlarma.Location = new System.Drawing.Point(14, 40);
+            this.checkBoxAlarma.Name = "checkBoxAlarma";
+            this.checkBoxAlarma.Size = new System.Drawing.Size(59, 17);
+            this.checkBoxAlarma.TabIndex = 7;
+            this.checkBoxAlarma.Text = "Alarma";
+            this.checkBoxAlarma.UseVisualStyleBackColor = true;
+            this.checkBoxAlarma.CheckedChanged += new System.EventHandler(this.checkBoxAlarma_CheckedChanged);
             // 
             // cbAviso
             // 
             this.cbAviso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAviso.FormattingEnabled = true;
-            this.cbAviso.Location = new System.Drawing.Point(77, 64);
+            this.cbAviso.Location = new System.Drawing.Point(77, 38);
             this.cbAviso.Name = "cbAviso";
             this.cbAviso.Size = new System.Drawing.Size(98, 21);
             this.cbAviso.TabIndex = 8;
@@ -122,88 +105,88 @@ namespace GI.UI.Propiedades.Formularios
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 121);
+            this.label3.Location = new System.Drawing.Point(20, 95);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Contacto";
+            this.label3.Text = "Telefono";
             // 
-            // textBox1
+            // textBoxVisitante
             // 
-            this.textBox1.Location = new System.Drawing.Point(77, 91);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(224, 21);
-            this.textBox1.TabIndex = 10;
-            this.textBox1.Text = "Emilio Davidis";
+            this.textBoxVisitante.Location = new System.Drawing.Point(77, 65);
+            this.textBoxVisitante.Name = "textBoxVisitante";
+            this.textBoxVisitante.Size = new System.Drawing.Size(224, 21);
+            this.textBoxVisitante.TabIndex = 10;
+            this.textBoxVisitante.Text = "Emilio Davidis";
             // 
-            // textBox2
+            // textBoxTelefonoContacto
             // 
-            this.textBox2.Location = new System.Drawing.Point(77, 118);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(224, 21);
-            this.textBox2.TabIndex = 11;
-            this.textBox2.Text = "153-590-5900";
+            this.textBoxTelefonoContacto.Location = new System.Drawing.Point(77, 92);
+            this.textBoxTelefonoContacto.Name = "textBoxTelefonoContacto";
+            this.textBoxTelefonoContacto.Size = new System.Drawing.Size(224, 21);
+            this.textBoxTelefonoContacto.TabIndex = 11;
+            this.textBoxTelefonoContacto.Text = "153-590-5900";
             // 
-            // textBox3
+            // textBoxDetalle
             // 
-            this.textBox3.Location = new System.Drawing.Point(77, 145);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox3.Size = new System.Drawing.Size(224, 105);
-            this.textBox3.TabIndex = 12;
-            this.textBox3.Text = "un detalle de la visita";
+            this.textBoxDetalle.Location = new System.Drawing.Point(77, 119);
+            this.textBoxDetalle.Multiline = true;
+            this.textBoxDetalle.Name = "textBoxDetalle";
+            this.textBoxDetalle.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxDetalle.Size = new System.Drawing.Size(224, 105);
+            this.textBoxDetalle.TabIndex = 12;
+            this.textBoxDetalle.Text = "un detalle de la visita";
             // 
-            // button2
+            // bAceptar
             // 
-            this.button2.Location = new System.Drawing.Point(145, 256);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Aceptar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bAceptar.Location = new System.Drawing.Point(145, 230);
+            this.bAceptar.Name = "bAceptar";
+            this.bAceptar.Size = new System.Drawing.Size(75, 23);
+            this.bAceptar.TabIndex = 14;
+            this.bAceptar.Text = "Aceptar";
+            this.bAceptar.UseVisualStyleBackColor = true;
+            this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
-            // button1
+            // bCancelar
             // 
-            this.button1.Location = new System.Drawing.Point(226, 256);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bCancelar.Location = new System.Drawing.Point(226, 230);
+            this.bCancelar.Name = "bCancelar";
+            this.bCancelar.Size = new System.Drawing.Size(75, 23);
+            this.bCancelar.TabIndex = 13;
+            this.bCancelar.Text = "Cancelar";
+            this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
-            // checkBox2
+            // checkBoxRealizada
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(231, 13);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(72, 17);
-            this.checkBox2.TabIndex = 15;
-            this.checkBox2.Text = "Realizada";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBoxRealizada.AutoSize = true;
+            this.checkBoxRealizada.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxRealizada.Checked = true;
+            this.checkBoxRealizada.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxRealizada.Location = new System.Drawing.Point(231, 13);
+            this.checkBoxRealizada.Name = "checkBoxRealizada";
+            this.checkBoxRealizada.Size = new System.Drawing.Size(72, 17);
+            this.checkBoxRealizada.TabIndex = 15;
+            this.checkBoxRealizada.Text = "Realizada";
+            this.checkBoxRealizada.UseVisualStyleBackColor = true;
             // 
             // frmVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 291);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(315, 263);
+            this.Controls.Add(this.checkBoxRealizada);
+            this.Controls.Add(this.bAceptar);
+            this.Controls.Add(this.bCancelar);
+            this.Controls.Add(this.textBoxDetalle);
+            this.Controls.Add(this.textBoxTelefonoContacto);
+            this.Controls.Add(this.textBoxVisitante);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbAviso);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.checkBoxAlarma);
+            this.Controls.Add(this.dateTimePickerFecha);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -221,19 +204,17 @@ namespace GI.UI.Propiedades.Formularios
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFecha;
+        private System.Windows.Forms.CheckBox checkBoxAlarma;
         private GI.Framework.ComboBox cbAviso;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.TextBox textBoxVisitante;
+        private System.Windows.Forms.TextBox textBoxTelefonoContacto;
+        private System.Windows.Forms.TextBox textBoxDetalle;
+        private System.Windows.Forms.Button bAceptar;
+        private System.Windows.Forms.Button bCancelar;
+        private System.Windows.Forms.CheckBox checkBoxRealizada;
     }
 }

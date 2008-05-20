@@ -61,10 +61,10 @@ namespace GI.BR.Propiedades
             tiempos.Add(new TiempoAlarma(new TimeSpan(5, 0, 0), "5 Horas"));
             tiempos.Add(new TiempoAlarma(new TimeSpan(12, 0, 0), "12 Horas"));
             tiempos.Add(new TiempoAlarma(new TimeSpan(1, 0, 0, 0), "1 Día"));
-            tiempos.Add(new TiempoAlarma(new TimeSpan(1, 0, 0, 0), "2 Días"));
-            tiempos.Add(new TiempoAlarma(new TimeSpan(1, 0, 0, 0), "3 Días"));
-            tiempos.Add(new TiempoAlarma(new TimeSpan(1, 0, 0, 0), "4 Días"));
-            tiempos.Add(new TiempoAlarma(new TimeSpan(1, 0, 0, 0), "5 Días"));
+            tiempos.Add(new TiempoAlarma(new TimeSpan(2, 0, 0, 0), "2 Días"));
+            tiempos.Add(new TiempoAlarma(new TimeSpan(3, 0, 0, 0), "3 Días"));
+            tiempos.Add(new TiempoAlarma(new TimeSpan(4, 0, 0, 0), "4 Días"));
+            tiempos.Add(new TiempoAlarma(new TimeSpan(5, 0, 0, 0), "5 Días"));
 
 
 

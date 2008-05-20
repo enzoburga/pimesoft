@@ -22,6 +22,23 @@ namespace GI.UI.Propiedades
         }
 
 
+        public override bool AsignarSoloLectura(Control Ctrl)
+        {
+
+            if (Ctrl.Name == "lvPublicaciones") return false;
+            return base.AsignarSoloLectura(Ctrl);
+        }
+
+        private ListViewItem generarLVI(GI.BR.Propiedades.Publicacion p)
+        {
+            ListViewItem item = new ListViewItem();
+
+           
+
+            return item;
+
+        }
+
         protected override void CargarPropiedad()
         {
             ListViewItem item = new ListViewItem();
@@ -32,6 +49,33 @@ namespace GI.UI.Propiedades
             item.SubItems.Add("detalles...");
 
             lvPublicaciones.Items.Add(item);
+        }
+
+        private void lvPublicaciones_DoubleClick(object sender, EventArgs e)
+        {
+            if (lvPublicaciones.SelectedItems.Count != 1) return;
+        }
+
+        private void linkLabelAgregarPublicacion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (Propiedad.IdPropiedad == 0)
+            {
+
+                Framework.General.GIMsgBox.Show("Debe primero guardar la propiedad para cargar publicaciones", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
+        }
+
+        private void linkLabelEliminar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (Propiedad.IdPropiedad == 0)
+            {
+
+                Framework.General.GIMsgBox.Show("Debe primero guardar la propiedad para eliminar publicaciones", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
+
+            if (lvPublicaciones.SelectedItems.Count != 1) return;
         }
     }
 }
