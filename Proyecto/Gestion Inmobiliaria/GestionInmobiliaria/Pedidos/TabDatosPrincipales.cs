@@ -75,17 +75,48 @@ namespace GI.UI.Pedidos
             if( Pedido.ClientePedido == null)
                 throw new Exception("Debe seleccionar un contacto.");
 
+            if (int.Parse(tbValorDesde.Text) <0)
+                throw new Exception("El valor inicial debe ser mayor a 0.");
+
+            if (int.Parse(tbValorHasta.Text) < 0)
+                throw new Exception("El valor final debe ser mayor a 0.");
+
             if (int.Parse(tbValorDesde.Text) > int.Parse(tbValorHasta.Text))
                 if(tbValorHasta.Text != "0")
                     throw new Exception( "El valor inicial debe ser menor al final.");
+
+
+            if (int.Parse(tbMedidaTerrenoDesde.Text) < 0)
+                throw new Exception("La medida del terreno inicial debe ser positiva.");
+
+            if (int.Parse(tbMedidaTerrenoHasta.Text) < 0)
+                throw new Exception("La medida del terreno final debe positiva.");
 
             if (int.Parse(tbMedidaTerrenoDesde.Text) > int.Parse(tbMedidaTerrenoHasta.Text))
                 if (tbMedidaTerrenoHasta.Text != "0")
                     throw new Exception( "La medida del terreno inicial debe ser menor a la final.");
 
+
+
+
+            if (int.Parse(tbMetrosConstruiblesDesde.Text) < 0)
+                throw new Exception("Los metros construibles iniciales deben positivos.");
+
+            if (int.Parse(tbMetrosConstruiblesHasta.Text) < 0)
+                throw new Exception("Los metros construibles finales deben ser positivos.");
+
             if (int.Parse(tbMetrosConstruiblesDesde.Text) > int.Parse(tbMetrosConstruiblesHasta.Text))
                 if (tbMetrosConstruiblesHasta.Text != "0")
                     throw new Exception( "La medida construible inicial debe ser menor a la final.");
+
+
+
+
+            if (int.Parse(tbMetrosCubiertosDesde.Text) < 0)
+                throw new Exception("Los metros cubiertos iniciales deben ser positivos.");
+
+            if (int.Parse(tbMetrosCubiertosHasta.Text) < 0)
+                throw new Exception("Los metros cubiertos finales deben ser positivos.");
 
             if (int.Parse(tbMetrosCubiertosDesde.Text) > int.Parse(tbMetrosCubiertosHasta.Text))
                 if (tbMetrosCubiertosHasta.Text != "0")
