@@ -13,6 +13,7 @@ namespace GI.UI.Pedidos
         public frmListadoPedidos()
         {
             InitializeComponent();
+            lvPedidos.ListViewItemSorter = sorter;
         }
         public void Inicializar()
         {
@@ -22,8 +23,12 @@ namespace GI.UI.Pedidos
 
         private GI.BR.Pedidos.Pedidos pedidos = new GI.BR.Pedidos.Pedidos();
 
+        Framework.ListView.ListViewColumnSorter sorter = new GI.Framework.ListView.ListViewColumnSorter();
+
         private void lvPedidos_DoubleClick(object sender, EventArgs e)
         {
+            if (lvPedidos.SelectedItems.Count != 1)
+                return;
 
            frmFichaPedidos frm = new frmFichaPedidos();
            frm.Pedido = (GI.BR.Pedidos.Pedido)lvPedidos.SelectedItems[0].Tag;
@@ -51,12 +56,13 @@ namespace GI.UI.Pedidos
                 if (p.EstadoPropiedad == typeof(GI.BR.Propiedades.Alquiler))
                     lvi.SubItems.Add("Alquiler");
 
+                if(p.Activo)
+                    lvi.SubItems.Add("Activo");
+                else
+                    lvi.SubItems.Add("Histórico");
+
                 lvi.Tag = p;
-                lvPedidos.Items.Add(lvi);
-
-
-                
-                
+                lvPedidos.Items.Add(lvi);                
             }
             lvPedidos.EndUpdate();
 
@@ -70,10 +76,23 @@ namespace GI.UI.Pedidos
 
         private void editarFichaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (lvPedidos.SelectedItems.Count != 1)
+                return;
             frmFichaPedidos frm = new frmFichaPedidos();
+            
             frm.Pedido = (GI.BR.Pedidos.Pedido)lvPedidos.SelectedItems[0].Tag;
-            if (frm.ShowDialog() == DialogResult.OK)
-                LlenarLista();
+
+            if (!frm.Pedido.Activo)
+            {
+                GI.Framework.General.GIMsgBox.Show("El pedido es histórico, se abrira en modo solo lectura.", GI.Framework.General.enumTipoMensaje.Informacion);
+                lvPedidos_DoubleClick(sender, e);
+            }
+            else
+            {
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                    LlenarLista();
+            }
         }
 
         private void imprimirListadotoolStripButton_Click(object sender, EventArgs e)
@@ -145,6 +164,39 @@ namespace GI.UI.Pedidos
                 this.pedidos = frmBuscar.Pedidos;
                 this.LlenarLista();
             }
+        }
+
+        private void BuscarPedidostoolStripButton_ButtonClick(object sender, EventArgs e)
+        {
+            pedidos.RecuperarPedidosTodos();
+            LlenarLista();
+        }
+
+        private void lvPedidos_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.STRING);                
+
+            if (e.Column == sorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (sorter.Order == SortOrder.Ascending)
+                {
+                    sorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    sorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                sorter.SortColumn = e.Column;
+                sorter.Order = SortOrder.Ascending;
+            }
+
+            // Perform the sort with these new sort options.
+            this.lvPedidos.Sort();
         }
 
         

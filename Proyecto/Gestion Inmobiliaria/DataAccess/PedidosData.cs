@@ -34,7 +34,9 @@ namespace GI.DA
             Nullable<int> IdProvincia,
             Nullable<decimal> ImporteFinal,
             Nullable<decimal> ImporteInicial,
-            Nullable<int> IdMoneda)
+            Nullable<int> IdMoneda,
+            string observaciones,
+            bool activo)
         {
 
             object cantidadAmbientesFinal = CantidadAmbientesFinal;
@@ -138,7 +140,9 @@ namespace GI.DA
                     idProvincia,
                     importeFinal,
                     importeInicial,
-                    idMoneda },
+                    idMoneda,
+                    observaciones,
+                    activo},
                 new string[] {    
                     "@IdPedido",
                     "@CantidadAmbientesFinal",
@@ -164,7 +168,9 @@ namespace GI.DA
                     "@IdProvincia",
                     "@ImporteFinal",
                     "@ImporteInicial",
-                    "@IdMoneda"});
+                    "@IdMoneda",
+                    "@Observaciones",
+                    "@Activo"});
         }
 
         public int Guardar(
@@ -191,7 +197,9 @@ namespace GI.DA
             Nullable<int> IdProvincia,
             Nullable<decimal> ImporteFinal,
             Nullable<decimal> ImporteInicial,
-            Nullable<int> IdMoneda)
+            Nullable<int> IdMoneda,
+            string observaciones,
+            bool activo)
         {
 
             object cantidadAmbientesFinal = CantidadAmbientesFinal;
@@ -294,7 +302,9 @@ namespace GI.DA
                     idProvincia,
                     importeFinal,
                     importeInicial,
-                    idMoneda },
+                    idMoneda,
+                    observaciones,
+                    activo},
                 new string[] {    
                     "@CantidadAmbientesFinal",
                     "@CantidadAmbientesInicial",
@@ -319,7 +329,9 @@ namespace GI.DA
                     "@IdProvincia",
                     "@ImporteFinal",
                     "@ImporteInicial",
-                    "@IdMoneda"});
+                    "@IdMoneda",
+                    "@Observaciones",
+                    "@Activo"});
         }
 
         public IDataReader RecuperarPedidosTodos()

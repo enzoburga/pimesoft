@@ -35,6 +35,9 @@ namespace GI.BR.Pedidos
         private int metrosConstruiblesInicial;
         private int metrosConstruiblesFinal;
 
+        private bool activo;
+        private string observaciones;
+
         #endregion
 
         #region Miembros Publicos
@@ -127,6 +130,9 @@ namespace GI.BR.Pedidos
 
         public int MetrosConstruiblesFinal { get { return metrosConstruiblesFinal; } set { metrosConstruiblesFinal = value; } }
 
+        public bool Activo { get { return activo; } set { activo = value; } }
+
+        public string Observaciones { get { return observaciones; } set { observaciones = value; } }
 
         private Nullable<decimal> getcantAmbientesFinal()
         {
@@ -284,7 +290,9 @@ namespace GI.BR.Pedidos
                 getProvincia(),
                 getValorFinal(),
                 getValorInicial(),
-                getMoneda());
+                getMoneda(),
+                Observaciones,
+                true);
 
             return IdPedido > 0;
 
@@ -316,7 +324,9 @@ namespace GI.BR.Pedidos
                 getProvincia(),
                 getValorFinal(),
                 getValorInicial(),
-                getMoneda());
+                getMoneda(),
+                Observaciones,
+                Activo);
         }
 
         #endregion
@@ -460,6 +470,9 @@ namespace GI.BR.Pedidos
                 this.ValorInicial = 0;
             else
                 this.ValorInicial = dr.GetDecimal(dr.GetOrdinal("ImporteInicial"));
+
+            this.Observaciones = dr.GetString(dr.GetOrdinal("Observaciones"));
+            this.Activo = dr.GetBoolean(dr.GetOrdinal("Activo"));
         }
     }
 }
