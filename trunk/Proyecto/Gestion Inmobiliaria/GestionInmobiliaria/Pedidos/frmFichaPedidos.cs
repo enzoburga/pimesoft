@@ -107,7 +107,7 @@ namespace GI.UI.Pedidos
         private void bAceptar_Click(object sender, EventArgs e)
         {
             bool guardado = false;
-
+            Validate();
 
             if (SoloLectura)
             {

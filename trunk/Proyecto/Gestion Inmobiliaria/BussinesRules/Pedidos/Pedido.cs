@@ -273,8 +273,9 @@ namespace GI.BR.Pedidos
 
         #region Persistencia
 
-        public bool Guardar()
+        public bool Guardar()        
         {
+            this.Activo = true;
             GI.DA.PedidosData pd = new GI.DA.PedidosData();
             this.IdPedido = pd.Guardar(
                 getcantAmbientesFinal(),
@@ -300,7 +301,7 @@ namespace GI.BR.Pedidos
                 getValorInicial(),
                 getMoneda(),
                 Observaciones,
-                true);
+                Activo);
 
             return IdPedido > 0;
 

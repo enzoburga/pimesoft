@@ -192,7 +192,7 @@ namespace GI.BR.Clientes
         {
 
             GI.DA.ClientesData data = new GI.DA.ClientesData();
-            this.IdCliente = data.GuardarCliente(this.fechaNacimiento, this.email, this.apellido, this.nombres, this.nroDocumento, this.observaciones, this.telefonoCelular, this.telefonoParticular, this.telefonoTrabajo, (int)this.tipoDocumento, this.ubicacion.Barrio.IdBarrio, this.ubicacion.Provincia.IdProvincia, this.direccion.Calle, this.direccion.CodigoPostal, this.direccion.Depto, this.direccion.Numero, this.direccion.Piso, this.direccion.CalleEntre1, this.direccion.CalleEntre2, this.ubicacion.Pais.IdPais, this.ubicacion.Localidad.IdLocalidad);
+            this.IdCliente = data.GuardarCliente(this.fechaNacimiento, this.email, this.apellido, this.nombres, this.nroDocumento, this.observaciones, this.telefonoCelular, this.telefonoParticular, this.telefonoTrabajo, (int)this.tipoDocumento, (this.ubicacion.Barrio == null) ? 0 : this.ubicacion.Barrio.IdBarrio, (this.ubicacion.Provincia == null) ? 0 : this.ubicacion.Provincia.IdProvincia, this.direccion.Calle, this.direccion.CodigoPostal, this.direccion.Depto, this.direccion.Numero, this.direccion.Piso, this.direccion.CalleEntre1, this.direccion.CalleEntre2, (this.ubicacion.Pais == null) ? 0 : this.ubicacion.Pais.IdPais, (this.ubicacion.Localidad == null)?0:this.ubicacion.Localidad.IdLocalidad);
 
             return this.IdCliente > 0;
         }
@@ -221,14 +221,26 @@ namespace GI.BR.Clientes
             this.TelefonoTrabajo = dr.GetInt32(dr.GetOrdinal("TelefonoTrabajo"));
             this.TipoDocumento = (GI.BR.General.enumTipoDocumento)dr.GetInt32(dr.GetOrdinal("TipoDocumento"));
             this.Ubicacion = new GI.BR.Propiedades.Ubicacion();
-            this.Ubicacion.Barrio = new GI.BR.Propiedades.Ubicaciones.Barrio();
-            this.Ubicacion.Barrio.IdBarrio = dr.GetInt32(dr.GetOrdinal("IdBarrio"));
-            this.Ubicacion.Localidad = new GI.BR.Propiedades.Ubicaciones.Localidad();
-            this.Ubicacion.Localidad.IdLocalidad = dr.GetInt32(dr.GetOrdinal("IdLocalidad"));
-            this.Ubicacion.Pais = new GI.BR.Propiedades.Ubicaciones.Pais();
-            this.Ubicacion.Pais.IdPais = dr.GetInt32(dr.GetOrdinal("IdPais"));
-            this.Ubicacion.Provincia = new GI.BR.Propiedades.Ubicaciones.Provincia();
-            this.Ubicacion.Provincia.IdProvincia = dr.GetInt32(dr.GetOrdinal("IdProvincia"));
+            if (!dr.IsDBNull(dr.GetOrdinal("IdBarrio")))
+            {                
+                this.Ubicacion.Barrio = new GI.BR.Propiedades.Ubicaciones.Barrio();
+                this.Ubicacion.Barrio.IdBarrio = dr.GetInt32(dr.GetOrdinal("IdBarrio"));
+            }
+            if (!dr.IsDBNull(dr.GetOrdinal("IdLocalidad")))
+            {
+                this.Ubicacion.Localidad = new GI.BR.Propiedades.Ubicaciones.Localidad();
+                this.Ubicacion.Localidad.IdLocalidad = dr.GetInt32(dr.GetOrdinal("IdLocalidad"));
+            }
+            if (!dr.IsDBNull(dr.GetOrdinal("IdPais")))
+            {
+                this.Ubicacion.Pais = new GI.BR.Propiedades.Ubicaciones.Pais();
+                this.Ubicacion.Pais.IdPais = dr.GetInt32(dr.GetOrdinal("IdPais"));
+            }
+            if (!dr.IsDBNull(dr.GetOrdinal("IdProvincia")))
+            {
+                this.Ubicacion.Provincia = new GI.BR.Propiedades.Ubicaciones.Provincia();
+                this.Ubicacion.Provincia.IdProvincia = dr.GetInt32(dr.GetOrdinal("IdProvincia"));
+            }
             this.Direccion = new GI.BR.Propiedades.Direccion();
             this.Direccion.Calle = dr.GetString(dr.GetOrdinal("Calle"));
             this.Direccion.CalleEntre1 = dr.GetString(dr.GetOrdinal("CalleEntre1"));
