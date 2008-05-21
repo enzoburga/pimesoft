@@ -57,6 +57,8 @@ namespace GI.UI.Pedidos
             else
                 Pedido.Moneda = (GI.BR.Monedas.Moneda)cbMoneda.SelectedItem;
 
+            this.Pedido.Observaciones = tbObervaciones.Text;
+
             return Pedido;
 
         }

@@ -8,6 +8,22 @@ namespace GI.DA
     {
         public int GuardarCliente(DateTime FechaNacimiento, string Email, string Apellido, string Nombres, string NroDocumento, string Observaciones, int TelefonoCelular, int TelefonoParticular, int TelefonoTrabajo, int TipoDocumento, int IdBarrio, int IdProvincia, string Calle, string CodigoPostal, string Depto, int Numero, string Piso, string CalleEntre1, string CalleEntre2, int IdPais, int IdLocalidad)
         {
+            object idPais = IdPais;
+            if (IdPais == 0)
+                idPais = System.DBNull.Value;
+
+            object idProvincia = IdProvincia;
+            if (IdProvincia == 0)
+                idProvincia = System.DBNull.Value;
+
+            object idBarrio = IdBarrio;
+            if (IdBarrio == 0)
+                idBarrio = System.DBNull.Value;
+
+            object idLocalidad = IdLocalidad;
+            if (IdLocalidad == 0)
+                idLocalidad = System.DBNull.Value;
+
             return AccesoDatos.InsertarRegistro(
                "Cliente_Guardar",
                new object[] { 
@@ -28,10 +44,10 @@ namespace GI.DA
                    CodigoPostal,
                    CalleEntre1,
                    CalleEntre2,
-                   IdBarrio,
-                   IdProvincia,
-                   IdPais,
-                   IdLocalidad },
+                   idBarrio,
+                   idProvincia,
+                   idPais,
+                   idLocalidad },
                new string[] { "@Nombres" ,
                    "@Apellido",
                    "@NroDocumento",
@@ -57,6 +73,22 @@ namespace GI.DA
 
         public bool Actualizar(int IdCliente, DateTime FechaNacimiento, string Email, string Apellido, string Nombres, string NroDocumento, string Observaciones, int TelefonoCelular, int TelefonoParticular, int TelefonoTrabajo, int TipoDocumento, int IdBarrio, int IdProvincia, string Calle, string CodigoPostal, string Depto, int Numero, string Piso, string CalleEntre1, string CalleEntre2, int IdPais, int IdLocalidad)
         {
+            object idPais = IdPais;
+            if (IdPais == 0)
+                idPais = System.DBNull.Value;
+
+            object idProvincia = IdProvincia;
+            if (IdProvincia == 0)
+                idProvincia = System.DBNull.Value;
+
+            object idBarrio = IdBarrio;
+            if (IdBarrio == 0)
+                idBarrio = System.DBNull.Value;
+
+            object idLocalidad = IdLocalidad;
+            if (IdLocalidad == 0)
+                idLocalidad = System.DBNull.Value;
+
             return AccesoDatos.ActualizarRegistro(
                "Cliente_Actualizar",
                new object[] { 
@@ -78,10 +110,10 @@ namespace GI.DA
                    CodigoPostal,
                    CalleEntre1,
                    CalleEntre2,
-                   IdBarrio,
-                   IdProvincia,
-                   IdPais,
-                   IdLocalidad },
+                   idBarrio,
+                   idProvincia,
+                   idPais,
+                   idLocalidad },
                new string[] { 
                    "@IdCliente",
                    "@Nombres" ,
