@@ -76,25 +76,31 @@ namespace GI.Managers.Pedidos
                     return false;
 
             if (pedido.MetrosConstruiblesFinal > 0)
+            {
                 if (pedido.MetrosConstruiblesFinal < propiedad.MetrosConstruibles)
                     return false;
 
-            if (pedido.MetrosConstruiblesInicial > propiedad.MetrosConstruibles)
-                return false;
+                if (pedido.MetrosConstruiblesInicial > propiedad.MetrosConstruibles)
+                    return false;
+            }
 
             if (pedido.MetrosCubiertosFinal > 0 && propiedad.MedidasPropiedad != null)
+            {
                 if (pedido.MetrosCubiertosFinal < propiedad.MedidasPropiedad.MetrosCubiertos)
                     return false;
 
-            if (pedido.MetrosCubiertosInicial > propiedad.MedidasPropiedad.MetrosCubiertos)
-                return false;
+                if (pedido.MetrosCubiertosInicial > propiedad.MedidasPropiedad.MetrosCubiertos)
+                    return false;
+            }
 
             if (pedido.MetrosTerrenoFinal > 0 && propiedad.MedidasTerreno != null)
+            {
                 if (pedido.MetrosTerrenoFinal < propiedad.MedidasTerreno.Metros)
                     return false;
 
-            if (pedido.MetrosTerrenoInicial > propiedad.MedidasTerreno.Metros)
-                return false;
+                if (pedido.MetrosTerrenoInicial > propiedad.MedidasTerreno.Metros)
+                    return false;
+            }
 
             if (pedido.Moneda != null && propiedad.ValorPublicacion != null && propiedad.ValorPublicacion.Moneda != null)
             {
@@ -186,6 +192,14 @@ namespace GI.Managers.Pedidos
             pedidos.RecuperarPedidosTodos();
             return AplicarFiltrosPedidosPorPropiedad(propiedad, pedidos,false);
             
+        }
+
+        public GI.BR.Pedidos.Pedidos RecuperarPedidosTodos(bool IncluirHistóricos)
+        {
+            GI.BR.Pedidos.Pedidos pedidos = new GI.BR.Pedidos.Pedidos();
+            pedidos.RecuperarPedidosTodos();
+            return AplicarFiltrosPedidos(pedidos,null, false);
+
         }
 
         private GI.BR.Pedidos.Pedidos AplicarFiltrosPedidosPorPropiedad(GI.BR.Propiedades.Propiedad propiedad, GI.BR.Pedidos.Pedidos pedidos, bool incluirHistoricos)

@@ -259,6 +259,21 @@ namespace GI.BR.Clientes
             return this.Apellido + ", " + this.Nombres;
         }
 
+                public string GetTelefonoPpal
+        {
+            get 
+            {
+                if (TelefonoParticular != 0)
+                    return telefonoCelular.ToString();
+                if (TelefonoCelular != 0)
+                    return TelefonoCelular.ToString();
+                if (TelefonoTrabajo != 0)
+                    return TelefonoTrabajo.ToString();
+
+                return "No hay telefonos cargados.";
+            }
+        }
+
 
 
         #region ICloneable Members

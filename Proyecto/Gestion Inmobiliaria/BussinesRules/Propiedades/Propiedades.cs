@@ -169,6 +169,8 @@ namespace GI.BR.Propiedades
                 Add(Propiedad);
             }
         }
+
+
         private void cargarColeccionAlquileres(IDataReader dr)
         {
             Clear();
@@ -181,7 +183,6 @@ namespace GI.BR.Propiedades
                 Add(Propiedad);
             }
         }
-
 
 
         private void CargarPropiedad(GI.BR.Propiedades.Propiedad p, IDataReader dr)

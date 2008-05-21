@@ -15,13 +15,17 @@ namespace GI.UI.Pedidos
             InitializeComponent();
             lvPedidos.ListViewItemSorter = sorter;
         }
+
+        GI.Managers.Pedidos.MngPedidos mng = new GI.Managers.Pedidos.MngPedidos();
+
         public void Inicializar()
         {
-            pedidos.RecuperarPedidosTodos();
+
+            this.pedidos = mng.RecuperarPedidosTodos(false);
             LlenarLista();
         }
 
-        private GI.BR.Pedidos.Pedidos pedidos = new GI.BR.Pedidos.Pedidos();
+        private GI.BR.Pedidos.Pedidos pedidos;
 
         Framework.ListView.ListViewColumnSorter sorter = new GI.Framework.ListView.ListViewColumnSorter();
 
@@ -30,10 +34,10 @@ namespace GI.UI.Pedidos
             if (lvPedidos.SelectedItems.Count != 1)
                 return;
 
-           frmFichaPedidos frm = new frmFichaPedidos();
-           frm.Pedido = (GI.BR.Pedidos.Pedido)lvPedidos.SelectedItems[0].Tag;
-           frm.SoloLectura = true;
-           frm.ShowDialog();
+            frmFichaPedidos frm = new frmFichaPedidos();
+            frm.Pedido = (GI.BR.Pedidos.Pedido)lvPedidos.SelectedItems[0].Tag;
+            frm.SoloLectura = true;
+            frm.ShowDialog();
 
 
         }
@@ -47,22 +51,62 @@ namespace GI.UI.Pedidos
             foreach (GI.BR.Pedidos.Pedido p in pedidos)
             {
                 lvi = new ListViewItem();
-                
+
                 //TODO: LLENAR LISTA
-                lvi.Text = p.ClientePedido.ToString();
+                lvi.Text = p.FechaAlta.ToShortDateString();
+                lvi.SubItems.Add(p.ClientePedido.ToString());
+                lvi.SubItems.Add(p.ClientePedido.GetTelefonoPpal);
+
+                if (p.TipoPropiedad != null)
+                    lvi.SubItems.Add(p.TipoPropiedad.ToString());
+                else
+                    lvi.SubItems.Add("----");
 
                 if (p.EstadoPropiedad == typeof(GI.BR.Propiedades.Venta))
                     lvi.SubItems.Add("Venta");
                 if (p.EstadoPropiedad == typeof(GI.BR.Propiedades.Alquiler))
                     lvi.SubItems.Add("Alquiler");
 
-                if(p.Activo)
+                if (p.Moneda != null)
+                {
+                    lvi.SubItems.Add( p.Moneda.ToString() + " " + p.ValorInicial.ToString());
+                    lvi.SubItems.Add(p.Moneda.ToString() + " " + p.ValorFinal.ToString());
+                }
+                else
+                {
+                    lvi.SubItems.Add("----");
+                    lvi.SubItems.Add("----");
+                }
+
+
+                if (p.Activo)
                     lvi.SubItems.Add("Activo");
                 else
                     lvi.SubItems.Add("Histórico");
 
+                string ubic = "----";
+                if (p.Ubicacion.Pais != null)
+                {
+                    
+                    if (p.Ubicacion.Provincia != null)
+                    {
+                        ubic = p.Ubicacion.Provincia.ToString() + " - ";
+                        if (p.Ubicacion.Localidad != null)
+                            ubic += p.Ubicacion.Localidad.ToString();
+                        else
+                            ubic += "Loc. Sin Definir";
+                    }
+
+                                       
+                }
+
+                lvi.SubItems.Add(ubic); 
+
+                lvi.SubItems.Add(mng.GetPropiedadesOfrecidas(p).Count.ToString());
+                lvi.SubItems.Add(mng.GetPropiedadesSinOfrecer(p).Count.ToString());
+
                 lvi.Tag = p;
-                lvPedidos.Items.Add(lvi);                
+                lvPedidos.Items.Add(lvi);
             }
             lvPedidos.EndUpdate();
 
@@ -79,7 +123,7 @@ namespace GI.UI.Pedidos
             if (lvPedidos.SelectedItems.Count != 1)
                 return;
             frmFichaPedidos frm = new frmFichaPedidos();
-            
+
             frm.Pedido = (GI.BR.Pedidos.Pedido)lvPedidos.SelectedItems[0].Tag;
 
             if (!frm.Pedido.Activo)
@@ -115,10 +159,10 @@ namespace GI.UI.Pedidos
         private void nuevoPedidoDeVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmFichaPedidos frm = new frmFichaPedidos();
-            
+
             GI.BR.Pedidos.Pedido pedido = new GI.BR.Pedidos.Pedido();
             pedido.EstadoPropiedad = typeof(GI.BR.Propiedades.Venta);
-            
+
             frm.Pedido = pedido;
 
             if (frm.ShowDialog() == DialogResult.OK)
@@ -131,10 +175,10 @@ namespace GI.UI.Pedidos
         private void nuevoPedidoDeAlquilerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmFichaPedidos frm = new frmFichaPedidos();
-            
+
             GI.BR.Pedidos.Pedido pedido = new GI.BR.Pedidos.Pedido();
             pedido.EstadoPropiedad = typeof(GI.BR.Propiedades.Alquiler);
-            
+
             frm.Pedido = pedido;
 
             if (frm.ShowDialog() == DialogResult.OK)
@@ -168,7 +212,12 @@ namespace GI.UI.Pedidos
 
         private void lvPedidos_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.STRING);                
+            if (e.Column == 0)
+                sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.DATETIME);
+            if(e.Column > 0 && e.Column < 8)
+                sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.STRING);
+            if (e.Column > 7 && e.Column < 11)
+                sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.INT);
 
             if (e.Column == sorter.SortColumn)
             {
@@ -195,11 +244,11 @@ namespace GI.UI.Pedidos
 
         private void verTodosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pedidos.RecuperarPedidosTodos();
+            this.pedidos = mng.RecuperarPedidosTodos(false);
             LlenarLista();
         }
 
-        
+
 
 
 
