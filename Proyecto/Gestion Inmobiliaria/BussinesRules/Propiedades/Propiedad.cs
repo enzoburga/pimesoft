@@ -7,10 +7,12 @@ namespace GI.BR.Propiedades
 {
 
     public delegate void DelegateCambioTipoPropiedad(GI.BR.Propiedades.TipoPropiedad Tipo);
+    public delegate void DelegateCambioValorPropiedad(GI.BR.Propiedades.Propiedad Propiedad);
 
     public abstract class Propiedad : ICloneable
     {
         public event DelegateCambioTipoPropiedad onCambioTipoPropiedad;
+        public event DelegateCambioValorPropiedad onCambioValorPropiedad;
 
         public Propiedad()
         {
@@ -225,7 +227,13 @@ namespace GI.BR.Propiedades
                     Cargar(); 
                 return valorMercado;
             }
-            set { valorMercado = value; }
+            set
+            {
+                if (onCambioValorPropiedad != null)
+                    onCambioValorPropiedad(this);
+
+                valorMercado = value; 
+            }
         }
 
 
@@ -234,10 +242,18 @@ namespace GI.BR.Propiedades
             get
             {
                 if (!cargado)
-                    Cargar(); 
+                    Cargar();
+ 
+
                 return valorPublicacion;
             }
-            set { valorPublicacion = value; }
+            set 
+            {
+                if (onCambioValorPropiedad != null)
+                    onCambioValorPropiedad(this);
+
+                valorPublicacion = value; 
+            }
         }
 
 

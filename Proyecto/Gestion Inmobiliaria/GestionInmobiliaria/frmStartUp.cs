@@ -94,5 +94,10 @@ namespace GI.UI
         {
             builder.AbrirFormulario(typeof(Pedidos.frmListadoPedidos).ToString());
         }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrmAcercaDe().ShowDialog();
+        }
     }
 }
