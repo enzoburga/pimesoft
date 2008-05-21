@@ -45,6 +45,7 @@ namespace GI.BR.Pedidos
 
         private bool activo;
         private string observaciones;
+        private DateTime fechaAlta;
 
         #endregion
 
@@ -141,6 +142,8 @@ namespace GI.BR.Pedidos
         public bool Activo { get { return activo; } set { activo = value; } }
 
         public string Observaciones { get { return observaciones; } set { observaciones = value; } }
+
+        public DateTime FechaAlta { get { return fechaAlta; } set { fechaAlta = value; } }
 
         private Nullable<decimal> getcantAmbientesFinal()
         {
@@ -276,6 +279,7 @@ namespace GI.BR.Pedidos
         public bool Guardar()        
         {
             this.Activo = true;
+            this.FechaAlta = DateTime.Today;
             GI.DA.PedidosData pd = new GI.DA.PedidosData();
             this.IdPedido = pd.Guardar(
                 getcantAmbientesFinal(),
@@ -301,7 +305,8 @@ namespace GI.BR.Pedidos
                 getValorInicial(),
                 getMoneda(),
                 Observaciones,
-                Activo);
+                Activo,
+                FechaAlta);
 
             return IdPedido > 0;
 
@@ -335,11 +340,11 @@ namespace GI.BR.Pedidos
                 getValorInicial(),
                 getMoneda(),
                 Observaciones,
-                Activo);
+                Activo,
+                FechaAlta);
         }
 
         #endregion
-
 
         #region ICloneable Members
 
@@ -349,6 +354,8 @@ namespace GI.BR.Pedidos
         }
 
         #endregion
+
+
 
         internal void fill(System.Data.IDataReader dr)
         {
@@ -482,6 +489,7 @@ namespace GI.BR.Pedidos
 
             this.Observaciones = dr.GetString(dr.GetOrdinal("Observaciones"));
             this.Activo = dr.GetBoolean(dr.GetOrdinal("Activo"));
+            this.FechaAlta = dr.GetDateTime(dr.GetOrdinal("FechaAlta"));
         }
     }
 }

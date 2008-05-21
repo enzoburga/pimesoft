@@ -36,7 +36,8 @@ namespace GI.DA
             Nullable<decimal> ImporteInicial,
             Nullable<int> IdMoneda,
             string observaciones,
-            bool activo)
+            bool activo,
+            DateTime FechaAlta)
         {
 
             object cantidadAmbientesFinal = CantidadAmbientesFinal;
@@ -142,7 +143,8 @@ namespace GI.DA
                     importeInicial,
                     idMoneda,
                     observaciones,
-                    activo},
+                    activo,
+                    FechaAlta},
                 new string[] {    
                     "@IdPedido",
                     "@CantidadAmbientesFinal",
@@ -170,7 +172,8 @@ namespace GI.DA
                     "@ImporteInicial",
                     "@IdMoneda",
                     "@Observaciones",
-                    "@Activo"});
+                    "@Activo",
+                    "@FechaAlta"});
         }
 
         public int Guardar(
@@ -199,7 +202,8 @@ namespace GI.DA
             Nullable<decimal> ImporteInicial,
             Nullable<int> IdMoneda,
             string observaciones,
-            bool activo)
+            bool activo,
+            DateTime FechaAlta)
         {
 
             object cantidadAmbientesFinal = CantidadAmbientesFinal;
@@ -304,7 +308,8 @@ namespace GI.DA
                     importeInicial,
                     idMoneda,
                     observaciones,
-                    activo},
+                    activo,
+                    FechaAlta},
                 new string[] {    
                     "@CantidadAmbientesFinal",
                     "@CantidadAmbientesInicial",
@@ -331,7 +336,8 @@ namespace GI.DA
                     "@ImporteInicial",
                     "@IdMoneda",
                     "@Observaciones",
-                    "@Activo"});
+                    "@Activo",
+                    "@FechaAlta"});
         }
 
         public IDataReader RecuperarPedidosTodos()

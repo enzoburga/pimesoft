@@ -35,19 +35,27 @@ namespace GI.UI.Pedidos
             this.BuscarPedidostoolStripButton = new System.Windows.Forms.ToolStripSplitButton();
             this.pedidosDeAlquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NuevoPedidotoolStripButton = new System.Windows.Forms.ToolStripSplitButton();
             this.nuevoPedidoDeVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPedidoDeAlquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirListadotoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.lvPedidos = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.chFecha = new System.Windows.Forms.ColumnHeader();
+            this.chContacto = new System.Windows.Forms.ColumnHeader();
+            this.chTelContacto = new System.Windows.Forms.ColumnHeader();
+            this.chTipoProp = new System.Windows.Forms.ColumnHeader();
+            this.chTipoOperacion = new System.Windows.Forms.ColumnHeader();
+            this.chValorDesde = new System.Windows.Forms.ColumnHeader();
+            this.chValorHasta = new System.Windows.Forms.ColumnHeader();
+            this.chEstadoPedido = new System.Windows.Forms.ColumnHeader();
+            this.chUbicacion = new System.Windows.Forms.ColumnHeader();
+            this.chCantOfrecidos = new System.Windows.Forms.ColumnHeader();
+            this.chCantSinOfrecer = new System.Windows.Forms.ColumnHeader();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.verFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -70,7 +78,7 @@ namespace GI.UI.Pedidos
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.lvPedidos);
-            this.splitContainer1.Size = new System.Drawing.Size(751, 415);
+            this.splitContainer1.Size = new System.Drawing.Size(1055, 516);
             this.splitContainer1.SplitterDistance = 71;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -83,7 +91,7 @@ namespace GI.UI.Pedidos
             this.imprimirListadotoolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(751, 71);
+            this.toolStrip1.Size = new System.Drawing.Size(1055, 71);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -114,6 +122,13 @@ namespace GI.UI.Pedidos
             this.pedidosDeVentasToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.pedidosDeVentasToolStripMenuItem.Text = "Pedidos de Ventas";
             this.pedidosDeVentasToolStripMenuItem.Click += new System.EventHandler(this.pedidosDeVentasToolStripMenuItem_Click);
+            // 
+            // verTodosToolStripMenuItem
+            // 
+            this.verTodosToolStripMenuItem.Name = "verTodosToolStripMenuItem";
+            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.verTodosToolStripMenuItem.Text = "Ver Todos";
+            this.verTodosToolStripMenuItem.Click += new System.EventHandler(this.verTodosToolStripMenuItem_Click);
             // 
             // NuevoPedidotoolStripButton
             // 
@@ -155,36 +170,88 @@ namespace GI.UI.Pedidos
             // 
             // lvPedidos
             // 
+            this.lvPedidos.AllowColumnReorder = true;
             this.lvPedidos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
+            this.chFecha,
+            this.chContacto,
+            this.chTelContacto,
+            this.chTipoProp,
+            this.chTipoOperacion,
+            this.chValorDesde,
+            this.chValorHasta,
+            this.chEstadoPedido,
+            this.chUbicacion,
+            this.chCantOfrecidos,
+            this.chCantSinOfrecer});
             this.lvPedidos.ContextMenuStrip = this.contextMenuStrip1;
             this.lvPedidos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvPedidos.FullRowSelect = true;
             this.lvPedidos.HideSelection = false;
+            this.lvPedidos.LabelWrap = false;
             this.lvPedidos.Location = new System.Drawing.Point(0, 0);
+            this.lvPedidos.MultiSelect = false;
             this.lvPedidos.Name = "lvPedidos";
-            this.lvPedidos.Size = new System.Drawing.Size(751, 340);
+            this.lvPedidos.Size = new System.Drawing.Size(1055, 441);
             this.lvPedidos.TabIndex = 0;
             this.lvPedidos.UseCompatibleStateImageBehavior = false;
             this.lvPedidos.View = System.Windows.Forms.View.Details;
             this.lvPedidos.DoubleClick += new System.EventHandler(this.lvPedidos_DoubleClick);
             this.lvPedidos.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvPedidos_ColumnClick);
             // 
-            // columnHeader1
+            // chFecha
             // 
-            this.columnHeader1.Text = "Contacto";
-            this.columnHeader1.Width = 231;
+            this.chFecha.Text = "Fecha de Alta";
+            this.chFecha.Width = 80;
             // 
-            // columnHeader2
+            // chContacto
             // 
-            this.columnHeader2.Text = "Estado Propiedad";
-            this.columnHeader2.Width = 206;
+            this.chContacto.Text = "Contacto";
+            this.chContacto.Width = 201;
             // 
-            // columnHeader3
+            // chTelContacto
             // 
-            this.columnHeader3.Text = "Estado";
+            this.chTelContacto.Text = "Telefono";
+            this.chTelContacto.Width = 69;
+            // 
+            // chTipoProp
+            // 
+            this.chTipoProp.Text = "Tipo Propiedad";
+            this.chTipoProp.Width = 85;
+            // 
+            // chTipoOperacion
+            // 
+            this.chTipoOperacion.Text = "Tipo de Operación";
+            this.chTipoOperacion.Width = 102;
+            // 
+            // chValorDesde
+            // 
+            this.chValorDesde.Text = "Desde";
+            // 
+            // chValorHasta
+            // 
+            this.chValorHasta.Text = "Hasta";
+            // 
+            // chEstadoPedido
+            // 
+            this.chEstadoPedido.Text = "Estado Pedido";
+            this.chEstadoPedido.Width = 83;
+            // 
+            // chUbicacion
+            // 
+            this.chUbicacion.Text = "Ubicación";
+            this.chUbicacion.Width = 124;
+            // 
+            // chCantOfrecidos
+            // 
+            this.chCantOfrecidos.Text = "Prop. Ofrecidas";
+            this.chCantOfrecidos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chCantOfrecidos.Width = 90;
+            // 
+            // chCantSinOfrecer
+            // 
+            this.chCantSinOfrecer.Text = "Prop. A Ofrecer";
+            this.chCantSinOfrecer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chCantSinOfrecer.Width = 90;
             // 
             // contextMenuStrip1
             // 
@@ -217,18 +284,11 @@ namespace GI.UI.Pedidos
             this.imprimirFichaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.imprimirFichaToolStripMenuItem.Text = "Imprimir";
             // 
-            // verTodosToolStripMenuItem
-            // 
-            this.verTodosToolStripMenuItem.Name = "verTodosToolStripMenuItem";
-            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.verTodosToolStripMenuItem.Text = "Ver Todos";
-            this.verTodosToolStripMenuItem.Click += new System.EventHandler(this.verTodosToolStripMenuItem_Click);
-            // 
             // frmListadoPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 415);
+            this.ClientSize = new System.Drawing.Size(1055, 516);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmListadoPedidos";
             this.ShowIcon = false;
@@ -249,8 +309,8 @@ namespace GI.UI.Pedidos
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ListView lvPedidos;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader chContacto;
+        private System.Windows.Forms.ColumnHeader chTipoOperacion;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton imprimirListadotoolStripButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -263,7 +323,15 @@ namespace GI.UI.Pedidos
         private System.Windows.Forms.ToolStripSplitButton BuscarPedidostoolStripButton;
         private System.Windows.Forms.ToolStripMenuItem pedidosDeAlquilerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pedidosDeVentasToolStripMenuItem;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader chEstadoPedido;
         private System.Windows.Forms.ToolStripMenuItem verTodosToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader chFecha;
+        private System.Windows.Forms.ColumnHeader chTelContacto;
+        private System.Windows.Forms.ColumnHeader chTipoProp;
+        private System.Windows.Forms.ColumnHeader chValorDesde;
+        private System.Windows.Forms.ColumnHeader chValorHasta;
+        private System.Windows.Forms.ColumnHeader chUbicacion;
+        private System.Windows.Forms.ColumnHeader chCantOfrecidos;
+        private System.Windows.Forms.ColumnHeader chCantSinOfrecer;
     }
 }

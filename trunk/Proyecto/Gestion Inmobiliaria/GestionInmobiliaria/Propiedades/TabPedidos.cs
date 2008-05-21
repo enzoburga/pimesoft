@@ -25,12 +25,36 @@ namespace GI.UI.Propiedades
 
         protected override void CargarPropiedad()
         {
-            ListViewItem item = new ListViewItem();
-            item.Text = DateTime.Now.ToShortDateString();
-            item.SubItems.Add("Emilio Davidis");
-            item.SubItems.Add("153-590-5900");
+            GI.Managers.Pedidos.MngPedidos mng = new GI.Managers.Pedidos.MngPedidos();
+            LlenarLista(mng.RecuperarPedidosPorPropiedad(Propiedad));
+        }
 
-            lvPedidos.Items.Add(item);
+        internal void RecargarPedidos()
+        {
+            CargarPropiedad();
+        }
+
+        private void LlenarLista( GI.BR.Pedidos.Pedidos pedidos )
+        {
+            ListViewItem lvi;
+            lvPedidos.BeginUpdate();
+
+            lvPedidos.Items.Clear();
+            foreach (GI.BR.Pedidos.Pedido p in pedidos)
+            {
+                lvi = new ListViewItem();
+
+                //TODO: LLENAR LISTA
+                lvi.Text = p.FechaAlta.ToShortDateString();
+                lvi.SubItems.Add(p.ClientePedido.ToString());
+                lvi.SubItems.Add(p.ClientePedido.GetTelefonoPpal);
+
+                lvi.Tag = p;
+                lvPedidos.Items.Add(lvi);
+            }
+            lvPedidos.EndUpdate();
+
+            lvPedidos.Focus();
         }
     }
 }

@@ -223,6 +223,9 @@ namespace GI.UI.Propiedades
 
                 Framework.General.GIMsgBox.Show("La propiedad se guardó con éxito", GI.Framework.General.enumTipoMensaje.Informacion);
                 this.Text = Propiedad.Codigo;
+
+                //Refresco los pedidos con los cambios d la propiedad.
+                GetTabPedidos.RecargarPedidos();
                 
         
 
@@ -231,6 +234,19 @@ namespace GI.UI.Propiedades
             {
                 GI.Framework.General.GIMsgBox.Show(ex.Message, GI.Framework.General.enumTipoMensaje.Error);
 
+            }
+        }
+
+        private TabPedidos GetTabPedidos
+        {
+            get
+            {
+                foreach (System.Windows.Forms.TabPage Page in this.tabControl1.TabPages)
+                {
+                    if (Page.Controls[0] is TabPedidos)
+                        return (TabPedidos)Page.Controls[0];
+                }
+                return null;
             }
         }
 
