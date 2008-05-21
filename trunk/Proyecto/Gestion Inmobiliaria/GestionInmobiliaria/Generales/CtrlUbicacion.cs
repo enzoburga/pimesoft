@@ -57,25 +57,25 @@ namespace GI.UI.Generales
             {
                 if (ubicacion == null) ubicacion = new GI.BR.Propiedades.Ubicacion();
 
-                //if (cbBarrio.SelectedItem.ToString() == "Todos")
-                //    this.ubicacion.Barrio = null;
-                //else
-                //    this.ubicacion.Barrio = (GI.BR.Propiedades.Ubicaciones.Barrio)cbBarrio.SelectedItem;
+                if (cbBarrio.SelectedItem.ToString() == "Todos")
+                    this.ubicacion.Barrio = null;
+                else
+                    this.ubicacion.Barrio = (GI.BR.Propiedades.Ubicaciones.Barrio)cbBarrio.SelectedItem;
 
-                //if (cbPais.SelectedItem.ToString() == "Todos")
-                //    this.ubicacion.Pais = null;
-                //else
-                //    this.ubicacion.Pais = (GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem;
+                if (cbPais.SelectedItem.ToString() == "Todos")
+                    this.ubicacion.Pais = null;
+                else
+                    this.ubicacion.Pais = (GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem;
 
-                //if (cbProvincia.SelectedItem.ToString() == "Todos")
-                //    this.ubicacion.Provincia = null;
-                //else
-                //    this.ubicacion.Provincia = (GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem;
+                if (cbProvincia.SelectedItem.ToString() == "Todos")
+                    this.ubicacion.Provincia = null;
+                else
+                    this.ubicacion.Provincia = (GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem;
 
-                //if (cbLocalidad.SelectedItem.ToString() == "Todos")
-                //    this.ubicacion.Localidad = null;
-                //else
-                //    this.ubicacion.Localidad = (GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem;
+                if (cbLocalidad.SelectedItem.ToString() == "Todos")
+                    this.ubicacion.Localidad = null;
+                else
+                    this.ubicacion.Localidad = (GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem;
 
                 return ubicacion;
             }

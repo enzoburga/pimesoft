@@ -200,7 +200,7 @@ namespace GI.BR.Clientes
         public virtual bool Actualizar()
         {
             GI.DA.ClientesData data = new GI.DA.ClientesData();
-            return data.Actualizar(this.IdCliente, this.fechaNacimiento, this.email, this.apellido, this.nombres, this.nroDocumento, this.observaciones, this.telefonoCelular, this.telefonoParticular, this.telefonoTrabajo, (int)this.tipoDocumento, this.ubicacion.Barrio.IdBarrio, this.ubicacion.Provincia.IdProvincia, this.direccion.Calle, this.direccion.CodigoPostal, this.direccion.Depto, this.direccion.Numero, this.direccion.Piso, this.direccion.CalleEntre1, this.direccion.CalleEntre2, this.ubicacion.Pais.IdPais, this.ubicacion.Localidad.IdLocalidad);
+            return data.Actualizar(this.IdCliente, this.fechaNacimiento, this.email, this.apellido, this.nombres, this.nroDocumento, this.observaciones, this.telefonoCelular, this.telefonoParticular, this.telefonoTrabajo, (int)this.tipoDocumento, (this.ubicacion.Barrio == null) ? 0 : this.ubicacion.Barrio.IdBarrio, (this.ubicacion.Provincia == null) ? 0 : this.ubicacion.Provincia.IdProvincia, this.direccion.Calle, this.direccion.CodigoPostal, this.direccion.Depto, this.direccion.Numero, this.direccion.Piso, this.direccion.CalleEntre1, this.direccion.CalleEntre2, (this.ubicacion.Pais == null) ? 0 : this.ubicacion.Pais.IdPais, (this.ubicacion.Localidad == null) ? 0 : this.ubicacion.Localidad.IdLocalidad);
 
         }
 
