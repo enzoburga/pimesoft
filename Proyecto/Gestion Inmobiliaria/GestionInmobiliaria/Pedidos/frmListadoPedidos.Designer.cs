@@ -47,6 +47,7 @@ namespace GI.UI.Pedidos
             this.verFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -91,14 +92,14 @@ namespace GI.UI.Pedidos
             this.BuscarPedidostoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.BuscarPedidostoolStripButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pedidosDeAlquilerToolStripMenuItem,
-            this.pedidosDeVentasToolStripMenuItem});
+            this.pedidosDeVentasToolStripMenuItem,
+            this.verTodosToolStripMenuItem});
             this.BuscarPedidostoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("BuscarPedidostoolStripButton.Image")));
             this.BuscarPedidostoolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.BuscarPedidostoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BuscarPedidostoolStripButton.Name = "BuscarPedidostoolStripButton";
             this.BuscarPedidostoolStripButton.Size = new System.Drawing.Size(79, 68);
             this.BuscarPedidostoolStripButton.Text = "Buscar Pedidos";
-            this.BuscarPedidostoolStripButton.ButtonClick += new System.EventHandler(this.BuscarPedidostoolStripButton_ButtonClick);
             // 
             // pedidosDeAlquilerToolStripMenuItem
             // 
@@ -216,6 +217,13 @@ namespace GI.UI.Pedidos
             this.imprimirFichaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.imprimirFichaToolStripMenuItem.Text = "Imprimir";
             // 
+            // verTodosToolStripMenuItem
+            // 
+            this.verTodosToolStripMenuItem.Name = "verTodosToolStripMenuItem";
+            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.verTodosToolStripMenuItem.Text = "Ver Todos";
+            this.verTodosToolStripMenuItem.Click += new System.EventHandler(this.verTodosToolStripMenuItem_Click);
+            // 
             // frmListadoPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,5 +264,6 @@ namespace GI.UI.Pedidos
         private System.Windows.Forms.ToolStripMenuItem pedidosDeAlquilerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pedidosDeVentasToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ToolStripMenuItem verTodosToolStripMenuItem;
     }
 }

@@ -22,21 +22,6 @@ namespace GI.BR.Pedidos
             }
         }
 
-        public void RecuperarPedidos(GI.BR.Propiedades.EstadoPropiedad Estado, GI.BR.Propiedades.TipoPropiedad Tipo)
-        {
-            throw new Exception("The method or operation is not implemented.");
-        }
-
-        public void RecuperarPedidos(GI.BR.Propiedades.EstadoPropiedad Estado)
-        {
-            throw new Exception("The method or operation is not implemented.");
-        }
-
-        public void RecuperarPedidos(GI.BR.Propiedades.TipoPropiedad Tipo)
-        {
-            throw new Exception("The method or operation is not implemented.");
-        }
-
         public void RecuperarPedidosPorContacto(string Nombres)
         {
             using (IDataReader dr = new GI.DA.PedidosData().RecuperarPedidosPorNombreContacto(Nombres))

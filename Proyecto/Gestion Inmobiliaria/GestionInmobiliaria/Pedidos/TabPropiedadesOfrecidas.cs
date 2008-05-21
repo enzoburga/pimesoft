@@ -25,10 +25,10 @@ namespace GI.UI.Pedidos
         private void LlenarLista(GI.BR.Propiedades.Propiedades propiedades)
         {
             ListViewItem lvi;
+            lvPropiedades.Items.Clear();
             foreach (GI.BR.Propiedades.Propiedad p in propiedades)
             {
                 lvPropiedades.BeginUpdate();
-                lvPropiedades.Items.Clear();
 
                 lvi = new ListViewItem();
                 lvi.Text = p.Codigo;
