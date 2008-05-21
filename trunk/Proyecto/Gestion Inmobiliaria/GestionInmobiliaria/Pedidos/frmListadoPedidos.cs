@@ -166,12 +166,6 @@ namespace GI.UI.Pedidos
             }
         }
 
-        private void BuscarPedidostoolStripButton_ButtonClick(object sender, EventArgs e)
-        {
-            pedidos.RecuperarPedidosTodos();
-            LlenarLista();
-        }
-
         private void lvPedidos_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.STRING);                
@@ -197,6 +191,12 @@ namespace GI.UI.Pedidos
 
             // Perform the sort with these new sort options.
             this.lvPedidos.Sort();
+        }
+
+        private void verTodosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pedidos.RecuperarPedidosTodos();
+            LlenarLista();
         }
 
         

@@ -69,7 +69,7 @@ namespace GI.UI.Pedidos
                 return;
 
 
-            Pedido.Ubicacion = ctrlUbicacion1.Ubicacion;
+            
             if (tbValorDesde.Text != "0" || tbValorHasta.Text != "0")
                 if (cbMoneda.SelectedIndex == 0)
                     throw new Exception("Debe seleccionar una moneda.");
@@ -143,17 +143,6 @@ namespace GI.UI.Pedidos
             cbEsAptoProfesional.Items.Add("Si");
             cbEsAptoProfesional.Items.Add("No");
 
-            if (Pedido.EsAptoProfesional == null)
-                cbEsAptoProfesional.SelectedIndex = 0;
-            else
-            {
-                if (Pedido.EsAptoProfesional.Value)
-                    cbEsAptoProfesional.SelectedIndex = 1;
-                else
-                    cbEsAptoProfesional.SelectedIndex = 2;
-            }
-
-
 
             cbDisposicion.Items.Clear();
             cbDisposicion.Items.Add(GI.BR.Propiedades.DepartamentoDisposicion.SinDefinir);
@@ -162,39 +151,11 @@ namespace GI.UI.Pedidos
             cbDisposicion.Items.Add(GI.BR.Propiedades.DepartamentoDisposicion.Interno);
             cbDisposicion.Items.Add(GI.BR.Propiedades.DepartamentoDisposicion.Lateral);
 
-            if (Pedido.Disposicion == null)
-                cbDisposicion.SelectedIndex = 0;
-            else
-            {
-                switch (Pedido.Disposicion)
-                {
-                    case GI.BR.Propiedades.DepartamentoDisposicion.Frente: cbDisposicion.SelectedIndex = 1; break;
-                    case GI.BR.Propiedades.DepartamentoDisposicion.Contrafrente: cbDisposicion.SelectedIndex = 2; break;
-                    case GI.BR.Propiedades.DepartamentoDisposicion.Interno: cbDisposicion.SelectedIndex = 3; break;
-                    case GI.BR.Propiedades.DepartamentoDisposicion.Lateral: cbDisposicion.SelectedIndex = 4; break;
-                }
-            }
-
-
             cbTipoZona.Items.Clear();
             cbTipoZona.Items.Add(GI.BR.Propiedades.TipoZona.SinDefinir);
             cbTipoZona.Items.Add(GI.BR.Propiedades.TipoZona.Comercial);
             cbTipoZona.Items.Add(GI.BR.Propiedades.TipoZona.Industrial);
-            cbTipoZona.Items.Add(GI.BR.Propiedades.TipoZona.Residencial);
-
-            if (Pedido.TipoZona == null)
-                cbTipoZona.SelectedIndex = 0;
-            else
-            {
-                switch (Pedido.TipoZona)
-                {
-                    case GI.BR.Propiedades.TipoZona.Comercial: cbTipoZona.SelectedIndex = 1; break;
-                    case GI.BR.Propiedades.TipoZona.Industrial: cbTipoZona.SelectedIndex = 2; break;
-                    case GI.BR.Propiedades.TipoZona.Residencial: cbTipoZona.SelectedIndex = 3; break;
-                }
-            }
-
-           
+            cbTipoZona.Items.Add(GI.BR.Propiedades.TipoZona.Residencial);   
 
             GI.BR.Propiedades.CategoriasPropiedad Categorias = new GI.BR.Propiedades.CategoriasPropiedad();
             Categorias.RecuperarTodas();
@@ -265,11 +226,43 @@ namespace GI.UI.Pedidos
         protected override void CargarPedido()
         {
             pedidoBindingSource.Add(Pedido);
+            
+            ctrlUbicacion1.Ubicacion = Pedido.Ubicacion;
 
-            if (Pedido.IdPedido != 0)
-                ctrlUbicacion1.Ubicacion = Pedido.Ubicacion;
+            if (Pedido.EsAptoProfesional == null)
+                cbEsAptoProfesional.SelectedIndex = 0;
+            else
+            {
+                if (Pedido.EsAptoProfesional.Value)
+                    cbEsAptoProfesional.SelectedIndex = 1;
+                else
+                    cbEsAptoProfesional.SelectedIndex = 2;
+            }
 
-            //Pedido.Ubicacion = ctrlUbicacion1.Ubicacion;
+            if (Pedido.Disposicion == null)
+                cbDisposicion.SelectedIndex = 0;
+            else
+            {
+                switch (Pedido.Disposicion)
+                {
+                    case GI.BR.Propiedades.DepartamentoDisposicion.Frente: cbDisposicion.SelectedIndex = 1; break;
+                    case GI.BR.Propiedades.DepartamentoDisposicion.Contrafrente: cbDisposicion.SelectedIndex = 2; break;
+                    case GI.BR.Propiedades.DepartamentoDisposicion.Interno: cbDisposicion.SelectedIndex = 3; break;
+                    case GI.BR.Propiedades.DepartamentoDisposicion.Lateral: cbDisposicion.SelectedIndex = 4; break;
+                }
+            }
+
+            if (Pedido.TipoZona == null)
+                cbTipoZona.SelectedIndex = 0;
+            else
+            {
+                switch (Pedido.TipoZona)
+                {
+                    case GI.BR.Propiedades.TipoZona.Comercial: cbTipoZona.SelectedIndex = 1; break;
+                    case GI.BR.Propiedades.TipoZona.Industrial: cbTipoZona.SelectedIndex = 2; break;
+                    case GI.BR.Propiedades.TipoZona.Residencial: cbTipoZona.SelectedIndex = 3; break;
+                }
+            }
 
             if (Pedido.ClientePedido != null)
             {

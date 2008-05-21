@@ -65,6 +65,7 @@ namespace GI.UI.Generales
             this.cbBarrio.Name = "cbBarrio";
             this.cbBarrio.Size = new System.Drawing.Size(148, 21);
             this.cbBarrio.TabIndex = 3;
+            this.cbBarrio.SelectedIndexChanged += new System.EventHandler(this.cbBarrio_SelectedIndexChanged);
             // 
             // cbLocalidad
             // 

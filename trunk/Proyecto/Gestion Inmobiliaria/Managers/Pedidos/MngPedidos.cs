@@ -37,101 +37,118 @@ namespace GI.Managers.Pedidos
             foreach (GI.BR.Propiedades.Propiedad p in propiedades)
             {
 
-                if (pedido.CantidadAmbientesFinal != null)
-                    if (p.CantidadAmbientes > pedido.CantidadAmbientesFinal.CantidadAmbientes)
-                        continue;
-
-                if (pedido.CantidadAmbientesInicial != null)
-                    if (p.CantidadAmbientes < pedido.CantidadAmbientesInicial.CantidadAmbientes)
-                        continue;
-
-                if (pedido.Categoria != null && p.Categoria != null)
-                    if (p.Categoria.IdCategoria != pedido.Categoria.IdCategoria)
-                        continue;
-
-                if (pedido.Disposicion != null)
-                    if (p.Disposicion != pedido.Disposicion.Value)
-                        continue;
-
-                if (pedido.EnumEstado != null)
-                    if (p.EnumEstado != pedido.EnumEstado.Value)
-                        continue;
-
-                if (pedido.EsAptoProfesional != null)
-                    if (p.EsAptoProfesional != pedido.EsAptoProfesional)
-                        continue;
-
-                if (pedido.Estado != null && p.Estado != null)
-                    if (p.Estado.IdEstadoPropiedad != pedido.Estado.IdEstadoPropiedad)
-                        continue;
-
-                if(pedido.MetrosConstruiblesFinal > 0)
-                    if (pedido.MetrosConstruiblesFinal < p.MetrosConstruibles)
-                        continue;
-
-                if (pedido.MetrosConstruiblesInicial > p.MetrosConstruibles)
+                if (!CoincidePropiedadPedido(p, pedido))
                     continue;
-                
-                if(pedido.MetrosCubiertosFinal > 0 && p.MedidasPropiedad != null)
-                    if (pedido.MetrosCubiertosFinal< p.MedidasPropiedad.MetrosCubiertos)
-                        continue;
-
-                if (pedido.MetrosCubiertosInicial > p.MedidasPropiedad.MetrosCubiertos)
-                    continue;
-
-                if (pedido.MetrosTerrenoFinal > 0 && p.MedidasTerreno != null)
-                    if (pedido.MetrosTerrenoFinal < p.MedidasTerreno.Metros)
-                        continue;
-
-                if (pedido.MetrosTerrenoInicial > p.MedidasTerreno.Metros)
-                    continue;
-
-                if (pedido.Moneda != null && p.ValorPublicacion != null && p.ValorPublicacion.Moneda != null)
-                { 
-                    //CONSULTAR VALOR DOLAR POR WEB!!??!?
-
-                    if (pedido.Moneda.IdMoneda == p.ValorPublicacion.Moneda.IdMoneda)
-                    {
-                        if (pedido.ValorFinal < p.ValorPublicacion.Importe)
-                            continue;
-
-                        if (pedido.ValorInicial > p.ValorPublicacion.Importe)
-                            continue;
-                    }
-                    else
-                        continue;
-
-                }
-
-                if (pedido.TipoPropiedad != null)
-                    if (pedido.TipoPropiedad.IdTipoPropiedad != p.TipoPropiedad.IdTipoPropiedad)
-                        continue;
-
-                if (pedido.TipoZona != null && p.TipoZona != TipoZona.SinDefinir)
-                    if (p.TipoZona != pedido.TipoZona)
-                        continue;
-
-                
-                if (pedido.Ubicacion.Barrio != null && p.Ubicacion.Barrio != null)
-                    if (pedido.Ubicacion.Barrio.IdBarrio != p.Ubicacion.Barrio.IdBarrio)
-                        continue;
-
-                if (pedido.Ubicacion.Localidad != null && p.Ubicacion.Localidad != null)
-                    if (pedido.Ubicacion.Localidad.IdLocalidad != p.Ubicacion.Localidad.IdLocalidad)
-                        continue;
-
-                if (pedido.Ubicacion.Pais != null && p.Ubicacion.Pais != null)
-                    if (pedido.Ubicacion.Pais.IdPais != p.Ubicacion.Pais.IdPais)
-                        continue;
-
-                if (pedido.Ubicacion.Provincia != null && p.Ubicacion.Provincia != null)
-                    if (pedido.Ubicacion.Provincia.IdProvincia != p.Ubicacion.Provincia.IdProvincia)
-                        continue;
-
 
                 filtro.Add(p);
             }
             return filtro;
+        }
+
+        private bool CoincidePropiedadPedido(GI.BR.Propiedades.Propiedad propiedad, GI.BR.Pedidos.Pedido pedido)
+        {
+            if (pedido.CantidadAmbientesFinal != null)
+                if (propiedad.CantidadAmbientes > pedido.CantidadAmbientesFinal.CantidadAmbientes)
+                    return false;
+
+            if (pedido.CantidadAmbientesInicial != null)
+                if (propiedad.CantidadAmbientes < pedido.CantidadAmbientesInicial.CantidadAmbientes)
+                    return false;
+
+            if (pedido.Categoria != null && propiedad.Categoria != null)
+                if (propiedad.Categoria.IdCategoria != pedido.Categoria.IdCategoria)
+                    return false;
+
+            if (pedido.Disposicion != null)
+                if (propiedad.Disposicion != pedido.Disposicion.Value)
+                    return false;
+
+            if (pedido.EnumEstado != null)
+                if (propiedad.EnumEstado != pedido.EnumEstado.Value)
+                    return false;
+
+            if (pedido.EsAptoProfesional != null)
+                if (propiedad.EsAptoProfesional != pedido.EsAptoProfesional)
+                    return false;
+
+            if (pedido.Estado != null && propiedad.Estado != null)
+                if (propiedad.Estado.IdEstadoPropiedad != pedido.Estado.IdEstadoPropiedad)
+                    return false;
+
+            if (pedido.MetrosConstruiblesFinal > 0)
+                if (pedido.MetrosConstruiblesFinal < propiedad.MetrosConstruibles)
+                    return false;
+
+            if (pedido.MetrosConstruiblesInicial > propiedad.MetrosConstruibles)
+                return false;
+
+            if (pedido.MetrosCubiertosFinal > 0 && propiedad.MedidasPropiedad != null)
+                if (pedido.MetrosCubiertosFinal < propiedad.MedidasPropiedad.MetrosCubiertos)
+                    return false;
+
+            if (pedido.MetrosCubiertosInicial > propiedad.MedidasPropiedad.MetrosCubiertos)
+                return false;
+
+            if (pedido.MetrosTerrenoFinal > 0 && propiedad.MedidasTerreno != null)
+                if (pedido.MetrosTerrenoFinal < propiedad.MedidasTerreno.Metros)
+                    return false;
+
+            if (pedido.MetrosTerrenoInicial > propiedad.MedidasTerreno.Metros)
+                return false;
+
+            if (pedido.Moneda != null && propiedad.ValorPublicacion != null && propiedad.ValorPublicacion.Moneda != null)
+            {
+                //CONSULTAR VALOR DOLAR POR WEB!!??!?
+
+                if (pedido.Moneda.IdMoneda == propiedad.ValorPublicacion.Moneda.IdMoneda)
+                {
+                    if (pedido.ValorFinal < propiedad.ValorPublicacion.Importe)
+                        return false;
+
+                    if (pedido.ValorInicial > propiedad.ValorPublicacion.Importe)
+                        return false;
+                }
+                else
+                    return false;
+
+            }
+
+            if (pedido.TipoPropiedad != null)
+                if (pedido.TipoPropiedad.IdTipoPropiedad != propiedad.TipoPropiedad.IdTipoPropiedad)
+                    return false;
+
+            if (pedido.TipoZona != null && propiedad.TipoZona != TipoZona.SinDefinir)
+                if (propiedad.TipoZona != pedido.TipoZona)
+                    return false;
+
+            if (pedido.Ubicacion.Pais != null && propiedad.Ubicacion.Pais != null)
+            {
+                if (pedido.Ubicacion.Pais.IdPais != propiedad.Ubicacion.Pais.IdPais)
+                    return false;
+
+                if (pedido.Ubicacion.Provincia != null && propiedad.Ubicacion.Provincia != null)
+                {
+                    if (pedido.Ubicacion.Provincia.IdProvincia != propiedad.Ubicacion.Provincia.IdProvincia)
+                        return false;
+
+                    if (pedido.Ubicacion.Barrio != null && propiedad.Ubicacion.Barrio != null)
+                    {
+                        if (pedido.Ubicacion.Barrio.IdBarrio != propiedad.Ubicacion.Barrio.IdBarrio)
+                            return false;
+
+                        if (pedido.Ubicacion.Localidad != null && propiedad.Ubicacion.Localidad != null)
+                            if (pedido.Ubicacion.Localidad.IdLocalidad != propiedad.Ubicacion.Localidad.IdLocalidad)
+                                return false;
+                    }
+                }
+            }
+
+
+
+
+
+            return true;
+
         }
 
 
@@ -161,6 +178,35 @@ namespace GI.Managers.Pedidos
             GI.BR.Pedidos.Pedidos pedidos = new GI.BR.Pedidos.Pedidos();
             pedidos.RecuperarPedidosPorContacto(Nombres);
             return AplicarFiltrosPedidos(pedidos, tipo,IncluirHistóricos);
+        }
+
+        public GI.BR.Pedidos.Pedidos RecuperarPedidosPorPropiedad(GI.BR.Propiedades.Propiedad propiedad)
+        {
+            GI.BR.Pedidos.Pedidos pedidos = new GI.BR.Pedidos.Pedidos();
+            pedidos.RecuperarPedidosTodos();
+            return AplicarFiltrosPedidosPorPropiedad(propiedad, pedidos,false);
+            
+        }
+
+        private GI.BR.Pedidos.Pedidos AplicarFiltrosPedidosPorPropiedad(GI.BR.Propiedades.Propiedad propiedad, GI.BR.Pedidos.Pedidos pedidos, bool incluirHistoricos)
+        {
+            GI.BR.Pedidos.Pedidos filtro = new GI.BR.Pedidos.Pedidos();
+
+            foreach (GI.BR.Pedidos.Pedido p in pedidos)
+            {
+                if (!incluirHistoricos)
+                    if (!p.Activo)
+                        continue;
+
+                if (p.EstadoPropiedad != propiedad.GetType())
+                    continue;
+
+                if (!CoincidePropiedadPedido(propiedad, p))
+                    continue;
+
+                filtro.Add(p);
+            }
+            return filtro;
         }
 
         #endregion

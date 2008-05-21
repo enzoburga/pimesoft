@@ -50,7 +50,7 @@ namespace GI.DA
                 new string[] { });
         }
 
-        public IDataReader RecuperarPropiedadesAlquileresSinOfrecer(int IdPedido)
+        public IDataReader RecuperarPropiedadesVentasSinOfrecer(int IdPedido)
         {
             return AccesoDatos.RecuperarDatos(
                 "PropiedadesVentas_RecuperarTodasSinOfrecer",
@@ -102,7 +102,7 @@ namespace GI.DA
                 new string[] { });
         }
 
-        public IDataReader RecuperarPropiedadesVentasSinOfrecer(int IdPedido)
+        public IDataReader RecuperarPropiedadesAlquileresSinOfrecer(int IdPedido)
         {
             return AccesoDatos.RecuperarDatos(
                 "PropiedadesAlquileres_RecuperarTodasSinOfrecer",

@@ -170,7 +170,9 @@ namespace GI.UI.Pedidos
             }
             try
             {
+                //GI.BR.Pedidos.Pedido ped = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).getPedido();
 
+                ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).Validar();
                 //Verifico si la adm de alquiler esta o no guardado. Si lo esta lo actualizo.
                 //Busco la administracion en el primer Tab.
                 if (pedido.IdPedido == 0)
