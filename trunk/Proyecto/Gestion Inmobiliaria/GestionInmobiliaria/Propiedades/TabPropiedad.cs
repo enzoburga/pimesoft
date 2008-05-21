@@ -151,7 +151,15 @@ namespace GI.UI.Propiedades
                 pictureBoxFechada.Image = foto.Imagen;
 
             }
+
+
+            Propiedad.onCambioValorPropiedad += new GI.BR.Propiedades.DelegateCambioValorPropiedad(Propiedad_onCambioValorPropiedad);
             
+        }
+
+        public void Propiedad_onCambioValorPropiedad(GI.BR.Propiedades.Propiedad Propiedad)
+        {
+            CargarPropiedad();
         }
 
         #endregion

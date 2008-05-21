@@ -30,12 +30,13 @@ namespace GI.UI.Propiedades
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.lvPedidos = new System.Windows.Forms.ListView();
+            this.linkLabelEliminarTasacion = new System.Windows.Forms.LinkLabel();
+            this.linkLabelAgregarTasacion = new System.Windows.Forms.LinkLabel();
+            this.lvTasaciones = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // label2
@@ -55,40 +56,44 @@ namespace GI.UI.Propiedades
             this.label1.TabIndex = 19;
             this.label1.Text = "Opciones";
             // 
-            // linkLabel2
+            // linkLabelEliminarTasacion
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(533, 443);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(88, 13);
-            this.linkLabel2.TabIndex = 18;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Eliminar Tasación";
+            this.linkLabelEliminarTasacion.AutoSize = true;
+            this.linkLabelEliminarTasacion.Location = new System.Drawing.Point(533, 443);
+            this.linkLabelEliminarTasacion.Name = "linkLabelEliminarTasacion";
+            this.linkLabelEliminarTasacion.Size = new System.Drawing.Size(88, 13);
+            this.linkLabelEliminarTasacion.TabIndex = 18;
+            this.linkLabelEliminarTasacion.TabStop = true;
+            this.linkLabelEliminarTasacion.Text = "Eliminar Tasación";
+            this.linkLabelEliminarTasacion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEliminarTasacion_LinkClicked);
             // 
-            // linkLabel1
+            // linkLabelAgregarTasacion
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(532, 427);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(91, 13);
-            this.linkLabel1.TabIndex = 17;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Agregar Tasación";
+            this.linkLabelAgregarTasacion.AutoSize = true;
+            this.linkLabelAgregarTasacion.Location = new System.Drawing.Point(532, 427);
+            this.linkLabelAgregarTasacion.Name = "linkLabelAgregarTasacion";
+            this.linkLabelAgregarTasacion.Size = new System.Drawing.Size(91, 13);
+            this.linkLabelAgregarTasacion.TabIndex = 17;
+            this.linkLabelAgregarTasacion.TabStop = true;
+            this.linkLabelAgregarTasacion.Text = "Agregar Tasación";
+            this.linkLabelAgregarTasacion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAgregarTasacion_LinkClicked);
             // 
-            // lvPedidos
+            // lvTasaciones
             // 
-            this.lvPedidos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvTasaciones.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
-            this.lvPedidos.FullRowSelect = true;
-            this.lvPedidos.HideSelection = false;
-            this.lvPedidos.Location = new System.Drawing.Point(15, 17);
-            this.lvPedidos.Name = "lvPedidos";
-            this.lvPedidos.Size = new System.Drawing.Size(608, 407);
-            this.lvPedidos.TabIndex = 16;
-            this.lvPedidos.UseCompatibleStateImageBehavior = false;
-            this.lvPedidos.View = System.Windows.Forms.View.Details;
+            this.columnHeader3,
+            this.columnHeader4});
+            this.lvTasaciones.FullRowSelect = true;
+            this.lvTasaciones.HideSelection = false;
+            this.lvTasaciones.Location = new System.Drawing.Point(15, 17);
+            this.lvTasaciones.Name = "lvTasaciones";
+            this.lvTasaciones.Size = new System.Drawing.Size(608, 407);
+            this.lvTasaciones.TabIndex = 16;
+            this.lvTasaciones.UseCompatibleStateImageBehavior = false;
+            this.lvTasaciones.View = System.Windows.Forms.View.Details;
+            this.lvTasaciones.DoubleClick += new System.EventHandler(this.lvPedidos_DoubleClick);
             // 
             // columnHeader1
             // 
@@ -97,13 +102,18 @@ namespace GI.UI.Propiedades
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Valor";
-            this.columnHeader2.Width = 80;
+            this.columnHeader2.Text = "Valor Real";
+            this.columnHeader2.Width = 87;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Detalles";
-            this.columnHeader3.Width = 205;
+            this.columnHeader3.Text = "Valor Mercado";
+            this.columnHeader3.Width = 93;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Detalles";
+            this.columnHeader4.Width = 284;
             // 
             // TabTasaciones
             // 
@@ -111,9 +121,9 @@ namespace GI.UI.Propiedades
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.lvPedidos);
+            this.Controls.Add(this.linkLabelEliminarTasacion);
+            this.Controls.Add(this.linkLabelAgregarTasacion);
+            this.Controls.Add(this.lvTasaciones);
             this.Name = "TabTasaciones";
             this.Size = new System.Drawing.Size(640, 480);
             this.ResumeLayout(false);
@@ -125,12 +135,13 @@ namespace GI.UI.Propiedades
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.ListView lvPedidos;
+        private System.Windows.Forms.LinkLabel linkLabelEliminarTasacion;
+        private System.Windows.Forms.LinkLabel linkLabelAgregarTasacion;
+        private System.Windows.Forms.ListView lvTasaciones;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
 
     }
 }

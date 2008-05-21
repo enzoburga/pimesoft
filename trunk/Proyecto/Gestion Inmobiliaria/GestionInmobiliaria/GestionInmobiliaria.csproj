@@ -127,6 +127,12 @@
     <Compile Include="Clientes\TabDatosPrincipales.Designer.cs">
       <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAcercaDe.Designer.cs">
+      <DependentUpon>FrmAcercaDe.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBuilder.cs" />
     <Compile Include="frmPopUpEventos.cs">
       <SubType>Form</SubType>
@@ -271,6 +277,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAcercaDe.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmAcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPopUpEventos.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmPopUpEventos.cs</DependentUpon>
@@ -351,6 +361,10 @@
     <EmbeddedResource Include="Propiedades\Formularios\FrmPublicacion.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FrmPublicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\FrmTasacion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTasacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Propiedades\Formularios\frmVisita.resx">
       <SubType>Designer</SubType>
@@ -436,6 +450,7 @@
     <None Include="Properties\DataSources\GI.BR.Propiedades.MedidaPropiedad.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.MedidasTerreno.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Propiedad.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.Tasacion.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.TipoDePiso.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Ubicacion.datasource" />
     <None Include="Properties\DataSources\GI.BR.Valor.datasource" />
@@ -474,6 +489,12 @@
     </Compile>
     <Compile Include="Propiedades\Formularios\FrmPublicacion.Designer.cs">
       <DependentUpon>FrmPublicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmTasacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmTasacion.Designer.cs">
+      <DependentUpon>FrmTasacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Propiedades\Formularios\frmVisita.cs">
       <SubType>Form</SubType>

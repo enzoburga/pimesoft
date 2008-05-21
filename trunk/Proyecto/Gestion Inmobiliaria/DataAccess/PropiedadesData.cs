@@ -466,7 +466,45 @@ namespace GI.DA
         #endregion
 
 
+        #region Tasaciones
 
+        public IDataReader RecuperarTasaciones(int IdPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                  "Propiedades_RecuperarTasaciones",
+                  new object[] { IdPropiedad },
+                  new string[] { "@IdPropiedad" });
+        }
+
+        public int CrearTasacion(int IdPropiedad, DateTime Fecha, decimal ValorReal, decimal ValorPublicacion, int IdMonedaReal, int IdMonedaPublicacion, string Detalles)
+        {
+            return AccesoDatos.InsertarRegistro(
+                "Propiedades_CrearTasacion",
+                new object[] { IdPropiedad, Fecha, ValorReal, ValorPublicacion, IdMonedaReal, IdMonedaPublicacion, Detalles },
+                new string[] { "@IdPropiedad", "@Fecha", "@ImporteReal", "@ImportePublicacion", "@IdMonedaReal", "@IdMonedaPublicacion", "@Comentarios" });
+
+        
+        }
+
+        public bool ActualizarTasacion(int IdTasacion, DateTime Fecha, decimal ValorReal, decimal ValorPublicacion, int IdMonedaReal, int IdMonedaPublicacion, string Detalles)
+        {
+            return AccesoDatos.ActualizarRegistro(
+                    "Propiedades_ModificarTasacion",
+                    new object[] { IdTasacion, Fecha, ValorReal, ValorPublicacion, IdMonedaReal, IdMonedaPublicacion, Detalles },
+                    new string[] { "@IdTasacion", "@Fecha", "@ImporteReal", "@ImportePublicacion", "@IdMonedaReal", "@IdMonedaPublicacion", "@Comentarios" });
+
+        }
+
+        public bool EliminarTasacion(int IdTasacion)
+        { 
+            return AccesoDatos.EliminarRegistro(
+                "Propiedades_EliminarTasacion",
+                new object[] { IdTasacion },
+                new string[] { "@IdTasacion " });
+
+        }
+
+        #endregion
 
     }
 }

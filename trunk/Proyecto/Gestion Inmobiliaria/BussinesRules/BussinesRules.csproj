@@ -82,6 +82,8 @@
     <Compile Include="Propiedades\Publicacion.cs" />
     <Compile Include="Propiedades\Publicaciones.cs" />
     <Compile Include="Propiedades\RedondeoNumeroDireccion.cs" />
+    <Compile Include="Propiedades\Tasacion.cs" />
+    <Compile Include="Propiedades\Tasaciones.cs" />
     <Compile Include="Propiedades\TimpoAlarma.cs" />
     <Compile Include="Propiedades\TipoAmbiente.cs" />
     <Compile Include="Propiedades\TipoDePiso.cs" />
