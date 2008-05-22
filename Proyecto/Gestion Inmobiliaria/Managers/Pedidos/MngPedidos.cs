@@ -12,7 +12,14 @@ namespace GI.Managers.Pedidos
 
         public GI.BR.Propiedades.Propiedades GetPropiedadesOfrecidas(GI.BR.Pedidos.Pedido pedido)
         {
-            return new GI.BR.Propiedades.Propiedades();
+            GI.BR.Propiedades.Propiedades propiedades = new GI.BR.Propiedades.Propiedades();
+            switch (pedido.EstadoPropiedad.ToString())
+            {
+                case "GI.BR.Propiedades.Alquiler": propiedades.RecuperarPropiedadesAlquileresOfrecidas(pedido); break;
+                case "GI.BR.Propiedades.Venta": propiedades.RecuperarPropiedadesVentasOfrecidas(pedido); break;
+            }
+
+            return propiedades;
         }
 
         public GI.BR.Propiedades.Propiedades GetPropiedadesSinOfrecer(GI.BR.Pedidos.Pedido pedido)
@@ -127,6 +134,7 @@ namespace GI.Managers.Pedidos
                 if (propiedad.TipoZona != pedido.TipoZona)
                     return false;
 
+            
             if (pedido.Ubicacion.Pais != null && propiedad.Ubicacion.Pais != null)
             {
                 if (pedido.Ubicacion.Pais.IdPais != propiedad.Ubicacion.Pais.IdPais)

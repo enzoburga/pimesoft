@@ -35,7 +35,7 @@ namespace GI.UI.Pedidos
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.verFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enviarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ofrecerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,9 +74,9 @@ namespace GI.UI.Pedidos
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verFichaToolStripMenuItem,
-            this.enviarFichaToolStripMenuItem});
+            this.ofrecerToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
             // 
             // verFichaToolStripMenuItem
             // 
@@ -85,11 +85,12 @@ namespace GI.UI.Pedidos
             this.verFichaToolStripMenuItem.Text = "Ver Ficha";
             this.verFichaToolStripMenuItem.Click += new System.EventHandler(this.verFichaToolStripMenuItem_Click);
             // 
-            // enviarFichaToolStripMenuItem
+            // ofrecerToolStripMenuItem
             // 
-            this.enviarFichaToolStripMenuItem.Name = "enviarFichaToolStripMenuItem";
-            this.enviarFichaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.enviarFichaToolStripMenuItem.Text = "Ofrecer";
+            this.ofrecerToolStripMenuItem.Name = "ofrecerToolStripMenuItem";
+            this.ofrecerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ofrecerToolStripMenuItem.Text = "Ofrecer";
+            this.ofrecerToolStripMenuItem.Click += new System.EventHandler(this.ofrecerToolStripMenuItem_Click);
             // 
             // TabPropiedadesSinOfrecer
             // 
@@ -111,7 +112,7 @@ namespace GI.UI.Pedidos
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem verFichaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem enviarFichaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ofrecerToolStripMenuItem;
 
     }
 }

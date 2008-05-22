@@ -88,6 +88,16 @@ namespace GI.BR.Propiedades
             }
         }
 
+        public void RecuperarPropiedadesAlquileresOfrecidas(GI.BR.Pedidos.Pedido pedido)
+        {
+            estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Alquiler));
+
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesAlquileresOfrecidas(pedido.IdPedido))
+            {
+                cargarColeccionAlquileres(dr);
+            }
+        }
+
 
         #endregion
 
@@ -148,6 +158,16 @@ namespace GI.BR.Propiedades
             estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Venta));
 
             using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesVentasSinOfrecer(pedido.IdPedido))
+            {
+                cargarColeccionVentas(dr);
+            }
+        }
+
+        public void RecuperarPropiedadesVentasOfrecidas(GI.BR.Pedidos.Pedido pedido)
+        {
+            estadosPropFactory = EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Venta));
+
+            using (IDataReader dr = new GI.DA.PropiedadesData().RecuperarPropiedadesVentasOfrecidas(pedido.IdPedido))
             {
                 cargarColeccionVentas(dr);
             }
@@ -265,6 +285,10 @@ namespace GI.BR.Propiedades
         #endregion
 
 
+
+
+
+ 
 
 
     }

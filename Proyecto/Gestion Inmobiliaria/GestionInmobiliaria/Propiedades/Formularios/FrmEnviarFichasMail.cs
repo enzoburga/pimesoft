@@ -43,6 +43,7 @@ namespace GI.UI.Propiedades.Formularios
 
         private void bCerrar_Click(object sender, EventArgs e)
         {
+            DialogResult= DialogResult.Cancel;
             Close();
         }
 

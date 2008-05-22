@@ -5,10 +5,11 @@ using GI.BR.Propiedades;
 
 namespace GI.BR.Pedidos
 {
+    public delegate void PropiedadeOfrecidasHandler();
     public class Pedido: ICloneable
     {
 
-
+        public event PropiedadeOfrecidasHandler OnPropiedadesOfrecidas;
         public Pedido()
         {
             ubicacion = new Ubicacion();
@@ -355,7 +356,20 @@ namespace GI.BR.Pedidos
 
         #endregion
 
-
+        public bool OfrecerPropiedades(GI.BR.Propiedades.Propiedades propiedades)
+        {
+            bool error = false;
+            GI.DA.PedidosData pd = new GI.DA.PedidosData();
+            foreach (GI.BR.Propiedades.Propiedad p in propiedades)
+            {
+                if (!pd.MarcarPropiedadOfrecida(p.IdPropiedad, this.IdPedido))
+                    error = true;
+            }
+            if (OnPropiedadesOfrecidas != null)
+                OnPropiedadesOfrecidas();
+            return error;
+            
+        }
 
         internal void fill(System.Data.IDataReader dr)
         {
