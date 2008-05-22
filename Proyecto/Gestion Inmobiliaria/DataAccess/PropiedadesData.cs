@@ -58,6 +58,15 @@ namespace GI.DA
                 new string[] { "@IdPedido" });
         }
 
+     	
+	public IDataReader RecuperarPropiedadesVentasOfrecidas(int IdPedido)
+        {
+            return AccesoDatos.RecuperarDatos(
+                "PropiedadesVentas_RecuperarTodasOfrecidas",
+                new object[] { IdPedido },
+                new string[] { "@IdPedido" });
+        }
+
         #endregion
 
         #region Metodos recuperar Alquileres
@@ -107,6 +116,14 @@ namespace GI.DA
             return AccesoDatos.RecuperarDatos(
                 "PropiedadesAlquileres_RecuperarTodasSinOfrecer",
                 new object[] { IdPedido},
+                new string[] { "@IdPedido" });
+        }
+
+     	public IDataReader RecuperarPropiedadesAlquileresOfrecidas(int IdPedido)
+        {
+            return AccesoDatos.RecuperarDatos(
+                "PropiedadesAlquileres_RecuperarTodasOfrecidas",
+                new object[] { IdPedido },
                 new string[] { "@IdPedido" });
         }
 
