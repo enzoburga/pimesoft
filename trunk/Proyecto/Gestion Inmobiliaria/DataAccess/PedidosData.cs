@@ -353,5 +353,13 @@ namespace GI.DA
                  new object[] { Nombres},
                  new string[] { "@Cadena"});
         }
+
+        public bool MarcarPropiedadOfrecida(int IdPropiedad, int IdPedido)
+        {
+            return 0<AccesoDatos.InsertarRegistro(
+                "Pedido_MarcarPropiedadOfrecida",
+                new object[] { IdPedido, IdPropiedad },
+                new string[] { "@IdPedido", "@IdPropiedad" });
+        }
     }
 }

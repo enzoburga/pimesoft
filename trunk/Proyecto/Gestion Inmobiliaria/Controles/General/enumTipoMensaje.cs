@@ -9,6 +9,8 @@ namespace GI.Framework.General
         Error = 1,
         Advertencia = 2,
         Pregunta = 3,
-        Informacion = 4
+        Informacion = 4,
+        PreguntaSinCancelar = 5
+        
     }
 }

@@ -17,7 +17,10 @@ namespace GI.Framework.General
                 case enumTipoMensaje.Informacion:
                     return System.Windows.Forms.MessageBox.Show(mensaje, "Información", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information); 
                 case enumTipoMensaje.Pregunta:
-                    return System.Windows.Forms.MessageBox.Show(mensaje, "Preguna", System.Windows.Forms.MessageBoxButtons.YesNoCancel, System.Windows.Forms.MessageBoxIcon.Question); 
+                    return System.Windows.Forms.MessageBox.Show(mensaje, "Preguna", System.Windows.Forms.MessageBoxButtons.YesNoCancel, System.Windows.Forms.MessageBoxIcon.Question);
+                case enumTipoMensaje.PreguntaSinCancelar:
+                    return System.Windows.Forms.MessageBox.Show(mensaje, "Preguna", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question); 
+
                 default: return System.Windows.Forms.DialogResult.Abort;
             }
         }

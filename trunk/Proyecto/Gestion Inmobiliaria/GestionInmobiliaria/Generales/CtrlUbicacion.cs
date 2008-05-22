@@ -53,6 +53,29 @@ namespace GI.UI.Generales
             {
                 if (ubicacion == null) ubicacion = new GI.BR.Propiedades.Ubicacion();
 
+
+                if (cbPais.SelectedItem.ToString() == "Todos")
+                    this.ubicacion.Pais = null;
+                else
+                    this.ubicacion.Pais = (GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem;
+
+
+                if (cbProvincia.SelectedItem.ToString() == "Todos")
+                    this.ubicacion.Provincia = null;
+                else
+                    this.ubicacion.Provincia = (GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem;
+
+
+                if (cbLocalidad.SelectedItem.ToString() == "Todos")
+                    this.ubicacion.Localidad = null;
+                else
+                    this.ubicacion.Localidad = (GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem;
+
+                if (cbBarrio.SelectedItem.ToString() == "Todos")
+                    this.ubicacion.Barrio = null;
+                else
+                    this.ubicacion.Barrio = (GI.BR.Propiedades.Ubicaciones.Barrio)cbBarrio.SelectedItem;
+
                 return ubicacion;
             }
             set
@@ -87,10 +110,6 @@ namespace GI.UI.Generales
 
             }
 
-            if (cbPais.SelectedItem.ToString() == "Todos")
-                this.Ubicacion.Pais = null;
-            else
-                this.Ubicacion.Pais = (GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem;
         }
 
         private void cbProvincia_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,10 +130,6 @@ namespace GI.UI.Generales
 
             }
 
-            if (cbProvincia.SelectedItem.ToString() == "Todos")
-                this.Ubicacion.Provincia = null;
-            else
-                this.Ubicacion.Provincia = (GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem;
         }
 
         private void cbLocalidad_SelectedIndexChanged(object sender, EventArgs e)
@@ -134,18 +149,11 @@ namespace GI.UI.Generales
                 cbBarrio.SelectedItem = uff.GetBarrios(((GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem).IdLocalidad).GetDefault;
             }
 
-            if (cbLocalidad.SelectedItem.ToString() == "Todos")
-                this.Ubicacion.Localidad = null;
-            else
-                this.Ubicacion.Localidad = (GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem;
         }
 
         private void cbBarrio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbBarrio.SelectedItem.ToString() == "Todos")
-                this.Ubicacion.Barrio = null;
-            else
-                this.Ubicacion.Barrio = (GI.BR.Propiedades.Ubicaciones.Barrio)cbBarrio.SelectedItem;
+
         }
 
         private void CtrlUbicacion_Load(object sender, EventArgs e)

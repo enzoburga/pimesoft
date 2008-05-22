@@ -19,7 +19,13 @@ namespace GI.UI.Pedidos
         protected override void Inicializar()
         {
             LlenarLista(mng.GetPropiedadesOfrecidas(Pedido));
+            Pedido.OnPropiedadesOfrecidas += new GI.BR.Pedidos.PropiedadeOfrecidasHandler(Pedido_OnPropiedadesOfrecidas);
 
+        }
+
+        void Pedido_OnPropiedadesOfrecidas()
+        {
+            LlenarLista(mng.GetPropiedadesOfrecidas(Pedido));
         }
 
         private void LlenarLista(GI.BR.Propiedades.Propiedades propiedades)

@@ -27,7 +27,8 @@ namespace GI.UI.Pedidos
             if(!Pedido.Activo)
                 return base.AsignarSoloLectura(Ctrl);
             return false;
-        }
+        }
+
         private void LlenarLista(GI.BR.Propiedades.Propiedades propiedades)
         {
             ListViewItem lvi;
@@ -66,6 +67,59 @@ namespace GI.UI.Pedidos
         private void lvPropiedades_DoubleClick(object sender, EventArgs e)
         {
             verFichaToolStripMenuItem_Click(null, null);
+        }
+
+        private GI.BR.Propiedades.Propiedades GetPropiedadeSeleccionadas()
+        {
+            
+
+            GI.BR.Propiedades.Propiedades propiedades = new GI.BR.Propiedades.Propiedades();
+            GI.BR.Propiedades.Propiedad p;
+            foreach (ListViewItem lvi in lvPropiedades.SelectedItems)
+            {
+                p = (GI.BR.Propiedades.Propiedad)lvi.Tag;
+                propiedades.Add(p);
+            }
+            return propiedades;
+        }
+
+        private void ofrecerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvPropiedades.SelectedItems.Count > 0)
+            {
+                switch (GI.Framework.General.GIMsgBox.Show("¿Desea enviar las fichas por correo electrónico?", GI.Framework.General.enumTipoMensaje.Pregunta))
+                {
+                    case DialogResult.Yes:
+                        {
+                            GI.UI.Propiedades.Formularios.FrmEnviarFichasMail frm = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail();
+                            if (frm.ShowDialog() == DialogResult.Cancel)
+                            {
+                                switch (GI.Framework.General.GIMsgBox.Show("Se canceló el envio de las fichas, ¿Desea marcar las propiedades como ofrecidas?", GI.Framework.General.enumTipoMensaje.PreguntaSinCancelar))
+                                {
+                                    case DialogResult.No: return;
+                                }
+
+                            }
+                            break;
+                        }
+                    case DialogResult.Cancel: return;
+                }
+
+                if (!Pedido.OfrecerPropiedades(GetPropiedadeSeleccionadas()))
+                {
+                    foreach (ListViewItem lvi in lvPropiedades.SelectedItems)
+                    {
+                        lvPropiedades.Items.Remove(lvi);
+                    }
+                }
+                else
+                {
+                    GI.Framework.General.GIMsgBox.Show("Ocurrio un error al marcar las propiedades como ofrecidas", GI.Framework.General.enumTipoMensaje.Error);
+                    return;
+                }
+
+                GI.Framework.General.GIMsgBox.Show("Las propiededes fueron marcadas con éxito.", GI.Framework.General.enumTipoMensaje.Informacion);
+            }
         }
     }
 }

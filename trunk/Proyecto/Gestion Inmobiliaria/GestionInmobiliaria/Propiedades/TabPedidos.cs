@@ -25,8 +25,12 @@ namespace GI.UI.Propiedades
 
         protected override void CargarPropiedad()
         {
-            GI.Managers.Pedidos.MngPedidos mng = new GI.Managers.Pedidos.MngPedidos();
-            LlenarLista(mng.RecuperarPedidosPorPropiedad(Propiedad));
+            if (Propiedad.IdPropiedad != 0)
+            {
+
+                GI.Managers.Pedidos.MngPedidos mng = new GI.Managers.Pedidos.MngPedidos();
+                LlenarLista(mng.RecuperarPedidosPorPropiedad(Propiedad));
+            }
         }
 
         internal void RecargarPedidos()
