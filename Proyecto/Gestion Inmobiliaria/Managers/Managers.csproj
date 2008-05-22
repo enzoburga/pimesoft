@@ -38,6 +38,7 @@
     <Compile Include="Clientes\enumTipoCliente.cs" />
     <Compile Include="Clientes\mngClientes.cs" />
     <Compile Include="AdmAlquileres\MngAdmAlquileres.cs" />
+    <Compile Include="Eventos\MngEventos.cs" />
     <Compile Include="Pedidos\MngPedidos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Propiedades\MngEnviarPropiedadesCorreo.cs" />
