@@ -134,8 +134,8 @@ namespace GI.UI.Pedidos
             else
             {
 
-                if (frm.ShowDialog() == DialogResult.OK)
-                    LlenarLista();
+                frm.ShowDialog();
+                LlenarLista();
             }
         }
 

@@ -87,10 +87,11 @@ namespace GI.UI.Pedidos
         {
             if (lvPropiedades.SelectedItems.Count > 0)
             {
+                GI.BR.Propiedades.Propiedades propiedades = GetPropiedadeSeleccionadas();
                 switch (GI.Framework.General.GIMsgBox.Show("¿Desea enviar las fichas por correo electrónico?", GI.Framework.General.enumTipoMensaje.Pregunta))
                 {
                     case DialogResult.Yes:
-                        {
+                        {   //TODO: Soportar multi propiedades.
                             GI.UI.Propiedades.Formularios.FrmEnviarFichasMail frm = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail();
                             if (frm.ShowDialog() == DialogResult.Cancel)
                             {
@@ -105,7 +106,7 @@ namespace GI.UI.Pedidos
                     case DialogResult.Cancel: return;
                 }
 
-                if (!Pedido.OfrecerPropiedades(GetPropiedadeSeleccionadas()))
+                if (!Pedido.OfrecerPropiedades(propiedades))
                 {
                     foreach (ListViewItem lvi in lvPropiedades.SelectedItems)
                     {
