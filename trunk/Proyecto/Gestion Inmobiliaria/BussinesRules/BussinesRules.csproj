@@ -47,6 +47,11 @@
     <Compile Include="Clientes\ClientePedido.cs" />
     <Compile Include="Clientes\Clientes.cs" />
     <Compile Include="Clientes\enumTipoClientes.cs" />
+    <Compile Include="Eventos\Configuracion.cs" />
+    <Compile Include="Eventos\EnumTipoEvento.cs" />
+    <Compile Include="Eventos\Evento.cs" />
+    <Compile Include="Eventos\EventoPagoAlquiler.cs" />
+    <Compile Include="Eventos\Eventos.cs" />
     <Compile Include="General\enumTipoDocumento.cs" />
     <Compile Include="Inmobiliaria.cs" />
     <Compile Include="Mail\SmtpConfig.cs" />

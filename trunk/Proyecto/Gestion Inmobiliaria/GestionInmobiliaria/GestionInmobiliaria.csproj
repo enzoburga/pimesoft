@@ -127,6 +127,7 @@
     <Compile Include="Clientes\TabDatosPrincipales.Designer.cs">
       <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventosService.cs" />
     <Compile Include="FrmAcercaDe.cs">
       <SubType>Form</SubType>
     </Compile>
