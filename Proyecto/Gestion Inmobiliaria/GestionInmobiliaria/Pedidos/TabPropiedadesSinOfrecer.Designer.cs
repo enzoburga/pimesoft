@@ -35,7 +35,8 @@ namespace GI.UI.Pedidos
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.verFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ofrecerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enviarPorEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcarComoOfrecidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@ namespace GI.UI.Pedidos
             this.lvPropiedades.HideSelection = false;
             this.lvPropiedades.Location = new System.Drawing.Point(12, 12);
             this.lvPropiedades.Name = "lvPropiedades";
-            this.lvPropiedades.Size = new System.Drawing.Size(419, 638);
+            this.lvPropiedades.Size = new System.Drawing.Size(672, 463);
             this.lvPropiedades.TabIndex = 2;
             this.lvPropiedades.UseCompatibleStateImageBehavior = false;
             this.lvPropiedades.View = System.Windows.Forms.View.Details;
@@ -74,23 +75,31 @@ namespace GI.UI.Pedidos
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verFichaToolStripMenuItem,
-            this.ofrecerToolStripMenuItem});
+            this.enviarPorEmailToolStripMenuItem,
+            this.marcarComoOfrecidaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 92);
             // 
             // verFichaToolStripMenuItem
             // 
             this.verFichaToolStripMenuItem.Name = "verFichaToolStripMenuItem";
-            this.verFichaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verFichaToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.verFichaToolStripMenuItem.Text = "Ver Ficha";
             this.verFichaToolStripMenuItem.Click += new System.EventHandler(this.verFichaToolStripMenuItem_Click);
             // 
-            // ofrecerToolStripMenuItem
+            // enviarPorEmailToolStripMenuItem
             // 
-            this.ofrecerToolStripMenuItem.Name = "ofrecerToolStripMenuItem";
-            this.ofrecerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.ofrecerToolStripMenuItem.Text = "Ofrecer";
-            this.ofrecerToolStripMenuItem.Click += new System.EventHandler(this.ofrecerToolStripMenuItem_Click);
+            this.enviarPorEmailToolStripMenuItem.Name = "enviarPorEmailToolStripMenuItem";
+            this.enviarPorEmailToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.enviarPorEmailToolStripMenuItem.Text = "Enviar por Email";
+            this.enviarPorEmailToolStripMenuItem.Click += new System.EventHandler(this.ofrecerToolStripMenuItem_Click);
+            // 
+            // marcarComoOfrecidaToolStripMenuItem
+            // 
+            this.marcarComoOfrecidaToolStripMenuItem.Name = "marcarComoOfrecidaToolStripMenuItem";
+            this.marcarComoOfrecidaToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.marcarComoOfrecidaToolStripMenuItem.Text = "Marcar como ofrecida";
+            this.marcarComoOfrecidaToolStripMenuItem.Click += new System.EventHandler(this.marcarComoOfrecidaToolStripMenuItem_Click);
             // 
             // TabPropiedadesSinOfrecer
             // 
@@ -98,7 +107,7 @@ namespace GI.UI.Pedidos
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lvPropiedades);
             this.Name = "TabPropiedadesSinOfrecer";
-            this.Size = new System.Drawing.Size(447, 653);
+            this.Size = new System.Drawing.Size(699, 478);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -112,7 +121,8 @@ namespace GI.UI.Pedidos
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem verFichaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ofrecerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem enviarPorEmailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcarComoOfrecidaToolStripMenuItem;
 
     }
 }

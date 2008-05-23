@@ -28,10 +28,15 @@ namespace GI.UI.Pedidos
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lvPropiedades = new System.Windows.Forms.ListView();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.verFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enviarPorEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvPropiedades
@@ -44,10 +49,11 @@ namespace GI.UI.Pedidos
             this.lvPropiedades.HideSelection = false;
             this.lvPropiedades.Location = new System.Drawing.Point(12, 12);
             this.lvPropiedades.Name = "lvPropiedades";
-            this.lvPropiedades.Size = new System.Drawing.Size(419, 638);
+            this.lvPropiedades.Size = new System.Drawing.Size(672, 463);
             this.lvPropiedades.TabIndex = 1;
             this.lvPropiedades.UseCompatibleStateImageBehavior = false;
             this.lvPropiedades.View = System.Windows.Forms.View.Details;
+            this.lvPropiedades.DoubleClick += new System.EventHandler(this.lvPropiedades_DoubleClick);
             // 
             // columnHeader4
             // 
@@ -63,13 +69,36 @@ namespace GI.UI.Pedidos
             this.columnHeader1.Text = "Propietario";
             this.columnHeader1.Width = 188;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verFichaToolStripMenuItem,
+            this.enviarPorEmailToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 70);
+            // 
+            // verFichaToolStripMenuItem
+            // 
+            this.verFichaToolStripMenuItem.Name = "verFichaToolStripMenuItem";
+            this.verFichaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.verFichaToolStripMenuItem.Text = "Ver Ficha";
+            this.verFichaToolStripMenuItem.Click += new System.EventHandler(this.verFichaToolStripMenuItem_Click);
+            // 
+            // enviarPorEmailToolStripMenuItem
+            // 
+            this.enviarPorEmailToolStripMenuItem.Name = "enviarPorEmailToolStripMenuItem";
+            this.enviarPorEmailToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.enviarPorEmailToolStripMenuItem.Text = "Enviar por Email";
+            this.enviarPorEmailToolStripMenuItem.Click += new System.EventHandler(this.enviarPorEmailToolStripMenuItem_Click);
+            // 
             // TabPropiedadesOfrecidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lvPropiedades);
             this.Name = "TabPropiedadesOfrecidas";
-            this.Size = new System.Drawing.Size(447, 653);
+            this.Size = new System.Drawing.Size(699, 478);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -80,5 +109,8 @@ namespace GI.UI.Pedidos
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem verFichaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem enviarPorEmailToolStripMenuItem;
     }
 }

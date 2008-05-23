@@ -13,6 +13,7 @@ namespace GI.BR.Pedidos
         public Pedido()
         {
             ubicacion = new Ubicacion();
+            activo = true;
         }
 
 
@@ -359,16 +360,22 @@ namespace GI.BR.Pedidos
         public bool OfrecerPropiedades(GI.BR.Propiedades.Propiedades propiedades)
         {
             bool error = false;
-            GI.DA.PedidosData pd = new GI.DA.PedidosData();
+            
             foreach (GI.BR.Propiedades.Propiedad p in propiedades)
             {
-                if (!pd.MarcarPropiedadOfrecida(p.IdPropiedad, this.IdPedido))
+                if (!OfrecerPropiedad(p))
                     error = true;
             }
             if (OnPropiedadesOfrecidas != null)
                 OnPropiedadesOfrecidas();
             return error;
             
+        }
+
+        public bool OfrecerPropiedad(GI.BR.Propiedades.Propiedad propiedad)
+        {
+            GI.DA.PedidosData pd = new GI.DA.PedidosData();
+            return pd.MarcarPropiedadOfrecida(propiedad.IdPropiedad, this.IdPedido);
         }
 
         internal void fill(System.Data.IDataReader dr)

@@ -29,7 +29,7 @@ namespace GI.UI.Propiedades
             {
 
                 GI.Managers.Pedidos.MngPedidos mng = new GI.Managers.Pedidos.MngPedidos();
-                LlenarLista(mng.RecuperarPedidosPorPropiedad(Propiedad));
+                LlenarLista(mng.RecuperarPedidosPorPropiedadSinOfrecer(Propiedad));
             }
         }
 
@@ -59,6 +59,55 @@ namespace GI.UI.Propiedades
             lvPedidos.EndUpdate();
 
             lvPedidos.Focus();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (lvPedidos.SelectedItems.Count > 0)
+            {
+                //TODO: Soportar multi propiedades, y multi contactos.
+                GI.UI.Propiedades.Formularios.FrmEnviarFichasMail frm = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail(this.Propiedad);
+                frm.OnEnvioFinalizado += new GI.UI.Propiedades.Formularios.EnvioFinalizadoHandler(frm_OnEnvioFinalizado);
+                frm.Show();
+            }
+        }
+
+        void frm_OnEnvioFinalizado(string mensaje, bool error)
+        {
+            if (!error)
+                if (GI.Framework.General.GIMsgBox.Show("Se ha enviado el email correctamente, ¿Desea marcar la propiedad como ofrecida?", GI.Framework.General.enumTipoMensaje.PreguntaSinCancelar) == DialogResult.Yes)
+                {
+                    MarcarPropiedadComoOfrecida();
+                }
+        }
+
+        private void MarcarPropiedadComoOfrecida()
+        {
+            if (lvPedidos.SelectedItems.Count > 0)
+            {
+                GI.BR.Pedidos.Pedidos pedidos = new GI.BR.Pedidos.Pedidos();
+                foreach(ListViewItem lvi in lvPedidos.SelectedItems)
+                {
+                    GI.BR.Pedidos.Pedido p = (GI.BR.Pedidos.Pedido)lvi.Tag;
+                    pedidos.Add(p);
+                }
+
+                if (!this.Propiedad.MarcarPropiedadComoOfrecida(pedidos))
+                {
+
+                    //Los saco de la lista si se marcaron todas correctamente.
+                    foreach (ListViewItem lvi in lvPedidos.SelectedItems)
+                    {
+                        lvPedidos.Items.Remove(lvi);
+                    }
+                }
+
+            }
+        }
+
+        private void llMarcarPropiedadComoOfrecida_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MarcarPropiedadComoOfrecida();
         }
     }
 }

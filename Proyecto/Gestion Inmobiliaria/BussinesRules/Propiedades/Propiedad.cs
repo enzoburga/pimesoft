@@ -670,5 +670,19 @@ namespace GI.BR.Propiedades
         }
 
         #endregion
+
+        public bool MarcarPropiedadComoOfrecida(GI.BR.Pedidos.Pedidos pedidos)
+        {
+            bool error = false;
+            GI.DA.PedidosData pd = new GI.DA.PedidosData();
+            foreach (GI.BR.Pedidos.Pedido p in pedidos)
+            {
+
+                if (!pd.MarcarPropiedadOfrecida(this.idPropiedad, p.IdPedido))
+                    error = true;
+            }
+
+            return error;
+        }
     }
 }

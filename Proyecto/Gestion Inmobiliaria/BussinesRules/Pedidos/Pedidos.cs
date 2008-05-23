@@ -36,5 +36,20 @@ namespace GI.BR.Pedidos
                 }
             }
         }
+
+        public void RecuperarPedidosTodosSinOfrecer(GI.BR.Propiedades.Propiedad propiedad)
+        {
+            using (IDataReader dr = new GI.DA.PedidosData().RecuperarPedidosTodosSinOfrecer(propiedad.IdPropiedad))
+            {
+                GI.BR.Pedidos.Pedido pedido;
+                this.Clear();
+                while (dr.Read())
+                {
+                    pedido = new Pedido();
+                    pedido.fill(dr);
+                    this.Add(pedido);
+                }
+            }
+        }
     }
 }

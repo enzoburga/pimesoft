@@ -49,5 +49,30 @@ namespace GI.UI.Pedidos
                 lvPropiedades.EndUpdate();                
             }
         }
+
+        private void verFichaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvPropiedades.SelectedItems.Count != 1)
+                return;
+            GI.UI.Propiedades.frmFichaPropiedad frm = new GI.UI.Propiedades.frmFichaPropiedad();
+            frm.Propiedad = (GI.BR.Propiedades.Propiedad)lvPropiedades.SelectedItems[0].Tag;
+            frm.SoloLectura = true;
+            frm.Show();
+        }
+
+        private void lvPropiedades_DoubleClick(object sender, EventArgs e)
+        {
+            verFichaToolStripMenuItem_Click(null, null);
+        }
+
+        private void enviarPorEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvPropiedades.SelectedItems.Count > 0)
+            {
+                //TODO: Soportar multi propiedades, y multi contactos.
+                GI.UI.Propiedades.Formularios.FrmEnviarFichasMail frm = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail();
+                frm.Show();
+            }
+        }  
     }
 }

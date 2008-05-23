@@ -86,8 +86,7 @@ namespace GI.UI.Pedidos
 
                 string ubic = "----";
                 if (p.Ubicacion.Pais != null)
-                {
-                    
+                {                    
                     if (p.Ubicacion.Provincia != null)
                     {
                         ubic = p.Ubicacion.Provincia.ToString() + " - ";
@@ -95,9 +94,7 @@ namespace GI.UI.Pedidos
                             ubic += p.Ubicacion.Localidad.ToString();
                         else
                             ubic += "Loc. Sin Definir";
-                    }
-
-                                       
+                    }                                       
                 }
 
                 lvi.SubItems.Add(ubic); 
