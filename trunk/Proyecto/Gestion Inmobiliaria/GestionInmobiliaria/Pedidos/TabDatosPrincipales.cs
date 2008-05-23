@@ -61,6 +61,8 @@ namespace GI.UI.Pedidos
 
             this.Pedido.Observaciones = tbObervaciones.Text;
 
+            this.Pedido.Activo = !checkBox1.Checked; 
+
             return Pedido;
 
         }
@@ -228,6 +230,8 @@ namespace GI.UI.Pedidos
         protected override void CargarPedido()
         {
             pedidoBindingSource.Add(Pedido);
+
+            checkBox1.Checked = !Pedido.Activo;
             
             ctrlUbicacion1.Ubicacion = Pedido.Ubicacion;
 

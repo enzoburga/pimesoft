@@ -34,7 +34,7 @@ namespace GI.UI.Propiedades
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.llMarcarPropiedadComoOfrecida = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
@@ -85,15 +85,16 @@ namespace GI.UI.Propiedades
             this.label1.TabIndex = 14;
             this.label1.Text = "Opciones";
             // 
-            // linkLabel2
+            // llMarcarPropiedadComoOfrecida
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(462, 448);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(161, 13);
-            this.linkLabel2.TabIndex = 13;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Marcar propiedad como ofrecida";
+            this.llMarcarPropiedadComoOfrecida.AutoSize = true;
+            this.llMarcarPropiedadComoOfrecida.Location = new System.Drawing.Point(462, 448);
+            this.llMarcarPropiedadComoOfrecida.Name = "llMarcarPropiedadComoOfrecida";
+            this.llMarcarPropiedadComoOfrecida.Size = new System.Drawing.Size(161, 13);
+            this.llMarcarPropiedadComoOfrecida.TabIndex = 13;
+            this.llMarcarPropiedadComoOfrecida.TabStop = true;
+            this.llMarcarPropiedadComoOfrecida.Text = "Marcar propiedad como ofrecida";
+            this.llMarcarPropiedadComoOfrecida.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llMarcarPropiedadComoOfrecida_LinkClicked);
             // 
             // linkLabel1
             // 
@@ -104,6 +105,7 @@ namespace GI.UI.Propiedades
             this.linkLabel1.TabIndex = 12;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Enviar ficha por email al cliente";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // TabPedidos
             // 
@@ -111,7 +113,7 @@ namespace GI.UI.Propiedades
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.llMarcarPropiedadComoOfrecida);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lvPedidos);
             this.Name = "TabPedidos";
@@ -127,7 +129,7 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel llMarcarPropiedadComoOfrecida;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;

@@ -361,5 +361,12 @@ namespace GI.DA
                 new object[] { IdPedido, IdPropiedad },
                 new string[] { "@IdPedido", "@IdPropiedad" });
         }
+
+        public IDataReader RecuperarPedidosTodosSinOfrecer(int IdPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos("Pedidos_RecuperarTodosSinOfrecer",
+                new object[] {IdPropiedad },
+                new string[] {"@IdPropiedad" });
+        }
     }
 }

@@ -88,39 +88,49 @@ namespace GI.UI.Pedidos
             if (lvPropiedades.SelectedItems.Count > 0)
             {
                 GI.BR.Propiedades.Propiedades propiedades = GetPropiedadeSeleccionadas();
-                switch (GI.Framework.General.GIMsgBox.Show("¿Desea enviar las fichas por correo electrónico?", GI.Framework.General.enumTipoMensaje.Pregunta))
-                {
-                    case DialogResult.Yes:
-                        {   //TODO: Soportar multi propiedades.
-                            GI.UI.Propiedades.Formularios.FrmEnviarFichasMail frm = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail();
-                            if (frm.ShowDialog() == DialogResult.Cancel)
-                            {
-                                switch (GI.Framework.General.GIMsgBox.Show("Se canceló el envio de las fichas, ¿Desea marcar las propiedades como ofrecidas?", GI.Framework.General.enumTipoMensaje.PreguntaSinCancelar))
-                                {
-                                    case DialogResult.No: return;
-                                }
 
-                            }
-                            break;
-                        }
-                    case DialogResult.Cancel: return;
-                }
-
-                if (!Pedido.OfrecerPropiedades(propiedades))
-                {
-                    foreach (ListViewItem lvi in lvPropiedades.SelectedItems)
-                    {
-                        lvPropiedades.Items.Remove(lvi);
-                    }
-                }
-                else
-                {
-                    GI.Framework.General.GIMsgBox.Show("Ocurrio un error al marcar las propiedades como ofrecidas", GI.Framework.General.enumTipoMensaje.Error);
-                    return;
-                }
-
-                GI.Framework.General.GIMsgBox.Show("Las propiededes fueron marcadas con éxito.", GI.Framework.General.enumTipoMensaje.Informacion);
+                //TODO: Soportar multi propiedades.
+                GI.UI.Propiedades.Formularios.FrmEnviarFichasMail frm = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail();
+                frm.OnEnvioFinalizado += new GI.UI.Propiedades.Formularios.EnvioFinalizadoHandler(frm_OnEnvioFinalizado);
+                frm.Show();
             }
+        }
+
+        void frm_OnEnvioFinalizado(string mensaje, bool error)
+        {
+            if (!error)
+                if (GI.Framework.General.GIMsgBox.Show("Se ha enviado el email correctamente, ¿Desea marcar la propiedad como ofrecida?", GI.Framework.General.enumTipoMensaje.PreguntaSinCancelar) == DialogResult.Yes)
+                {
+                    MarcarPropiedadeComoOfrecidas();
+                }
+        }
+
+        private void MarcarPropiedadeComoOfrecidas()
+        {
+            if (lvPropiedades.SelectedItems.Count <= 0)
+                return;
+
+            if (!Pedido.OfrecerPropiedades(GetPropiedadeSeleccionadas()))
+            {
+                foreach (ListViewItem lvi in lvPropiedades.SelectedItems)
+                {
+                    lvPropiedades.Items.Remove(lvi);
+                }
+            }
+            else
+            {
+                GI.Framework.General.GIMsgBox.Show("Ocurrio un error al marcar las propiedades como ofrecidas", GI.Framework.General.enumTipoMensaje.Error);
+                return;
+            }
+
+            GI.Framework.General.GIMsgBox.Show("Las propiededes fueron marcadas con éxito.", GI.Framework.General.enumTipoMensaje.Informacion);
+
+        
+        }
+
+        private void marcarComoOfrecidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MarcarPropiedadeComoOfrecidas();
         }
     }
 }

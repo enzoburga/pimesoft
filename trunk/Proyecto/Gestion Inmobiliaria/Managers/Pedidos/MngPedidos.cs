@@ -194,10 +194,11 @@ namespace GI.Managers.Pedidos
             return AplicarFiltrosPedidos(pedidos, tipo,IncluirHistóricos);
         }
 
-        public GI.BR.Pedidos.Pedidos RecuperarPedidosPorPropiedad(GI.BR.Propiedades.Propiedad propiedad)
+
+        public GI.BR.Pedidos.Pedidos RecuperarPedidosPorPropiedadSinOfrecer(GI.BR.Propiedades.Propiedad propiedad)
         {
             GI.BR.Pedidos.Pedidos pedidos = new GI.BR.Pedidos.Pedidos();
-            pedidos.RecuperarPedidosTodos();
+            pedidos.RecuperarPedidosTodosSinOfrecer(propiedad);
             return AplicarFiltrosPedidosPorPropiedad(propiedad, pedidos,false);
             
         }

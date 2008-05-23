@@ -59,8 +59,8 @@ namespace GI.UI.Pedidos
             // 
             this.splitContainer1.Panel2.Controls.Add(this.bAceptar);
             this.splitContainer1.Panel2.Controls.Add(this.bCancelar);
-            this.splitContainer1.Size = new System.Drawing.Size(447, 743);
-            this.splitContainer1.SplitterDistance = 705;
+            this.splitContainer1.Size = new System.Drawing.Size(708, 561);
+            this.splitContainer1.SplitterDistance = 522;
             this.splitContainer1.TabIndex = 1;
             // 
             // tabControl
@@ -69,7 +69,7 @@ namespace GI.UI.Pedidos
             this.tabControl.Location = new System.Drawing.Point(0, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(447, 681);
+            this.tabControl.Size = new System.Drawing.Size(708, 498);
             this.tabControl.TabIndex = 0;
             // 
             // menuStrip1
@@ -78,7 +78,7 @@ namespace GI.UI.Pedidos
             this.fichaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(447, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(708, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -95,26 +95,26 @@ namespace GI.UI.Pedidos
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.guardarToolStripMenuItem.Text = "Guardar";
             this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
             // imprimirToolStripMenuItem
             // 
             this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
-            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.imprimirToolStripMenuItem.Text = "Imprimir";
             // 
             // cerrarToolStripMenuItem
             // 
             this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
-            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.cerrarToolStripMenuItem.Text = "Cerrar";
             this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
             // 
             // bAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(267, 3);
+            this.bAceptar.Location = new System.Drawing.Point(535, 3);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
             this.bAceptar.TabIndex = 1;
@@ -124,7 +124,7 @@ namespace GI.UI.Pedidos
             // 
             // bCancelar
             // 
-            this.bCancelar.Location = new System.Drawing.Point(357, 3);
+            this.bCancelar.Location = new System.Drawing.Point(625, 3);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 0;
@@ -136,7 +136,7 @@ namespace GI.UI.Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 743);
+            this.ClientSize = new System.Drawing.Size(708, 561);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;

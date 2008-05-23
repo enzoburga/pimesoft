@@ -8,13 +8,14 @@ using System.Windows.Forms;
 
 namespace GI.UI.Propiedades.Formularios
 {
+    public delegate void EnvioFinalizadoHandler(string mensaje, bool error);
     public partial class FrmEnviarFichasMail : Form
     {
 
         private GI.BR.Propiedades.Propiedad propiedad;
         System.IO.Stream stream;
         GI.Managers.Propiedades.MngEnviarPropiedadesCorreo mngPropMail;
-
+        public event EnvioFinalizadoHandler OnEnvioFinalizado;
 
         public FrmEnviarFichasMail()
         {
@@ -124,6 +125,9 @@ namespace GI.UI.Propiedades.Formularios
                 bEnviar.Text = "Enviar";
             }
             catch { }
+
+            if (OnEnvioFinalizado != null)
+                OnEnvioFinalizado(Mensaje, Error);
         }
 
 
