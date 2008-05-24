@@ -9,6 +9,11 @@ namespace GI.BR.Propiedades
         public VisitasPropiedad() { }
 
 
+        public void RecuperarVisitasParaEvento()
+        { 
+        
+        }
+
         public void Recuperar(Propiedad Propiedad)
         {
             Clear();
