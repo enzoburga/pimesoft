@@ -6,13 +6,22 @@ namespace GI.Managers.Eventos
 {
     public class MngEventos
     {
-
+        private GI.BR.Eventos.FactoryEventos factory = new GI.BR.Eventos.FactoryEventos();
 
         /// <summary>
         /// Revisa y genera eventos pendientes
         /// </summary>
         public void GenerarEventos()
         { 
+        
+        
+        }
+
+
+        private void generarEventosVisita()
+        { 
+        
+        
         
         
         }

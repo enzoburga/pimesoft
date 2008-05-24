@@ -52,6 +52,8 @@
     <Compile Include="Eventos\Evento.cs" />
     <Compile Include="Eventos\EventoPagoAlquiler.cs" />
     <Compile Include="Eventos\Eventos.cs" />
+    <Compile Include="Eventos\EventoVisita.cs" />
+    <Compile Include="Eventos\FactoryEventos.cs" />
     <Compile Include="General\enumTipoDocumento.cs" />
     <Compile Include="Inmobiliaria.cs" />
     <Compile Include="Mail\SmtpConfig.cs" />
