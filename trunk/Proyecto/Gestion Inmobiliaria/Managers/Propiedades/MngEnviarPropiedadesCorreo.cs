@@ -5,29 +5,32 @@ using System.Text;
 
 namespace GI.Managers.Propiedades
 {
-    public delegate void EnvioCorreoFinalizado(GI.BR.Propiedades.Propiedad p, string Mensaje, bool Error);
+    public delegate void EnvioCorreoFinalizado(string Mensaje, bool Error);
 
+    public enum FormatoEnvio
+    {
+        Pdf, Word
 
+    }
 
     public class MngEnviarPropiedadesCorreo
     {
 
-        public MngEnviarPropiedadesCorreo(GI.BR.Propiedades.Propiedad Propiedad, string Body, string EmailTo, string Message)
+        public MngEnviarPropiedadesCorreo(System.Collections.Hashtable hash, FormatoEnvio formatoEnvio, List<string> EmailTo, string Message)
         {
-            p = Propiedad;
-           
+            hashPropiedades = hash;
+            formato = formatoEnvio;
             emailTo = EmailTo;
-            message = Message;
-            
-            body = Body;
+            message = Message;   
         }
 
         public event EnvioCorreoFinalizado onEnvioFinalizado;
 
         private string body;
         private GI.BR.Mail.SmtpConfig smtp = GI.BR.Mail.SmtpConfig.GetSmtp();
-        private GI.BR.Propiedades.Propiedad p;
-        private string emailTo;
+        private System.Collections.Hashtable  hashPropiedades;
+        private FormatoEnvio formato;
+        private List<string> emailTo;
         private string message;
 
         private SmtpClient smtpClient;
@@ -47,32 +50,33 @@ namespace GI.Managers.Propiedades
 
                 GI.BR.Inmobiliaria inm = GI.BR.Inmobiliaria.GetInmobiliaria();
 
-                MailMessage mail = new MailMessage(smtp.Email, emailTo, "Propiedad ofrecida por " + inm.Nombre, body);
-                mail.IsBodyHtml = true;
+                //Si no uso el contructor no agrega bien el sender.
+                //Uso la primera dir de To, y la saco, luego agrego las demas.
+                MailMessage mail = new MailMessage(smtp.Email,emailTo[0]);
+                //mail.Sender = new MailAddress(smtp.Email);
+                mail.Subject = "Propiedad ofrecida por " + inm.Nombre;
+                emailTo.RemoveAt(0);
+                foreach (string s in emailTo)
+                {
+                    mail.To.Add(s);
+                }
 
+                System.IO.Stream streamRpt;
+                foreach (string key in hashPropiedades.Keys)
+                {
+                    streamRpt = (System.IO.Stream)hashPropiedades[key];
 
-                
+                    string name = key;
+                    name += formato == FormatoEnvio.Pdf ? ".pdf" : ".doc";
+                    Attachment attach = new Attachment(streamRpt, name);
+                    attach.ContentType = new System.Net.Mime.ContentType();
+                    attach.ContentType.Name = key;
 
+                    attach.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
 
-                System.Drawing.Bitmap foto = p.GaleriaFotos.GetFotoFachada.Imagen;
-                System.IO.MemoryStream stream = new System.IO.MemoryStream();
-                foto.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
-                System.IO.StreamWriter streamWriter = new System.IO.StreamWriter(stream);
-                streamWriter.Flush();
-                // this is quite important
-                stream.Position = 0;
-
-                Attachment attach = new Attachment(stream, "image/jpeg");
-                attach.ContentDisposition.FileName = p.Codigo + ".jpg";
-                attach.ContentType = new System.Net.Mime.ContentType();
-                attach.ContentType.Name = p.Codigo + ".jpg";
-                attach.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
-                mail.Attachments.Add(attach);
-
-
-
-
-
+                    mail.Attachments.Add(attach);
+                }
+     
                 smtpClient = new SmtpClient(smtp.Host, smtp.Puerto);
                 if (smtp.AutenticacionSmtp)
                     smtpClient.Credentials = new System.Net.NetworkCredential(smtp.UserName, smtp.Password);
@@ -89,7 +93,7 @@ namespace GI.Managers.Propiedades
             catch(Exception ex)
             {
                 if (onEnvioFinalizado != null)
-                    onEnvioFinalizado(p, ex.Message, true);
+                    onEnvioFinalizado(ex.Message, true);
             }
 
        
@@ -104,15 +108,15 @@ namespace GI.Managers.Propiedades
 
             if (e.Cancelled)
             {
-                onEnvioFinalizado(p, "Operación cancelada", false);
+                onEnvioFinalizado("Operación cancelada", false);
             }
             if (e.Error != null)
             {
-                onEnvioFinalizado(p, e.Error.ToString(), true);
+                onEnvioFinalizado(e.Error.ToString(), true);
             }
             else
             {
-                onEnvioFinalizado(p, "Mensaje enviado", false);
+                onEnvioFinalizado("Mensaje enviado", false);
             }
         }
 
