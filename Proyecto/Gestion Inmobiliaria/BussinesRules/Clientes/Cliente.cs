@@ -13,13 +13,13 @@ namespace GI.BR.Clientes
         private string apellido;
         private string nroDocumento;
         private General.enumTipoDocumento tipoDocumento;
-        private int telefonoParticular;
-        private int telefonoTrabajo;
-        private int telefonoCelular;
+        private string telefonoParticular;
+        private string telefonoTrabajo;
+        private string telefonoCelular;
         private Propiedades.Ubicacion ubicacion;
         private Propiedades.Direccion direccion;
         private string observaciones;
-        private DateTime fechaNacimiento;
+        private Nullable<DateTime> fechaNacimiento;
         private string email;
         private bool cargado = false;
         #endregion
@@ -83,8 +83,8 @@ namespace GI.BR.Clientes
             }
             set { tipoDocumento = value; }
         }
-        
-        public int TelefonoParticular
+
+        public string TelefonoParticular
         {
             get
             {
@@ -95,7 +95,7 @@ namespace GI.BR.Clientes
             set { telefonoParticular = value; }
         }
 
-        public int TelefonoTrabajo
+        public string TelefonoTrabajo
         {
             get
             {
@@ -106,7 +106,7 @@ namespace GI.BR.Clientes
             set { telefonoTrabajo = value; }
         }
 
-        public int TelefonoCelular
+        public string TelefonoCelular
         {
             get
             {
@@ -151,7 +151,7 @@ namespace GI.BR.Clientes
         }
 
 
-        public DateTime FechaNacimiento
+        public Nullable< DateTime> FechaNacimiento
         {
             get
             {
@@ -211,14 +211,18 @@ namespace GI.BR.Clientes
             this.cargado = true;
             this.Apellido = dr.GetString(dr.GetOrdinal("Apellido"));
             this.Email = dr.GetString(dr.GetOrdinal("Email"));
-            this.FechaNacimiento = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
+            if (dr.IsDBNull(dr.GetOrdinal("FechaNacimiento")))
+                this.FechaNacimiento = null;
+            else
+                this.FechaNacimiento = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
+
             this.IdCliente = dr.GetInt32(dr.GetOrdinal("IdCliente"));
             this.Nombres = dr.GetString(dr.GetOrdinal("Nombres"));
             this.NroDocumento = dr.GetString(dr.GetOrdinal("NroDocumento"));
             this.Observaciones = dr.GetString(dr.GetOrdinal("Observaciones"));
-            this.TelefonoCelular = dr.GetInt32(dr.GetOrdinal("TelefonoCelular"));
-            this.TelefonoParticular = dr.GetInt32(dr.GetOrdinal("TelefonoParticular"));
-            this.TelefonoTrabajo = dr.GetInt32(dr.GetOrdinal("TelefonoTrabajo"));
+            this.TelefonoCelular = dr.GetString(dr.GetOrdinal("TelefonoCelular"));
+            this.TelefonoParticular = dr.GetString(dr.GetOrdinal("TelefonoParticular"));
+            this.TelefonoTrabajo = dr.GetString(dr.GetOrdinal("TelefonoTrabajo"));
             this.TipoDocumento = (GI.BR.General.enumTipoDocumento)dr.GetInt32(dr.GetOrdinal("TipoDocumento"));
             this.Ubicacion = new GI.BR.Propiedades.Ubicacion();
             if (!dr.IsDBNull(dr.GetOrdinal("IdBarrio")))
@@ -263,11 +267,11 @@ namespace GI.BR.Clientes
         {
             get 
             {
-                if (TelefonoParticular != 0)
+                if (TelefonoParticular != "")
                     return telefonoCelular.ToString();
-                if (TelefonoCelular != 0)
+                if (TelefonoCelular != "")
                     return TelefonoCelular.ToString();
-                if (TelefonoTrabajo != 0)
+                if (TelefonoTrabajo != "")
                     return TelefonoTrabajo.ToString();
 
                 return "No hay telefonos cargados.";

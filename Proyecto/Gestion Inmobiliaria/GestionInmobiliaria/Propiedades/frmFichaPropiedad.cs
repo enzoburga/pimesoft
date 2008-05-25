@@ -260,7 +260,9 @@ namespace GI.UI.Propiedades
             }
 
 
-            Formularios.FrmEnviarFichasMail frmMail = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail(Propiedad);
+            GI.BR.Propiedades.Propiedades propiedades = new GI.BR.Propiedades.Propiedades();
+            propiedades.Add(Propiedad);
+            Formularios.FrmEnviarFichasMail frmMail = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail(propiedades);
             frmMail.ShowDialog();
 
         }

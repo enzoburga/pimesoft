@@ -22,12 +22,12 @@ namespace GI.UI.Clientes
 
         public GI.BR.Clientes.Cliente Cliente
         {
-            get 
+            get
             {
                 string error = Validar();
                 if (error != "")
                     throw new Exception(error);
-                
+
                 //cliente.Direccion = new GI.BR.Propiedades.Direccion();
 
                 cliente.Apellido = this.tbApellido.Text;
@@ -36,35 +36,29 @@ namespace GI.UI.Clientes
                 cliente.NroDocumento = this.tbNroDocumento.Text;
                 cliente.Observaciones = this.tbObervaciones.Text;
 
-                if (this.tbTelCelular.Text != "")
-                    cliente.TelefonoCelular = int.Parse(this.tbTelCelular.Text);
-                else
-                    cliente.TelefonoCelular = 0;
 
-                if (this.tbTelLaboral.Text != "")
-                    cliente.TelefonoTrabajo = int.Parse(this.tbTelLaboral.Text);
-                else
-                    cliente.TelefonoTrabajo = 0;
+                cliente.TelefonoCelular = this.tbTelCelular.Text;
+                cliente.TelefonoTrabajo = this.tbTelLaboral.Text;
+                cliente.TelefonoParticular = this.tbTelParticular.Text;
 
-                if (this.tbTelParticular.Text != "")
-                    cliente.TelefonoParticular = int.Parse(this.tbTelParticular.Text);
-                else
-                    cliente.TelefonoParticular = 0;
 
                 cliente.Ubicacion = ctrlUbicacion1.Ubicacion;
                 //usa databindig, no hace falta volver a setearlo
                 //cliente.Direccion = ctrlDireccion1.Direccion;
 
                 cliente.TipoDocumento = (GI.BR.General.enumTipoDocumento)this.cbTipoDocumento.SelectedItem;
-                cliente.FechaNacimiento = dtpFechaNac.Value;
+                if (dtpFechaNac.Checked)
+                    cliente.FechaNacimiento = dtpFechaNac.Value;
+                else
+                    cliente.FechaNacimiento = null;
 
                 //DATOS NO UTILIZADOS
                 //cliente.Direccion.CalleEntre1 = "";
                 //cliente.Direccion.CalleEntre2 = "";
-                
-                
+
+
                 return cliente;
-            
+
             }
             set //cargar datos del cliente en el TAB.
             { 
@@ -82,17 +76,20 @@ namespace GI.UI.Clientes
                 this.tbNroDocumento.Text = cliente.NroDocumento;
                 this.tbObervaciones.Text = cliente.Observaciones;
 
-                if(cliente.TelefonoCelular != 0)
-                    this.tbTelCelular.Text = cliente.TelefonoCelular.ToString();
-                if (cliente.TelefonoTrabajo != 0)
-                    this.tbTelLaboral.Text = cliente.TelefonoTrabajo.ToString();
-                if (cliente.TelefonoParticular != 0)
-                    this.tbTelParticular.Text = cliente.TelefonoParticular.ToString();
+                this.tbTelCelular.Text = cliente.TelefonoCelular.ToString();
+                this.tbTelLaboral.Text = cliente.TelefonoTrabajo.ToString();
+                this.tbTelParticular.Text = cliente.TelefonoParticular.ToString();
 
                 ctrlUbicacion1.Ubicacion = cliente.Ubicacion;
                 
                 this.cbTipoDocumento.SelectedItem = cliente.TipoDocumento;
-                this.dtpFechaNac.Value = cliente.FechaNacimiento;
+                if (cliente.FechaNacimiento.HasValue)
+                {
+                    this.dtpFechaNac.Checked = true;
+                    this.dtpFechaNac.Value = cliente.FechaNacimiento.Value;
+                }
+                else
+                    this.dtpFechaNac.Checked = false;
                 cambioDatos = false;
             }
         }
@@ -108,34 +105,24 @@ namespace GI.UI.Clientes
 
 
 
-            if (this.tbApellido.Text == "")
-            {
-                //this.tbApellido.BackColor = Color.LightSalmon;
-                return "Debe completar el campo Apellido.";
-            }
+            //if (this.tbApellido.Text == "")
+            //{
+            //    //this.tbApellido.BackColor = Color.LightSalmon;
+            //    return "Debe completar el campo Apellido.";
+            //}
 
             if (this.tbNombres.Text == "")
             {
                 return "Debe completar el campo Nombres.";
             }
-            if (this.tbNroDocumento.Text == "")
-            {
-                return "Debe completar el campo Numero de Documento.";
-            }
+            //if (this.tbNroDocumento.Text == "")
+            //{
+            //    return "Debe completar el campo Numero de Documento.";
+            //}
 
             if (this.tbTelParticular.Text == "" && this.tbTelCelular.Text == "" && this.tbTelLaboral.Text == "")
                 return "Debe ingresar al menos un telefono.";
 
-            try
-            {
-                if (this.tbTelParticular.Text != "")
-                    int.Parse(this.tbTelParticular.Text);
-                if (this.tbTelCelular.Text != "")
-                    int.Parse(this.tbTelCelular.Text);
-                if (this.tbTelLaboral.Text != "")
-                    int.Parse(this.tbTelLaboral.Text);
-            }
-            catch { return "Los telefonos son campos numéricos."; }
 
             if (this.tbEmail.Text != "")
                 if (!ValidarEmail(this.tbEmail.Text))

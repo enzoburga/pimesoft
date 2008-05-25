@@ -13,6 +13,10 @@ namespace GI.Framework
         #region Atributos Privados
         private Interfaces.ISeleccionadorObeto claseSeleccionador;
         private object objetoSeleccionado;
+        private List<object> objetosSeleccionados;
+        private bool multiSeleccion;
+
+
         
         #endregion
 
@@ -22,6 +26,8 @@ namespace GI.Framework
         public frmSeleccionador()
         {
             InitializeComponent();
+            MultiSeleccion = false;
+            
         }
 
 
@@ -42,10 +48,30 @@ namespace GI.Framework
 
         #region Propiedades Publicas
 
+        public bool MultiSeleccion
+        {
+            get 
+            { 
+                return multiSeleccion; 
+            }
+            set 
+            {
+                multiSeleccion = value;
+                lvItems.CheckBoxes = value;
+                splitContainer2.Panel2Collapsed = !value;
+            }
+        }
+
         public object ObjetoSeleccionado
         {
             get { return objetoSeleccionado; }
+        }
+
+        public List<object> ObjetosSeleccionados
+        {
+            get { return objetosSeleccionados; }
         } 
+
         #endregion
 
         #region Metodos
@@ -118,6 +144,10 @@ namespace GI.Framework
 
         private void lvItems_DoubleClick(object sender, EventArgs e)
         {
+            if (MultiSeleccion)
+                return;
+            if (lvItems.SelectedItems.Count != 1)
+                return;
             objetoSeleccionado = lvItems.SelectedItems[0].Tag;
             DialogResult = DialogResult.OK;
             Close();
@@ -144,5 +174,24 @@ namespace GI.Framework
 
 
         #endregion
+
+        private void bAceptar_Click(object sender, EventArgs e)
+        {
+            objetosSeleccionados = new List<object>();
+            foreach (ListViewItem lvi in lvItems.Items)
+            {
+                if(lvi.Checked)
+                    objetosSeleccionados.Add(lvi.Tag);
+            }
+
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void bCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
     }
 }

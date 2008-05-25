@@ -28,7 +28,6 @@ namespace GI.UI.Clientes
         /// </summary>
         private void InitializeComponent()
         {
-            GI.BR.Propiedades.Ubicacion ubicacion1 = new GI.BR.Propiedades.Ubicacion();
             this.tbNombres = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -196,6 +195,7 @@ namespace GI.UI.Clientes
             this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaNac.Location = new System.Drawing.Point(320, 98);
             this.dtpFechaNac.Name = "dtpFechaNac";
+            this.dtpFechaNac.ShowCheckBox = true;
             this.dtpFechaNac.Size = new System.Drawing.Size(106, 21);
             this.dtpFechaNac.TabIndex = 8;
             this.dtpFechaNac.Value = new System.DateTime(1978, 11, 16, 15, 35, 0, 0);
@@ -236,11 +236,7 @@ namespace GI.UI.Clientes
             this.ctrlUbicacion1.Size = new System.Drawing.Size(415, 89);
             this.ctrlUbicacion1.SoloLectura = false;
             this.ctrlUbicacion1.TabIndex = 37;
-            ubicacion1.Barrio = null;
-            ubicacion1.Localidad = null;
-            ubicacion1.Pais = null;
-            ubicacion1.Provincia = null;
-            this.ctrlUbicacion1.Ubicacion = ubicacion1;
+            this.ctrlUbicacion1.Ubicacion = new GI.BR.Propiedades.Ubicacion();
             // 
             // groupBox5
             // 

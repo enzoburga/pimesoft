@@ -36,6 +36,7 @@ namespace GI.UI.Clientes
             this.toolStripButtonAgregar = new System.Windows.Forms.ToolStripSplitButton();
             this.nuevoPropietarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoInquilinoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoClientePedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButtonImprimirListado = new System.Windows.Forms.ToolStripButton();
             this.lvClientes = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -47,7 +48,6 @@ namespace GI.UI.Clientes
             this.editarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enviarACorreoElectrónicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoClientePedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -125,6 +125,13 @@ namespace GI.UI.Clientes
             this.nuevoInquilinoToolStripMenuItem1.Text = "Nuevo Inquilino";
             this.nuevoInquilinoToolStripMenuItem1.Click += new System.EventHandler(this.nuevoInquilinoToolStripMenuItem_Click);
             // 
+            // nuevoClientePedidoToolStripMenuItem
+            // 
+            this.nuevoClientePedidoToolStripMenuItem.Name = "nuevoClientePedidoToolStripMenuItem";
+            this.nuevoClientePedidoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.nuevoClientePedidoToolStripMenuItem.Text = "Nuevo Cliente Pedido";
+            this.nuevoClientePedidoToolStripMenuItem.Click += new System.EventHandler(this.nuevoClientePedidoToolStripMenuItem_Click);
+            // 
             // toolStripButtonImprimirListado
             // 
             this.toolStripButtonImprimirListado.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -154,6 +161,7 @@ namespace GI.UI.Clientes
             this.lvClientes.UseCompatibleStateImageBehavior = false;
             this.lvClientes.View = System.Windows.Forms.View.Details;
             this.lvClientes.DoubleClick += new System.EventHandler(this.lvClientes_DoubleClick);
+            this.lvClientes.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvClientes_ColumnClick);
             // 
             // columnHeader1
             // 
@@ -211,13 +219,6 @@ namespace GI.UI.Clientes
             this.enviarACorreoElectrónicoToolStripMenuItem.Name = "enviarACorreoElectrónicoToolStripMenuItem";
             this.enviarACorreoElectrónicoToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.enviarACorreoElectrónicoToolStripMenuItem.Text = "Enviar a correo electrónico";
-            // 
-            // nuevoClientePedidoToolStripMenuItem
-            // 
-            this.nuevoClientePedidoToolStripMenuItem.Name = "nuevoClientePedidoToolStripMenuItem";
-            this.nuevoClientePedidoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.nuevoClientePedidoToolStripMenuItem.Text = "Nuevo Cliente Pedido";
-            this.nuevoClientePedidoToolStripMenuItem.Click += new System.EventHandler(this.nuevoClientePedidoToolStripMenuItem_Click);
             // 
             // frmListadoClientes
             // 

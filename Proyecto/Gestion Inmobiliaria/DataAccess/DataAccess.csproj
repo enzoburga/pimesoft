@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
     <Compile Include="AdmAlquileresData.cs" />
+    <Compile Include="CartelesData.cs" />
     <Compile Include="CategoriasPropiedadData.cs" />
     <Compile Include="ClientesData.cs" />
     <Compile Include="ContratosData.cs" />

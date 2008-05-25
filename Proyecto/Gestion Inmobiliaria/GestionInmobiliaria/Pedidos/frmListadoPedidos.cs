@@ -136,22 +136,6 @@ namespace GI.UI.Pedidos
             }
         }
 
-        private void imprimirListadotoolStripButton_Click(object sender, EventArgs e)
-        {
-
-            if (pedidos == null || pedidos.Count == 0)
-            {
-                Framework.General.GIMsgBox.Show("No hay pedidos para la vista actual", GI.Framework.General.enumTipoMensaje.Informacion);
-                return;
-            }
-
-            throw new Exception("No implementado.");
-            //GI.Reportes.Clases.AdmAlquileres.ReporteListadoAdmAlquileres reporte = new GI.Reportes.Clases.AdmAlquileres.ReporteListadoAdmAlquileres("Listado de Alquileres Administrados", admAlquileres);
-
-            //GI.Reportes.Visor.FrmVisorReporte frmVisor = new GI.Reportes.Visor.FrmVisorReporte(reporte);
-
-            //frmVisor.ShowDialog();
-        }
 
         private void nuevoPedidoDeVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -211,7 +195,7 @@ namespace GI.UI.Pedidos
         {
             if (e.Column == 0)
                 sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.DATETIME);
-            if(e.Column > 0 && e.Column < 8)
+            if (e.Column > 0 && e.Column < 8)
                 sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.STRING);
             if (e.Column > 7 && e.Column < 11)
                 sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.INT);
@@ -244,6 +228,7 @@ namespace GI.UI.Pedidos
             this.pedidos = mng.RecuperarPedidosTodos(false);
             LlenarLista();
         }
+
 
 
 

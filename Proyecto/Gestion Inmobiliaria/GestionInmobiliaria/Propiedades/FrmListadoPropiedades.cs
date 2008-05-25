@@ -248,9 +248,10 @@ namespace GI.UI.Propiedades
             }
 
 
+            GI.BR.Propiedades.Propiedades propiedades = new GI.BR.Propiedades.Propiedades();
+            propiedades.Add((GI.BR.Propiedades.Propiedad)lvPropiedades.SelectedItems[0].Tag);
 
-            Formularios.FrmEnviarFichasMail frm = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail(
-                (GI.BR.Propiedades.Propiedad)lvPropiedades.SelectedItems[0].Tag);
+            Formularios.FrmEnviarFichasMail frm = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail(propiedades);
             frm.ShowDialog();
 
 
