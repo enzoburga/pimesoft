@@ -166,7 +166,6 @@ namespace GI.UI.Pedidos
             this.imprimirListadotoolStripButton.Name = "imprimirListadotoolStripButton";
             this.imprimirListadotoolStripButton.Size = new System.Drawing.Size(68, 68);
             this.imprimirListadotoolStripButton.Text = "Imprimir listado";
-            this.imprimirListadotoolStripButton.Click += new System.EventHandler(this.imprimirListadotoolStripButton_Click);
             // 
             // lvPedidos
             // 

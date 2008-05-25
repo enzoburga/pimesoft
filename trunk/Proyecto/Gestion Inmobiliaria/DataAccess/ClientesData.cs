@@ -6,8 +6,12 @@ namespace GI.DA
 {
     public class ClientesData
     {
-        public int GuardarCliente(DateTime FechaNacimiento, string Email, string Apellido, string Nombres, string NroDocumento, string Observaciones, int TelefonoCelular, int TelefonoParticular, int TelefonoTrabajo, int TipoDocumento, int IdBarrio, int IdProvincia, string Calle, string CodigoPostal, string Depto, int Numero, string Piso, string CalleEntre1, string CalleEntre2, int IdPais, int IdLocalidad)
+        public int GuardarCliente(Nullable<DateTime> FechaNacimiento, string Email, string Apellido, string Nombres, string NroDocumento, string Observaciones, string TelefonoCelular, string TelefonoParticular, string TelefonoTrabajo, int TipoDocumento, int IdBarrio, int IdProvincia, string Calle, string CodigoPostal, string Depto, int Numero, string Piso, string CalleEntre1, string CalleEntre2, int IdPais, int IdLocalidad)
         {
+            object fechaNacimiento = FechaNacimiento;
+            if (FechaNacimiento.HasValue)
+                fechaNacimiento = System.DBNull.Value;
+
             object idPais = IdPais;
             if (IdPais == 0)
                 idPais = System.DBNull.Value;
@@ -35,7 +39,7 @@ namespace GI.DA
                    TelefonoTrabajo,
                    TelefonoCelular,
                    Observaciones,
-                   FechaNacimiento,
+                   fechaNacimiento,
                    Email,
                    Calle,
                    Numero,
@@ -71,8 +75,13 @@ namespace GI.DA
                    "@IdLocalidad" });
         }
 
-        public bool Actualizar(int IdCliente, DateTime FechaNacimiento, string Email, string Apellido, string Nombres, string NroDocumento, string Observaciones, int TelefonoCelular, int TelefonoParticular, int TelefonoTrabajo, int TipoDocumento, int IdBarrio, int IdProvincia, string Calle, string CodigoPostal, string Depto, int Numero, string Piso, string CalleEntre1, string CalleEntre2, int IdPais, int IdLocalidad)
+        public bool Actualizar(int IdCliente, Nullable<DateTime> FechaNacimiento, string Email, string Apellido, string Nombres, string NroDocumento, string Observaciones, string TelefonoCelular, string TelefonoParticular, string TelefonoTrabajo, int TipoDocumento, int IdBarrio, int IdProvincia, string Calle, string CodigoPostal, string Depto, int Numero, string Piso, string CalleEntre1, string CalleEntre2, int IdPais, int IdLocalidad)
         {
+            object fechaNacimiento = FechaNacimiento;
+            if (!FechaNacimiento.HasValue)
+                fechaNacimiento = System.DBNull.Value;
+
+
             object idPais = IdPais;
             if (IdPais == 0)
                 idPais = System.DBNull.Value;
@@ -101,7 +110,7 @@ namespace GI.DA
                    TelefonoTrabajo,
                    TelefonoCelular,
                    Observaciones,
-                   FechaNacimiento,
+                   fechaNacimiento,
                    Email,
                    Calle,
                    Numero,

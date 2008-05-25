@@ -134,6 +134,7 @@ namespace GI.UI.AdminAlquileres
             this.lvAdmAlquileres.UseCompatibleStateImageBehavior = false;
             this.lvAdmAlquileres.View = System.Windows.Forms.View.Details;
             this.lvAdmAlquileres.DoubleClick += new System.EventHandler(this.lvAdmAlquileres_DoubleClick);
+            this.lvAdmAlquileres.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvAdmAlquileres_ColumnClick);
             // 
             // columnHeader1
             // 

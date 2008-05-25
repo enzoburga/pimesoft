@@ -12,9 +12,11 @@ namespace GI.UI.Clientes
     {
         public frmListadoClientes()
         {
-            InitializeComponent();         
+            InitializeComponent();
+            lvClientes.ListViewItemSorter = sorter;
         }
 
+        Framework.ListView.ListViewColumnSorter sorter = new GI.Framework.ListView.ListViewColumnSorter();
         private GI.BR.Clientes.Clientes clientes = new GI.BR.Clientes.Clientes();
 
         private void lvClientes_DoubleClick(object sender, EventArgs e)
@@ -59,13 +61,13 @@ namespace GI.UI.Clientes
                 lvi.Text = c.ToString();
 
 
-                if(c.TelefonoParticular != 0)
+                if(c.TelefonoParticular != "")
                     lvi.SubItems.Add(c.TelefonoParticular.ToString());
                 else
-                    if (c.TelefonoCelular != 0)
+                    if (c.TelefonoCelular != "")
                         lvi.SubItems.Add(c.TelefonoCelular.ToString());
                     else
-                        if(c.TelefonoTrabajo != 0)
+                        if (c.TelefonoTrabajo != "")
                         lvi.SubItems.Add(c.TelefonoTrabajo.ToString());
                 
                 lvi.SubItems.Add(c.Email.ToString());
@@ -123,6 +125,33 @@ namespace GI.UI.Clientes
                 this.clientes.Add(frm.Cliente);
                 this.CargarClientes(clientes);
             }
+        }
+
+        private void lvClientes_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.STRING);
+
+            if (e.Column == sorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (sorter.Order == SortOrder.Ascending)
+                {
+                    sorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    sorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                sorter.SortColumn = e.Column;
+                sorter.Order = SortOrder.Ascending;
+            }
+
+            // Perform the sort with these new sort options.
+            this.lvClientes.Sort();
         }
     }
 }

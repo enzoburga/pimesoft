@@ -88,9 +88,10 @@ namespace GI.UI.Pedidos
             if (lvPropiedades.SelectedItems.Count > 0)
             {
                 GI.BR.Propiedades.Propiedades propiedades = GetPropiedadeSeleccionadas();
+                GI.BR.Clientes.Clientes clientes = new GI.BR.Clientes.Clientes();
+                clientes.Add(this.Pedido.ClientePedido);
 
-                //TODO: Soportar multi propiedades.
-                GI.UI.Propiedades.Formularios.FrmEnviarFichasMail frm = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail();
+                GI.UI.Propiedades.Formularios.FrmEnviarFichasMail frm = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail(propiedades,clientes);
                 frm.OnEnvioFinalizado += new GI.UI.Propiedades.Formularios.EnvioFinalizadoHandler(frm_OnEnvioFinalizado);
                 frm.Show();
             }

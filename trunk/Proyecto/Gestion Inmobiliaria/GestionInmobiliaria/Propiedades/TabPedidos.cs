@@ -65,11 +65,27 @@ namespace GI.UI.Propiedades
         {
             if (lvPedidos.SelectedItems.Count > 0)
             {
-                //TODO: Soportar multi propiedades, y multi contactos.
-                GI.UI.Propiedades.Formularios.FrmEnviarFichasMail frm = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail(this.Propiedad);
+                GI.BR.Propiedades.Propiedades propiedades = new GI.BR.Propiedades.Propiedades();
+                propiedades.Add(this.Propiedad);
+
+
+
+                GI.UI.Propiedades.Formularios.FrmEnviarFichasMail frm = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail(propiedades,GetClientes());
                 frm.OnEnvioFinalizado += new GI.UI.Propiedades.Formularios.EnvioFinalizadoHandler(frm_OnEnvioFinalizado);
                 frm.Show();
             }
+        }
+
+        private GI.BR.Clientes.Clientes GetClientes()
+        {
+            GI.BR.Clientes.Clientes clientes = new GI.BR.Clientes.Clientes();
+            foreach (ListViewItem lvi in lvPedidos.SelectedItems)
+            {
+                GI.BR.Pedidos.Pedido p = (GI.BR.Pedidos.Pedido)lvi.Tag;
+                clientes.Add(p.ClientePedido);
+
+            }
+            return clientes;
         }
 
         void frm_OnEnvioFinalizado(string mensaje, bool error)

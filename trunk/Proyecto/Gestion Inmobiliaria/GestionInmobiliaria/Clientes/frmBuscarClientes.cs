@@ -97,6 +97,12 @@ namespace GI.UI.Clientes
 
         public void SetTipoBusqueda(Type type)
         {
+            if (type == null)
+            {
+                this.cbTipoCliente.SelectedItem = GI.Managers.Clientes.enumTipoBusquedaCliente.Todos;
+                this.cbTipoCliente.Enabled = false;
+                return;
+            }
             switch (type.ToString())
             {
                 case "GI.BR.Clientes.Propietario":
@@ -114,12 +120,6 @@ namespace GI.UI.Clientes
                 case "GI.BR.Clientes.ClientePedido":
                     {
                         this.cbTipoCliente.SelectedItem = GI.Managers.Clientes.enumTipoBusquedaCliente.ClientePedido;
-                        this.cbTipoCliente.Enabled = false;
-                        break;
-                    }
-                case null:
-                    {
-                        this.cbTipoCliente.SelectedItem = GI.Managers.Clientes.enumTipoBusquedaCliente.Todos;
                         this.cbTipoCliente.Enabled = false;
                         break;
                     }

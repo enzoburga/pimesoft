@@ -13,6 +13,7 @@ namespace GI.UI.AdminAlquileres
         public frmListadoAdmAlquiler()
         {
             InitializeComponent();
+            lvAdmAlquileres.ListViewItemSorter = sorter;
         }
         public void Inicializar()
         {
@@ -22,6 +23,7 @@ namespace GI.UI.AdminAlquileres
            
         }
 
+        Framework.ListView.ListViewColumnSorter sorter = new GI.Framework.ListView.ListViewColumnSorter();
         private GI.BR.AdmAlquileres.AdmAlquileres admAlquileres = new GI.BR.AdmAlquileres.AdmAlquileres();
 
         private void lvAdmAlquileres_DoubleClick(object sender, EventArgs e)
@@ -132,6 +134,36 @@ namespace GI.UI.AdminAlquileres
             GI.Reportes.Visor.FrmVisorReporte frmVisor = new GI.Reportes.Visor.FrmVisorReporte(reporte);
 
             frmVisor.ShowDialog();
+        }
+
+        private void lvAdmAlquileres_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if(e.Column == 3)
+                sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.DATETIME);
+            else
+                sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.STRING);
+
+            if (e.Column == sorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (sorter.Order == SortOrder.Ascending)
+                {
+                    sorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    sorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                sorter.SortColumn = e.Column;
+                sorter.Order = SortOrder.Ascending;
+            }
+
+            // Perform the sort with these new sort options.
+            this.lvAdmAlquileres.Sort();
         }
 
         
