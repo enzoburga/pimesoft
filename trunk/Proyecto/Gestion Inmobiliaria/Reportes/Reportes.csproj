@@ -57,6 +57,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSFichaPropiedad.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\DSFichaPropiedadv2.cs">
+      <DependentUpon>DSFichaPropiedadv2.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet\DSFichaPropiedadv2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSFichaPropiedadv2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\DSListadoAdmAlquileres.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -146,6 +155,17 @@
     </None>
     <None Include="DataSet\DSFichaPropiedad.xss">
       <DependentUpon>DSFichaPropiedad.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DSFichaPropiedadv2.xsc">
+      <DependentUpon>DSFichaPropiedadv2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DSFichaPropiedadv2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSFichaPropiedadv2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\DSFichaPropiedadv2.xss">
+      <DependentUpon>DSFichaPropiedadv2.xsd</DependentUpon>
     </None>
     <None Include="DataSet\DSListadoAdmAlquileres.xsc">
       <DependentUpon>DSListadoAdmAlquileres.xsd</DependentUpon>

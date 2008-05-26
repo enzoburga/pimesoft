@@ -8,6 +8,7 @@ namespace GI.Reportes.Clases.Propiedades
     {
 
         GI.BR.Propiedades.Propiedad propiedad;
+
         public ReporteFichaPropiedad(GI.BR.Propiedades.Propiedad p)
         {
             propiedad = p;
@@ -16,75 +17,68 @@ namespace GI.Reportes.Clases.Propiedades
 
         protected override CrystalDecisions.CrystalReports.Engine.ReportClass ClaseReporte
         {
-            get { return new GI.Reportes.Reportes.Reporte_FichaPropiedad(); }
+            get { return new GI.Reportes.Reportes.Reporte_FichaPropiedad_v2(); }
         }
 
         protected override System.Data.DataSet GetDatosReporte()
         {
-            DataSet.DSFichaPropiedad ds = new GI.Reportes.DataSet.DSFichaPropiedad();
+            DataSet.DSFichaPropiedadv2 ds = new GI.Reportes.DataSet.DSFichaPropiedadv2();
+            int index = 0;
 
-            DataSet.DSFichaPropiedad.PropiedadRow row = ds.Propiedad.NewPropiedadRow();
-            row.Codigo = propiedad.Codigo;
+            #region Propiedad - Generales
 
-            row.Ambientes = propiedad.Ambiente.CantidadAmbientes.ToString();
-            row.AptoProf = propiedad.EsAptoProfesional ? "Si" : "No";
-            row.Ascensores = propiedad.CantidadAscensores.ToString();
-            row.AscensoresServicio = propiedad.CantidadAscensoresServicio.ToString();
-            row.Banios = propiedad.CantidadBaños.ToString();
-            row.CantidadPisos = propiedad.CantidadPisos.ToString();
-            row.Cocheras = propiedad.CantidadCocheras.ToString();
-            row.DeptosPorPiso = propiedad.DepartamentosPorPiso.ToString();
-            row.Detalles = propiedad.Observaciones;
-            row.Direccion = propiedad.Direccion.ToStringReporte();
-            row.Dormitorios = propiedad.CantidadDormitorios.ToString();
-            row.EntreCalles = propiedad.Direccion.CalleEntre1 != "" ? propiedad.Direccion.CalleEntre1 + " y " + propiedad.Direccion.CalleEntre2 : "";
-            row.Estado = propiedad.EnumEstado.ToString();
-            row.Fondo = propiedad.MedidasTerreno.Fondo.ToString();
-            row.FOS = propiedad.Fos;
-            row.FOT = propiedad.Fot;
-            row.Frente = propiedad.MedidasTerreno.Frente.ToString();
-            row.IdPropiedad = propiedad.IdPropiedad;
-            row.MetrosConstruibles = propiedad.MetrosConstruibles.ToString();
-            row.Operacion = propiedad.TipoPropiedad.Descripcion + " en " + (propiedad.GetType().ToString() == "GI.BR.Propiedades.Venta" ? "Venta" : "Alquiler");
-            row.Orientacion = propiedad.Orientacion;
-            row.Plantas = propiedad.CantidadPlantas.ToString();
-            row.SupCubierta = propiedad.MedidasPropiedad.MetrosCubiertos.ToString();
-            row.SupLibre = propiedad.MedidasPropiedad.MetrosLibres.ToString();
-            row.SupSemicubierta = propiedad.MedidasPropiedad.MetrosSemicubiertos.ToString();
-            row.Terreno = propiedad.MedidasTerreno.Metros.ToString();
-            row.TipoZona = propiedad.TipoZona.ToString();
-            row.Valor = propiedad.ValorPublicacion.ToString();
-            row.Zonificacion = propiedad.Zonificacion;
+            DataSet.DSFichaPropiedadv2.PropiedadRow row_propiedad = ds.Propiedad.NewPropiedadRow();
 
-            GI.BR.Propiedades.Galeria.Foto foto = null;
-            if ((foto = propiedad.GaleriaFotos.GetFotoFachada) != null)
+            row_propiedad.Direccion = propiedad.Direccion.ToStringReporte();
+            row_propiedad.Codigo = propiedad.Codigo;
+            row_propiedad.Operacion = (propiedad is GI.BR.Propiedades.Venta) ? "Venta" : "Alquiler";
+            row_propiedad.Localizacion = propiedad.Ubicacion.Barrio.ToString() + " - " + propiedad.Ubicacion.Localidad.ToString() + " - " + propiedad.Ubicacion.Provincia.ToString();
+            row_propiedad.Ambientes = propiedad.Ambiente.ToString();
+            row_propiedad.TipoUnidad = propiedad.TipoPropiedad.Descripcion;
+            row_propiedad.Ubicacion = propiedad.Orientacion.ToString();
+            /* FALTA COMPLETAR LA ANTIGUEDAD */
+            row_propiedad.Estado = propiedad.EnumEstado.ToString();
+            row_propiedad.Precio = propiedad.ValorPublicacion.Moneda.ToString() + " " + propiedad.ValorPublicacion.Importe.ToString("##,###,###.##");
+            row_propiedad.Observaciones = propiedad.Observaciones;
+            
+            GI.BR.Propiedades.Galeria.Foto fachada=null;
+            if ((fachada = propiedad.GaleriaFotos.GetFotoFachada) != null)
             {
-                System.IO.MemoryStream stream = new System.IO.MemoryStream();
-                foto.Imagen.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
-                row.FotoFachada = stream.ToArray();
+                /* FALTA COLOCAR FOTO FACHADA */
             }
 
+            ds.Propiedad.Rows.Add(row_propiedad);
 
 
-            ds.Propiedad.Rows.Add(row);
 
+            #endregion
 
-            DataSet.DSFichaPropiedad.MedidasRow row2 = ds.Medidas.NewMedidasRow();
+            #region Propiedad - Superficies
 
-            int i = 1;
-            foreach (GI.BR.Propiedades.MedidaAmbiente medida in propiedad.Medidas)
+            DataSet.DSFichaPropiedadv2.SuperficiesRow row_superficies = ds.Superficies.NewSuperficiesRow();
+            index = 1;
+
+            if (propiedad.MedidasPropiedad.MetrosCubiertos > 0)
             {
-                if (i > 8) break;
-
-                row2["Ambiente" + i.ToString()] = medida.NombreAmbiente;
-                row2["Medidas" + i.ToString()] = medida.Ancho.ToString() + " X " + medida.Largo.ToString();
-                row2["Piso" + i.ToString()] = medida.TipoDePiso.Nombre;
-
-                ++i;
+                row_superficies["SupNombre" + index] = "Metros Cubiertos";
+                row_superficies["Sup" + index] = propiedad.MedidasPropiedad.MetrosCubiertos.ToString();
+                ++index;
+            }
+            if (propiedad.MedidasPropiedad.MetrosSemicubiertos > 0)
+            {
+                row_superficies["SupNombre" + index] = "Metros Semicubiertos";
+                row_superficies["Sup" + index] = propiedad.MedidasPropiedad.MetrosSemicubiertos.ToString();
+                ++index;
+            }
+            if (propiedad.MedidasPropiedad.MetrosLibres > 0)
+            {
+                row_superficies["SupNombre" + index] = "Metros Libres";
+                row_superficies["Sup" + index] = propiedad.MedidasPropiedad.MetrosLibres.ToString();
             }
 
+            ds.Superficies.Rows.Add(row_superficies);
 
-            ds.Medidas.Rows.Add(row2);
+            #endregion
 
 
 
