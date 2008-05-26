@@ -34,10 +34,10 @@ namespace GI.UI.Carteles
             if (lvCarteles.SelectedItems.Count != 1)
                 return;
 
-            //frmFichaPedidos frm = new frmFichaPedidos();
-            //frm.Pedido = (GI.BR.Pedidos.Pedido)lvCarteles.SelectedItems[0].Tag;
-            //frm.SoloLectura = true;
-            //frm.ShowDialog();
+            frmFichaCarteles frm = new frmFichaCarteles();
+            frm.Cartel = (GI.BR.Carteles.Cartel)lvCarteles.SelectedItems[0].Tag;
+            frm.SoloLectura = true;
+            frm.ShowDialog();
 
 
         }
@@ -90,23 +90,23 @@ namespace GI.UI.Carteles
 
         private void editarFichaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //if (lvCarteles.SelectedItems.Count != 1)
-            //    return;
-            //frmFichaPedidos frm = new frmFichaPedidos();
+            if (lvCarteles.SelectedItems.Count != 1)
+                return;
 
-            //frm.Pedido = (GI.BR.Pedidos.Pedido)lvCarteles.SelectedItems[0].Tag;
+            frmFichaCarteles frm = new frmFichaCarteles();
+            frm.Cartel = (GI.BR.Carteles.Cartel)lvCarteles.SelectedItems[0].Tag;
 
-            //if (!frm.Pedido.Activo)
-            //{
-            //    GI.Framework.General.GIMsgBox.Show("El cartel es histórico, se abrira en modo solo lectura.", GI.Framework.General.enumTipoMensaje.Informacion);
-            //    lvPedidos_DoubleClick(sender, e);
-            //}
-            //else
-            //{
+            if (!frm.Cartel.Activo)
+            {
+                GI.Framework.General.GIMsgBox.Show("El cartel es histórico, se abrira en modo solo lectura.", GI.Framework.General.enumTipoMensaje.Informacion);
+                lvCarteles_DoubleClick(sender, e);
+            }
+            else
+            {
 
-            //    frm.ShowDialog();
-            //    LlenarLista();
-            //}
+                frm.ShowDialog();
+                LlenarLista();
+            }
         }
 
 

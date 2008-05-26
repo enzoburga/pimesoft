@@ -12,7 +12,6 @@ namespace GI.BR.Carteles
         private int ancho;
         private DateTime fechaAlta;
         private DateTime fechaVencimiento;
-        private Nullable<DateTime> fechaBaja;
         private GI.BR.Propiedades.Propiedad propiedad;
         private bool activo;
         private Type tipoCartel;
@@ -30,8 +29,6 @@ namespace GI.BR.Carteles
 
         public DateTime FechaVencimiento { get { return fechaVencimiento; } set { fechaVencimiento = value; } }
 
-        public Nullable<DateTime> FechaBaja { get { return fechaBaja; } set { fechaBaja = value; } }
-
         public GI.BR.Propiedades.Propiedad Propiedad { get { return propiedad; } set { propiedad = value; } }
 
         public bool Activo { get { return activo; } set { activo = value; } }
@@ -44,14 +41,14 @@ namespace GI.BR.Carteles
         public bool Guardar()
         {
             DA.CartelesData cd = new GI.DA.CartelesData();
-            this.IdCartel = cd.Guardar(this.Activo, this.Alto, this.Ancho, this.FechaAlta, this.FechaBaja, this.FechaVencimiento, this.Propiedad.IdPropiedad, this.TipoCartel);
+            this.IdCartel = cd.Guardar(this.Activo, this.Alto, this.Ancho, this.FechaAlta, this.FechaVencimiento, this.Propiedad.IdPropiedad, this.TipoCartel);
             return this.IdCartel > 0;
         }
 
         public bool Actualizar()
         {
             DA.CartelesData cd = new GI.DA.CartelesData();
-            return cd.Actualizar(this.IdCartel, this.Activo, this.Alto, this.Ancho, this.FechaAlta, this.FechaBaja, this.FechaVencimiento, this.Propiedad.IdPropiedad, this.TipoCartel);
+            return cd.Actualizar(this.IdCartel, this.Activo, this.Alto, this.Ancho, this.FechaAlta, this.FechaVencimiento, this.Propiedad.IdPropiedad, this.TipoCartel);
 
         }
 
@@ -61,12 +58,6 @@ namespace GI.BR.Carteles
             this.Alto = dr.GetInt32(dr.GetOrdinal("Alto"));
             this.Ancho = dr.GetInt32(dr.GetOrdinal("Ancho"));
             this.FechaAlta = dr.GetDateTime(dr.GetOrdinal("FechaAlta"));
-
-            if (!dr.IsDBNull(dr.GetOrdinal("FechaBaja")))
-                this.FechaBaja = dr.GetDateTime(dr.GetOrdinal("FechaBaja"));
-            else
-                this.FechaBaja = null;
-
             this.FechaVencimiento = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
             this.IdCartel = dr.GetInt32(dr.GetOrdinal("IdCartel"));
             this.TipoCartel = Type.GetType(dr.GetString(dr.GetOrdinal("TipoCartel")));
