@@ -126,6 +126,16 @@ namespace GI.UI
                 return Frm;
             }
 
+            if (Type == typeof(GI.UI.Carteles.frmListadoCarteles).ToString())
+            {
+                GI.UI.Carteles.frmListadoCarteles Frm = new GI.UI.Carteles.frmListadoCarteles();
+                Frm.MdiParent = this.parent;
+                Frm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+                Frm.Inicializar();
+                Frm.Show();
+                return Frm;
+            }
+
             return null;
         }
 

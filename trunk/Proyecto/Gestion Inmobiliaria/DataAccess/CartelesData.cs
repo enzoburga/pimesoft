@@ -30,5 +30,21 @@ namespace GI.DA
                 new string[] { "@IdCartel", "@Activo", "@Alto", "@Ancho", "@FechaAlta", "@fechaBaja", "@FechaVencimiento", "@IdPropiedad", "@TipoCartel" });
 
         }
+
+        public System.Data.IDataReader RecuperarTodos()
+        {
+            return AccesoDatos.RecuperarDatos(
+                "Carteles_RecuperarTodos",
+                new object[] { },
+                new string[] { });
+        }
+
+        public System.Data.IDataReader RecuperarPorPropiedad(int IdPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                "Carteles_RecuperarPorPropiedad",
+                new object[] { IdPropiedad },
+                new string[] { "@IdPropiedad" });
+        }
     }
 }
