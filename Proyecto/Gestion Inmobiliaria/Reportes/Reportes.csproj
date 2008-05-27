@@ -79,6 +79,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSListadoPropiedades.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\DSPropiedadAnexo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPropiedadAnexo.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReporteAbs.cs" />
     <Compile Include="Reportes\Reporte_FichaPropiedad_v2.cs">
@@ -198,6 +203,17 @@
     </None>
     <None Include="DataSet\DSListadoPropiedades.xss">
       <DependentUpon>DSListadoPropiedades.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DSPropiedadAnexo.xsc">
+      <DependentUpon>DSPropiedadAnexo.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DSPropiedadAnexo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPropiedadAnexo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\DSPropiedadAnexo.xss">
+      <DependentUpon>DSPropiedadAnexo.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
