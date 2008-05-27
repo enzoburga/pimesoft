@@ -36,7 +36,9 @@ namespace GI.Reportes.Clases.Propiedades
             row_propiedad.Ambientes = propiedad.Ambiente.ToString();
             row_propiedad.TipoUnidad = propiedad.TipoPropiedad.Descripcion;
             row_propiedad.Ubicacion = propiedad.Orientacion.ToString();
-            /* FALTA COMPLETAR LA ANTIGUEDAD */
+
+            row_propiedad.Antiguedad = propiedad.Antiguedad == 0 ? "A Estrenar" : propiedad.Antiguedad.ToString() + " años";
+
             row_propiedad.Estado = propiedad.EnumEstado.ToString();
             row_propiedad.Precio = propiedad.ValorPublicacion.Moneda.ToString() + " " + propiedad.ValorPublicacion.Importe.ToString("##,###,###.##");
             row_propiedad.Observaciones = propiedad.Observaciones;

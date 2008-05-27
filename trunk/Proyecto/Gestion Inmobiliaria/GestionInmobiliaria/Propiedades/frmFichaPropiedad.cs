@@ -255,7 +255,7 @@ namespace GI.UI.Propiedades
             if (Propiedad.IdPropiedad == 0)
             {
 
-                Framework.General.GIMsgBox.Show("Debe primero guardar la propiedad para subir fotos", GI.Framework.General.enumTipoMensaje.Advertencia);
+                Framework.General.GIMsgBox.Show("Debe primero guardar la propiedad enviar a correo electrónico", GI.Framework.General.enumTipoMensaje.Advertencia);
                 return;
             }
 
@@ -272,7 +272,7 @@ namespace GI.UI.Propiedades
             if (Propiedad.IdPropiedad == 0)
             {
 
-                Framework.General.GIMsgBox.Show("Debe primero guardar la propiedad para subir fotos", GI.Framework.General.enumTipoMensaje.Advertencia);
+                Framework.General.GIMsgBox.Show("Debe primero guardar la propiedad para imprimir la ficha.", GI.Framework.General.enumTipoMensaje.Advertencia);
                 return;
             }
 
@@ -314,6 +314,38 @@ namespace GI.UI.Propiedades
         private void toolStripButtonPublicar_Click(object sender, EventArgs e)
         {
             publicarToolStripMenuItem_Click(null, null);
+        }
+
+        private void copiaAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            string msg = "¿Desea copiar la pripiedad a la base de " + ((propiedad is GI.BR.Propiedades.Venta) ? "Alquileres" : "Ventas") + "?";
+
+            if (Framework.General.GIMsgBox.Show(msg, GI.Framework.General.enumTipoMensaje.PreguntaSinCancelar) == DialogResult.Yes)
+            {
+                System.Type tipo = null;
+                if (propiedad is GI.BR.Propiedades.Venta)
+                    tipo = typeof(GI.BR.Propiedades.Alquiler);
+                else
+                    tipo = typeof(GI.BR.Propiedades.Venta);
+
+
+                Managers.Propiedades.MngPropiedades mng = new GI.Managers.Propiedades.MngPropiedades();
+                GI.BR.Propiedades.Propiedad p = mng.CopiarPropiedad(propiedad, tipo);
+
+                if (p != null)
+                {
+                    Framework.General.GIMsgBox.Show("La propiedad se ha copiado con éxito.\nCódigo " + p.Codigo, GI.Framework.General.enumTipoMensaje.Informacion);
+                }
+                else
+                {
+                    Framework.General.GIMsgBox.Show("No es posible guardar la nueva propiedad", GI.Framework.General.enumTipoMensaje.Informacion);
+                }
+
+            
+            }
+
+
         }
     }
 }

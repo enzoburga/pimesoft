@@ -55,6 +55,7 @@ namespace GI.UI.Propiedades
                 cbMonedaPublicacion.Items.Add(M);
                 cbMonedaReal.Items.Add(M);
             }
+            
             cbMonedaReal.SelectedIndex = cbMonedaPublicacion.SelectedIndex = 0;
 
 
@@ -82,6 +83,12 @@ namespace GI.UI.Propiedades
         protected override void CargarPropiedad()
         {
 
+            if (Propiedad.GetType() == typeof(GI.BR.Propiedades.Venta))
+            {
+                cbMonedaPublicacion.SelectedIndex = 1;
+                cbMonedaReal.SelectedIndex = 1;
+            }
+            
             if (Propiedad.IdPropiedad == 0)
             {
                 Propiedad.TipoPropiedad = (GI.BR.Propiedades.TipoPropiedad)cbTipoPropiedad.SelectedItem;
@@ -105,7 +112,7 @@ namespace GI.UI.Propiedades
             foreach (GI.BR.Propiedades.MedidaAmbiente medidaAmb in Propiedad.Medidas)
             {
                 ListViewItem item = new ListViewItem();
-                item.Text = medidaAmb.NombreAmbiente;
+                item.Text = medidaAmb.ToString();
                 item.SubItems.Add(medidaAmb.Ancho.ToString());
                 item.SubItems.Add(medidaAmb.Largo.ToString());
                 item.SubItems.Add(medidaAmb.TipoDePiso.ToString());
@@ -168,6 +175,10 @@ namespace GI.UI.Propiedades
 
         public override bool AsignarSoloLectura(Control Ctrl)
         {
+
+            if (Ctrl.Name == "lvMedidas")
+                return false;
+
             if (Ctrl.Name == "LinkPropietario" && Ctrl.Text != "Seleccione un propietario")
                 return false;
 

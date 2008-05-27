@@ -241,16 +241,19 @@ namespace GI.UI.Propiedades
 
         private void toolStripButtonEnviarMail_Click(object sender, EventArgs e)
         {
-            if (lvPropiedades.SelectedItems.Count != 1)
+            if (lvPropiedades.SelectedItems.Count < 1)
             {
-                Framework.General.GIMsgBox.Show("Debe seleccionar una propiedad", GI.Framework.General.enumTipoMensaje.Advertencia);
+                Framework.General.GIMsgBox.Show("Debe seleccionar una o mas propiedades", GI.Framework.General.enumTipoMensaje.Advertencia);
                 return;
             }
 
 
-            GI.BR.Propiedades.Propiedades propiedades = new GI.BR.Propiedades.Propiedades();
-            propiedades.Add((GI.BR.Propiedades.Propiedad)lvPropiedades.SelectedItems[0].Tag);
 
+            GI.BR.Propiedades.Propiedades propiedades = new GI.BR.Propiedades.Propiedades();
+            foreach(ListViewItem item in lvPropiedades.SelectedItems)
+                propiedades.Add((GI.BR.Propiedades.Propiedad)item.Tag);
+
+            
             Formularios.FrmEnviarFichasMail frm = new GI.UI.Propiedades.Formularios.FrmEnviarFichasMail(propiedades);
             frm.ShowDialog();
 

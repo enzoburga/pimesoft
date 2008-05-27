@@ -14,6 +14,7 @@ namespace GI.BR.Propiedades
         public event DelegateCambioTipoPropiedad onCambioTipoPropiedad;
         public event DelegateCambioValorPropiedad onCambioValorPropiedad;
 
+
         public Propiedad()
         {
 
@@ -58,6 +59,10 @@ namespace GI.BR.Propiedades
         protected string zonificacion;
         protected int metrosConstruibles;
         protected Galeria.GaleriaFotos galeria;
+        protected int antiguedad;
+
+        
+
 
         protected MedidasAmbiente medidas;
 
@@ -67,6 +72,11 @@ namespace GI.BR.Propiedades
         #endregion
 
         #region Propiedades
+        public int Antiguedad
+        {
+            get { return antiguedad; }
+            set { antiguedad = value; }
+        }
 
         public Galeria.GaleriaFotos GaleriaFotos
         {
@@ -522,6 +532,50 @@ namespace GI.BR.Propiedades
 
         #region Metodos
 
+
+        public void Copiar(Propiedad Propiedad)
+        {
+            //Propiedad = (GI.BR.Propiedades.Propiedad)this.MemberwiseClone();
+            Propiedad.CantidadAmbientes = this.CantidadAmbientes;
+            Propiedad.CantidadAscensores = this.CantidadAscensores;
+            Propiedad.CantidadAscensoresServicio = this.CantidadAscensoresServicio;
+            Propiedad.CantidadBaños = this.CantidadBaños;
+            Propiedad.CantidadCocheras = this.CantidadCocheras;
+            Propiedad.CantidadDormitorios = this.CantidadDormitorios;
+            Propiedad.CantidadPisos = this.CantidadPisos;
+            Propiedad.CantidadPlantas = this.CantidadPlantas;
+            Propiedad.Categoria = this.Categoria;
+            Propiedad.DepartamentosPorPiso = this.DepartamentosPorPiso;
+            Propiedad.Direccion = this.Direccion;
+            Propiedad.Disposicion = this.Disposicion;
+            Propiedad.EnumEstado = this.EnumEstado;
+            Propiedad.EsAptoProfesional = this.EsAptoProfesional;
+            Propiedad.EsOtraInmobiliaria = this.EsOtraInmobiliaria;
+            Propiedad.Fos = this.Fos;
+            Propiedad.Fot = this.Fot;
+            Propiedad.Medidas = this.Medidas;
+            Propiedad.MedidasPropiedad = this.MedidasPropiedad;
+            Propiedad.MedidasTerreno = this.MedidasTerreno;
+            Propiedad.MetrosConstruibles = this.MetrosConstruibles;
+            Propiedad.Observaciones = this.Observaciones;
+            Propiedad.Orientacion = this.Orientacion;
+            Propiedad.Propietario = this.Propietario;
+            Propiedad.TipoPropiedad = this.TipoPropiedad;
+            Propiedad.TipoZona = this.TipoZona;
+            Propiedad.Ubicacion = this.Ubicacion;
+            Propiedad.ValorMercado = this.ValorMercado;
+            Propiedad.ValorPublicacion = this.ValorPublicacion;
+            Propiedad.Zonificacion = this.Zonificacion;
+
+
+            EstadosPropiedad estados = new EstadosPropiedad();
+            estados.RecuperarEstados(Propiedad.GetType());
+            Propiedad.Estado = estados[0];
+
+
+
+        }
+
         private void Cargar()
         {
             GI.DA.PropiedadesData data = new GI.DA.PropiedadesData();
@@ -606,7 +660,7 @@ namespace GI.BR.Propiedades
             this.Ubicacion.Pais = Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetPais(dr.GetInt32(dr.GetOrdinal("IdPais")));
             this.Ubicacion.Provincia = Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetProvincia(dr.GetInt32(dr.GetOrdinal("IdProvincia")));
 
-
+            this.Antiguedad = dr.IsDBNull(dr.GetOrdinal("Antiguedad")) ? 0 : dr.GetInt32(dr.GetOrdinal("Antiguedad"));
 
         }
 
@@ -619,7 +673,7 @@ namespace GI.BR.Propiedades
                 ValorMercado.Importe, ValorMercado.Moneda.IdMoneda, ValorPublicacion.Importe, ValorPublicacion.Moneda.IdMoneda, EsOtraInmobiliaria,
                 MedidasPropiedad.MetrosCubiertos, MedidasPropiedad.MetrosSemicubiertos, MedidasPropiedad.MetrosLibres, MedidasTerreno.Metros, MedidasTerreno.Fondo, MedidasTerreno.Frente,
                 Orientacion, CantidadBaños, CantidadCocheras, CantidadDormitorios, CantidadPlantas, (int)Disposicion, EsAptoProfesional, CantidadPisos, DepartamentosPorPiso, CantidadAscensores, CantidadAscensoresServicio, (int)TipoZona,
-                Fos, Fot, Zonificacion, MetrosConstruibles);
+                Fos, Fot, Zonificacion, MetrosConstruibles, Antiguedad);
 
             IdPropiedad = id;
 
@@ -643,7 +697,7 @@ namespace GI.BR.Propiedades
                 ValorMercado.Importe, ValorMercado.Moneda.IdMoneda, ValorPublicacion.Importe, ValorPublicacion.Moneda.IdMoneda, EsOtraInmobiliaria,
                 MedidasPropiedad.MetrosCubiertos, MedidasPropiedad.MetrosSemicubiertos, MedidasPropiedad.MetrosLibres, MedidasTerreno.Metros, MedidasTerreno.Fondo, MedidasTerreno.Frente,
                 Orientacion, CantidadBaños, CantidadCocheras, CantidadDormitorios, CantidadPlantas, (int)Disposicion, EsAptoProfesional, CantidadPisos, DepartamentosPorPiso, CantidadAscensores, CantidadAscensoresServicio, (int)TipoZona,
-                Fos, Fot, Zonificacion, MetrosConstruibles);
+                Fos, Fot, Zonificacion, MetrosConstruibles, Antiguedad);
 
             foreach (MedidaAmbiente ambiente in this.Medidas)
             {

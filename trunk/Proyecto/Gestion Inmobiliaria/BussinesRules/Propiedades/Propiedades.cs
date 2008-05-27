@@ -276,7 +276,7 @@ namespace GI.BR.Propiedades
             p.Ubicacion.Pais = ubicacionesFactory.GetPais(dr.GetInt32(dr.GetOrdinal("IdPais")));
             p.Ubicacion.Provincia = ubicacionesFactory.GetProvincia(dr.GetInt32(dr.GetOrdinal("IdProvincia")));
 
-
+            p.Antiguedad = dr.IsDBNull(dr.GetOrdinal("Antiguedad")) ? 0 : dr.GetInt32(dr.GetOrdinal("Antiguedad"));
 
         }
 

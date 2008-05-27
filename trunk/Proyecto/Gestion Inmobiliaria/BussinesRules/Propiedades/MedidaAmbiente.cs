@@ -67,10 +67,19 @@ namespace GI.BR.Propiedades
 
         public bool Crear(Propiedad p)
         {
-            int id = new DA.PropiedadesData().GuardarMedidaAmbiente(Ancho, Largo, NombreAmbiente, TipoDePiso.IdTipoPiso, p.IdPropiedad);
+            int id = new DA.PropiedadesData().GuardarMedidaAmbiente(Ancho, Largo, NombreAmbiente, TipoDePiso.IdTipoPiso, p.IdPropiedad, TipoAmbiente.IdTipoAmbiente);
             idMedidaAmbiente = id;
 
             return idMedidaAmbiente > 0;
+        }
+
+
+        public override string ToString()
+        {
+            if (tipoAmbiente.Codigo == 0)
+                return nombreAmbiente;
+            else
+                return tipoAmbiente.Nombre;
         }
 
     }

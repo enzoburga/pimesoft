@@ -86,7 +86,7 @@ namespace GI.UI.Propiedades
             this.label32 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxAntiguedad = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.medidaPropiedadBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medidasTerrenoBindingSource)).BeginInit();
@@ -125,7 +125,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxMetrosCubiertos
             // 
-            this.textBoxMetrosCubiertos.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidaPropiedadBindingSource, "MetrosCubiertos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N1"));
+            this.textBoxMetrosCubiertos.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidaPropiedadBindingSource, "MetrosCubiertos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N2"));
             this.textBoxMetrosCubiertos.Location = new System.Drawing.Point(212, 29);
             this.textBoxMetrosCubiertos.Name = "textBoxMetrosCubiertos";
             this.textBoxMetrosCubiertos.Size = new System.Drawing.Size(58, 21);
@@ -140,7 +140,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxMetrosSemicubiertos
             // 
-            this.textBoxMetrosSemicubiertos.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidaPropiedadBindingSource, "MetrosSemicubiertos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N1"));
+            this.textBoxMetrosSemicubiertos.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidaPropiedadBindingSource, "MetrosSemicubiertos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N2"));
             this.textBoxMetrosSemicubiertos.Location = new System.Drawing.Point(478, 29);
             this.textBoxMetrosSemicubiertos.Name = "textBoxMetrosSemicubiertos";
             this.textBoxMetrosSemicubiertos.Size = new System.Drawing.Size(58, 21);
@@ -151,7 +151,7 @@ namespace GI.UI.Propiedades
             // 
             // textBoxMestrosLibros
             // 
-            this.textBoxMestrosLibros.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidaPropiedadBindingSource, "MetrosLibres", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N1"));
+            this.textBoxMestrosLibros.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidaPropiedadBindingSource, "MetrosLibres", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N2"));
             this.textBoxMestrosLibros.Location = new System.Drawing.Point(212, 55);
             this.textBoxMestrosLibros.Name = "textBoxMestrosLibros";
             this.textBoxMestrosLibros.Size = new System.Drawing.Size(58, 21);
@@ -172,13 +172,14 @@ namespace GI.UI.Propiedades
             // 
             // textBoxFrente
             // 
-            this.textBoxFrente.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidasTerrenoBindingSource, "Frente", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N1"));
+            this.textBoxFrente.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidasTerrenoBindingSource, "Frente", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N2"));
             this.textBoxFrente.Location = new System.Drawing.Point(212, 122);
             this.textBoxFrente.Name = "textBoxFrente";
             this.textBoxFrente.Size = new System.Drawing.Size(58, 21);
             this.textBoxFrente.TabIndex = 29;
             this.textBoxFrente.Text = "0";
             this.textBoxFrente.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxFrente.TextChanged += new System.EventHandler(this.textBoxFrente_TextChanged);
             // 
             // medidasTerrenoBindingSource
             // 
@@ -241,13 +242,14 @@ namespace GI.UI.Propiedades
             // 
             // textBoxFondo
             // 
-            this.textBoxFondo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidasTerrenoBindingSource, "Fondo", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N1"));
+            this.textBoxFondo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidasTerrenoBindingSource, "Fondo", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N2"));
             this.textBoxFondo.Location = new System.Drawing.Point(212, 149);
             this.textBoxFondo.Name = "textBoxFondo";
             this.textBoxFondo.Size = new System.Drawing.Size(58, 21);
             this.textBoxFondo.TabIndex = 36;
             this.textBoxFondo.Text = "0";
             this.textBoxFondo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxFondo.TextChanged += new System.EventHandler(this.textBoxFondo_TextChanged);
             // 
             // label11
             // 
@@ -269,9 +271,10 @@ namespace GI.UI.Propiedades
             // 
             // textBoxTerreno
             // 
-            this.textBoxTerreno.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidasTerrenoBindingSource, "Metros", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N1"));
+            this.textBoxTerreno.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidasTerrenoBindingSource, "Metros", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N2"));
             this.textBoxTerreno.Location = new System.Drawing.Point(478, 122);
             this.textBoxTerreno.Name = "textBoxTerreno";
+            this.textBoxTerreno.ReadOnly = true;
             this.textBoxTerreno.Size = new System.Drawing.Size(58, 21);
             this.textBoxTerreno.TabIndex = 39;
             this.textBoxTerreno.Text = "0";
@@ -625,15 +628,15 @@ namespace GI.UI.Propiedades
             this.label33.TabIndex = 79;
             this.label33.Text = "Detalles";
             // 
-            // textBox1
+            // textBoxAntiguedad
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "CantidadPlantas", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
-            this.textBox1.Location = new System.Drawing.Point(478, 257);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(58, 21);
-            this.textBox1.TabIndex = 81;
-            this.textBox1.Text = "0";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxAntiguedad.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "Antiguedad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
+            this.textBoxAntiguedad.Location = new System.Drawing.Point(478, 257);
+            this.textBoxAntiguedad.Name = "textBoxAntiguedad";
+            this.textBoxAntiguedad.Size = new System.Drawing.Size(58, 21);
+            this.textBoxAntiguedad.TabIndex = 81;
+            this.textBoxAntiguedad.Text = "0";
+            this.textBoxAntiguedad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label16
             // 
@@ -642,13 +645,14 @@ namespace GI.UI.Propiedades
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(62, 13);
             this.label16.TabIndex = 80;
-            this.label16.Text = "Antiguedad";
+            this.label16.Text = "Antigüedad";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // TabDetalles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxAntiguedad);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.label29);
@@ -774,7 +778,7 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.BindingSource medidaPropiedadBindingSource;
         private System.Windows.Forms.BindingSource medidasTerrenoBindingSource;
         private System.Windows.Forms.BindingSource propiedadBindingSource;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxAntiguedad;
         private System.Windows.Forms.Label label16;
     }
 }

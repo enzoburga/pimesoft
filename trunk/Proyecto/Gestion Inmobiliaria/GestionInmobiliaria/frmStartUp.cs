@@ -127,5 +127,11 @@ namespace GI.UI
         {
             builder.AbrirFormulario(typeof(Carteles.frmListadoCarteles).ToString());
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Framework.General.GIMsgBox.Show("¿Desea salir de la aplicación", GI.Framework.General.enumTipoMensaje.PreguntaSinCancelar) == DialogResult.Yes)
+                Close();
+        }
     }
 }
