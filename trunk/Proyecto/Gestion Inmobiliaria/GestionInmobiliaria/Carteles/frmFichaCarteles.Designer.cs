@@ -47,6 +47,8 @@ namespace GI.UI.Carteles
             this.cAceptar = new System.Windows.Forms.Button();
             this.bCancelar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbUbicacion = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -120,7 +122,7 @@ namespace GI.UI.Carteles
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 106);
+            this.label4.Location = new System.Drawing.Point(15, 106);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 13);
             this.label4.TabIndex = 7;
@@ -129,7 +131,7 @@ namespace GI.UI.Carteles
             // dtpFechaAlta
             // 
             this.dtpFechaAlta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaAlta.Location = new System.Drawing.Point(131, 102);
+            this.dtpFechaAlta.Location = new System.Drawing.Point(134, 102);
             this.dtpFechaAlta.Name = "dtpFechaAlta";
             this.dtpFechaAlta.Size = new System.Drawing.Size(84, 20);
             this.dtpFechaAlta.TabIndex = 3;
@@ -137,7 +139,7 @@ namespace GI.UI.Carteles
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 132);
+            this.label5.Location = new System.Drawing.Point(15, 132);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(113, 13);
             this.label5.TabIndex = 0;
@@ -146,7 +148,7 @@ namespace GI.UI.Carteles
             // dtpFechaVencimiento
             // 
             this.dtpFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaVencimiento.Location = new System.Drawing.Point(131, 128);
+            this.dtpFechaVencimiento.Location = new System.Drawing.Point(134, 128);
             this.dtpFechaVencimiento.Name = "dtpFechaVencimiento";
             this.dtpFechaVencimiento.Size = new System.Drawing.Size(84, 20);
             this.dtpFechaVencimiento.TabIndex = 4;
@@ -157,7 +159,7 @@ namespace GI.UI.Carteles
             this.cbActivo.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cbActivo.Checked = true;
             this.cbActivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbActivo.Location = new System.Drawing.Point(159, 154);
+            this.cbActivo.Location = new System.Drawing.Point(162, 181);
             this.cbActivo.Name = "cbActivo";
             this.cbActivo.Size = new System.Drawing.Size(56, 17);
             this.cbActivo.TabIndex = 5;
@@ -186,20 +188,21 @@ namespace GI.UI.Carteles
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.guardarToolStripMenuItem.Text = "Guardar";
             this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
             // cerrarToolStripMenuItem
             // 
             this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
-            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.cerrarToolStripMenuItem.Text = "Cerrar";
             this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
             // 
             // cAceptar
             // 
-            this.cAceptar.Location = new System.Drawing.Point(85, 222);
+            this.cAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cAceptar.Location = new System.Drawing.Point(85, 240);
             this.cAceptar.Name = "cAceptar";
             this.cAceptar.Size = new System.Drawing.Size(75, 23);
             this.cAceptar.TabIndex = 6;
@@ -209,7 +212,8 @@ namespace GI.UI.Carteles
             // 
             // bCancelar
             // 
-            this.bCancelar.Location = new System.Drawing.Point(166, 222);
+            this.bCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bCancelar.Location = new System.Drawing.Point(166, 240);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 7;
@@ -219,32 +223,52 @@ namespace GI.UI.Carteles
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.cbUbicacion);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.llPropiedad);
             this.panel1.Controls.Add(this.cbActivo);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.dtpFechaAlta);
             this.panel1.Controls.Add(this.dtpFechaVencimiento);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(253, 190);
+            this.panel1.Size = new System.Drawing.Size(253, 208);
             this.panel1.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(15, 157);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Ubicación";
+            // 
+            // cbUbicacion
+            // 
+            this.cbUbicacion.FormattingEnabled = true;
+            this.cbUbicacion.Location = new System.Drawing.Point(97, 154);
+            this.cbUbicacion.Name = "cbUbicacion";
+            this.cbUbicacion.Size = new System.Drawing.Size(121, 21);
+            this.cbUbicacion.TabIndex = 8;
             // 
             // frmFichaCarteles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(253, 253);
+            this.ClientSize = new System.Drawing.Size(253, 271);
             this.Controls.Add(this.bCancelar);
             this.Controls.Add(this.cAceptar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(261, 285);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(261, 285);
             this.Name = "frmFichaCarteles";
@@ -283,5 +307,7 @@ namespace GI.UI.Carteles
         private System.Windows.Forms.Button cAceptar;
         private System.Windows.Forms.Button bCancelar;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox cbUbicacion;
+        private System.Windows.Forms.Label label6;
     }
 }

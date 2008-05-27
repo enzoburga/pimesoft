@@ -23,6 +23,13 @@ namespace GI.UI.Pedidos
 
         }
 
+        public override bool AsignarSoloLectura(Control Ctrl)
+        {
+            if (!Pedido.Activo)
+                return base.AsignarSoloLectura(Ctrl);
+            return false;
+        }
+
         void Pedido_OnPropiedadesOfrecidas()
         {
             LlenarLista(mng.GetPropiedadesOfrecidas(Pedido));

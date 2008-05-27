@@ -15,6 +15,7 @@ namespace GI.BR.Carteles
         private GI.BR.Propiedades.Propiedad propiedad;
         private bool activo;
         private Type tipoCartel;
+        private UbicacionCartel ubicacionCartel;
         
         #endregion
 
@@ -33,7 +34,9 @@ namespace GI.BR.Carteles
 
         public bool Activo { get { return activo; } set { activo = value; } }
 
-        public Type TipoCartel { get { return tipoCartel; } set { tipoCartel = value; } } 
+        public Type TipoCartel { get { return tipoCartel; } set { tipoCartel = value; } }
+
+        public UbicacionCartel UbicacionCartel { get { return ubicacionCartel; } set { ubicacionCartel = value; } }
         #endregion
 
         #region Persistencia
@@ -41,14 +44,14 @@ namespace GI.BR.Carteles
         public bool Guardar()
         {
             DA.CartelesData cd = new GI.DA.CartelesData();
-            this.IdCartel = cd.Guardar(this.Activo, this.Alto, this.Ancho, this.FechaAlta, this.FechaVencimiento, this.Propiedad.IdPropiedad, this.TipoCartel);
+            this.IdCartel = cd.Guardar(this.Activo, this.Alto, this.Ancho, this.FechaAlta, this.FechaVencimiento, this.Propiedad.IdPropiedad, this.TipoCartel, this.ubicacionCartel.IdUbicacionCartel);
             return this.IdCartel > 0;
         }
 
         public bool Actualizar()
         {
             DA.CartelesData cd = new GI.DA.CartelesData();
-            return cd.Actualizar(this.IdCartel, this.Activo, this.Alto, this.Ancho, this.FechaAlta, this.FechaVencimiento, this.Propiedad.IdPropiedad, this.TipoCartel);
+            return cd.Actualizar(this.IdCartel, this.Activo, this.Alto, this.Ancho, this.FechaAlta, this.FechaVencimiento, this.Propiedad.IdPropiedad, this.TipoCartel, this.ubicacionCartel.IdUbicacionCartel);
 
         }
 
@@ -71,7 +74,8 @@ namespace GI.BR.Carteles
                 this.Propiedad = new GI.BR.Propiedades.Venta();
             }
 
-            this.propiedad.IdPropiedad = dr.GetInt32(dr.GetOrdinal("IdPropiedad"));            
+            this.propiedad.IdPropiedad = dr.GetInt32(dr.GetOrdinal("IdPropiedad"));
+            this.ubicacionCartel = UbicacionesCartelFlyweigthFactory.GetInstancia.GetUbicacionCartel(dr.GetInt32(dr.GetOrdinal("IdUbicacionCartel")));
         }
 
         #endregion
