@@ -23,7 +23,16 @@ namespace GI.UI.Carteles
             set
             {
                 cartel = value;
+                Inicializar();
                 CargarCartel();
+            }
+        }
+
+        private void Inicializar()
+        {
+            foreach (GI.BR.Carteles.UbicacionCartel uc in GI.BR.Carteles.UbicacionesCartelFlyweigthFactory.GetInstancia.GetUbicacionesCartel)
+            {
+                cbUbicacion.Items.Add(uc);
             }
         }
 
@@ -45,6 +54,15 @@ namespace GI.UI.Carteles
             this.dtpFechaVencimiento.Value = this.cartel.FechaVencimiento;
 
             this.cbActivo.Checked = this.cartel.Activo;
+
+            foreach(GI.BR.Carteles.UbicacionCartel uc in cbUbicacion.Items)
+            {
+                if(uc.IdUbicacionCartel == cartel.UbicacionCartel.IdUbicacionCartel)
+                {
+                    this.cbUbicacion.SelectedItem = uc;
+                }
+            }
+            
         }
 
         public GI.BR.Carteles.Cartel GetCartel()
@@ -81,6 +99,8 @@ namespace GI.UI.Carteles
 
             cartel.Propiedad = (GI.BR.Propiedades.Propiedad)llPropiedad.Tag;
             cartel.TipoCartel = llPropiedad.Tag.GetType();
+
+            cartel.UbicacionCartel = (GI.BR.Carteles.UbicacionCartel)cbUbicacion.SelectedItem;
 
             return cartel;
         }

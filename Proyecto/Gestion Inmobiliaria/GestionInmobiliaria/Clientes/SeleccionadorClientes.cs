@@ -72,20 +72,32 @@ namespace GI.UI.Clientes
         public System.Windows.Forms.ColumnHeader[] GetColumnsHeader()
         {
 
-            System.Windows.Forms.ColumnHeader[] columns = new System.Windows.Forms.ColumnHeader[2];
+            System.Windows.Forms.ColumnHeader[] columns = new System.Windows.Forms.ColumnHeader[4];
 
             System.Windows.Forms.ColumnHeader column;
 
             column = new System.Windows.Forms.ColumnHeader();
             column.Text = "Nombre";
-            column.Width = 250;
+            column.Width = 200;
             columns[0] = column;
 
 
             column = new System.Windows.Forms.ColumnHeader();
-            column.Text = "Dirección";
-            column.Width = 250;
+            column.Text = "Teléfono";
+            column.Width = 150;
             columns[1] = column;
+
+
+            column = new System.Windows.Forms.ColumnHeader();
+            column.Text = "Email";
+            column.Width = 150;
+            columns[2] = column;
+
+
+            column = new System.Windows.Forms.ColumnHeader();
+            column.Text = "Dirección";
+            column.Width = 150;
+            columns[3] = column;
 
             return columns;
 
@@ -99,6 +111,14 @@ namespace GI.UI.Clientes
             System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem();
 
             item.Text = cliente.Nombres + " " + cliente.Apellido;
+
+            item.SubItems.Add(cliente.GetTelefonoPpal);
+
+            if(cliente.Email == "")
+                item.SubItems.Add("SIN MAIL");
+            else
+                item.SubItems.Add(cliente.Email);
+
             item.SubItems.Add(cliente.Direccion.Calle + " " + cliente.Direccion.Numero.ToString());
 
             item.Tag = cliente;
@@ -109,6 +129,11 @@ namespace GI.UI.Clientes
 
         public object NuevoObjeto()
         {
+            if (tipoCliente == null)
+            {
+                GI.Framework.General.GIMsgBox.Show("Para crear un cliente, dirigase al módulo de clientes.", GI.Framework.General.enumTipoMensaje.Informacion);
+                return null;
+            }
             GI.BR.Clientes.Cliente cliente = new GI.BR.Clientes.ClienteFactory().CrearClaseCliente(tipoCliente);
 
             frmFichaCliente frmFicha = new frmFichaCliente();

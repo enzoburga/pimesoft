@@ -47,6 +47,7 @@
     <Compile Include="PropiedadesData.cs" />
     <Compile Include="SmtpConfigData.cs" />
     <Compile Include="SQLHelper.cs" />
+    <Compile Include="UbicacionCartelData.cs" />
     <Compile Include="UbicacionesData.cs" />
     <Compile Include="ValoresRentaData.cs" />
   </ItemGroup>

@@ -6,24 +6,24 @@ namespace GI.DA
 {
     public class CartelesData
     {
-        public int Guardar(bool Activo, int Alto, int Ancho, DateTime FechaAlta, DateTime FechaVencimiento, int IdPropiedad, Type type)
+        public int Guardar(bool Activo, int Alto, int Ancho, DateTime FechaAlta, DateTime FechaVencimiento, int IdPropiedad, Type type, int IdUbicacionCartel)
         {
 
 
             return AccesoDatos.InsertarRegistro(
                 "Carteles_Guardar",
-                new object[] {Activo,Alto,Ancho,FechaAlta,FechaVencimiento,IdPropiedad,type.ToString() },
-                new string[] { "@Activo", "@Alto", "@Ancho", "@FechaAlta", "@FechaVencimiento", "@IdPropiedad", "@TipoCartel" });
+                new object[] { Activo, Alto, Ancho, FechaAlta, FechaVencimiento, IdPropiedad, type.ToString(), IdUbicacionCartel },
+                new string[] { "@Activo", "@Alto", "@Ancho", "@FechaAlta", "@FechaVencimiento", "@IdPropiedad", "@TipoCartel", "@IdUbicacionCartel" });
         }
 
-        public bool Actualizar(int IdCartel, bool Activo, int Alto, int Ancho, DateTime FechaAlta, DateTime FechaVencimiento, int IdPropiedad, Type type)
+        public bool Actualizar(int IdCartel, bool Activo, int Alto, int Ancho, DateTime FechaAlta, DateTime FechaVencimiento, int IdPropiedad, Type type, int IdUbicacionCartel)
         {
 
 
             return AccesoDatos.ActualizarRegistro(
                 "Carteles_Actualizar",
-                new object[] { IdCartel,Activo, Alto, Ancho, FechaAlta,  FechaVencimiento, IdPropiedad, type.ToString() },
-                new string[] { "@IdCartel", "@Activo", "@Alto", "@Ancho", "@FechaAlta", "@FechaVencimiento", "@IdPropiedad", "@TipoCartel" });
+                new object[] { IdCartel, Activo, Alto, Ancho, FechaAlta, FechaVencimiento, IdPropiedad, type.ToString(), IdUbicacionCartel },
+                new string[] { "@IdCartel", "@Activo", "@Alto", "@Ancho", "@FechaAlta", "@FechaVencimiento", "@IdPropiedad", "@TipoCartel", "@IdUbicacionCartel" });
 
         }
 

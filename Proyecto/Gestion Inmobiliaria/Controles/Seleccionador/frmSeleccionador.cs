@@ -156,7 +156,13 @@ namespace GI.Framework
         private void seleccionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (lvItems.SelectedItems.Count != 1) return;
-            lvItems_DoubleClick(null, null);
+            if (MultiSeleccion)
+            {
+                foreach (ListViewItem lvi in lvItems.SelectedItems)
+                    lvi.Checked = true;            
+            }
+            else
+                lvItems_DoubleClick(null, null);
         }
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)

@@ -44,6 +44,9 @@
     <Compile Include="AdmAlquileres\ValoresRenta.cs" />
     <Compile Include="Carteles\Cartel.cs" />
     <Compile Include="Carteles\Carteles.cs" />
+    <Compile Include="Carteles\UbicacionCartel.cs" />
+    <Compile Include="Carteles\UbicacionesCartel.cs" />
+    <Compile Include="Carteles\UbicacionesCartelFlyweigthFactory.cs" />
     <Compile Include="Clientes\Cliente.cs" />
     <Compile Include="Clientes\ClienteFactory.cs" />
     <Compile Include="Clientes\ClientePedido.cs" />
