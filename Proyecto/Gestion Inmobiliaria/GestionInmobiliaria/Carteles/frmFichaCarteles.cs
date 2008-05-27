@@ -34,6 +34,7 @@ namespace GI.UI.Carteles
             {
                 cbUbicacion.Items.Add(uc);
             }
+            cbUbicacion.SelectedIndex = 0;
         }
 
         private void CargarCartel()
@@ -54,6 +55,8 @@ namespace GI.UI.Carteles
             this.dtpFechaVencimiento.Value = this.cartel.FechaVencimiento;
 
             this.cbActivo.Checked = this.cartel.Activo;
+
+            this.cartel.UbicacionCartel = (GI.BR.Carteles.UbicacionCartel)cbUbicacion.SelectedItem;
 
             foreach(GI.BR.Carteles.UbicacionCartel uc in cbUbicacion.Items)
             {
