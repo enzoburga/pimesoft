@@ -105,6 +105,12 @@
       <DependentUpon>Reporte_ListadoPropiedades.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\Reporte_Propiedad_Anexo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reporte_Propiedad_Anexo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Visor\FrmVisorReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,10 @@
     <EmbeddedResource Include="Reportes\Reporte_ListadoPropiedades.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Reporte_ListadoPropiedades.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reporte_Propiedad_Anexo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Reporte_Propiedad_Anexo.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Visor\FrmVisorReporte.resx">
       <SubType>Designer</SubType>

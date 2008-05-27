@@ -49,6 +49,9 @@ namespace GI.UI.Propiedades.Formularios
 
 
             medidaAmbienteBindingSource.Add(medida);
+
+
+            checkBoxCargarambiente.Checked = false;
         }
 
 
