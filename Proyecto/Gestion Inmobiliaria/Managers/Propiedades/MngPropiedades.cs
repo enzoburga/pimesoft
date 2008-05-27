@@ -69,6 +69,42 @@ namespace GI.Managers.Propiedades
 
 
 
+        public GI.BR.Propiedades.Propiedad CopiarPropiedad(GI.BR.Propiedades.Propiedad PropiedadOrigen, Type TipoPropiedadDestino)
+        {
+            try
+            {
+                GI.BR.Propiedades.Propiedad PropiedadDestino = null;
+
+                if (TipoPropiedadDestino == typeof(GI.BR.Propiedades.Venta))
+                    PropiedadDestino = new GI.BR.Propiedades.Venta();
+                else
+                    PropiedadDestino = new GI.BR.Propiedades.Alquiler();
+
+                PropiedadOrigen.Copiar(PropiedadDestino);
+
+
+                if (!PropiedadDestino.Guardar())
+                    throw new Exception();
+
+                MngGaleriaFotos mngFotos = new MngGaleriaFotos();
+                
+                foreach (GI.BR.Propiedades.Galeria.Foto f in PropiedadOrigen.GaleriaFotos)
+                {
+                    mngFotos.AgregarFotoAGaleria(f.Imagen, f.Descripcion, f.EsFachada, PropiedadDestino);    
+                }
+
+
+
+                return PropiedadDestino;
+            }
+            catch
+            {
+                return null;
+            }
+
+        
+        }
+
         private GI.BR.Propiedades.Propiedades AplicarFiltros(GI.BR.Propiedades.Propiedades Propiedades, GI.BR.Propiedades.Ambiente Ambientes,
                     GI.BR.Propiedades.Ubicacion Ubicacion, GI.BR.Valor ValorDesde, GI.BR.Valor ValorHasta)
         {
@@ -138,6 +174,9 @@ namespace GI.Managers.Propiedades
 
 
         
+
+
+
 
 
 

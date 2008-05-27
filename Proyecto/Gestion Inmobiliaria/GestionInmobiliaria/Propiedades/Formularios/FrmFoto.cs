@@ -14,6 +14,7 @@ namespace GI.UI.Propiedades.Formularios
 
         private GI.BR.Propiedades.Propiedad propiedad;
         private GI.BR.Propiedades.Galeria.Foto Foto;
+        GI.BR.Propiedades.MedidaAmbiente medida;
 
         public GI.BR.Propiedades.Galeria.Foto GetFoto
         {
@@ -22,6 +23,32 @@ namespace GI.UI.Propiedades.Formularios
         public FrmFoto()
         {
             InitializeComponent();
+
+
+            cbTipoPiso.Items.Clear();
+            GI.BR.Propiedades.TiposDePiso tiposPiso = new GI.BR.Propiedades.TiposDePiso();
+            tiposPiso.RecuperarTodos();
+            foreach (GI.BR.Propiedades.TipoDePiso piso in tiposPiso)
+                cbTipoPiso.Items.Add(piso);
+
+            cbTipoPiso.SelectedIndex = 0;
+
+
+            cbTipoAmbiente.Items.Clear();
+            GI.BR.Propiedades.TiposAmbiente tiposAmb = new GI.BR.Propiedades.TiposAmbiente();
+            tiposAmb.RecuperarTodos();
+            foreach (GI.BR.Propiedades.TipoAmbiente amb in tiposAmb)
+                cbTipoAmbiente.Items.Add(amb);
+            cbTipoAmbiente.SelectedIndex = 0;
+
+
+            medida = new GI.BR.Propiedades.MedidaAmbiente();
+            medida.TipoAmbiente = (GI.BR.Propiedades.TipoAmbiente)cbTipoAmbiente.SelectedItem;
+            medida.TipoDePiso = (GI.BR.Propiedades.TipoDePiso)cbTipoPiso.SelectedItem;
+
+
+
+            medidaAmbienteBindingSource.Add(medida);
         }
 
 
@@ -66,6 +93,8 @@ namespace GI.UI.Propiedades.Formularios
                 return;
             }
 
+            
+
             Foto = new GI.BR.Propiedades.Galeria.Foto();
             Foto.Descripcion = textBoxNombre.Text;
             Foto.EsFachada = checkBoxEsFechada.Checked;
@@ -75,6 +104,13 @@ namespace GI.UI.Propiedades.Formularios
             GI.Managers.Propiedades.MngGaleriaFotos mng = new GI.Managers.Propiedades.MngGaleriaFotos();
             if ((Foto = mng.AgregarFotoAGaleria(new Bitmap(textBoxUrlFoto.Text), textBoxNombre.Text, checkBoxEsFechada.Checked, propiedad)) != null)
             {
+
+                if (checkBoxCargarambiente.Checked)
+                {
+                    propiedad.Medidas.Add(medida);
+                    propiedad.Actualizar();
+                }
+
                 DialogResult = DialogResult.OK;
                 Close();
             }
@@ -91,6 +127,33 @@ namespace GI.UI.Propiedades.Formularios
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 textBoxUrlFoto.Text = openFileDialog.FileName;
+
+            }
+        }
+
+        private void checkBoxCargarambiente_CheckedChanged(object sender, EventArgs e)
+        {
+            cbTipoAmbiente.Enabled = checkBoxCargarambiente.Checked;
+            cbTipoPiso.Enabled = checkBoxCargarambiente.Checked;
+            textBoxAlto.Enabled = checkBoxCargarambiente.Checked;
+            textBoxAmbiente.Enabled = checkBoxCargarambiente.Checked && ((GI.BR.Propiedades.TipoAmbiente)cbTipoAmbiente.SelectedItem).Codigo == 0;
+            textBoxAncho.Enabled = checkBoxCargarambiente.Checked; 
+            
+        }
+
+        private void cbTipoAmbiente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbTipoAmbiente.SelectedItem == null) return;
+            textBoxAmbiente.Text = "";
+            GI.BR.Propiedades.TipoAmbiente ta = (GI.BR.Propiedades.TipoAmbiente)cbTipoAmbiente.SelectedItem;
+            if (ta.Codigo == 0)
+            {
+                textBoxAmbiente.Enabled = true;
+
+            }
+            else
+            {
+                textBoxAmbiente.Enabled = false;
 
             }
         }

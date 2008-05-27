@@ -157,5 +157,32 @@ namespace GI.UI.Propiedades
         {
 
         }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxFrente_TextChanged(object sender, EventArgs e)
+        {
+            calcularSuperficie();
+        }
+
+        private void textBoxFondo_TextChanged(object sender, EventArgs e)
+        {
+            calcularSuperficie();
+        }
+
+
+        private void calcularSuperficie()
+        {
+            decimal fondo = 0;
+            decimal frente = 0;
+            Decimal.TryParse(textBoxFondo.Text, out fondo);
+            Decimal.TryParse(textBoxFrente.Text, out frente);
+
+            Propiedad.MedidasTerreno.Metros = fondo * frente;
+            
+        }
     }
 }

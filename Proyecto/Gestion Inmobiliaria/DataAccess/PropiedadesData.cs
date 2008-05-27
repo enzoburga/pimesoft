@@ -169,7 +169,7 @@ namespace GI.DA
                 decimal ValorMercado, int ValorMercadoIdMoneda, decimal ValorPublicacion, int ValorPublicacionIdMoneda, bool EsOtraInmobiliaria,
                 decimal MetrosCubiertos, decimal MetrosSemicubiertos, decimal MetrosLibres, decimal Metros, decimal Fondo, decimal Frente, string Orientacion, int CantidadBanos, int CantidadCocheras,
                 int CantidadDormitorios, int CantidadPlantas, int IdDisposicion, bool EsAptoProfesional, int CantidadPisos, int DeptosPorPiso, int CantidadAscensores,
-                int CantidadAscensoresServicio, int IdTipoZona, string fos, string fot, string zonificacion, decimal mestrosConstruibles)
+                int CantidadAscensoresServicio, int IdTipoZona, string fos, string fot, string zonificacion, decimal mestrosConstruibles, int Antiguedad)
         {
 
             object id = null;
@@ -185,13 +185,13 @@ namespace GI.DA
                  ValorMercado,  ValorMercadoIdMoneda,  ValorPublicacion,  ValorPublicacionIdMoneda,  EsOtraInmobiliaria,
                  MetrosCubiertos,  MetrosSemicubiertos,  MetrosLibres,  Metros,  Fondo,  Frente,  Orientacion,  CantidadBanos,  CantidadCocheras,
                  CantidadDormitorios,  CantidadPlantas,  IdDisposicion,  EsAptoProfesional,  CantidadPisos,  DeptosPorPiso,  CantidadAscensores,
-                 CantidadAscensoresServicio,  IdTipoZona,  fos,  fot, zonificacion,  mestrosConstruibles },
+                 CantidadAscensoresServicio,  IdTipoZona,  fos,  fot, zonificacion,  mestrosConstruibles, Antiguedad },
                     new string[] {"@Descripcion", "@IdPropiedad", "@CantidadAmbientes","@IdTipoPropiedad","@IdEstadoPropiedad","@EnumEstado","@IdCliente",
                         "@IdPais","@IdProvincia","@IdLocalidad","@IdBarrio","@Calle","@Numero","@Depto","@Piso","@CodigoPostal","@CalleEntre1","@CalleEntre2",
                         "@ValorMercadoImporte","@ValorMercadoIdMoneda","@ValorPublicacionImporte","@ValorPublicacionIdMoneda","@EsOtraInmobiliaria",
                         "@MetrosCubiertos","@MetrosSemicubiertos","@MetrosLibres","@Metros","@Fondo","@Frente","@Orientacion","@CantidadBaños","@CantidadCocheras",
 			            "@CantidadDormitorios","@CantidadPlantas","@Disposicion","@EsAptoProfesional","@CantidadPisos","@DepartamentosPorPiso","@CantidadAscensores",
-			            "@CantidadAscensoresServicio","@TipoZona","@Fos","@Fot","@Zonificacion","@MetrosConstruibles"});
+			            "@CantidadAscensoresServicio","@TipoZona","@Fos","@Fot","@Zonificacion","@MetrosConstruibles", "@Antiguedad"});
         }
 
         public int InsertarPropiedades(string Observaciones, decimal CantidadAmbientes, int IdTipoPropiedad, int IdEstadoPropiedad, int IdEnumEstado, int IdCliente,
@@ -199,7 +199,7 @@ namespace GI.DA
                 decimal ValorMercado, int ValorMercadoIdMoneda, decimal ValorPublicacion, int ValorPublicacionIdMoneda, bool EsOtraInmobiliaria,
                 decimal MetrosCubiertos, decimal MetrosSemicubiertos, decimal MetrosLibres, decimal Metros, decimal Fondo, decimal Frente, string Orientacion, int CantidadBanos, int CantidadCocheras,
                 int CantidadDormitorios, int CantidadPlantas, int IdDisposicion, bool EsAptoProfesional, int CantidadPisos, int DeptosPorPiso, int CantidadAscensores,
-                int CantidadAscensoresServicio, int IdTipoZona, string fos, string fot,string zonificacion, decimal mestrosConstruibles)
+                int CantidadAscensoresServicio, int IdTipoZona, string fos, string fot, string zonificacion, decimal mestrosConstruibles, int Antiguedad)
         {
 
 
@@ -216,13 +216,13 @@ namespace GI.DA
                  ValorMercado,  ValorMercadoIdMoneda,  ValorPublicacion,  ValorPublicacionIdMoneda,  EsOtraInmobiliaria,
                  MetrosCubiertos,  MetrosSemicubiertos,  MetrosLibres,  Metros,  Fondo,  Frente,  Orientacion,  CantidadBanos,  CantidadCocheras,
                  CantidadDormitorios,  CantidadPlantas,  IdDisposicion,  EsAptoProfesional,  CantidadPisos,  DeptosPorPiso,  CantidadAscensores,
-                 CantidadAscensoresServicio,  IdTipoZona,  fos,  fot, zonificacion,  mestrosConstruibles },
+                 CantidadAscensoresServicio,  IdTipoZona,  fos,  fot, zonificacion,  mestrosConstruibles, Antiguedad },
                 new string[] { "@Descripcion", "@CantidadAmbientes","@IdTipoPropiedad","@IdEstadoPropiedad","@EnumEstado","@IdCliente",
                         "@IdPais","@IdProvincia","@IdLocalidad","@IdBarrio","@Calle","@Numero","@Depto","@Piso","@CodigoPostal","@CalleEntre1","@CalleEntre2",
                         "@ValorMercadoImporte","@ValorMercadoIdMoneda","@ValorPublicacionImporte","@ValorPublicacionIdMoneda","@EsOtraInmobiliaria",
                         "@MetrosCubiertos","@MetrosSemicubiertos","@MetrosLibres","@Metros","@Fondo","@Frente","@Orientacion","@CantidadBaños","@CantidadCocheras",
 			            "@CantidadDormitorios","@CantidadPlantas","@Disposicion","@EsAptoProfesional","@CantidadPisos","@DepartamentosPorPiso","@CantidadAscensores",
-			            "@CantidadAscensoresServicio","@TipoZona","@Fos","@Fot","@Zonificacion","@MetrosConstruibles"});
+			            "@CantidadAscensoresServicio","@TipoZona","@Fos","@Fot","@Zonificacion","@MetrosConstruibles", "@Antiguedad"});
 
         }
 
@@ -256,12 +256,12 @@ namespace GI.DA
                 new string[] { "@IdMedida" });
         }
 
-        public int GuardarMedidaAmbiente(decimal Ancho, decimal Largo, string Ambiente, int IdTipoPiso, int IdPropiedad)
+        public int GuardarMedidaAmbiente(decimal Ancho, decimal Largo, string Ambiente, int IdTipoPiso, int IdPropiedad, int IdTipoAmbiente)
         {
             return AccesoDatos.InsertarRegistro(
                 "Propiedades_MedidadasAmbiente_Insertar",
-                new object[] { Ancho, Largo, Ambiente, IdTipoPiso, IdPropiedad },
-                new string[] { "@Ancho", "@Largo", "@Ambiente", "@IdTipoPiso", "@IdPropiedad" });
+                new object[] { Ancho, Largo, Ambiente, IdTipoPiso, IdPropiedad, IdTipoAmbiente },
+                new string[] { "@Ancho", "@Largo", "@Ambiente", "@IdTipoPiso", "@IdPropiedad", "@IdTipoAmbiente" });
         }
 
         #endregion
@@ -522,6 +522,19 @@ namespace GI.DA
         }
 
         #endregion
+
+
+        #region Tipos de Ambiente
+
+        public IDataReader RecuperarTiposDeAmbiente()
+        {
+            return AccesoDatos.RecuperarDatos("Propiedades_TiposDeAmbiente_RecuperarTodos", new object[] { }, new string[] { });
+
+        }
+
+
+        #endregion
+
 
     }
 }

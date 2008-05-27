@@ -40,6 +40,7 @@ namespace GI.UI.Propiedades.Formularios
             this.textBoxAlto = new System.Windows.Forms.TextBox();
             this.bCancelar = new System.Windows.Forms.Button();
             this.bAceptar = new System.Windows.Forms.Button();
+            this.cbTipoAmbiente = new GI.Framework.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.medidaAmbienteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@ namespace GI.UI.Propiedades.Formularios
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 58);
+            this.label2.Location = new System.Drawing.Point(45, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 1;
@@ -64,7 +65,7 @@ namespace GI.UI.Propiedades.Formularios
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(261, 58);
+            this.label3.Location = new System.Drawing.Point(261, 92);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 2;
@@ -82,9 +83,9 @@ namespace GI.UI.Propiedades.Formularios
             // textBoxAmbiente
             // 
             this.textBoxAmbiente.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidaAmbienteBindingSource, "NombreAmbiente", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxAmbiente.Location = new System.Drawing.Point(88, 17);
+            this.textBoxAmbiente.Location = new System.Drawing.Point(88, 44);
             this.textBoxAmbiente.Name = "textBoxAmbiente";
-            this.textBoxAmbiente.Size = new System.Drawing.Size(128, 21);
+            this.textBoxAmbiente.Size = new System.Drawing.Size(121, 21);
             this.textBoxAmbiente.TabIndex = 4;
             // 
             // medidaAmbienteBindingSource
@@ -104,23 +105,23 @@ namespace GI.UI.Propiedades.Formularios
             // 
             // textBoxAncho
             // 
-            this.textBoxAncho.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidaAmbienteBindingSource, "Ancho", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N1"));
-            this.textBoxAncho.Location = new System.Drawing.Point(88, 55);
+            this.textBoxAncho.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidaAmbienteBindingSource, "Ancho", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N2"));
+            this.textBoxAncho.Location = new System.Drawing.Point(88, 89);
             this.textBoxAncho.Name = "textBoxAncho";
             this.textBoxAncho.Size = new System.Drawing.Size(52, 21);
             this.textBoxAncho.TabIndex = 6;
             // 
             // textBoxAlto
             // 
-            this.textBoxAlto.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidaAmbienteBindingSource, "Largo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N1"));
-            this.textBoxAlto.Location = new System.Drawing.Point(301, 55);
+            this.textBoxAlto.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidaAmbienteBindingSource, "Largo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N2"));
+            this.textBoxAlto.Location = new System.Drawing.Point(301, 89);
             this.textBoxAlto.Name = "textBoxAlto";
             this.textBoxAlto.Size = new System.Drawing.Size(52, 21);
             this.textBoxAlto.TabIndex = 7;
             // 
             // bCancelar
             // 
-            this.bCancelar.Location = new System.Drawing.Point(365, 109);
+            this.bCancelar.Location = new System.Drawing.Point(359, 140);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 8;
@@ -130,7 +131,7 @@ namespace GI.UI.Propiedades.Formularios
             // 
             // bAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(284, 109);
+            this.bAceptar.Location = new System.Drawing.Point(278, 140);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
             this.bAceptar.TabIndex = 9;
@@ -138,11 +139,24 @@ namespace GI.UI.Propiedades.Formularios
             this.bAceptar.UseVisualStyleBackColor = true;
             this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
+            // cbTipoAmbiente
+            // 
+            this.cbTipoAmbiente.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.medidaAmbienteBindingSource, "TipoAmbiente", true));
+            this.cbTipoAmbiente.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.medidaAmbienteBindingSource, "TipoAmbiente", true));
+            this.cbTipoAmbiente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoAmbiente.FormattingEnabled = true;
+            this.cbTipoAmbiente.Location = new System.Drawing.Point(88, 17);
+            this.cbTipoAmbiente.Name = "cbTipoAmbiente";
+            this.cbTipoAmbiente.Size = new System.Drawing.Size(121, 21);
+            this.cbTipoAmbiente.TabIndex = 10;
+            this.cbTipoAmbiente.SelectedIndexChanged += new System.EventHandler(this.cbTipoAmbiente_SelectedIndexChanged);
+            // 
             // FrmMedida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 144);
+            this.ClientSize = new System.Drawing.Size(452, 175);
+            this.Controls.Add(this.cbTipoAmbiente);
             this.Controls.Add(this.bAceptar);
             this.Controls.Add(this.bCancelar);
             this.Controls.Add(this.textBoxAlto);
@@ -180,5 +194,6 @@ namespace GI.UI.Propiedades.Formularios
         private System.Windows.Forms.Button bCancelar;
         private System.Windows.Forms.Button bAceptar;
         private System.Windows.Forms.BindingSource medidaAmbienteBindingSource;
+        private GI.Framework.ComboBox cbTipoAmbiente;
     }
 }

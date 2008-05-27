@@ -11,6 +11,13 @@ namespace GI.BR.Propiedades
 
         private int idTipoAmbiente;
         private string nombre;
+        private int codigo;
+
+        public int Codigo
+        {
+            get { return codigo; }
+            set { codigo = value; }
+        }
 
         public int IdTipoAmbiente
         {

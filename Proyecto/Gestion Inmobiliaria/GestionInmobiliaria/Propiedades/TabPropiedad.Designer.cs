@@ -29,7 +29,6 @@ namespace GI.UI.Propiedades
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            GI.BR.Propiedades.Ubicacion ubicacion1 = new GI.BR.Propiedades.Ubicacion();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabPropiedad));
             this.propiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.direccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -70,6 +69,7 @@ namespace GI.UI.Propiedades
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxDetalles = new System.Windows.Forms.TextBox();
             this.pictureBoxFechada = new System.Windows.Forms.PictureBox();
+            this.linkLabelOtraInmb = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.direccionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource1)).BeginInit();
@@ -98,7 +98,7 @@ namespace GI.UI.Propiedades
             // 
             this.LinkPropietario.AutoSize = true;
             this.LinkPropietario.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.propiedadBindingSource, "Propietario", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.LinkPropietario.Location = new System.Drawing.Point(309, 38);
+            this.LinkPropietario.Location = new System.Drawing.Point(316, 38);
             this.LinkPropietario.Name = "LinkPropietario";
             this.LinkPropietario.Size = new System.Drawing.Size(127, 13);
             this.LinkPropietario.TabIndex = 3;
@@ -240,7 +240,7 @@ namespace GI.UI.Propiedades
             // 
             this.checkBoxEsOtraPropiedad.AutoSize = true;
             this.checkBoxEsOtraPropiedad.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.propiedadBindingSource, "EsOtraInmobiliaria", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxEsOtraPropiedad.Location = new System.Drawing.Point(312, 65);
+            this.checkBoxEsOtraPropiedad.Location = new System.Drawing.Point(297, 65);
             this.checkBoxEsOtraPropiedad.Name = "checkBoxEsOtraPropiedad";
             this.checkBoxEsOtraPropiedad.Size = new System.Drawing.Size(15, 14);
             this.checkBoxEsOtraPropiedad.TabIndex = 4;
@@ -249,7 +249,7 @@ namespace GI.UI.Propiedades
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(329, 65);
+            this.label17.Location = new System.Drawing.Point(209, 64);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(86, 13);
             this.label17.TabIndex = 32;
@@ -337,7 +337,7 @@ namespace GI.UI.Propiedades
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(248, 38);
+            this.label3.Location = new System.Drawing.Point(251, 38);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 4;
@@ -389,14 +389,10 @@ namespace GI.UI.Propiedades
             this.ctrlUbicacion1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlUbicacion1.Location = new System.Drawing.Point(16, 274);
             this.ctrlUbicacion1.Name = "ctrlUbicacion1";
+            this.ctrlUbicacion1.OpcionTodos = false;
             this.ctrlUbicacion1.Size = new System.Drawing.Size(443, 89);
             this.ctrlUbicacion1.SoloLectura = false;
             this.ctrlUbicacion1.TabIndex = 40;
-            ubicacion1.Barrio = null;
-            ubicacion1.Localidad = null;
-            ubicacion1.Pais = null;
-            ubicacion1.Provincia = null;
-
             // 
             // ctrlDireccion1
             // 
@@ -438,10 +434,21 @@ namespace GI.UI.Propiedades
             this.pictureBoxFechada.TabIndex = 44;
             this.pictureBoxFechada.TabStop = false;
             // 
+            // linkLabelOtraInmb
+            // 
+            this.linkLabelOtraInmb.AutoSize = true;
+            this.linkLabelOtraInmb.Location = new System.Drawing.Point(315, 64);
+            this.linkLabelOtraInmb.Name = "linkLabelOtraInmb";
+            this.linkLabelOtraInmb.Size = new System.Drawing.Size(118, 13);
+            this.linkLabelOtraInmb.TabIndex = 2;
+            this.linkLabelOtraInmb.TabStop = true;
+            this.linkLabelOtraInmb.Text = "Seleccionar Inmobiliaria";
+            // 
             // TabPropiedad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.linkLabelOtraInmb);
             this.Controls.Add(this.pictureBoxFechada);
             this.Controls.Add(this.textBoxDetalles);
             this.Controls.Add(this.label5);
@@ -525,5 +532,6 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxDetalles;
         private System.Windows.Forms.PictureBox pictureBoxFechada;
+        private System.Windows.Forms.LinkLabel linkLabelOtraInmb;
     }
 }

@@ -60,7 +60,9 @@
     <Compile Include="Eventos\EventoVisita.cs" />
     <Compile Include="Eventos\FactoryEventos.cs" />
     <Compile Include="General\enumTipoDocumento.cs" />
-    <Compile Include="Inmobiliaria.cs" />
+    <Compile Include="Inmobiliarias\Inmobiliaria.cs" />
+    <Compile Include="Inmobiliarias\InmobiliariaExterna.cs" />
+    <Compile Include="Inmobiliarias\InmobiliariasExternas.cs" />
     <Compile Include="Mail\SmtpConfig.cs" />
     <Compile Include="Monedas\Moneda.cs" />
     <Compile Include="Monedas\Monedas.cs" />

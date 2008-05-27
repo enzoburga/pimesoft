@@ -10,48 +10,54 @@ namespace GI.BR
         { }
 
         private int idInmobiliaria;
+        private string descripcion;
+        private string personaResponsable;
+        private string nombre;
+        private Propiedades.Direccion direccion;
+        private string telefono;
+        private string fax;
 
         public int IdInmobiliaria
         {
             get { return idInmobiliaria; }
             set { idInmobiliaria = value; }
         }
-        private string descripcion;
+       
 
         public string Descripcion
         {
             get { return descripcion; }
             set { descripcion = value; }
         }
-        private string personaResponsable;
+        
 
         public string PersonaResponsable
         {
             get { return personaResponsable; }
             set { personaResponsable = value; }
         }
-        private string nombre;
+        
 
         public string Nombre
         {
             get { return nombre; }
             set { nombre = value; }
         }
-        private Propiedades.Direccion direccion;
+        
 
         public Propiedades.Direccion Direccion
         {
             get { return direccion; }
             set { direccion = value; }
         }
-        private string telefono;
+        
 
         public string Telefono
         {
             get { return telefono; }
             set { telefono = value; }
         }
-        private string fax;
+        
 
         public string Fax
         {

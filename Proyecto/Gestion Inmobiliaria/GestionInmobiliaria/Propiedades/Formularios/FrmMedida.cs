@@ -29,6 +29,7 @@ namespace GI.UI.Propiedades.Formularios
             {
                 medida = value;
                 medida.TipoDePiso = (GI.BR.Propiedades.TipoDePiso)cbTipoPiso.SelectedItem;
+                medida.TipoAmbiente = (GI.BR.Propiedades.TipoAmbiente)cbTipoAmbiente.SelectedItem;
                 medidaAmbienteBindingSource.Add(medida);
             }
         }
@@ -42,6 +43,14 @@ namespace GI.UI.Propiedades.Formularios
                 cbTipoPiso.Items.Add(piso);
 
             cbTipoPiso.SelectedIndex = 0;
+
+
+            cbTipoAmbiente.Items.Clear();
+            GI.BR.Propiedades.TiposAmbiente tiposAmb = new GI.BR.Propiedades.TiposAmbiente();
+            tiposAmb.RecuperarTodos();
+            foreach (GI.BR.Propiedades.TipoAmbiente amb in tiposAmb)
+                cbTipoAmbiente.Items.Add(amb);
+            cbTipoAmbiente.SelectedIndex = 0;
             
         }
 
@@ -56,6 +65,23 @@ namespace GI.UI.Propiedades.Formularios
         {
             DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        private void cbTipoAmbiente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbTipoAmbiente.SelectedItem == null) return;
+            textBoxAmbiente.Text = "";
+            GI.BR.Propiedades.TipoAmbiente ta = (GI.BR.Propiedades.TipoAmbiente)cbTipoAmbiente.SelectedItem;
+            if (ta.Codigo == 0)
+            {
+                textBoxAmbiente.Enabled = true;
+
+            }
+            else
+            {
+                textBoxAmbiente.Enabled = false;
+                
+            }
         }
     }
 }
