@@ -261,6 +261,7 @@ namespace GI.UI.AdminAlquileres
             nuevoContrato.Deposito = AdmAlquiler.ContratoVigente.Deposito;
             nuevoContrato.DiaCobro = AdmAlquiler.ContratoVigente.DiaCobro;
             nuevoContrato.FechaInicio = AdmAlquiler.ContratoVigente.FechaVencimiento.AddDays(1);
+            nuevoContrato.Inquilino = admAlquiler.ContratoVigente.Inquilino;
 
             nuevoContrato.Vigente = true;
             nuevoContrato.Observaciones = "";

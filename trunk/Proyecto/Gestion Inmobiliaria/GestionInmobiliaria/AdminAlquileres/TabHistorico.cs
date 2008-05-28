@@ -26,6 +26,11 @@ namespace GI.UI.AdminAlquileres
 
         private GI.BR.AdmAlquileres.Contratos contratos;
 
+        public override bool AsignarSoloLectura(Control Ctrl)
+        {
+            return false;
+        }
+
         private void LlenarLista()
         {
             lvContratos.Items.Clear();
@@ -49,6 +54,18 @@ namespace GI.UI.AdminAlquileres
             }
 
             lvContratos.EndUpdate();
+        }
+
+        private void lvContratos_DoubleClick(object sender, EventArgs e)
+        {
+            if (lvContratos.SelectedItems.Count != 1)
+                return;
+
+            frmNuevoContrato frm = new frmNuevoContrato();
+            frm.Contrato = (GI.BR.AdmAlquileres.Contrato)lvContratos.SelectedItems[0].Tag;
+            frm.SoloLectura = true;
+            frm.Text = "Ficha de contrato";
+            frm.Show();
         }
 
     }

@@ -172,7 +172,6 @@ namespace GI.UI.AdminAlquileres
             this.Name = "frmNuevoPago";
             this.ShowInTaskbar = false;
             this.Text = "Nuevo Pago";
-            this.Load += new System.EventHandler(this.frmNuevoPago_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

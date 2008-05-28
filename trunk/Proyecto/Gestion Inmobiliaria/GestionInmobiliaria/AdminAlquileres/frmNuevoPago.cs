@@ -26,8 +26,16 @@ namespace GI.UI.AdminAlquileres
             set
             {
                 pago = value;
-                pagoClone = (GI.BR.AdmAlquileres.Pago)pago.Clone(); 
+                pagoClone = (GI.BR.AdmAlquileres.Pago)pago.Clone();
+                Inicializar();
+                CargarPago();
             }
+        }
+
+        private void CargarPago()
+        {
+            this.cbAnio.SelectedIndex = pago.AnioPagado - DateTime.Today.Year + 1;
+            this.cbMeses.SelectedIndex = pago.MesCancelado - 1;
         }
 
         public GI.BR.AdmAlquileres.Contrato Contrato { get { return contrato; } set { contrato = value; } }
@@ -86,7 +94,7 @@ namespace GI.UI.AdminAlquileres
             this.Close();
         }
 
-        private void frmNuevoPago_Load(object sender, EventArgs e)
+        private void Inicializar()
         {
             cbAnio.Items.Add(DateTime.Today.Year - 1);
             cbAnio.Items.Add(DateTime.Today.Year);

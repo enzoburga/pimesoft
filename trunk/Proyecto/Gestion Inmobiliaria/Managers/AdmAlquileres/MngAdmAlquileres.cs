@@ -100,12 +100,9 @@ namespace GI.Managers.AdmAlquileres
 
                 if (!IncluirVencidos)
                 {
-                    if (adm.ContratoVigente.FechaCancelacion.HasValue)
-                        //NO IMPORTA LA FECHA DE CANCELACION, SI ESTA CANCELADO SE FILTRA.
-                        //if (adm.ContratoVigente.FechaCancelacion.Value < DateTime.Today)
-                            continue;
-                    if (adm.ContratoVigente.FechaVencimiento < DateTime.Today)
+                    if (adm.EsHistorico)
                         continue;
+
                 }
 
                 filtro.Add(adm);

@@ -61,6 +61,21 @@ namespace GI.BR.AdmAlquileres
 
         }
 
+        public bool EsHistorico
+        {
+            get 
+            {
+                if (this.ContratoVigente.FechaCancelacion.HasValue)
+                    //NO IMPORTA LA FECHA DE CANCELACION, SI ESTA CANCELADO SE FILTRA.
+                    //if (adm.ContratoVigente.FechaCancelacion.Value < DateTime.Today)
+                    return true;
+                if (this.ContratoVigente.FechaVencimiento < DateTime.Today)
+                    return true;
+
+                return false;
+            }
+        }
+
 
 
         public Clientes.Propietario Contacto { get { return contacto; } set { contacto = value; } }

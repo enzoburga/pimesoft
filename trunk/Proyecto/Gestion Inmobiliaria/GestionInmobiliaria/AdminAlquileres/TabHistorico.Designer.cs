@@ -48,6 +48,7 @@ namespace GI.UI.AdminAlquileres
             this.lvContratos.TabIndex = 0;
             this.lvContratos.UseCompatibleStateImageBehavior = false;
             this.lvContratos.View = System.Windows.Forms.View.Details;
+            this.lvContratos.DoubleClick += new System.EventHandler(this.lvContratos_DoubleClick);
             // 
             // columnHeader1
             // 

@@ -78,7 +78,7 @@ namespace GI.UI.AdminAlquileres
             }
             else
             {
-                if (cNuevo.FechaInicio <= cExistente.FechaVencimiento)
+                if (cNuevo.FechaInicio >= cExistente.FechaVencimiento)
                     return "La Fecha de Inicio debe ser Menor que la de Vencimiento.";
             }
 
@@ -90,12 +90,17 @@ namespace GI.UI.AdminAlquileres
         private void bAceptar_Click(object sender, EventArgs e)
         {
             string error = Validar();
-            if (error == "")
+            if (error != "")
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                GI.Framework.General.GIMsgBox.Show(error, GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+
             }
-            GI.Framework.General.GIMsgBox.Show(error, GI.Framework.General.enumTipoMensaje.Advertencia);
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+
+
         }
 
         private void bCancelar_Click(object sender, EventArgs e)

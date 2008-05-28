@@ -149,7 +149,7 @@ namespace GI.UI.Generales
             this.Contrato.FechaInicio = dtpFechaInicio.Value;
             if (cBoxCancelado.Checked)
                 this.Contrato.FechaCancelacion = dtpFechaCancelacion.Value;
-            this.Contrato.Deposito.Moneda = (GI.BR.Monedas.Moneda)cbMonedaDepositoContrato.SelectedItem;            
+            this.Contrato.Deposito.Moneda = (GI.BR.Monedas.Moneda)cbMonedaDepositoContrato.SelectedItem;
         }
 
 
