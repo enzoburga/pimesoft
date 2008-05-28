@@ -28,6 +28,8 @@ namespace GI.UI.AdminAlquileres
 
         private void lvAdmAlquileres_DoubleClick(object sender, EventArgs e)
         {
+            if (lvAdmAlquileres.SelectedItems.Count != 1)
+                return;
 
            frmFichaAdmAlquileres frm = new frmFichaAdmAlquileres();
            frm.AdmAlquiler = (GI.BR.AdmAlquileres.AdmAlquiler)lvAdmAlquileres.SelectedItems[0].Tag;
@@ -84,6 +86,10 @@ namespace GI.UI.AdminAlquileres
                     lvi.SubItems.Add(a.ContratoVigente.Inquilino.ToString());
 
                 lvi.SubItems.Add(a.ContratoVigente.FechaVencimiento.ToShortDateString());
+                if (a.EsHistorico)
+                    lvi.SubItems.Add("Histórico");
+                else
+                    lvi.SubItems.Add("Activo");
                 lvi.Tag = a;
                 lvAdmAlquileres.Items.Add(lvi);
 
@@ -114,20 +120,13 @@ namespace GI.UI.AdminAlquileres
 
         private void editarFichaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GI.BR.AdmAlquileres.AdmAlquiler admAlq = (GI.BR.AdmAlquileres.AdmAlquiler)lvAdmAlquileres.SelectedItems[0].Tag;
-            if (admAlq.EsHistorico)
-            {
-                GI.Framework.General.GIMsgBox.Show("El pedido es histórico, se abrira en modo solo lectura.", GI.Framework.General.enumTipoMensaje.Informacion);
-                lvAdmAlquileres_DoubleClick(sender, e);                
-            }
-            else
-            {
+            if (lvAdmAlquileres.SelectedItems.Count != 1)
+                return;
 
             frmFichaAdmAlquileres frm = new frmFichaAdmAlquileres();
             frm.AdmAlquiler = ((GI.BR.AdmAlquileres.AdmAlquiler)lvAdmAlquileres.SelectedItems[0].Tag);
             if (frm.ShowDialog() == DialogResult.OK)
                 LlenarLista();
-            }
         }
 
         private void imprimirListadotoolStripButton_Click(object sender, EventArgs e)
