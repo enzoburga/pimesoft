@@ -105,6 +105,7 @@ namespace GI.UI.Propiedades
 
                 Propiedad.Direccion = new GI.BR.Propiedades.Direccion();
 
+               
 
             }
 
@@ -152,6 +153,19 @@ namespace GI.UI.Propiedades
 
             }
 
+
+            if (Propiedad.EsOtraInmobiliaria)
+            {
+                linkLabelOtraInmb.Enabled = true;
+                linkLabelOtraInmb.Text = "Seleccione una inmobiliaria";
+            }
+            else
+            {
+                linkLabelOtraInmb.Text = GI.BR.Inmobiliaria.GetInmobiliaria().Nombre;
+                linkLabelOtraInmb.Enabled = false;
+            }
+           
+
             GI.BR.Propiedades.Galeria.Foto foto = null;
             if ((foto = Propiedad.GaleriaFotos.GetFotoFachada) != null)
             {
@@ -182,6 +196,9 @@ namespace GI.UI.Propiedades
             if (Ctrl.Name == "LinkPropietario" && Ctrl.Text != "Seleccione un propietario")
                 return false;
 
+            if (Ctrl.Name == "linkLabelOtraInmb" && Propiedad.EsOtraInmobiliaria && Ctrl.Text != "Seleccione una inmobiliaria")
+                return false;
+
             return base.AsignarSoloLectura(Ctrl);
         }
 
@@ -189,6 +206,37 @@ namespace GI.UI.Propiedades
         #endregion
 
         #region eventos
+
+        private void linkLabelOtraInmb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+            if (linkLabelOtraInmb.Text == "Seleccione una inmobiliaria")
+            {
+                GI.UI.Inmobiliarias.SeleccionadorInmobiliariaExterna seleccionador = new GI.UI.Inmobiliarias.SeleccionadorInmobiliariaExterna();
+                Framework.frmSeleccionador frmSeleccionador = new GI.Framework.frmSeleccionador(seleccionador);
+                if (frmSeleccionador.ShowDialog() == DialogResult.OK)
+                {
+                    linkLabelOtraInmb.Tag = (GI.BR.InmobiliariaExterna)frmSeleccionador.ObjetoSeleccionado;
+                    linkLabelOtraInmb.Text = frmSeleccionador.ObjetoSeleccionado.ToString();
+                }
+
+            }
+            else
+            {
+                if (linkLabelOtraInmb.Tag != null)
+                {
+                    Inmobiliarias.FrmInmobiliariaExterna frm = new Inmobiliarias.FrmInmobiliariaExterna((GI.BR.InmobiliariaExterna)linkLabelOtraInmb.Tag);
+                    frm.SoloLectura = SoloLectura;
+                    
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        linkLabelOtraInmb.Text = linkLabelOtraInmb.Tag.ToString();
+                    }
+
+                }
+            }
+            
+        }
 
         private void cbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -294,10 +342,30 @@ namespace GI.UI.Propiedades
         {
 
         }
+        private void checkBoxEsOtraPropiedad_CheckedChanged(object sender, EventArgs e)
+        {
+            linkLabelOtraInmb.Tag = null;
+
+            if (!checkBoxEsOtraPropiedad.Checked)
+            {
+                linkLabelOtraInmb.Text = GI.BR.Inmobiliaria.GetInmobiliaria().Nombre;
+                linkLabelOtraInmb.Enabled = false;
+
+
+            }
+            else
+            {
+                linkLabelOtraInmb.Text = "Seleccione una inmobiliaria";
+                linkLabelOtraInmb.Enabled = true;
+            }
+        }
+
+
 
 
         #endregion
 
+       
         
     }
 }

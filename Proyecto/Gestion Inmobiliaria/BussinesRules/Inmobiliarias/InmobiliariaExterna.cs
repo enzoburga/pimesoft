@@ -17,12 +17,18 @@ namespace GI.BR
 
         public bool Crear()
         {
-            return false;
+            IdInmobiliaria = new DA.InmobiliariasData().CrearInmobiliariaExterna(
+                Nombre,
+                Telefono,
+                PersonaResponsable);
+
+            return IdInmobiliaria > 0;
         }
 
         public bool Actualizar()
         {
-            return false;
+            return new DA.InmobiliariasData().ActualizarInmobiliariaExterna(IdInmobiliaria, Nombre, Telefono, PersonaResponsable);
+
         }
     }
 }

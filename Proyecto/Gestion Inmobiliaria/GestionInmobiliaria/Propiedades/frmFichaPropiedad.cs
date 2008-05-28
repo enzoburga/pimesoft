@@ -276,10 +276,27 @@ namespace GI.UI.Propiedades
                 return;
             }
 
+            GI.Reportes.ReporteAbs reporte = null;
 
+            if (tabControl1.SelectedIndex == 4)
+            {
+                reporte = new GI.Reportes.Clases.Propiedades.ReporteListadoLlamados(Propiedad);
+            }
+            else if (tabControl1.SelectedIndex == 3)
+            {
+                reporte = new GI.Reportes.Clases.Propiedades.ReporteVisitas(Propiedad);
+            }
+            else if (tabControl1.SelectedIndex == 5)
+            {
+                reporte = new GI.Reportes.Clases.Propiedades.ReporteListadoPublicaciones(Propiedad);
+            }
+            else
+            {
 
+                reporte = new GI.Reportes.Clases.Propiedades.ReporteFichaPropiedad(Propiedad);
 
-            GI.Reportes.Clases.Propiedades.ReporteFichaPropiedad reporte = new GI.Reportes.Clases.Propiedades.ReporteFichaPropiedad(Propiedad);
+            }
+
             GI.Reportes.Visor.FrmVisorReporte frmVisor = new GI.Reportes.Visor.FrmVisorReporte(reporte);
             frmVisor.ShowDialog();
         }

@@ -78,10 +78,15 @@ namespace GI.Framework
 
         private void toolStripButtonBuscar_Click(object sender, EventArgs e)
         {
+
+
+
             if (claseSeleccionador.GetBuscador() == null)
                 BuscarGenerico();
             else
             {
+
+
                 if (claseSeleccionador.GetBuscador().MostrarBuscador() == DialogResult.OK)
                 {
                     System.Collections.Generic.List<object> resultado = claseSeleccionador.GetBuscador().GetObjetosEncontrados();
@@ -100,7 +105,15 @@ namespace GI.Framework
 
         private void BuscarGenerico()
         {
-            Seleccionador.frmBuscador frmBuscar = new GI.Framework.Seleccionador.frmBuscador(claseSeleccionador.GetMetodosBusqueda());
+
+            List<Framework.Seleccionador.MetodoBusqueda> metodos = claseSeleccionador.GetMetodosBusqueda();
+            if (metodos == null)
+            {
+                Framework.General.GIMsgBox.Show("No hay métodos de búsqueda disponibles.", GI.Framework.General.enumTipoMensaje.Informacion);
+                return;
+            }
+
+            Seleccionador.frmBuscador frmBuscar = new GI.Framework.Seleccionador.frmBuscador(metodos);
 
 
             if (frmBuscar.ShowDialog() == DialogResult.OK)

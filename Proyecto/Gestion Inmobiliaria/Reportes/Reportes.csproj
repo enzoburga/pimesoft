@@ -50,6 +50,8 @@
     <Compile Include="Clases\Propiedades\ReporteFichaPropiedad.cs" />
     <Compile Include="Clases\Propiedades\ReporteListadoLlamados.cs" />
     <Compile Include="Clases\Propiedades\ReporteListadoPropiedades.cs" />
+    <Compile Include="Clases\Propiedades\ReporteListadoPublicaciones.cs" />
+    <Compile Include="Clases\Propiedades\ReporteListadoVisitas.cs" />
     <Compile Include="DataSet\DSFichaPropiedad.cs">
       <DependentUpon>DSFichaPropiedad.xsd</DependentUpon>
     </Compile>

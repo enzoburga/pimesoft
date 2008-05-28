@@ -189,6 +189,13 @@
     <Compile Include="Generales\FrmSmtpConfig.Designer.cs">
       <DependentUpon>FrmSmtpConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inmobiliarias\FrmInmobiliariaExterna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inmobiliarias\FrmInmobiliariaExterna.Designer.cs">
+      <DependentUpon>FrmInmobiliariaExterna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inmobiliarias\SeleccionadorInmobiliariaExterna.cs" />
     <Compile Include="Pedidos\frmBuscarPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,6 +337,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>FrmSmtpConfig.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inmobiliarias\FrmInmobiliariaExterna.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmInmobiliariaExterna.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pedidos\frmBuscarPedidos.resx">
       <DependentUpon>frmBuscarPedidos.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -463,6 +474,7 @@
     <None Include="Properties\DataSources\GI.BR.AdmAlquileres.ValorRenta.datasource" />
     <None Include="Properties\DataSources\GI.BR.Clientes.Cliente.datasource" />
     <None Include="Properties\DataSources\GI.BR.Clientes.Inquilino.datasource" />
+    <None Include="Properties\DataSources\GI.BR.InmobiliariaExterna.datasource" />
     <None Include="Properties\DataSources\GI.BR.Monedas.Moneda.datasource" />
     <None Include="Properties\DataSources\GI.BR.Pedidos.Pedido.datasource" />
     <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion.datasource" />

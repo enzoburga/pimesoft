@@ -76,7 +76,7 @@ namespace GI.UI.Propiedades
         public System.Windows.Forms.ColumnHeader[] GetColumnsHeader()
         {
 
-            System.Windows.Forms.ColumnHeader[] columns = new System.Windows.Forms.ColumnHeader[2];
+            System.Windows.Forms.ColumnHeader[] columns = new System.Windows.Forms.ColumnHeader[5];
 
             System.Windows.Forms.ColumnHeader column;
 
@@ -94,17 +94,17 @@ namespace GI.UI.Propiedades
             column = new System.Windows.Forms.ColumnHeader();
             column.Text = "Estado";
             column.Width = 250;
-            columns[1] = column;
+            columns[2] = column;
 
             column = new System.Windows.Forms.ColumnHeader();
             column.Text = "Partido";
             column.Width = 250;
-            columns[1] = column;
+            columns[3] = column;
 
             column = new System.Windows.Forms.ColumnHeader();
             column.Text = "Barrio";
             column.Width = 250;
-            columns[1] = column;
+            columns[4] = column;
             return columns;
 
         }
