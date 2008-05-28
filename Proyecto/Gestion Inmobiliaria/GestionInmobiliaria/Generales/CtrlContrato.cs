@@ -87,27 +87,31 @@ namespace GI.UI.Generales
             }
 
 
-            if (!contrato.FechaCancelacion.HasValue)
-            {
+            //if (!contrato.FechaCancelacion.HasValue)
+            //{
                 cBoxCancelado.Checked = false;
                 dtpFechaCancelacion.Enabled = false;
-            }
-            else
-            {
-                cBoxCancelado.Checked = true;
-                dtpFechaCancelacion.Value = this.Contrato.FechaCancelacion.Value;
-            }
+            //}
+            //else
+            //{
+            //    cBoxCancelado.Checked = true;
+            //    dtpFechaCancelacion.Value = this.Contrato.FechaCancelacion.Value;
+            //}
 
             //Cargo solo si no es un contrato nuevo.
             if (this.Contrato.IdContrato != 0)
             {
-                                                this.lvMontos.Enabled = true;
+                this.lvMontos.Enabled = true;
                 this.llAgregarMonto.Enabled = true;
                 this.llModificarMonto.Enabled = true;
                 this.llEliminarMonto.Enabled = true;
 
-                if (this.Contrato.FechaCancelacion.HasValue)
-                    dtpFechaCancelacion.Value = Contrato.FechaCancelacion.Value;
+                if (contrato.FechaCancelacion.HasValue)
+                {                    
+                    cBoxCancelado.Checked = true;
+                    dtpFechaCancelacion.Enabled = true;
+                    dtpFechaCancelacion.Value = this.Contrato.FechaCancelacion.Value;
+                }
 
                 dtpFechaInicio.Value = this.Contrato.FechaInicio;
                 dtpFechaVencimiento.Value = this.Contrato.FechaVencimiento;
@@ -116,7 +120,7 @@ namespace GI.UI.Generales
             }
             else
             {
-                                this.lvMontos.Enabled = false;
+                this.lvMontos.Enabled = false;
                 this.llAgregarMonto.Enabled = false;
                 this.llModificarMonto.Enabled = false;
                 this.llEliminarMonto.Enabled = false;
