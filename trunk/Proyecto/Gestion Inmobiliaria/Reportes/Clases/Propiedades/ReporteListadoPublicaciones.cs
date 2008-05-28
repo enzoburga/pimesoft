@@ -4,11 +4,11 @@ using System.Text;
 
 namespace GI.Reportes.Clases.Propiedades
 {
-    public class ReporteListadoLlamados : ReporteAbs
+    public class ReporteListadoPublicaciones : ReporteAbs
     {
         private GI.BR.Propiedades.Propiedad propiedad;
 
-        public ReporteListadoLlamados(GI.BR.Propiedades.Propiedad Propiedad)
+        public ReporteListadoPublicaciones(GI.BR.Propiedades.Propiedad Propiedad)
             : base()
         {
 
@@ -35,24 +35,26 @@ namespace GI.Reportes.Clases.Propiedades
             row_encabezado.Direccion = propiedad.Direccion.ToString() + " " + propiedad.Ubicacion.Barrio.ToString();
             row_encabezado.Operacion = propiedad is GI.BR.Propiedades.Venta ? propiedad.TipoPropiedad + " en Venta" : propiedad.TipoPropiedad + " en Alquiler";
 
-            row_encabezado.NombreListado = "Listado de Llamados";
+            row_encabezado.NombreListado = "Listado de Publicaciones";
 
             row_encabezado.Operacion = propiedad is GI.BR.Propiedades.Venta ? propiedad.TipoPropiedad.Descripcion + " en Venta" : propiedad.TipoPropiedad.Descripcion + " en Alquiler";
 
             ds.Encabezado.Rows.Add(row_encabezado);
 
-            GI.BR.Propiedades.Llamados llamados = new GI.BR.Propiedades.Llamados();
-            llamados.Recuperar(propiedad);
+            GI.BR.Propiedades.Publicaciones publicaciones = new GI.BR.Propiedades.Publicaciones();
+            publicaciones.Recuperar(propiedad);
 
             DataSet.DSPropiedadAnexo.DatosRow row = null;
 
-            foreach (GI.BR.Propiedades.Llamado l in llamados)
+            foreach (GI.BR.Propiedades.Publicacion p in publicaciones)
             {
                 row = ds.Datos.NewDatosRow();
 
-                row.Fecha = l.FechaHora.ToString();
-                row.Detalle = "Contacto: " + l.Contacto + ". " + l.Telefono + ". " + l.Comentario;
+                row.Fecha = p.Fecha.ToShortDateString();
+                row.Detalle = "" + p.Medio + ". " + p.Detalles;
 
+                row.Estado = p.ValorPublicacion.ToString();
+                
                 ds.Datos.Rows.Add(row);
             
             
@@ -62,7 +64,5 @@ namespace GI.Reportes.Clases.Propiedades
 
             return ds;
         }
-
-
     }
 }

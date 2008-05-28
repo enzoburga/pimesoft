@@ -65,7 +65,10 @@ namespace GI.BR
             set { fax = value; }
         }
 
-
+        public override string ToString()
+        {
+            return Nombre;
+        }
 
         public static Inmobiliaria GetInmobiliaria()
         {

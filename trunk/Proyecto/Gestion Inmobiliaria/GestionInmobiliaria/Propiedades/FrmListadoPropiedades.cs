@@ -265,7 +265,16 @@ namespace GI.UI.Propiedades
 
         private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            toolStripButtonImprimir_Click(null, null);
+
+            if (lvPropiedades.SelectedItems.Count != 1) return;
+            Reportes.Clases.Propiedades.ReporteFichaPropiedad Reporte = new GI.Reportes.Clases.Propiedades.ReporteFichaPropiedad(
+                (GI.BR.Propiedades.Propiedad)lvPropiedades.SelectedItems[0].Tag);
+
+            Reportes.Visor.FrmVisorReporte frmVisor = new GI.Reportes.Visor.FrmVisorReporte(Reporte);
+            frmVisor.ShowDialog();
+
+
+
         }
 
         private void enviarACorreoElectrónicoToolStripMenuItem_Click(object sender, EventArgs e)
