@@ -114,10 +114,20 @@ namespace GI.UI.AdminAlquileres
 
         private void editarFichaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            GI.BR.AdmAlquileres.AdmAlquiler admAlq = (GI.BR.AdmAlquileres.AdmAlquiler)lvAdmAlquileres.SelectedItems[0].Tag;
+            if (admAlq.EsHistorico)
+            {
+                GI.Framework.General.GIMsgBox.Show("El pedido es histórico, se abrira en modo solo lectura.", GI.Framework.General.enumTipoMensaje.Informacion);
+                lvAdmAlquileres_DoubleClick(sender, e);                
+            }
+            else
+            {
+
             frmFichaAdmAlquileres frm = new frmFichaAdmAlquileres();
-            frm.AdmAlquiler = (GI.BR.AdmAlquileres.AdmAlquiler)lvAdmAlquileres.SelectedItems[0].Tag;
+            frm.AdmAlquiler = ((GI.BR.AdmAlquileres.AdmAlquiler)lvAdmAlquileres.SelectedItems[0].Tag);
             if (frm.ShowDialog() == DialogResult.OK)
                 LlenarLista();
+            }
         }
 
         private void imprimirListadotoolStripButton_Click(object sender, EventArgs e)
