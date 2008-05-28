@@ -56,8 +56,6 @@ namespace GI.UI.Carteles
 
             this.cbActivo.Checked = this.cartel.Activo;
 
-            this.cartel.UbicacionCartel = (GI.BR.Carteles.UbicacionCartel)cbUbicacion.SelectedItem;
-
             foreach(GI.BR.Carteles.UbicacionCartel uc in cbUbicacion.Items)
             {
                 if(uc.IdUbicacionCartel == cartel.UbicacionCartel.IdUbicacionCartel)

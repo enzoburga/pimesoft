@@ -35,6 +35,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Carteles\MngCarteles.cs" />
     <Compile Include="Clientes\enumTipoCliente.cs" />
     <Compile Include="Clientes\mngClientes.cs" />
     <Compile Include="AdmAlquileres\MngAdmAlquileres.cs" />

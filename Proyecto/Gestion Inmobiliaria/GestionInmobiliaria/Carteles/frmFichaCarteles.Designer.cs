@@ -48,7 +48,7 @@ namespace GI.UI.Carteles
             this.bCancelar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbUbicacion = new System.Windows.Forms.ComboBox();
+            this.cbUbicacion = new GI.Framework.ComboBox();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -307,7 +307,7 @@ namespace GI.UI.Carteles
         private System.Windows.Forms.Button cAceptar;
         private System.Windows.Forms.Button bCancelar;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox cbUbicacion;
+        private GI.Framework.ComboBox cbUbicacion;
         private System.Windows.Forms.Label label6;
     }
 }
