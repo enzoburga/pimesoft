@@ -196,10 +196,12 @@ namespace GI.UI.AdminAlquileres
             if (frmNuevoContrato.ShowDialog() == DialogResult.OK)
             {
                 nuevoContrato.Alquiler = AdmAlquiler.Alquiler;
+                nuevoContrato.ContratoAnterior = this.AdmAlquiler.ContratoVigente;
+
                 if (nuevoContrato.Guardar())
                 {
                     this.AdmAlquiler.ContratoVigente.Vigente = false;
-                    this.AdmAlquiler.ContratoVigente.ContratoAnterior = nuevoContrato;
+                    //this.AdmAlquiler.ContratoVigente.ContratoAnterior = nuevoContrato;
                     this.AdmAlquiler.ContratoVigente.Actualizar();
                     this.AdmAlquiler.ContratoVigente = nuevoContrato;
 
