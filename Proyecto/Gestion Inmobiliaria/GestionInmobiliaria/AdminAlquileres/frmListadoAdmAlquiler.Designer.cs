@@ -44,6 +44,7 @@ namespace GI.UI.AdminAlquileres
             this.verFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -122,7 +123,8 @@ namespace GI.UI.AdminAlquileres
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader8,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader4});
             this.lvAdmAlquileres.ContextMenuStrip = this.contextMenuStrip1;
             this.lvAdmAlquileres.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvAdmAlquileres.FullRowSelect = true;
@@ -187,6 +189,10 @@ namespace GI.UI.AdminAlquileres
             this.imprimirFichaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.imprimirFichaToolStripMenuItem.Text = "Imprimir";
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Estado";
+            // 
             // frmListadoAdmAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,5 +230,6 @@ namespace GI.UI.AdminAlquileres
         private System.Windows.Forms.ToolStripMenuItem verFichaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarFichaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imprimirFichaToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

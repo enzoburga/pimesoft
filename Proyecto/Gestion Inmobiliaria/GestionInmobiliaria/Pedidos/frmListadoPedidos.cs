@@ -225,7 +225,7 @@ namespace GI.UI.Pedidos
 
         private void verTodosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.pedidos = mng.RecuperarPedidosTodos(false);
+            this.pedidos = mng.RecuperarPedidosTodos(true);
             LlenarLista();
         }
 
