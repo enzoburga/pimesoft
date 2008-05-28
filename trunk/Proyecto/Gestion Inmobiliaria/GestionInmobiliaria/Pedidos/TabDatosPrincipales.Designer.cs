@@ -29,7 +29,6 @@ namespace GI.UI.Pedidos
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            GI.BR.Propiedades.Ubicacion ubicacion1 = new GI.BR.Propiedades.Ubicacion();
             this.LinkContacto = new System.Windows.Forms.LinkLabel();
             this.label20 = new System.Windows.Forms.Label();
             this.cbCategoria = new GI.Framework.ComboBox();
@@ -195,6 +194,7 @@ namespace GI.UI.Pedidos
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(127, 21);
             this.cbEstado.TabIndex = 43;
+            this.cbEstado.Visible = false;
             // 
             // cbTipoPropiedad
             // 
@@ -214,6 +214,7 @@ namespace GI.UI.Pedidos
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 42;
             this.label2.Text = "Estado";
+            this.label2.Visible = false;
             // 
             // label1
             // 
@@ -572,6 +573,7 @@ namespace GI.UI.Pedidos
             this.ctrlUbicacion1.Size = new System.Drawing.Size(415, 89);
             this.ctrlUbicacion1.SoloLectura = false;
             this.ctrlUbicacion1.TabIndex = 58;
+            this.ctrlUbicacion1.Ubicacion = new GI.BR.Propiedades.Ubicacion();
             // 
             // groupBox5
             // 

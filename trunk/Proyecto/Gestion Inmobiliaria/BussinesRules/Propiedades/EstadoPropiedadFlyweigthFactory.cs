@@ -10,6 +10,7 @@ namespace GI.BR.Propiedades
         
         private Hashtable estadosPropiedad;
         private static Hashtable hashTipoEstados = new Hashtable();
+        private EstadoPropiedad estadoBase;
 
         private EstadoPropiedadFlyweigthFactory(Type Tipo)
         {
@@ -17,6 +18,7 @@ namespace GI.BR.Propiedades
             estadosPropiedad = new Hashtable();
             EstadosPropiedad estados = new EstadosPropiedad();
             estados.RecuperarEstados(Tipo);
+            estadoBase = estados[0];
             foreach (EstadoPropiedad e in estados)
             {
                 estadosPropiedad.Add(e.IdEstadoPropiedad, e);
@@ -26,6 +28,11 @@ namespace GI.BR.Propiedades
         public EstadoPropiedad GetEstado(int IdestadoPropiedad)
         {
             return (EstadoPropiedad)estadosPropiedad[IdestadoPropiedad];
+        }
+
+        public EstadoPropiedad GetEstadoBase()
+        {
+            return estadoBase;
         }
 
         public static EstadoPropiedadFlyweigthFactory GetInstancia(Type Tipo)

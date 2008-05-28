@@ -10,6 +10,7 @@ namespace GI.UI.Carteles
 {
     public partial class frmListadoCarteles : GI.Framework.Seguridad.FrmGISeguridad
     {
+        GI.Managers.Carteles.MngCarteles mng = new GI.Managers.Carteles.MngCarteles();
         public frmListadoCarteles()
         {
             InitializeComponent();
@@ -20,8 +21,7 @@ namespace GI.UI.Carteles
         public void Inicializar()
         {
 
-            this.carteles = new GI.BR.Carteles.Carteles();
-            carteles.RecuperarCartelesTodos();
+            this.carteles = mng.RecuperarCarteles(false);
             LlenarLista();
         }
 
@@ -184,7 +184,13 @@ namespace GI.UI.Carteles
 
         private void verTodosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            carteles.RecuperarCartelesTodos();
+            carteles = mng.RecuperarCarteles(true);
+            LlenarLista();
+        }
+
+        private void verActivosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            carteles = mng.RecuperarCarteles(false);
             LlenarLista();
         }
 

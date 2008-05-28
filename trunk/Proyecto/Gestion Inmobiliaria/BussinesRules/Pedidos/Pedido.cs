@@ -63,7 +63,13 @@ namespace GI.BR.Pedidos
 
         public CategoriaPropiedad Categoria { get { return categoria; } set { categoria = value; } }
 
-        public EstadoPropiedad Estado { get { return estado; } set { estado = value; } }
+        public EstadoPropiedad Estado
+        {
+            get
+            {
+                return GI.BR.Propiedades.EstadoPropiedadFlyweigthFactory.GetInstancia(this.EstadoPropiedad).GetEstadoBase();
+            }
+        }
 
         public Nullable<Estado> EnumEstado
         {
@@ -421,10 +427,10 @@ namespace GI.BR.Pedidos
 
             this.EstadoPropiedad = Type.GetType(dr.GetString(dr.GetOrdinal("EstadoPropiedad")));
 
-            if (dr.IsDBNull(dr.GetOrdinal("IdEstadoPropiedad")))
-                this.Estado = null;
-            else
-                this.Estado = EstadoPropiedadFlyweigthFactory.GetInstancia(this.EstadoPropiedad).GetEstado(dr.GetInt32(dr.GetOrdinal("IdEstadoPropiedad")));
+            //if (dr.IsDBNull(dr.GetOrdinal("IdEstadoPropiedad")))
+            //    this.Estado = null;
+            //else
+            //    this.Estado = EstadoPropiedadFlyweigthFactory.GetInstancia(this.EstadoPropiedad).GetEstado(dr.GetInt32(dr.GetOrdinal("IdEstadoPropiedad")));
 
             this.IdPedido = dr.GetInt32(dr.GetOrdinal("IdPedido"));
 

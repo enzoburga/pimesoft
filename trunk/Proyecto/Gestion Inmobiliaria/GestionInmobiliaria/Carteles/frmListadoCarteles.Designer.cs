@@ -48,6 +48,7 @@ namespace GI.UI.Carteles
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.verFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verActivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -90,6 +91,7 @@ namespace GI.UI.Carteles
             // 
             this.BuscarPedidostoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.BuscarPedidostoolStripButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verActivosToolStripMenuItem,
             this.verTodosToolStripMenuItem});
             this.BuscarPedidostoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("BuscarPedidostoolStripButton.Image")));
             this.BuscarPedidostoolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -101,7 +103,7 @@ namespace GI.UI.Carteles
             // verTodosToolStripMenuItem
             // 
             this.verTodosToolStripMenuItem.Name = "verTodosToolStripMenuItem";
-            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.verTodosToolStripMenuItem.Text = "Ver Todos";
             this.verTodosToolStripMenuItem.Click += new System.EventHandler(this.verTodosToolStripMenuItem_Click);
             // 
@@ -197,23 +199,30 @@ namespace GI.UI.Carteles
             this.verFichaToolStripMenuItem,
             this.editarFichaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(142, 48);
             // 
             // verFichaToolStripMenuItem
             // 
             this.verFichaToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.verFichaToolStripMenuItem.Name = "verFichaToolStripMenuItem";
-            this.verFichaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verFichaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.verFichaToolStripMenuItem.Text = "Ver Ficha";
             this.verFichaToolStripMenuItem.Click += new System.EventHandler(this.verFichaToolStripMenuItem_Click);
             // 
             // editarFichaToolStripMenuItem
             // 
             this.editarFichaToolStripMenuItem.Name = "editarFichaToolStripMenuItem";
-            this.editarFichaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editarFichaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.editarFichaToolStripMenuItem.Text = "Editar Ficha";
             this.editarFichaToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.editarFichaToolStripMenuItem.Click += new System.EventHandler(this.editarFichaToolStripMenuItem_Click);
+            // 
+            // verActivosToolStripMenuItem
+            // 
+            this.verActivosToolStripMenuItem.Name = "verActivosToolStripMenuItem";
+            this.verActivosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verActivosToolStripMenuItem.Text = "Ver Activos";
+            this.verActivosToolStripMenuItem.Click += new System.EventHandler(this.verActivosToolStripMenuItem_Click);
             // 
             // frmListadoCarteles
             // 
@@ -256,5 +265,6 @@ namespace GI.UI.Carteles
         private System.Windows.Forms.ColumnHeader chMedida;
         private System.Windows.Forms.ColumnHeader chCodigoPropiedad;
         private System.Windows.Forms.ColumnHeader chTipoCartel;
+        private System.Windows.Forms.ToolStripMenuItem verActivosToolStripMenuItem;
     }
 }

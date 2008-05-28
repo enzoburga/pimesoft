@@ -23,8 +23,7 @@ FROM         Propiedades
 WHERE IdPropiedad = @IdPropiedad
 
 
-;
-
+go
 ALTER PROCEDURE dbo.Propiedades_Actualizar
 (
 	@IdPropiedad int,
@@ -95,7 +94,7 @@ CantidadAmbientes= @CantidadAmbientes, IdTipoPropiedad=@IdTipoPropiedad , IdEsta
 select @@rowcount
 
 
-;
+go
 
 ALTER PROCEDURE dbo.Propiedades_Crear 
 (
@@ -171,7 +170,7 @@ values (@CantidadAmbientes,'',@IdTipoPropiedad,@IdEstadoPropiedad,@EnumEstado,@I
 
 select @@IDENTITY
 
-;
+go
 
 ALTER PROCEDURE dbo.PropiedadesAlquileres_RecuperarPorDireccion
 (
@@ -195,7 +194,7 @@ FROM         Propiedades INNER JOIN
                       Alquileres ON Propiedades.IdPropiedad = Alquileres.IdPropiedad
                       where Calle like  '%' + @Calle + '%' And NumeroPostal = @Numero
 
-;
+go
 
 ALTER PROCEDURE dbo.PropiedadesAlquileres_RecuperarPorEstado
 (
@@ -217,7 +216,7 @@ SELECT     Propiedades.IdPropiedad, Propiedades.CantidadAmbientes, Propiedades.C
 FROM         Propiedades INNER JOIN
                       Alquileres ON Propiedades.IdPropiedad = Alquileres.IdPropiedad
                       where IdEstadoPropiedad = @IdEstadoPropiedad
-;
+go
 
 ALTER PROCEDURE dbo.PropiedadesAlquileres_RecuperarPorEstadoYtipo
 (
@@ -242,7 +241,7 @@ FROM         Propiedades INNER JOIN
                       where IdEstadoPropiedad = @IdEstadoPropiedad
 						and idTipoPropiedad = @IdTipoPropiedad
 
-;
+go
 
 
 
@@ -270,7 +269,7 @@ FROM         Propiedades INNER JOIN
 Where 
 	Propiedades.IdPropiedad not in (select IdPropiedad from dbo.PropiedadesOfrecidasXPedido where IdPedido = @IdPedido)
 
-;
+go
 
 ALTER PROCEDURE dbo.PropiedadesVentas_RecuperarPorTipo
 (
@@ -293,7 +292,7 @@ FROM         Propiedades INNER JOIN
                       Ventas ON Propiedades.IdPropiedad = Ventas.IdPropiedad
                       where IdTipoPropiedad = @IdTipoPropiedad
 
-;
+go
 
 ALTER PROCEDURE dbo.PropiedadesVentas_RecuperarTodas 
 AS
@@ -313,7 +312,7 @@ SELECT     Propiedades.IdPropiedad, Propiedades.CantidadAmbientes, Propiedades.C
 FROM         Propiedades INNER JOIN
                       Ventas ON Propiedades.IdPropiedad = Ventas.IdPropiedad
 
-;
+go
 ALTER PROCEDURE dbo.PropiedadesVentas_RecuperarPorEstadoYtipo
 (
 	@IdEstadoPropiedad int,
@@ -337,7 +336,7 @@ FROM         Propiedades INNER JOIN
                       where IdEstadoPropiedad = @IdEstadoPropiedad
 						and idTipoPropiedad = @IdTipoPropiedad
 
-;
+go
 
 ALTER PROCEDURE dbo.PropiedadesVentas_RecuperarPorEstado
 (
@@ -359,7 +358,7 @@ SELECT     Propiedades.IdPropiedad, Propiedades.CantidadAmbientes, Propiedades.C
 FROM         Propiedades INNER JOIN
                       Ventas ON Propiedades.IdPropiedad = Ventas.IdPropiedad
                       where IdEstadoPropiedad = @IdEstadoPropiedad
-;
+go
 
 ALTER PROCEDURE dbo.PropiedadesVentas_RecuperarPorDireccion
 (
@@ -383,7 +382,7 @@ FROM         Propiedades INNER JOIN
                       Ventas ON Propiedades.IdPropiedad = Ventas.IdPropiedad
                       where Calle like  '%' + @Calle + '%' And NumeroPostal = @Numero
 
-;
+go
 
 
 ALTER PROCEDURE [dbo].[PropiedadesAlquileres_RecuperarTodasSinOfrecer] 
@@ -415,7 +414,7 @@ Where
 set ANSI_NULLS ON
 set QUOTED_IDENTIFIER ON
 
-;
+go
 
 
 
@@ -456,7 +455,7 @@ Where
 SET ANSI_NULLS ON
 
 
-;
+go
 
 
 
@@ -478,7 +477,7 @@ SELECT     Propiedades.IdPropiedad, Propiedades.CantidadAmbientes, Propiedades.C
 FROM         Propiedades INNER JOIN
                       Alquileres ON Propiedades.IdPropiedad = Alquileres.IdPropiedad
 
-;
+go
 
 ALTER PROCEDURE dbo.PropiedadesAlquileres_RecuperarPorTipo
 (

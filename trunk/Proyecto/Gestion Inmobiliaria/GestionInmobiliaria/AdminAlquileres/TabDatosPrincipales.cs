@@ -42,7 +42,9 @@ namespace GI.UI.AdminAlquileres
             {
                 propiedadBindingSource.Add(AdmAlquiler.Alquiler);
                 LinkPropiedad.Text = AdmAlquiler.Alquiler.Codigo.ToString();
+                ctrlDireccion1.Direccion = AdmAlquiler.Alquiler.Direccion;
                 cBoxEsPropietario.Enabled = true;
+                
             }
             
             //asignar contrato a control.
