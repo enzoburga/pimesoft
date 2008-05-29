@@ -40,6 +40,18 @@ namespace GI.UI.AdminAlquileres
             }
         }
 
+        public override bool AsignarSoloLectura(Control Ctrl)
+        {
+            if (Ctrl.Name == "bAceptar") return true;
+
+            if (Ctrl.Name == "bCancelar")
+            {
+                Ctrl.Text = "Cerrar";
+                return false;
+            }
+            return base.AsignarSoloLectura(Ctrl);
+        }
+
         private string Validar()
         {
             string error = "";

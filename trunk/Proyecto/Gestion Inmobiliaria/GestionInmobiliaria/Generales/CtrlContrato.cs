@@ -105,6 +105,8 @@ namespace GI.UI.Generales
                 this.llAgregarMonto.Enabled = true;
                 this.llModificarMonto.Enabled = true;
                 this.llEliminarMonto.Enabled = true;
+                dtpFechaInicio.Value = this.Contrato.FechaInicio;
+                dtpFechaVencimiento.Value = this.Contrato.FechaVencimiento;
 
                 if (contrato.FechaCancelacion.HasValue)
                 {                    
@@ -123,8 +125,7 @@ namespace GI.UI.Generales
                 this.llEliminarMonto.Enabled = false;
             }
 
-            dtpFechaInicio.Value = this.Contrato.FechaInicio;
-            dtpFechaVencimiento.Value = this.Contrato.FechaVencimiento;
+           
         }
 
         private void LlenarListaRentas()
