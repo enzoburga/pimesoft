@@ -90,7 +90,7 @@ namespace GI.UI.Propiedades
                 cbEstadoPropiedad.Items.Add(estado);
 
             }
-            cbEstadoPropiedad.SelectedIndex = 0;
+            cbEstadoPropiedad.SelectedIndex = 1;
 
 
 
@@ -112,8 +112,12 @@ namespace GI.UI.Propiedades
             cbBarrio.Items.Clear();
             cbProvincia.Items.Add("Seleccione opción...");
             foreach (GI.BR.Propiedades.Ubicaciones.Provincia p in Provincias)
+            {
                 cbProvincia.Items.Add(p);
-            cbProvincia.SelectedIndex = 0;
+                if (p.EsDefault)
+                    cbProvincia.SelectedItem = p;
+            }
+                
         }
 
         private void cbProvincia_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -128,8 +132,12 @@ namespace GI.UI.Propiedades
 
             cbLocalidad.Items.Add("Seleccione opción...");
             foreach (GI.BR.Propiedades.Ubicaciones.Localidad l in Localidades)
+            {
                 cbLocalidad.Items.Add(l);
-            cbLocalidad.SelectedIndex = 0;
+                if (l.EsDefault)
+                    cbLocalidad.SelectedItem = l;
+            }
+                //cbLocalidad.SelectedIndex = 0;
         }
 
         private void cbLocalidad_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -220,12 +228,28 @@ namespace GI.UI.Propiedades
             #endregion
 
 
+            GI.BR.Propiedades.Propiedad Prop = null;
+            if (tipo is GI.BR.Propiedades.Alquiler)
+                Prop = new GI.BR.Propiedades.Alquiler();
+            else
+                Prop = new GI.BR.Propiedades.Venta();
+
+            int id = 0;
+            Int32.TryParse(textBoxIdProp.Text, out id);
+            Prop.RecuperarPorId(id);
+            if (Prop.IdPropiedad > 0)
+            {
+                propiedades = new GI.BR.Propiedades.Propiedades();
+                propiedades.Add(Prop);
+            }
+            
 
 
 
 
 
-            if (this.Propiedades.Count == 0)
+
+            if (this.Propiedades == null || this.Propiedades.Count == 0)
             {
                 GI.Framework.General.GIMsgBox.ShowNoSeEncontraronDatos();
                 return;

@@ -60,6 +60,9 @@ namespace GI.BR.Propiedades
         protected int metrosConstruibles;
         protected Galeria.GaleriaFotos galeria;
         protected int antiguedad;
+        protected InmobiliariaExterna inmobiliaria;
+        protected decimal valorExpensas;
+
 
         
 
@@ -72,10 +75,31 @@ namespace GI.BR.Propiedades
         #endregion
 
         #region Propiedades
+
+        public decimal ValorExpensas
+        {
+            get 
+            {
+                if (!cargado) Cargar();
+                return valorExpensas; 
+            }
+            set { valorExpensas = value; }
+        }
+
         public int Antiguedad
         {
             get { return antiguedad; }
             set { antiguedad = value; }
+        }
+
+        public InmobiliariaExterna Inmobiliaria
+        {
+            get 
+            {
+                if (!cargado) Cargar();
+                return inmobiliaria;
+            }
+            set { inmobiliaria = value; }
         }
 
         public Galeria.GaleriaFotos GaleriaFotos
@@ -566,13 +590,26 @@ namespace GI.BR.Propiedades
             Propiedad.ValorMercado = this.ValorMercado;
             Propiedad.ValorPublicacion = this.ValorPublicacion;
             Propiedad.Zonificacion = this.Zonificacion;
-
+            Propiedad.Inmobiliaria = this.Inmobiliaria;
+            Propiedad.ValorExpensas = this.ValorExpensas;
 
             EstadosPropiedad estados = new EstadosPropiedad();
             estados.RecuperarEstados(Propiedad.GetType());
             Propiedad.Estado = estados[0];
 
 
+
+        }
+
+        public void RecuperarPorId(int IdPropiedad)
+        {
+            GI.DA.PropiedadesData data = new GI.DA.PropiedadesData();
+            using (System.Data.IDataReader dr = data.RecuperarPropiedadPorId(IdPropiedad))
+            {
+                if (dr.Read())
+                    CargarPropiedad(dr);
+            }
+            this.cargado = true;
 
         }
 
@@ -662,6 +699,18 @@ namespace GI.BR.Propiedades
 
             this.Antiguedad = dr.IsDBNull(dr.GetOrdinal("Antiguedad")) ? 0 : dr.GetInt32(dr.GetOrdinal("Antiguedad"));
 
+            if (!dr.IsDBNull(dr.GetOrdinal("IdInmobiliaria")))
+            {
+                this.Inmobiliaria = new InmobiliariaExterna();
+                this.Inmobiliaria.IdInmobiliaria = dr.GetInt32(dr.GetOrdinal("IdInmobiliaria"));
+                this.Inmobiliaria.Nombre = dr.GetString(dr.GetOrdinal("NombreInmobiliaria"));
+                this.Inmobiliaria.PersonaResponsable = dr.GetString(dr.GetOrdinal("ContactoInmobiliaria"));
+                this.Inmobiliaria.Telefono = dr.GetString(dr.GetOrdinal("TelefonoInmobiliaria"));
+            }
+
+            this.ValorExpensas = dr.IsDBNull(dr.GetOrdinal("ValorExpensas")) ? 0 : dr.GetDecimal(dr.GetOrdinal("ValorExpensas"));
+            
+
         }
 
         public virtual bool Guardar() 
@@ -673,7 +722,7 @@ namespace GI.BR.Propiedades
                 ValorMercado.Importe, ValorMercado.Moneda.IdMoneda, ValorPublicacion.Importe, ValorPublicacion.Moneda.IdMoneda, EsOtraInmobiliaria,
                 MedidasPropiedad.MetrosCubiertos, MedidasPropiedad.MetrosSemicubiertos, MedidasPropiedad.MetrosLibres, MedidasTerreno.Metros, MedidasTerreno.Fondo, MedidasTerreno.Frente,
                 Orientacion, CantidadBaños, CantidadCocheras, CantidadDormitorios, CantidadPlantas, (int)Disposicion, EsAptoProfesional, CantidadPisos, DepartamentosPorPiso, CantidadAscensores, CantidadAscensoresServicio, (int)TipoZona,
-                Fos, Fot, Zonificacion, MetrosConstruibles, Antiguedad);
+                Fos, Fot, Zonificacion, MetrosConstruibles, Antiguedad, ((Inmobiliaria == null) ? 0 : Inmobiliaria.IdInmobiliaria), valorExpensas);
 
             IdPropiedad = id;
 
@@ -697,7 +746,7 @@ namespace GI.BR.Propiedades
                 ValorMercado.Importe, ValorMercado.Moneda.IdMoneda, ValorPublicacion.Importe, ValorPublicacion.Moneda.IdMoneda, EsOtraInmobiliaria,
                 MedidasPropiedad.MetrosCubiertos, MedidasPropiedad.MetrosSemicubiertos, MedidasPropiedad.MetrosLibres, MedidasTerreno.Metros, MedidasTerreno.Fondo, MedidasTerreno.Frente,
                 Orientacion, CantidadBaños, CantidadCocheras, CantidadDormitorios, CantidadPlantas, (int)Disposicion, EsAptoProfesional, CantidadPisos, DepartamentosPorPiso, CantidadAscensores, CantidadAscensoresServicio, (int)TipoZona,
-                Fos, Fot, Zonificacion, MetrosConstruibles, Antiguedad);
+                Fos, Fot, Zonificacion, MetrosConstruibles, Antiguedad, ((Inmobiliaria == null) ? 0 : Inmobiliaria.IdInmobiliaria), valorExpensas);
 
             foreach (MedidaAmbiente ambiente in this.Medidas)
             {

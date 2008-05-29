@@ -38,6 +38,17 @@ namespace GI.UI.Propiedades
              cbTipoZona.Items.Add(GI.BR.Propiedades.TipoZona.Residencial);
              cbTipoZona.SelectedIndex = 0;
 
+             cbOrientacion.Items.Add("");
+             cbOrientacion.Items.Add("Este");
+             cbOrientacion.Items.Add("Noreste");
+             cbOrientacion.Items.Add("Norte");
+             cbOrientacion.Items.Add("Noroeste");
+             cbOrientacion.Items.Add("Oeste");
+             cbOrientacion.Items.Add("Sudeste");
+             cbOrientacion.Items.Add("Sur");
+             cbOrientacion.SelectedIndex = 0;
+
+
 
         }
 
@@ -72,6 +83,7 @@ namespace GI.UI.Propiedades
             textBoxDepertamanetosPorPiso.Enabled = false;
             textBoxAscensores.Enabled = false;
             textBoxAscensoresServicio.Enabled = false;
+            textBoxValorExpensas.Enabled = false;
 
             cbDisposicion.SelectedIndex = 0;
             chAptoProfesional.Checked = false;
@@ -91,6 +103,7 @@ namespace GI.UI.Propiedades
             textBoxFOT.Text = "";
             textBoxMetrosConstruibles.Text = "0";
             textBoxZonificacion.Text = "";
+            textBoxValorExpensas.Text = "0";
 
             if (Tipo.IdTipoPropiedad == 1)
             {
@@ -100,6 +113,7 @@ namespace GI.UI.Propiedades
                 textBoxDepertamanetosPorPiso.Enabled = true;
                 textBoxAscensores.Enabled = true;
                 textBoxAscensoresServicio.Enabled = true;
+                textBoxValorExpensas.Enabled = true;
             }
 
 
@@ -110,6 +124,7 @@ namespace GI.UI.Propiedades
                 textBoxFOT.Enabled = true;
                 textBoxMetrosConstruibles.Enabled = true;
                 textBoxZonificacion.Enabled = true;
+            
             }
         }
 
