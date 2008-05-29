@@ -52,13 +52,18 @@ namespace GI.Managers.Propiedades
 
                 //Si no uso el contructor no agrega bien el sender.
                 //Uso la primera dir de To, y la saco, luego agrego las demas.
-                MailMessage mail = new MailMessage(smtp.Email,emailTo[0]);
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress(smtp.Email, smtp.Nombre);
+                mail.Body = message;
                 //mail.Sender = new MailAddress(smtp.Email);
                 mail.Subject = "Propiedad ofrecida por " + inm.Nombre;
-                emailTo.RemoveAt(0);
+             
+
+                
                 foreach (string s in emailTo)
                 {
-                    mail.To.Add(s);
+                    mail.Bcc.Add(s);
+                    
                 }
 
                 System.IO.Stream streamRpt;
