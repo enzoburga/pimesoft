@@ -24,6 +24,17 @@ namespace GI.UI.Inmobiliarias
             inmobiliariaExternaBindingSource.Add(inmobiliaria);
         }
 
+        public override bool AsignarSoloLectura(Control Ctrl)
+        {
+            if (Ctrl.Name == "bAceptar") return true;
+
+            if (Ctrl.Name == "bCancelar")
+            {
+                Ctrl.Text = "Cerrar";
+                return false;
+            }
+            return base.AsignarSoloLectura(Ctrl);
+        }
 
 
 

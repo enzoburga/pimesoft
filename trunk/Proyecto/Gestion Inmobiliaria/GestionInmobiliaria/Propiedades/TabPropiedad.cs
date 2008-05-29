@@ -157,7 +157,13 @@ namespace GI.UI.Propiedades
             if (Propiedad.EsOtraInmobiliaria)
             {
                 linkLabelOtraInmb.Enabled = true;
-                linkLabelOtraInmb.Text = "Seleccione una inmobiliaria";
+                
+                if (Propiedad.Inmobiliaria != null)
+                {
+                    linkLabelOtraInmb.Text = Propiedad.Inmobiliaria.Nombre;
+                }
+                else
+                    linkLabelOtraInmb.Text = "Seleccione una inmobiliaria";
             }
             else
             {
@@ -355,8 +361,14 @@ namespace GI.UI.Propiedades
             }
             else
             {
-                linkLabelOtraInmb.Text = "Seleccione una inmobiliaria";
                 linkLabelOtraInmb.Enabled = true;
+                if (Propiedad.Inmobiliaria == null)
+                {
+                    linkLabelOtraInmb.Text = "Seleccione una inmobiliaria";
+
+                }
+                else
+                    linkLabelOtraInmb.Text = Propiedad.Inmobiliaria.Nombre;
             }
         }
 

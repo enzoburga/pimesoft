@@ -116,7 +116,7 @@ namespace GI.UI.Propiedades
             this.groupBox3.Size = new System.Drawing.Size(420, 119);
             this.groupBox3.TabIndex = 39;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Medidas";
+            this.groupBox3.Text = "Medidas de Ambientes";
             // 
             // lvMedidas
             // 
@@ -157,23 +157,23 @@ namespace GI.UI.Propiedades
             // linkLabelEliminarMedida
             // 
             this.linkLabelEliminarMedida.AutoSize = true;
-            this.linkLabelEliminarMedida.Location = new System.Drawing.Point(327, 100);
+            this.linkLabelEliminarMedida.Location = new System.Drawing.Point(315, 100);
             this.linkLabelEliminarMedida.Name = "linkLabelEliminarMedida";
-            this.linkLabelEliminarMedida.Size = new System.Drawing.Size(80, 13);
+            this.linkLabelEliminarMedida.Size = new System.Drawing.Size(91, 13);
             this.linkLabelEliminarMedida.TabIndex = 1;
             this.linkLabelEliminarMedida.TabStop = true;
-            this.linkLabelEliminarMedida.Text = "Eliminar Medida";
+            this.linkLabelEliminarMedida.Text = "Eliminar Ambiente";
             this.linkLabelEliminarMedida.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEliminarMedida_LinkClicked);
             // 
             // linkLabelAgregarMedida
             // 
             this.linkLabelAgregarMedida.AutoSize = true;
-            this.linkLabelAgregarMedida.Location = new System.Drawing.Point(242, 100);
+            this.linkLabelAgregarMedida.Location = new System.Drawing.Point(221, 100);
             this.linkLabelAgregarMedida.Name = "linkLabelAgregarMedida";
-            this.linkLabelAgregarMedida.Size = new System.Drawing.Size(83, 13);
+            this.linkLabelAgregarMedida.Size = new System.Drawing.Size(94, 13);
             this.linkLabelAgregarMedida.TabIndex = 1;
             this.linkLabelAgregarMedida.TabStop = true;
-            this.linkLabelAgregarMedida.Text = "Agregar Medida";
+            this.linkLabelAgregarMedida.Text = "Agregar Ambiente";
             this.linkLabelAgregarMedida.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAgregarMedida_LinkClicked);
             // 
             // label20
@@ -438,6 +438,7 @@ namespace GI.UI.Propiedades
             // linkLabelOtraInmb
             // 
             this.linkLabelOtraInmb.AutoSize = true;
+            this.linkLabelOtraInmb.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.propiedadBindingSource, "Inmobiliaria", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.linkLabelOtraInmb.Location = new System.Drawing.Point(301, 64);
             this.linkLabelOtraInmb.Name = "linkLabelOtraInmb";
             this.linkLabelOtraInmb.Size = new System.Drawing.Size(118, 13);

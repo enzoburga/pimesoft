@@ -55,8 +55,9 @@ namespace GI.UI.Propiedades
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxDireccion = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxIdProp = new System.Windows.Forms.TextBox();
             this.bBuscar = new System.Windows.Forms.Button();
             this.tabControlTiposDeBusqueda.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -324,13 +325,24 @@ namespace GI.UI.Propiedades
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Controls.Add(this.textBox3);
+            this.tabPage3.Controls.Add(this.textBoxIdProp);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(672, 108);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Buscar por Código";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(102, 46);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(420, 13);
+            this.label3.TabIndex = 55;
+            this.label3.Text = "Ingresar solo la parte númerica del código. Ej. si el código es P001 ingresar sol" +
+                "o 001 o 1";
             // 
             // label11
             // 
@@ -341,12 +353,12 @@ namespace GI.UI.Propiedades
             this.label11.TabIndex = 54;
             this.label11.Text = "Código";
             // 
-            // textBox3
+            // textBoxIdProp
             // 
-            this.textBox3.Location = new System.Drawing.Point(105, 23);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(123, 20);
-            this.textBox3.TabIndex = 53;
+            this.textBoxIdProp.Location = new System.Drawing.Point(105, 23);
+            this.textBoxIdProp.Name = "textBoxIdProp";
+            this.textBoxIdProp.Size = new System.Drawing.Size(123, 20);
+            this.textBoxIdProp.TabIndex = 53;
             // 
             // bBuscar
             // 
@@ -414,7 +426,8 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.TextBox textBoxDireccion;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxIdProp;
         private System.Windows.Forms.Button bBuscar;
+        private System.Windows.Forms.Label label3;
     }
 }

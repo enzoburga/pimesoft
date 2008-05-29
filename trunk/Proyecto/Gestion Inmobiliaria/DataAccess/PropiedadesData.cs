@@ -169,7 +169,8 @@ namespace GI.DA
                 decimal ValorMercado, int ValorMercadoIdMoneda, decimal ValorPublicacion, int ValorPublicacionIdMoneda, bool EsOtraInmobiliaria,
                 decimal MetrosCubiertos, decimal MetrosSemicubiertos, decimal MetrosLibres, decimal Metros, decimal Fondo, decimal Frente, string Orientacion, int CantidadBanos, int CantidadCocheras,
                 int CantidadDormitorios, int CantidadPlantas, int IdDisposicion, bool EsAptoProfesional, int CantidadPisos, int DeptosPorPiso, int CantidadAscensores,
-                int CantidadAscensoresServicio, int IdTipoZona, string fos, string fot, string zonificacion, decimal mestrosConstruibles, int Antiguedad)
+                int CantidadAscensoresServicio, int IdTipoZona, string fos, string fot, string zonificacion, decimal mestrosConstruibles, int Antiguedad,
+                int IdInmobiliariaExterna, decimal ValorExpensas)
         {
 
             object id = null;
@@ -178,6 +179,13 @@ namespace GI.DA
             else
                 id = IdCliente;
 
+            object idinm = null;
+            if (IdInmobiliariaExterna == 0)
+                idinm = DBNull.Value;
+            else
+                idinm = IdInmobiliariaExterna;
+
+
             return AccesoDatos.ActualizarRegistro(
                     "Propiedades_Actualizar",
                     new object[] { observaciones, IdPropiedad, CantidadAmbientes,  IdTipoPropiedad,  IdEstadoPropiedad,  IdEnumEstado,  id,
@@ -185,13 +193,13 @@ namespace GI.DA
                  ValorMercado,  ValorMercadoIdMoneda,  ValorPublicacion,  ValorPublicacionIdMoneda,  EsOtraInmobiliaria,
                  MetrosCubiertos,  MetrosSemicubiertos,  MetrosLibres,  Metros,  Fondo,  Frente,  Orientacion,  CantidadBanos,  CantidadCocheras,
                  CantidadDormitorios,  CantidadPlantas,  IdDisposicion,  EsAptoProfesional,  CantidadPisos,  DeptosPorPiso,  CantidadAscensores,
-                 CantidadAscensoresServicio,  IdTipoZona,  fos,  fot, zonificacion,  mestrosConstruibles, Antiguedad },
+                 CantidadAscensoresServicio,  IdTipoZona,  fos,  fot, zonificacion,  mestrosConstruibles, Antiguedad, idinm, ValorExpensas },
                     new string[] {"@Descripcion", "@IdPropiedad", "@CantidadAmbientes","@IdTipoPropiedad","@IdEstadoPropiedad","@EnumEstado","@IdCliente",
                         "@IdPais","@IdProvincia","@IdLocalidad","@IdBarrio","@Calle","@Numero","@Depto","@Piso","@CodigoPostal","@CalleEntre1","@CalleEntre2",
                         "@ValorMercadoImporte","@ValorMercadoIdMoneda","@ValorPublicacionImporte","@ValorPublicacionIdMoneda","@EsOtraInmobiliaria",
                         "@MetrosCubiertos","@MetrosSemicubiertos","@MetrosLibres","@Metros","@Fondo","@Frente","@Orientacion","@CantidadBaños","@CantidadCocheras",
 			            "@CantidadDormitorios","@CantidadPlantas","@Disposicion","@EsAptoProfesional","@CantidadPisos","@DepartamentosPorPiso","@CantidadAscensores",
-			            "@CantidadAscensoresServicio","@TipoZona","@Fos","@Fot","@Zonificacion","@MetrosConstruibles", "@Antiguedad"});
+			            "@CantidadAscensoresServicio","@TipoZona","@Fos","@Fot","@Zonificacion","@MetrosConstruibles", "@Antiguedad", "@IdInmobiliariaExterna", "@ValorExpensas"});
         }
 
         public int InsertarPropiedades(string Observaciones, decimal CantidadAmbientes, int IdTipoPropiedad, int IdEstadoPropiedad, int IdEnumEstado, int IdCliente,
@@ -199,9 +207,15 @@ namespace GI.DA
                 decimal ValorMercado, int ValorMercadoIdMoneda, decimal ValorPublicacion, int ValorPublicacionIdMoneda, bool EsOtraInmobiliaria,
                 decimal MetrosCubiertos, decimal MetrosSemicubiertos, decimal MetrosLibres, decimal Metros, decimal Fondo, decimal Frente, string Orientacion, int CantidadBanos, int CantidadCocheras,
                 int CantidadDormitorios, int CantidadPlantas, int IdDisposicion, bool EsAptoProfesional, int CantidadPisos, int DeptosPorPiso, int CantidadAscensores,
-                int CantidadAscensoresServicio, int IdTipoZona, string fos, string fot, string zonificacion, decimal mestrosConstruibles, int Antiguedad)
+                int CantidadAscensoresServicio, int IdTipoZona, string fos, string fot, string zonificacion, decimal mestrosConstruibles, int Antiguedad,
+                int IdInmobiliariaExterna, decimal ValorExpensas)
         {
 
+            object idinm = null;
+            if (IdInmobiliariaExterna == 0)
+                idinm = DBNull.Value;
+            else
+                idinm = IdInmobiliariaExterna;
 
             object id = null;
             if (IdCliente == 0)
@@ -216,13 +230,13 @@ namespace GI.DA
                  ValorMercado,  ValorMercadoIdMoneda,  ValorPublicacion,  ValorPublicacionIdMoneda,  EsOtraInmobiliaria,
                  MetrosCubiertos,  MetrosSemicubiertos,  MetrosLibres,  Metros,  Fondo,  Frente,  Orientacion,  CantidadBanos,  CantidadCocheras,
                  CantidadDormitorios,  CantidadPlantas,  IdDisposicion,  EsAptoProfesional,  CantidadPisos,  DeptosPorPiso,  CantidadAscensores,
-                 CantidadAscensoresServicio,  IdTipoZona,  fos,  fot, zonificacion,  mestrosConstruibles, Antiguedad },
+                 CantidadAscensoresServicio,  IdTipoZona,  fos,  fot, zonificacion,  mestrosConstruibles, Antiguedad, idinm, ValorExpensas },
                 new string[] { "@Descripcion", "@CantidadAmbientes","@IdTipoPropiedad","@IdEstadoPropiedad","@EnumEstado","@IdCliente",
                         "@IdPais","@IdProvincia","@IdLocalidad","@IdBarrio","@Calle","@Numero","@Depto","@Piso","@CodigoPostal","@CalleEntre1","@CalleEntre2",
                         "@ValorMercadoImporte","@ValorMercadoIdMoneda","@ValorPublicacionImporte","@ValorPublicacionIdMoneda","@EsOtraInmobiliaria",
                         "@MetrosCubiertos","@MetrosSemicubiertos","@MetrosLibres","@Metros","@Fondo","@Frente","@Orientacion","@CantidadBaños","@CantidadCocheras",
 			            "@CantidadDormitorios","@CantidadPlantas","@Disposicion","@EsAptoProfesional","@CantidadPisos","@DepartamentosPorPiso","@CantidadAscensores",
-			            "@CantidadAscensoresServicio","@TipoZona","@Fos","@Fot","@Zonificacion","@MetrosConstruibles", "@Antiguedad"});
+			            "@CantidadAscensoresServicio","@TipoZona","@Fos","@Fot","@Zonificacion","@MetrosConstruibles", "@Antiguedad", "@IdInmobiliariaExterna", "@ValorExpensas"});
 
         }
 
