@@ -63,11 +63,11 @@ namespace GI.UI.Generales
 
             #region Maximos y minimos de Fechas
 
-            dtpFechaCancelacion.MaxDate = dtpFechaVencimiento.Value;
-            dtpFechaCancelacion.MinDate = dtpFechaInicio.Value;
+            //dtpFechaCancelacion.MaxDate = dtpFechaVencimiento.Value;
+            //dtpFechaCancelacion.MinDate = dtpFechaInicio.Value;
 
-            dtpFechaInicio.MaxDate = dtpFechaVencimiento.Value;
-            dtpFechaVencimiento.MinDate = dtpFechaInicio.Value;
+            //dtpFechaInicio.MaxDate = dtpFechaVencimiento.Value;
+            //dtpFechaVencimiento.MinDate = dtpFechaInicio.Value;
 
             #endregion
 
@@ -111,10 +111,7 @@ namespace GI.UI.Generales
                     cBoxCancelado.Checked = true;
                     dtpFechaCancelacion.Enabled = true;
                     dtpFechaCancelacion.Value = this.Contrato.FechaCancelacion.Value;
-                }
-
-                dtpFechaInicio.Value = this.Contrato.FechaInicio;
-                dtpFechaVencimiento.Value = this.Contrato.FechaVencimiento;
+                }  
 
                 cbMonedaDepositoContrato.SelectedItem = this.Contrato.Deposito.Moneda;
             }
@@ -125,6 +122,9 @@ namespace GI.UI.Generales
                 this.llModificarMonto.Enabled = false;
                 this.llEliminarMonto.Enabled = false;
             }
+
+            dtpFechaInicio.Value = this.Contrato.FechaInicio;
+            dtpFechaVencimiento.Value = this.Contrato.FechaVencimiento;
         }
 
         private void LlenarListaRentas()
@@ -136,8 +136,8 @@ namespace GI.UI.Generales
             {
                 lvi = new ListViewItem();
                 lvi.Text = vr.Monto.ToString();
-                lvi.SubItems.Add((System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(vr.MesVigenciaDesde)).ToUpper());
-                lvi.SubItems.Add(vr.AnioVigenciaDesde.ToString());
+                lvi.SubItems.Add((System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(vr.MesVigenciaDesde)).ToUpper() + " - "+ vr.AnioVigenciaDesde.ToString());
+                lvi.SubItems.Add((System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(vr.MesVigenciaHasta)).ToUpper() + " - " +vr.AnioVigenciaHasta.ToString());
                 lvi.Tag = vr;
                 lvMontos.Items.Add(lvi);
             }
@@ -163,15 +163,15 @@ namespace GI.UI.Generales
         private void dtpFechaInicio_ValueChanged(object sender, EventArgs e)
         {
             this.contrato.FechaInicio = dtpFechaInicio.Value;
-            dtpFechaCancelacion.MinDate = dtpFechaInicio.Value;
-            dtpFechaVencimiento.MinDate = dtpFechaInicio.Value;
+            //dtpFechaCancelacion.MinDate = dtpFechaInicio.Value;
+            //dtpFechaVencimiento.MinDate = dtpFechaInicio.Value;
         }
 
         private void dtpFechaVencimiento_ValueChanged(object sender, EventArgs e)
         {
             this.contrato.FechaVencimiento = dtpFechaVencimiento.Value;
-            dtpFechaCancelacion.MaxDate = dtpFechaVencimiento.Value;
-            dtpFechaInicio.MaxDate = dtpFechaVencimiento.Value;
+            //dtpFechaCancelacion.MaxDate = dtpFechaVencimiento.Value;
+            //dtpFechaInicio.MaxDate = dtpFechaVencimiento.Value;
         }
 
         private string Validar()
@@ -211,6 +211,7 @@ namespace GI.UI.Generales
                 {
                     LinkInquilino.Tag = (GI.BR.Clientes.Inquilino)frmSeleccionador.ObjetoSeleccionado;
                     LinkInquilino.Text = frmSeleccionador.ObjetoSeleccionado.ToString();
+                    this.contrato.Inquilino = (GI.BR.Clientes.Inquilino)frmSeleccionador.ObjetoSeleccionado;
                 }
 
             }
@@ -297,22 +298,27 @@ namespace GI.UI.Generales
 
             GI.UI.AdminAlquileres.frmNuevaRenta frm = new GI.UI.AdminAlquileres.frmNuevaRenta();
             frm.ValorRenta = (GI.BR.AdmAlquileres.ValorRenta)lvMontos.SelectedItems[0].Tag;
-            frm.Valores = contrato.ValoresRenta;
+            frm.Contrato = contrato;
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                frm.ValorRenta.Actualizar();
-            }
 
-            LlenarListaRentas();
+                frm.ValorRenta.Actualizar();
+                LlenarListaRentas();
+            }
+            else
+                lvMontos.SelectedItems[0].Tag = frm.ValorRenta;
+
+            
         }
 
         private bool ValidarSuperposicionRentas(GI.BR.AdmAlquileres.ValorRenta valorRenta)
         {
             foreach (GI.BR.AdmAlquileres.ValorRenta vr in contrato.ValoresRenta)
             { 
-                if(vr.FechaPerteneceARango(valorRenta.MesVigenciaDesde,valorRenta.AnioVigenciaDesde) || vr.FechaPerteneceARango(valorRenta.MesVigenciaHasta,valorRenta.AnioVigenciaHasta))
-                    return false;
+                if(valorRenta.IdValorRenta != vr.IdValorRenta)
+                    if(vr.FechaPerteneceARango(valorRenta.MesVigenciaDesde,valorRenta.AnioVigenciaDesde) || vr.FechaPerteneceARango(valorRenta.MesVigenciaHasta,valorRenta.AnioVigenciaHasta))
+                        return false;
             }
             return true;
         }
@@ -331,7 +337,7 @@ namespace GI.UI.Generales
 
             frm.ValorRenta = valorRenta;
 
-            frm.Valores = contrato.ValoresRenta;
+            frm.Contrato = contrato;
 
             if (frm.ShowDialog() == DialogResult.OK)
             {

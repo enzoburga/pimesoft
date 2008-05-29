@@ -13,6 +13,14 @@ namespace GI.UI.AdminAlquileres
         private GI.BR.AdmAlquileres.ValorRenta valorRenta;
         private GI.BR.AdmAlquileres.ValorRenta valorRentaClone;
 
+        private GI.BR.AdmAlquileres.Contrato contrato;
+
+        public GI.BR.AdmAlquileres.Contrato Contrato
+        {
+            get { return contrato; }
+            set { contrato = value; }
+        }
+
         public GI.BR.AdmAlquileres.ValorRenta ValorRenta
         {
             get { return valorRenta; }
@@ -99,13 +107,6 @@ namespace GI.UI.AdminAlquileres
                 cbMesHasta.SelectedIndex = DateTime.Today.Month - 1;
             }
         }
-        private GI.BR.AdmAlquileres.ValoresRenta valores;
-
-        public GI.BR.AdmAlquileres.ValoresRenta Valores
-        {
-            get { return valores; }
-            set { valores = value; }
-        }
 
         public frmNuevaRenta()
         {
@@ -114,19 +115,14 @@ namespace GI.UI.AdminAlquileres
 
         private void bAceptar_Click(object sender, EventArgs e)
         {
-            string error = Validar();
+            string error = CargarRenta();
             if (error != "")
             {
                 GI.Framework.General.GIMsgBox.Show(error, GI.Framework.General.enumTipoMensaje.Advertencia);
                 return;            
             }
 
-            ValorRenta.AnioVigenciaDesde = int.Parse(tbAnioDesde.Text);
-            ValorRenta.AnioVigenciaHasta = int.Parse(tbAnioHasta.Text);
-            ValorRenta.MesVigenciaDesde = cbMesDesde.SelectedIndex + 1;
-            ValorRenta.MesVigenciaHasta = cbMesHasta.SelectedIndex + 1;
-            ValorRenta.Monto.Importe = int.Parse(tbMonto.Text);
-            ValorRenta.Monto.Moneda = (GI.BR.Monedas.Moneda)cbMoneda.SelectedItem;
+
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -144,7 +140,7 @@ namespace GI.UI.AdminAlquileres
             return base.AsignarSoloLectura(Ctrl);
         }
 
-        private string Validar()
+        private string CargarRenta()
         {
             int AnioDesde;
             int AnioHasta;
@@ -167,14 +163,77 @@ namespace GI.UI.AdminAlquileres
                     return "La fecha Desde debe ser menor a la fecha Hasta";
             }
 
-
             if (!int.TryParse(tbMonto.Text, out monto))
                 return "El monto debe ser un campo numérico.";
             if (monto < 0)
-                return "El monto debe ser mayor a 0 (cero).";    
+                return "El monto debe ser mayor a 0 (cero).";
+
+            ValorRenta.AnioVigenciaDesde = int.Parse(tbAnioDesde.Text);
+            ValorRenta.AnioVigenciaHasta = int.Parse(tbAnioHasta.Text);
+            ValorRenta.MesVigenciaDesde = cbMesDesde.SelectedIndex + 1;
+            ValorRenta.MesVigenciaHasta = cbMesHasta.SelectedIndex + 1;
+            ValorRenta.Monto.Importe = int.Parse(tbMonto.Text);
+            ValorRenta.Monto.Moneda = (GI.BR.Monedas.Moneda)cbMoneda.SelectedItem;
+
+            if (!FechaPerteneceARango(valorRenta.MesVigenciaDesde, valorRenta.AnioVigenciaDesde) || !FechaPerteneceARango(valorRenta.MesVigenciaHasta, valorRenta.AnioVigenciaHasta))
+                return "El rango de fechas del monto debe esta contenido en el rango de fechas del contrato.";
+
+            if (!ValidarSuperposicionRentas(ValorRenta))
+            {
+                return "No se puede modificar el monto, se superpone con otros ya creados.";
+            }
         
             return "";
 
+        }
+
+        public bool FechaPerteneceARango(int MesRenta, int AnioRenta)
+        {
+            bool esMenorHasta = false;
+            bool esMayorDesde = false;
+
+            if (AnioRenta == contrato.FechaInicio.Year)
+            {
+                if (MesRenta >= contrato.FechaInicio.Month)
+                    esMayorDesde = true;
+            }
+            else
+                esMayorDesde = (AnioRenta > contrato.FechaInicio.Year);
+
+            if (AnioRenta == contrato.FechaVencimiento.Year)
+            {
+                if (MesRenta <= contrato.FechaVencimiento.Month)
+                    esMenorHasta = true;
+            }
+            else
+                esMenorHasta = (AnioRenta < contrato.FechaVencimiento.Year);
+
+            return esMenorHasta && esMayorDesde;
+        }
+
+        private bool ValidarRentaConPagos(GI.BR.AdmAlquileres.ValorRenta vr)
+        {
+            GI.BR.AdmAlquileres.Pagos pagos = new GI.BR.AdmAlquileres.Pagos();
+            pagos.RecuperarPorContrato(contrato);
+
+            foreach (GI.BR.AdmAlquileres.Pago p in pagos)
+            {
+                if (vr.FechaPerteneceARango(p.MesCancelado, p.AnioPagado))
+                    return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidarSuperposicionRentas(GI.BR.AdmAlquileres.ValorRenta valorRenta)
+        {
+            foreach (GI.BR.AdmAlquileres.ValorRenta vr in contrato.ValoresRenta)
+            {
+                if (valorRenta.IdValorRenta != vr.IdValorRenta)
+                    if (vr.FechaPerteneceARango(valorRenta.MesVigenciaDesde, valorRenta.AnioVigenciaDesde) || vr.FechaPerteneceARango(valorRenta.MesVigenciaHasta, valorRenta.AnioVigenciaHasta))
+                        return false;
+            }
+            return true;
         }
 
         private void bCancelar_Click(object sender, EventArgs e)

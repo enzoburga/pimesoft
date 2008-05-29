@@ -124,9 +124,13 @@ namespace GI.UI.AdminAlquileres
                 return;
 
             frmFichaAdmAlquileres frm = new frmFichaAdmAlquileres();
-            frm.AdmAlquiler = ((GI.BR.AdmAlquileres.AdmAlquiler)lvAdmAlquileres.SelectedItems[0].Tag);
+            frm.AdmAlquiler = (GI.BR.AdmAlquileres.AdmAlquiler)lvAdmAlquileres.SelectedItems[0].Tag;
+            //Apuntan a Label msima direccion de memoria?? al setear el clon, el Tag queda con el valor modificado.
+
             if (frm.ShowDialog() == DialogResult.OK)
                 LlenarLista();
+            else
+                lvAdmAlquileres.SelectedItems[0].Tag = frm.AdmAlquiler;
         }
 
         private void imprimirListadotoolStripButton_Click(object sender, EventArgs e)

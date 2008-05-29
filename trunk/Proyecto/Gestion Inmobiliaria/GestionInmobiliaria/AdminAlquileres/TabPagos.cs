@@ -58,6 +58,11 @@ namespace GI.UI.AdminAlquileres
 
         private void nuevoPagoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (AdmAlquiler.ContratoVigente.ValoresRenta.Count <= 0)
+            {
+                GI.Framework.General.GIMsgBox.Show("No hay definidos montos de alquiler para esta administración.", GI.Framework.General.enumTipoMensaje.Advertencia); ;
+                return;
+            }
             frmNuevoPago frm = new frmNuevoPago();
             frm.Contrato = AdmAlquiler.ContratoVigente;
             frm.Pago = new GI.BR.AdmAlquileres.Pago();

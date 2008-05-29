@@ -207,7 +207,7 @@ namespace GI.Managers.Pedidos
         {
             GI.BR.Pedidos.Pedidos pedidos = new GI.BR.Pedidos.Pedidos();
             pedidos.RecuperarPedidosTodos();
-            return AplicarFiltrosPedidos(pedidos,null, false);
+            return AplicarFiltrosPedidos(pedidos,null, IncluirHistóricos);
 
         }
 

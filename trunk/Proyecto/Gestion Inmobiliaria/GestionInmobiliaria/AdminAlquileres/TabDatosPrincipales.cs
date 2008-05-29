@@ -112,17 +112,30 @@ namespace GI.UI.AdminAlquileres
             }
         }
 
+        private bool noResetearContacto = false;
         private void cBoxEsPropietario_CheckedChanged(object sender, EventArgs e)
         {
 
             if (cBoxEsPropietario.Checked == true)
             {
+                if (((GI.BR.Propiedades.Propiedad)LinkPropiedad.Tag).Propietario == null)
+                {
+                    GI.Framework.General.GIMsgBox.Show("La propiedad no posee ningun propietario asociado.", GI.Framework.General.enumTipoMensaje.Advertencia);
+                    noResetearContacto = true;
+                    cBoxEsPropietario.Checked = false;
+                    return;
+                }
                 LinkPropietario.Tag = ((GI.BR.Propiedades.Propiedad)LinkPropiedad.Tag).Propietario;
                 LinkPropietario.Text = ((GI.BR.Propiedades.Propiedad)LinkPropiedad.Tag).Propietario.ToString();
                 this.AdmAlquiler.Contacto = ((GI.BR.Propiedades.Propiedad)LinkPropiedad.Tag).Propietario;
             }
             else
             {
+                if (noResetearContacto)
+                {
+                    noResetearContacto = false;
+                    return;
+                }
                 LinkPropietario.Tag = null;
                 this.AdmAlquiler.Contacto = null;
                 LinkPropietario.Text = "Seleccione un Contacto";

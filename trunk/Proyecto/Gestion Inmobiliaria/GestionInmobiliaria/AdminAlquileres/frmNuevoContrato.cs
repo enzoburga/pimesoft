@@ -47,7 +47,7 @@ namespace GI.UI.AdminAlquileres
             if (contrato.FechaCancelacion.HasValue)
             {
                 if (contrato.FechaInicio >= contrato.FechaCancelacion)
-                    return "La Fecha de Inicio debe ser Menor que la de Cancelación.";
+                    return "La Fecha de Cancelacion debe ser Mayor que la de Inicio.";
 
                 if (contrato.FechaCancelacion <= contrato.FechaVencimiento)
                     return "La Fecha de Cancelación debe ser Menor que la de Vencimiento.";
@@ -74,12 +74,15 @@ namespace GI.UI.AdminAlquileres
             if (cExistente.FechaCancelacion.HasValue)
             {
                 if (cNuevo.FechaInicio <= cExistente.FechaCancelacion)
-                    return "La Fecha de Inicio debe ser Menor que la de Cancelación.";
+                    return "La fecha de inicio esta dentro del rango de fechas de un contrato anterior, debe ser mayor a " + cExistente.FechaCancelacion.Value.ToShortDateString() + ".";
             }
             else
             {
-                if (cNuevo.FechaInicio >= cExistente.FechaVencimiento)
-                    return "La Fecha de Inicio debe ser Menor que la de Vencimiento.";
+                if (cNuevo.FechaInicio <= cExistente.FechaVencimiento)
+                    return "La fecha de inicio esta dentro del rango de fechas de un contrato anterior, debe ser mayor a " + cExistente.FechaVencimiento.ToShortDateString()+".";
+
+                
+
             }
 
             return "";
