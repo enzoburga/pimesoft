@@ -96,6 +96,7 @@ namespace GI.UI.AdminAlquileres
                         break;//Cierro.
                 }
 
+            admAlquiler = (GI.BR.AdmAlquileres.AdmAlquiler)admAlquilerClone.Clone();
             DialogResult = DialogResult.Cancel;
             this.Close();
         }
@@ -187,7 +188,19 @@ namespace GI.UI.AdminAlquileres
             nuevoContrato.Deposito = new GI.BR.Valor();
             nuevoContrato.Deposito.Moneda = new GI.BR.Monedas.Moneda();
             nuevoContrato.Vigente = true;
+
             nuevoContrato.Observaciones = "";
+            if (admAlquiler.ContratoVigente.FechaCancelacion.HasValue)
+            {
+                nuevoContrato.FechaInicio = admAlquiler.ContratoVigente.FechaCancelacion.Value.AddDays(1);
+                nuevoContrato.FechaVencimiento = admAlquiler.ContratoVigente.FechaCancelacion.Value.AddDays(1);
+            }
+            else
+            {
+                nuevoContrato.FechaInicio = admAlquiler.ContratoVigente.FechaVencimiento.AddDays(1);
+                nuevoContrato.FechaVencimiento = admAlquiler.ContratoVigente.FechaVencimiento.AddDays(1);
+            }
+
 
             frmNuevoContrato frmNuevoContrato = new frmNuevoContrato();
             frmNuevoContrato.Contrato = nuevoContrato;
@@ -262,8 +275,18 @@ namespace GI.UI.AdminAlquileres
             GI.BR.AdmAlquileres.Contrato nuevoContrato = new GI.BR.AdmAlquileres.Contrato();
             nuevoContrato.Deposito = AdmAlquiler.ContratoVigente.Deposito;
             nuevoContrato.DiaCobro = AdmAlquiler.ContratoVigente.DiaCobro;
-            nuevoContrato.FechaInicio = AdmAlquiler.ContratoVigente.FechaVencimiento.AddDays(1);
             nuevoContrato.Inquilino = admAlquiler.ContratoVigente.Inquilino;
+
+            if (admAlquiler.ContratoVigente.FechaCancelacion.HasValue)
+            {
+                nuevoContrato.FechaInicio = admAlquiler.ContratoVigente.FechaCancelacion.Value.AddDays(1);
+                nuevoContrato.FechaVencimiento = admAlquiler.ContratoVigente.FechaCancelacion.Value.AddDays(1);
+            }
+            else
+            {
+                nuevoContrato.FechaInicio = admAlquiler.ContratoVigente.FechaVencimiento.AddDays(1);
+                nuevoContrato.FechaVencimiento = admAlquiler.ContratoVigente.FechaVencimiento.AddDays(1);
+            }
 
             nuevoContrato.Vigente = true;
             nuevoContrato.Observaciones = "";

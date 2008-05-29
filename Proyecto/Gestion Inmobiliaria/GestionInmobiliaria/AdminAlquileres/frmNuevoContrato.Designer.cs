@@ -70,7 +70,12 @@ namespace GI.UI.AdminAlquileres
             this.Controls.Add(this.ctrlContrato1);
             this.Controls.Add(this.bAceptar);
             this.Controls.Add(this.bCancelar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmNuevoContrato";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Nuevo contrato";
             this.ResumeLayout(false);
 

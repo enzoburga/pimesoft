@@ -29,7 +29,8 @@ namespace GI.UI.AdminAlquileres
         public override bool AsignarSoloLectura(Control Ctrl)
         {
             return false;
-        }
+        }
+
 
         private void LlenarLista()
         {

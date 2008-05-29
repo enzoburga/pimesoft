@@ -29,16 +29,16 @@ namespace GI.UI.AdminAlquileres
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbAnio = new GI.Framework.ComboBox();
             this.cbMeses = new GI.Framework.ComboBox();
             this.lImporte = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFechaPago = new System.Windows.Forms.DateTimePicker();
             this.bCancelar = new System.Windows.Forms.Button();
             this.bAceptar = new System.Windows.Forms.Button();
-            this.cbAnio = new GI.Framework.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,17 @@ namespace GI.UI.AdminAlquileres
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pago";
+            // 
+            // cbAnio
+            // 
+            this.cbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAnio.FormattingEnabled = true;
+            this.cbAnio.Location = new System.Drawing.Point(107, 65);
+            this.cbAnio.MaxLength = 12;
+            this.cbAnio.Name = "cbAnio";
+            this.cbAnio.Size = new System.Drawing.Size(94, 21);
+            this.cbAnio.TabIndex = 6;
+            this.cbAnio.SelectedIndexChanged += new System.EventHandler(this.cbAnio_SelectedIndexChanged);
             // 
             // cbMeses
             // 
@@ -88,6 +99,16 @@ namespace GI.UI.AdminAlquileres
             this.label3.TabIndex = 3;
             this.label3.Text = "Fecha de Pago";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(64, 68);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Año";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
@@ -136,27 +157,6 @@ namespace GI.UI.AdminAlquileres
             this.bAceptar.UseVisualStyleBackColor = true;
             this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
-            // cbAnio
-            // 
-            this.cbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbAnio.FormattingEnabled = true;
-            this.cbAnio.Location = new System.Drawing.Point(107, 65);
-            this.cbAnio.MaxLength = 12;
-            this.cbAnio.Name = "cbAnio";
-            this.cbAnio.Size = new System.Drawing.Size(94, 21);
-            this.cbAnio.TabIndex = 6;
-            this.cbAnio.SelectedIndexChanged += new System.EventHandler(this.cbAnio_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(64, 68);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Año";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // frmNuevoPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +170,7 @@ namespace GI.UI.AdminAlquileres
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNuevoPago";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Nuevo Pago";
             this.groupBox1.ResumeLayout(false);

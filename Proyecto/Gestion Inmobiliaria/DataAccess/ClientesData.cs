@@ -9,7 +9,7 @@ namespace GI.DA
         public int GuardarCliente(Nullable<DateTime> FechaNacimiento, string Email, string Apellido, string Nombres, string NroDocumento, string Observaciones, string TelefonoCelular, string TelefonoParticular, string TelefonoTrabajo, int TipoDocumento, int IdBarrio, int IdProvincia, string Calle, string CodigoPostal, string Depto, int Numero, string Piso, string CalleEntre1, string CalleEntre2, int IdPais, int IdLocalidad)
         {
             object fechaNacimiento = FechaNacimiento;
-            if (FechaNacimiento.HasValue)
+            if (!FechaNacimiento.HasValue)
                 fechaNacimiento = System.DBNull.Value;
 
             object idPais = IdPais;

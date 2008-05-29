@@ -64,7 +64,7 @@ namespace GI.UI.Generales
             // 
             // tbDepositoContrato
             // 
-            this.tbDepositoContrato.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource1, "Importe", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
+            this.tbDepositoContrato.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource1, "Importe", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.tbDepositoContrato.Location = new System.Drawing.Point(86, 66);
             this.tbDepositoContrato.Name = "tbDepositoContrato";
             this.tbDepositoContrato.Size = new System.Drawing.Size(57, 20);
@@ -78,7 +78,6 @@ namespace GI.UI.Generales
             // 
             // dtpFechaInicio
             // 
-            this.dtpFechaInicio.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contratoBindingSource, "FechaInicio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "d"));
             this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaInicio.Location = new System.Drawing.Point(86, 39);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
@@ -214,13 +213,13 @@ namespace GI.UI.Generales
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Mes Inicio";
+            this.columnHeader3.Text = "Desde";
             this.columnHeader3.Width = 125;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Año";
-            this.columnHeader4.Width = 75;
+            this.columnHeader4.Text = "Hasta";
+            this.columnHeader4.Width = 130;
             // 
             // cBoxCancelado
             // 
@@ -235,7 +234,7 @@ namespace GI.UI.Generales
             // 
             // tbObservaciones
             // 
-            this.tbObservaciones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratoBindingSource, "Observaciones", true));
+            this.tbObservaciones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratoBindingSource, "Observaciones", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.tbObservaciones.Location = new System.Drawing.Point(13, 246);
             this.tbObservaciones.Multiline = true;
             this.tbObservaciones.Name = "tbObservaciones";
@@ -255,7 +254,7 @@ namespace GI.UI.Generales
             // cbMonedaDepositoContrato
             // 
             this.cbMonedaDepositoContrato.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.valorBindingSource1, "Moneda", true));
-            this.cbMonedaDepositoContrato.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource1, "Moneda", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbMonedaDepositoContrato.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.valorBindingSource1, "Moneda", true));
             this.cbMonedaDepositoContrato.DisplayMember = "Moneda";
             this.cbMonedaDepositoContrato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonedaDepositoContrato.FormattingEnabled = true;
@@ -275,7 +274,6 @@ namespace GI.UI.Generales
             // 
             // dtpFechaCancelacion
             // 
-            this.dtpFechaCancelacion.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contratoBindingSource, "FechaCancelacion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "d"));
             this.dtpFechaCancelacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaCancelacion.Location = new System.Drawing.Point(316, 66);
             this.dtpFechaCancelacion.Name = "dtpFechaCancelacion";
@@ -284,7 +282,6 @@ namespace GI.UI.Generales
             // 
             // dtpFechaVencimiento
             // 
-            this.dtpFechaVencimiento.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contratoBindingSource, "FechaVencimiento", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "d"));
             this.dtpFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaVencimiento.Location = new System.Drawing.Point(316, 39);
             this.dtpFechaVencimiento.Name = "dtpFechaVencimiento";

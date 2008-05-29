@@ -34,8 +34,11 @@ namespace GI.UI.AdminAlquileres
 
         private void CargarPago()
         {
-            this.cbAnio.SelectedIndex = pago.AnioPagado - DateTime.Today.Year + 1;
-            this.cbMeses.SelectedIndex = pago.MesCancelado - 1;
+            if (pago.IdPago != 0)
+            {
+                this.cbAnio.SelectedIndex = GetIndexAnio( pago.AnioPagado);
+                this.cbMeses.SelectedIndex = pago.MesCancelado - 1;
+            }
         }
 
         public GI.BR.AdmAlquileres.Contrato Contrato { get { return contrato; } set { contrato = value; } }
@@ -57,10 +60,10 @@ namespace GI.UI.AdminAlquileres
             pago.IdContrato = Contrato.IdContrato;
 
             if(pagoClone.IdPago == 0)
-                pago.Importe = contrato.GetMonto(cbMeses.SelectedIndex + 1, DateTime.Today.Year + cbAnio.SelectedIndex - 1);
+                pago.Importe = contrato.GetMonto(cbMeses.SelectedIndex + 1, int.Parse(cbAnio.SelectedItem.ToString()));
 
             pago.MesCancelado = cbMeses.SelectedIndex+1;
-            pago.AnioPagado = DateTime.Today.Year + cbAnio.SelectedIndex - 1;
+            pago.AnioPagado = int.Parse(cbAnio.SelectedItem.ToString());
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -68,7 +71,7 @@ namespace GI.UI.AdminAlquileres
 
         private string Validar()
         {
-            if (contrato.GetMonto(cbMeses.SelectedIndex + 1, DateTime.Today.Year + cbAnio.SelectedIndex - 1) == null)
+            if (contrato.GetMonto(cbMeses.SelectedIndex + 1, int.Parse(cbAnio.SelectedItem.ToString())) == null)
                 return "No hay una renta definida para el mes y el año seleccionados.";
 
             int anio;
@@ -76,11 +79,10 @@ namespace GI.UI.AdminAlquileres
             //Valido que no sea de un mes repetido.
             foreach (GI.BR.AdmAlquileres.Pago p in pagos)
             {
-                anio = DateTime.Today.Year + cbAnio.SelectedIndex - 1;
                 if (p.IdPago != pago.IdPago)
                 {
-                    if (p.MesCancelado == cbMeses.SelectedIndex + 1 && p.AnioPagado == DateTime.Today.Year + cbAnio.SelectedIndex - 1)
-                        return "Ya hay un pago generado para el mes " + (System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(p.MesCancelado)).ToUpper() + " de " + anio.ToString();
+                    if (p.MesCancelado == cbMeses.SelectedIndex + 1 && p.AnioPagado == int.Parse(cbAnio.SelectedItem.ToString()))
+                        return "Ya hay un pago generado para el mes " + (System.Globalization.DateTimeFormatInfo.CurrentInfo.GetMonthName(p.MesCancelado)).ToUpper() + " de " + cbAnio.SelectedItem.ToString();
                 }
             }
 
@@ -96,11 +98,12 @@ namespace GI.UI.AdminAlquileres
 
         private void Inicializar()
         {
-            cbAnio.Items.Add(DateTime.Today.Year - 1);
-            cbAnio.Items.Add(DateTime.Today.Year);
-            cbAnio.Items.Add(DateTime.Today.Year + 1);
+            for (int i = contrato.FechaInicio.Year; i <= contrato.FechaVencimiento.Year; i++)
+            {
+                cbAnio.Items.Add(i);
+            }
 
-            cbAnio.SelectedIndex = 1;
+            cbAnio.SelectedIndex = 0;
 
             cbMeses.Items.Add("Enero");
             cbMeses.Items.Add("Febrero");
@@ -123,9 +126,20 @@ namespace GI.UI.AdminAlquileres
             SetImporte();
         }
 
+        private int GetIndexAnio(int anio)
+        {
+            for (int i = 0; i < cbAnio.Items.Count; i++)
+            {
+                if (cbAnio.Items[i].ToString() == anio.ToString())
+                    return i;
+            }
+
+            throw new Exception("No se encuentra el anio a seleccionar en el combo.");
+        }
+
         private void SetImporte()
         {
-            GI.BR.Valor monto = contrato.GetMonto(cbMeses.SelectedIndex + 1, DateTime.Today.Year + cbAnio.SelectedIndex - 1);
+            GI.BR.Valor monto = contrato.GetMonto(cbMeses.SelectedIndex + 1, int.Parse(cbAnio.SelectedItem.ToString()));
             if (monto == null)
                 lImporte.Text = "--------";
             else

@@ -47,8 +47,8 @@ namespace GI.UI.Carteles
             this.cAceptar = new System.Windows.Forms.Button();
             this.bCancelar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.cbUbicacion = new GI.Framework.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -172,7 +172,7 @@ namespace GI.UI.Carteles
             this.fichaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(253, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(255, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -202,7 +202,7 @@ namespace GI.UI.Carteles
             // cAceptar
             // 
             this.cAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cAceptar.Location = new System.Drawing.Point(85, 240);
+            this.cAceptar.Location = new System.Drawing.Point(87, 240);
             this.cAceptar.Name = "cAceptar";
             this.cAceptar.Size = new System.Drawing.Size(75, 23);
             this.cAceptar.TabIndex = 6;
@@ -213,7 +213,7 @@ namespace GI.UI.Carteles
             // bCancelar
             // 
             this.bCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bCancelar.Location = new System.Drawing.Point(166, 240);
+            this.bCancelar.Location = new System.Drawing.Point(168, 240);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 7;
@@ -239,8 +239,17 @@ namespace GI.UI.Carteles
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(253, 208);
+            this.panel1.Size = new System.Drawing.Size(255, 208);
             this.panel1.TabIndex = 2;
+            // 
+            // cbUbicacion
+            // 
+            this.cbUbicacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbUbicacion.FormattingEnabled = true;
+            this.cbUbicacion.Location = new System.Drawing.Point(97, 154);
+            this.cbUbicacion.Name = "cbUbicacion";
+            this.cbUbicacion.Size = new System.Drawing.Size(121, 21);
+            this.cbUbicacion.TabIndex = 8;
             // 
             // label6
             // 
@@ -251,14 +260,6 @@ namespace GI.UI.Carteles
             this.label6.TabIndex = 0;
             this.label6.Text = "Ubicación";
             // 
-            // cbUbicacion
-            // 
-            this.cbUbicacion.FormattingEnabled = true;
-            this.cbUbicacion.Location = new System.Drawing.Point(97, 154);
-            this.cbUbicacion.Name = "cbUbicacion";
-            this.cbUbicacion.Size = new System.Drawing.Size(121, 21);
-            this.cbUbicacion.TabIndex = 8;
-            // 
             // frmFichaCarteles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,6 +269,7 @@ namespace GI.UI.Carteles
             this.Controls.Add(this.cAceptar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(261, 285);

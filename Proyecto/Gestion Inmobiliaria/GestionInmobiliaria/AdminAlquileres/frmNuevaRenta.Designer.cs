@@ -28,7 +28,6 @@ namespace GI.UI.AdminAlquileres
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.tbMonto = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -97,6 +96,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // cbMesDesde
             // 
+            this.cbMesDesde.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMesDesde.FormattingEnabled = true;
             this.cbMesDesde.Location = new System.Drawing.Point(41, 19);
             this.cbMesDesde.Name = "cbMesDesde";
@@ -128,6 +128,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // cbMoneda
             // 
+            this.cbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMoneda.FormattingEnabled = true;
             this.cbMoneda.Location = new System.Drawing.Point(189, 20);
             this.cbMoneda.Name = "cbMoneda";
@@ -165,6 +166,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // cbMesHasta
             // 
+            this.cbMesHasta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMesHasta.FormattingEnabled = true;
             this.cbMesHasta.Location = new System.Drawing.Point(41, 19);
             this.cbMesHasta.Name = "cbMesHasta";
@@ -212,6 +214,7 @@ namespace GI.UI.AdminAlquileres
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNuevaRenta";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Nuevo Valor de Renta";
             this.groupBox2.ResumeLayout(false);
