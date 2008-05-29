@@ -49,7 +49,8 @@ namespace GI.UI.AdminAlquileres
             admAlquiler.ContratoVigente.Deposito.Moneda = new GI.BR.Monedas.Moneda();
             admAlquiler.ContratoVigente.Vigente = true;
             admAlquiler.ContratoVigente.Observaciones = "";
-            
+            admAlquiler.ContratoVigente.FechaInicio = DateTime.Today;
+            admAlquiler.ContratoVigente.FechaVencimiento = DateTime.Today;
 
             frm.AdmAlquiler = admAlquiler;
 
