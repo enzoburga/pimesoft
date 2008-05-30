@@ -47,6 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\AdmAlquileres\ReporteListadoAdmAlquileres.cs" />
+    <Compile Include="Clases\Propiedades\DatosFichaPropiedad\AbstractFactoryDatosFicha.cs" />
+    <Compile Include="Clases\Propiedades\DatosFichaPropiedad\DatosFichaPropiedad.cs" />
+    <Compile Include="Clases\Propiedades\DatosFichaPropiedad\DatosFichaPropiedadDeptos.cs" />
+    <Compile Include="Clases\Propiedades\DatosFichaPropiedad\DatosFichaPropiedadGenerico.cs" />
     <Compile Include="Clases\Propiedades\ReporteFichaPropiedad.cs" />
     <Compile Include="Clases\Propiedades\ReporteListadoLlamados.cs" />
     <Compile Include="Clases\Propiedades\ReporteListadoPropiedades.cs" />
@@ -87,6 +91,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSPropiedadAnexo.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Managers\ManagerGeneral.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReporteAbs.cs" />
     <Compile Include="Reportes\Reporte_FichaPropiedad_v2.cs">

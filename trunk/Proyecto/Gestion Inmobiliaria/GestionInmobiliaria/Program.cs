@@ -15,6 +15,8 @@ namespace GI.UI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            
+
             GI.UI.Seguridad.FrmLogIn frmLogIn = new GI.UI.Seguridad.FrmLogIn();
             if (frmLogIn.ShowDialog() == DialogResult.OK)
             {
