@@ -10,7 +10,7 @@ namespace GI.DA
     {
         private static SqlConnection xConn = new SqlConnection(GetConnString);
         private static SqlTransaction trans;
-        private static string connString = System.Configuration.ConfigurationSettings.AppSettings["ConnString"].ToString();
+        private static string connString = System.Configuration.ConfigurationManager.AppSettings["ConnString"].ToString();
 
 
         internal static string GetConnString

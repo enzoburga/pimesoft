@@ -9,6 +9,7 @@ namespace GI.BR.Propiedades
     public delegate void DelegateCambioTipoPropiedad(GI.BR.Propiedades.TipoPropiedad Tipo);
     public delegate void DelegateCambioValorPropiedad(GI.BR.Propiedades.Propiedad Propiedad);
 
+    [Serializable]
     public abstract class Propiedad : ICloneable
     {
         public event DelegateCambioTipoPropiedad onCambioTipoPropiedad;
