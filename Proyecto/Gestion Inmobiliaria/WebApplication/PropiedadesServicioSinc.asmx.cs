@@ -26,9 +26,8 @@ namespace WebApplication
         }
 
         [WebMethod]
-        public bool IngresarPropiedad(GI.BR.Propiedades.Propiedad Propiedad)
+        public int IngresarPropiedad(GI.BR.Propiedades.Propiedad Propiedad)
         {
-            return false;
         }
 
     }
