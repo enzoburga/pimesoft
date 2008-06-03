@@ -93,8 +93,8 @@ namespace GI.UI.AdminAlquileres
                 {
                     LinkPropietario.Tag = (GI.BR.Clientes.Propietario)frmSeleccionador.ObjetoSeleccionado;
                     LinkPropietario.Text = ((GI.BR.Clientes.Propietario)frmSeleccionador.ObjetoSeleccionado).ToString();
+                    AdmAlquiler.Contacto = (GI.BR.Clientes.Propietario)frmSeleccionador.ObjetoSeleccionado;
                 }
-
             }
             else
             {

@@ -121,13 +121,21 @@ namespace GI.UI.AdminAlquileres
                 GI.Framework.General.GIMsgBox.Show("Debe seleccionar una Propiedad en Alquiler.", GI.Framework.General.enumTipoMensaje.Advertencia);
                 return;
             }
+
             try
             {
+
 
                 //Verifico si la adm de alquiler esta o no guardado. Si lo esta lo actualizo.
                 //Busco la administracion en el primer Tab.
                 if (nuevoAdmAlquiler)
                 {
+                    if (ExisteAdmAlquiler(AdmAlquiler))
+                    {
+                        GI.Framework.General.GIMsgBox.Show("Ya Existe una administración de alquiler para la propieadad seleccionada.", GI.Framework.General.enumTipoMensaje.Advertencia);
+                        return;
+                    }
+
                     if ((guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).AdmAlquiler.Guardar()))
                     {
                         nuevoAdmAlquiler = false;
@@ -140,6 +148,8 @@ namespace GI.UI.AdminAlquileres
                 }
                 else
                 {
+
+
                     if ((guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).AdmAlquiler.Actualizar()))
                     {
                         //Actualizo el contrato vigente.
@@ -319,6 +329,21 @@ namespace GI.UI.AdminAlquileres
             }
         }
 
+        private bool ExisteAdmAlquiler(GI.BR.AdmAlquileres.AdmAlquiler AdmAlquiler)
+        { 
+            GI.BR.AdmAlquileres.AdmAlquileres admAlq = new GI.BR.AdmAlquileres.AdmAlquileres();
+            admAlq.RecuperarAdmAlquileresTodos();
+
+            foreach (GI.BR.AdmAlquileres.AdmAlquiler a in admAlq)
+            {
+                if (a.Alquiler.IdPropiedad == AdmAlquiler.Alquiler.IdPropiedad)
+                    return true;
+            }
+
+            return false;
+
+        }
+
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bool guardado = false;
@@ -334,6 +359,9 @@ namespace GI.UI.AdminAlquileres
                 GI.Framework.General.GIMsgBox.Show("Debe seleccionar una Propiedad en Alquiler.", GI.Framework.General.enumTipoMensaje.Advertencia);
                 return;
             }
+
+
+
             try
             {
 
@@ -341,6 +369,12 @@ namespace GI.UI.AdminAlquileres
                 //Busco la administracion en el primer Tab.
                 if (nuevoAdmAlquiler)
                 {
+                    if (ExisteAdmAlquiler(AdmAlquiler))
+                    {
+                        GI.Framework.General.GIMsgBox.Show("Ya Existe una administración de alquiler para la propieadad seleccionada.", GI.Framework.General.enumTipoMensaje.Advertencia);
+                        return;
+                    }
+
                     if ((guardado = ((TabDatosPrincipales)tabControl.TabPages[0].Controls[0]).AdmAlquiler.Guardar()))
                     {
                         nuevoAdmAlquiler = false;
