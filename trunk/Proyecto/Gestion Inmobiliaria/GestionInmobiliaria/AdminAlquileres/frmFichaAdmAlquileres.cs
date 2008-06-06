@@ -416,6 +416,13 @@ namespace GI.UI.AdminAlquileres
 
             }
         }
+
+        private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GI.Reportes.Clases.AdmAlquileres.ReporteFichaAdmAlquiler repFicha = new GI.Reportes.Clases.AdmAlquileres.ReporteFichaAdmAlquiler("Ficha de Administración de Alquiler", admAlquiler);
+            GI.Reportes.Visor.FrmVisorReporte frm = new GI.Reportes.Visor.FrmVisorReporte(repFicha);
+            frm.Show();
+        }
     }
    
 }

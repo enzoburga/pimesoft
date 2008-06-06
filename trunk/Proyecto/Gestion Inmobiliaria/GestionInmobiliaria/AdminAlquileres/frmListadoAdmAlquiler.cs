@@ -147,7 +147,7 @@ namespace GI.UI.AdminAlquileres
 
             GI.Reportes.Visor.FrmVisorReporte frmVisor = new GI.Reportes.Visor.FrmVisorReporte(reporte);
 
-            frmVisor.ShowDialog();
+            frmVisor.Show();
         }
 
         private void lvAdmAlquileres_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -178,6 +178,15 @@ namespace GI.UI.AdminAlquileres
 
             // Perform the sort with these new sort options.
             this.lvAdmAlquileres.Sort();
+        }
+
+        private void imprimirFichaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvAdmAlquileres.SelectedItems.Count != 1)
+                return;
+            GI.Reportes.Clases.AdmAlquileres.ReporteFichaAdmAlquiler repFicha = new GI.Reportes.Clases.AdmAlquileres.ReporteFichaAdmAlquiler("Ficha de Administración de Alquiler", (GI.BR.AdmAlquileres.AdmAlquiler)lvAdmAlquileres.SelectedItems[0].Tag);
+            GI.Reportes.Visor.FrmVisorReporte frm = new GI.Reportes.Visor.FrmVisorReporte(repFicha);
+            frm.Show();
         }
 
         

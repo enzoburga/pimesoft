@@ -40,11 +40,11 @@ namespace GI.UI.AdminAlquileres
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.verFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -158,6 +158,10 @@ namespace GI.UI.AdminAlquileres
             this.columnHeader3.Text = "Fecha Vencimiento Contrato";
             this.columnHeader3.Width = 153;
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Estado";
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -165,20 +169,20 @@ namespace GI.UI.AdminAlquileres
             this.editarFichaToolStripMenuItem,
             this.imprimirFichaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(142, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
             // 
             // verFichaToolStripMenuItem
             // 
             this.verFichaToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.verFichaToolStripMenuItem.Name = "verFichaToolStripMenuItem";
-            this.verFichaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.verFichaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.verFichaToolStripMenuItem.Text = "Ver Ficha";
             this.verFichaToolStripMenuItem.Click += new System.EventHandler(this.verFichaToolStripMenuItem_Click);
             // 
             // editarFichaToolStripMenuItem
             // 
             this.editarFichaToolStripMenuItem.Name = "editarFichaToolStripMenuItem";
-            this.editarFichaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.editarFichaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.editarFichaToolStripMenuItem.Text = "Editar Ficha";
             this.editarFichaToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.editarFichaToolStripMenuItem.Click += new System.EventHandler(this.editarFichaToolStripMenuItem_Click);
@@ -186,12 +190,9 @@ namespace GI.UI.AdminAlquileres
             // imprimirFichaToolStripMenuItem
             // 
             this.imprimirFichaToolStripMenuItem.Name = "imprimirFichaToolStripMenuItem";
-            this.imprimirFichaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.imprimirFichaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.imprimirFichaToolStripMenuItem.Text = "Imprimir";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Estado";
+            this.imprimirFichaToolStripMenuItem.Click += new System.EventHandler(this.imprimirFichaToolStripMenuItem_Click);
             // 
             // frmListadoAdmAlquiler
             // 

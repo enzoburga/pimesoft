@@ -471,7 +471,7 @@ namespace GI.Reportes.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public ContratoVigenteRow AddContratoVigenteRow(string Inquilino, string FechaInicio, string FechaVencimiento, string Deposito, string DiaCobro, string Observaciones) {
+            public ContratoVigenteRow AddContratoVigenteRow(string Inquilino, System.DateTime FechaInicio, System.DateTime FechaVencimiento, string Deposito, string DiaCobro, string Observaciones) {
                 ContratoVigenteRow rowContratoVigenteRow = ((ContratoVigenteRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Inquilino,
@@ -516,9 +516,9 @@ namespace GI.Reportes.DataSet {
             private void InitClass() {
                 this.columnInquilino = new global::System.Data.DataColumn("Inquilino", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInquilino);
-                this.columnFechaInicio = new global::System.Data.DataColumn("FechaInicio", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnFechaInicio = new global::System.Data.DataColumn("FechaInicio", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFechaInicio);
-                this.columnFechaVencimiento = new global::System.Data.DataColumn("FechaVencimiento", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnFechaVencimiento = new global::System.Data.DataColumn("FechaVencimiento", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFechaVencimiento);
                 this.columnDeposito = new global::System.Data.DataColumn("Deposito", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDeposito);
@@ -737,7 +737,7 @@ namespace GI.Reportes.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public PagosRow AddPagosRow(string Monto, string FechaPago, string RentaCancelada) {
+            public PagosRow AddPagosRow(string Monto, System.DateTime FechaPago, string RentaCancelada) {
                 PagosRow rowPagosRow = ((PagosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Monto,
@@ -776,7 +776,7 @@ namespace GI.Reportes.DataSet {
             private void InitClass() {
                 this.columnMonto = new global::System.Data.DataColumn("Monto", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMonto);
-                this.columnFechaPago = new global::System.Data.DataColumn("FechaPago", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnFechaPago = new global::System.Data.DataColumn("FechaPago", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFechaPago);
                 this.columnRentaCancelada = new global::System.Data.DataColumn("RentaCancelada", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRentaCancelada);
@@ -1463,10 +1463,10 @@ namespace GI.Reportes.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string FechaInicio {
+            public System.DateTime FechaInicio {
                 get {
                     try {
-                        return ((string)(this[this.tableContratoVigente.FechaInicioColumn]));
+                        return ((global::System.DateTime)(this[this.tableContratoVigente.FechaInicioColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'FechaInicio\' in table \'ContratoVigente\' is DBNull.", e);
@@ -1478,10 +1478,10 @@ namespace GI.Reportes.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string FechaVencimiento {
+            public System.DateTime FechaVencimiento {
                 get {
                     try {
-                        return ((string)(this[this.tableContratoVigente.FechaVencimientoColumn]));
+                        return ((global::System.DateTime)(this[this.tableContratoVigente.FechaVencimientoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'FechaVencimiento\' in table \'ContratoVigente\' is DBNull.", e);
@@ -1628,10 +1628,10 @@ namespace GI.Reportes.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string FechaPago {
+            public System.DateTime FechaPago {
                 get {
                     try {
-                        return ((string)(this[this.tablePagos.FechaPagoColumn]));
+                        return ((global::System.DateTime)(this[this.tablePagos.FechaPagoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'FechaPago\' in table \'Pagos\' is DBNull.", e);

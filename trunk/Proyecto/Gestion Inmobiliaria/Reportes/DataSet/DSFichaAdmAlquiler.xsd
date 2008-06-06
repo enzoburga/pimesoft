@@ -19,8 +19,8 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Inquilino" msprop:Generator_UserColumnName="Inquilino" msprop:Generator_ColumnVarNameInTable="columnInquilino" msprop:Generator_ColumnPropNameInRow="Inquilino" msprop:Generator_ColumnPropNameInTable="InquilinoColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="FechaInicio" msprop:Generator_UserColumnName="FechaInicio" msprop:Generator_ColumnVarNameInTable="columnFechaInicio" msprop:Generator_ColumnPropNameInRow="FechaInicio" msprop:Generator_ColumnPropNameInTable="FechaInicioColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="FechaVencimiento" msprop:Generator_UserColumnName="FechaVencimiento" msprop:Generator_ColumnVarNameInTable="columnFechaVencimiento" msprop:Generator_ColumnPropNameInRow="FechaVencimiento" msprop:Generator_ColumnPropNameInTable="FechaVencimientoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaInicio" msprop:Generator_UserColumnName="FechaInicio" msprop:Generator_ColumnVarNameInTable="columnFechaInicio" msprop:Generator_ColumnPropNameInRow="FechaInicio" msprop:Generator_ColumnPropNameInTable="FechaInicioColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FechaVencimiento" msprop:Generator_UserColumnName="FechaVencimiento" msprop:Generator_ColumnVarNameInTable="columnFechaVencimiento" msprop:Generator_ColumnPropNameInRow="FechaVencimiento" msprop:Generator_ColumnPropNameInTable="FechaVencimientoColumn" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Deposito" msprop:Generator_UserColumnName="Deposito" msprop:Generator_ColumnVarNameInTable="columnDeposito" msprop:Generator_ColumnPropNameInRow="Deposito" msprop:Generator_ColumnPropNameInTable="DepositoColumn" type="xs:string" minOccurs="0" />
               <xs:element name="DiaCobro" msprop:Generator_UserColumnName="DiaCobro" msprop:Generator_ColumnVarNameInTable="columnDiaCobro" msprop:Generator_ColumnPropNameInRow="DiaCobro" msprop:Generator_ColumnPropNameInTable="DiaCobroColumn" type="xs:string" minOccurs="0" />
               <xs:element name="Observaciones" msprop:Generator_UserColumnName="Observaciones" msprop:Generator_ColumnVarNameInTable="columnObservaciones" msprop:Generator_ColumnPropNameInRow="Observaciones" msprop:Generator_ColumnPropNameInTable="ObservacionesColumn" type="xs:string" minOccurs="0" />
@@ -31,7 +31,7 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Monto" msprop:Generator_UserColumnName="Monto" msprop:Generator_ColumnVarNameInTable="columnMonto" msprop:Generator_ColumnPropNameInRow="Monto" msprop:Generator_ColumnPropNameInTable="MontoColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="FechaPago" msprop:Generator_UserColumnName="FechaPago" msprop:Generator_ColumnVarNameInTable="columnFechaPago" msprop:Generator_ColumnPropNameInRow="FechaPago" msprop:Generator_ColumnPropNameInTable="FechaPagoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaPago" msprop:Generator_UserColumnName="FechaPago" msprop:Generator_ColumnVarNameInTable="columnFechaPago" msprop:Generator_ColumnPropNameInRow="FechaPago" msprop:Generator_ColumnPropNameInTable="FechaPagoColumn" type="xs:dateTime" minOccurs="0" />
               <xs:element name="RentaCancelada" msprop:Generator_UserColumnName="RentaCancelada" msprop:Generator_ColumnVarNameInTable="columnRentaCancelada" msprop:Generator_ColumnPropNameInRow="RentaCancelada" msprop:Generator_ColumnPropNameInTable="RentaCanceladaColumn" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
