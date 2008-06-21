@@ -40,12 +40,21 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controles\ctrlBuscadorPropiedades.ascx" />
     <Content Include="Ficha.aspx" />
     <Content Include="Propiedades.aspx" />
     <Content Include="PropiedadesServicioSinc.asmx" />
+    <Content Include="Stylesheet.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controles\ctrlBuscadorPropiedades.ascx.cs">
+      <DependentUpon>ctrlBuscadorPropiedades.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ctrlBuscadorPropiedades.ascx.designer.cs">
+      <DependentUpon>ctrlBuscadorPropiedades.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Ficha.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Ficha.aspx</DependentUpon>
@@ -99,7 +108,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>3947</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
