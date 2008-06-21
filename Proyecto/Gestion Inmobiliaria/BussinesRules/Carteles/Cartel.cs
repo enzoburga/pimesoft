@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GI.BR.Carteles
 {
-    public class Cartel
+    public class Cartel:ICloneable
     {
         #region Miembros privados
         private int idCartel;
@@ -82,5 +82,14 @@ namespace GI.BR.Carteles
 
 
 
+
+        #region ICloneable Members
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
+        #endregion
     }
 }

@@ -15,6 +15,18 @@ namespace GI.UI.AdminAlquileres
             InitializeComponent();
         }
 
+        public override bool AsignarSoloLectura(Control Ctrl)
+        {
+            
+            if (Ctrl.Name == "LinkPropietario" && Ctrl.Text != "Seleccione un Contacto")
+                return false;
+
+            if (Ctrl.Name == "LinkPropiedad" && Ctrl.Text != "Seleccione una Propiedad")
+                return false;
+
+            return base.AsignarSoloLectura(Ctrl);
+        }
+
         protected override void Inicializar()
         {
 

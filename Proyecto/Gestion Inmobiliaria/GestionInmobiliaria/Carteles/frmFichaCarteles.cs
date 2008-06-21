@@ -16,6 +16,7 @@ namespace GI.UI.Carteles
         }
 
         private GI.BR.Carteles.Cartel cartel;
+        private GI.BR.Carteles.Cartel cartelClone;
 
         public GI.BR.Carteles.Cartel Cartel
         {
@@ -23,6 +24,7 @@ namespace GI.UI.Carteles
             set
             {
                 cartel = value;
+                cartelClone = (GI.BR.Carteles.Cartel)cartel.Clone();
                 Inicializar();
                 CargarCartel();
             }
@@ -43,9 +45,13 @@ namespace GI.UI.Carteles
             {
                 this.llPropiedad.Text = this.cartel.Propiedad.Codigo.ToString();
                 this.llPropiedad.Tag = this.cartel.Propiedad;
+                this.llPropiedad.Enabled = true;
             }
             else
-                this.llPropiedad.Text = "Seleccione una Propiedad";
+            {
+                this.llPropiedad.Text = "Seleccionar";
+                this.llPropiedad.Enabled = false;
+            }
 
             this.tbAlto.Text = this.cartel.Alto.ToString();
             this.tbAncho.Text = this.cartel.Ancho.ToString();
@@ -157,42 +163,43 @@ namespace GI.UI.Carteles
         private void bCancelar_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+            this.cartel = (GI.BR.Carteles.Cartel)cartelClone.Clone();
             Close();
         }
 
         private void llPropiedad_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (llPropiedad.Text == "Seleccione una Propiedad")
-            {
-                Framework.frmSeleccionador frmSeleccionador = new GI.Framework.frmSeleccionador(new Propiedades.SeleccionadorPropiedades(cartel.TipoCartel));
-                if (frmSeleccionador.ShowDialog() == DialogResult.OK)
-                {
-                    llPropiedad.Tag = (GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado;
-                    this.cartel.Propiedad = (GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado;
-                    llPropiedad.Text = ((GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado).Codigo.ToString();
 
+
+            if (llPropiedad.Tag != null)
+            {
+                Propiedades.frmFichaPropiedad frm = new GI.UI.Propiedades.frmFichaPropiedad();
+                frm.SoloLectura = SoloLectura;
+                frm.Propiedad = (GI.BR.Propiedades.Propiedad)llPropiedad.Tag;
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    llPropiedad.Text = frm.Propiedad.Codigo.ToString();
                 }
 
             }
-            else
-            {
-                if (llPropiedad.Tag != null)
-                {
-                    Propiedades.frmFichaPropiedad frm = new GI.UI.Propiedades.frmFichaPropiedad();
-                    frm.SoloLectura = SoloLectura;
-                    frm.Propiedad = (GI.BR.Propiedades.Propiedad)llPropiedad.Tag;
-                    if (frm.ShowDialog() == DialogResult.OK)
-                    {
-                        llPropiedad.Text = frm.Propiedad.Codigo.ToString();
-                    }
 
-                }
-            }
         }
 
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bCancelar_Click(sender, e);
+        }
+
+        private void bSeleccionarPropiedad_Click(object sender, EventArgs e)
+        {
+            Framework.frmSeleccionador frmSeleccionador = new GI.Framework.frmSeleccionador(new Propiedades.SeleccionadorPropiedades(cartel.TipoCartel));
+            if (frmSeleccionador.ShowDialog() == DialogResult.OK)
+            {
+                llPropiedad.Tag = (GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado;
+                this.cartel.Propiedad = (GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado;
+                llPropiedad.Text = ((GI.BR.Propiedades.Propiedad)frmSeleccionador.ObjetoSeleccionado).Codigo.ToString();
+                llPropiedad.Enabled = true;
+            }
         }
     }
 }

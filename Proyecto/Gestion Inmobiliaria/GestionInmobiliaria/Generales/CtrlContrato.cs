@@ -130,6 +130,15 @@ namespace GI.UI.Generales
            
         }
 
+        public override bool AsignarSoloLectura(Control Ctrl)
+        {
+
+            if (Ctrl.Name == "LinkInquilino" && Ctrl.Text != "Seleccione un Inquilino")
+                return false;
+
+            return base.AsignarSoloLectura(Ctrl);
+        }
+
         private void LlenarListaRentas()
         {
             lvMontos.Items.Clear();

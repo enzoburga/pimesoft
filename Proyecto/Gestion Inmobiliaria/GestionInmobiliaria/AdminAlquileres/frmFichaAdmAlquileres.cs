@@ -423,6 +423,16 @@ namespace GI.UI.AdminAlquileres
             GI.Reportes.Visor.FrmVisorReporte frm = new GI.Reportes.Visor.FrmVisorReporte(repFicha);
             frm.Show();
         }
+
+        private void toolStripButtonImprimir_Click(object sender, EventArgs e)
+        {
+            imprimirToolStripMenuItem_Click(sender, e);
+        }
+
+        private void toolStripButtonRealizarPago_Click(object sender, EventArgs e)
+        {
+            ingresarUnPagoToolStripMenuItem_Click(sender, e);
+        }
     }
    
 }

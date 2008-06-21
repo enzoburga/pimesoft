@@ -33,6 +33,7 @@ namespace GI.UI.Carteles
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BuscarPedidostoolStripButton = new System.Windows.Forms.ToolStripSplitButton();
+            this.verActivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NuevoPedidotoolStripButton = new System.Windows.Forms.ToolStripSplitButton();
             this.nuevoPedidoDeVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +49,6 @@ namespace GI.UI.Carteles
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.verFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verActivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -98,7 +98,14 @@ namespace GI.UI.Carteles
             this.BuscarPedidostoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BuscarPedidostoolStripButton.Name = "BuscarPedidostoolStripButton";
             this.BuscarPedidostoolStripButton.Size = new System.Drawing.Size(79, 68);
-            this.BuscarPedidostoolStripButton.Text = "Buscar Pedidos";
+            this.BuscarPedidostoolStripButton.Text = "Buscar Carteles";
+            // 
+            // verActivosToolStripMenuItem
+            // 
+            this.verActivosToolStripMenuItem.Name = "verActivosToolStripMenuItem";
+            this.verActivosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verActivosToolStripMenuItem.Text = "Ver Activos";
+            this.verActivosToolStripMenuItem.Click += new System.EventHandler(this.verActivosToolStripMenuItem_Click);
             // 
             // verTodosToolStripMenuItem
             // 
@@ -118,7 +125,7 @@ namespace GI.UI.Carteles
             this.NuevoPedidotoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.NuevoPedidotoolStripButton.Name = "NuevoPedidotoolStripButton";
             this.NuevoPedidotoolStripButton.Size = new System.Drawing.Size(80, 68);
-            this.NuevoPedidotoolStripButton.Text = "Nuevo Pedido";
+            this.NuevoPedidotoolStripButton.Text = "Nuevo Cartel";
             // 
             // nuevoPedidoDeVentaToolStripMenuItem
             // 
@@ -216,13 +223,6 @@ namespace GI.UI.Carteles
             this.editarFichaToolStripMenuItem.Text = "Editar Ficha";
             this.editarFichaToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.editarFichaToolStripMenuItem.Click += new System.EventHandler(this.editarFichaToolStripMenuItem_Click);
-            // 
-            // verActivosToolStripMenuItem
-            // 
-            this.verActivosToolStripMenuItem.Name = "verActivosToolStripMenuItem";
-            this.verActivosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.verActivosToolStripMenuItem.Text = "Ver Activos";
-            this.verActivosToolStripMenuItem.Click += new System.EventHandler(this.verActivosToolStripMenuItem_Click);
             // 
             // frmListadoCarteles
             // 

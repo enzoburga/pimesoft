@@ -49,6 +49,7 @@ namespace GI.UI.Carteles
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbUbicacion = new GI.Framework.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.bSeleccionarPropiedad = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -59,10 +60,10 @@ namespace GI.UI.Carteles
             this.llPropiedad.AutoSize = true;
             this.llPropiedad.Location = new System.Drawing.Point(79, 11);
             this.llPropiedad.Name = "llPropiedad";
-            this.llPropiedad.Size = new System.Drawing.Size(131, 13);
+            this.llPropiedad.Size = new System.Drawing.Size(63, 13);
             this.llPropiedad.TabIndex = 1;
             this.llPropiedad.TabStop = true;
-            this.llPropiedad.Text = "Seleccione una propiedad";
+            this.llPropiedad.Text = "Seleccionar";
             this.llPropiedad.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llPropiedad_LinkClicked);
             // 
             // label1
@@ -228,6 +229,7 @@ namespace GI.UI.Carteles
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.cbUbicacion);
+            this.panel1.Controls.Add(this.bSeleccionarPropiedad);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.llPropiedad);
             this.panel1.Controls.Add(this.cbActivo);
@@ -260,11 +262,22 @@ namespace GI.UI.Carteles
             this.label6.TabIndex = 0;
             this.label6.Text = "Ubicación";
             // 
+            // bSeleccionarPropiedad
+            // 
+            this.bSeleccionarPropiedad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bSeleccionarPropiedad.Location = new System.Drawing.Point(173, 6);
+            this.bSeleccionarPropiedad.Name = "bSeleccionarPropiedad";
+            this.bSeleccionarPropiedad.Size = new System.Drawing.Size(75, 23);
+            this.bSeleccionarPropiedad.TabIndex = 6;
+            this.bSeleccionarPropiedad.Text = "Seleccionar";
+            this.bSeleccionarPropiedad.UseVisualStyleBackColor = true;
+            this.bSeleccionarPropiedad.Click += new System.EventHandler(this.bSeleccionarPropiedad_Click);
+            // 
             // frmFichaCarteles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(253, 271);
+            this.ClientSize = new System.Drawing.Size(255, 271);
             this.Controls.Add(this.bCancelar);
             this.Controls.Add(this.cAceptar);
             this.Controls.Add(this.panel1);
@@ -311,5 +324,6 @@ namespace GI.UI.Carteles
         private System.Windows.Forms.Panel panel1;
         private GI.Framework.ComboBox cbUbicacion;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button bSeleccionarPropiedad;
     }
 }

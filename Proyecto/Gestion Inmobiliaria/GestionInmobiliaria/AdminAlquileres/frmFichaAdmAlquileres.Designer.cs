@@ -28,7 +28,11 @@ namespace GI.UI.AdminAlquileres
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFichaAdmAlquileres));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonImprimir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonRealizarPago = new System.Windows.Forms.ToolStripButton();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +47,7 @@ namespace GI.UI.AdminAlquileres
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +60,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.toolStrip1);
             this.splitContainer1.Panel1.Controls.Add(this.tabControl);
             this.splitContainer1.Panel1.Controls.Add(this.menuStrip1);
             // 
@@ -62,14 +68,47 @@ namespace GI.UI.AdminAlquileres
             // 
             this.splitContainer1.Panel2.Controls.Add(this.bAceptar);
             this.splitContainer1.Panel2.Controls.Add(this.bCancelar);
-            this.splitContainer1.Size = new System.Drawing.Size(442, 606);
-            this.splitContainer1.SplitterDistance = 567;
+            this.splitContainer1.Size = new System.Drawing.Size(442, 658);
+            this.splitContainer1.SplitterDistance = 615;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonImprimir,
+            this.toolStripButtonRealizarPago});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(442, 45);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonImprimir
+            // 
+            this.toolStripButtonImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonImprimir.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonImprimir.Image")));
+            this.toolStripButtonImprimir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonImprimir.Name = "toolStripButtonImprimir";
+            this.toolStripButtonImprimir.Size = new System.Drawing.Size(42, 42);
+            this.toolStripButtonImprimir.Text = "Imprimir";
+            this.toolStripButtonImprimir.Click += new System.EventHandler(this.toolStripButtonImprimir_Click);
+            // 
+            // toolStripButtonRealizarPago
+            // 
+            this.toolStripButtonRealizarPago.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonRealizarPago.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRealizarPago.Image")));
+            this.toolStripButtonRealizarPago.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonRealizarPago.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRealizarPago.Name = "toolStripButtonRealizarPago";
+            this.toolStripButtonRealizarPago.Size = new System.Drawing.Size(40, 42);
+            this.toolStripButtonRealizarPago.Text = "Realizar Pago";
+            this.toolStripButtonRealizarPago.Click += new System.EventHandler(this.toolStripButtonRealizarPago_Click);
             // 
             // tabControl
             // 
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 24);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tabControl.Location = new System.Drawing.Point(0, 72);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(442, 543);
@@ -164,7 +203,7 @@ namespace GI.UI.AdminAlquileres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 606);
+            this.ClientSize = new System.Drawing.Size(442, 658);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -177,6 +216,8 @@ namespace GI.UI.AdminAlquileres
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -197,6 +238,9 @@ namespace GI.UI.AdminAlquileres
         private System.Windows.Forms.Button bCancelar;
         private System.Windows.Forms.ToolStripMenuItem ingresarUnPagoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renovarContratoToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonImprimir;
+        private System.Windows.Forms.ToolStripButton toolStripButtonRealizarPago;
 
     }
 }

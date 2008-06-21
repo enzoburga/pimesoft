@@ -66,6 +66,7 @@ namespace GI.UI.Clientes
                 if (cliente.Direccion == null)
                     cliente.Direccion = new GI.BR.Propiedades.Direccion();
                 ctrlDireccion1.Direccion = cliente.Direccion;
+                this.dtpFechaNac.Checked = false;
                 if (cliente.IdCliente == 0)
                     return;
 

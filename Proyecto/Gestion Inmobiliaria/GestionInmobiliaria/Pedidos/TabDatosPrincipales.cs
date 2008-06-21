@@ -67,6 +67,18 @@ namespace GI.UI.Pedidos
 
         }
 
+
+        public override bool AsignarSoloLectura(Control Ctrl)
+        {
+            if (Ctrl.Name == "LinkContacto" && Ctrl.Text != "Seleccione un contacto")
+                return false;
+            
+            if (Ctrl.Name == "LinkPropiedad" && Ctrl.Text != "Seleccione una Propiedad")
+                return false;
+
+            return base.AsignarSoloLectura(Ctrl);
+        }
+
         public void Validar()
         {
             if (validado)

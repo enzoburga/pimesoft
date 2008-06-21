@@ -96,16 +96,16 @@ namespace GI.UI.Carteles
             frmFichaCarteles frm = new frmFichaCarteles();
             frm.Cartel = (GI.BR.Carteles.Cartel)lvCarteles.SelectedItems[0].Tag;
 
-            if (!frm.Cartel.Activo)
-            {
-                GI.Framework.General.GIMsgBox.Show("El cartel es histórico, se abrira en modo solo lectura.", GI.Framework.General.enumTipoMensaje.Informacion);
-                lvCarteles_DoubleClick(sender, e);
-            }
-            else
+            //if (!frm.Cartel.Activo)
+            //{
+            //    GI.Framework.General.GIMsgBox.Show("El cartel es histórico, se abrira en modo solo lectura.", GI.Framework.General.enumTipoMensaje.Informacion);
+            //    lvCarteles_DoubleClick(sender, e);
+            //}
+            //else
             {
 
-                frm.ShowDialog();
-                LlenarLista();
+                if(frm.ShowDialog() == DialogResult.OK)
+                    LlenarLista();
             }
         }
 
