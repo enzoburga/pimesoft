@@ -8,11 +8,33 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication
-{
-
-    public partial class Propiedades
-    {
-        protected System.Web.UI.HtmlControls.HtmlForm form1;
+namespace WebApplication {
+    
+    
+    /// <summary>
+    /// Propiedades class.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated class.
+    /// </remarks>
+    public partial class Propiedades {
+        
+        /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        
+        /// <summary>
+        /// CtrlBuscadorPropiedades1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WebApplication.Controles.ctrlBuscadorPropiedades CtrlBuscadorPropiedades1;
     }
 }
