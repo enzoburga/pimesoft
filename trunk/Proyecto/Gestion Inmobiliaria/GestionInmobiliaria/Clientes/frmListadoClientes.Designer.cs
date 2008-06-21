@@ -46,8 +46,6 @@ namespace GI.UI.Clientes
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.verFichatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enviarACorreoElectrónicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -187,38 +185,24 @@ namespace GI.UI.Clientes
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verFichatoolStripMenuItem,
-            this.editarFichaToolStripMenuItem,
-            this.imprimirToolStripMenuItem,
-            this.enviarACorreoElectrónicoToolStripMenuItem});
+            this.editarFichaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(214, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
             // 
             // verFichatoolStripMenuItem
             // 
             this.verFichatoolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.verFichatoolStripMenuItem.Name = "verFichatoolStripMenuItem";
-            this.verFichatoolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.verFichatoolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.verFichatoolStripMenuItem.Text = "Ver Ficha";
             this.verFichatoolStripMenuItem.Click += new System.EventHandler(this.verFichatoolStripMenuItem_Click);
             // 
             // editarFichaToolStripMenuItem
             // 
             this.editarFichaToolStripMenuItem.Name = "editarFichaToolStripMenuItem";
-            this.editarFichaToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.editarFichaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.editarFichaToolStripMenuItem.Text = "Editar Ficha";
             this.editarFichaToolStripMenuItem.Click += new System.EventHandler(this.editarFichaToolStripMenuItem_Click);
-            // 
-            // imprimirToolStripMenuItem
-            // 
-            this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
-            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.imprimirToolStripMenuItem.Text = "Imprimir";
-            // 
-            // enviarACorreoElectrónicoToolStripMenuItem
-            // 
-            this.enviarACorreoElectrónicoToolStripMenuItem.Name = "enviarACorreoElectrónicoToolStripMenuItem";
-            this.enviarACorreoElectrónicoToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.enviarACorreoElectrónicoToolStripMenuItem.Text = "Enviar a correo electrónico";
             // 
             // frmListadoClientes
             // 
@@ -250,8 +234,6 @@ namespace GI.UI.Clientes
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ToolStripMenuItem verFichatoolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarFichaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem imprimirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem enviarACorreoElectrónicoToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButtonBuscar;

@@ -28,6 +28,7 @@ namespace WebApplication
         [WebMethod]
         public int IngresarPropiedad(GI.BR.Propiedades.Propiedad Propiedad)
         {
+            return 0;
         }
 
     }

@@ -153,5 +153,10 @@ namespace GI.UI.Clientes
             // Perform the sort with these new sort options.
             this.lvClientes.Sort();
         }
+
+        private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

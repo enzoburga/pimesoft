@@ -38,6 +38,7 @@ namespace GI.UI.Pedidos
             frm.Pedido = (GI.BR.Pedidos.Pedido)lvPedidos.SelectedItems[0].Tag;
             frm.SoloLectura = true;
             frm.ShowDialog();
+            LlenarLista();
 
 
         }
@@ -105,6 +106,27 @@ namespace GI.UI.Pedidos
                 lvi.Tag = p;
                 lvPedidos.Items.Add(lvi);
             }
+
+            int a, b;
+
+            //Ajusto el tamaño de las columnas
+            for (int i = 0; i < lvPedidos.Columns.Count; i++)
+            {
+                lvPedidos.Columns[i].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+                a = lvPedidos.Columns[i].Width;
+
+                lvPedidos.Columns[i].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+                b = lvPedidos.Columns[i].Width;
+
+                if (a > b)
+                    lvPedidos.Columns[i].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+                else
+                    lvPedidos.Columns[i].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            }
+
             lvPedidos.EndUpdate();
 
             lvPedidos.Focus();
@@ -132,8 +154,9 @@ namespace GI.UI.Pedidos
             {
 
                 frm.ShowDialog();
-                LlenarLista();
+                
             }
+            LlenarLista();
         }
 
 
@@ -143,14 +166,29 @@ namespace GI.UI.Pedidos
 
             GI.BR.Pedidos.Pedido pedido = new GI.BR.Pedidos.Pedido();
             pedido.EstadoPropiedad = typeof(GI.BR.Propiedades.Venta);
+            
+            pedido.Ubicacion = new GI.BR.Propiedades.Ubicacion();
+        
+            GI.BR.Propiedades.Ubicaciones.Paises p = new GI.BR.Propiedades.Ubicaciones.Paises();
+            p.RecuperarTodos();
+            pedido.Ubicacion.Pais = p.GetDefault;
+
+            GI.BR.Propiedades.Ubicaciones.Provincias prov = new GI.BR.Propiedades.Ubicaciones.Provincias();
+            prov.RecuperarTodas();
+            pedido.Ubicacion.Provincia = prov.GetDefault;
+
+            GI.BR.Propiedades.Ubicaciones.Localidades l = new GI.BR.Propiedades.Ubicaciones.Localidades();
+            l.RecuperarTodas();
+            pedido.Ubicacion.Localidad = l.GetDefault;
 
             frm.Pedido = pedido;
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 pedidos.Add(pedido);
-                LlenarLista();
+                
             }
+            LlenarLista();
         }
 
         private void nuevoPedidoDeAlquilerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -160,13 +198,28 @@ namespace GI.UI.Pedidos
             GI.BR.Pedidos.Pedido pedido = new GI.BR.Pedidos.Pedido();
             pedido.EstadoPropiedad = typeof(GI.BR.Propiedades.Alquiler);
 
+            pedido.Ubicacion = new GI.BR.Propiedades.Ubicacion();
+
+            GI.BR.Propiedades.Ubicaciones.Paises p = new GI.BR.Propiedades.Ubicaciones.Paises();
+            p.RecuperarTodos();
+            pedido.Ubicacion.Pais = p.GetDefault;
+
+            GI.BR.Propiedades.Ubicaciones.Provincias prov = new GI.BR.Propiedades.Ubicaciones.Provincias();
+            prov.RecuperarTodas();
+            pedido.Ubicacion.Provincia = prov.GetDefault;
+
+            GI.BR.Propiedades.Ubicaciones.Localidades l = new GI.BR.Propiedades.Ubicaciones.Localidades();
+            l.RecuperarTodas();
+            pedido.Ubicacion.Localidad = l.GetDefault;
+
             frm.Pedido = pedido;
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 pedidos.Add(pedido);
-                LlenarLista();
+                
             }
+            LlenarLista();
         }
 
         private void pedidosDeAlquilerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -176,8 +229,9 @@ namespace GI.UI.Pedidos
             if (frmBuscar.ShowDialog() == DialogResult.OK)
             {
                 this.pedidos = frmBuscar.Pedidos;
-                this.LlenarLista();
+                
             }
+            this.LlenarLista();
         }
 
         private void pedidosDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -187,8 +241,9 @@ namespace GI.UI.Pedidos
             if (frmBuscar.ShowDialog() == DialogResult.OK)
             {
                 this.pedidos = frmBuscar.Pedidos;
-                this.LlenarLista();
+
             }
+                 this.LlenarLista();
         }
 
         private void lvPedidos_ColumnClick(object sender, ColumnClickEventArgs e)

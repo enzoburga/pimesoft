@@ -82,6 +82,7 @@ namespace GI.UI.Pedidos
             // 
             // verFichaToolStripMenuItem
             // 
+            this.verFichaToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.verFichaToolStripMenuItem.Name = "verFichaToolStripMenuItem";
             this.verFichaToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.verFichaToolStripMenuItem.Text = "Ver Ficha";

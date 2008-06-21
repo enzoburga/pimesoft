@@ -77,7 +77,7 @@ namespace GI.UI.Pedidos
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.lvPedidos);
-            this.splitContainer1.Size = new System.Drawing.Size(1055, 516);
+            this.splitContainer1.Size = new System.Drawing.Size(1112, 516);
             this.splitContainer1.SplitterDistance = 71;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -89,7 +89,7 @@ namespace GI.UI.Pedidos
             this.NuevoPedidotoolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1055, 71);
+            this.toolStrip1.Size = new System.Drawing.Size(1112, 71);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -178,7 +178,7 @@ namespace GI.UI.Pedidos
             this.lvPedidos.Location = new System.Drawing.Point(0, 0);
             this.lvPedidos.MultiSelect = false;
             this.lvPedidos.Name = "lvPedidos";
-            this.lvPedidos.Size = new System.Drawing.Size(1055, 441);
+            this.lvPedidos.Size = new System.Drawing.Size(1112, 441);
             this.lvPedidos.TabIndex = 0;
             this.lvPedidos.UseCompatibleStateImageBehavior = false;
             this.lvPedidos.View = System.Windows.Forms.View.Details;
@@ -188,57 +188,59 @@ namespace GI.UI.Pedidos
             // chFecha
             // 
             this.chFecha.Text = "Fecha de Alta";
-            this.chFecha.Width = 80;
+            this.chFecha.Width = 81;
             // 
             // chContacto
             // 
             this.chContacto.Text = "Contacto";
-            this.chContacto.Width = 201;
+            this.chContacto.Width = 58;
             // 
             // chTelContacto
             // 
             this.chTelContacto.Text = "Telefono";
-            this.chTelContacto.Width = 69;
+            this.chTelContacto.Width = 57;
             // 
             // chTipoProp
             // 
             this.chTipoProp.Text = "Tipo Propiedad";
-            this.chTipoProp.Width = 85;
+            this.chTipoProp.Width = 87;
             // 
             // chTipoOperacion
             // 
             this.chTipoOperacion.Text = "Tipo de Operación";
-            this.chTipoOperacion.Width = 102;
+            this.chTipoOperacion.Width = 103;
             // 
             // chValorDesde
             // 
             this.chValorDesde.Text = "Desde";
+            this.chValorDesde.Width = 46;
             // 
             // chValorHasta
             // 
             this.chValorHasta.Text = "Hasta";
+            this.chValorHasta.Width = 43;
             // 
             // chEstadoPedido
             // 
             this.chEstadoPedido.Text = "Estado Pedido";
-            this.chEstadoPedido.Width = 83;
+            this.chEstadoPedido.Width = 84;
             // 
             // chUbicacion
             // 
             this.chUbicacion.Text = "Ubicación";
-            this.chUbicacion.Width = 124;
+            this.chUbicacion.Width = 63;
             // 
             // chCantOfrecidos
             // 
             this.chCantOfrecidos.Text = "Prop. Ofrecidas";
             this.chCantOfrecidos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chCantOfrecidos.Width = 90;
+            this.chCantOfrecidos.Width = 88;
             // 
             // chCantSinOfrecer
             // 
             this.chCantSinOfrecer.Text = "Prop. A Ofrecer";
             this.chCantSinOfrecer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chCantSinOfrecer.Width = 90;
+            this.chCantSinOfrecer.Width = 398;
             // 
             // contextMenuStrip1
             // 
@@ -275,7 +277,7 @@ namespace GI.UI.Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1055, 516);
+            this.ClientSize = new System.Drawing.Size(1112, 516);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmListadoPedidos";
             this.ShowIcon = false;
