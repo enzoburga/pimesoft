@@ -16,6 +16,20 @@ namespace WebApplication
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (IsPostBack)
+            {
+                //El control se carga despues, del postback, salgo a buscar las propiedades manualmente.
+                CtrlBuscadorPropiedades1.cargarPropiedades();
+                GI.BR.Propiedades.Propiedades propiedades = (GI.BR.Propiedades.Propiedades)Session["Propiedades"];
+                if (propiedades != null)
+                {
+                    DataList1.DataSource = propiedades;
+                    foreach (GI.BR.Propiedades.Propiedad p in propiedades)
+                    {
+                        
+                    }
+                }
+            }
         }
     }
 }
