@@ -57,6 +57,19 @@ namespace GI.Managers.Propiedades
 
         protected Bitmap ResizeFromStream(Bitmap Foto)
         {
+            return this.ResizeFromStream(Foto, this.MaxSizeHor, this.MaxSizeVer);
+            
+        }
+
+
+
+
+
+
+
+
+        public Bitmap ResizeFromStream(Bitmap Foto, int MaxHorizontal, int MaxVertical)
+        {
             int MaxSideSize = 0;
             int intNewWidth = 0;
             int intNewHeight = 0;
@@ -75,12 +88,12 @@ namespace GI.Managers.Propiedades
             if (intOldWidth >= intOldHeight)
             {
                 intMaxSide = intOldWidth;
-                MaxSideSize = this.MaxSizeHor;
+                MaxSideSize = MaxHorizontal;
             }
             else
             {
                 intMaxSide = intOldHeight;
-                MaxSideSize = this.MaxSizeVer;
+                MaxSideSize = MaxVertical;
             }
 
 
@@ -101,14 +114,6 @@ namespace GI.Managers.Propiedades
 
 
             return bmpResized;
-            
         }
-
-
-
-
-
-
-
     }
 }

@@ -19,17 +19,47 @@ namespace WebApplication
             if (IsPostBack)
             {
                 //El control se carga despues, del postback, salgo a buscar las propiedades manualmente.
-                CtrlBuscadorPropiedades1.cargarPropiedades();
-                GI.BR.Propiedades.Propiedades propiedades = (GI.BR.Propiedades.Propiedades)Session["Propiedades"];
-                if (propiedades != null)
-                {
-                    DataList1.DataSource = propiedades;
-                    foreach (GI.BR.Propiedades.Propiedad p in propiedades)
-                    {
-                        
-                    }
-                }
+                
+
+            DataList1.DataSource = CreateDataSource();
+            DataList1.DataBind();
             }
         }
+
+        ICollection CreateDataSource()
+        {
+            Managers.mngImagenesPropiedades mngImagenes = new WebApplication.Managers.mngImagenesPropiedades();
+ 
+            DataTable dt = new DataTable();
+            DataRow dr;
+
+            dt.Columns.Add(new DataColumn("Imagen", typeof(string)));
+            dt.Columns.Add(new DataColumn("Detalles", typeof(string)));
+            dt.Columns.Add(new DataColumn("Link", typeof(string)));
+
+            CtrlBuscadorPropiedades1.cargarPropiedades();
+
+            GI.BR.Propiedades.Propiedades propiedades = (GI.BR.Propiedades.Propiedades)Session["Propiedades"];
+
+            LinkButton lb;
+            foreach (GI.BR.Propiedades.Propiedad p in propiedades)
+            {
+                dr = dt.NewRow();
+                dr[0] = mngImagenes.GetPathImagenChica(p.GaleriaFotos.GetFotoFachada, p.IdPropiedad);
+                dr[1] = p.Observaciones;
+                dr[2] = "http://www.google.com";
+                dt.Rows.Add(dr);
+            }
+
+            DataView dv = new DataView(dt);
+            return dv;
+        }
+
+        private void lb_Click(object sender, EventArgs e)
+        {
+            throw new Exception("The method or operation is not implemented.");
+        }
+
+        
     }
 }
