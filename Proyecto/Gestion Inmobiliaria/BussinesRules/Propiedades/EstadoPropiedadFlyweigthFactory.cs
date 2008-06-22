@@ -11,6 +11,7 @@ namespace GI.BR.Propiedades
         private Hashtable estadosPropiedad;
         private static Hashtable hashTipoEstados = new Hashtable();
         private EstadoPropiedad estadoBase;
+        private int IdReservado;
 
         private EstadoPropiedadFlyweigthFactory(Type Tipo)
         {
@@ -21,6 +22,8 @@ namespace GI.BR.Propiedades
             estadoBase = estados[0];
             foreach (EstadoPropiedad e in estados)
             {
+                if (e.Descripcion == "Reservado")
+                    this.IdReservado = e.IdEstadoPropiedad;
                 estadosPropiedad.Add(e.IdEstadoPropiedad, e);
             }
         }
@@ -40,6 +43,11 @@ namespace GI.BR.Propiedades
             if (hashTipoEstados[Tipo.ToString()] == null)
                 hashTipoEstados[Tipo.ToString()] = new EstadoPropiedadFlyweigthFactory(Tipo);
             return (EstadoPropiedadFlyweigthFactory)hashTipoEstados[Tipo.ToString()];
+        }
+
+        public EstadoPropiedad GetEstadoReservado()
+        {
+            return (EstadoPropiedad)estadosPropiedad[IdReservado];
         }
     }
 }

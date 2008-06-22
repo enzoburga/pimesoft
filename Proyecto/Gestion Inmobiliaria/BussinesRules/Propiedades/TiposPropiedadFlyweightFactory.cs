@@ -9,14 +9,15 @@ namespace GI.BR.Propiedades
     {
 
         private Hashtable tiposPropiedad;
+        private TiposPropiedad tiposPropiedadCollection;
 
         private TiposPropiedadFlyweightFactory()
         {
 
             tiposPropiedad = new Hashtable();
-            TiposPropiedad tipos = new TiposPropiedad();
-            tipos.RecuperarTodos();
-            foreach (TipoPropiedad tipo in tipos)
+            tiposPropiedadCollection = new TiposPropiedad();
+            tiposPropiedadCollection.RecuperarTodos();
+            foreach (TipoPropiedad tipo in tiposPropiedadCollection)
             {
                 tiposPropiedad.Add(tipo.IdTipoPropiedad, tipo);
             }
@@ -27,6 +28,14 @@ namespace GI.BR.Propiedades
         public TipoPropiedad GetTipoPropiedad(int IdTipoPropiedad)
         {
             return (TipoPropiedad)tiposPropiedad[IdTipoPropiedad];
+        }
+
+        public TiposPropiedad GetTiposPropiedad
+        {
+            get 
+            {
+                return tiposPropiedadCollection;
+            }
         }
 
         private static TiposPropiedadFlyweightFactory instancia;

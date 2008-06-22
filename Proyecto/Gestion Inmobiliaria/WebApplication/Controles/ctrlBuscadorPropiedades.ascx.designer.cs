@@ -20,13 +20,13 @@ namespace WebApplication.Controles {
     public partial class ctrlBuscadorPropiedades {
         
         /// <summary>
-        /// ddlTipoPropiedad control.
+        /// ddlTipoOperacion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoPropiedad;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoOperacion;
         
         /// <summary>
         /// ddlAmbientes control.
@@ -38,6 +38,33 @@ namespace WebApplication.Controles {
         protected global::System.Web.UI.WebControls.DropDownList ddlAmbientes;
         
         /// <summary>
+        /// ddlTipoPropiedad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoPropiedad;
+        
+        /// <summary>
+        /// tbValorDesde control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbValorDesde;
+        
+        /// <summary>
+        /// tbValorHasta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbValorHasta;
+        
+        /// <summary>
         /// ddlMoneda control.
         /// </summary>
         /// <remarks>
@@ -47,22 +74,22 @@ namespace WebApplication.Controles {
         protected global::System.Web.UI.WebControls.DropDownList ddlMoneda;
         
         /// <summary>
-        /// TextBox1 control.
+        /// RegularExpressionValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
-        /// TextBox2 control.
+        /// RegularExpressionValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
         /// ddlPais control.
