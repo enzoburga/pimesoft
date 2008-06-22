@@ -27,6 +27,7 @@ namespace WebApplication.Managers
             {
                 //Achico la imagen 450x450.
                 GI.Managers.Propiedades.MngGaleriaFotos mngGaleria = new GI.Managers.Propiedades.MngGaleriaFotos();
+                
                 mngGaleria.ResizeFromStream(foto.Imagen, 220, 220).Save(AppDomain.CurrentDomain.BaseDirectory + pathFoto);
             }
             return pathFoto;
