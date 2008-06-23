@@ -17,41 +17,67 @@
         <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; height: 100%">
             <tr>
                 <td style="height: 50px">
-                    HEADER</td>
+                    Buscar Propiedades</td>
             </tr>
-            <tr>
-                <td style="height: 605px">
+            <tr >
+                <td style="height: 100%; text-align: center;" >
+                    &nbsp;<table>
+                        <tr>
+                            <td align="left" style="width: 100px">
         <uc1:ctrlBuscadorPropiedades id="CtrlBuscadorPropiedades1" runat="server">
         </uc1:ctrlBuscadorPropiedades>
-                    &nbsp;&nbsp;<br />
-                    <br />
-                    &nbsp;
-                    <asp:DataList ID="DataList1" runat="server" CellPadding="4" ForeColor="#333333">
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="width: 100px; height: 21px">
+                    <asp:Label ID="lMensaje" runat="server"></asp:Label></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 100px">
+                    <asp:DataList ID="DataList1" runat="server" CellPadding="4" ForeColor="#333333" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False">
+                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" />
                         <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                         <AlternatingItemStyle BackColor="White" />
                         <ItemStyle BackColor="#EFF3FB" />
-                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" />
+                        <HeaderTemplate>
+                            <%= GetPaginacion() %>
+                        </HeaderTemplate>                        
                         <ItemTemplate>
 
-                            <table cellpadding=10 style="font: 10pt verdana">
+                            <table cellpadding="10" style="font: 10pt verdana" width="900">
                               <tr>
 
                                 <td valign="top" style="width: 220px; height: 220px; text-align: center">                              
                                 
-                                  <img alt="Foto Fachada" align="top" src='<%# DataBinder.Eval(Container.DataItem, "Imagen")%>' ><br />
+                                  <img alt="Foto Fachada" align="top" src='<%# DataBinder.Eval(Container.DataItem, "Thumbnail")%>' />  <br />
                                     <a href='<%# DataBinder.Eval(Container.DataItem, "Link") %>'>Ver Ficha</a>
                                 </td>
 
-                                <td valign="top" style="width: 500px">
-                                  <b>Detalles</b><br><%# DataBinder.Eval(Container.DataItem, "Detalles") %><br>  
+                                <td valign="top" align="left">
+                                  <b>Detalles</b><br><br><%# DataBinder.Eval(Container.DataItem, "Detalles") %><br><br> 
+                                  <b>Ubicación: </b><%# DataBinder.Eval(Container.DataItem, "Ubicacion") %><br><br>
+                                  <b>Calle: </b><%# DataBinder.Eval(Container.DataItem, "Direccion") %><br><br>  
+                                  <b>Valor: </b><%# DataBinder.Eval(Container.DataItem, "Valor") %><br>
+                                  
                                 </td>
                               </tr>
                             </table>
 
                         </ItemTemplate>
-
+                        <FooterTemplate>
+                            <%= GetPaginacion() %>	                              
+                        </FooterTemplate>
+                        <SeparatorStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
+                            Font-Underline="False" ForeColor="Blue" />
                     </asp:DataList></td>
+                        </tr>
+                    </table>
+                    &nbsp;
+                    &nbsp;&nbsp;&nbsp;<br />
+                    <br />
+                    &nbsp;
+                    </td>
             </tr>
         </table>
     </form>
