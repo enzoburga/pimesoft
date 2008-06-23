@@ -12,24 +12,30 @@ namespace WebApplication.Managers
 {
     public class mngImagenesPropiedades
     {
-        public string GetPathImagenChica(GI.BR.Propiedades.Galeria.Foto foto, int idPropiedad)
+        public string GetPathThumbnail(GI.BR.Propiedades.Galeria.Foto foto, int idPropiedad)
+        {
+            return @"ThumbnailHandler.ashx?ImgFilePath=" + GetPathImagen(foto,idPropiedad) + "&width=220&height=220";
+        }
+
+        public string GetPathImagen(GI.BR.Propiedades.Galeria.Foto foto, int idPropiedad)
         {
             if (foto == null)
-                return AppDomain.CurrentDomain.BaseDirectory + @"imagenes\imagen_nodisponible.jpg";
+                return @"imagenes\imagen_nodisponible.jpg";
 
-            if(!System.IO.Directory.Exists(AppDomain.CurrentDomain.BaseDirectory+@"imagenes\"))
+            if (!System.IO.Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + @"imagenes\"))
                 System.IO.Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + @"imagenes\");
 
-            string pathFoto = @"imagenes\" + idPropiedad.ToString() + "_" + foto.IdFoto.ToString() + "_Chica.jpg";
+            string pathFoto = @"imagenes\" + idPropiedad.ToString() + "_" + foto.IdFoto.ToString() + ".jpg";
 
 
-            if (!System.IO.File.Exists(pathFoto))
+            if (!System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory + pathFoto))
             {
                 //Achico la imagen 450x450.
                 GI.Managers.Propiedades.MngGaleriaFotos mngGaleria = new GI.Managers.Propiedades.MngGaleriaFotos();
-                
-                mngGaleria.ResizeFromStream(foto.Imagen, 220, 220).Save(AppDomain.CurrentDomain.BaseDirectory + pathFoto);
-            }
+
+                foto.Imagen.Save(AppDomain.CurrentDomain.BaseDirectory + pathFoto);
+            }            
+
             return pathFoto;
 
         }

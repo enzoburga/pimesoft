@@ -183,10 +183,6 @@ namespace WebApplication.Controles
 
         public void cargarPropiedades()
         {
-            ibBuscar_Click(null, null);
-        }
-        protected void ibBuscar_Click(object sender, ImageClickEventArgs e)
-        {
             GI.Managers.Propiedades.MngPropiedades mngPropiedades = new GI.Managers.Propiedades.MngPropiedades();
 
             #region Armo los objetos para pasarle al  manager de busqueda.
@@ -200,19 +196,19 @@ namespace WebApplication.Controles
 
             Type tipoOperacion = null;
 
-            if(ddlTipoOperacion.SelectedValue == "GI.BR.Propiedades.Alquiler")
+            if (ddlTipoOperacion.SelectedValue == "GI.BR.Propiedades.Alquiler")
                 tipoOperacion = typeof(GI.BR.Propiedades.Alquiler);
             else
                 tipoOperacion = typeof(GI.BR.Propiedades.Venta);
-             
+
             GI.BR.Propiedades.EstadoPropiedad estadoPropiedad = GI.BR.Propiedades.EstadoPropiedadFlyweigthFactory.GetInstancia(tipoOperacion).GetEstadoBase();
             GI.BR.Propiedades.EstadoPropiedad estadoPropiedadReservado = GI.BR.Propiedades.EstadoPropiedadFlyweigthFactory.GetInstancia(tipoOperacion).GetEstadoReservado();
 
 
-            GI.BR.Valor valorDesde = getValor(tbValorDesde.Text,int.Parse( ddlMoneda.SelectedValue));
+            GI.BR.Valor valorDesde = getValor(tbValorDesde.Text, int.Parse(ddlMoneda.SelectedValue));
             GI.BR.Valor valorHasta = getValor(tbValorHasta.Text, int.Parse(ddlMoneda.SelectedValue));
             #endregion
-            
+
             //Recupero propiedades en venta o alquiler.
             propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, tipoPropiedad, estadoPropiedad, getAmbientes(), ubicacion, valorDesde, valorHasta));
             //Recupero propiedades reservadas de venta o alquiler.
