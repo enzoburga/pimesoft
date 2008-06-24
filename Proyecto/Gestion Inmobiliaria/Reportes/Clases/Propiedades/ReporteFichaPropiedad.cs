@@ -24,6 +24,17 @@ namespace GI.Reportes.Clases.Propiedades
 
 
 
+        /// <summary>
+        /// Se utiliza en web para la ficha de propiedad.
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        public GI.Reportes.DataSet.DSFichaPropiedadv2 GetDatasetFichaWeb()
+        {
+            return (GI.Reportes.DataSet.DSFichaPropiedadv2)GetDatosReporte();
+        }
+
+
 
         protected override System.Data.DataSet GetDatosReporte()
         {
