@@ -29,9 +29,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -42,10 +45,22 @@
     <Compile Include="Eventos\MngEventos.cs" />
     <Compile Include="Pedidos\MngPedidos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Propiedades\MngEnviarPropiedadesCorreo.cs" />
     <Compile Include="Propiedades\MngGaleriaFotos.cs" />
     <Compile Include="Propiedades\MngPropiedades.cs" />
+    <Compile Include="Propiedades\MngPropiedadesWeb.cs" />
     <Compile Include="Seguridad\ServicioSeguridad.cs" />
+    <Compile Include="Sincronizacion\MngSincronizacionTransacciones.cs" />
+    <Compile Include="Web References\WebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BussinesRules\BussinesRules.csproj">
@@ -55,6 +70,35 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Propiedades\FichaPropiedad.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:18125/PropiedadesServicioSinc.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebService\</RelPath>
+      <UpdateFromURL>http://localhost:18125/PropiedadesServicioSinc.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>GI_Managers_WebService_PropiedadesServicioSinc</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebService\PropiedadesServicioSinc.disco" />
+    <None Include="Web References\WebService\PropiedadesServicioSinc.wsdl" />
+    <None Include="Web References\WebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

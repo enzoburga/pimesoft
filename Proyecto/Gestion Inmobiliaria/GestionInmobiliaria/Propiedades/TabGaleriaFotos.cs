@@ -109,7 +109,9 @@ namespace GI.UI.Propiedades
                 return;
             }
 
-            ((GI.BR.Propiedades.Galeria.Foto)cbFotos.SelectedItem).Eliminar();
+            GI.Managers.Propiedades.MngGaleriaFotos mng = new GI.Managers.Propiedades.MngGaleriaFotos();
+            mng.EliminarFotoGaleria((GI.BR.Propiedades.Galeria.Foto)cbFotos.SelectedItem, Propiedad);
+
             Propiedad.GaleriaFotos.RecuperarPorPropiedad(Propiedad);
             cbFotos.Items.Clear();
             pictureBox1.Image = null;

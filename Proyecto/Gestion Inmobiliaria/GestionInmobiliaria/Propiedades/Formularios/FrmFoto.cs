@@ -103,7 +103,7 @@ namespace GI.UI.Propiedades.Formularios
             Foto.EsFachada = checkBoxEsFechada.Checked;
             Foto.Imagen = new Bitmap(textBoxUrlFoto.Text);
 
-
+            GI.Managers.Propiedades.MngPropiedades mngProp = new GI.Managers.Propiedades.MngPropiedades();
             GI.Managers.Propiedades.MngGaleriaFotos mng = new GI.Managers.Propiedades.MngGaleriaFotos();
             if ((Foto = mng.AgregarFotoAGaleria(new Bitmap(textBoxUrlFoto.Text), textBoxNombre.Text, checkBoxEsFechada.Checked, propiedad)) != null)
             {
@@ -111,7 +111,7 @@ namespace GI.UI.Propiedades.Formularios
                 if (checkBoxCargarambiente.Checked)
                 {
                     propiedad.Medidas.Add(medida);
-                    propiedad.Actualizar();
+                    mngProp.ActualizarPropiedad(propiedad);
                 }
 
                 DialogResult = DialogResult.OK;

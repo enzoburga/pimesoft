@@ -5,6 +5,7 @@ using System.Text;
 namespace GI.BR.Propiedades.Ubicaciones
 {
 
+    [Serializable]
     public class Barrio
     {
         public Barrio()

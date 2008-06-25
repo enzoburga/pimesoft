@@ -4,6 +4,7 @@ using System.Text;
 
 namespace GI.BR
 {
+
     public class Inmobiliaria
     {
         public Inmobiliaria()

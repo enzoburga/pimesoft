@@ -4,8 +4,66 @@ using System.Text;
 
 namespace GI.Managers.Propiedades
 {
+
+
+    /// <summary>
+    /// Manager Propiedades clientes windows.
+    /// </summary>
     public class MngPropiedades
     {
+
+
+        public bool GuardarPropiedad(GI.BR.Propiedades.Propiedad p)
+        {
+           
+            p.IdPropiedad = GI.BR.Propiedades.Propiedad.RecuperarProxIdPropiedad();
+            if (!p.Guardar()) return false;
+
+            //Crearmos la transaccion de la propiedad.
+
+            GI.BR.Propiedades.Tranasacciones.TransaccionPropiedad trans = new GI.BR.Propiedades.Tranasacciones.TransaccionPropiedad();
+            trans.Activa = true;
+            trans.Fecha = DateTime.Now;
+            trans.IdPropiedad = p.IdPropiedad;
+            trans.TipoTransaccion = GI.BR.Propiedades.Tranasacciones.EnumTipoTransaccion.Crear;
+            trans.TypePropopiedad = p.GetType().ToString();
+
+            trans.Crear();
+
+
+            return true;
+        }
+
+        public bool ActualizarPropiedad(GI.BR.Propiedades.Propiedad p)
+        {
+            //Actualizamos la propiedad
+
+            if (!p.Actualizar())
+                return false;
+
+            //si la propiedad tenia una transaccion pendiente la dejamos, sino creamos una
+            GI.BR.Propiedades.Tranasacciones.TransaccionPropiedad trans = null;
+
+            trans = GI.BR.Propiedades.Tranasacciones.TransaccionPropiedad.RecuperarActiva(p);
+            if (trans == null)
+            {
+
+                trans = new GI.BR.Propiedades.Tranasacciones.TransaccionPropiedad();
+                trans.Activa = true;
+                trans.Fecha = DateTime.Now;
+                trans.IdPropiedad = p.IdPropiedad;
+                trans.TipoTransaccion = GI.BR.Propiedades.Tranasacciones.EnumTipoTransaccion.Modificar;
+                trans.TypePropopiedad = p.GetType().ToString();
+
+                trans.Crear();
+            }
+
+            return true;
+
+
+        }
+
+
 
 
 
@@ -83,7 +141,7 @@ namespace GI.Managers.Propiedades
                 PropiedadOrigen.Copiar(PropiedadDestino);
 
 
-                if (!PropiedadDestino.Guardar())
+                if (!GuardarPropiedad(PropiedadDestino))
                     throw new Exception();
 
                 MngGaleriaFotos mngFotos = new MngGaleriaFotos();

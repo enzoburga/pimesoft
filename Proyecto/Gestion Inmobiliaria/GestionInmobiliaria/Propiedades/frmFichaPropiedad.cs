@@ -159,12 +159,13 @@ namespace GI.UI.Propiedades
 
                     }
 
+                    GI.Managers.Propiedades.MngPropiedades mngPropiedades = new GI.Managers.Propiedades.MngPropiedades();
 
                     if (Propiedad.IdPropiedad == 0)
-                        guardado = Propiedad.Guardar();
+                        guardado = mngPropiedades.GuardarPropiedad(Propiedad);
                     else
                     {
-                        guardado = Propiedad.Actualizar();
+                        guardado = mngPropiedades.ActualizarPropiedad(Propiedad);
                         foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in ((TabPropiedad)tabControl1.TabPages[0].Controls[0]).AmbientesAEliminar)
                             ambiente.Eliminar();
                     }
@@ -207,12 +208,13 @@ namespace GI.UI.Propiedades
 
                 }
 
+                GI.Managers.Propiedades.MngPropiedades mngPropiedades = new GI.Managers.Propiedades.MngPropiedades();
 
                 if (Propiedad.IdPropiedad == 0)
-                    guardado = Propiedad.Guardar();
+                    guardado = mngPropiedades.GuardarPropiedad(Propiedad);
                 else
                 {
-                    guardado = Propiedad.Actualizar();
+                    guardado = mngPropiedades.ActualizarPropiedad(Propiedad);
                     foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in ((TabPropiedad)tabControl1.TabPages[0].Controls[0]).AmbientesAEliminar)
                         ambiente.Eliminar();
                 }
@@ -303,12 +305,9 @@ namespace GI.UI.Propiedades
 
         private void publicarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Propiedad.IdPropiedad == 0)
-            {
-
-                Framework.General.GIMsgBox.Show("Debe primero guardar la propiedad para subir fotos", GI.Framework.General.enumTipoMensaje.Advertencia);
-                return;
-            }
+            guardarToolStripMenuItem_Click(null, null);
+            frmPublicacionWeb frm = new frmPublicacionWeb(Propiedad);
+            frm.ShowDialog();
         }
 
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
