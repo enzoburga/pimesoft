@@ -1,5 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ctrlBuscadorPropiedades.ascx.cs" Inherits="WebApplication.Controles.ctrlBuscadorPropiedades" %>
-<table width="900">
+<table width="900" border=0 cellpadding=5 cellspacing=0>
     <tr>
         <td style="width: 117px; height: 24px;">
             <span style="font-size: 11pt">
@@ -28,28 +28,7 @@
             <asp:DropDownList ID="ddlTipoPropiedad" runat="server" Width="133px">
             </asp:DropDownList></td>
     </tr>
-    <tr>
-        <td style="width: 117px">
-        </td>
-        <td style="width: 10px">
-        </td>
-        <td style="width: 140px">
-        </td>
-        <td style="width: 21px">
-        </td>
-        <td style="width: 91px">
-        </td>
-        <td style="width: 10px">
-        </td>
-        <td style="width: 140px">
-        </td>
-        <td style="width: 20px">
-        </td>
-        <td style="width: 116px">
-        </td>
-        <td style="width: 130px">
-        </td>
-    </tr>
+   
     <tr>
         <td style="width: 117px; height: 26px;">
             <span style="font-size: 11pt">
@@ -77,19 +56,19 @@
             </asp:DropDownList></td>
     </tr>
     <tr>
-        <td colspan="3">
+        <td colspan="3" style="height: 16px">
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tbValorDesde"
-                ErrorMessage="El valor minimo debe es un campo numérico" ValidationExpression="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d" Font-Size="Small"></asp:RegularExpressionValidator></td>
-        <td style="width: 21px">
+                ErrorMessage="El valor minimo debe es un campo numérico" ValidationExpression="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d" Font-Size="X-Small"></asp:RegularExpressionValidator></td>
+        <td style="width: 21px; height: 16px;">
         </td>
-        <td colspan="3">
+        <td colspan="3" style="height: 16px">
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="tbValorHasta"
-                ErrorMessage="El valor máximo es un campo numérico" ValidationExpression='\d?\d?\d?\d?\d?\d?\d?\d?\d?\d' Font-Size="Small"></asp:RegularExpressionValidator></td>
-        <td style="width: 20px">
+                ErrorMessage="El valor máximo es un campo numérico" ValidationExpression='\d?\d?\d?\d?\d?\d?\d?\d?\d?\d' Font-Size="X-Small"></asp:RegularExpressionValidator></td>
+        <td style="width: 20px; height: 16px;">
         </td>
-        <td style="width: 116px">
+        <td style="width: 116px; height: 16px;">
         </td>
-        <td style="width: 130px">
+        <td style="width: 130px; height: 16px;">
         </td>
     </tr>
     <tr>
@@ -193,25 +172,25 @@
         </td>
     </tr>
     <tr>
-        <td style="width: 117px">
+        <td style="width: 117px; height: 21px;">
         </td>
-        <td style="width: 10px">
+        <td style="width: 10px; height: 21px;">
         </td>
-        <td style="width: 140px">
+        <td style="width: 140px; height: 21px;">
         </td>
-        <td style="width: 21px">
+        <td style="width: 21px; height: 21px;">
         </td>
-        <td style="width: 91px">
+        <td style="width: 91px; height: 21px;">
         </td>
-        <td style="width: 10px">
+        <td style="width: 10px; height: 21px;">
         </td>
-        <td style="width: 140px">
+        <td style="width: 140px; height: 21px;">
         </td>
-        <td style="width: 20px">
+        <td style="width: 20px; height: 21px;">
         </td>
-        <td style="width: 116px">
+        <td style="width: 116px; height: 21px;">
         </td>
-        <td style="width: 130px">
+        <td style="width: 130px; height: 21px;">
         </td>
     </tr>
     <tr>
