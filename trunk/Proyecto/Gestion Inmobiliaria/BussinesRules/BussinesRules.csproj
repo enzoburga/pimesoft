@@ -107,6 +107,12 @@
     <Compile Include="Propiedades\TiposPropiedad.cs" />
     <Compile Include="Propiedades\TiposPropiedadFlyweightFactory.cs" />
     <Compile Include="Propiedades\TipoZona.cs" />
+    <Compile Include="Propiedades\Tranasacciones\EnumEstadoTrans.cs" />
+    <Compile Include="Propiedades\Tranasacciones\EnumTipoTransaccion.cs" />
+    <Compile Include="Propiedades\Tranasacciones\Transaccion.cs" />
+    <Compile Include="Propiedades\Tranasacciones\Transacciones.cs" />
+    <Compile Include="Propiedades\Tranasacciones\TransaccionFotoPropiedad.cs" />
+    <Compile Include="Propiedades\Tranasacciones\TransaccionPropiedad.cs" />
     <Compile Include="Propiedades\Ubicacion.cs" />
     <Compile Include="Propiedades\Ubicaciones\Barrio.cs" />
     <Compile Include="Propiedades\PropiedadFactory.cs" />

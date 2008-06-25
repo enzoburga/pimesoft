@@ -4,6 +4,7 @@ using System.Text;
 
 namespace GI.BR
 {
+    [Serializable]
     public class Valor : ICloneable
     {
 

@@ -14,10 +14,34 @@ namespace GI.Managers.Propiedades
         private int MaxSizeVer = 450;
 
 
+
+        public bool EliminarFotoGaleria(GI.BR.Propiedades.Galeria.Foto Foto, GI.BR.Propiedades.Propiedad p)
+        { 
+        
+
+            // Creamos la transaccion para eliminar la foto.
+            // eliminamos la foto
+
+            GI.BR.Propiedades.Tranasacciones.TransaccionFotoPropiedad trans = new GI.BR.Propiedades.Tranasacciones.TransaccionFotoPropiedad();
+            trans.Activa = true;
+            trans.Estado = GI.BR.Propiedades.Tranasacciones.EnumEstadoTrans.Pendiente;
+            trans.Fecha = DateTime.Now;
+            trans.Foto = Foto;
+            trans.IdFoto = Foto.IdFoto;
+            trans.IdPropiedad = p.IdPropiedad;
+            trans.TipoTransaccion = GI.BR.Propiedades.Tranasacciones.EnumTipoTransaccion.Eliminar;
+            trans.Crear();
+
+            return Foto.Eliminar();
+
+        }
+
+
+
         public GI.BR.Propiedades.Galeria.Foto AgregarFotoAGaleria(Bitmap Original, string Nombre, bool EsFachada, GI.BR.Propiedades.Propiedad p)
         {
 
-
+            // Creamos la foto y generamos la transaccion correspondiente
 
             try
             {
@@ -33,7 +57,7 @@ namespace GI.Managers.Propiedades
                     {
                         if (f.EsFachada)
                         {
-                            f.Eliminar();
+                            EliminarFotoGaleria(f, p);
                             break;
                         }
                     }
@@ -41,6 +65,18 @@ namespace GI.Managers.Propiedades
 
                 if (!Foto.Guardar(p))
                     throw new Exception();
+
+
+                GI.BR.Propiedades.Tranasacciones.TransaccionFotoPropiedad trans = new GI.BR.Propiedades.Tranasacciones.TransaccionFotoPropiedad();
+                trans.Activa = true;
+                trans.Estado = GI.BR.Propiedades.Tranasacciones.EnumEstadoTrans.Pendiente;
+                trans.Fecha = DateTime.Now;
+                trans.Foto = Foto;
+                trans.IdFoto = Foto.IdFoto;
+                trans.IdPropiedad = p.IdPropiedad;
+                trans.TipoTransaccion = GI.BR.Propiedades.Tranasacciones.EnumTipoTransaccion.Crear;
+                trans.Crear();
+
 
                 return Foto;
             }

@@ -202,7 +202,7 @@ namespace GI.DA
 			            "@CantidadAscensoresServicio","@TipoZona","@Fos","@Fot","@Zonificacion","@MetrosConstruibles", "@Antiguedad", "@IdInmobiliariaExterna", "@ValorExpensas"});
         }
 
-        public int InsertarPropiedades(string Observaciones, decimal CantidadAmbientes, int IdTipoPropiedad, int IdEstadoPropiedad, int IdEnumEstado, int IdCliente,
+        public bool InsertarPropiedades(int IdPropiedad, string Observaciones, decimal CantidadAmbientes, int IdTipoPropiedad, int IdEstadoPropiedad, int IdEnumEstado, int IdCliente,
                 int IdPais, int IdProvincia, int IdLocalidad, int IdBarrio, string Calle, int Numero, string Depto, string Piso, string CodigoPostal, string EntreCalle1, string EntreCalle2,
                 decimal ValorMercado, int ValorMercadoIdMoneda, decimal ValorPublicacion, int ValorPublicacionIdMoneda, bool EsOtraInmobiliaria,
                 decimal MetrosCubiertos, decimal MetrosSemicubiertos, decimal MetrosLibres, decimal Metros, decimal Fondo, decimal Frente, string Orientacion, int CantidadBanos, int CantidadCocheras,
@@ -223,15 +223,15 @@ namespace GI.DA
             else
                 id = IdCliente;
 
-            return AccesoDatos.InsertarRegistro(
+            return AccesoDatos.ActualizarRegistro(
                 "Propiedades_Crear",
-                new object[] { Observaciones, CantidadAmbientes,  IdTipoPropiedad,  IdEstadoPropiedad,  IdEnumEstado,  id,
+                new object[] { IdPropiedad, Observaciones, CantidadAmbientes,  IdTipoPropiedad,  IdEstadoPropiedad,  IdEnumEstado,  id,
                  IdPais,  IdProvincia,  IdLocalidad,  IdBarrio,  Calle,  Numero,  Depto,  Piso,  CodigoPostal,  EntreCalle1,  EntreCalle2,
                  ValorMercado,  ValorMercadoIdMoneda,  ValorPublicacion,  ValorPublicacionIdMoneda,  EsOtraInmobiliaria,
                  MetrosCubiertos,  MetrosSemicubiertos,  MetrosLibres,  Metros,  Fondo,  Frente,  Orientacion,  CantidadBanos,  CantidadCocheras,
                  CantidadDormitorios,  CantidadPlantas,  IdDisposicion,  EsAptoProfesional,  CantidadPisos,  DeptosPorPiso,  CantidadAscensores,
                  CantidadAscensoresServicio,  IdTipoZona,  fos,  fot, zonificacion,  mestrosConstruibles, Antiguedad, idinm, ValorExpensas },
-                new string[] { "@Descripcion", "@CantidadAmbientes","@IdTipoPropiedad","@IdEstadoPropiedad","@EnumEstado","@IdCliente",
+                new string[] { "@IdPropiedad", "@Descripcion", "@CantidadAmbientes","@IdTipoPropiedad","@IdEstadoPropiedad","@EnumEstado","@IdCliente",
                         "@IdPais","@IdProvincia","@IdLocalidad","@IdBarrio","@Calle","@Numero","@Depto","@Piso","@CodigoPostal","@CalleEntre1","@CalleEntre2",
                         "@ValorMercadoImporte","@ValorMercadoIdMoneda","@ValorPublicacionImporte","@ValorPublicacionIdMoneda","@EsOtraInmobiliaria",
                         "@MetrosCubiertos","@MetrosSemicubiertos","@MetrosLibres","@Metros","@Fondo","@Frente","@Orientacion","@CantidadBaños","@CantidadCocheras",
@@ -240,6 +240,25 @@ namespace GI.DA
 
         }
 
+
+
+        public int RecuperarProxIdPropiedad()
+        {
+            int id = 1;
+            
+            using (IDataReader dr = AccesoDatos.RecuperarDatos("Propiedades_SelectProxId", new object[] { }, new string[] { }))
+            {
+                if (dr.Read())
+                {
+                    id = dr.GetInt32(0);
+                }
+            }
+
+
+            return id;
+
+
+        }
 
         #endregion
 
@@ -283,6 +302,11 @@ namespace GI.DA
 
         #region GALERIA DE FOTOS
 
+        public IDataReader RecuperarFoto(int IdFoto)
+        {
+            return AccesoDatos.RecuperarDatos("Propiedades_RecuperarFoto", new object[] { IdFoto }, new string[] { "@IdFoto" });
+        
+        }
 
         public IDataReader RecuperarGaleria(int idPropiedad)
         {

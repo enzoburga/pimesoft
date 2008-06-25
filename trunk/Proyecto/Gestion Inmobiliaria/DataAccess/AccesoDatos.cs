@@ -90,7 +90,7 @@ namespace GI.DA
             {
                 return int.Parse(AccesoDatos.ExecuteScalar(spName, AccesoDatos.ArmarParametros(pValores, pNombres)).ToString());
             }
-            catch 
+            catch (Exception ex)
             {
                 return 0;
             }

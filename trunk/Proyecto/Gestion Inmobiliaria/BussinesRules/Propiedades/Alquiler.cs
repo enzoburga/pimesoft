@@ -4,6 +4,7 @@ using System.Text;
 
 namespace GI.BR.Propiedades
 {
+    [Serializable]
     public class Alquiler : Propiedad
     {
 

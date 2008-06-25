@@ -10,6 +10,8 @@ namespace GI.BR.Propiedades
     public delegate void DelegateCambioValorPropiedad(GI.BR.Propiedades.Propiedad Propiedad);
 
     [Serializable]
+    [System.Xml.Serialization.XmlInclude(typeof(Venta))]
+    [System.Xml.Serialization.XmlInclude(typeof(Alquiler))]
     public abstract class Propiedad : ICloneable
     {
         public event DelegateCambioTipoPropiedad onCambioTipoPropiedad;
@@ -93,6 +95,7 @@ namespace GI.BR.Propiedades
             set { antiguedad = value; }
         }
 
+        [System.Xml.Serialization.XmlIgnore]
         public InmobiliariaExterna Inmobiliaria
         {
             get 
@@ -103,6 +106,7 @@ namespace GI.BR.Propiedades
             set { inmobiliaria = value; }
         }
 
+        [System.Xml.Serialization.XmlIgnore]
         public Galeria.GaleriaFotos GaleriaFotos
         {
             get
@@ -115,6 +119,7 @@ namespace GI.BR.Propiedades
                 return galeria;
             }
         }
+
 
         public CategoriaPropiedad Categoria
         {
@@ -171,6 +176,7 @@ namespace GI.BR.Propiedades
             }
         }
 
+
         public TipoPropiedad TipoPropiedad
         {
             get
@@ -217,7 +223,7 @@ namespace GI.BR.Propiedades
             set { enumEstado = value; }
         }
 
-
+        [System.Xml.Serialization.XmlIgnore]
         public Propietario Propietario
         {
             get 
@@ -717,17 +723,17 @@ namespace GI.BR.Propiedades
         public virtual bool Guardar() 
         {
 
-            int id = new DA.PropiedadesData().InsertarPropiedades(
-                Observaciones, CantidadAmbientes, TipoPropiedad.IdTipoPropiedad, Estado.IdEstadoPropiedad, (int)EnumEstado, (Propietario == null) ? 0 : Propietario.IdCliente, Ubicacion.Pais.IdPais, Ubicacion.Provincia.IdProvincia,
+            bool retVal = new DA.PropiedadesData().InsertarPropiedades(
+                IdPropiedad, Observaciones, CantidadAmbientes, TipoPropiedad.IdTipoPropiedad, Estado.IdEstadoPropiedad, (int)EnumEstado, (Propietario == null) ? 0 : Propietario.IdCliente, Ubicacion.Pais.IdPais, Ubicacion.Provincia.IdProvincia,
                 Ubicacion.Localidad.IdLocalidad, Ubicacion.Barrio.IdBarrio, Direccion.Calle, Direccion.Numero, Direccion.Depto, Direccion.Piso, Direccion.CodigoPostal, Direccion.CalleEntre1, Direccion.CalleEntre2,
                 ValorMercado.Importe, ValorMercado.Moneda.IdMoneda, ValorPublicacion.Importe, ValorPublicacion.Moneda.IdMoneda, EsOtraInmobiliaria,
                 MedidasPropiedad.MetrosCubiertos, MedidasPropiedad.MetrosSemicubiertos, MedidasPropiedad.MetrosLibres, MedidasTerreno.Metros, MedidasTerreno.Fondo, MedidasTerreno.Frente,
                 Orientacion, CantidadBaños, CantidadCocheras, CantidadDormitorios, CantidadPlantas, (int)Disposicion, EsAptoProfesional, CantidadPisos, DepartamentosPorPiso, CantidadAscensores, CantidadAscensoresServicio, (int)TipoZona,
                 Fos, Fot, Zonificacion, MetrosConstruibles, Antiguedad, ((Inmobiliaria == null) ? 0 : Inmobiliaria.IdInmobiliaria), valorExpensas);
 
-            IdPropiedad = id;
 
-            if (IdPropiedad > 0)
+
+            if (retVal)
             {
                 foreach (MedidaAmbiente ambiente in this.Medidas)
                 {
@@ -735,8 +741,8 @@ namespace GI.BR.Propiedades
                 }
             }
 
-            return IdPropiedad > 0;
-            return false;
+            
+            return retVal;
         }
 
 
@@ -774,6 +780,12 @@ namespace GI.BR.Propiedades
         }
 
         #endregion
+
+
+        public static int RecuperarProxIdPropiedad()
+        {
+            return new DA.PropiedadesData().RecuperarProxIdPropiedad();
+        }
 
         public bool MarcarPropiedadComoOfrecida(GI.BR.Pedidos.Pedidos pedidos)
         {

@@ -22,13 +22,39 @@ namespace WebApplication
         [WebMethod]
         public bool ActualizarPropiedad(GI.BR.Propiedades.Propiedad Propiedad)
         {
-            return false;
+            return new GI.Managers.Propiedades.MngPropiedadesWeb().ActualizarPropiedad(Propiedad);
         }
 
         [WebMethod]
-        public int IngresarPropiedad(GI.BR.Propiedades.Propiedad Propiedad)
+        public bool IngresarPropiedad(GI.BR.Propiedades.Propiedad Propiedad)
         {
-            return 0;
+
+            return new GI.Managers.Propiedades.MngPropiedadesWeb().GuardarPropiedad(Propiedad);
+
+        }
+
+        [WebMethod]
+        public bool AgregarFotoAGaleria(GI.BR.Propiedades.Galeria.Foto Foto, int IdPropiedad)
+        {
+            GI.BR.Propiedades.Propiedad p = new GI.BR.Propiedades.Venta();
+            p.IdPropiedad = IdPropiedad;
+
+            System.IO.MemoryStream ms = new System.IO.MemoryStream(Foto.FotoByteArray);
+            Foto.Imagen = new System.Drawing.Bitmap(ms);
+
+            return new GI.Managers.Propiedades.MngPropiedadesWeb().AgregarFotoAGaleria(Foto, p);
+
+        }
+
+        [WebMethod]
+        public bool EliminarFotoPropiedad(int IdFoto)
+        {
+
+
+
+            new GI.Managers.Propiedades.MngPropiedadesWeb().EliminarFotoGaleria(IdFoto);
+            return true;
+        
         }
 
     }

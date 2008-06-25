@@ -123,7 +123,8 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3947</DevelopmentServerPort>
+          <DevelopmentServerPort>18125</DevelopmentServerPort>
+
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

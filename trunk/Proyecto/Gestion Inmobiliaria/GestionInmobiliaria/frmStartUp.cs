@@ -19,9 +19,9 @@ namespace GI.UI
             InitializeComponent();
             builder = new FrmBuilder(this);
 
-            eventoServicio = EventosService.Servicio;
-            eventoServicio.OnNuevosEventos += new NotificarEventosHandler(eventosServicio_OnNuevosEventos);
-            toolStripStatusEventos.Text = "(" + eventoServicio.Eventos.Count.ToString() + ") Eventos Pendientes   | ";
+            //eventoServicio = EventosService.Servicio;
+            //eventoServicio.OnNuevosEventos += new NotificarEventosHandler(eventosServicio_OnNuevosEventos);
+            //toolStripStatusEventos.Text = "(" + eventoServicio.Eventos.Count.ToString() + ") Eventos Pendientes   | ";
 
 
             
@@ -68,6 +68,8 @@ namespace GI.UI
 
         private void toolStripStatusSincronizacion_DoubleClick(object sender, EventArgs e)
         {
+
+
 
         }
 
@@ -132,6 +134,16 @@ namespace GI.UI
         {
             if (Framework.General.GIMsgBox.Show("¿Desea salir de la aplicación", GI.Framework.General.enumTipoMensaje.PreguntaSinCancelar) == DialogResult.Yes)
                 Close();
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            publicarToolStripMenuItem_Click(null, null);
+        }
+
+        private void publicarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            builder.AbrirFormulario(typeof(frmPublicacionWeb).ToString());
         }
     }
 }

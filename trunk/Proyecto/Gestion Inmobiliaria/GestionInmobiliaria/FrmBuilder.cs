@@ -76,6 +76,18 @@ namespace GI.UI
 
         private System.Windows.Forms.Form MostrarFormPorClaveSeguridad(string Type)
         {
+            if (Type == "GI.UI.frmPublicacionWeb")
+            {
+                Managers.Sincronizacion.MngSincronizacionTransacciones mngSinc = new GI.Managers.Sincronizacion.MngSincronizacionTransacciones();
+
+                GI.UI.frmPublicacionWeb frm = new frmPublicacionWeb(mngSinc.RecuperarTransaccionesPendientes());
+                frm.MdiParent = this.parent;
+                frm.WindowState = System.Windows.Forms.FormWindowState.Normal;
+                
+                frm.Show();
+                return frm;
+
+            }
 
             if (Type == "GI.UI.Propiedades.FrmListadoPropiedadesEnAlquiler")
             {

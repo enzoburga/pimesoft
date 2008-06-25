@@ -143,6 +143,7 @@ namespace GI.UI
             this.publicarToolStripMenuItem.Name = "publicarToolStripMenuItem";
             this.publicarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.publicarToolStripMenuItem.Text = "Publicar";
+            this.publicarToolStripMenuItem.Click += new System.EventHandler(this.publicarToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem1
             // 
@@ -185,16 +186,14 @@ namespace GI.UI
             // toolStripStatusEventos
             // 
             this.toolStripStatusEventos.Name = "toolStripStatusEventos";
-            this.toolStripStatusEventos.Size = new System.Drawing.Size(141, 17);
-            this.toolStripStatusEventos.Text = "(3) Eventos Pendientes   | ";
+            this.toolStripStatusEventos.Size = new System.Drawing.Size(0, 17);
             this.toolStripStatusEventos.DoubleClick += new System.EventHandler(this.toolStripStatusEventos_DoubleClick);
             this.toolStripStatusEventos.Click += new System.EventHandler(this.toolStripStatusEventos_Click);
             // 
             // toolStripStatusSincronizacion
             // 
             this.toolStripStatusSincronizacion.Name = "toolStripStatusSincronizacion";
-            this.toolStripStatusSincronizacion.Size = new System.Drawing.Size(272, 17);
-            this.toolStripStatusSincronizacion.Text = "(10) Propiedades Pendietes de Sincronización Web";
+            this.toolStripStatusSincronizacion.Size = new System.Drawing.Size(0, 17);
             this.toolStripStatusSincronizacion.DoubleClick += new System.EventHandler(this.toolStripStatusSincronizacion_DoubleClick);
             // 
             // toolStrip1
@@ -292,6 +291,7 @@ namespace GI.UI
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(44, 44);
             this.toolStripButton5.Text = "Publicación Web";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // frmStartUp
             // 
