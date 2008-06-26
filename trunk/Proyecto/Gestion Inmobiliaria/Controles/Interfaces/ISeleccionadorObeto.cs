@@ -10,7 +10,7 @@ namespace GI.Framework.Interfaces
         #region Busqueda
         System.Collections.Generic.List<Seleccionador.MetodoBusqueda> GetMetodosBusqueda();
         System.Collections.Generic.List<object> Buscar(Seleccionador.MetodoBusqueda Metodo);
-
+        System.Collections.Generic.List<object> ListadoInicial();
         
         #endregion
 

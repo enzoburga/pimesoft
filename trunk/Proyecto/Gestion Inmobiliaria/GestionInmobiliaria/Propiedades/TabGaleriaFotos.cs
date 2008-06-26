@@ -10,6 +10,9 @@ namespace GI.UI.Propiedades
 {
     public partial class TabGaleriaFotos : TabContenidoPropiedad
     {
+
+        public override event EventHandler onSolicitarGuardarFicha;
+
         public TabGaleriaFotos()
         {
             InitializeComponent();
@@ -63,9 +66,16 @@ namespace GI.UI.Propiedades
 
             if (Propiedad.IdPropiedad == 0)
             {
-
-                Framework.General.GIMsgBox.Show("Debe primero guardar la propiedad para subir fotos", GI.Framework.General.enumTipoMensaje.Advertencia);
-                return;
+                if (onSolicitarGuardarFicha != null)
+                {
+                    this.onSolicitarGuardarFicha(null, null);
+                    System.Threading.Thread.Sleep(new TimeSpan(0, 0, 1));
+                    if (Propiedad.IdPropiedad == 0)
+                    {
+                        Framework.General.GIMsgBox.Show("La propiedad no puede ser guardada. Verifique los datos de la ficha", GI.Framework.General.enumTipoMensaje.Advertencia);
+                        return;
+                    }
+                }
             }
 
 

@@ -19,6 +19,13 @@ namespace GI.UI.Propiedades
 
         #region ISeleccionadorObeto Members
 
+
+        public System.Collections.Generic.List<object> ListadoInicial()
+        {
+            return null;
+        }
+
+
         public List<GI.Framework.Seleccionador.MetodoBusqueda> GetMetodosBusqueda()
         {
             //List<Framework.Seleccionador.MetodoBusqueda> metodos = new List<GI.Framework.Seleccionador.MetodoBusqueda>();

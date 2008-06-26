@@ -126,6 +126,7 @@ namespace GI.UI.Propiedades
             tabPage = new TabPage("Galería");
             control = new TabGaleriaFotos();
             control.Dock = DockStyle.Fill;
+            ((TabContenidoPropiedad)control).onSolicitarGuardarFicha += new EventHandler(frmFichaPropiedad_onSolicitarGuardarFicha);
             tabPage.Controls.Add(control);
             tabControl1.TabPages.Add(tabPage);
 
@@ -134,8 +135,15 @@ namespace GI.UI.Propiedades
 
         }
 
+
+
         
         #endregion
+
+        private void frmFichaPropiedad_onSolicitarGuardarFicha(object sender, EventArgs e)
+        {
+            guardarToolStripMenuItem_Click(null, null);
+        }
 
         private void bCancelar_Click(object sender, EventArgs e)
         {

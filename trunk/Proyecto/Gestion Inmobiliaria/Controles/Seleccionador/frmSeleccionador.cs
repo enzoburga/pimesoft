@@ -40,7 +40,9 @@ namespace GI.Framework
 
             lvItems.Columns.AddRange(claseSeleccionador.GetColumnsHeader());
 
-
+            List<object> listaDefault = ISeleccionador.ListadoInicial();
+            if (listaDefault != null && listaDefault.Count > 0)
+                LlenarLista(listaDefault);
 
         }
         
