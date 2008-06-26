@@ -45,17 +45,24 @@ namespace GI.UI.Propiedades
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.Moneda = new System.Windows.Forms.ColumnHeader();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
-            this.Moneda = new System.Windows.Forms.ColumnHeader();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonBuscar,
             this.toolStripButtonNuevaFicha,
@@ -63,7 +70,7 @@ namespace GI.UI.Propiedades
             this.toolStripButtonImprimir});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1033, 71);
+            this.toolStrip1.Size = new System.Drawing.Size(283, 71);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -168,9 +175,9 @@ namespace GI.UI.Propiedades
             this.lvPropiedades.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lvPropiedades.FullRowSelect = true;
             this.lvPropiedades.HideSelection = false;
-            this.lvPropiedades.Location = new System.Drawing.Point(0, 71);
+            this.lvPropiedades.Location = new System.Drawing.Point(0, 0);
             this.lvPropiedades.Name = "lvPropiedades";
-            this.lvPropiedades.Size = new System.Drawing.Size(1033, 474);
+            this.lvPropiedades.Size = new System.Drawing.Size(765, 471);
             this.lvPropiedades.TabIndex = 1;
             this.lvPropiedades.UseCompatibleStateImageBehavior = false;
             this.lvPropiedades.View = System.Windows.Forms.View.Details;
@@ -197,6 +204,11 @@ namespace GI.UI.Propiedades
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader4.Width = 83;
             // 
+            // Moneda
+            // 
+            this.Moneda.Text = "Moneda";
+            this.Moneda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Valor";
@@ -205,44 +217,69 @@ namespace GI.UI.Propiedades
             // 
             // columnHeader6
             // 
-            this.columnHeader6.DisplayIndex = 6;
             this.columnHeader6.Text = "Partido";
             this.columnHeader6.Width = 170;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.DisplayIndex = 7;
             this.columnHeader7.Text = "Barrio";
             this.columnHeader7.Width = 228;
             // 
             // columnHeader8
             // 
-            this.columnHeader8.DisplayIndex = 8;
             this.columnHeader8.Text = "Dirección";
             this.columnHeader8.Width = 268;
             // 
-            // Moneda
+            // pictureBox1
             // 
-            this.Moneda.Text = "Moneda";
-            this.Moneda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(286, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(381, 41);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.toolStrip1);
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.lvPropiedades);
+            this.splitContainer1.Size = new System.Drawing.Size(765, 546);
+            this.splitContainer1.SplitterDistance = 71;
+            this.splitContainer1.TabIndex = 3;
             // 
             // FrmListadoPropiedades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1033, 545);
-            this.Controls.Add(this.lvPropiedades);
-            this.Controls.Add(this.toolStrip1);
+            this.ClientSize = new System.Drawing.Size(765, 546);
+            this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmListadoPropiedades";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Propiedades";
+            this.Load += new System.EventHandler(this.FrmListadoPropiedades_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -268,6 +305,8 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.ToolStripButton toolStripButtonBuscar;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader Moneda;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
 
     }
 }
