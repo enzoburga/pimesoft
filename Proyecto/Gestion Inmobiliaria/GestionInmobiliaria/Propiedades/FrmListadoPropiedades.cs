@@ -318,6 +318,11 @@ namespace GI.UI.Propiedades
 
         #endregion
 
+        private void FrmListadoPropiedades_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 
