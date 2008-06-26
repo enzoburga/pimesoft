@@ -12,6 +12,7 @@ namespace GI.UI.Propiedades
     {
 
         private GI.BR.Propiedades.Propiedad _Propiedad;
+        public virtual event EventHandler onSolicitarGuardarFicha;
 
 
 

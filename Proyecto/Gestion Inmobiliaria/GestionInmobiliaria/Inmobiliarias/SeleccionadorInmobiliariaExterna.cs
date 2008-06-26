@@ -14,6 +14,19 @@ namespace GI.UI.Inmobiliarias
 
         #region ISeleccionadorObeto Members
 
+
+        public System.Collections.Generic.List<object> ListadoInicial()
+        {
+            GI.BR.InmobiliariasExternas inmobiliarias = new GI.BR.InmobiliariasExternas();
+            inmobiliarias.RecuperarTodas();
+
+            List<object> lista = new List<object>();
+            lista.AddRange(inmobiliarias.ToArray());
+
+            return lista;
+        }
+
+
         public List<GI.Framework.Seleccionador.MetodoBusqueda> GetMetodosBusqueda()
         {
             Framework.Seleccionador.MetodoBusqueda metodo = new GI.Framework.Seleccionador.MetodoBusqueda();
