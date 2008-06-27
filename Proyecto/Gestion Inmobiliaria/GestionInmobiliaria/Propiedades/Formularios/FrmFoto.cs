@@ -127,6 +127,7 @@ namespace GI.UI.Propiedades.Formularios
 
         private void bExaminar_Click(object sender, EventArgs e)
         {
+            
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 textBoxUrlFoto.Text = openFileDialog.FileName;
