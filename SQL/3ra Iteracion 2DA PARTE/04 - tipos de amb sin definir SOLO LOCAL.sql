@@ -1,0 +1,1 @@
+update MedidasAmbientesPropiedad set idTipoambiente=16 where IdTipoambiente is null
