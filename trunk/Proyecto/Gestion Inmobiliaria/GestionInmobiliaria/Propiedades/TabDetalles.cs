@@ -46,6 +46,7 @@ namespace GI.UI.Propiedades
              cbOrientacion.Items.Add("Oeste");
              cbOrientacion.Items.Add("Sudeste");
              cbOrientacion.Items.Add("Sur");
+             cbOrientacion.Items.Add("Sudoeste");
              cbOrientacion.SelectedIndex = 0;
 
 
