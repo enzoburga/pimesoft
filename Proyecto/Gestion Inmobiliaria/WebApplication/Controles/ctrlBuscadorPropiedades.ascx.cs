@@ -18,19 +18,29 @@ namespace WebApplication.Controles
         {
             if (!IsPostBack)
             {
-                #region Combo Tipo Operacion
+                #region Combo Tipo Busqueda
                 ListItem liOperacionVenta = new ListItem();
-                liOperacionVenta.Text = "Venta";
+                liOperacionVenta.Text = "Ventas";
                 liOperacionVenta.Value = "GI.BR.Propiedades.Venta";
 
                 ddlTipoOperacion.Items.Add(liOperacionVenta);
 
                 ListItem liOperacionAlquiler = new ListItem();
-                liOperacionAlquiler.Text = "Alquiler";
+                liOperacionAlquiler.Text = "Alquileres";
                 liOperacionAlquiler.Value = "GI.BR.Propiedades.Alquiler";
                 ddlTipoOperacion.Items.Add(liOperacionAlquiler);
+
+                ListItem liOperacionCodigo = new ListItem();
+                liOperacionCodigo.Text = "Por Código";
+                liOperacionCodigo.Value = "Codigo";
+                ddlTipoOperacion.Items.Add(liOperacionCodigo);
                 
                 ddlTipoOperacion.SelectedIndex = 0;
+
+                //Seteo el panel por default
+                panelCodigo.Visible = false;
+                panelFiltros.Visible = true;
+
                 #endregion
 
                 #region Ambientes
@@ -183,37 +193,52 @@ namespace WebApplication.Controles
 
         public void cargarPropiedades()
         {
-            GI.Managers.Propiedades.MngPropiedades mngPropiedades = new GI.Managers.Propiedades.MngPropiedades();
+            propiedades.Clear();
+            if (ddlTipoOperacion.SelectedValue == "Codigo")
+            {
+                if (tbCodigo.Text != "")
+                {
 
-            #region Armo los objetos para pasarle al  manager de busqueda.
-            GI.BR.Propiedades.Ubicacion ubicacion = new GI.BR.Propiedades.Ubicacion();
-            ubicacion.Barrio = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetBarrio(int.Parse(ddlBarrio.SelectedValue));
-            ubicacion.Localidad = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetLocalidad(int.Parse(ddlLocalidad.SelectedValue));
-            ubicacion.Provincia = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetProvincia(int.Parse(ddlProvincia.SelectedValue));
-            ubicacion.Pais = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetPais(int.Parse(ddlPais.SelectedValue));
+                    GI.BR.Propiedades.PropiedadFactory pf = new GI.BR.Propiedades.PropiedadFactory();
 
-            GI.BR.Propiedades.TipoPropiedad tipoPropiedad = GI.BR.Propiedades.TiposPropiedadFlyweightFactory.GetInstancia.GetTipoPropiedad(int.Parse(ddlTipoPropiedad.SelectedValue));
+                    GI.BR.Propiedades.Propiedad propiedad = pf.GetPropiedad(int.Parse(tbCodigo.Text));
 
-            Type tipoOperacion = null;
-
-            if (ddlTipoOperacion.SelectedValue == "GI.BR.Propiedades.Alquiler")
-                tipoOperacion = typeof(GI.BR.Propiedades.Alquiler);
+                    if (propiedad != null)
+                        propiedades.Add(propiedad);
+                }
+            }
             else
-                tipoOperacion = typeof(GI.BR.Propiedades.Venta);
+            {
+                GI.Managers.Propiedades.MngPropiedades mngPropiedades = new GI.Managers.Propiedades.MngPropiedades();
+                #region Armo los objetos para pasarle al  manager de busqueda.
+                GI.BR.Propiedades.Ubicacion ubicacion = new GI.BR.Propiedades.Ubicacion();
+                ubicacion.Barrio = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetBarrio(int.Parse(ddlBarrio.SelectedValue));
+                ubicacion.Localidad = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetLocalidad(int.Parse(ddlLocalidad.SelectedValue));
+                ubicacion.Provincia = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetProvincia(int.Parse(ddlProvincia.SelectedValue));
+                ubicacion.Pais = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetPais(int.Parse(ddlPais.SelectedValue));
 
-            GI.BR.Propiedades.EstadoPropiedad estadoPropiedad = GI.BR.Propiedades.EstadoPropiedadFlyweigthFactory.GetInstancia(tipoOperacion).GetEstadoBase();
-            GI.BR.Propiedades.EstadoPropiedad estadoPropiedadReservado = GI.BR.Propiedades.EstadoPropiedadFlyweigthFactory.GetInstancia(tipoOperacion).GetEstadoReservado();
+                GI.BR.Propiedades.TipoPropiedad tipoPropiedad = GI.BR.Propiedades.TiposPropiedadFlyweightFactory.GetInstancia.GetTipoPropiedad(int.Parse(ddlTipoPropiedad.SelectedValue));
+
+                Type tipoOperacion = null;
+
+                if (ddlTipoOperacion.SelectedValue == "GI.BR.Propiedades.Alquiler")
+                    tipoOperacion = typeof(GI.BR.Propiedades.Alquiler);
+                else
+                    tipoOperacion = typeof(GI.BR.Propiedades.Venta);
+
+                GI.BR.Propiedades.EstadoPropiedad estadoPropiedad = GI.BR.Propiedades.EstadoPropiedadFlyweigthFactory.GetInstancia(tipoOperacion).GetEstadoBase();
+                GI.BR.Propiedades.EstadoPropiedad estadoPropiedadReservado = GI.BR.Propiedades.EstadoPropiedadFlyweigthFactory.GetInstancia(tipoOperacion).GetEstadoReservado();
 
 
-            GI.BR.Valor valorDesde = getValor(tbValorDesde.Text, int.Parse(ddlMoneda.SelectedValue));
-            GI.BR.Valor valorHasta = getValor(tbValorHasta.Text, int.Parse(ddlMoneda.SelectedValue));
-            #endregion
+                GI.BR.Valor valorDesde = getValor(tbValorDesde.Text, int.Parse(ddlMoneda.SelectedValue));
+                GI.BR.Valor valorHasta = getValor(tbValorHasta.Text, int.Parse(ddlMoneda.SelectedValue));
+                #endregion
 
-            //Recupero propiedades en venta o alquiler.
-            propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, tipoPropiedad, estadoPropiedad, getAmbientes(), ubicacion, valorDesde, valorHasta));
-            //Recupero propiedades reservadas de venta o alquiler.
-            propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, tipoPropiedad, estadoPropiedadReservado, getAmbientes(), ubicacion, valorDesde, valorHasta));
-
+                //Recupero propiedades en venta o alquiler.
+                propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, tipoPropiedad, estadoPropiedad, getAmbientes(), ubicacion, valorDesde, valorHasta));
+                //Recupero propiedades reservadas de venta o alquiler.
+                propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, tipoPropiedad, estadoPropiedadReservado, getAmbientes(), ubicacion, valorDesde, valorHasta));
+            }
             Session["Propiedades"] = propiedades;
         }
 
@@ -254,6 +279,20 @@ namespace WebApplication.Controles
         protected void ddlLocalidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarComboBarrios(int.Parse(ddlLocalidad.SelectedValue));
+        }
+
+        protected void ddlTipoOperacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlTipoOperacion.SelectedValue == "Codigo")
+            {
+                panelCodigo.Visible = true;
+                panelFiltros.Visible = false;
+            }
+            else
+            {
+                panelCodigo.Visible = false;
+                panelFiltros.Visible = true;
+            }
         }
     }
 }
