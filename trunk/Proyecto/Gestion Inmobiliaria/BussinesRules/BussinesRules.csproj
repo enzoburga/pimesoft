@@ -56,8 +56,10 @@
     <Compile Include="Eventos\Configuracion.cs" />
     <Compile Include="Eventos\EnumTipoEvento.cs" />
     <Compile Include="Eventos\Evento.cs" />
+    <Compile Include="Eventos\EventoCumpleanios.cs" />
     <Compile Include="Eventos\EventoPagoAlquiler.cs" />
     <Compile Include="Eventos\Eventos.cs" />
+    <Compile Include="Eventos\EventoSincronizacion.cs" />
     <Compile Include="Eventos\EventoVisita.cs" />
     <Compile Include="Eventos\FactoryEventos.cs" />
     <Compile Include="General\enumTipoDocumento.cs" />

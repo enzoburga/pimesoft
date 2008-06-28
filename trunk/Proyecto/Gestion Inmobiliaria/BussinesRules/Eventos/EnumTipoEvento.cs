@@ -8,8 +8,8 @@ namespace GI.BR.Eventos
     {
         Cumpleaños = 1,
         Visita = 2,
-        PagoAlquiler = 3
-
+        PagoAlquiler = 3,
+        Sincronización = 4
 
     }
 }

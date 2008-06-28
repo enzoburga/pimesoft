@@ -76,6 +76,16 @@ namespace GI.UI
         private void bSilencias_Click(object sender, EventArgs e)
         {
 
+            foreach (ListViewItem item in lvEventos.SelectedItems)
+                ((GI.BR.Eventos.Evento)item.Tag).Silenciar();
+
+            eventos = new GI.BR.Eventos.Eventos();
+            eventos.RecuperarEventosPendientes();
+            Inicializar();
+
+
+
+
         }
 
         private void bCerra_Click(object sender, EventArgs e)

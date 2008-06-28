@@ -15,6 +15,9 @@ namespace GI.BR.Eventos
             switch (Tipo)
             {
                 case EnumTipoEvento.Visita: e = new EventoVisita(); break;
+                case EnumTipoEvento.PagoAlquiler: e = new EventoPagoAlquiler(); break;
+                case EnumTipoEvento.Cumpleaños: e = new EventoCumpleanios(); break;
+                case EnumTipoEvento.Sincronización: e = new EventoSincronizacion(); break;
                 default: throw new Exception("Tipo de Evento no definido");
             }
 

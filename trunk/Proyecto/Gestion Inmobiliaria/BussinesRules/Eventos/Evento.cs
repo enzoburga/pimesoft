@@ -16,6 +16,13 @@ namespace GI.BR.Eventos
         private string descripcion;
         private DateTime fecha;
         private Nullable<DateTime> vencimiento;
+        private int idRelacion;
+
+        public int IdRelacion
+        {
+            get { return idRelacion; }
+            set { idRelacion = value; }
+        }
 
         public abstract EnumTipoEvento TipoEvento
         {
@@ -51,7 +58,9 @@ namespace GI.BR.Eventos
         public abstract void CrearEvento();
 
         public void Silenciar()
-        { }
+        {
+            new DA.EventosData().SilenciarEvento(IdEvento);
+        }
 
 
 
