@@ -268,7 +268,7 @@ namespace GI.BR.Clientes
             get 
             {
                 if (TelefonoParticular != "")
-                    return telefonoCelular.ToString();
+                    return TelefonoParticular.ToString();
                 if (TelefonoCelular != "")
                     return TelefonoCelular.ToString();
                 if (TelefonoTrabajo != "")
