@@ -52,12 +52,14 @@ namespace GI.UI.Propiedades
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -177,7 +179,7 @@ namespace GI.UI.Propiedades
             this.lvPropiedades.HideSelection = false;
             this.lvPropiedades.Location = new System.Drawing.Point(0, 0);
             this.lvPropiedades.Name = "lvPropiedades";
-            this.lvPropiedades.Size = new System.Drawing.Size(765, 471);
+            this.lvPropiedades.Size = new System.Drawing.Size(895, 472);
             this.lvPropiedades.TabIndex = 1;
             this.lvPropiedades.UseCompatibleStateImageBehavior = false;
             this.lvPropiedades.View = System.Windows.Forms.View.Details;
@@ -249,21 +251,31 @@ namespace GI.UI.Propiedades
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBox2);
             this.splitContainer1.Panel1.Controls.Add(this.toolStrip1);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.lvPropiedades);
-            this.splitContainer1.Size = new System.Drawing.Size(765, 546);
+            this.splitContainer1.Size = new System.Drawing.Size(895, 547);
             this.splitContainer1.SplitterDistance = 71;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(287, 16);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(442, 41);
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
             // 
             // FrmListadoPropiedades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 546);
+            this.ClientSize = new System.Drawing.Size(895, 547);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmListadoPropiedades";
@@ -279,6 +291,7 @@ namespace GI.UI.Propiedades
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -305,8 +318,9 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.ToolStripButton toolStripButtonBuscar;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader Moneda;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        protected System.Windows.Forms.PictureBox pictureBox1;
+        protected System.Windows.Forms.SplitContainer splitContainer1;
+        protected System.Windows.Forms.PictureBox pictureBox2;
 
     }
 }

@@ -21,15 +21,17 @@ namespace GI.Managers.Propiedades
 
             //Crearmos la transaccion de la propiedad.
 
-            GI.BR.Propiedades.Tranasacciones.TransaccionPropiedad trans = new GI.BR.Propiedades.Tranasacciones.TransaccionPropiedad();
-            trans.Activa = true;
-            trans.Fecha = DateTime.Now;
-            trans.IdPropiedad = p.IdPropiedad;
-            trans.TipoTransaccion = GI.BR.Propiedades.Tranasacciones.EnumTipoTransaccion.Crear;
-            trans.TypePropopiedad = p.GetType().ToString();
+            if (!p.EsOtraInmobiliaria)
+            {
+                GI.BR.Propiedades.Tranasacciones.TransaccionPropiedad trans = new GI.BR.Propiedades.Tranasacciones.TransaccionPropiedad();
+                trans.Activa = true;
+                trans.Fecha = DateTime.Now;
+                trans.IdPropiedad = p.IdPropiedad;
+                trans.TipoTransaccion = GI.BR.Propiedades.Tranasacciones.EnumTipoTransaccion.Crear;
+                trans.TypePropopiedad = p.GetType().ToString();
 
-            trans.Crear();
-
+                trans.Crear();
+            }
 
             return true;
         }
@@ -44,18 +46,21 @@ namespace GI.Managers.Propiedades
             //si la propiedad tenia una transaccion pendiente la dejamos, sino creamos una
             GI.BR.Propiedades.Tranasacciones.TransaccionPropiedad trans = null;
 
-            trans = GI.BR.Propiedades.Tranasacciones.TransaccionPropiedad.RecuperarActiva(p);
-            if (trans == null)
+            if (!p.EsOtraInmobiliaria)
             {
+                trans = GI.BR.Propiedades.Tranasacciones.TransaccionPropiedad.RecuperarActiva(p);
+                if (trans == null)
+                {
 
-                trans = new GI.BR.Propiedades.Tranasacciones.TransaccionPropiedad();
-                trans.Activa = true;
-                trans.Fecha = DateTime.Now;
-                trans.IdPropiedad = p.IdPropiedad;
-                trans.TipoTransaccion = GI.BR.Propiedades.Tranasacciones.EnumTipoTransaccion.Modificar;
-                trans.TypePropopiedad = p.GetType().ToString();
+                    trans = new GI.BR.Propiedades.Tranasacciones.TransaccionPropiedad();
+                    trans.Activa = true;
+                    trans.Fecha = DateTime.Now;
+                    trans.IdPropiedad = p.IdPropiedad;
+                    trans.TipoTransaccion = GI.BR.Propiedades.Tranasacciones.EnumTipoTransaccion.Modificar;
+                    trans.TypePropopiedad = p.GetType().ToString();
 
-                trans.Crear();
+                    trans.Crear();
+                }
             }
 
             return true;
@@ -127,6 +132,12 @@ namespace GI.Managers.Propiedades
 
 
 
+        /// <summary>
+        /// genera una copia de una propiedad
+        /// </summary>
+        /// <param name="PropiedadOrigen">Propiedad de la cual se va a copiar</param>
+        /// <param name="TipoPropiedadDestino">Tipo de clase de la propiedad destino (Venta o Alquiler)</param>
+        /// <returns></returns>
         public GI.BR.Propiedades.Propiedad CopiarPropiedad(GI.BR.Propiedades.Propiedad PropiedadOrigen, Type TipoPropiedadDestino)
         {
             try

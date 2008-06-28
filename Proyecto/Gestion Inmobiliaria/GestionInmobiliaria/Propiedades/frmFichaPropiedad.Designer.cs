@@ -276,7 +276,7 @@ namespace GI.UI.Propiedades
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        protected System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button bAceptar;
         private System.Windows.Forms.Button bCancelar;
         private System.Windows.Forms.MenuStrip menuStrip1;

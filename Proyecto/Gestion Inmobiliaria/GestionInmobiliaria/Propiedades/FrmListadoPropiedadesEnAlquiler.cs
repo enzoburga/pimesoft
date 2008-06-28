@@ -14,6 +14,13 @@ namespace GI.UI.Propiedades
             : base(typeof(GI.BR.Propiedades.Alquiler))
         {
             InitializeComponent();
+
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     
     }

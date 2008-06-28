@@ -343,15 +343,13 @@ namespace GI.UI.Propiedades
         private void copiaAToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            string msg = "¿Desea copiar la pripiedad a la base de " + ((propiedad is GI.BR.Propiedades.Venta) ? "Alquileres" : "Ventas") + "?";
+            //string msg = "¿Desea copiar la pripiedad a la base de " + ((propiedad is GI.BR.Propiedades.Venta) ? "Alquileres" : "Ventas") + "?";
+            Propiedades.Formularios.FrmSeleccionTipoPropiedad frm = new GI.UI.Propiedades.Formularios.FrmSeleccionTipoPropiedad();
 
-            if (Framework.General.GIMsgBox.Show(msg, GI.Framework.General.enumTipoMensaje.PreguntaSinCancelar) == DialogResult.Yes)
+            if (frm.ShowDialog() == DialogResult.OK)
             {
-                System.Type tipo = null;
-                if (propiedad is GI.BR.Propiedades.Venta)
-                    tipo = typeof(GI.BR.Propiedades.Alquiler);
-                else
-                    tipo = typeof(GI.BR.Propiedades.Venta);
+                System.Type tipo = (System.Type)frm.TipoPropiedadSeleccionada;
+
 
 
                 Managers.Propiedades.MngPropiedades mng = new GI.Managers.Propiedades.MngPropiedades();
@@ -366,7 +364,7 @@ namespace GI.UI.Propiedades
                     Framework.General.GIMsgBox.Show("No es posible guardar la nueva propiedad", GI.Framework.General.enumTipoMensaje.Informacion);
                 }
 
-            
+
             }
 
 
