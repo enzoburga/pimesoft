@@ -18,16 +18,71 @@ namespace WebApplication
         protected void Page_Load(object sender, EventArgs e)
         {
             lMensaje.Text = "";
-            //Si clickearon en buscar, recupero las propiedades.
-            if (IsPostBack)
+
+            if(HayPropiedades())
+                CargarListado();
+
+
+        }
+
+        private bool HayPropiedades()
+        {
+            if (Session["Propiedades"] != null && ((GI.BR.Propiedades.Propiedades)Session["Propiedades"]).Count != 0)
+                return true;
+
+            return false;
+        }
+
+        //
+        protected string GetPaginacion()
+        {
+            return (strPaginacion);
+        }
+
+        private ICollection CreateDataSource()
+        {
+            Managers.mngImagenesPropiedades mngImagenes = new WebApplication.Managers.mngImagenesPropiedades();
+ 
+            DataTable dt = new DataTable();
+            DataRow dr;
+            
+            dt.Columns.Add(new DataColumn("Thumbnail", typeof(string)));
+            dt.Columns.Add(new DataColumn("Detalles", typeof(string)));
+            dt.Columns.Add(new DataColumn("Link", typeof(string)));
+            dt.Columns.Add(new DataColumn("Direccion", typeof(string)));
+            dt.Columns.Add(new DataColumn("Ubicacion", typeof(string)));
+            dt.Columns.Add(new DataColumn("Valor", typeof(string)));
+            dt.Columns.Add(new DataColumn("Codigo", typeof(string)));
+
+            GI.BR.Propiedades.Propiedades propiedades = (GI.BR.Propiedades.Propiedades)Session["Propiedades"];
+
+            if (propiedades != null)
             {
-                CtrlBuscadorPropiedades1.cargarPropiedades();
-                if (((GI.BR.Propiedades.Propiedades)Session["Propiedades"]).Count == 0)
-                    lMensaje.Text = "No se han encontrado propiedades que se ajunten al criterio de búsqueda.";
-                    
-
+                foreach (GI.BR.Propiedades.Propiedad p in propiedades)
+                {
+                    dr = dt.NewRow();
+                    dr[0] = mngImagenes.GetPathThumbnail(p.GaleriaFotos.GetFotoFachada, p.IdPropiedad);
+                    dr[1] = p.Observaciones;
+                    dr[2] = "Ficha.aspx?Propiedad=" + p.IdPropiedad.ToString();
+                    dr[3] = p.Direccion.ToStringReporte();
+                    dr[4] = p.Ubicacion.Localidad.ToString() + " - " + p.Ubicacion.Barrio.ToString();
+                    dr[5] = p.ValorPublicacion.ToString();
+                    dr[6] = p.Codigo.ToString();
+                    dt.Rows.Add(dr);
+                }
             }
+            
+            DataView dv = new DataView(dt);
+            
+            return dv;
+        }
 
+        private void CargarListado()
+        {
+            if (((GI.BR.Propiedades.Propiedades)Session["Propiedades"]).Count == 0)
+                lMensaje.Text = "No se han encontrado propiedades que se ajunten al criterio de búsqueda.";
+
+            #region cargar listado y paginador
             PagedDataSource objPds = new PagedDataSource();
             objPds.DataSource = ((DataView)CreateDataSource()).Table.DefaultView;
             objPds.AllowPaging = true;
@@ -58,60 +113,16 @@ namespace WebApplication
             }
             DataList1.DataSource = objPds;
             DataList1.DataBind();
+            #endregion
         }
 
-        private bool HayPropiedades()
+        protected void ibBuscar_Click(object sender, ImageClickEventArgs e)
         {
-            if (Session["Propiedades"] != null && ((GI.BR.Propiedades.Propiedades)Session["Propiedades"]).Count != 0)
-                return true;
+            CtrlBuscadorPropiedades1.cargarPropiedades();
 
-            return false;
-        }
+            CargarListado();
 
-        //
-        protected string GetPaginacion()
-        {
-            return (strPaginacion);
-        }
-
-        private ICollection CreateDataSource()
-        {
-            Managers.mngImagenesPropiedades mngImagenes = new WebApplication.Managers.mngImagenesPropiedades();
- 
-            DataTable dt = new DataTable();
-            DataRow dr;
-            
-            dt.Columns.Add(new DataColumn("Thumbnail", typeof(string)));
-            dt.Columns.Add(new DataColumn("Detalles", typeof(string)));
-            dt.Columns.Add(new DataColumn("Link", typeof(string)));
-            dt.Columns.Add(new DataColumn("Direccion", typeof(string)));
-            dt.Columns.Add(new DataColumn("Ubicacion", typeof(string)));
-            dt.Columns.Add(new DataColumn("Valor", typeof(string)));
-
-            //El control se carga despues, del postback, salgo a buscar las propiedades manualmente.
-            
-
-            GI.BR.Propiedades.Propiedades propiedades = (GI.BR.Propiedades.Propiedades)Session["Propiedades"];
-
-            if (propiedades != null)
-            {
-                foreach (GI.BR.Propiedades.Propiedad p in propiedades)
-                {
-                    dr = dt.NewRow();
-                    dr[0] = mngImagenes.GetPathThumbnail(p.GaleriaFotos.GetFotoFachada, p.IdPropiedad);
-                    dr[1] = p.Observaciones;
-                    dr[2] = "Ficha.aspx?Propiedad=" + p.IdPropiedad.ToString();
-                    dr[3] = p.Direccion.ToStringReporte();
-                    dr[4] = p.Ubicacion.Localidad.ToString() + " - " + p.Ubicacion.Barrio.ToString();
-                    dr[5] = p.ValorPublicacion.ToString();
-
-                    dt.Rows.Add(dr);
-                }
-            }
-            
-            DataView dv = new DataView(dt);
-            
-            return dv;
+           
         }
 
         

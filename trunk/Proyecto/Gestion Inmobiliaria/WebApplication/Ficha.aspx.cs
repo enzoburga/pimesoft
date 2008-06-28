@@ -32,6 +32,7 @@ namespace WebApplication
             lEstado.Text = pRow.Estado;
             lPrecio.Text = pRow.Precio;
             lObservaciones.Text = pRow.Observaciones;
+            lCodigo.Text = pRow.Codigo;
             #endregion
 
             #region Superficies
@@ -173,24 +174,66 @@ namespace WebApplication
 
             iFachada.ImageUrl = mngImagen.GetPathImagen(GetPropiedadSeleccionada.GaleriaFotos.GetFotoFachada, GetPropiedadSeleccionada.IdPropiedad);
 
-            
+
+            #region Galeria
+
+            DataList1.DataSource = CreateDataSource();
+            DataList1.DataBind();
+
+            #endregion
 
 
         }
 
+        private ICollection CreateDataSource()
+        {
+            Managers.mngImagenesPropiedades mngImagenes = new WebApplication.Managers.mngImagenesPropiedades();
+
+            DataTable dt = new DataTable();
+            DataRow dr;
+
+            dt.Columns.Add(new DataColumn("Thumbnail", typeof(string)));
+            dt.Columns.Add(new DataColumn("Link", typeof(string)));
+
+
+            if (GetPropiedadSeleccionada != null)
+            {
+                foreach (GI.BR.Propiedades.Galeria.Foto f in GetPropiedadSeleccionada.GaleriaFotos)
+                {
+                    dr = dt.NewRow();
+                    dr[0] = mngImagenes.GetPathThumbnail(f, GetPropiedadSeleccionada.IdPropiedad);
+                    dr[1] = mngImagenes.GetPathImagen(f, GetPropiedadSeleccionada.IdPropiedad);
+                    dt.Rows.Add(dr);
+                }
+            }
+
+            DataView dv = new DataView(dt);
+
+            return dv;
+        }
+
+        private GI.BR.Propiedades.Propiedad propiedadSel = null;
         private GI.BR.Propiedades.Propiedad GetPropiedadSeleccionada
         {
             get
             {
-                int idPropiedad = int.Parse(HttpContext.Current.Request.QueryString["Propiedad"].ToString());
-                GI.BR.Propiedades.Propiedades propiedades = (GI.BR.Propiedades.Propiedades)Session["Propiedades"]; 
-                foreach (GI.BR.Propiedades.Propiedad p in propiedades)
+                if (propiedadSel == null)
                 {
-                    if (p.IdPropiedad == idPropiedad)
-                        return p;
-                }
+                    int idPropiedad = int.Parse(HttpContext.Current.Request.QueryString["Propiedad"].ToString());
+                    GI.BR.Propiedades.Propiedades propiedades = (GI.BR.Propiedades.Propiedades)Session["Propiedades"];
+                    foreach (GI.BR.Propiedades.Propiedad p in propiedades)
+                    {
+                        if (p.IdPropiedad == idPropiedad)
+                        {
+                            propiedadSel = p;
+                            break;
+                        }
+                    }
+                    if(propiedadSel == null)
+                        throw new Exception("Propiedad no encontrada en la sesion.");
+                }               
 
-                throw new Exception("Propiedad no encontrada en la sesion.");
+                return propiedadSel;                
             }
         }
     }

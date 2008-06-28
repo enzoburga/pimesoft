@@ -16,21 +16,25 @@
         <br />
         <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; height: 100%">
             <tr>
-                <td style="height: 50px">
+                <td style="height: 50px; width: 1039px;">
                     Buscar Propiedades</td>
             </tr>
             <tr >
-                <td style="height: 100%; text-align: center;" >
+                <td style="height: 100%; text-align: center; width: 1039px;" >
                     &nbsp;<table>
                         <tr>
-                            <td align="left" style="width: 100px">
+                            <td align="center" style="height: 100%">
         <uc1:ctrlBuscadorPropiedades id="CtrlBuscadorPropiedades1" runat="server">
         </uc1:ctrlBuscadorPropiedades>
                             </td>
                         </tr>
                         <tr>
+                            <td align="center">
+                                <asp:ImageButton ID="ibBuscar" runat="server" OnClick="ibBuscar_Click" ImageUrl="~/imagenes/boton_buscar.jpg" /></td>
+                        </tr>
+                        <tr>
                             <td align="left" style="width: 100px; height: 21px">
-                    <asp:Label ID="lMensaje" runat="server"></asp:Label></td>
+                    <asp:Label ID="lMensaje" runat="server" Width="813px" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
                         </tr>
                         <tr>
                             <td style="width: 100px">
@@ -45,17 +49,18 @@
                         </HeaderTemplate>                        
                         <ItemTemplate>
 
-                            <table cellpadding="10" style="font: 10pt verdana" width="900">
+                            <table cellpadding="10" style="font: 10pt verdana" width="800">
                               <tr>
 
                                 <td valign="top" style="width: 220px; height: 220px; text-align: center">                              
                                 
-                                  <img alt="Foto Fachada" align="top" src='<%# DataBinder.Eval(Container.DataItem, "Thumbnail")%>' />  <br />
+                                  <img alt="Foto Fachada" align="top" src='<%# DataBinder.Eval(Container.DataItem, "Thumbnail")%>'/>  <br />
                                     <a href='<%# DataBinder.Eval(Container.DataItem, "Link") %>'>Ver Ficha</a>
                                 </td>
 
                                 <td valign="top" align="left">
                                   <b>Detalles</b><br><br><%# DataBinder.Eval(Container.DataItem, "Detalles") %><br><br> 
+                                  <b>Código: </b><%# DataBinder.Eval(Container.DataItem, "Codigo") %><br><br>
                                   <b>Ubicación: </b><%# DataBinder.Eval(Container.DataItem, "Ubicacion") %><br><br>
                                   <b>Calle: </b><%# DataBinder.Eval(Container.DataItem, "Direccion") %><br><br>  
                                   <b>Valor: </b><%# DataBinder.Eval(Container.DataItem, "Valor") %><br>

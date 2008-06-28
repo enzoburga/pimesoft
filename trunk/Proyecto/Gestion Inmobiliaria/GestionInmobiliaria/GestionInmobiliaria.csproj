@@ -395,10 +395,6 @@
       <SubType>Designer</SubType>
       <DependentUpon>FrmPublicacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Propiedades\Formularios\FrmSeleccionTipoPropiedad.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>FrmSeleccionTipoPropiedad.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Propiedades\Formularios\FrmTasacion.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FrmTasacion.cs</DependentUpon>
@@ -527,12 +523,6 @@
     </Compile>
     <Compile Include="Propiedades\Formularios\FrmPublicacion.Designer.cs">
       <DependentUpon>FrmPublicacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Propiedades\Formularios\FrmSeleccionTipoPropiedad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Propiedades\Formularios\FrmSeleccionTipoPropiedad.Designer.cs">
-      <DependentUpon>FrmSeleccionTipoPropiedad.cs</DependentUpon>
     </Compile>
     <Compile Include="Propiedades\Formularios\FrmTasacion.cs">
       <SubType>Form</SubType>

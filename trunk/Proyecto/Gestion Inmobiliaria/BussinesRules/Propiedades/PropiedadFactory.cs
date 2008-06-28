@@ -17,8 +17,21 @@ namespace GI.BR.Propiedades
                 return new Alquiler();
 
             return null;
+        }
 
+        public Propiedad GetPropiedad(int idPropiedad)
+        {
+            Propiedad propiedad = new Alquiler();
+            propiedad.RecuperarPorId(idPropiedad);
+            if (propiedad.IdPropiedad == 0)
+            {
+                propiedad = new Venta();
+                propiedad.RecuperarPorId(idPropiedad);
+                if (propiedad.IdPropiedad == 0)
+                    return null;
+            }
 
+            return propiedad;
         }
     }
 }
