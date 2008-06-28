@@ -12,6 +12,7 @@ namespace GI.UI
     {
         private FrmBuilder builder;
         private EventosService eventoServicio;
+        frmPopUpEventos frmEventos;
         
   
         public frmStartUp()
@@ -19,21 +20,35 @@ namespace GI.UI
             InitializeComponent();
             builder = new FrmBuilder(this);
 
-            //eventoServicio = EventosService.Servicio;
-            //eventoServicio.OnNuevosEventos += new NotificarEventosHandler(eventosServicio_OnNuevosEventos);
-            //toolStripStatusEventos.Text = "(" + eventoServicio.Eventos.Count.ToString() + ") Eventos Pendientes   | ";
+            eventoServicio = EventosService.Servicio;
+            eventoServicio.OnNuevosEventos += new NotificarEventosHandler(eventosServicio_OnNuevosEventos);
+            toolStripStatusEventos.Text = "(" + eventoServicio.Eventos.Count.ToString() + ") Eventos Pendientes";
 
-
+            frmEventos = new frmPopUpEventos();
+            frmEventos.MdiParent = this;
             
         }
 
 
 
+        private void mostrarEventos(GI.BR.Eventos.Eventos Eventos)
+        {
+            toolStripStatusEventos.Text = "(" + Eventos.Count.ToString() + ") Eventos Pendientes";
+            frmEventos.Eventos = Eventos;
+
+            if (!frmEventos.MantenerOculto)
+            {
+
+                frmEventos.Show();
+                frmEventos.BringToFront();
+            }
+        }
+
         private void eventosServicio_OnNuevosEventos(GI.BR.Eventos.Eventos Eventos)
         {
+            this.Invoke(new NotificarEventosHandler(mostrarEventos), new object[] { Eventos });
 
-            toolStripStatusEventos.Text = "(" + Eventos.Count.ToString() + ") Eventos Pendientes   | ";
-
+            
        
         }
 
@@ -75,9 +90,11 @@ namespace GI.UI
 
         private void toolStripStatusEventos_Click(object sender, EventArgs e)
         {
-            frmPopUpEventos frmEventos = new frmPopUpEventos();
-            frmEventos.Eventos = eventoServicio.Eventos;
-            frmEventos.ShowDialog();
+            frmEventos.Show();
+            
+            //frmPopUpEventos frmEventos = new frmPopUpEventos();
+            //frmEventos.Eventos = eventoServicio.Eventos;
+            //frmEventos.ShowDialog();
         }
 
         private void alquilerToolStripMenuItem_Click(object sender, EventArgs e)

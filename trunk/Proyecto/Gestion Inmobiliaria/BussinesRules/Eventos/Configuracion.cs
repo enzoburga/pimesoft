@@ -23,12 +23,23 @@ namespace GI.BR.Eventos
         public static Configuracion RecuperarUltimaConfiguracion()
         {
             Configuracion conf = new Configuracion();
-            conf.Activo = true;
-            conf.FechaUltimaGeneracion = DateTime.Now.AddMinutes(1);
-            conf.FrecuenciaGeneracion = new TimeSpan(0, 0, 10);
+            try
+            {
+                
+                conf.Activo = bool.Parse(System.Configuration.ConfigurationManager.AppSettings["ActivarGeneracionEventos"].ToString());
+                conf.FechaUltimaGeneracion = DateTime.Now.AddMinutes(-1);
+                conf.FrecuenciaGeneracion = new TimeSpan(0, int.Parse(System.Configuration.ConfigurationManager.AppSettings["FrecuenciaMinutosGeneracionEventos"].ToString()), 0);
+
+                
+            }
+            catch
+            {
+                conf.Activo = false;
+                conf.FrecuenciaGeneracion = new TimeSpan(0, 30, 0);
+                conf.FechaUltimaGeneracion = DateTime.Now;
+            }
 
             return conf;
-        
         }
 
 

@@ -186,7 +186,8 @@ namespace GI.UI
             // toolStripStatusEventos
             // 
             this.toolStripStatusEventos.Name = "toolStripStatusEventos";
-            this.toolStripStatusEventos.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusEventos.Size = new System.Drawing.Size(126, 17);
+            this.toolStripStatusEventos.Text = "(0) Eventos Pendientes";
             this.toolStripStatusEventos.DoubleClick += new System.EventHandler(this.toolStripStatusEventos_DoubleClick);
             this.toolStripStatusEventos.Click += new System.EventHandler(this.toolStripStatusEventos_Click);
             // 
