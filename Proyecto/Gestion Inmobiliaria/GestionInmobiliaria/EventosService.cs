@@ -64,12 +64,14 @@ namespace GI.UI
             configuracion = GI.BR.Eventos.Configuracion.RecuperarUltimaConfiguracion();
             timer.Interval = configuracion.FrecuenciaGeneracion.TotalMilliseconds;
 
-            //Evaluamos si debemos salir a generar eventos nuevos
-            if (configuracion.FechaUltimaGeneracion.AddTicks(configuracion.FrecuenciaGeneracion.Ticks) <= DateTime.Now)
+            if (configuracion.Activo)
             {
-                mngEventos.GenerarEventos();
+                //Evaluamos si debemos salir a generar eventos nuevos
+                if (configuracion.FechaUltimaGeneracion.AddTicks(configuracion.FrecuenciaGeneracion.Ticks) <= DateTime.Now)
+                {
+                    mngEventos.GenerarEventos();
+                }
             }
-
 
             eventos = mngEventos.RecuperarEventosActivos();
             

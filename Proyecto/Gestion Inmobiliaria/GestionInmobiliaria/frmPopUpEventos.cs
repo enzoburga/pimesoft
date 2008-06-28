@@ -21,6 +21,10 @@ namespace GI.UI
 
         }
 
+        public bool MantenerOculto
+        {
+            get { return chMantenerOculto.Checked; }
+        }
 
         public GI.BR.Eventos.Eventos Eventos
         {
@@ -65,7 +69,8 @@ namespace GI.UI
 
         private void frmPopUpEventos_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            e.Cancel = true;
+            Hide();
         }
 
         private void bSilencias_Click(object sender, EventArgs e)
@@ -75,7 +80,7 @@ namespace GI.UI
 
         private void bCerra_Click(object sender, EventArgs e)
         {
-            Close();
+            Hide();
         }
 
         private void lvEventos_DoubleClick(object sender, EventArgs e)

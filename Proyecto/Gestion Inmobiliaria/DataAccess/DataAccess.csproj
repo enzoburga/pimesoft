@@ -42,6 +42,7 @@
     <Compile Include="CategoriasPropiedadData.cs" />
     <Compile Include="ClientesData.cs" />
     <Compile Include="ContratosData.cs" />
+    <Compile Include="EventosData.cs" />
     <Compile Include="InmobiliariasData.cs" />
     <Compile Include="PagosData.cs" />
     <Compile Include="PedidosData.cs">
