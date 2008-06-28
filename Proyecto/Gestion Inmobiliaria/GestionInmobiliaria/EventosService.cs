@@ -70,6 +70,7 @@ namespace GI.UI
                 if (configuracion.FechaUltimaGeneracion.AddTicks(configuracion.FrecuenciaGeneracion.Ticks) <= DateTime.Now)
                 {
                     mngEventos.GenerarEventos();
+                    configuracion.SetFechaGeneracion();
                 }
             }
 

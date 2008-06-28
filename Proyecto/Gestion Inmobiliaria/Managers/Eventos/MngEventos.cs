@@ -6,25 +6,20 @@ namespace GI.Managers.Eventos
 {
     public class MngEventos
     {
-        private GI.BR.Eventos.FactoryEventos factory = new GI.BR.Eventos.FactoryEventos();
-
+        
         /// <summary>
         /// Revisa y genera eventos pendientes
         /// </summary>
         public void GenerarEventos()
-        { 
-        
-        
+        {
+            GI.BR.Eventos.Eventos eventos = new GI.BR.Eventos.Eventos();
+            eventos.GenerarEventosPendientes();
+
+            
         }
 
 
-        private void generarEventosVisita()
-        { 
         
-        
-        
-        
-        }
 
 
 
@@ -36,13 +31,7 @@ namespace GI.Managers.Eventos
         {
             GI.BR.Eventos.Eventos eventos = new GI.BR.Eventos.Eventos();
 
-            GI.BR.Eventos.EventoPagoAlquiler e = new GI.BR.Eventos.EventoPagoAlquiler();
-            e.Descripcion = "Pago de Alquiler Propiedad P00123 se encuentra vencido";
-            e.Fecha = DateTime.Now;
-            e.IdEvento = 1;
-            e.Vencimiento = DateTime.Now.AddDays(-1);
-
-            eventos.Add(e);
+            eventos.RecuperarEventosPendientes();
 
             return eventos;
         }

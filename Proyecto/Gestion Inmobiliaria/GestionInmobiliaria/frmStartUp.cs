@@ -20,13 +20,17 @@ namespace GI.UI
             InitializeComponent();
             builder = new FrmBuilder(this);
 
-            eventoServicio = EventosService.Servicio;
-            eventoServicio.OnNuevosEventos += new NotificarEventosHandler(eventosServicio_OnNuevosEventos);
-            toolStripStatusEventos.Text = "(" + eventoServicio.Eventos.Count.ToString() + ") Eventos Pendientes";
 
             frmEventos = new frmPopUpEventos();
             frmEventos.MdiParent = this;
-            
+         
+
+            eventoServicio = EventosService.Servicio;
+            eventoServicio.OnNuevosEventos += new NotificarEventosHandler(eventosServicio_OnNuevosEventos);
+            toolStripStatusEventos.Text = "(" + eventoServicio.Eventos.Count.ToString() + ") Eventos Pendientes";
+            frmEventos.Eventos = eventoServicio.Eventos;
+
+               
         }
 
 

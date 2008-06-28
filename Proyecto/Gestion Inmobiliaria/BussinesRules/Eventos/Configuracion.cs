@@ -27,7 +27,7 @@ namespace GI.BR.Eventos
             {
                 
                 conf.Activo = bool.Parse(System.Configuration.ConfigurationManager.AppSettings["ActivarGeneracionEventos"].ToString());
-                conf.FechaUltimaGeneracion = DateTime.Now.AddMinutes(-1);
+                conf.FechaUltimaGeneracion = new DA.EventosData().RecuperarUltimaFechaGeneracion();
                 conf.FrecuenciaGeneracion = new TimeSpan(0, int.Parse(System.Configuration.ConfigurationManager.AppSettings["FrecuenciaMinutosGeneracionEventos"].ToString()), 0);
 
                 
@@ -78,7 +78,11 @@ namespace GI.BR.Eventos
         }
 
 
+        public void SetFechaGeneracion()
+        {
+            new DA.EventosData().InsertarUltimaFechaGeneracion();
 
+        }
 
 
 
