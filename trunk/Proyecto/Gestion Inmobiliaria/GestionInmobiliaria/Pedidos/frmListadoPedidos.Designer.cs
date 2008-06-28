@@ -55,11 +55,13 @@ namespace GI.UI.Pedidos
             this.verFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirFichaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -72,24 +74,25 @@ namespace GI.UI.Pedidos
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer1.Panel1.Controls.Add(this.toolStrip1);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.lvPedidos);
-            this.splitContainer1.Size = new System.Drawing.Size(1112, 516);
+            this.splitContainer1.Size = new System.Drawing.Size(589, 546);
             this.splitContainer1.SplitterDistance = 71;
             this.splitContainer1.TabIndex = 3;
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BuscarPedidostoolStripButton,
             this.NuevoPedidotoolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1112, 71);
+            this.toolStrip1.Size = new System.Drawing.Size(171, 71);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -110,21 +113,21 @@ namespace GI.UI.Pedidos
             // pedidosDeAlquilerToolStripMenuItem
             // 
             this.pedidosDeAlquilerToolStripMenuItem.Name = "pedidosDeAlquilerToolStripMenuItem";
-            this.pedidosDeAlquilerToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.pedidosDeAlquilerToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.pedidosDeAlquilerToolStripMenuItem.Text = "Pedidos de Alquileres";
             this.pedidosDeAlquilerToolStripMenuItem.Click += new System.EventHandler(this.pedidosDeAlquilerToolStripMenuItem_Click);
             // 
             // pedidosDeVentasToolStripMenuItem
             // 
             this.pedidosDeVentasToolStripMenuItem.Name = "pedidosDeVentasToolStripMenuItem";
-            this.pedidosDeVentasToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.pedidosDeVentasToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.pedidosDeVentasToolStripMenuItem.Text = "Pedidos de Ventas";
             this.pedidosDeVentasToolStripMenuItem.Click += new System.EventHandler(this.pedidosDeVentasToolStripMenuItem_Click);
             // 
             // verTodosToolStripMenuItem
             // 
             this.verTodosToolStripMenuItem.Name = "verTodosToolStripMenuItem";
-            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.verTodosToolStripMenuItem.Text = "Ver Todos";
             this.verTodosToolStripMenuItem.Click += new System.EventHandler(this.verTodosToolStripMenuItem_Click);
             // 
@@ -144,14 +147,14 @@ namespace GI.UI.Pedidos
             // nuevoPedidoDeVentaToolStripMenuItem
             // 
             this.nuevoPedidoDeVentaToolStripMenuItem.Name = "nuevoPedidoDeVentaToolStripMenuItem";
-            this.nuevoPedidoDeVentaToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.nuevoPedidoDeVentaToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.nuevoPedidoDeVentaToolStripMenuItem.Text = "Nuevo Pedido de Venta";
             this.nuevoPedidoDeVentaToolStripMenuItem.Click += new System.EventHandler(this.nuevoPedidoDeVentaToolStripMenuItem_Click);
             // 
             // nuevoPedidoDeAlquilerToolStripMenuItem
             // 
             this.nuevoPedidoDeAlquilerToolStripMenuItem.Name = "nuevoPedidoDeAlquilerToolStripMenuItem";
-            this.nuevoPedidoDeAlquilerToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.nuevoPedidoDeAlquilerToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.nuevoPedidoDeAlquilerToolStripMenuItem.Text = "Nuevo Pedido de Alquiler";
             this.nuevoPedidoDeAlquilerToolStripMenuItem.Click += new System.EventHandler(this.nuevoPedidoDeAlquilerToolStripMenuItem_Click);
             // 
@@ -178,7 +181,7 @@ namespace GI.UI.Pedidos
             this.lvPedidos.Location = new System.Drawing.Point(0, 0);
             this.lvPedidos.MultiSelect = false;
             this.lvPedidos.Name = "lvPedidos";
-            this.lvPedidos.Size = new System.Drawing.Size(1112, 441);
+            this.lvPedidos.Size = new System.Drawing.Size(589, 471);
             this.lvPedidos.TabIndex = 0;
             this.lvPedidos.UseCompatibleStateImageBehavior = false;
             this.lvPedidos.View = System.Windows.Forms.View.Details;
@@ -249,20 +252,20 @@ namespace GI.UI.Pedidos
             this.editarFichaToolStripMenuItem,
             this.imprimirFichaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(142, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(136, 70);
             // 
             // verFichaToolStripMenuItem
             // 
             this.verFichaToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.verFichaToolStripMenuItem.Name = "verFichaToolStripMenuItem";
-            this.verFichaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.verFichaToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.verFichaToolStripMenuItem.Text = "Ver Ficha";
             this.verFichaToolStripMenuItem.Click += new System.EventHandler(this.verFichaToolStripMenuItem_Click);
             // 
             // editarFichaToolStripMenuItem
             // 
             this.editarFichaToolStripMenuItem.Name = "editarFichaToolStripMenuItem";
-            this.editarFichaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.editarFichaToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.editarFichaToolStripMenuItem.Text = "Editar Ficha";
             this.editarFichaToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.editarFichaToolStripMenuItem.Click += new System.EventHandler(this.editarFichaToolStripMenuItem_Click);
@@ -270,14 +273,23 @@ namespace GI.UI.Pedidos
             // imprimirFichaToolStripMenuItem
             // 
             this.imprimirFichaToolStripMenuItem.Name = "imprimirFichaToolStripMenuItem";
-            this.imprimirFichaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.imprimirFichaToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.imprimirFichaToolStripMenuItem.Text = "Imprimir";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(179, 17);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(155, 40);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // frmListadoPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 516);
+            this.ClientSize = new System.Drawing.Size(589, 546);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmListadoPedidos";
             this.ShowIcon = false;
@@ -290,6 +302,7 @@ namespace GI.UI.Pedidos
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -321,5 +334,6 @@ namespace GI.UI.Pedidos
         private System.Windows.Forms.ColumnHeader chUbicacion;
         private System.Windows.Forms.ColumnHeader chCantOfrecidos;
         private System.Windows.Forms.ColumnHeader chCantSinOfrecer;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

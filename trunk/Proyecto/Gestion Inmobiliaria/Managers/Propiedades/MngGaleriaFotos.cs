@@ -22,15 +22,18 @@ namespace GI.Managers.Propiedades
             // Creamos la transaccion para eliminar la foto.
             // eliminamos la foto
 
-            GI.BR.Propiedades.Tranasacciones.TransaccionFotoPropiedad trans = new GI.BR.Propiedades.Tranasacciones.TransaccionFotoPropiedad();
-            trans.Activa = true;
-            trans.Estado = GI.BR.Propiedades.Tranasacciones.EnumEstadoTrans.Pendiente;
-            trans.Fecha = DateTime.Now;
-            trans.Foto = Foto;
-            trans.IdFoto = Foto.IdFoto;
-            trans.IdPropiedad = p.IdPropiedad;
-            trans.TipoTransaccion = GI.BR.Propiedades.Tranasacciones.EnumTipoTransaccion.Eliminar;
-            trans.Crear();
+            if (!p.EsOtraInmobiliaria)
+            {
+                GI.BR.Propiedades.Tranasacciones.TransaccionFotoPropiedad trans = new GI.BR.Propiedades.Tranasacciones.TransaccionFotoPropiedad();
+                trans.Activa = true;
+                trans.Estado = GI.BR.Propiedades.Tranasacciones.EnumEstadoTrans.Pendiente;
+                trans.Fecha = DateTime.Now;
+                trans.Foto = Foto;
+                trans.IdFoto = Foto.IdFoto;
+                trans.IdPropiedad = p.IdPropiedad;
+                trans.TipoTransaccion = GI.BR.Propiedades.Tranasacciones.EnumTipoTransaccion.Eliminar;
+                trans.Crear();
+            }
 
             return Foto.Eliminar();
 
@@ -67,16 +70,18 @@ namespace GI.Managers.Propiedades
                     throw new Exception();
 
 
-                GI.BR.Propiedades.Tranasacciones.TransaccionFotoPropiedad trans = new GI.BR.Propiedades.Tranasacciones.TransaccionFotoPropiedad();
-                trans.Activa = true;
-                trans.Estado = GI.BR.Propiedades.Tranasacciones.EnumEstadoTrans.Pendiente;
-                trans.Fecha = DateTime.Now;
-                trans.Foto = Foto;
-                trans.IdFoto = Foto.IdFoto;
-                trans.IdPropiedad = p.IdPropiedad;
-                trans.TipoTransaccion = GI.BR.Propiedades.Tranasacciones.EnumTipoTransaccion.Crear;
-                trans.Crear();
-
+                if (!p.EsOtraInmobiliaria)
+                {
+                    GI.BR.Propiedades.Tranasacciones.TransaccionFotoPropiedad trans = new GI.BR.Propiedades.Tranasacciones.TransaccionFotoPropiedad();
+                    trans.Activa = true;
+                    trans.Estado = GI.BR.Propiedades.Tranasacciones.EnumEstadoTrans.Pendiente;
+                    trans.Fecha = DateTime.Now;
+                    trans.Foto = Foto;
+                    trans.IdFoto = Foto.IdFoto;
+                    trans.IdPropiedad = p.IdPropiedad;
+                    trans.TipoTransaccion = GI.BR.Propiedades.Tranasacciones.EnumTipoTransaccion.Crear;
+                    trans.Crear();
+                }
 
                 return Foto;
             }

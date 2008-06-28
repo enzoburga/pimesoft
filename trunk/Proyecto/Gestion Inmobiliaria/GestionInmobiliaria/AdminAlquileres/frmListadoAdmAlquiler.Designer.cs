@@ -31,6 +31,7 @@ namespace GI.UI.AdminAlquileres
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoAdmAlquiler));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.NuevoAlquilertoolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -48,6 +49,7 @@ namespace GI.UI.AdminAlquileres
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +64,7 @@ namespace GI.UI.AdminAlquileres
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer1.Panel1.Controls.Add(this.toolStrip1);
             // 
             // splitContainer1.Panel2
@@ -71,16 +74,25 @@ namespace GI.UI.AdminAlquileres
             this.splitContainer1.SplitterDistance = 71;
             this.splitContainer1.TabIndex = 3;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(223, 18);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(470, 40);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // toolStrip1
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.NuevoAlquilertoolStripButton,
             this.imprimirListadotoolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(832, 71);
+            this.toolStrip1.Size = new System.Drawing.Size(215, 71);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -169,20 +181,20 @@ namespace GI.UI.AdminAlquileres
             this.editarFichaToolStripMenuItem,
             this.imprimirFichaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(136, 70);
             // 
             // verFichaToolStripMenuItem
             // 
             this.verFichaToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.verFichaToolStripMenuItem.Name = "verFichaToolStripMenuItem";
-            this.verFichaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verFichaToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.verFichaToolStripMenuItem.Text = "Ver Ficha";
             this.verFichaToolStripMenuItem.Click += new System.EventHandler(this.verFichaToolStripMenuItem_Click);
             // 
             // editarFichaToolStripMenuItem
             // 
             this.editarFichaToolStripMenuItem.Name = "editarFichaToolStripMenuItem";
-            this.editarFichaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editarFichaToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.editarFichaToolStripMenuItem.Text = "Editar Ficha";
             this.editarFichaToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.editarFichaToolStripMenuItem.Click += new System.EventHandler(this.editarFichaToolStripMenuItem_Click);
@@ -190,7 +202,7 @@ namespace GI.UI.AdminAlquileres
             // imprimirFichaToolStripMenuItem
             // 
             this.imprimirFichaToolStripMenuItem.Name = "imprimirFichaToolStripMenuItem";
-            this.imprimirFichaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.imprimirFichaToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.imprimirFichaToolStripMenuItem.Text = "Imprimir";
             this.imprimirFichaToolStripMenuItem.Click += new System.EventHandler(this.imprimirFichaToolStripMenuItem_Click);
             // 
@@ -208,6 +220,7 @@ namespace GI.UI.AdminAlquileres
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -232,5 +245,6 @@ namespace GI.UI.AdminAlquileres
         private System.Windows.Forms.ToolStripMenuItem editarFichaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imprimirFichaToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

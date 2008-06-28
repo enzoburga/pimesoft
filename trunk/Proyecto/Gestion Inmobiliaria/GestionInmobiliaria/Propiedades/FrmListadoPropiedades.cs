@@ -20,6 +20,9 @@ namespace GI.UI.Propiedades
             InitializeComponent();
             lvPropiedades.ListViewItemSorter = sorter;
             
+
+
+            
         }
 
         public FrmListadoPropiedades(Type Tipo) : this()
@@ -31,12 +34,15 @@ namespace GI.UI.Propiedades
                 case "GI.BR.Propiedades.Alquiler":
                     {
                         Text = "Propiedades en Alquiler";
+                        pictureBox1.Visible = false;
                         break;
                     }
                 case "GI.BR.Propiedades.Venta":
                     {
                         Text = "Propiedades en Venta";
+                        pictureBox2.Visible = false;
                         break;
+
                     }
             }
 
