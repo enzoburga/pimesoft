@@ -170,7 +170,8 @@ namespace GI.DA
                 decimal MetrosCubiertos, decimal MetrosSemicubiertos, decimal MetrosLibres, decimal Metros, decimal Fondo, decimal Frente, string Orientacion, int CantidadBanos, int CantidadCocheras,
                 int CantidadDormitorios, int CantidadPlantas, int IdDisposicion, bool EsAptoProfesional, int CantidadPisos, int DeptosPorPiso, int CantidadAscensores,
                 int CantidadAscensoresServicio, int IdTipoZona, string fos, string fot, string zonificacion, decimal mestrosConstruibles, int Antiguedad,
-                int IdInmobiliariaExterna, decimal ValorExpensas)
+                int IdInmobiliariaExterna, decimal ValorExpensas,
+            bool Jardin, bool Patio, bool Piscina, bool Lavadero, bool Dependencia, bool Quincho, bool Parrilla, bool Balcon, bool Terraza, bool Playroom, bool Baulera, bool CuartoHerramientas)
         {
 
             object id = null;
@@ -193,13 +194,15 @@ namespace GI.DA
                  ValorMercado,  ValorMercadoIdMoneda,  ValorPublicacion,  ValorPublicacionIdMoneda,  EsOtraInmobiliaria,
                  MetrosCubiertos,  MetrosSemicubiertos,  MetrosLibres,  Metros,  Fondo,  Frente,  Orientacion,  CantidadBanos,  CantidadCocheras,
                  CantidadDormitorios,  CantidadPlantas,  IdDisposicion,  EsAptoProfesional,  CantidadPisos,  DeptosPorPiso,  CantidadAscensores,
-                 CantidadAscensoresServicio,  IdTipoZona,  fos,  fot, zonificacion,  mestrosConstruibles, Antiguedad, idinm, ValorExpensas },
+                 CantidadAscensoresServicio,  IdTipoZona,  fos,  fot, zonificacion,  mestrosConstruibles, Antiguedad, idinm, ValorExpensas ,
+                    Jardin, Patio,Piscina ,Lavadero ,Dependencia ,Quincho ,Parrilla , Balcon , Terraza ,Playroom ,Baulera ,CuartoHerramientas},
                     new string[] {"@Descripcion", "@IdPropiedad", "@CantidadAmbientes","@IdTipoPropiedad","@IdEstadoPropiedad","@EnumEstado","@IdCliente",
                         "@IdPais","@IdProvincia","@IdLocalidad","@IdBarrio","@Calle","@Numero","@Depto","@Piso","@CodigoPostal","@CalleEntre1","@CalleEntre2",
                         "@ValorMercadoImporte","@ValorMercadoIdMoneda","@ValorPublicacionImporte","@ValorPublicacionIdMoneda","@EsOtraInmobiliaria",
                         "@MetrosCubiertos","@MetrosSemicubiertos","@MetrosLibres","@Metros","@Fondo","@Frente","@Orientacion","@CantidadBaños","@CantidadCocheras",
 			            "@CantidadDormitorios","@CantidadPlantas","@Disposicion","@EsAptoProfesional","@CantidadPisos","@DepartamentosPorPiso","@CantidadAscensores",
-			            "@CantidadAscensoresServicio","@TipoZona","@Fos","@Fot","@Zonificacion","@MetrosConstruibles", "@Antiguedad", "@IdInmobiliariaExterna", "@ValorExpensas"});
+			            "@CantidadAscensoresServicio","@TipoZona","@Fos","@Fot","@Zonificacion","@MetrosConstruibles", "@Antiguedad", "@IdInmobiliariaExterna", "@ValorExpensas",
+                         "@Jardin" ,"@Patio" ,"@Piscina" ,"@Lavadero" , "@Dependencia" ,"@Quincho" ,"@Parrilla" ,"@Balcon" , "@Terraza" ,"@Playroom" ,"@Baulera" ,"@CuartoHerramientas"   });
         }
 
         public bool InsertarPropiedades(int IdPropiedad, string Observaciones, decimal CantidadAmbientes, int IdTipoPropiedad, int IdEstadoPropiedad, int IdEnumEstado, int IdCliente,
@@ -208,7 +211,8 @@ namespace GI.DA
                 decimal MetrosCubiertos, decimal MetrosSemicubiertos, decimal MetrosLibres, decimal Metros, decimal Fondo, decimal Frente, string Orientacion, int CantidadBanos, int CantidadCocheras,
                 int CantidadDormitorios, int CantidadPlantas, int IdDisposicion, bool EsAptoProfesional, int CantidadPisos, int DeptosPorPiso, int CantidadAscensores,
                 int CantidadAscensoresServicio, int IdTipoZona, string fos, string fot, string zonificacion, decimal mestrosConstruibles, int Antiguedad,
-                int IdInmobiliariaExterna, decimal ValorExpensas)
+                int IdInmobiliariaExterna, decimal ValorExpensas,
+                bool Jardin, bool Patio, bool Piscina, bool Lavadero, bool Dependencia, bool Quincho, bool Parrilla, bool Balcon, bool Terraza, bool Playroom, bool Baulera, bool CuartoHerramientas)
         {
 
             object idinm = null;
@@ -230,13 +234,15 @@ namespace GI.DA
                  ValorMercado,  ValorMercadoIdMoneda,  ValorPublicacion,  ValorPublicacionIdMoneda,  EsOtraInmobiliaria,
                  MetrosCubiertos,  MetrosSemicubiertos,  MetrosLibres,  Metros,  Fondo,  Frente,  Orientacion,  CantidadBanos,  CantidadCocheras,
                  CantidadDormitorios,  CantidadPlantas,  IdDisposicion,  EsAptoProfesional,  CantidadPisos,  DeptosPorPiso,  CantidadAscensores,
-                 CantidadAscensoresServicio,  IdTipoZona,  fos,  fot, zonificacion,  mestrosConstruibles, Antiguedad, idinm, ValorExpensas },
+                 CantidadAscensoresServicio,  IdTipoZona,  fos,  fot, zonificacion,  mestrosConstruibles, Antiguedad, idinm, ValorExpensas,
+                 Jardin, Patio,Piscina ,Lavadero ,Dependencia ,Quincho ,Parrilla , Balcon , Terraza ,Playroom ,Baulera ,CuartoHerramientas   },
                 new string[] { "@IdPropiedad", "@Descripcion", "@CantidadAmbientes","@IdTipoPropiedad","@IdEstadoPropiedad","@EnumEstado","@IdCliente",
                         "@IdPais","@IdProvincia","@IdLocalidad","@IdBarrio","@Calle","@Numero","@Depto","@Piso","@CodigoPostal","@CalleEntre1","@CalleEntre2",
                         "@ValorMercadoImporte","@ValorMercadoIdMoneda","@ValorPublicacionImporte","@ValorPublicacionIdMoneda","@EsOtraInmobiliaria",
                         "@MetrosCubiertos","@MetrosSemicubiertos","@MetrosLibres","@Metros","@Fondo","@Frente","@Orientacion","@CantidadBaños","@CantidadCocheras",
 			            "@CantidadDormitorios","@CantidadPlantas","@Disposicion","@EsAptoProfesional","@CantidadPisos","@DepartamentosPorPiso","@CantidadAscensores",
-			            "@CantidadAscensoresServicio","@TipoZona","@Fos","@Fot","@Zonificacion","@MetrosConstruibles", "@Antiguedad", "@IdInmobiliariaExterna", "@ValorExpensas"});
+			            "@CantidadAscensoresServicio","@TipoZona","@Fos","@Fot","@Zonificacion","@MetrosConstruibles", "@Antiguedad", "@IdInmobiliariaExterna", "@ValorExpensas",
+                        "@Jardin" ,"@Patio" ,"@Piscina" ,"@Lavadero" , "@Dependencia" ,"@Quincho" ,"@Parrilla" ,"@Balcon" , "@Terraza" ,"@Playroom" ,"@Baulera" ,"@CuartoHerramientas"});
 
         }
 

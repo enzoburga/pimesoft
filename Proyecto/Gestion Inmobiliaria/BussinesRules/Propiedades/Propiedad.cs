@@ -65,10 +65,21 @@ namespace GI.BR.Propiedades
         protected int antiguedad;
         protected InmobiliariaExterna inmobiliaria;
         protected decimal valorExpensas;
+        protected bool jardin;
+        protected bool patio;
+        protected bool piscina;
+        protected bool lavadero;
+        protected bool dependencia;
+        protected bool quincho;
+        protected bool parrilla;
+        protected bool balcon;
+        protected bool terraza;
+        protected bool playroom;
+        protected bool baulera;
+        protected bool cuartoHerraminetas;
 
 
         
-
 
         protected MedidasAmbiente medidas;
 
@@ -78,6 +89,105 @@ namespace GI.BR.Propiedades
         #endregion
 
         #region Propiedades
+
+        public bool Jardin
+        {
+            get { if (!cargado) Cargar(); 
+                return jardin; }
+            set { jardin = value; }
+        }
+
+
+        public bool Patio
+        {
+            get { if (!cargado) Cargar(); 
+                return patio; }
+            set { patio = value; }
+        }
+
+
+        public bool Piscina
+        {
+            get { if (!cargado) Cargar(); 
+                return piscina; }
+            set { piscina = value; }
+        }
+
+
+
+        public bool Lavadero
+        {
+            get { if (!cargado) Cargar(); 
+                return lavadero; }
+            set { lavadero = value; }
+        }
+
+        public bool Dependencia
+        {
+            get { if (!cargado) Cargar(); 
+                return dependencia; }
+            set { dependencia = value; }
+        }
+
+
+        public bool Quincho
+        {
+            get { if (!cargado) Cargar(); 
+                return quincho; }
+            set { quincho = value; }
+        }
+
+
+        public bool Parrilla
+        {
+            get { if (!cargado) Cargar(); 
+                return parrilla; }
+            set { parrilla = value; }
+        }
+
+
+        public bool Balcon
+        {
+            get { if (!cargado) Cargar(); 
+                return balcon; }
+            set { balcon = value; }
+        }
+
+
+        public bool Terraza
+        {
+            get { if (!cargado) Cargar();
+                return terraza; }
+            set { terraza = value; }
+        }
+
+        public bool Playroom
+        {
+            get
+            {
+                if (!cargado) Cargar(); 
+                return playroom; }
+            set { playroom = value; }
+        }
+
+        public bool Baulera
+        {
+            get
+            {
+                if (!cargado) Cargar(); 
+                return baulera; }
+            set { baulera = value; }
+        }
+
+
+        public bool CuartoHerraminetas
+        {
+            get { if (!cargado) Cargar(); 
+                return cuartoHerraminetas; }
+            set { cuartoHerraminetas = value; }
+        }
+
+
 
         public decimal ValorExpensas
         {
@@ -599,6 +709,18 @@ namespace GI.BR.Propiedades
             Propiedad.Zonificacion = this.Zonificacion;
             Propiedad.Inmobiliaria = this.Inmobiliaria;
             Propiedad.ValorExpensas = this.ValorExpensas;
+            Propiedad.Piscina = this.Piscina;
+            Propiedad.Patio = this.Patio;
+            Propiedad.Jardin = this.Jardin;
+            Propiedad.Lavadero = this.Lavadero;
+            Propiedad.Dependencia = this.Dependencia;
+            Propiedad.Quincho = this.Quincho;
+            Propiedad.Parrilla = this.Parrilla;
+            Propiedad.Balcon = this.Balcon;
+            Propiedad.Terraza = this.Terraza;
+            Propiedad.Playroom = this.Playroom;
+            Propiedad.Baulera = this.Baulera;
+            Propiedad.CuartoHerraminetas = this.CuartoHerraminetas;
 
             EstadosPropiedad estados = new EstadosPropiedad();
             estados.RecuperarEstados(Propiedad.GetType());
@@ -716,7 +838,21 @@ namespace GI.BR.Propiedades
             }
 
             this.ValorExpensas = dr.IsDBNull(dr.GetOrdinal("ValorExpensas")) ? 0 : dr.GetDecimal(dr.GetOrdinal("ValorExpensas"));
-            
+
+            this.Jardin = dr.IsDBNull(dr.GetOrdinal("Jardin")) ? false : dr.GetBoolean(dr.GetOrdinal("Jardin"));
+            this.Patio = dr.IsDBNull(dr.GetOrdinal("Patio")) ? false : dr.GetBoolean(dr.GetOrdinal("Patio"));
+            this.Piscina = dr.IsDBNull(dr.GetOrdinal("Piscina")) ? false : dr.GetBoolean(dr.GetOrdinal("Piscina"));
+            this.Lavadero = dr.IsDBNull(dr.GetOrdinal("Lavadero")) ? false : dr.GetBoolean(dr.GetOrdinal("Lavadero"));
+            this.Dependencia = dr.IsDBNull(dr.GetOrdinal("Dependencia")) ? false : dr.GetBoolean(dr.GetOrdinal("Dependencia"));
+            this.Quincho = dr.IsDBNull(dr.GetOrdinal("Quincho")) ? false : dr.GetBoolean(dr.GetOrdinal("Quincho"));
+            this.Parrilla = dr.IsDBNull(dr.GetOrdinal("Parrilla")) ? false : dr.GetBoolean(dr.GetOrdinal("Parrilla"));
+            this.Balcon = dr.IsDBNull(dr.GetOrdinal("Balcon")) ? false : dr.GetBoolean(dr.GetOrdinal("Balcon"));
+            this.Terraza = dr.IsDBNull(dr.GetOrdinal("Terraza")) ? false : dr.GetBoolean(dr.GetOrdinal("Terraza"));
+            this.Playroom = dr.IsDBNull(dr.GetOrdinal("Playroom")) ? false : dr.GetBoolean(dr.GetOrdinal("Playroom"));
+            this.Baulera = dr.IsDBNull(dr.GetOrdinal("Baulera")) ? false : dr.GetBoolean(dr.GetOrdinal("Baulera"));
+            this.CuartoHerraminetas = dr.IsDBNull(dr.GetOrdinal("CuartoHerramientas")) ? false : dr.GetBoolean(dr.GetOrdinal("CuartoHerramientas"));
+
+
 
         }
 
@@ -729,7 +865,8 @@ namespace GI.BR.Propiedades
                 ValorMercado.Importe, ValorMercado.Moneda.IdMoneda, ValorPublicacion.Importe, ValorPublicacion.Moneda.IdMoneda, EsOtraInmobiliaria,
                 MedidasPropiedad.MetrosCubiertos, MedidasPropiedad.MetrosSemicubiertos, MedidasPropiedad.MetrosLibres, MedidasTerreno.Metros, MedidasTerreno.Fondo, MedidasTerreno.Frente,
                 Orientacion, CantidadBaños, CantidadCocheras, CantidadDormitorios, CantidadPlantas, (int)Disposicion, EsAptoProfesional, CantidadPisos, DepartamentosPorPiso, CantidadAscensores, CantidadAscensoresServicio, (int)TipoZona,
-                Fos, Fot, Zonificacion, MetrosConstruibles, Antiguedad, ((Inmobiliaria == null) ? 0 : Inmobiliaria.IdInmobiliaria), valorExpensas);
+                Fos, Fot, Zonificacion, MetrosConstruibles, Antiguedad, ((Inmobiliaria == null) ? 0 : Inmobiliaria.IdInmobiliaria), valorExpensas,
+                Jardin, Patio, Piscina, Lavadero, Dependencia, Quincho, Parrilla, Balcon, Terraza, Playroom, Baulera, CuartoHerraminetas);
 
 
 
@@ -753,7 +890,8 @@ namespace GI.BR.Propiedades
                 ValorMercado.Importe, ValorMercado.Moneda.IdMoneda, ValorPublicacion.Importe, ValorPublicacion.Moneda.IdMoneda, EsOtraInmobiliaria,
                 MedidasPropiedad.MetrosCubiertos, MedidasPropiedad.MetrosSemicubiertos, MedidasPropiedad.MetrosLibres, MedidasTerreno.Metros, MedidasTerreno.Fondo, MedidasTerreno.Frente,
                 Orientacion, CantidadBaños, CantidadCocheras, CantidadDormitorios, CantidadPlantas, (int)Disposicion, EsAptoProfesional, CantidadPisos, DepartamentosPorPiso, CantidadAscensores, CantidadAscensoresServicio, (int)TipoZona,
-                Fos, Fot, Zonificacion, MetrosConstruibles, Antiguedad, ((Inmobiliaria == null) ? 0 : Inmobiliaria.IdInmobiliaria), valorExpensas);
+                Fos, Fot, Zonificacion, MetrosConstruibles, Antiguedad, ((Inmobiliaria == null) ? 0 : Inmobiliaria.IdInmobiliaria), valorExpensas,
+                Jardin, Patio, Piscina, Lavadero, Dependencia, Quincho, Parrilla, Balcon, Terraza, Playroom, Baulera, CuartoHerraminetas);
 
             foreach (MedidaAmbiente ambiente in this.Medidas)
             {
