@@ -272,6 +272,50 @@ namespace GI.UI.Propiedades
 
         }
 
+        public void CambiarInmobiliaria()
+        {
+            if (SoloLectura)
+            {
+                Framework.General.GIMsgBox.Show("La ficha se encuentra en modo solo lectura", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
+
+            if (Propiedad.EsOtraInmobiliaria)
+            {
+                GI.UI.Inmobiliarias.SeleccionadorInmobiliariaExterna seleccionador = new GI.UI.Inmobiliarias.SeleccionadorInmobiliariaExterna();
+                Framework.frmSeleccionador frmSeleccionador = new GI.Framework.frmSeleccionador(seleccionador);
+                if (frmSeleccionador.ShowDialog() == DialogResult.OK)
+                {
+                    linkLabelOtraInmb.Tag = (GI.BR.InmobiliariaExterna)frmSeleccionador.ObjetoSeleccionado;
+                    linkLabelOtraInmb.Text = frmSeleccionador.ObjetoSeleccionado.ToString();
+                    Propiedad.Inmobiliaria = (GI.BR.InmobiliariaExterna)frmSeleccionador.ObjetoSeleccionado;
+                }
+            }
+            else
+            {
+                Framework.General.GIMsgBox.Show("La propiedad no esta marcada como de otra Inmobiliaria", GI.Framework.General.enumTipoMensaje.Informacion);
+
+            }
+        }
+
+        public void CambiarPropietario()
+        {
+
+            if (SoloLectura)
+            {
+                Framework.General.GIMsgBox.Show("La ficha se encuentra en modo solo lectura", GI.Framework.General.enumTipoMensaje.Advertencia);
+                return;
+            }
+
+            Framework.frmSeleccionador frmSeleccionador = new GI.Framework.frmSeleccionador(new Clientes.SeleccionadorPropietarios(typeof(GI.BR.Clientes.Propietario)));
+            if (frmSeleccionador.ShowDialog() == DialogResult.OK)
+            {
+                LinkPropietario.Tag = (GI.BR.Clientes.Propietario)frmSeleccionador.ObjetoSeleccionado;
+                LinkPropietario.Text = frmSeleccionador.ObjetoSeleccionado.ToString();
+                Propiedad.Propietario = (GI.BR.Clientes.Propietario)frmSeleccionador.ObjetoSeleccionado;
+            }
+        }
+
         private void LinkPropietario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
@@ -313,7 +357,7 @@ namespace GI.UI.Propiedades
             {
                 Propiedad.Medidas.Add(medidaAmb);
                 ListViewItem item = new ListViewItem();
-                item.Text = medidaAmb.NombreAmbiente;
+                item.Text = medidaAmb.ToString();
                 item.SubItems.Add(medidaAmb.Ancho.ToString());
                 item.SubItems.Add(medidaAmb.Largo.ToString());
                 item.SubItems.Add(medidaAmb.TipoDePiso.ToString());

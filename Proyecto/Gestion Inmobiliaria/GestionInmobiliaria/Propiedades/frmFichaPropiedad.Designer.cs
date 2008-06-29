@@ -42,12 +42,14 @@ namespace GI.UI.Propiedades
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enviarACorreoElectrónicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copiaAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarPropietarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarPropiedadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.publicaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.publicarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bAceptar = new System.Windows.Forms.Button();
             this.bCancelar = new System.Windows.Forms.Button();
-            this.copiaAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -171,6 +173,8 @@ namespace GI.UI.Propiedades
             this.imprimirToolStripMenuItem,
             this.enviarACorreoElectrónicoToolStripMenuItem,
             this.copiaAToolStripMenuItem,
+            this.cambiarPropietarioToolStripMenuItem,
+            this.cambiarPropiedadToolStripMenuItem,
             this.cerrarToolStripMenuItem});
             this.fichaToolStripMenuItem.Name = "fichaToolStripMenuItem";
             this.fichaToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
@@ -196,6 +200,27 @@ namespace GI.UI.Propiedades
             this.enviarACorreoElectrónicoToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.enviarACorreoElectrónicoToolStripMenuItem.Text = "Enviar a correo electrónico";
             this.enviarACorreoElectrónicoToolStripMenuItem.Click += new System.EventHandler(this.enviarACorreoElectrónicoToolStripMenuItem_Click);
+            // 
+            // copiaAToolStripMenuItem
+            // 
+            this.copiaAToolStripMenuItem.Name = "copiaAToolStripMenuItem";
+            this.copiaAToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.copiaAToolStripMenuItem.Text = "Copia a venta/alquiler";
+            this.copiaAToolStripMenuItem.Click += new System.EventHandler(this.copiaAToolStripMenuItem_Click);
+            // 
+            // cambiarPropietarioToolStripMenuItem
+            // 
+            this.cambiarPropietarioToolStripMenuItem.Name = "cambiarPropietarioToolStripMenuItem";
+            this.cambiarPropietarioToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.cambiarPropietarioToolStripMenuItem.Text = "Cambiar propietario";
+            this.cambiarPropietarioToolStripMenuItem.Click += new System.EventHandler(this.cambiarPropietarioToolStripMenuItem_Click);
+            // 
+            // cambiarPropiedadToolStripMenuItem
+            // 
+            this.cambiarPropiedadToolStripMenuItem.Name = "cambiarPropiedadToolStripMenuItem";
+            this.cambiarPropiedadToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.cambiarPropiedadToolStripMenuItem.Text = "Cambiar inmobiliaria";
+            this.cambiarPropiedadToolStripMenuItem.Click += new System.EventHandler(this.cambiarPropiedadToolStripMenuItem_Click);
             // 
             // cerrarToolStripMenuItem
             // 
@@ -238,13 +263,6 @@ namespace GI.UI.Propiedades
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
             this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
-            // 
-            // copiaAToolStripMenuItem
-            // 
-            this.copiaAToolStripMenuItem.Name = "copiaAToolStripMenuItem";
-            this.copiaAToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.copiaAToolStripMenuItem.Text = "Copia a venta/alquiler";
-            this.copiaAToolStripMenuItem.Click += new System.EventHandler(this.copiaAToolStripMenuItem_Click);
             // 
             // frmFichaPropiedad
             // 
@@ -295,5 +313,7 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.TabPage tabControl;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ToolStripMenuItem copiaAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cambiarPropietarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cambiarPropiedadToolStripMenuItem;
     }
 }
