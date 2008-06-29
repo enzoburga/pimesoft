@@ -19,6 +19,10 @@
             </tr>
             <tr>
                 <td colspan="10" style="text-align: center">
+                    <asp:Label ID="lTipoOperacion" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+            </tr>
+            <tr>
+                <td colspan="10" style="text-align: center">
                     </td>
             </tr>
             <tr>
@@ -172,9 +176,9 @@
                     <span style="font-size: 10pt; font-family: Arial">GALERIA DE FOTOS</span></td>
             </tr>
             <tr>
-                <td style="width: 100px; text-align: left">
-                <div style="vertical-align top; width:800px; height: 135px; overflow:auto;"> 
-                    <asp:DataList ID="DataList1" runat="server" Height="110px" RepeatColumns="15"
+                <td>
+                <div style="vertical-align top; width:780px; height: 135px; overflow:auto;"> 
+                    <asp:DataList ID="DataList1" runat="server" Height="110px" RepeatColumns="30"
                         ShowFooter="False" ShowHeader="False" Width="100%" CellPadding="2" HorizontalAlign="Center" RepeatDirection="Horizontal">
                         <ItemTemplate>
                             <a href="<%# DataBinder.Eval(Container.DataItem, "Link")%>" target="_blank"><img alt="Foto" align="top" height = "100px" width="100px" src='<%# DataBinder.Eval(Container.DataItem, "Thumbnail")%>'/></a>
@@ -351,8 +355,34 @@
                     <asp:Label ID="lObservaciones" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
             </tr>
         </table>
-    </div>
         <br />
+        <table width="800" style="border-top: thin solid">
+            <tr>
+                <td style="width: 200px">
+                    <asp:Image ID="Image1" runat="server" Height="60px" ImageUrl="~/imagenes/logo_PieFicha.gif"
+                        Width="135px" /></td>
+                <td style="width: 400px">
+                    
+                    <div align="center">
+                        <span style="font-family: Arial"><span style="font-size: 10pt">
+                        <b>PIME Negocios Inmobiliarios</b><br />
+                   
+                        (011) 4796.5127<br />
+                            Consultas: </span></span>
+                    
+                        <a href="mailto:info@pime.com.ar"><span style="font-size: 10pt;
+                                font-family: Arial">info@pime.com.ar</span></a><span style="font-size: 10pt; font-family: Arial">
+                                </span>
+                    </div>
+                    
+                </td>
+                <td style="width: 200px">
+                    <a href="javascript:history.back()"><span style="font-size: 10pt; font-family: Arial">
+                        Volver al Listado</span></a></td>
+            </tr>
+        </table>
+    </div>
+
     </form>
 </body>
 </html>

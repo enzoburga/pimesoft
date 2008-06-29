@@ -38,6 +38,15 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Label lDireccion;
         
         /// <summary>
+        /// lTipoOperacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lTipoOperacion;
+        
+        /// <summary>
         /// iFachada control.
         /// </summary>
         /// <remarks>
@@ -531,5 +540,14 @@ namespace WebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lObservaciones;
+        
+        /// <summary>
+        /// Image1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
     }
 }
