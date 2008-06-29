@@ -31,7 +31,7 @@ namespace GI.Managers.Eventos
         {
             GI.BR.Eventos.Eventos eventos = new GI.BR.Eventos.Eventos();
 
-            //eventos.RecuperarEventosPendientes();
+            eventos.RecuperarEventosPendientes();
 
             return eventos;
         }
