@@ -423,6 +423,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>FrmListadoPropiedadesEnAlquiler.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabAdicionales.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabAdicionales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Propiedades\TabContenidoPropiedad.resx">
       <SubType>Designer</SubType>
       <DependentUpon>TabContenidoPropiedad.cs</DependentUpon>
@@ -571,6 +575,12 @@
       <DependentUpon>FrmListadoPropiedadesEnAlquiler.cs</DependentUpon>
     </Compile>
     <Compile Include="Propiedades\SeleccionadorPropiedades.cs" />
+    <Compile Include="Propiedades\TabAdicionales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabAdicionales.Designer.cs">
+      <DependentUpon>TabAdicionales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Propiedades\TabContenidoPropiedad.cs">
       <SubType>UserControl</SubType>
     </Compile>

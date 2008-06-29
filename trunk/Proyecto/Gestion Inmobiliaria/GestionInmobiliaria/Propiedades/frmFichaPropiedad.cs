@@ -83,6 +83,14 @@ namespace GI.UI.Propiedades
             tabPage.Controls.Add(control);
             tabControl1.TabPages.Add(tabPage);
 
+            tabPage = new TabPage("Adicionales");
+            control = new TabAdicionales();
+            control.Dock = DockStyle.Fill;
+            tabPage.Controls.Add(control);
+            tabControl1.TabPages.Add(tabPage);
+
+
+
 
             tabPage = new TabPage("Notas");
             control = new TabNotas();
