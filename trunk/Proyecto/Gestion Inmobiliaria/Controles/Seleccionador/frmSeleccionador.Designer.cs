@@ -40,8 +40,8 @@ namespace GI.Framework
             this.seleccionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bAceptar = new System.Windows.Forms.Button();
             this.bCancelar = new System.Windows.Forms.Button();
+            this.bAceptar = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -136,6 +136,7 @@ namespace GI.Framework
             this.lvItems.UseCompatibleStateImageBehavior = false;
             this.lvItems.View = System.Windows.Forms.View.Details;
             this.lvItems.DoubleClick += new System.EventHandler(this.lvItems_DoubleClick);
+            this.lvItems.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvItems_ColumnClick);
             // 
             // contextMenuStrip1
             // 
@@ -143,20 +144,20 @@ namespace GI.Framework
             this.seleccionarToolStripMenuItem,
             this.editarToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(151, 48);
             // 
             // seleccionarToolStripMenuItem
             // 
             this.seleccionarToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seleccionarToolStripMenuItem.Name = "seleccionarToolStripMenuItem";
-            this.seleccionarToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.seleccionarToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.seleccionarToolStripMenuItem.Text = "Seleccionar";
             this.seleccionarToolStripMenuItem.Click += new System.EventHandler(this.seleccionarToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.editarToolStripMenuItem.Text = "Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
@@ -170,16 +171,6 @@ namespace GI.Framework
             this.panel1.Size = new System.Drawing.Size(688, 34);
             this.panel1.TabIndex = 1;
             // 
-            // bAceptar
-            // 
-            this.bAceptar.Location = new System.Drawing.Point(523, 5);
-            this.bAceptar.Name = "bAceptar";
-            this.bAceptar.Size = new System.Drawing.Size(75, 23);
-            this.bAceptar.TabIndex = 0;
-            this.bAceptar.Text = "Aceptar";
-            this.bAceptar.UseVisualStyleBackColor = true;
-            this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
-            // 
             // bCancelar
             // 
             this.bCancelar.Location = new System.Drawing.Point(604, 5);
@@ -189,6 +180,16 @@ namespace GI.Framework
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
             this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
+            // 
+            // bAceptar
+            // 
+            this.bAceptar.Location = new System.Drawing.Point(523, 5);
+            this.bAceptar.Name = "bAceptar";
+            this.bAceptar.Size = new System.Drawing.Size(75, 23);
+            this.bAceptar.TabIndex = 0;
+            this.bAceptar.Text = "Aceptar";
+            this.bAceptar.UseVisualStyleBackColor = true;
+            this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
             // frmSeleccionador
             // 

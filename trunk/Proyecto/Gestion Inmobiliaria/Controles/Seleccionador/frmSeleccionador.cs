@@ -15,6 +15,7 @@ namespace GI.Framework
         private object objetoSeleccionado;
         private List<object> objetosSeleccionados;
         private bool multiSeleccion;
+        Framework.ListView.ListViewColumnSorter sorter = new GI.Framework.ListView.ListViewColumnSorter();
 
 
         
@@ -27,6 +28,7 @@ namespace GI.Framework
         {
             InitializeComponent();
             MultiSeleccion = false;
+            lvItems.ListViewItemSorter = sorter;
             
         }
 
@@ -213,6 +215,35 @@ namespace GI.Framework
         {
             DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        private void lvItems_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            
+
+            sorter.SetTipoComparacion(GI.Framework.ListView.ListViewColumnSorter.TipoComparacion.STRING);
+
+            if (e.Column == sorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (sorter.Order == SortOrder.Ascending)
+                {
+                    sorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    sorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                sorter.SortColumn = e.Column;
+                sorter.Order = SortOrder.Ascending;
+            }
+
+            // Perform the sort with these new sort options.
+            this.lvItems.Sort();
         }
     }
 }

@@ -172,14 +172,17 @@ namespace GI.UI.Propiedades.Formularios
         {
             //toolStripStatusLabelEstado.Text = Mensaje;
 
-            if (Error)
-                Framework.General.GIMsgBox.Show(Mensaje, GI.Framework.General.enumTipoMensaje.Error);
 
+            if (Error)
+            {
+                Framework.General.GIMsgBox.Show(Mensaje, GI.Framework.General.enumTipoMensaje.Error);
+                
+            }
             else
             {
                 toolStripStatusLabelEstado.Text = "Correo Enviado!";
                 Framework.General.GIMsgBox.Show(Mensaje, GI.Framework.General.enumTipoMensaje.Informacion);
-                
+
             }
 
             if (stream != null)
@@ -196,6 +199,9 @@ namespace GI.UI.Propiedades.Formularios
 
             if (OnEnvioFinalizado != null)
                 OnEnvioFinalizado(Mensaje, Error);
+
+            //cERRAMOS EL FRM
+            Close();
         }
 
         private void bAgregarContacto_Click(object sender, EventArgs e)
