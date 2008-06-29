@@ -369,5 +369,15 @@ namespace GI.UI.Propiedades
 
 
         }
+
+        private void cambiarPropietarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ((TabPropiedad)tabControl1.TabPages[0].Controls[0]).CambiarPropietario();
+        }
+
+        private void cambiarPropiedadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ((TabPropiedad)tabControl1.TabPages[0].Controls[0]).CambiarInmobiliaria();
+        }
     }
 }
