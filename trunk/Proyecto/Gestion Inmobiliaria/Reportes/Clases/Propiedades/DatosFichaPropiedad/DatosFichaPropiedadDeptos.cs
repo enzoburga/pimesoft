@@ -176,7 +176,8 @@ namespace GI.Reportes.Clases.Propiedades
 
             foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
             {
-                if(index<9)
+                if (index > 9) break;
+
                 if (ambiente.TipoAmbiente.Codigo != 10008 &&
                         ambiente.TipoAmbiente.Codigo != 10007 &&
                         ambiente.TipoAmbiente.Codigo != 10001 &&
