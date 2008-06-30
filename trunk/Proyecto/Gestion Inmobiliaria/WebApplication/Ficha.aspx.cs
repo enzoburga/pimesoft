@@ -198,6 +198,7 @@ namespace WebApplication
 
             if (GetPropiedadSeleccionada != null)
             {
+                
                 foreach (GI.BR.Propiedades.Galeria.Foto f in GetPropiedadSeleccionada.GaleriaFotos)
                 {
                     dr = dt.NewRow();
@@ -205,6 +206,9 @@ namespace WebApplication
                     dr[1] = mngImagenes.GetPathImagen(f, GetPropiedadSeleccionada.IdPropiedad);
                     dt.Rows.Add(dr);
                 }
+
+                if (dt.Rows.Count != 0)                    
+                    lSinFotos.Text = "";
             }
 
             DataView dv = new DataView(dt);
