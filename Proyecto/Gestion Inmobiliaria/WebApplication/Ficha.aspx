@@ -4,19 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>Untitled Page</title>
+    <title>Ficha de propiedad</title>
 </head>
 <body>
     <form id="form1" runat="server">
     <div style="text-align: center">
-        <table width="800" style="font-size: 9pt; font-family: Arial">
+        <table width="800" style="font-size: 10pt; font-family: Arial">
             <tr>
                 <td colspan="10" style="text-align: center">
                     <asp:Label ID="lDireccion" runat="server" Font-Size="12pt" Font-Names="Arial"></asp:Label></td>
-            </tr>
-            <tr>
-                <td colspan="10" style="text-align: center">
-                    <asp:Label ID="lTipoOperacion" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
             </tr>
             <tr>
                 <td colspan="10" style="text-align: center">
@@ -31,7 +27,8 @@
             </tr>
             <tr>
                 <td colspan="2" style="width: 197px; text-align: right;">
-                    Código:</td>
+                    <span style="font-size: 10pt">
+                    Código:</span></td>
                 <td style="width: 5px">
                 </td>
                 <td colspan="2" style="text-align: left">
@@ -39,7 +36,8 @@
             </tr>
             <tr>
                 <td colspan="2" style="text-align: right; width: 197px;">
-                    Operación:</td>
+                    <span style="font-size: 10pt">
+                    Operación:</span></td>
                 <td style="width: 5px">
                 </td>
                 <td colspan="2" align="left">
@@ -170,10 +168,11 @@
         <table width="800px" cellpadding="5">
             <tr>
                 <td style="width: 800px; text-align: left; height: 18px; background-color: #6699ff;">
-                    <span style="font-size: 10pt; font-family: Arial">GALERIA DE FOTOS</span></td>
+                    <span style="font-size: 10pt; font-family: Arial">GALERIA DE FOTOS<asp:Label ID="lSinFotos"
+                        runat="server" Font-Names="Arial" Font-Size="10pt">( Propiedad sin fotos disponibles. )</asp:Label></span></td>
             </tr>
             <tr>
-                <td>
+                <td style="height: 100%">
                 <div style="vertical-align top; width:780px; height: 135px; overflow:auto;"> 
                     <asp:DataList ID="DataList1" runat="server" Height="110px" RepeatColumns="30"
                         ShowFooter="False" ShowHeader="False" Width="100%" CellPadding="2" HorizontalAlign="Center" RepeatDirection="Horizontal">
