@@ -55,23 +55,17 @@ namespace GI.Reportes.Clases.Propiedades
             DataSet.DSFichaPropiedadv2.SuperficiesRow row_superficies = ds.Superficies.NewSuperficiesRow();
             index = 1;
 
-            if (Propiedad.MedidasPropiedad.MetrosCubiertos > 0)
-            {
-                row_superficies["SupNombre" + index] = "Metros Cubiertos:";
-                row_superficies["Sup" + index] = Propiedad.MedidasPropiedad.MetrosCubiertos.ToString();
-                ++index;
-            }
-            if (Propiedad.MedidasPropiedad.MetrosSemicubiertos > 0)
-            {
-                row_superficies["SupNombre" + index] = "Metros Semicubiertos:";
-                row_superficies["Sup" + index] = Propiedad.MedidasPropiedad.MetrosSemicubiertos.ToString();
-                ++index;
-            }
-            if (Propiedad.MedidasPropiedad.MetrosLibres > 0)
-            {
-                row_superficies["SupNombre" + index] = "Metros Libres:";
-                row_superficies["Sup" + index] = Propiedad.MedidasPropiedad.MetrosLibres.ToString();
-            }
+            row_superficies["SupNombre" + index] = "Metros Cubiertos:";
+            row_superficies["Sup" + index] = Propiedad.MedidasPropiedad.MetrosCubiertos.ToString();
+            ++index;
+
+            row_superficies["SupNombre" + index] = "Metros Semicubiertos:";
+            row_superficies["Sup" + index] = Propiedad.MedidasPropiedad.MetrosSemicubiertos.ToString();
+            ++index;
+
+            row_superficies["SupNombre" + index] = "Metros Libres:";
+            row_superficies["Sup" + index] = Propiedad.MedidasPropiedad.MetrosLibres.ToString();
+
 
             ds.Superficies.Rows.Add(row_superficies);
 
@@ -193,82 +187,157 @@ namespace GI.Reportes.Clases.Propiedades
             DataSet.DSFichaPropiedadv2.Region5Row row_region_5 = ds.Region5.NewRegion5Row();
             index = 1;
 
-            foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
+
+            if (Propiedad.Jardin)
             {
-                if (ambiente.TipoAmbiente.Codigo == 10001)
-                {
-                    row_region_5["Campo" + index] = ambiente.ToString() + ":";
-                    row_region_5["Valor" + index] = ambiente.Ancho.ToString() + " x " + ambiente.Largo.ToString();
-                    index++;
-                    break;
-                }
+                row_region_5["Campo" + index] = "Jardín: ";
+                row_region_5["Valor" + index] = "Si";
+                index++;
+            }
+            if (Propiedad.Patio)
+            {
+                row_region_5["Campo" + index] = "Patio: ";
+                row_region_5["Valor" + index] = "Si";
+                index++;
+            }
+            if (Propiedad.Piscina)
+            {
+                row_region_5["Campo" + index] = "Piscina: ";
+                row_region_5["Valor" + index] = "Si";
+                index++;
+            }
+            if (Propiedad.Lavadero)
+            {
+                row_region_5["Campo" + index] = "Lavadero: ";
+                row_region_5["Valor" + index] = "Si";
+                index++;
+            }
+            if (Propiedad.Dependencia)
+            {
+                row_region_5["Campo" + index] = "Dependencia: ";
+                row_region_5["Valor" + index] = "Si";
+                index++;
+            }
+            if (Propiedad.Quincho)
+            {
+                row_region_5["Campo" + index] = "Quincho: ";
+                row_region_5["Valor" + index] = "Si";
+                index++;
+            }
+            if (Propiedad.Parrilla)
+            {
+                row_region_5["Campo" + index] = "Parrilla: ";
+                row_region_5["Valor" + index] = "Si";
+                index++;
+            }
+            if (Propiedad.Balcon)
+            {
+                row_region_5["Campo" + index] = "Balcón: ";
+                row_region_5["Valor" + index] = "Si";
+                index++;
+            }
+            if (Propiedad.Terraza)
+            {
+                row_region_5["Campo" + index] = "Terraza: ";
+                row_region_5["Valor" + index] = "Si";
+                index++;
+            }
+            if (Propiedad.Playroom)
+            {
+                row_region_5["Campo" + index] = "Playroom: ";
+                row_region_5["Valor" + index] = "Si";
+                index++;
+            }
+            if (Propiedad.Baulera)
+            {
+                row_region_5["Campo" + index] = "Baulera: ";
+                row_region_5["Valor" + index] = "Si";
+                index++;
+            }
+            if (Propiedad.CuartoHerraminetas)
+            {
+                row_region_5["Campo" + index] = "Cuarto de Herramientas: ";
+                row_region_5["Valor" + index] = "Si";
+                index++;
             }
 
-            foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
-            {
-                if (ambiente.TipoAmbiente.Codigo == 10014)
-                {
-                    row_region_5["Campo" + index] = ambiente.ToString() + ":";
-                    row_region_5["Valor" + index] = ambiente.Ancho.ToString() + " x " + ambiente.Largo.ToString();
-                    index++;
-                    break;
-                }
-            }
 
-            foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
-            {
-                if (ambiente.TipoAmbiente.Codigo == 10015)
-                {
-                    row_region_5["Campo" + index] = ambiente.ToString() + ":";
-                    row_region_5["Valor" + index] = ambiente.Ancho.ToString() + " x " + ambiente.Largo.ToString();
-                    index++;
-                    break;
-                }
-            }
+            //foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
+            //{
+            //    if (ambiente.TipoAmbiente.Codigo == 10001)
+            //    {
+            //        row_region_5["Campo" + index] = ambiente.ToString() + ":";
+            //        row_region_5["Valor" + index] = ambiente.Ancho.ToString() + " x " + ambiente.Largo.ToString();
+            //        index++;
+            //        break;
+            //    }
+            //}
 
-            foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
-            {
-                if (ambiente.TipoAmbiente.Codigo == 10012)
-                {
-                    row_region_5["Campo" + index] = ambiente.ToString() + ":";
-                    row_region_5["Valor" + index] = "Si";
-                    index++;
-                    break;
-                }
-            }
+            //foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
+            //{
+            //    if (ambiente.TipoAmbiente.Codigo == 10014)
+            //    {
+            //        row_region_5["Campo" + index] = ambiente.ToString() + ":";
+            //        row_region_5["Valor" + index] = ambiente.Ancho.ToString() + " x " + ambiente.Largo.ToString();
+            //        index++;
+            //        break;
+            //    }
+            //}
 
-            foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
-            {
-                if (ambiente.TipoAmbiente.Codigo == 10013)
-                {
-                    row_region_5["Campo" + index] = ambiente.ToString() + ":";
-                    row_region_5["Valor" + index] = "Si";
-                    index++;
-                    break;
-                }
-            }
+            //foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
+            //{
+            //    if (ambiente.TipoAmbiente.Codigo == 10015)
+            //    {
+            //        row_region_5["Campo" + index] = ambiente.ToString() + ":";
+            //        row_region_5["Valor" + index] = ambiente.Ancho.ToString() + " x " + ambiente.Largo.ToString();
+            //        index++;
+            //        break;
+            //    }
+            //}
 
-            foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
-            {
-                if (ambiente.TipoAmbiente.Codigo == 10007)
-                {
-                    row_region_5["Campo" + index] = ambiente.ToString() + ":";
-                    row_region_5["Valor" + index] = ambiente.Ancho.ToString() + " x " + ambiente.Largo.ToString();
-                    index++;
-                    break;
-                }
-            }
+            //foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
+            //{
+            //    if (ambiente.TipoAmbiente.Codigo == 10012)
+            //    {
+            //        row_region_5["Campo" + index] = ambiente.ToString() + ":";
+            //        row_region_5["Valor" + index] = "Si";
+            //        index++;
+            //        break;
+            //    }
+            //}
 
-            foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
-            {
-                if (ambiente.TipoAmbiente.Codigo == 10008)
-                {
-                    row_region_5["Campo" + index] = ambiente.ToString() + ":";
-                    row_region_5["Valor" + index] = ambiente.Ancho.ToString() + " x " + ambiente.Largo.ToString();
-                    index++;
-                    break;
-                }
-            }
+            //foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
+            //{
+            //    if (ambiente.TipoAmbiente.Codigo == 10013)
+            //    {
+            //        row_region_5["Campo" + index] = ambiente.ToString() + ":";
+            //        row_region_5["Valor" + index] = "Si";
+            //        index++;
+            //        break;
+            //    }
+            //}
+
+            //foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
+            //{
+            //    if (ambiente.TipoAmbiente.Codigo == 10007)
+            //    {
+            //        row_region_5["Campo" + index] = ambiente.ToString() + ":";
+            //        row_region_5["Valor" + index] = ambiente.Ancho.ToString() + " x " + ambiente.Largo.ToString();
+            //        index++;
+            //        break;
+            //    }
+            //}
+
+            //foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
+            //{
+            //    if (ambiente.TipoAmbiente.Codigo == 10008)
+            //    {
+            //        row_region_5["Campo" + index] = ambiente.ToString() + ":";
+            //        row_region_5["Valor" + index] = ambiente.Ancho.ToString() + " x " + ambiente.Largo.ToString();
+            //        index++;
+            //        break;
+            //    }
+            //}
 
             row_region_5.NombreRegion = "Área de Servicios";
             ds.Region5.Rows.Add(row_region_5);
