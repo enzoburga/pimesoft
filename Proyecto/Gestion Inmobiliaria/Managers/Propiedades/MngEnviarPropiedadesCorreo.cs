@@ -129,6 +129,11 @@ namespace GI.Managers.Propiedades
             ms = new System.IO.MemoryStream();
           
             Foto.Imagen.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            System.IO.StreamWriter strWriter = new System.IO.StreamWriter(ms);
+            strWriter.Flush();
+            ms.Position = 0;
+
             a = new Attachment(ms, Foto.Descripcion);
             a.ContentType = new System.Net.Mime.ContentType("image/jpeg");
             a.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
