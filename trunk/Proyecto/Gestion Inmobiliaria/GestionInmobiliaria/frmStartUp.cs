@@ -40,7 +40,7 @@ namespace GI.UI
             toolStripStatusEventos.Text = "(" + Eventos.Count.ToString() + ") Eventos Pendientes";
             frmEventos.Eventos = Eventos;
 
-            if (!frmEventos.MantenerOculto)
+            if (!frmEventos.MantenerOculto && Eventos.Count > 0)
             {
 
                 frmEventos.Show();

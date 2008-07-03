@@ -16,16 +16,19 @@ namespace GI.Managers.Propiedades
     public class MngEnviarPropiedadesCorreo
     {
 
-        public MngEnviarPropiedadesCorreo(System.Collections.Hashtable hash, FormatoEnvio formatoEnvio, List<string> EmailTo, string Message)
+        public MngEnviarPropiedadesCorreo(System.Collections.Hashtable hash, FormatoEnvio formatoEnvio, List<string> EmailTo, string Message, GI.BR.Propiedades.Galeria.GaleriaFotos Galeria)
         {
             hashPropiedades = hash;
             formato = formatoEnvio;
             emailTo = EmailTo;
-            message = Message;   
+            message = Message;
+            galeria = Galeria;
         }
 
         public event EnvioCorreoFinalizado onEnvioFinalizado;
 
+        private GI.BR.Propiedades.Galeria.GaleriaFotos galeria;
+        
         private string body;
         private GI.BR.Mail.SmtpConfig smtp = GI.BR.Mail.SmtpConfig.GetSmtp();
         private System.Collections.Hashtable  hashPropiedades;
@@ -81,6 +84,17 @@ namespace GI.Managers.Propiedades
 
                     mail.Attachments.Add(attach);
                 }
+
+
+                
+                if (galeria!=null)
+                {
+                    foreach (GI.BR.Propiedades.Galeria.Foto f in galeria)
+                    {
+                        mail.Attachments.Add(ArmarAttachsFotos(f));
+                    }
+                }
+                
      
                 smtpClient = new SmtpClient(smtp.Host, smtp.Puerto);
                 if (smtp.AutenticacionSmtp)
@@ -103,6 +117,27 @@ namespace GI.Managers.Propiedades
 
        
         }
+
+
+
+        private Attachment ArmarAttachsFotos(GI.BR.Propiedades.Galeria.Foto Foto)
+        {
+            Attachment a;
+            System.IO.MemoryStream ms;
+
+            
+            ms = new System.IO.MemoryStream();
+          
+            Foto.Imagen.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            a = new Attachment(ms, Foto.Descripcion);
+            a.ContentType = new System.Net.Mime.ContentType("image/jpeg");
+            a.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
+
+            return a;
+        
+        
+        }
+
 
         public void smtpClient_SendCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
