@@ -67,7 +67,7 @@ namespace GI.UI.Propiedades.Formularios
             this.textBoxEmailTo.Location = new System.Drawing.Point(88, 33);
             this.textBoxEmailTo.Name = "textBoxEmailTo";
             this.textBoxEmailTo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.textBoxEmailTo.Size = new System.Drawing.Size(528, 46);
+            this.textBoxEmailTo.Size = new System.Drawing.Size(280, 46);
             this.textBoxEmailTo.TabIndex = 2;
             this.textBoxEmailTo.Text = "";
             this.textBoxEmailTo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxEmailTo_KeyPress);
@@ -81,13 +81,13 @@ namespace GI.UI.Propiedades.Formularios
             this.textBoxMessage.Multiline = true;
             this.textBoxMessage.Name = "textBoxMessage";
             this.textBoxMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxMessage.Size = new System.Drawing.Size(685, 279);
+            this.textBoxMessage.Size = new System.Drawing.Size(437, 82);
             this.textBoxMessage.TabIndex = 3;
             // 
             // bCerrar
             // 
             this.bCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bCerrar.Location = new System.Drawing.Point(622, 403);
+            this.bCerrar.Location = new System.Drawing.Point(374, 206);
             this.bCerrar.Name = "bCerrar";
             this.bCerrar.Size = new System.Drawing.Size(75, 23);
             this.bCerrar.TabIndex = 4;
@@ -98,7 +98,7 @@ namespace GI.UI.Propiedades.Formularios
             // bEnviar
             // 
             this.bEnviar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bEnviar.Location = new System.Drawing.Point(541, 403);
+            this.bEnviar.Location = new System.Drawing.Point(293, 206);
             this.bEnviar.Name = "bEnviar";
             this.bEnviar.Size = new System.Drawing.Size(75, 23);
             this.bEnviar.TabIndex = 5;
@@ -109,7 +109,7 @@ namespace GI.UI.Propiedades.Formularios
             // bConfigurarCorreo
             // 
             this.bConfigurarCorreo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bConfigurarCorreo.Location = new System.Drawing.Point(401, 403);
+            this.bConfigurarCorreo.Location = new System.Drawing.Point(153, 206);
             this.bConfigurarCorreo.Name = "bConfigurarCorreo";
             this.bConfigurarCorreo.Size = new System.Drawing.Size(118, 23);
             this.bConfigurarCorreo.TabIndex = 8;
@@ -122,9 +122,9 @@ namespace GI.UI.Propiedades.Formularios
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar,
             this.toolStripStatusLabelEstado});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 440);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 243);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(714, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(466, 22);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -136,7 +136,7 @@ namespace GI.UI.Propiedades.Formularios
             // toolStripStatusLabelEstado
             // 
             this.toolStripStatusLabelEstado.Name = "toolStripStatusLabelEstado";
-            this.toolStripStatusLabelEstado.Size = new System.Drawing.Size(217, 17);
+            this.toolStripStatusLabelEstado.Size = new System.Drawing.Size(200, 17);
             this.toolStripStatusLabelEstado.Text = "Haga clic en Enviar para enviar el correo";
             // 
             // radioButtonPdf
@@ -144,7 +144,7 @@ namespace GI.UI.Propiedades.Formularios
             this.radioButtonPdf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonPdf.AutoSize = true;
             this.radioButtonPdf.Checked = true;
-            this.radioButtonPdf.Location = new System.Drawing.Point(555, 380);
+            this.radioButtonPdf.Location = new System.Drawing.Point(307, 183);
             this.radioButtonPdf.Name = "radioButtonPdf";
             this.radioButtonPdf.Size = new System.Drawing.Size(44, 17);
             this.radioButtonPdf.TabIndex = 10;
@@ -156,7 +156,7 @@ namespace GI.UI.Propiedades.Formularios
             // 
             this.radioButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(605, 380);
+            this.radioButton2.Location = new System.Drawing.Point(357, 183);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(92, 17);
             this.radioButton2.TabIndex = 11;
@@ -170,7 +170,7 @@ namespace GI.UI.Propiedades.Formularios
             this.bAgregarContacto.FlatAppearance.BorderSize = 0;
             this.bAgregarContacto.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
             this.bAgregarContacto.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.bAgregarContacto.Location = new System.Drawing.Point(622, 31);
+            this.bAgregarContacto.Location = new System.Drawing.Point(374, 31);
             this.bAgregarContacto.Name = "bAgregarContacto";
             this.bAgregarContacto.Size = new System.Drawing.Size(75, 23);
             this.bAgregarContacto.TabIndex = 5;
@@ -186,7 +186,7 @@ namespace GI.UI.Propiedades.Formularios
             this.tbPropiedades.Name = "tbPropiedades";
             this.tbPropiedades.ReadOnly = true;
             this.tbPropiedades.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.tbPropiedades.Size = new System.Drawing.Size(528, 21);
+            this.tbPropiedades.Size = new System.Drawing.Size(280, 21);
             this.tbPropiedades.TabIndex = 12;
             this.tbPropiedades.Text = "";
             // 
@@ -197,7 +197,7 @@ namespace GI.UI.Propiedades.Formularios
             this.bAgregarPropiedad.FlatAppearance.BorderSize = 0;
             this.bAgregarPropiedad.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
             this.bAgregarPropiedad.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.bAgregarPropiedad.Location = new System.Drawing.Point(622, 6);
+            this.bAgregarPropiedad.Location = new System.Drawing.Point(374, 6);
             this.bAgregarPropiedad.Name = "bAgregarPropiedad";
             this.bAgregarPropiedad.Size = new System.Drawing.Size(75, 23);
             this.bAgregarPropiedad.TabIndex = 5;
@@ -230,8 +230,9 @@ namespace GI.UI.Propiedades.Formularios
             // 
             // linkLabel1
             // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(85, 382);
+            this.linkLabel1.Location = new System.Drawing.Point(85, 185);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(203, 13);
             this.linkLabel1.TabIndex = 14;
@@ -243,7 +244,7 @@ namespace GI.UI.Propiedades.Formularios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 462);
+            this.ClientSize = new System.Drawing.Size(466, 265);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.tbPropiedades);
             this.Controls.Add(this.radioButton2);
@@ -261,7 +262,7 @@ namespace GI.UI.Propiedades.Formularios
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(474, 253);
+            this.MinimumSize = new System.Drawing.Size(474, 292);
             this.Name = "FrmEnviarFichasMail";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
