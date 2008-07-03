@@ -37,18 +37,21 @@ namespace GI.UI.Propiedades.Formularios
             // 
             // listView1
             // 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.CheckBoxes = true;
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Margin = new System.Windows.Forms.Padding(10);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(874, 294);
+            this.listView1.Size = new System.Drawing.Size(876, 257);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // bCancelar
             // 
-            this.bCancelar.Location = new System.Drawing.Point(787, 307);
+            this.bCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bCancelar.Location = new System.Drawing.Point(785, 270);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 1;
@@ -58,7 +61,8 @@ namespace GI.UI.Propiedades.Formularios
             // 
             // bAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(706, 307);
+            this.bAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bAceptar.Location = new System.Drawing.Point(704, 270);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
             this.bAceptar.TabIndex = 2;
@@ -68,8 +72,9 @@ namespace GI.UI.Propiedades.Formularios
             // 
             // linkLabel1
             // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(12, 312);
+            this.linkLabel1.Location = new System.Drawing.Point(3, 273);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(86, 13);
             this.linkLabel1.TabIndex = 3;
@@ -79,8 +84,9 @@ namespace GI.UI.Propiedades.Formularios
             // 
             // linkLabel2
             // 
+            this.linkLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(104, 312);
+            this.linkLabel2.Location = new System.Drawing.Point(95, 273);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(89, 13);
             this.linkLabel2.TabIndex = 4;
@@ -92,15 +98,13 @@ namespace GI.UI.Propiedades.Formularios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(874, 342);
+            this.ClientSize = new System.Drawing.Size(876, 305);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.bAceptar);
             this.Controls.Add(this.bCancelar);
             this.Controls.Add(this.listView1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FrmSeleccionFotos";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
