@@ -395,6 +395,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>FrmPublicacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\FrmSeleccionFotos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmSeleccionFotos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Propiedades\Formularios\FrmSeleccionTipoPropiedad.resx">
       <DependentUpon>FrmSeleccionTipoPropiedad.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -531,6 +535,12 @@
     </Compile>
     <Compile Include="Propiedades\Formularios\FrmPublicacion.Designer.cs">
       <DependentUpon>FrmPublicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmSeleccionFotos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmSeleccionFotos.Designer.cs">
+      <DependentUpon>FrmSeleccionFotos.cs</DependentUpon>
     </Compile>
     <Compile Include="Propiedades\Formularios\FrmSeleccionTipoPropiedad.cs">
       <SubType>Form</SubType>

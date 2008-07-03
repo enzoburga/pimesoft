@@ -44,6 +44,7 @@ namespace GI.UI.Propiedades.Formularios
             this.bAgregarPropiedad = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,7 +136,7 @@ namespace GI.UI.Propiedades.Formularios
             // toolStripStatusLabelEstado
             // 
             this.toolStripStatusLabelEstado.Name = "toolStripStatusLabelEstado";
-            this.toolStripStatusLabelEstado.Size = new System.Drawing.Size(200, 17);
+            this.toolStripStatusLabelEstado.Size = new System.Drawing.Size(217, 17);
             this.toolStripStatusLabelEstado.Text = "Haga clic en Enviar para enviar el correo";
             // 
             // radioButtonPdf
@@ -227,11 +228,23 @@ namespace GI.UI.Propiedades.Formularios
             this.label1.TabIndex = 0;
             this.label1.Text = "Para:";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(85, 382);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(203, 13);
+            this.linkLabel1.TabIndex = 14;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Seleccionar fotos para adjuntar al correo";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // FrmEnviarFichasMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 462);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.tbPropiedades);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButtonPdf);
@@ -278,5 +291,6 @@ namespace GI.UI.Propiedades.Formularios
         private System.Windows.Forms.Button bAgregarPropiedad;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

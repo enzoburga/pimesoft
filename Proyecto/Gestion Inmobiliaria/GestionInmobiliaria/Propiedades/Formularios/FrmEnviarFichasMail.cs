@@ -16,6 +16,7 @@ namespace GI.UI.Propiedades.Formularios
         System.IO.Stream stream;
         GI.Managers.Propiedades.MngEnviarPropiedadesCorreo mngPropMail;
         public event EnvioFinalizadoHandler OnEnvioFinalizado;
+        private GI.BR.Propiedades.Galeria.GaleriaFotos galeria;
 
         public FrmEnviarFichasMail()
         {
@@ -110,7 +111,9 @@ namespace GI.UI.Propiedades.Formularios
             hashPropiedades,
             formatoAtachments,
             getEmails(),
-            textBoxMessage.Text);
+            textBoxMessage.Text,
+            galeria);
+
 
             
 
@@ -370,6 +373,26 @@ namespace GI.UI.Propiedades.Formularios
         {
             if (e.KeyChar == (char)Keys.Enter)
                 return;
+        }
+
+        private void checkBoxAdjuntarFotos_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            //if ((propiedades.Count > 1) && checkBoxAdjuntarFotos.Checked)
+            //{
+            //    Framework.General.GIMsgBox.Show("La función de adjuntar fotos solo esta permitida cuando se envia una sola propiedad", GI.Framework.General.enumTipoMensaje.Informacion);
+            //    checkBoxAdjuntarFotos.Checked = false;
+            //}
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmSeleccionFotos frm = new FrmSeleccionFotos(propiedades);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                galeria = frm.GaleriaSeleccionada;
+            
+            }
         } 
 
 
