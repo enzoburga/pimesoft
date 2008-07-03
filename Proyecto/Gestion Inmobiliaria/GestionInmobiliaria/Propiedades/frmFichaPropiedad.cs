@@ -296,15 +296,15 @@ namespace GI.UI.Propiedades
 
             GI.Reportes.ReporteAbs reporte = null;
 
-            if (tabControl1.SelectedIndex == 4)
+            if (tabControl1.SelectedIndex == 5)
             {
                 reporte = new GI.Reportes.Clases.Propiedades.ReporteListadoLlamados(Propiedad);
             }
-            else if (tabControl1.SelectedIndex == 3)
+            else if (tabControl1.SelectedIndex == 4)
             {
                 reporte = new GI.Reportes.Clases.Propiedades.ReporteVisitas(Propiedad);
             }
-            else if (tabControl1.SelectedIndex == 5)
+            else if (tabControl1.SelectedIndex == 6)
             {
                 reporte = new GI.Reportes.Clases.Propiedades.ReporteListadoPublicaciones(Propiedad);
             }
