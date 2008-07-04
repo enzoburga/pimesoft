@@ -55,6 +55,7 @@ namespace GI.UI
             this.PedidostoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClientes = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.parametrosGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -148,6 +149,7 @@ namespace GI.UI
             // ayudaToolStripMenuItem1
             // 
             this.ayudaToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.parametrosGeneralesToolStripMenuItem,
             this.acercaDeToolStripMenuItem});
             this.ayudaToolStripMenuItem1.Name = "ayudaToolStripMenuItem1";
             this.ayudaToolStripMenuItem1.Size = new System.Drawing.Size(53, 20);
@@ -156,7 +158,7 @@ namespace GI.UI
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de...";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
@@ -294,6 +296,13 @@ namespace GI.UI
             this.toolStripButton5.Text = "Publicación Web";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
+            // parametrosGeneralesToolStripMenuItem
+            // 
+            this.parametrosGeneralesToolStripMenuItem.Name = "parametrosGeneralesToolStripMenuItem";
+            this.parametrosGeneralesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.parametrosGeneralesToolStripMenuItem.Text = "Parametros generales";
+            this.parametrosGeneralesToolStripMenuItem.Click += new System.EventHandler(this.parametrosGeneralesToolStripMenuItem_Click);
+            // 
             // frmStartUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,6 +358,7 @@ namespace GI.UI
         private System.Windows.Forms.ToolStripButton PedidostoolStripButton;
         private System.Windows.Forms.ToolStripButton toolStripButtonClientes;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripMenuItem parametrosGeneralesToolStripMenuItem;
 
     }
 }

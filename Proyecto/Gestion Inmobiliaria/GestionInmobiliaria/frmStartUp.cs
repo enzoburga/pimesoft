@@ -166,5 +166,10 @@ namespace GI.UI
         {
             builder.AbrirFormulario(typeof(frmPublicacionWeb).ToString());
         }
+
+        private void parametrosGeneralesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Generales.FrmParametrosGenerales().ShowDialog();
+        }
     }
 }

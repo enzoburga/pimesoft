@@ -40,6 +40,9 @@ namespace GI.UI
             // 
             // lvEventos
             // 
+            this.lvEventos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lvEventos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -48,7 +51,7 @@ namespace GI.UI
             this.lvEventos.FullRowSelect = true;
             this.lvEventos.Location = new System.Drawing.Point(12, 12);
             this.lvEventos.Name = "lvEventos";
-            this.lvEventos.Size = new System.Drawing.Size(701, 278);
+            this.lvEventos.Size = new System.Drawing.Size(557, 135);
             this.lvEventos.TabIndex = 0;
             this.lvEventos.UseCompatibleStateImageBehavior = false;
             this.lvEventos.View = System.Windows.Forms.View.Details;
@@ -76,7 +79,8 @@ namespace GI.UI
             // 
             // bSilencias
             // 
-            this.bSilencias.Location = new System.Drawing.Point(517, 296);
+            this.bSilencias.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bSilencias.Location = new System.Drawing.Point(373, 153);
             this.bSilencias.Name = "bSilencias";
             this.bSilencias.Size = new System.Drawing.Size(115, 23);
             this.bSilencias.TabIndex = 1;
@@ -86,7 +90,8 @@ namespace GI.UI
             // 
             // bCerra
             // 
-            this.bCerra.Location = new System.Drawing.Point(638, 296);
+            this.bCerra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bCerra.Location = new System.Drawing.Point(494, 153);
             this.bCerra.Name = "bCerra";
             this.bCerra.Size = new System.Drawing.Size(75, 23);
             this.bCerra.TabIndex = 2;
@@ -96,8 +101,9 @@ namespace GI.UI
             // 
             // chMantenerOculto
             // 
+            this.chMantenerOculto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chMantenerOculto.AutoSize = true;
-            this.chMantenerOculto.Location = new System.Drawing.Point(12, 300);
+            this.chMantenerOculto.Location = new System.Drawing.Point(12, 157);
             this.chMantenerOculto.Name = "chMantenerOculto";
             this.chMantenerOculto.Size = new System.Drawing.Size(147, 17);
             this.chMantenerOculto.TabIndex = 4;
@@ -108,15 +114,13 @@ namespace GI.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 331);
+            this.ClientSize = new System.Drawing.Size(581, 188);
             this.Controls.Add(this.chMantenerOculto);
             this.Controls.Add(this.bCerra);
             this.Controls.Add(this.bSilencias);
             this.Controls.Add(this.lvEventos);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(587, 212);
             this.Name = "frmPopUpEventos";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
