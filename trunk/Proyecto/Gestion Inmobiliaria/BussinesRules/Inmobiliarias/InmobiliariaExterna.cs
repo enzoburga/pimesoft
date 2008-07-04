@@ -25,7 +25,7 @@ namespace GI.BR
             return IdInmobiliaria > 0;
         }
 
-        public bool Actualizar()
+        public override bool Actualizar()
         {
             return new DA.InmobiliariasData().ActualizarInmobiliariaExterna(IdInmobiliaria, Nombre, Telefono, PersonaResponsable);
 

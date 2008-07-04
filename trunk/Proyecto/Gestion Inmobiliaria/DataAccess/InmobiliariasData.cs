@@ -32,5 +32,22 @@ namespace GI.DA
                 new string[] { "@IdInmobiliaria", "@Nombre", "@Telefono", "@Contacto" });
         }
 
+        public IDataReader RecuperarDatosInmobiliaria()
+        {
+            return AccesoDatos.RecuperarDatos("Inmobiliaria_RecuperarDatos", new object[] { }, new string[] { });
+        
+        }
+
+        public bool ActualizarInmobiliaria(string Nombre, string Calle, string CodigoPostal, string Depto, int Numero, string Piso, string Fax, string Telefono, string DireccionWeb)
+        {
+
+
+            return AccesoDatos.ActualizarRegistro(
+                "Inmobiliaria_ActualizarDatos",
+                new object[] { Nombre, Calle, CodigoPostal, Depto, Numero, Piso, Fax, Telefono, DireccionWeb },
+                new string[] { "@Nombre", "@Calle", "@CodigoPostal", "@Depto", "@Numero", "@Piso", "@Fax", "@Telefono", "@DireccionWeb" });
+            
+        }
+
     }
 }
