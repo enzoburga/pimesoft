@@ -141,7 +141,11 @@ namespace GI.Managers.Sincronizacion
                             case "GI.BR.Propiedades.Tranasacciones.TransaccionPedido":
                                 {
                                     if (tran.TipoTransaccion == GI.BR.Propiedades.Tranasacciones.EnumTipoTransaccion.Crear)
-                                    { 
+                                    {
+                                        if (!((GI.BR.Propiedades.Tranasacciones.TransaccionPedido)tran).Pedido.ClientePedido.Guardar())
+                                            throw new Exception("No es posible guardar el pedido en la base local");
+
+
                                         if (!((GI.BR.Propiedades.Tranasacciones.TransaccionPedido)tran).Pedido.Guardar())
                                             throw new Exception("No es posible guardar el pedido en la base local");
 
