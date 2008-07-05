@@ -18,6 +18,26 @@ namespace WebApplication
     {
 
 
+        [WebMethod]
+        public GI.BR.Propiedades.Tranasacciones.Transacciones RecuperarTransaccionesPendientes()
+        {
+            GI.BR.Propiedades.Tranasacciones.Transacciones Transacciones = new GI.BR.Propiedades.Tranasacciones.Transacciones();
+
+            Transacciones.RecuperarTransaccionesPedidosPedientes();
+
+            return Transacciones;
+
+
+        }
+
+
+        [WebMethod]
+        public void TransaccionProcesada(GI.BR.Propiedades.Tranasacciones.Transaccion Transaccion)
+        {
+            Transaccion.DesactivarTransaccion();
+        }
+
+
 
         [WebMethod]
         public bool ActualizarPropiedad(GI.BR.Propiedades.Propiedad Propiedad)
