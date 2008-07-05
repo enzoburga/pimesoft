@@ -48,18 +48,18 @@ namespace GI.UI
 
 
         private void recuperarTransaccionesPendientes()
-        { 
-            //Managers.Sincronizacion.MngSincronizacionTransacciones mng = new GI.Managers.Sincronizacion.MngSincronizacionTransacciones();
-            
-            //System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(mng.RecuperarTransaccionesPendientes));
-            //mng.onHayTransaccionesPendientes+=new GI.Managers.Sincronizacion.DeteccionTransacciones(mng_onHayTransaccionesPendientes);
+        {
+            Managers.Sincronizacion.MngSincronizacionTransacciones mng = new GI.Managers.Sincronizacion.MngSincronizacionTransacciones();
+
+            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(mng.RecuperarTransaccionesPendientes));
+            mng.onHayTransaccionesPendientes += new GI.Managers.Sincronizacion.DeteccionTransacciones(mng_onHayTransaccionesPendientes);
 
 
-            //StatusLabel.Text = "Recuperando Transacciones disponibles. Por favor espere unos segundos...";
+            StatusLabel.Text = "Recuperando Transacciones disponibles. Por favor espere unos segundos...";
 
-            //t.IsBackground=true;
+            t.IsBackground = true;
 
-            //t.Start();
+            t.Start();
 
         }
 
