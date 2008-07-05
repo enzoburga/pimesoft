@@ -20,9 +20,11 @@ namespace GI.Managers.WebService {
     using System.Web.Services.Protocols;
     using System;
     using System.Xml.Serialization;
-    using GI.BR;
+    using System.Reflection;
     using GI.BR.Propiedades;
+    using GI.BR.Propiedades.Tranasacciones;
     using GI.BR.Propiedades.Galeria;
+    using GI.BR.Clientes;
     
     
     /// <remarks/>
@@ -30,8 +32,13 @@ namespace GI.Managers.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="PropiedadesServicioSincSoap", Namespace="http://tempuri.org/")]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarshalByRefObject))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MemberInfo))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Cliente))]
     public partial class PropiedadesServicioSinc : System.Web.Services.Protocols.SoapHttpClientProtocol {
+        
+        private System.Threading.SendOrPostCallback RecuperarTransaccionesPendientesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback TransaccionProcesadaOperationCompleted;
         
         private System.Threading.SendOrPostCallback ActualizarPropiedadOperationCompleted;
         
@@ -80,6 +87,12 @@ namespace GI.Managers.WebService {
         }
         
         /// <remarks/>
+        public event RecuperarTransaccionesPendientesCompletedEventHandler RecuperarTransaccionesPendientesCompleted;
+        
+        /// <remarks/>
+        public event TransaccionProcesadaCompletedEventHandler TransaccionProcesadaCompleted;
+        
+        /// <remarks/>
         public event ActualizarPropiedadCompletedEventHandler ActualizarPropiedadCompleted;
         
         /// <remarks/>
@@ -90,6 +103,61 @@ namespace GI.Managers.WebService {
         
         /// <remarks/>
         public event EliminarFotoPropiedadCompletedEventHandler EliminarFotoPropiedadCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RecuperarTransaccionesPendientes", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Transaccion[] RecuperarTransaccionesPendientes() {
+            object[] results = this.Invoke("RecuperarTransaccionesPendientes", new object[0]);
+            return ((Transaccion[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RecuperarTransaccionesPendientesAsync() {
+            this.RecuperarTransaccionesPendientesAsync(null);
+        }
+        
+        /// <remarks/>
+        public void RecuperarTransaccionesPendientesAsync(object userState) {
+            if ((this.RecuperarTransaccionesPendientesOperationCompleted == null)) {
+                this.RecuperarTransaccionesPendientesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRecuperarTransaccionesPendientesOperationCompleted);
+            }
+            this.InvokeAsync("RecuperarTransaccionesPendientes", new object[0], this.RecuperarTransaccionesPendientesOperationCompleted, userState);
+        }
+        
+        private void OnRecuperarTransaccionesPendientesOperationCompleted(object arg) {
+            if ((this.RecuperarTransaccionesPendientesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RecuperarTransaccionesPendientesCompleted(this, new RecuperarTransaccionesPendientesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/TransaccionProcesada", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void TransaccionProcesada(Transaccion Transaccion) {
+            this.Invoke("TransaccionProcesada", new object[] {
+                        Transaccion});
+        }
+        
+        /// <remarks/>
+        public void TransaccionProcesadaAsync(Transaccion Transaccion) {
+            this.TransaccionProcesadaAsync(Transaccion, null);
+        }
+        
+        /// <remarks/>
+        public void TransaccionProcesadaAsync(Transaccion Transaccion, object userState) {
+            if ((this.TransaccionProcesadaOperationCompleted == null)) {
+                this.TransaccionProcesadaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTransaccionProcesadaOperationCompleted);
+            }
+            this.InvokeAsync("TransaccionProcesada", new object[] {
+                        Transaccion}, this.TransaccionProcesadaOperationCompleted, userState);
+        }
+        
+        private void OnTransaccionProcesadaOperationCompleted(object arg) {
+            if ((this.TransaccionProcesadaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TransaccionProcesadaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ActualizarPropiedad", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -229,6 +297,35 @@ namespace GI.Managers.WebService {
     }
     
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.1434")]
+    public delegate void RecuperarTransaccionesPendientesCompletedEventHandler(object sender, RecuperarTransaccionesPendientesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.1434")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RecuperarTransaccionesPendientesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RecuperarTransaccionesPendientesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Transaccion[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Transaccion[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.1434")]
+    public delegate void TransaccionProcesadaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.1434")]

@@ -7,25 +7,31 @@ namespace GI.Managers.Sincronizacion
 
     public delegate void TransaccionEventHandler(GI.BR.Propiedades.Tranasacciones.Transaccion xTran, int PorcentajeEnvio);
     public delegate void SincronizacionEventHandler(bool Error, string Mensaje);
+    public delegate void DeteccionTransacciones(List<GI.BR.Propiedades.Tranasacciones.Transaccion> Transacciones);
 
     public class MngSincronizacionTransacciones
     {
 
         public event TransaccionEventHandler onTransaccionSincronizada;
         public event SincronizacionEventHandler onProcesoFinalizado;
-
-
+        public event DeteccionTransacciones onHayTransaccionesPendientes;
 
         private List<GI.BR.Propiedades.Tranasacciones.Transaccion> transacciones;
+        private WebService.PropiedadesServicioSinc ws;
+
+
+        public MngSincronizacionTransacciones()
+        {
+            ws = new GI.Managers.WebService.PropiedadesServicioSinc();
+            ws.Url = System.Configuration.ConfigurationManager.AppSettings["UrlWebServiceSin"].ToString();
+
+        }
 
         public List<GI.BR.Propiedades.Tranasacciones.Transaccion> Transacciones
         {
             get { return transacciones; }
             set { transacciones = value; }
         }
-
-        public MngSincronizacionTransacciones()
-        { }
 
 
         public List<GI.BR.Propiedades.Tranasacciones.Transaccion> RecuperarTransaccionesPendientes(GI.BR.Propiedades.Propiedad p)
@@ -40,11 +46,12 @@ namespace GI.Managers.Sincronizacion
             transFotos.RecuperarTransaccionesFotosPendientes(p);
             trans.AddRange(transFotos.ToArray());
 
-
             return trans;
+
+            //onHayTransaccionesPendientes(trans);
         }
 
-        public List<GI.BR.Propiedades.Tranasacciones.Transaccion> RecuperarTransaccionesPendientes()
+        public void RecuperarTransaccionesPendientes()
         {
             List<GI.BR.Propiedades.Tranasacciones.Transaccion> trans = new List<GI.BR.Propiedades.Tranasacciones.Transaccion>();
 
@@ -56,8 +63,16 @@ namespace GI.Managers.Sincronizacion
             transFotos.RecuperarTransaccionesFotosPendientes();
             trans.AddRange(transFotos.ToArray());
 
+            try
+            {
+                trans.AddRange(ws.RecuperarTransaccionesPendientes());
+            }
+            catch
+            { }
 
-            return trans;
+
+
+            onHayTransaccionesPendientes(trans);
         }
 
 
@@ -67,9 +82,7 @@ namespace GI.Managers.Sincronizacion
         {
 
             int progreso = 0;
-            WebService.PropiedadesServicioSinc ws = new GI.Managers.WebService.PropiedadesServicioSinc();
-            ws.Url = System.Configuration.ConfigurationManager.AppSettings["UrlWebServiceSin"].ToString();
-
+            
             try
             {
                 foreach (GI.BR.Propiedades.Tranasacciones.Transaccion tran in Transacciones)
@@ -122,7 +135,24 @@ namespace GI.Managers.Sincronizacion
                                 }
 
                             #endregion
+                        
+                            #region Trans Pedidos Web
+		
+                            case "GI.BR.Propiedades.Tranasacciones.TransaccionPedido":
+                                {
+                                    if (tran.TipoTransaccion == GI.BR.Propiedades.Tranasacciones.EnumTipoTransaccion.Crear)
+                                    { 
+                                        if (!((GI.BR.Propiedades.Tranasacciones.TransaccionPedido)tran).Pedido.Guardar())
+                                            throw new Exception("No es posible guardar el pedido en la base local");
 
+                                        // NOTIFICACION AL WS
+                                        ws.TransaccionProcesada(tran);
+                                    }
+                                    break;
+                                }
+
+ 
+	                        #endregion
 
                             default:
                                 throw new Exception("Tipo de transaccion no manejada para la sincronizacion");

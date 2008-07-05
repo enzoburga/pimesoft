@@ -49,6 +49,13 @@ namespace GI.DA
                 new string[] { "@IdPropiedad", "@IdTipoTrans", "@Fecha", "@TypePropopiedad" });
         }
 
+        public System.Data.IDataReader RecuperarTransaccionesPedidoPendientes()
+        {
+            return AccesoDatos.RecuperarDatos(
+                "Transacciones_RecuperarTransaccionesPedidoPendientes",
+                new object[] { },
+                new string[] { });
+        }
 
         public System.Data.IDataReader RecuperarTransaccionesFotoPendientes()
         {

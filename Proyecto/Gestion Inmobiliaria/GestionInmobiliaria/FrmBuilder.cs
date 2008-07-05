@@ -80,7 +80,7 @@ namespace GI.UI
             {
                 Managers.Sincronizacion.MngSincronizacionTransacciones mngSinc = new GI.Managers.Sincronizacion.MngSincronizacionTransacciones();
 
-                GI.UI.frmPublicacionWeb frm = new frmPublicacionWeb(mngSinc.RecuperarTransaccionesPendientes());
+                GI.UI.frmPublicacionWeb frm = new frmPublicacionWeb(true);
                 frm.MdiParent = this.parent;
                 frm.WindowState = System.Windows.Forms.FormWindowState.Normal;
                 

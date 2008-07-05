@@ -41,12 +41,19 @@ namespace GI.UI
             this.Operación = new System.Windows.Forms.ColumnHeader();
             this.Fecha = new System.Windows.Forms.ColumnHeader();
             this.Estado = new System.Windows.Forms.ColumnHeader();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -68,16 +75,16 @@ namespace GI.UI
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.lvTransacciones);
-            this.splitContainer1.Panel2.Controls.Add(this.progressBar1);
-            this.splitContainer1.Size = new System.Drawing.Size(948, 531);
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            this.splitContainer1.Size = new System.Drawing.Size(847, 515);
             this.splitContainer1.SplitterDistance = 81;
             this.splitContainer1.TabIndex = 0;
             // 
             // bRefresh
             // 
             this.bRefresh.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.bRefresh.Location = new System.Drawing.Point(776, 41);
+            this.bRefresh.Location = new System.Drawing.Point(675, 41);
             this.bRefresh.Name = "bRefresh";
             this.bRefresh.Size = new System.Drawing.Size(75, 23);
             this.bRefresh.TabIndex = 5;
@@ -114,7 +121,7 @@ namespace GI.UI
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(751, 66);
+            this.panel1.Size = new System.Drawing.Size(650, 66);
             this.panel1.TabIndex = 3;
             // 
             // label1
@@ -123,7 +130,7 @@ namespace GI.UI
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Location = new System.Drawing.Point(3, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(660, 47);
+            this.label1.Size = new System.Drawing.Size(559, 47);
             this.label1.TabIndex = 2;
             this.label1.Text = "Selecciones los objetos a sincronizar y haga clic en el botòn Iniciar.";
             // 
@@ -131,7 +138,7 @@ namespace GI.UI
             // 
             this.bCancelar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.bCancelar.Enabled = false;
-            this.bCancelar.Location = new System.Drawing.Point(857, 41);
+            this.bCancelar.Location = new System.Drawing.Point(756, 41);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 1;
@@ -142,7 +149,7 @@ namespace GI.UI
             // bIniciar
             // 
             this.bIniciar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.bIniciar.Location = new System.Drawing.Point(857, 12);
+            this.bIniciar.Location = new System.Drawing.Point(756, 12);
             this.bIniciar.Name = "bIniciar";
             this.bIniciar.Size = new System.Drawing.Size(75, 23);
             this.bIniciar.TabIndex = 0;
@@ -162,7 +169,7 @@ namespace GI.UI
             this.lvTransacciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvTransacciones.Location = new System.Drawing.Point(0, 0);
             this.lvTransacciones.Name = "lvTransacciones";
-            this.lvTransacciones.Size = new System.Drawing.Size(948, 423);
+            this.lvTransacciones.Size = new System.Drawing.Size(847, 401);
             this.lvTransacciones.TabIndex = 1;
             this.lvTransacciones.UseCompatibleStateImageBehavior = false;
             this.lvTransacciones.View = System.Windows.Forms.View.Details;
@@ -188,36 +195,79 @@ namespace GI.UI
             this.Estado.Text = "Estado";
             this.Estado.Width = 80;
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBar1.Location = new System.Drawing.Point(0, 423);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(948, 23);
-            this.progressBar1.TabIndex = 0;
-            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Mensaje";
             this.columnHeader1.Width = 314;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBar1.Location = new System.Drawing.Point(0, 383);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(847, 18);
+            this.progressBar1.TabIndex = 0;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StatusLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 3);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(847, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // StatusLabel
+            // 
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(118, 17);
+            this.StatusLabel.Text = "toolStripStatusLabel1";
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.progressBar1);
+            this.splitContainer2.Panel1.Controls.Add(this.lvTransacciones);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.statusStrip1);
+            this.splitContainer2.Size = new System.Drawing.Size(847, 430);
+            this.splitContainer2.SplitterDistance = 401;
+            this.splitContainer2.TabIndex = 3;
+            // 
             // frmPublicacionWeb
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 531);
+            this.ClientSize = new System.Drawing.Size(847, 515);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimumSize = new System.Drawing.Size(455, 314);
             this.Name = "frmPublicacionWeb";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Publicación Web";
+            this.Text = "Sincronización Web";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPublicacionWeb_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -239,5 +289,8 @@ namespace GI.UI
         private System.Windows.Forms.LinkLabel linkLabelSelectAll;
         private System.Windows.Forms.LinkLabel linkLabelSelectNone;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel StatusLabel;
     }
 }

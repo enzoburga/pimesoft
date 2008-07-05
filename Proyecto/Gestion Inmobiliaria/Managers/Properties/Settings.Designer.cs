@@ -26,7 +26,7 @@ namespace GI.Managers.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:18125/PropiedadesServicioSinc.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:28058/PropiedadesServicioSinc.asmx")]
         public string GI_Managers_WebService_PropiedadesServicioSinc {
             get {
                 return ((string)(this["GI_Managers_WebService_PropiedadesServicioSinc"]));

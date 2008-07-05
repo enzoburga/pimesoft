@@ -340,6 +340,13 @@ namespace GI.DA
                     "@FechaAlta"});
         }
 
+        public IDataReader RecuperarPedidoPorId(int IdPedido)
+        {
+
+            return AccesoDatos.RecuperarDatos("Pedidos_RecuperarPorId",
+                 new object[] { IdPedido },
+                 new string[] { "@IdPedido" });
+        }
         public IDataReader RecuperarPedidosTodos()
         {
             return AccesoDatos.RecuperarDatos("Pedidos_RecuperarTodos",
