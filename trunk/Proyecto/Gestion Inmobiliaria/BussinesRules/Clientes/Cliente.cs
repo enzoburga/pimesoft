@@ -208,8 +208,6 @@ namespace GI.BR.Clientes
 
         }
 
-
-
         internal void llenar(System.Data.IDataReader dr)
         {
             this.cargado = true;
@@ -292,5 +290,19 @@ namespace GI.BR.Clientes
         }
 
         #endregion
+
+        public string TelefonosString()
+        {
+            string sTel = "";
+            if (TelefonoParticular != "")
+                sTel += TelefonoParticular.ToString() +"/";
+            if (TelefonoCelular != "")
+                sTel += TelefonoCelular.ToString() + "/";
+            if (TelefonoTrabajo != "")
+                sTel += TelefonoTrabajo.ToString()+ "/";
+
+            sTel = sTel.Remove(sTel.Length-1);
+            return sTel;
+        }
     }
 }

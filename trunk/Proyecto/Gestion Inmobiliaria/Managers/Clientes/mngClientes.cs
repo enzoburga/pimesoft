@@ -29,6 +29,19 @@ namespace GI.Managers.Clientes
             return clientes;
         }
 
+        public GI.BR.Clientes.ClientePedido RecuperarClientePedidoPorEmail(string email)
+        {
+            GI.BR.Clientes.ClientePedido clientePedido = new GI.BR.Clientes.ClientePedido();
+            clientePedido.RecuperarPorEmail(email);
+
+            if (clientePedido.IdCliente == 0)
+                return null;
+            else
+                return clientePedido;
+
+            
+        }
+
         public GI.BR.Clientes.Clientes RecuperarClientesTodos(GI.Managers.Clientes.enumTipoBusquedaCliente tipoCliente)
         {
             GI.BR.Clientes.Clientes clientes = new GI.BR.Clientes.Clientes();

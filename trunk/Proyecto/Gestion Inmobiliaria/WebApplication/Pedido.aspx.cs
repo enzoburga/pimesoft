@@ -9,45 +9,64 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 
-namespace WebApplication.Controles
+namespace WebApplication
 {
-    public partial class ctrlBuscadorPropiedades : System.Web.UI.UserControl
+    public partial class Pedido : System.Web.UI.Page
     {
-        public GI.BR.Propiedades.Propiedades propiedades = new GI.BR.Propiedades.Propiedades();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["ClientePedido"] == null)
+                Response.Redirect("IngresarEmailCliente.aspx");
+
+            GI.BR.Clientes.Cliente cliente = (GI.BR.Clientes.Cliente)Session["ClientePedido"];
+
+            lNombres.Text = cliente.ToString();
+            lEmail.Text = cliente.Email;
+
             if (!IsPostBack)
             {
-                #region Items Radio Buttons
-                this.radioListTipoBusqueda.SelectedIndex = 0;
+                #region Tipo Operacion
 
-                //Seteo el panel por default
-                panelCodigo.Visible = false;
-                panelFiltros.Visible = true;
+                ListItem liOper;
+                liOper = new ListItem();
+                liOper.Value = "GI.BR.Propiedades.Venta";
+                liOper.Text = "Ventas";
+                ddlTipoOperacion.Items.Add(liOper);
+
+                liOper = new ListItem();
+                liOper.Value = "GI.BR.Propiedades.Alquiler";
+                liOper.Text = "Alquileres";
+                ddlTipoOperacion.Items.Add(liOper);
+
+                ddlTipoOperacion.SelectedIndex = 0;
 
                 #endregion
-
                 #region Ambientes
 
                 GI.BR.Propiedades.Ambientes ambientes = new GI.BR.Propiedades.Ambientes();
                 ambientes.RecuperarTodos();
-                ListItem liAmbientes = new ListItem("Sin Definir","0");
-                ddlAmbientes.Items.Add(liAmbientes);
+
+                ListItem liAmbientes = new ListItem("Sin Definir", "0");
+
+                ddlAmbientesDesde.Items.Add(liAmbientes);
+                ddlAmbientesHasta.Items.Add(liAmbientes);
                 foreach (GI.BR.Propiedades.Ambiente a in ambientes)
                 {
                     liAmbientes = new ListItem();
                     liAmbientes.Text = a.ToString();
                     liAmbientes.Value = a.CantidadAmbientes.ToString();
 
-                    ddlAmbientes.Items.Add(liAmbientes);
+                    ddlAmbientesDesde.Items.Add(liAmbientes);
+                    ddlAmbientesHasta.Items.Add(liAmbientes);
                 }
 
-                ddlAmbientes.SelectedIndex = 0;
+                ddlAmbientesDesde.SelectedIndex = 0;
+                ddlAmbientesHasta.SelectedIndex = 0;
                 #endregion
 
                 #region Tipo de Propiedad
 
-                ListItem liTipo=new ListItem("Sin Definir", "0");
+                ListItem liTipo = new ListItem("Sin Definir", "0");
                 ddlTipoPropiedad.Items.Add(liTipo);
                 foreach (GI.BR.Propiedades.TipoPropiedad t in GI.BR.Propiedades.TiposPropiedadFlyweightFactory.GetInstancia.GetTiposPropiedad)
                 {
@@ -58,7 +77,7 @@ namespace WebApplication.Controles
                     ddlTipoPropiedad.Items.Add(liTipo);
                 }
                 ddlTipoPropiedad.SelectedIndex = 0;
-                
+
 
                 #endregion
 
@@ -77,7 +96,6 @@ namespace WebApplication.Controles
 
                 #endregion
 
-
                 #region Paises
 
                 ListItem liPaises = new ListItem();
@@ -93,8 +111,8 @@ namespace WebApplication.Controles
                     ddlPais.Items.Add(liPaises);
                 }
 
-                
-                
+
+
 
                 GI.BR.Propiedades.Ubicaciones.Pais pais = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetPaises().GetDefault;
                 if (pais != null)
@@ -109,8 +127,6 @@ namespace WebApplication.Controles
                 }
 
                 #endregion
-
-
             }
 
         }
@@ -218,94 +234,6 @@ namespace WebApplication.Controles
             }
         }
 
-        public void cargarPropiedades()
-        {
-            propiedades.Clear();
-            if (radioListTipoBusqueda.SelectedValue == "Codigo")
-            {
-                if (tbCodigo.Text != "")
-                {
-
-                    GI.BR.Propiedades.PropiedadFactory pf = new GI.BR.Propiedades.PropiedadFactory();
-
-                    GI.BR.Propiedades.Propiedad propiedad = pf.GetPropiedad(int.Parse(tbCodigo.Text));
-
-                    if (propiedad != null)
-                        propiedades.Add(propiedad);
-                }
-            }
-            else
-            {
-                GI.Managers.Propiedades.MngPropiedades mngPropiedades = new GI.Managers.Propiedades.MngPropiedades();
-                #region Armo los objetos para pasarle al  manager de busqueda.
-                GI.BR.Propiedades.Ubicacion ubicacion = new GI.BR.Propiedades.Ubicacion();
-                ubicacion.Barrio = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetBarrio(int.Parse(ddlBarrio.SelectedValue));
-                ubicacion.Localidad = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetLocalidad(int.Parse(ddlLocalidad.SelectedValue));
-                ubicacion.Provincia = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetProvincia(int.Parse(ddlProvincia.SelectedValue));
-                ubicacion.Pais = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetPais(int.Parse(ddlPais.SelectedValue));
-
-                Type tipoOperacion = null;
-
-                if (radioListTipoBusqueda.SelectedValue == "GI.BR.Propiedades.Alquiler")
-                    tipoOperacion = typeof(GI.BR.Propiedades.Alquiler);
-                else
-                    tipoOperacion = typeof(GI.BR.Propiedades.Venta);
-
-                GI.BR.Propiedades.EstadoPropiedad estadoPropiedad = GI.BR.Propiedades.EstadoPropiedadFlyweigthFactory.GetInstancia(tipoOperacion).GetEstadoBase();
-                GI.BR.Propiedades.EstadoPropiedad estadoPropiedadReservado = GI.BR.Propiedades.EstadoPropiedadFlyweigthFactory.GetInstancia(tipoOperacion).GetEstadoReservado();
-
-
-                GI.BR.Valor valorDesde = getValor(tbValorDesde.Text, int.Parse(ddlMoneda.SelectedValue));
-                GI.BR.Valor valorHasta = getValor(tbValorHasta.Text, int.Parse(ddlMoneda.SelectedValue));
-                #endregion
-
-                //Recupero propiedades en venta o alquiler.
-                propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad(), estadoPropiedad, getAmbientes(), ubicacion, valorDesde, valorHasta));
-                //Recupero propiedades reservadas de venta o alquiler.
-                propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad(), estadoPropiedadReservado, getAmbientes(), ubicacion, valorDesde, valorHasta));
-            }
-
-            OrdenarPropiedades(propiedades);
-
-            Session["Propiedades"] = propiedades;
-        }
-
-        private void OrdenarPropiedades(GI.BR.Propiedades.Propiedades propiedades)
-        {
-            propiedades.Sort(delegate(GI.BR.Propiedades.Propiedad p1, GI.BR.Propiedades.Propiedad p2) { return p1.ValorPublicacion.Importe.CompareTo(p2.ValorPublicacion.Importe); });
-        }
-
-        private GI.BR.Propiedades.Ambiente getAmbientes()
-        {
-            if (ddlAmbientes.SelectedValue == "0")
-                return null;
-            GI.BR.Propiedades.Ambiente ambientes = new GI.BR.Propiedades.Ambiente();
-            ambientes.CantidadAmbientes = decimal.Parse(ddlAmbientes.SelectedValue);
-
-            return ambientes;
-
-        }
-
-        private GI.BR.Propiedades.TipoPropiedad getTipoPropiedad()
-        {
-            if (ddlTipoPropiedad.SelectedValue == "0")
-                return null;
-            return GI.BR.Propiedades.TiposPropiedadFlyweightFactory.GetInstancia.GetTipoPropiedad(int.Parse(ddlTipoPropiedad.SelectedValue));
-        }
-
-        private GI.BR.Valor getValor(string text, int idMoneda)
-        {
-            if (text == "")
-                return null;
-
-            GI.BR.Valor valor = new GI.BR.Valor();
-            valor.Importe = decimal.Parse(text);
-            valor.Moneda = GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia.GetMoneda(idMoneda);
-
-            return valor;
-
-        }
-
         protected void ddlPais_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarComboProvincias(int.Parse(ddlPais.SelectedValue));
@@ -321,18 +249,110 @@ namespace WebApplication.Controles
             CargarComboBarrios(int.Parse(ddlLocalidad.SelectedValue));
         }
 
-        protected void radioListTipoBusqueda_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (radioListTipoBusqueda.SelectedValue == "Codigo")
+        protected void bEnviarPedido_Click(object sender, ImageClickEventArgs e)
+        {            
+            GI.BR.Pedidos.Pedido pedido = new GI.BR.Pedidos.Pedido();
+            CargarPedido(pedido);
+
+            GI.Managers.Pedidos.MngPedidosWeb mngPedidoWeb = new GI.Managers.Pedidos.MngPedidosWeb();
+            if (mngPedidoWeb.CrearPedidoWeb(pedido))
             {
-                panelCodigo.Visible = true;
-                panelFiltros.Visible = false;
+                Session["ClientePedido"] = null;
+                Response.Redirect("PedidoEnviado.aspx");
             }
             else
-            {
-                panelCodigo.Visible = false;
-                panelFiltros.Visible = true;
-            }
+                lError.Text = "Ocurrió un error al enviar el pedido.";
+
+        }
+
+        private void CargarPedido(GI.BR.Pedidos.Pedido pedido)
+        {
+            pedido.ClientePedido = (GI.BR.Clientes.ClientePedido)Session["ClientePedido"];
+
+            GI.BR.Propiedades.Ubicacion ubicacion = new GI.BR.Propiedades.Ubicacion();
+            ubicacion.Barrio = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetBarrio(int.Parse(ddlBarrio.SelectedValue));
+            ubicacion.Localidad = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetLocalidad(int.Parse(ddlLocalidad.SelectedValue));
+            ubicacion.Provincia = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetProvincia(int.Parse(ddlProvincia.SelectedValue));
+            ubicacion.Pais = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetPais(int.Parse(ddlPais.SelectedValue));
+
+            Type tipoOperacion = null;
+
+            if (ddlTipoOperacion.SelectedValue == "GI.BR.Propiedades.Alquiler")
+                tipoOperacion = typeof(GI.BR.Propiedades.Alquiler);
+            else
+                tipoOperacion = typeof(GI.BR.Propiedades.Venta);
+
+            pedido.EstadoPropiedad = tipoOperacion;
+
+            pedido.ValorInicial = getValor(tbValorDesde.Text);
+            pedido.ValorFinal = getValor(tbValorHasta.Text);
+
+            pedido.MetrosCubiertosFinal = getMetros(tbMetrosCubiertosMax.Text);
+            pedido.MetrosCubiertosInicial = getMetros(tbMetrosCubiertosMin.Text);
+
+            pedido.MetrosTerrenoFinal = getMetros(tbMetrosTerrenoMax.Text);
+            pedido.MetrosTerrenoInicial = getMetros(tbMetrosTerrenoMin.Text);
+            
+            pedido.TipoPropiedad = getTipoPropiedad();
+
+            pedido.CantidadAmbientesFinal = getAmbientesHasta();
+            pedido.CantidadAmbientesInicial = getAmbientesDesde();
+
+            pedido.Moneda = getMoneda();
+
+            pedido.Ubicacion = ubicacion;
+            pedido.Observaciones = "";
+        }
+
+        private GI.BR.Monedas.Moneda getMoneda()
+        {
+            return GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia.GetMoneda(int.Parse(ddlMoneda.SelectedValue));
+        }
+
+        private int getMetros(string text)
+        {
+            if (text == "")
+                return 0;
+
+            return int.Parse(text);
+        }
+
+        private GI.BR.Propiedades.Ambiente getAmbientesDesde()
+        {
+            if (ddlAmbientesDesde.SelectedValue == "0")
+                return null;
+            GI.BR.Propiedades.Ambiente ambientes = new GI.BR.Propiedades.Ambiente();
+            ambientes.CantidadAmbientes = decimal.Parse(ddlAmbientesDesde.SelectedValue);
+
+            return ambientes;
+
+        }
+
+        private GI.BR.Propiedades.Ambiente getAmbientesHasta()
+        {
+            if (ddlAmbientesHasta.SelectedValue == "0")
+                return null;
+            GI.BR.Propiedades.Ambiente ambientes = new GI.BR.Propiedades.Ambiente();
+            ambientes.CantidadAmbientes = decimal.Parse(ddlAmbientesHasta.SelectedValue);
+
+            return ambientes;
+
+        }
+
+        private GI.BR.Propiedades.TipoPropiedad getTipoPropiedad()
+        {
+            if (ddlTipoPropiedad.SelectedValue == "0")
+                return null;
+            return GI.BR.Propiedades.TiposPropiedadFlyweightFactory.GetInstancia.GetTipoPropiedad(int.Parse(ddlTipoPropiedad.SelectedValue));
+        }
+
+        private decimal getValor(string text)
+        {
+            if (text == "")
+                return 0;
+
+            return decimal.Parse(text);
+
         }
     }
 }

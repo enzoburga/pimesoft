@@ -51,5 +51,18 @@ namespace GI.BR.Propiedades.Galeria
         }
 
 
+
+        public Foto GetFotoPorId(int IdFoto)
+        {
+
+                
+                foreach (Foto f in this)
+                {
+                    if (f.IdFoto == IdFoto)
+                        return f;
+                }
+
+                return null;
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace WebApplication
             lMensaje.Text = "";
 
             if(HayPropiedades())
-                CargarListado();
+                CargarListado(false);
 
 
         }
@@ -53,6 +53,7 @@ namespace WebApplication
             dt.Columns.Add(new DataColumn("Ubicacion", typeof(string)));
             dt.Columns.Add(new DataColumn("Valor", typeof(string)));
             dt.Columns.Add(new DataColumn("Codigo", typeof(string)));
+            dt.Columns.Add(new DataColumn("Reservado", typeof(string)));
 
             GI.BR.Propiedades.Propiedades propiedades = (GI.BR.Propiedades.Propiedades)Session["Propiedades"];
 
@@ -61,13 +62,20 @@ namespace WebApplication
                 foreach (GI.BR.Propiedades.Propiedad p in propiedades)
                 {
                     dr = dt.NewRow();
-                    dr[0] = mngImagenes.GetPathThumbnail(p.GaleriaFotos.GetFotoFachada, p.IdPropiedad);
+                    dr[0] = mngImagenes.GetPathThumbnailListado(p.GaleriaFotos.GetFotoFachada, p.IdPropiedad);
                     dr[1] = p.Observaciones;
                     dr[2] = "Ficha.aspx?Propiedad=" + p.IdPropiedad.ToString();
                     dr[3] = p.Direccion.ToStringReporte();
                     dr[4] = p.Ubicacion.Localidad.ToString() + " - " + p.Ubicacion.Barrio.ToString();
-                    dr[5] = p.ValorPublicacion.ToString();
+                    if (p.PublicarSinPrecio)
+                        dr[5] = "<a href='mailto:info@pime.com.ar'>Consultar</a>";
+                    else
+                        dr[5] = p.ValorPublicacion.ToString();
                     dr[6] = p.Codigo.ToString();
+                    if (p.Estado.Descripcion == "Reservado")
+                        dr[7] = "<br>Reservado</br>";
+                    else
+                        dr[7] = "";
                     dt.Rows.Add(dr);
                 }
             }
@@ -77,7 +85,7 @@ namespace WebApplication
             return dv;
         }
 
-        private void CargarListado()
+        private void CargarListado( bool resetearPaginador)
         {
             if (((GI.BR.Propiedades.Propiedades)Session["Propiedades"]).Count == 0)
                 lMensaje.Text = "No se han encontrado propiedades que se ajunten al criterio de búsqueda.";
@@ -90,7 +98,7 @@ namespace WebApplication
 
             int CurPage;
 
-            if (Request.QueryString["IDP"] != null)
+            if (Request.QueryString["IDP"] != null && !resetearPaginador)
                 CurPage = Convert.ToInt32(Request.QueryString["IDP"]);
             else
                 CurPage = 1;
@@ -120,7 +128,7 @@ namespace WebApplication
         {
             CtrlBuscadorPropiedades1.cargarPropiedades();
 
-            CargarListado();
+            CargarListado(true);
 
            
         }

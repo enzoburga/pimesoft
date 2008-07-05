@@ -230,5 +230,13 @@ namespace GI.DA
                 new object[] {  },
                 new string[] {  });
         }
+
+        public System.Data.IDataReader RecuperarDatosClientePorEmail(string email)
+        {
+            return AccesoDatos.RecuperarDatos(
+                "ClientePedido_RecuperarPorEmail",
+                new object[] { email },
+                new string[] { "@email" });
+        }
     }
 }

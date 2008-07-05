@@ -172,7 +172,7 @@ namespace WebApplication
 
             #endregion
 
-            iFachada.ImageUrl = mngImagen.GetPathImagen(GetPropiedadSeleccionada.GaleriaFotos.GetFotoFachada, GetPropiedadSeleccionada.IdPropiedad);
+            iFachada.ImageUrl = mngImagen.GetPathImagen(GetFoto(), GetPropiedadSeleccionada.IdPropiedad);
 
 
             #region Galeria
@@ -183,6 +183,14 @@ namespace WebApplication
             #endregion
 
 
+        }
+
+        private GI.BR.Propiedades.Galeria.Foto GetFoto()
+        {
+            if(Request.QueryString["IdFoto"] == null)
+                return GetPropiedadSeleccionada.GaleriaFotos.GetFotoFachada;
+            else
+                return GetPropiedadSeleccionada.GaleriaFotos.GetFotoPorId(int.Parse((Request.QueryString["IdFoto"].ToString())));
         }
 
         private ICollection CreateDataSource()
@@ -202,8 +210,9 @@ namespace WebApplication
                 foreach (GI.BR.Propiedades.Galeria.Foto f in GetPropiedadSeleccionada.GaleriaFotos)
                 {
                     dr = dt.NewRow();
-                    dr[0] = mngImagenes.GetPathThumbnail(f, GetPropiedadSeleccionada.IdPropiedad);
-                    dr[1] = mngImagenes.GetPathImagen(f, GetPropiedadSeleccionada.IdPropiedad);
+                    dr[0] = mngImagenes.GetPathThumbnailFicha(f, GetPropiedadSeleccionada.IdPropiedad);
+                    dr[1] = "Ficha.aspx?IdFoto="+f.IdFoto.ToString()+"&Propiedad="+GetPropiedadSeleccionada.IdPropiedad.ToString();                        
+                    //mngImagenes.GetPathImagen(f, GetPropiedadSeleccionada.IdPropiedad);
                     dt.Rows.Add(dr);
                 }
 
@@ -239,6 +248,11 @@ namespace WebApplication
 
                 return propiedadSel;                
             }
+        }
+
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            int a = 1;
         }
     }
 }

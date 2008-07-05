@@ -573,7 +573,6 @@ namespace GI.UI.Pedidos
             this.ctrlUbicacion1.Size = new System.Drawing.Size(415, 89);
             this.ctrlUbicacion1.SoloLectura = false;
             this.ctrlUbicacion1.TabIndex = 58;
-            this.ctrlUbicacion1.Ubicacion = new GI.BR.Propiedades.Ubicacion();
             // 
             // groupBox5
             // 

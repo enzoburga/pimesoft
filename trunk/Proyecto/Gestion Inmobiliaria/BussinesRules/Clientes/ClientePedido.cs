@@ -38,5 +38,16 @@ namespace GI.BR.Clientes
         }
 
         #endregion
+
+        public void RecuperarPorEmail(string email)
+        {
+            using(System.Data.IDataReader dr = new  DA.ClientesData().RecuperarDatosClientePorEmail(email))
+            {
+                if (dr.Read())
+                {
+                    this.llenar(dr);
+                }
+            }            
+        }
     }
 }
