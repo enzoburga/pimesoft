@@ -288,7 +288,13 @@ namespace GI.BR.Pedidos
 
         public void RecuperarPorId(int IdPedido)
         {
-            throw new Exception("Metodo No Implementado");
+            using (System.Data.IDataReader dr = new DA.PedidosData().RecuperarPedidoPorId(IdPedido))
+            {
+                if (dr.Read())
+                {
+                    fill(dr);
+                }
+            }
         }
 
         public bool Guardar()        

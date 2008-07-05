@@ -20,11 +20,14 @@ namespace GI.UI
             InitializeComponent();
         }
 
-        public frmPublicacionWeb(List<GI.BR.Propiedades.Tranasacciones.Transaccion> Transacciones)
+        public frmPublicacionWeb(bool TodasLasTransacciones)
             : this()
         {
-            transacciones = Transacciones;
-            Inicializar();
+            //transacciones = Transacciones;
+            //Inicializar();
+            recuperarTransaccionesPendientes();
+
+            StatusLabel.Text = "";
 
         }
 
@@ -44,7 +47,37 @@ namespace GI.UI
 
 
 
+        private void recuperarTransaccionesPendientes()
+        { 
+            Managers.Sincronizacion.MngSincronizacionTransacciones mng = new GI.Managers.Sincronizacion.MngSincronizacionTransacciones();
+            
+            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(mng.RecuperarTransaccionesPendientes));
+            mng.onHayTransaccionesPendientes+=new GI.Managers.Sincronizacion.DeteccionTransacciones(mng_onHayTransaccionesPendientes);
 
+
+            StatusLabel.Text = "Recuperando Transacciones disponibles. Por favor espere unos segundos...";
+
+            t.IsBackground=true;
+
+            t.Start();
+
+        }
+
+
+
+        private void cargarTransaccionesPendientes(List<GI.BR.Propiedades.Tranasacciones.Transaccion> Transacciones)
+        {
+            StatusLabel.Text = "";
+            transacciones = Transacciones;
+            Inicializar();
+        }
+
+        private void mng_onHayTransaccionesPendientes(List<GI.BR.Propiedades.Tranasacciones.Transaccion> Transacciones)
+        {
+            this.Invoke(new Managers.Sincronizacion.DeteccionTransacciones(cargarTransaccionesPendientes), new object[] { Transacciones });
+
+            
+        }
 
         private void Inicializar()
         {
@@ -87,6 +120,11 @@ namespace GI.UI
                     item.Text = "Foto de Propiedad " + ((GI.BR.Propiedades.Tranasacciones.TransaccionFotoPropiedad)tran).IdPropiedad.ToString() + " " + ((GI.BR.Propiedades.Tranasacciones.TransaccionFotoPropiedad)tran).Foto.Descripcion;
 
                     break;
+
+                case "GI.BR.Propiedades.Tranasacciones.TransaccionPedido":
+                   item.Text = "Descarga de nuevo pedido  web Id " + ((GI.BR.Propiedades.Tranasacciones.TransaccionPedido)tran).IdPedido;
+                   break;
+                    
                 default:
                     item.Text = "Objeto no identificado";
                     break;
@@ -275,7 +313,7 @@ namespace GI.UI
             Managers.Sincronizacion.MngSincronizacionTransacciones mng = new Managers.Sincronizacion.MngSincronizacionTransacciones();
 
             if (propiedad == null)
-                transacciones = mng.RecuperarTransaccionesPendientes();
+                recuperarTransaccionesPendientes();
             else
                 transacciones = mng.RecuperarTransaccionesPendientes(propiedad);
             
@@ -289,6 +327,11 @@ namespace GI.UI
  
 
         #endregion
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
 
         
     }

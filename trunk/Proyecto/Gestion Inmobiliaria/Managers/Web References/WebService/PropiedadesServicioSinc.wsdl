@@ -2,85 +2,109 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="ActualizarPropiedad">
+      <s:element name="RecuperarTransaccionesPendientes">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecuperarTransaccionesPendientesResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Propiedad" type="tns:Propiedad" />
+            <s:element minOccurs="0" maxOccurs="1" name="RecuperarTransaccionesPendientesResult" type="tns:ArrayOfTransaccion" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="Propiedad" abstract="true">
+      <s:complexType name="ArrayOfTransaccion">
         <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="ValorExpensas" type="s:decimal" />
-          <s:element minOccurs="1" maxOccurs="1" name="Antiguedad" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Categoria" type="tns:CategoriaPropiedad" />
-          <s:element minOccurs="1" maxOccurs="1" name="CantidadAmbientes" type="s:decimal" />
-          <s:element minOccurs="1" maxOccurs="1" name="IdPropiedad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Transaccion" nillable="true" type="tns:Transaccion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Transaccion" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MensajeRespuesta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="tns:EnumEstadoTrans" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTransaccion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoTransaccion" type="tns:EnumTipoTransaccion" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Activa" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="EnumEstadoTrans">
+        <s:restriction base="s:string">
+          <s:enumeration value="Pendiente" />
+          <s:enumeration value="Sincronizado" />
+          <s:enumeration value="Error" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="EnumTipoTransaccion">
+        <s:restriction base="s:string">
+          <s:enumeration value="Crear" />
+          <s:enumeration value="Modificar" />
+          <s:enumeration value="Eliminar" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="TransaccionPedido">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Transaccion">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Pedido" type="tns:Pedido" />
+              <s:element minOccurs="1" maxOccurs="1" name="IdPedido" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Pedido">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdPedido" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientePedido" type="tns:ClientePedido" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoPropiedad" type="tns:Type" />
           <s:element minOccurs="0" maxOccurs="1" name="TipoPropiedad" type="tns:TipoPropiedad" />
-          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="tns:EstadoPropiedad" />
-          <s:element minOccurs="1" maxOccurs="1" name="EnumEstado" type="tns:Estado" />
+          <s:element minOccurs="0" maxOccurs="1" name="Categoria" type="tns:CategoriaPropiedad" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnumEstado" nillable="true" type="tns:Estado" />
+          <s:element minOccurs="0" maxOccurs="1" name="CantidadAmbientesInicial" type="tns:Ambiente" />
+          <s:element minOccurs="0" maxOccurs="1" name="CantidadAmbientesFinal" type="tns:Ambiente" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ubicacion" type="tns:Ubicacion" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorInicial" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorFinal" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Moneda" type="tns:Moneda" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosTerrenoInicial" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosTerrenoFinal" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosCubiertosInicial" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosCubiertosFinal" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Disposicion" nillable="true" type="tns:DepartamentoDisposicion" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsAptoProfesional" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoZona" nillable="true" type="tns:TipoZona" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosConstruiblesInicial" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosConstruiblesFinal" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Activo" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaAlta" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClientePedido">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Cliente" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Cliente" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdCliente" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NroDocumento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoDocumento" type="tns:enumTipoDocumento" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefonoParticular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefonoTrabajo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefonoCelular" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Ubicacion" type="tns:Ubicacion" />
           <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="tns:Direccion" />
-          <s:element minOccurs="0" maxOccurs="1" name="ValorMercado" type="tns:Valor" />
-          <s:element minOccurs="0" maxOccurs="1" name="ValorPublicacion" type="tns:Valor" />
           <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="EsOtraInmobiliaria" type="s:boolean" />
-          <s:element minOccurs="0" maxOccurs="1" name="Medidas" type="tns:ArrayOfMedidaAmbiente" />
-          <s:element minOccurs="0" maxOccurs="1" name="MedidasPropiedad" type="tns:MedidaPropiedad" />
-          <s:element minOccurs="0" maxOccurs="1" name="MedidasTerreno" type="tns:MedidasTerreno" />
-          <s:element minOccurs="0" maxOccurs="1" name="Orientacion" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="CantidadBaños" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="CantidadCocheras" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="CantidadDormitorios" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="CantidadPlantas" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Disposicion" type="tns:DepartamentoDisposicion" />
-          <s:element minOccurs="1" maxOccurs="1" name="EsAptoProfesional" type="s:boolean" />
-          <s:element minOccurs="1" maxOccurs="1" name="CantidadPisos" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="DepartamentosPorPiso" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="CantidadAscensores" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="CantidadAscensoresServicio" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="TipoZona" type="tns:TipoZona" />
-          <s:element minOccurs="0" maxOccurs="1" name="Fos" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Fot" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Zonificacion" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="MetrosConstruibles" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNacimiento" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="CategoriaPropiedad">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="IdCategoria" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="TiposPropiedad" type="tns:ArrayOfTipoPropiedad" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="ArrayOfTipoPropiedad">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoPropiedad" nillable="true" type="tns:TipoPropiedad" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="TipoPropiedad">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="IdTipoPropiedad" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="IdCategoria" type="s:int" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="EstadoPropiedad">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoPropiedad" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:simpleType name="Estado">
+      <s:simpleType name="enumTipoDocumento">
         <s:restriction base="s:string">
-          <s:enumeration value="AEstrenar" />
-          <s:enumeration value="Reciclado" />
-          <s:enumeration value="Bueno" />
-          <s:enumeration value="MuyBueno" />
-          <s:enumeration value="Regular" />
-          <s:enumeration value="Malo" />
-          <s:enumeration value="AReciclar" />
-          <s:enumeration value="NoEspecifica" />
+          <s:enumeration value="DNI" />
+          <s:enumeration value="LC" />
         </s:restriction>
       </s:simpleType>
       <s:complexType name="Ubicacion">
@@ -133,10 +157,46 @@
           <s:element minOccurs="0" maxOccurs="1" name="CodigoPostal" type="s:string" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="Valor">
+      <s:complexType name="Type" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MemberInfo" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MemberInfo" abstract="true" />
+      <s:complexType name="TipoPropiedad">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Moneda" type="tns:Moneda" />
-          <s:element minOccurs="1" maxOccurs="1" name="Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoPropiedad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdCategoria" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CategoriaPropiedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdCategoria" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TiposPropiedad" type="tns:ArrayOfTipoPropiedad" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTipoPropiedad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoPropiedad" nillable="true" type="tns:TipoPropiedad" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Estado">
+        <s:restriction base="s:string">
+          <s:enumeration value="AEstrenar" />
+          <s:enumeration value="Reciclado" />
+          <s:enumeration value="Bueno" />
+          <s:enumeration value="MuyBueno" />
+          <s:enumeration value="Regular" />
+          <s:enumeration value="Malo" />
+          <s:enumeration value="AReciclar" />
+          <s:enumeration value="NoEspecifica" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Ambiente">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadAmbientes" type="s:decimal" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Moneda">
@@ -144,6 +204,102 @@
           <s:element minOccurs="1" maxOccurs="1" name="IdMoneda" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Simbolo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DepartamentoDisposicion">
+        <s:restriction base="s:string">
+          <s:enumeration value="Frente" />
+          <s:enumeration value="Contrafrente" />
+          <s:enumeration value="Lateral" />
+          <s:enumeration value="Interno" />
+          <s:enumeration value="SinDefinir" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="TipoZona">
+        <s:restriction base="s:string">
+          <s:enumeration value="Residencial" />
+          <s:enumeration value="Comercial" />
+          <s:enumeration value="Industrial" />
+          <s:enumeration value="SinDefinir" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="TransaccionProcesada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Transaccion" type="tns:Transaccion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransaccionProcesadaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ActualizarPropiedad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Propiedad" type="tns:Propiedad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Propiedad" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PublicarSinPrecio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Jardin" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Patio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Piscina" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Lavadero" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Dependencia" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quincho" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Parrilla" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balcon" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Terraza" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Playroom" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Baulera" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuartoHerraminetas" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorExpensas" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Antiguedad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Categoria" type="tns:CategoriaPropiedad" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadAmbientes" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdPropiedad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoPropiedad" type="tns:TipoPropiedad" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="tns:EstadoPropiedad" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnumEstado" type="tns:Estado" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ubicacion" type="tns:Ubicacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="tns:Direccion" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValorMercado" type="tns:Valor" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValorPublicacion" type="tns:Valor" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsOtraInmobiliaria" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Medidas" type="tns:ArrayOfMedidaAmbiente" />
+          <s:element minOccurs="0" maxOccurs="1" name="MedidasPropiedad" type="tns:MedidaPropiedad" />
+          <s:element minOccurs="0" maxOccurs="1" name="MedidasTerreno" type="tns:MedidasTerreno" />
+          <s:element minOccurs="0" maxOccurs="1" name="Orientacion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadBaños" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadCocheras" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadDormitorios" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadPlantas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Disposicion" type="tns:DepartamentoDisposicion" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsAptoProfesional" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadPisos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DepartamentosPorPiso" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadAscensores" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadAscensoresServicio" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoZona" type="tns:TipoZona" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fot" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zonificacion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosConstruibles" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstadoPropiedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoPropiedad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Valor">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Moneda" type="tns:Moneda" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe" type="s:decimal" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfMedidaAmbiente">
@@ -188,23 +344,6 @@
           <s:element minOccurs="1" maxOccurs="1" name="Frente" type="s:decimal" />
         </s:sequence>
       </s:complexType>
-      <s:simpleType name="DepartamentoDisposicion">
-        <s:restriction base="s:string">
-          <s:enumeration value="Frente" />
-          <s:enumeration value="Contrafrente" />
-          <s:enumeration value="Lateral" />
-          <s:enumeration value="Interno" />
-          <s:enumeration value="SinDefinir" />
-        </s:restriction>
-      </s:simpleType>
-      <s:simpleType name="TipoZona">
-        <s:restriction base="s:string">
-          <s:enumeration value="Residencial" />
-          <s:enumeration value="Comercial" />
-          <s:enumeration value="Industrial" />
-          <s:enumeration value="SinDefinir" />
-        </s:restriction>
-      </s:simpleType>
       <s:complexType name="Venta">
         <s:complexContent mixed="false">
           <s:extension base="tns:Propiedad" />
@@ -249,26 +388,9 @@
           <s:element minOccurs="1" maxOccurs="1" name="IdFoto" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="EsFachada" type="s:boolean" />
-          <s:element minOccurs="0" maxOccurs="1" name="Imagen" type="tns:Bitmap" />
+          <s:element minOccurs="0" maxOccurs="1" name="FotoByteArray" type="s:base64Binary" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="Bitmap">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:Image" />
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="Image" abstract="true">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:MarshalByRefObject">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="Tag" />
-              <s:element minOccurs="0" maxOccurs="1" name="Palette" type="tns:ColorPalette" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="MarshalByRefObject" abstract="true" />
-      <s:complexType name="ColorPalette" />
       <s:element name="AgregarFotoAGaleriaResponse">
         <s:complexType>
           <s:sequence>
@@ -292,6 +414,18 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="RecuperarTransaccionesPendientesSoapIn">
+    <wsdl:part name="parameters" element="tns:RecuperarTransaccionesPendientes" />
+  </wsdl:message>
+  <wsdl:message name="RecuperarTransaccionesPendientesSoapOut">
+    <wsdl:part name="parameters" element="tns:RecuperarTransaccionesPendientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransaccionProcesadaSoapIn">
+    <wsdl:part name="parameters" element="tns:TransaccionProcesada" />
+  </wsdl:message>
+  <wsdl:message name="TransaccionProcesadaSoapOut">
+    <wsdl:part name="parameters" element="tns:TransaccionProcesadaResponse" />
+  </wsdl:message>
   <wsdl:message name="ActualizarPropiedadSoapIn">
     <wsdl:part name="parameters" element="tns:ActualizarPropiedad" />
   </wsdl:message>
@@ -317,6 +451,14 @@
     <wsdl:part name="parameters" element="tns:EliminarFotoPropiedadResponse" />
   </wsdl:message>
   <wsdl:portType name="PropiedadesServicioSincSoap">
+    <wsdl:operation name="RecuperarTransaccionesPendientes">
+      <wsdl:input message="tns:RecuperarTransaccionesPendientesSoapIn" />
+      <wsdl:output message="tns:RecuperarTransaccionesPendientesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransaccionProcesada">
+      <wsdl:input message="tns:TransaccionProcesadaSoapIn" />
+      <wsdl:output message="tns:TransaccionProcesadaSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="ActualizarPropiedad">
       <wsdl:input message="tns:ActualizarPropiedadSoapIn" />
       <wsdl:output message="tns:ActualizarPropiedadSoapOut" />
@@ -336,6 +478,24 @@
   </wsdl:portType>
   <wsdl:binding name="PropiedadesServicioSincSoap" type="tns:PropiedadesServicioSincSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecuperarTransaccionesPendientes">
+      <soap:operation soapAction="http://tempuri.org/RecuperarTransaccionesPendientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransaccionProcesada">
+      <soap:operation soapAction="http://tempuri.org/TransaccionProcesada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ActualizarPropiedad">
       <soap:operation soapAction="http://tempuri.org/ActualizarPropiedad" style="document" />
       <wsdl:input>
@@ -375,6 +535,24 @@
   </wsdl:binding>
   <wsdl:binding name="PropiedadesServicioSincSoap12" type="tns:PropiedadesServicioSincSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecuperarTransaccionesPendientes">
+      <soap12:operation soapAction="http://tempuri.org/RecuperarTransaccionesPendientes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransaccionProcesada">
+      <soap12:operation soapAction="http://tempuri.org/TransaccionProcesada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ActualizarPropiedad">
       <soap12:operation soapAction="http://tempuri.org/ActualizarPropiedad" style="document" />
       <wsdl:input>
@@ -414,10 +592,10 @@
   </wsdl:binding>
   <wsdl:service name="PropiedadesServicioSinc">
     <wsdl:port name="PropiedadesServicioSincSoap" binding="tns:PropiedadesServicioSincSoap">
-      <soap:address location="http://localhost:18125/PropiedadesServicioSinc.asmx" />
+      <soap:address location="http://localhost:28058/PropiedadesServicioSinc.asmx" />
     </wsdl:port>
     <wsdl:port name="PropiedadesServicioSincSoap12" binding="tns:PropiedadesServicioSincSoap12">
-      <soap12:address location="http://localhost:18125/PropiedadesServicioSinc.asmx" />
+      <soap12:address location="http://localhost:28058/PropiedadesServicioSinc.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

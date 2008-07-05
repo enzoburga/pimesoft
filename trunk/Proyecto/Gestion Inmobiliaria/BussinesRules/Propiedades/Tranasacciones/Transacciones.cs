@@ -11,7 +11,25 @@ namespace GI.BR.Propiedades.Tranasacciones
 
         public void RecuperarTransaccionesPedidosPedientes()
         {
-            throw new Exception("Metodo no implementado");
+            Clear();
+            TransaccionPedido tran;
+            using (System.Data.IDataReader dr = new DA.TransaccionesData().RecuperarTransaccionesPedidoPendientes())
+            {
+                while (dr.Read())
+                {
+                    tran = new TransaccionPedido();
+
+                    tran.Activa = true;
+                    tran.Estado = EnumEstadoTrans.Pendiente;
+                    tran.Fecha = dr.GetDateTime(dr.GetOrdinal("Fecha"));
+                    
+                    tran.IdTransaccion = dr.GetInt32(dr.GetOrdinal("IdTransaccion"));
+                    tran.TipoTransaccion = (EnumTipoTransaccion)dr.GetInt32(dr.GetOrdinal("TipoTransaccion"));
+                    tran.IdPedido = dr.GetInt32(dr.GetOrdinal("IdPedido"));
+
+                    Add(tran);
+                }
+            }
         }
 
         public void RecuperarTransaccionesFotosPendientes(Propiedad p)
