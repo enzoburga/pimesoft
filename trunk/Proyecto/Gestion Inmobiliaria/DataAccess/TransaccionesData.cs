@@ -23,6 +23,16 @@ namespace GI.DA
                 new string[] { "@IdPropiedad" });
         }
 
+
+        public int CrearTransaccionPedido(int IdPedido, int IdTipoTrans, DateTime Fecha)
+        {
+
+            return AccesoDatos.InsertarRegistro(
+                "Transaccion_CrearTransPedido",
+                new object[] { IdPedido, IdTipoTrans, Fecha },
+                new string[] { "@IdPedido", "@IdTipoTrans", "@Fecha" });
+        }
+
         public int CrearTransaccionFoto(int IdPropiedad, int IdTipoTrans, DateTime Fecha, int IdFoto)
         {
             return AccesoDatos.InsertarRegistro(

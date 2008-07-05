@@ -30,6 +30,10 @@ namespace GI.UI
             toolStripStatusEventos.Text = "(" + eventoServicio.Eventos.Count.ToString() + ") Eventos Pendientes";
             frmEventos.Eventos = eventoServicio.Eventos;
 
+
+            menuStrip1.MdiWindowListItem = ventanasToolStripMenuItem;
+
+
                
         }
 
@@ -170,6 +174,16 @@ namespace GI.UI
         private void parametrosGeneralesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new Generales.FrmParametrosGenerales().ShowDialog();
+        }
+
+        private void ordenarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.Cascade);
+        }
+
+        private void ventanasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -4,6 +4,8 @@ using System.Text;
 
 namespace GI.BR.Propiedades.Tranasacciones
 {
+    [Serializable]
+    [System.Xml.Serialization.XmlInclude(typeof(TransaccionPedido))]
     public abstract class Transaccion
     {
 

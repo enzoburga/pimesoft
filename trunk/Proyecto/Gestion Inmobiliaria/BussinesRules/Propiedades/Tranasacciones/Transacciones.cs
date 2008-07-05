@@ -4,9 +4,15 @@ using System.Text;
 
 namespace GI.BR.Propiedades.Tranasacciones
 {
+    [Serializable]
     public class Transacciones : List<Transaccion>
     {
 
+
+        public void RecuperarTransaccionesPedidosPedientes()
+        {
+            throw new Exception("Metodo no implementado");
+        }
 
         public void RecuperarTransaccionesFotosPendientes(Propiedad p)
         {

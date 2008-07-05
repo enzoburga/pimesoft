@@ -41,6 +41,7 @@ namespace GI.UI
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.publicarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.parametrosGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -55,7 +56,8 @@ namespace GI.UI
             this.PedidostoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClientes = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.parametrosGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventanasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ordenarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -155,6 +157,13 @@ namespace GI.UI
             this.ayudaToolStripMenuItem1.Size = new System.Drawing.Size(53, 20);
             this.ayudaToolStripMenuItem1.Text = "Ayuda";
             // 
+            // parametrosGeneralesToolStripMenuItem
+            // 
+            this.parametrosGeneralesToolStripMenuItem.Name = "parametrosGeneralesToolStripMenuItem";
+            this.parametrosGeneralesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.parametrosGeneralesToolStripMenuItem.Text = "Parametros generales";
+            this.parametrosGeneralesToolStripMenuItem.Click += new System.EventHandler(this.parametrosGeneralesToolStripMenuItem_Click);
+            // 
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
@@ -167,10 +176,11 @@ namespace GI.UI
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.ayudaToolStripMenuItem,
-            this.ayudaToolStripMenuItem1});
+            this.ayudaToolStripMenuItem1,
+            this.ventanasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(827, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(905, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -179,9 +189,9 @@ namespace GI.UI
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusEventos,
             this.toolStripStatusSincronizacion});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 394);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 388);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(827, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(905, 22);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -210,7 +220,7 @@ namespace GI.UI
             this.toolStripButton5});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(827, 47);
+            this.toolStrip1.Size = new System.Drawing.Size(905, 47);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -296,18 +306,27 @@ namespace GI.UI
             this.toolStripButton5.Text = "Publicación Web";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
-            // parametrosGeneralesToolStripMenuItem
+            // ventanasToolStripMenuItem
             // 
-            this.parametrosGeneralesToolStripMenuItem.Name = "parametrosGeneralesToolStripMenuItem";
-            this.parametrosGeneralesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.parametrosGeneralesToolStripMenuItem.Text = "Parametros generales";
-            this.parametrosGeneralesToolStripMenuItem.Click += new System.EventHandler(this.parametrosGeneralesToolStripMenuItem_Click);
+            this.ventanasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ordenarToolStripMenuItem});
+            this.ventanasToolStripMenuItem.Name = "ventanasToolStripMenuItem";
+            this.ventanasToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.ventanasToolStripMenuItem.Text = "Ventanas";
+            this.ventanasToolStripMenuItem.Click += new System.EventHandler(this.ventanasToolStripMenuItem_Click);
+            // 
+            // ordenarToolStripMenuItem
+            // 
+            this.ordenarToolStripMenuItem.Name = "ordenarToolStripMenuItem";
+            this.ordenarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ordenarToolStripMenuItem.Text = "Ordenar";
+            this.ordenarToolStripMenuItem.Click += new System.EventHandler(this.ordenarToolStripMenuItem_Click);
             // 
             // frmStartUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 416);
+            this.ClientSize = new System.Drawing.Size(905, 410);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -359,6 +378,8 @@ namespace GI.UI
         private System.Windows.Forms.ToolStripButton toolStripButtonClientes;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripMenuItem parametrosGeneralesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ventanasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ordenarToolStripMenuItem;
 
     }
 }

@@ -6,6 +6,8 @@ using GI.BR.Propiedades;
 namespace GI.BR.Pedidos
 {
     public delegate void PropiedadeOfrecidasHandler();
+
+    [Serializable]
     public class Pedido: ICloneable
     {
 
@@ -283,6 +285,11 @@ namespace GI.BR.Pedidos
         #endregion
 
         #region Persistencia
+
+        public void RecuperarPorId(int IdPedido)
+        {
+            throw new Exception("Metodo No Implementado");
+        }
 
         public bool Guardar()        
         {
