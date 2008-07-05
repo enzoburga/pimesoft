@@ -30,10 +30,6 @@ namespace GI.UI.Propiedades
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabPropiedad));
-            this.propiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.direccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.valorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.valorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.LinkPropietario = new System.Windows.Forms.LinkLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lvMedidas = new System.Windows.Forms.ListView();
@@ -70,29 +66,18 @@ namespace GI.UI.Propiedades
             this.textBoxDetalles = new System.Windows.Forms.TextBox();
             this.pictureBoxFechada = new System.Windows.Forms.PictureBox();
             this.linkLabelOtraInmb = new System.Windows.Forms.LinkLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.direccionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource)).BeginInit();
+            this.checkBoxPublicarSinPrecio = new System.Windows.Forms.CheckBox();
+            this.propiedadBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.valorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.valorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.direccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFechada)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.direccionBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // propiedadBindingSource
-            // 
-            this.propiedadBindingSource.DataSource = typeof(GI.BR.Propiedades.Propiedad);
-            // 
-            // direccionBindingSource
-            // 
-            this.direccionBindingSource.DataSource = typeof(GI.BR.Propiedades.Direccion);
-            // 
-            // valorBindingSource1
-            // 
-            this.valorBindingSource1.DataSource = typeof(GI.BR.Valor);
-            // 
-            // valorBindingSource
-            // 
-            this.valorBindingSource.DataSource = typeof(GI.BR.Valor);
             // 
             // LinkPropietario
             // 
@@ -111,7 +96,7 @@ namespace GI.UI.Propiedades
             this.groupBox3.Controls.Add(this.lvMedidas);
             this.groupBox3.Controls.Add(this.linkLabelEliminarMedida);
             this.groupBox3.Controls.Add(this.linkLabelAgregarMedida);
-            this.groupBox3.Location = new System.Drawing.Point(16, 150);
+            this.groupBox3.Location = new System.Drawing.Point(16, 163);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(420, 119);
             this.groupBox3.TabIndex = 39;
@@ -189,7 +174,7 @@ namespace GI.UI.Propiedades
             // 
             this.cbAmbientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAmbientes.FormattingEnabled = true;
-            this.cbAmbientes.Location = new System.Drawing.Point(312, 123);
+            this.cbAmbientes.Location = new System.Drawing.Point(312, 137);
             this.cbAmbientes.Name = "cbAmbientes";
             this.cbAmbientes.Size = new System.Drawing.Size(121, 21);
             this.cbAmbientes.TabIndex = 9;
@@ -198,7 +183,7 @@ namespace GI.UI.Propiedades
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(253, 126);
+            this.label18.Location = new System.Drawing.Point(253, 140);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(57, 13);
             this.label18.TabIndex = 33;
@@ -222,7 +207,7 @@ namespace GI.UI.Propiedades
             this.cbEstadoProp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.propiedadBindingSource, "EnumEstado", true));
             this.cbEstadoProp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstadoProp.FormattingEnabled = true;
-            this.cbEstadoProp.Location = new System.Drawing.Point(109, 123);
+            this.cbEstadoProp.Location = new System.Drawing.Point(109, 137);
             this.cbEstadoProp.Name = "cbEstadoProp";
             this.cbEstadoProp.Size = new System.Drawing.Size(127, 21);
             this.cbEstadoProp.TabIndex = 10;
@@ -230,7 +215,7 @@ namespace GI.UI.Propiedades
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(18, 126);
+            this.label19.Location = new System.Drawing.Point(18, 140);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(91, 13);
             this.label19.TabIndex = 35;
@@ -388,7 +373,7 @@ namespace GI.UI.Propiedades
             // ctrlUbicacion1
             // 
             this.ctrlUbicacion1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlUbicacion1.Location = new System.Drawing.Point(16, 274);
+            this.ctrlUbicacion1.Location = new System.Drawing.Point(16, 284);
             this.ctrlUbicacion1.Name = "ctrlUbicacion1";
             this.ctrlUbicacion1.OpcionTodos = false;
             this.ctrlUbicacion1.Size = new System.Drawing.Size(420, 89);
@@ -398,7 +383,7 @@ namespace GI.UI.Propiedades
             // ctrlDireccion1
             // 
             this.ctrlDireccion1.Direccion = null;
-            this.ctrlDireccion1.Location = new System.Drawing.Point(13, 364);
+            this.ctrlDireccion1.Location = new System.Drawing.Point(13, 370);
             this.ctrlDireccion1.Name = "ctrlDireccion1";
             this.ctrlDireccion1.Size = new System.Drawing.Size(425, 113);
             this.ctrlDireccion1.SoloLectura = false;
@@ -447,10 +432,38 @@ namespace GI.UI.Propiedades
             this.linkLabelOtraInmb.Text = "Seleccionar Inmobiliaria";
             this.linkLabelOtraInmb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelOtraInmb_LinkClicked);
             // 
+            // checkBoxPublicarSinPrecio
+            // 
+            this.checkBoxPublicarSinPrecio.AutoSize = true;
+            this.checkBoxPublicarSinPrecio.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.propiedadBindingSource, "PublicarSinPrecio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxPublicarSinPrecio.Location = new System.Drawing.Point(103, 116);
+            this.checkBoxPublicarSinPrecio.Name = "checkBoxPublicarSinPrecio";
+            this.checkBoxPublicarSinPrecio.Size = new System.Drawing.Size(111, 17);
+            this.checkBoxPublicarSinPrecio.TabIndex = 45;
+            this.checkBoxPublicarSinPrecio.Text = "Publicar sin precio";
+            this.checkBoxPublicarSinPrecio.UseVisualStyleBackColor = true;
+            // 
+            // propiedadBindingSource
+            // 
+            this.propiedadBindingSource.DataSource = typeof(GI.BR.Propiedades.Propiedad);
+            // 
+            // valorBindingSource
+            // 
+            this.valorBindingSource.DataSource = typeof(GI.BR.Valor);
+            // 
+            // valorBindingSource1
+            // 
+            this.valorBindingSource1.DataSource = typeof(GI.BR.Valor);
+            // 
+            // direccionBindingSource
+            // 
+            this.direccionBindingSource.DataSource = typeof(GI.BR.Propiedades.Direccion);
+            // 
             // TabPropiedad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.checkBoxPublicarSinPrecio);
             this.Controls.Add(this.linkLabelOtraInmb);
             this.Controls.Add(this.pictureBoxFechada);
             this.Controls.Add(this.textBoxDetalles);
@@ -482,13 +495,13 @@ namespace GI.UI.Propiedades
             this.Controls.Add(this.label1);
             this.Name = "TabPropiedad";
             this.Size = new System.Drawing.Size(680, 480);
-            ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.direccionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFechada)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.propiedadBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valorBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.direccionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -536,5 +549,6 @@ namespace GI.UI.Propiedades
         private System.Windows.Forms.TextBox textBoxDetalles;
         private System.Windows.Forms.PictureBox pictureBoxFechada;
         private System.Windows.Forms.LinkLabel linkLabelOtraInmb;
+        private System.Windows.Forms.CheckBox checkBoxPublicarSinPrecio;
     }
 }
