@@ -77,11 +77,9 @@ namespace GI.BR.Propiedades
         protected bool playroom;
         protected bool baulera;
         protected bool cuartoHerraminetas;
-
-
-        
-
         protected MedidasAmbiente medidas;
+        protected bool publicarSinPrecio;
+
 
 
         private bool cargado = false;
@@ -89,6 +87,12 @@ namespace GI.BR.Propiedades
         #endregion
 
         #region Propiedades
+
+        public bool PublicarSinPrecio
+        {
+            get { if (!cargado) Cargar(); return publicarSinPrecio; }
+            set { publicarSinPrecio = value; }
+        }
 
         public bool Jardin
         {
@@ -851,7 +855,7 @@ namespace GI.BR.Propiedades
             this.Playroom = dr.IsDBNull(dr.GetOrdinal("Playroom")) ? false : dr.GetBoolean(dr.GetOrdinal("Playroom"));
             this.Baulera = dr.IsDBNull(dr.GetOrdinal("Baulera")) ? false : dr.GetBoolean(dr.GetOrdinal("Baulera"));
             this.CuartoHerraminetas = dr.IsDBNull(dr.GetOrdinal("CuartoHerramientas")) ? false : dr.GetBoolean(dr.GetOrdinal("CuartoHerramientas"));
-
+            this.PublicarSinPrecio = dr.IsDBNull(dr.GetOrdinal("PublicarSinPrecio")) ? false : dr.GetBoolean(dr.GetOrdinal("PublicarSinPrecio"));
 
 
         }
@@ -866,7 +870,7 @@ namespace GI.BR.Propiedades
                 MedidasPropiedad.MetrosCubiertos, MedidasPropiedad.MetrosSemicubiertos, MedidasPropiedad.MetrosLibres, MedidasTerreno.Metros, MedidasTerreno.Fondo, MedidasTerreno.Frente,
                 Orientacion, CantidadBaños, CantidadCocheras, CantidadDormitorios, CantidadPlantas, (int)Disposicion, EsAptoProfesional, CantidadPisos, DepartamentosPorPiso, CantidadAscensores, CantidadAscensoresServicio, (int)TipoZona,
                 Fos, Fot, Zonificacion, MetrosConstruibles, Antiguedad, ((Inmobiliaria == null) ? 0 : Inmobiliaria.IdInmobiliaria), valorExpensas,
-                Jardin, Patio, Piscina, Lavadero, Dependencia, Quincho, Parrilla, Balcon, Terraza, Playroom, Baulera, CuartoHerraminetas);
+                Jardin, Patio, Piscina, Lavadero, Dependencia, Quincho, Parrilla, Balcon, Terraza, Playroom, Baulera, CuartoHerraminetas, PublicarSinPrecio);
 
 
 
@@ -891,7 +895,7 @@ namespace GI.BR.Propiedades
                 MedidasPropiedad.MetrosCubiertos, MedidasPropiedad.MetrosSemicubiertos, MedidasPropiedad.MetrosLibres, MedidasTerreno.Metros, MedidasTerreno.Fondo, MedidasTerreno.Frente,
                 Orientacion, CantidadBaños, CantidadCocheras, CantidadDormitorios, CantidadPlantas, (int)Disposicion, EsAptoProfesional, CantidadPisos, DepartamentosPorPiso, CantidadAscensores, CantidadAscensoresServicio, (int)TipoZona,
                 Fos, Fot, Zonificacion, MetrosConstruibles, Antiguedad, ((Inmobiliaria == null) ? 0 : Inmobiliaria.IdInmobiliaria), valorExpensas,
-                Jardin, Patio, Piscina, Lavadero, Dependencia, Quincho, Parrilla, Balcon, Terraza, Playroom, Baulera, CuartoHerraminetas);
+                Jardin, Patio, Piscina, Lavadero, Dependencia, Quincho, Parrilla, Balcon, Terraza, Playroom, Baulera, CuartoHerraminetas, PublicarSinPrecio);
 
             foreach (MedidaAmbiente ambiente in this.Medidas)
             {
