@@ -20,13 +20,13 @@ namespace WebApplication.Controles {
     public partial class ctrlBuscadorPropiedades {
         
         /// <summary>
-        /// ddlTipoOperacion control.
+        /// radioListTipoBusqueda control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoOperacion;
+        protected global::System.Web.UI.WebControls.RadioButtonList radioListTipoBusqueda;
         
         /// <summary>
         /// panelCodigo control.

@@ -6,85 +6,147 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
-<head runat="server">
+<head id="Head1" runat="server">
     <title>Buscador de propiedades</title>
+    <style type="text/css">
+<!--
+.style1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+body {
+	background-image: url(images/fondos%20iimg/fdo_pag.jpg);
+}
+.style12 {color: #FFFFFF;
+	font-weight: bold;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 36px;
+}
+a:link {
+	color: #000000;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+a:hover {
+	text-decoration: none;
+	color: #000000;
+}
+a:active {
+	text-decoration: none;
+	color: #000000;
+}
+.style14 {font-size: 15px}
+.style15 {font-weight: bold; font-family: Geneva, Arial, Helvetica, sans-serif; color: #FFFFFF;}
+.style16 {font-family: Geneva, Arial, Helvetica, sans-serif; font-weight: bold;}
+-->
+    </style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-        &nbsp;</div>
-        <br />
-        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; height: 100%">
+<div align="center">
+  <table width="750" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="750" height="130">
+          <param name="movie" value="flash/encabezado.swf" />
+          <param name="quality" value="high" />
+          <embed src="flash/encabezado.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="750" height="130"></embed>
+      </object></td>
+    </tr>
+  </table>
+  <table width="750" height="659" border="0" cellpadding="0" cellspacing="0">
+    <tr bordercolor="#333333">
+      <td width="6" valign="top" bordercolor="#333333" background="images/fondos%20iimg/LINEA-vert.jpg" class="style5 style14"><p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p></td>
+      <td width="730" valign="top" bordercolor="#333333" class="style5 style14"><div align="center">
+        <form id="form1" runat="server"><div></div>
+  <br />
+  <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; height: 100%">
+    <tr>
+      <td style="height: 0px; width: 730px;"><div align="center"><span class="style1"> Buscar Propiedades</span></div></td>
+    </tr>
+    <tr >
+      <td style="height: 0%; text-align: center; width: 750px;" > &nbsp;
+          <table>
             <tr>
-                <td style="height: 50px; width: 1039px;">
-                    Buscar Propiedades</td>
+              <td align="center" style="height: 100%"> <uc1:ctrlBuscadorPropiedades id="CtrlBuscadorPropiedades1" runat="server"> </uc1:ctrlBuscadorPropiedades> </td>
             </tr>
-            <tr >
-                <td style="height: 100%; text-align: center; width: 1039px;" >
-                    &nbsp;<table>
-                        <tr>
-                            <td align="center" style="height: 100%">
-        <uc1:ctrlBuscadorPropiedades id="CtrlBuscadorPropiedades1" runat="server">
-        </uc1:ctrlBuscadorPropiedades>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <asp:ImageButton ID="ibBuscar" runat="server" OnClick="ibBuscar_Click" ImageUrl="~/imagenes/boton_buscar.jpg" /></td>
-                        </tr>
-                        <tr>
-                            <td align="left" style="width: 100px; height: 21px">
-                    <asp:Label ID="lMensaje" runat="server" Width="813px" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
-                        </tr>
-                        <tr>
-                            <td style="width: 100px">
-                    <asp:DataList ID="DataList1" runat="server" CellPadding="4" ForeColor="#333333" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False">
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" />
-                        <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                        <AlternatingItemStyle BackColor="White" />
-                        <ItemStyle BackColor="#EFF3FB" />
-                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" />
-                        <HeaderTemplate>
-                            <%= GetPaginacion() %>
-                        </HeaderTemplate>                        
-                        <ItemTemplate>
-
-                            <table cellpadding="10" style="font: 10pt verdana" width="800">
-                              <tr>
-
-                                <td valign="top" style="width: 220px; height: 220px; text-align: center">                              
-                                
-                                  <img alt="Foto Fachada" align="top" src='<%# DataBinder.Eval(Container.DataItem, "Thumbnail")%>'/>  <br />
-                                    <a href='<%# DataBinder.Eval(Container.DataItem, "Link") %>'>Ver Ficha</a>
-                                </td>
-
-                                <td valign="top" align="left">
-                                  <b>Detalles</b><br><br><%# DataBinder.Eval(Container.DataItem, "Detalles") %><br><br> 
-                                  <b>Código: </b><%# DataBinder.Eval(Container.DataItem, "Codigo") %><br><br>
-                                  <b>Ubicación: </b><%# DataBinder.Eval(Container.DataItem, "Ubicacion") %><br><br>
-                                  <b>Calle: </b><%# DataBinder.Eval(Container.DataItem, "Direccion") %><br><br>  
-                                  <b>Valor: </b><%# DataBinder.Eval(Container.DataItem, "Valor") %><br>
-                                  
-                                </td>
-                              </tr>
-                            </table>
-
-                        </ItemTemplate>
-                        <FooterTemplate>
-                            <%= GetPaginacion() %>	                              
-                        </FooterTemplate>
-                        <SeparatorStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
-                            Font-Underline="False" ForeColor="Blue" />
-                    </asp:DataList></td>
-                        </tr>
+            <tr>
+              <td align="center">
+                <p>&nbsp;</p>
+                <asp:ImageButton ID="ibBuscar" runat="server" OnClick="ibBuscar_Click" ImageUrl="~/imagenes/boton_buscar.jpg" /></td>
+            </tr>
+            <tr>
+              <td align="left" style="width: 100px; height: 21px">
+                <asp:Label ID="lMensaje" runat="server" Width="730px" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+            </tr>
+            <tr>
+              <td style="width: 100px">
+                <asp:DataList ID="DataList1" runat="server" CellPadding="4" ForeColor="#333333" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False">
+                  <FooterStyle BackColor="Red" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" />  
+                  <SelectedItemStyle BackColor="#CCCCCC" Font-Bold="True" ForeColor="#333333" />  
+                  <AlternatingItemStyle BackColor="White" />  
+                  <ItemStyle BackColor="#EEEEEE" />  
+                  <HeaderStyle BackColor="Red" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" />  
+                  <HeaderTemplate ><div style="font: 10pt verdana"> <%= GetPaginacion() %> </div></HeaderTemplate>
+                  <ItemTemplate>
+                    <table cellpadding="10" style="font: 10pt verdana" width="730">
+                      <tr>
+                        <td valign="top" style="width: 220px; height: 220px; text-align: center"> 
+                            <%# DataBinder.Eval(Container.DataItem, "Reservado") %>
+                            <img alt="Foto Fachada" align="top" src='<%# DataBinder.Eval(Container.DataItem, "Thumbnail")%>'/> <br />
+                            <a href='<%# DataBinder.Eval(Container.DataItem, "Link") %>'>Ver Ficha</a> </td>
+                        <td valign="top" align="left"> <b>Detalles</b><br />
+                            <br />
+                            <%# DataBinder.Eval(Container.DataItem, "Detalles") %><br />
+                            <br />
+                            <b>C&oacute;digo: </b><%# DataBinder.Eval(Container.DataItem, "Codigo") %><br />
+                            <br />
+                            <b>Ubicaci&oacute;n: </b><%# DataBinder.Eval(Container.DataItem, "Ubicacion") %><br />
+                            <br />
+                            <b>Calle: </b><%# DataBinder.Eval(Container.DataItem, "Direccion") %><br />
+                            <br />
+                            <b>Valor: </b><%# DataBinder.Eval(Container.DataItem, "Valor") %><br />
+                        </td>
+                      </tr>
                     </table>
-                    &nbsp;
-                    &nbsp;&nbsp;&nbsp;<br />
-                    <br />
-                    &nbsp;
-                    </td>
+                  </ItemTemplate>
+                  <FooterTemplate> <div style="font: 10pt verdana"> <%= GetPaginacion() %> </div></FooterTemplate>
+                  <SeparatorStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
+                            Font-Underline="False" ForeColor="Blue" /> </asp:DataList></td>
             </tr>
-        </table>
-    </form>
+          </table>
+       <br />
+          <br />
+&nbsp; </td>
+    </tr>
+  </table>
+</form>
+        <p><span class="style12">4796-5127<br />
+            </span><span class="style15"></span><span class="style16"><a href="mailto:info@pime.com.ar">info@pime.com.ar</a></span><span class="style15"></span></p>
+      </div></td>
+      <td width="5" valign="top" background="images/fondos%20iimg/LINEA-vert1.jpg" class="style5 style14">&nbsp;</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</div>
+<p align="center">&nbsp;</p>
 </body>
 </html>
