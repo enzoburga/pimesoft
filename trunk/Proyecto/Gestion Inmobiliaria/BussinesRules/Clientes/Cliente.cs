@@ -4,6 +4,10 @@ using System.Text;
 
 namespace GI.BR.Clientes
 {
+
+
+    [Serializable]
+    [System.Xml.Serialization.XmlInclude(typeof(ClientePedido))]
     public abstract class Cliente: ICloneable
     {
         #region Miembros Privados

@@ -4,6 +4,7 @@ using System.Text;
 
 namespace GI.BR.Clientes
 {
+    [Serializable]
     public class ClientePedido : Cliente
     {
         public override enumTipoClientes TipoCliente
