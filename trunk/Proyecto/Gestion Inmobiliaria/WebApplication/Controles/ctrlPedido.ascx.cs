@@ -160,7 +160,9 @@ namespace WebApplication.Controles
         #region Getters
         private GI.BR.Monedas.Moneda getMoneda()
         {
-            return GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia.GetMoneda(int.Parse(ddlMoneda.SelectedValue));
+            if(tbValorDesde.Text != "" || tbValorHasta.Text != "")
+                return GI.BR.Monedas.MonedasFlyweigthFactory.GetInstancia.GetMoneda(int.Parse(ddlMoneda.SelectedValue));
+            return null;
         }
 
         private int getMetros(string text)

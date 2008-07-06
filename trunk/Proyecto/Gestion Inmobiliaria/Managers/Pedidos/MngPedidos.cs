@@ -145,13 +145,13 @@ namespace GI.Managers.Pedidos
                     if (pedido.Ubicacion.Provincia.IdProvincia != propiedad.Ubicacion.Provincia.IdProvincia)
                         return false;
 
-                    if (pedido.Ubicacion.Barrio != null && propiedad.Ubicacion.Barrio != null)
+                    if (pedido.Ubicacion.Localidad != null && propiedad.Ubicacion.Localidad != null)
                     {
-                        if (pedido.Ubicacion.Barrio.IdBarrio != propiedad.Ubicacion.Barrio.IdBarrio)
+                        if (pedido.Ubicacion.Localidad.IdLocalidad != propiedad.Ubicacion.Localidad.IdLocalidad)
                             return false;
 
-                        if (pedido.Ubicacion.Localidad != null && propiedad.Ubicacion.Localidad != null)
-                            if (pedido.Ubicacion.Localidad.IdLocalidad != propiedad.Ubicacion.Localidad.IdLocalidad)
+                        if (pedido.Ubicacion.Barrio != null && propiedad.Ubicacion.Barrio != null)
+                            if (pedido.Ubicacion.Barrio.IdBarrio != propiedad.Ubicacion.Barrio.IdBarrio)
                                 return false;
                     }
                 }

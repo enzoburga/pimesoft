@@ -169,18 +169,11 @@ namespace GI.UI.Pedidos
             
             pedido.Ubicacion = new GI.BR.Propiedades.Ubicacion();
         
-            GI.BR.Propiedades.Ubicaciones.Paises p = new GI.BR.Propiedades.Ubicaciones.Paises();
-            p.RecuperarTodos();
-            pedido.Ubicacion.Pais = p.GetDefault;
-
-            GI.BR.Propiedades.Ubicaciones.Provincias prov = new GI.BR.Propiedades.Ubicaciones.Provincias();
-            prov.RecuperarTodas();
-            pedido.Ubicacion.Provincia = prov.GetDefault;
-
-            GI.BR.Propiedades.Ubicaciones.Localidades l = new GI.BR.Propiedades.Ubicaciones.Localidades();
-            l.RecuperarTodas();
-            pedido.Ubicacion.Localidad = l.GetDefault;
-
+            pedido.Ubicacion.Pais = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetPaises().GetDefault;
+            pedido.Ubicacion.Provincia = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetProvincias(pedido.Ubicacion.Pais.IdPais).GetDefault;
+            pedido.Ubicacion.Localidad = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetLocalidades(pedido.Ubicacion.Provincia.IdProvincia).GetDefault;
+            pedido.Ubicacion.Barrio = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetBarrios(pedido.Ubicacion.Localidad.IdLocalidad).GetDefault;
+            
             frm.Pedido = pedido;
 
             if (frm.ShowDialog() == DialogResult.OK)
@@ -200,17 +193,10 @@ namespace GI.UI.Pedidos
 
             pedido.Ubicacion = new GI.BR.Propiedades.Ubicacion();
 
-            GI.BR.Propiedades.Ubicaciones.Paises p = new GI.BR.Propiedades.Ubicaciones.Paises();
-            p.RecuperarTodos();
-            pedido.Ubicacion.Pais = p.GetDefault;
-
-            GI.BR.Propiedades.Ubicaciones.Provincias prov = new GI.BR.Propiedades.Ubicaciones.Provincias();
-            prov.RecuperarTodas();
-            pedido.Ubicacion.Provincia = prov.GetDefault;
-
-            GI.BR.Propiedades.Ubicaciones.Localidades l = new GI.BR.Propiedades.Ubicaciones.Localidades();
-            l.RecuperarTodas();
-            pedido.Ubicacion.Localidad = l.GetDefault;
+            pedido.Ubicacion.Pais = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetPaises().GetDefault;
+            pedido.Ubicacion.Provincia = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetProvincias(pedido.Ubicacion.Pais.IdPais).GetDefault;
+            pedido.Ubicacion.Localidad = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetLocalidades(pedido.Ubicacion.Provincia.IdProvincia).GetDefault;
+            pedido.Ubicacion.Barrio = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetBarrios(pedido.Ubicacion.Localidad.IdLocalidad).GetDefault;
 
             frm.Pedido = pedido;
 

@@ -233,17 +233,12 @@ namespace WebApplication
                 if (propiedadSel == null)
                 {
                     int idPropiedad = int.Parse(HttpContext.Current.Request.QueryString["Propiedad"].ToString());
-                    GI.BR.Propiedades.Propiedades propiedades = (GI.BR.Propiedades.Propiedades)Session["Propiedades"];
-                    foreach (GI.BR.Propiedades.Propiedad p in propiedades)
-                    {
-                        if (p.IdPropiedad == idPropiedad)
-                        {
-                            propiedadSel = p;
-                            break;
-                        }
-                    }
+                    GI.BR.Propiedades.PropiedadFactory pf = new GI.BR.Propiedades.PropiedadFactory();
+
+                    propiedadSel = pf.GetPropiedad(idPropiedad);
+
                     if(propiedadSel == null)
-                        throw new Exception("Propiedad no encontrada en la sesion.");
+                        throw new Exception("Propiedad no encontrada");
                 }               
 
                 return propiedadSel;                

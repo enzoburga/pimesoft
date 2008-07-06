@@ -268,37 +268,39 @@ namespace WebApplication.Controles
                 GI.BR.Valor valorHasta = getValor(tbValorHasta.Text, int.Parse(ddlMoneda.SelectedValue));
                 #endregion
 
-                
-                if (getTipoPropiedad().Descripcion == "Chalet")
+                if (getTipoPropiedad() != null)
                 {
-                    //Recupero propiedades en venta o alquiler.
-                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Casa"), estadoPropiedad, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
-                    //Recupero propiedades reservadas de venta o alquiler.
-                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Casa"), estadoPropiedadReservado, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
-                }
+                    if (getTipoPropiedad().Descripcion == "Chalet")
+                    {
+                        //Recupero propiedades en venta o alquiler.
+                        propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Casa"), estadoPropiedad, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                        //Recupero propiedades reservadas de venta o alquiler.
+                        propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Casa"), estadoPropiedadReservado, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                    }
 
-                if (getTipoPropiedad().Descripcion == "Casa")
-                {
-                    //Recupero propiedades en venta o alquiler.
-                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Chalet"), estadoPropiedad, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
-                    //Recupero propiedades reservadas de venta o alquiler.
-                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Chalet"), estadoPropiedadReservado, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
-                }
+                    if (getTipoPropiedad().Descripcion == "Casa")
+                    {
+                        //Recupero propiedades en venta o alquiler.
+                        propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Chalet"), estadoPropiedad, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                        //Recupero propiedades reservadas de venta o alquiler.
+                        propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Chalet"), estadoPropiedadReservado, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                    }
 
-                if (getTipoPropiedad().Descripcion == "Duplex")
-                {
-                    //Recupero propiedades en venta o alquiler.
-                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Triplex"), estadoPropiedad, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
-                    //Recupero propiedades reservadas de venta o alquiler.
-                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Triplex"), estadoPropiedadReservado, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
-                }
+                    if (getTipoPropiedad().Descripcion == "Duplex")
+                    {
+                        //Recupero propiedades en venta o alquiler.
+                        propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Triplex"), estadoPropiedad, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                        //Recupero propiedades reservadas de venta o alquiler.
+                        propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Triplex"), estadoPropiedadReservado, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                    }
 
-                if (getTipoPropiedad().Descripcion == "Triplex")
-                {
-                    //Recupero propiedades en venta o alquiler.
-                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Duplex"), estadoPropiedad, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
-                    //Recupero propiedades reservadas de venta o alquiler.
-                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Duplex"), estadoPropiedadReservado, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                    if (getTipoPropiedad().Descripcion == "Triplex")
+                    {
+                        //Recupero propiedades en venta o alquiler.
+                        propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Duplex"), estadoPropiedad, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                        //Recupero propiedades reservadas de venta o alquiler.
+                        propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Duplex"), estadoPropiedadReservado, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                    }
                 }
 
                 //Recupero propiedades en venta o alquiler.
