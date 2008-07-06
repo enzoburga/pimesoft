@@ -268,10 +268,45 @@ namespace WebApplication.Controles
                 GI.BR.Valor valorHasta = getValor(tbValorHasta.Text, int.Parse(ddlMoneda.SelectedValue));
                 #endregion
 
+                
+                if (getTipoPropiedad().Descripcion == "Chalet")
+                {
+                    //Recupero propiedades en venta o alquiler.
+                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Casa"), estadoPropiedad, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                    //Recupero propiedades reservadas de venta o alquiler.
+                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Casa"), estadoPropiedadReservado, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                }
+
+                if (getTipoPropiedad().Descripcion == "Casa")
+                {
+                    //Recupero propiedades en venta o alquiler.
+                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Chalet"), estadoPropiedad, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                    //Recupero propiedades reservadas de venta o alquiler.
+                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Chalet"), estadoPropiedadReservado, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                }
+
+                if (getTipoPropiedad().Descripcion == "Duplex")
+                {
+                    //Recupero propiedades en venta o alquiler.
+                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Triplex"), estadoPropiedad, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                    //Recupero propiedades reservadas de venta o alquiler.
+                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Triplex"), estadoPropiedadReservado, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                }
+
+                if (getTipoPropiedad().Descripcion == "Triplex")
+                {
+                    //Recupero propiedades en venta o alquiler.
+                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Duplex"), estadoPropiedad, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                    //Recupero propiedades reservadas de venta o alquiler.
+                    propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad("Duplex"), estadoPropiedadReservado, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+                }
+
                 //Recupero propiedades en venta o alquiler.
-                //propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad(), estadoPropiedad, getAmbientes(), ubicacion, valorDesde, valorHasta));
+                propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad(), estadoPropiedad, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
                 //Recupero propiedades reservadas de venta o alquiler.
-                //propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad(), estadoPropiedadReservado, getAmbientes(), ubicacion, valorDesde, valorHasta));
+                propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad(), estadoPropiedadReservado, getAmbientes(), GetUbicaciones(), valorDesde, valorHasta));
+
+
             }
 
             OrdenarPropiedades(propiedades);
@@ -279,7 +314,7 @@ namespace WebApplication.Controles
             Session["Propiedades"] = propiedades;
         }
 
-        private System.Collections.Generic.List<GI.BR.Propiedades.Ubicacion> GetUbicaciones()
+        private GI.BR.Propiedades.UbicacionesCollection GetUbicaciones()
         {
 
             GI.BR.Propiedades.Ubicaciones.Localidad loc = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetLocalidad(int.Parse(ddlLocalidad.SelectedValue));
@@ -335,6 +370,11 @@ namespace WebApplication.Controles
             if (ddlTipoPropiedad.SelectedValue == "0")
                 return null;
             return GI.BR.Propiedades.TiposPropiedadFlyweightFactory.GetInstancia.GetTipoPropiedad(int.Parse(ddlTipoPropiedad.SelectedValue));
+        }
+
+        private GI.BR.Propiedades.TipoPropiedad getTipoPropiedad(string descripcion)
+        {
+            return GI.BR.Propiedades.TiposPropiedadFlyweightFactory.GetInstancia.GetTipoPropiedad(int.Parse(ddlTipoPropiedad.Items.FindByText(descripcion).Value));
         }
 
         private GI.BR.Valor getValor(string text, int idMoneda)
