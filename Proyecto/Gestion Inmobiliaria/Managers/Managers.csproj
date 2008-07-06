@@ -57,6 +57,7 @@
     <Compile Include="Propiedades\MngPropiedadesWeb.cs" />
     <Compile Include="Seguridad\ServicioSeguridad.cs" />
     <Compile Include="Sincronizacion\MngSincronizacionTransacciones.cs" />
+    <Compile Include="Ubicaciones\MngUbicaciones.cs" />
     <Compile Include="Web References\WebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

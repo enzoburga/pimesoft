@@ -47,7 +47,7 @@ body {
                     </tr>
                 </table>
                                 </asp:Panel>
-                            <asp:Panel ID="panelFiltros" runat="server" Height="200px" Width="700px">
+                            <asp:Panel ID="panelFiltros" runat="server" Height="315px" Width="700px">
                               <table width="700" border=0 cellpadding=5 cellspacing=0 style="font-size: 9pt; font-family: Arial; text-align: left;">
                                 <tr>
                                   <td style="width: 74px; height: 24px; color: #FFFFFF; font-weight: bold;">  Ambientes</td>
@@ -87,28 +87,56 @@ body {
                                   <td style="width: 60px; height: 20px; color: #FFFFFF; font-weight: bold;"> </td>
                                 </tr>
                                 <tr>
-                                  <td style="width: 74px; height: 24px; color: #FFFFFF; font-weight: bold;">  Pais</td>
-                                  <td style="width: 130px; height: 24px; color: #FFFFFF; font-weight: bold;">
+                                  <td style="width: 74px; height: 26px; color: #FFFFFF; font-weight: bold;">  Pais</td>
+                                  <td style="width: 130px; height: 26px; color: #FFFFFF; font-weight: bold;">
                                     <asp:DropDownList ID="ddlPais" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlPais_SelectedIndexChanged"
                 Width="130px" Font-Names="Arial" Font-Size="9pt"> </asp:DropDownList></td>
-                                  <td style="width: 105px; height: 24px; color: #FFFFFF; font-weight: bold;">  Provincia</td>
+                                  <td style="width: 105px; height: 26px; color: #FFFFFF; font-weight: bold;">  Provincia</td>
                                   <td style="width: 130px; height: 26px; color: #FFFFFF; font-weight: bold;">
                                     <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged"
                 Width="130px" Font-Names="Arial" Font-Size="9pt"> </asp:DropDownList></td>
-                                  <td style="width: 73px; height: 24px; color: #FFFFFF; font-weight: bold;"> </td>
-                                  <td style="width: 60px; height: 24px; color: #FFFFFF; font-weight: bold;"> </td>
+                                  <td style="width: 73px; height: 26px; color: #FFFFFF; font-weight: bold;"> </td>
+                                  <td style="width: 60px; height: 26px; color: #FFFFFF; font-weight: bold;"> </td>
                                 </tr>
                                 <tr>
                                   <td style="width: 74px; height: 31px; color: #FFFFFF; font-weight: bold;">  Localidad</td>
                                   <td style="width: 130px; height: 31px; color: #FFFFFF; font-weight: bold;">
                                     <asp:DropDownList ID="ddlLocalidad" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlLocalidad_SelectedIndexChanged"
                 Width="130px" Font-Names="Arial" Font-Size="9pt"> </asp:DropDownList></td>
-                                  <td style="width: 105px; height: 31px; color: #FFFFFF; font-weight: bold;">  Barrio</td>
-                                  <td style="width: 130px; height: 31px; color: #FFFFFF; font-weight: bold;">
-                                    <asp:DropDownList ID="ddlBarrio" runat="server" Width="129px" Font-Names="Arial" Font-Size="9pt"> </asp:DropDownList></td>
-                                  <td style="width: 73px; height: 31px; color: #FFFFFF; font-weight: bold;"> </td>
+                                  <td style="width: 105px; height: 31px; color: #FFFFFF; font-weight: bold;">  Barrio 1</td>
+                                  <td style="width: 130px; height: 31px; color:Black; font-weight:normal;"><asp:DropDownList ID="ddlBarrio1" runat="server" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged"
+                Width="130px" Font-Names="Arial" Font-Size="9pt">
+                                  </asp:DropDownList></td>
                                   <td style="width: 60px; height: 31px; color: #FFFFFF; font-weight: bold;"> </td>
                                 </tr>
+                                  <tr>
+                                      <td style="font-weight: bold; width: 74px; color: #ffffff; height: 31px">
+                                      </td>
+                                      <td style="font-weight: bold; width: 130px; color: #ffffff; height: 31px">
+                                      </td>
+                                      <td style="font-weight: bold; width: 105px; color: #ffffff; height: 31px">
+                                          Barrio 2</td>
+                                      <td style="font-weight: normal; width: 130px; color: black; height: 31px">
+                                          <asp:DropDownList ID="ddlBarrio2" runat="server" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged"
+                Width="130px" Font-Names="Arial" Font-Size="9pt">
+                                          </asp:DropDownList></td>
+                                      <td style="font-weight: bold; width: 60px; color: #ffffff; height: 31px">
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td style="font-weight: bold; width: 74px; color: #ffffff; height: 31px">
+                                      </td>
+                                      <td style="font-weight: bold; width: 130px; color: #ffffff; height: 31px">
+                                      </td>
+                                      <td style="font-weight: bold; width: 105px; color: #ffffff; height: 31px">
+                                          Barrio 3</td>
+                                      <td style="font-weight: normal; width: 130px; color: black; height: 31px">
+                                          <asp:DropDownList ID="ddlBarrio3" runat="server" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged"
+                Width="130px" Font-Names="Arial" Font-Size="9pt">
+                                          </asp:DropDownList></td>
+                                      <td style="font-weight: bold; width: 60px; color: #ffffff; height: 31px">
+                                      </td>
+                                  </tr>
                               </table>
       </asp:Panel></td>
     </tr>

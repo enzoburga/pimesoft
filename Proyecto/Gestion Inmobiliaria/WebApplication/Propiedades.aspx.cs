@@ -33,7 +33,7 @@ namespace WebApplication
             return false;
         }
 
-        //
+        
         protected string GetPaginacion()
         {
             return (strPaginacion);
@@ -128,9 +128,7 @@ namespace WebApplication
         {
             CtrlBuscadorPropiedades1.cargarPropiedades();
 
-            CargarListado(true);
-
-           
+            CargarListado(true);           
         }
 
         
