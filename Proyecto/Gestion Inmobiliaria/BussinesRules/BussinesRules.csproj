@@ -130,6 +130,7 @@
     <Compile Include="Clientes\Propietario.cs" />
     <Compile Include="Propiedades\VisitaPropiedad.cs" />
     <Compile Include="Propiedades\VisitasPropiedad.cs" />
+    <Compile Include="Reportes\ParametrosReportes.cs" />
     <Compile Include="Seguridad\Usuario.cs" />
   </ItemGroup>
   <ItemGroup>

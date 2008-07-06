@@ -41,6 +41,8 @@ namespace GI.Reportes.DataSet {
         
         private Region5DataTable tableRegion5;
         
+        private EncabezadosDataTable tableEncabezados;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -90,6 +92,9 @@ namespace GI.Reportes.DataSet {
                 }
                 if ((ds.Tables["Region5"] != null)) {
                     base.Tables.Add(new Region5DataTable(ds.Tables["Region5"]));
+                }
+                if ((ds.Tables["Encabezados"] != null)) {
+                    base.Tables.Add(new EncabezadosDataTable(ds.Tables["Encabezados"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -182,6 +187,15 @@ namespace GI.Reportes.DataSet {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public EncabezadosDataTable Encabezados {
+            get {
+                return this.tableEncabezados;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -264,6 +278,9 @@ namespace GI.Reportes.DataSet {
                 if ((ds.Tables["Region5"] != null)) {
                     base.Tables.Add(new Region5DataTable(ds.Tables["Region5"]));
                 }
+                if ((ds.Tables["Encabezados"] != null)) {
+                    base.Tables.Add(new EncabezadosDataTable(ds.Tables["Encabezados"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -342,6 +359,12 @@ namespace GI.Reportes.DataSet {
                     this.tableRegion5.InitVars();
                 }
             }
+            this.tableEncabezados = ((EncabezadosDataTable)(base.Tables["Encabezados"]));
+            if ((initTable == true)) {
+                if ((this.tableEncabezados != null)) {
+                    this.tableEncabezados.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -367,6 +390,8 @@ namespace GI.Reportes.DataSet {
             base.Tables.Add(this.tableRegion4);
             this.tableRegion5 = new Region5DataTable();
             base.Tables.Add(this.tableRegion5);
+            this.tableEncabezados = new EncabezadosDataTable();
+            base.Tables.Add(this.tableEncabezados);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -406,6 +431,11 @@ namespace GI.Reportes.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeRegion5() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeEncabezados() {
             return false;
         }
         
@@ -477,6 +507,8 @@ namespace GI.Reportes.DataSet {
         public delegate void Region4RowChangeEventHandler(object sender, Region4RowChangeEvent e);
         
         public delegate void Region5RowChangeEventHandler(object sender, Region5RowChangeEvent e);
+        
+        public delegate void EncabezadosRowChangeEventHandler(object sender, EncabezadosRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3959,6 +3991,247 @@ namespace GI.Reportes.DataSet {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class EncabezadosDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+            
+            private global::System.Data.DataColumn columnEncabezado;
+            
+            private global::System.Data.DataColumn columnPiePagina;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public EncabezadosDataTable() {
+                this.TableName = "Encabezados";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal EncabezadosDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected EncabezadosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn EncabezadoColumn {
+                get {
+                    return this.columnEncabezado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn PiePaginaColumn {
+                get {
+                    return this.columnPiePagina;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public EncabezadosRow this[int index] {
+                get {
+                    return ((EncabezadosRow)(this.Rows[index]));
+                }
+            }
+            
+            public event EncabezadosRowChangeEventHandler EncabezadosRowChanging;
+            
+            public event EncabezadosRowChangeEventHandler EncabezadosRowChanged;
+            
+            public event EncabezadosRowChangeEventHandler EncabezadosRowDeleting;
+            
+            public event EncabezadosRowChangeEventHandler EncabezadosRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddEncabezadosRow(EncabezadosRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public EncabezadosRow AddEncabezadosRow(byte[] Encabezado, byte[] PiePagina) {
+                EncabezadosRow rowEncabezadosRow = ((EncabezadosRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Encabezado,
+                        PiePagina};
+                rowEncabezadosRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowEncabezadosRow);
+                return rowEncabezadosRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public virtual global::System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                EncabezadosDataTable cln = ((EncabezadosDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new EncabezadosDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnEncabezado = base.Columns["Encabezado"];
+                this.columnPiePagina = base.Columns["PiePagina"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnEncabezado = new global::System.Data.DataColumn("Encabezado", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEncabezado);
+                this.columnPiePagina = new global::System.Data.DataColumn("PiePagina", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPiePagina);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public EncabezadosRow NewEncabezadosRow() {
+                return ((EncabezadosRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new EncabezadosRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(EncabezadosRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.EncabezadosRowChanged != null)) {
+                    this.EncabezadosRowChanged(this, new EncabezadosRowChangeEvent(((EncabezadosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.EncabezadosRowChanging != null)) {
+                    this.EncabezadosRowChanging(this, new EncabezadosRowChangeEvent(((EncabezadosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.EncabezadosRowDeleted != null)) {
+                    this.EncabezadosRowDeleted(this, new EncabezadosRowChangeEvent(((EncabezadosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.EncabezadosRowDeleting != null)) {
+                    this.EncabezadosRowDeleting(this, new EncabezadosRowChangeEvent(((EncabezadosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveEncabezadosRow(EncabezadosRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DSFichaPropiedadv2 ds = new DSFichaPropiedadv2();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "EncabezadosDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -7254,6 +7527,71 @@ namespace GI.Reportes.DataSet {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class EncabezadosRow : global::System.Data.DataRow {
+            
+            private EncabezadosDataTable tableEncabezados;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal EncabezadosRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableEncabezados = ((EncabezadosDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public byte[] Encabezado {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableEncabezados.EncabezadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Encabezado\' in table \'Encabezados\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEncabezados.EncabezadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public byte[] PiePagina {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableEncabezados.PiePaginaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PiePagina\' in table \'Encabezados\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEncabezados.PiePaginaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsEncabezadoNull() {
+                return this.IsNull(this.tableEncabezados.EncabezadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetEncabezadoNull() {
+                this[this.tableEncabezados.EncabezadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsPiePaginaNull() {
+                return this.IsNull(this.tableEncabezados.PiePaginaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetPiePaginaNull() {
+                this[this.tableEncabezados.PiePaginaColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -7488,6 +7826,37 @@ namespace GI.Reportes.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public Region5Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class EncabezadosRowChangeEvent : global::System.EventArgs {
+            
+            private EncabezadosRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public EncabezadosRowChangeEvent(EncabezadosRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public EncabezadosRow Row {
                 get {
                     return this.eventRow;
                 }

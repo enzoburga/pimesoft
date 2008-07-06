@@ -45,6 +45,7 @@
     <Compile Include="EventosData.cs" />
     <Compile Include="InmobiliariasData.cs" />
     <Compile Include="PagosData.cs" />
+    <Compile Include="ParametrosReportesData.cs" />
     <Compile Include="PedidosData.cs">
       <SubType>Code</SubType>
     </Compile>
