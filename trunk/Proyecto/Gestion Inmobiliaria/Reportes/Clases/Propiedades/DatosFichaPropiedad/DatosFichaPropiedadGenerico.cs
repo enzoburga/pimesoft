@@ -15,7 +15,7 @@ namespace GI.Reportes.Clases.Propiedades
             DataSet.DSFichaPropiedadv2 ds = new GI.Reportes.DataSet.DSFichaPropiedadv2();
             int index = 0;
 
-            #region encabezado
+            #region Encabezado
 
             DataSet.DSFichaPropiedadv2.EncabezadosRow row_encabezado = ds.Encabezados.NewEncabezadosRow();
             GI.BR.Reportes.ParametrosReportes param = new GI.BR.Reportes.ParametrosReportes();
@@ -112,6 +112,7 @@ namespace GI.Reportes.Clases.Propiedades
             
             DataSet.DSFichaPropiedadv2.Region1Row row_region_1 = ds.Region1.NewRegion1Row();
 
+            
             row_region_1.NombreRegion = "Lote";
 
             if (Propiedad.MedidasTerreno.Metros > 0)
@@ -172,21 +173,17 @@ namespace GI.Reportes.Clases.Propiedades
             foreach (GI.BR.Propiedades.MedidaAmbiente ambiente in Propiedad.Medidas)
             {
 
-                if (index > 9) break;
+                if (index > 18) break;
 
-                if (ambiente.TipoAmbiente.Codigo != 10008 &&
-                        ambiente.TipoAmbiente.Codigo != 10007 &&
-                        ambiente.TipoAmbiente.Codigo != 10001 &&
-                        ambiente.TipoAmbiente.Codigo != 10014 &&
-                        ambiente.TipoAmbiente.Codigo != 10015)
-                {
+                
                     row_region_4["Campo" + index] = ambiente.ToString() + ":";
                     row_region_4["Valor" + index] = ambiente.Ancho.ToString() + " x " + ambiente.Largo.ToString();
                     index++;
 
 
-                }
+                
             }
+
 
 
             row_region_4.NombreRegion = "Detalles Ambientes";
@@ -272,6 +269,13 @@ namespace GI.Reportes.Clases.Propiedades
             {
                 row_region_5["Campo" + index] = "Cuarto de Herramientas: ";
                 row_region_5["Valor" + index] = "Si";
+                index++;
+            }
+
+            if (Propiedad.CantidadCocheras > 0)
+            {
+                row_region_5.Campo1 = "Cochera";
+                row_region_5.Valor1 = "Si";
                 index++;
             }
 
