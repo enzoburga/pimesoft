@@ -93,6 +93,16 @@ namespace GI.BR.Propiedades.Ubicaciones
             }
         }
 
+        public bool Existe(Barrio barrio)
+        {
+            foreach (Barrio b in this)
+            {
+                if (b.IdBarrio == barrio.IdBarrio)
+                    return true;
+            }
+            return false;
+        }
+
         
     }
 }

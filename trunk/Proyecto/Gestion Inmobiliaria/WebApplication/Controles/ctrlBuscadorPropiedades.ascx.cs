@@ -187,11 +187,15 @@ namespace WebApplication.Controles
 
         private void CargarComboBarrios(int IdLocalidad)
         {
-            ddlBarrio.Items.Clear();
+            ddlBarrio1.Items.Clear();
+            ddlBarrio2.Items.Clear();
+            ddlBarrio3.Items.Clear();
             ListItem liBarrio = new ListItem();
             liBarrio.Text = "Sin Definir";
             liBarrio.Value = "0";
-            ddlBarrio.Items.Add(liBarrio);
+            ddlBarrio1.Items.Add(liBarrio);
+            ddlBarrio2.Items.Add(liBarrio);
+            ddlBarrio3.Items.Add(liBarrio);
 
             if (IdLocalidad != 0)
             {
@@ -202,7 +206,9 @@ namespace WebApplication.Controles
                     liBarrio.Value = b.IdBarrio.ToString();
                     liBarrio.Text = b.ToString();
 
-                    ddlBarrio.Items.Add(liBarrio);
+                    ddlBarrio1.Items.Add(liBarrio);
+                    ddlBarrio2.Items.Add(liBarrio);
+                    ddlBarrio3.Items.Add(liBarrio);
                 }
             }
 
@@ -210,11 +216,15 @@ namespace WebApplication.Controles
 
             if (barrio != null)
             {
-                ddlBarrio.Items.FindByValue(barrio.IdBarrio.ToString()).Selected = true;
+                ddlBarrio1.Items.FindByValue(barrio.IdBarrio.ToString()).Selected = true;
+                ddlBarrio2.Items.FindByValue(barrio.IdBarrio.ToString()).Selected = true;
+                ddlBarrio3.Items.FindByValue(barrio.IdBarrio.ToString()).Selected = true;
             }
             else
             {
-                ddlBarrio.SelectedIndex = 0;
+                ddlBarrio1.SelectedIndex = 0;
+                ddlBarrio2.SelectedIndex = 0;
+                ddlBarrio3.SelectedIndex = 0;
             }
         }
 
@@ -237,12 +247,11 @@ namespace WebApplication.Controles
             else
             {
                 GI.Managers.Propiedades.MngPropiedades mngPropiedades = new GI.Managers.Propiedades.MngPropiedades();
+
                 #region Armo los objetos para pasarle al  manager de busqueda.
-                GI.BR.Propiedades.Ubicacion ubicacion = new GI.BR.Propiedades.Ubicacion();
-                ubicacion.Barrio = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetBarrio(int.Parse(ddlBarrio.SelectedValue));
-                ubicacion.Localidad = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetLocalidad(int.Parse(ddlLocalidad.SelectedValue));
-                ubicacion.Provincia = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetProvincia(int.Parse(ddlProvincia.SelectedValue));
-                ubicacion.Pais = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetPais(int.Parse(ddlPais.SelectedValue));
+
+
+                System.Collections.Generic.List<GI.BR.Propiedades.Ubicacion> ubicaciones = GetUbicaciones();
 
                 Type tipoOperacion = null;
 
@@ -260,15 +269,50 @@ namespace WebApplication.Controles
                 #endregion
 
                 //Recupero propiedades en venta o alquiler.
-                propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad(), estadoPropiedad, getAmbientes(), ubicacion, valorDesde, valorHasta));
+                //propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad(), estadoPropiedad, getAmbientes(), ubicacion, valorDesde, valorHasta));
                 //Recupero propiedades reservadas de venta o alquiler.
-                propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad(), estadoPropiedadReservado, getAmbientes(), ubicacion, valorDesde, valorHasta));
+                //propiedades.AddRange(mngPropiedades.RecuperarPropiedades(tipoOperacion, getTipoPropiedad(), estadoPropiedadReservado, getAmbientes(), ubicacion, valorDesde, valorHasta));
             }
 
             OrdenarPropiedades(propiedades);
 
             Session["Propiedades"] = propiedades;
         }
+
+        private System.Collections.Generic.List<GI.BR.Propiedades.Ubicacion> GetUbicaciones()
+        {
+
+            GI.BR.Propiedades.Ubicaciones.Localidad loc = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetLocalidad(int.Parse(ddlLocalidad.SelectedValue));
+            GI.BR.Propiedades.Ubicaciones.Provincia provincia = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetProvincia(int.Parse(ddlProvincia.SelectedValue));
+            GI.BR.Propiedades.Ubicaciones.Pais pais = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetPais(int.Parse(ddlPais.SelectedValue));;
+
+            GI.Managers.Ubicaciones.MngUbicaciones mng = new GI.Managers.Ubicaciones.MngUbicaciones();
+            
+            return mng.GetUbicaciones(GetBarriosSeleccionados(), loc, provincia, pais);
+        }
+
+        private GI.BR.Propiedades.Ubicaciones.Barrios GetBarriosSeleccionados()
+        {
+            GI.BR.Propiedades.Ubicaciones.Barrios barrios = new GI.BR.Propiedades.Ubicaciones.Barrios();
+
+            GI.BR.Propiedades.Ubicaciones.Barrio b1 = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetBarrio(int.Parse(ddlBarrio1.SelectedValue));
+            GI.BR.Propiedades.Ubicaciones.Barrio b2 = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetBarrio(int.Parse(ddlBarrio2.SelectedValue));
+            GI.BR.Propiedades.Ubicaciones.Barrio b3 = GI.BR.Propiedades.Ubicaciones.UbicacionFlyweightFactory.GetInstancia.GetBarrio(int.Parse(ddlBarrio3.SelectedValue));
+
+            if (b1 != null)
+                barrios.Add(b1);
+
+            if (b2 != null && !barrios.Existe(b2) )
+                barrios.Add(b2);
+
+            if (b3 != null && !barrios.Existe(b3))
+                barrios.Add(b3);
+
+            return barrios;
+
+        }
+
+
 
         private void OrdenarPropiedades(GI.BR.Propiedades.Propiedades propiedades)
         {

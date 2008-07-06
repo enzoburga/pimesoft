@@ -30,6 +30,17 @@ namespace GI.BR.Propiedades
             return (TipoPropiedad)tiposPropiedad[IdTipoPropiedad];
         }
 
+        public TiposPropiedad GetTipoPropiedadPorCategoria(int idCategoria)
+        {
+            TiposPropiedad tipos = new TiposPropiedad();
+            foreach (int key in tiposPropiedad.Keys)
+            {
+                if (idCategoria == ((TipoPropiedad)tiposPropiedad[key]).IdCategoria)
+                    tipos.Add((TipoPropiedad)tiposPropiedad[key]);
+            }
+            return tipos;
+        }
+
         public TiposPropiedad GetTiposPropiedad
         {
             get 

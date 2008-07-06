@@ -62,6 +62,13 @@
     <Compile Include="Controles\ctrlBuscadorPropiedades.ascx.designer.cs">
       <DependentUpon>ctrlBuscadorPropiedades.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Controles\ctrlPedido.ascx.cs">
+      <DependentUpon>ctrlPedido.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ctrlPedido.ascx.designer.cs">
+      <DependentUpon>ctrlPedido.ascx</DependentUpon>
+    </Compile>
     <Compile Include="FotoHandler.ashx.cs">
       <DependentUpon>FotoHandler.ashx</DependentUpon>
     </Compile>
@@ -127,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AltaClientePedido.aspx" />
+    <Content Include="Controles\ctrlPedido.ascx" />
     <Content Include="FotoHandler.ashx" />
     <Content Include="imagenes\boton_buscar.jpg" />
     <Content Include="imagenes\enviarPedido.jpg" />

@@ -77,6 +77,7 @@
     <Compile Include="Propiedades\Alquiler.cs" />
     <Compile Include="Propiedades\Ambientes.cs" />
     <Compile Include="Propiedades\CategoriaPropiedad.cs" />
+    <Compile Include="Propiedades\CategoriaPropiedadFlyweigthFactory.cs" />
     <Compile Include="Propiedades\CategoriasPropiedad.cs" />
     <Compile Include="Propiedades\DepartamentoDisposicion.cs" />
     <Compile Include="Propiedades\Direccion.cs" />
