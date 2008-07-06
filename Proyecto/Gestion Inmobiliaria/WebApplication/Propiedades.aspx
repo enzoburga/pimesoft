@@ -1,5 +1,8 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Propiedades.aspx.cs" Inherits="WebApplication.Propiedades" %>
 
+<%@ Register Src="Controles/ListadoPropiedades.ascx" TagName="ListadoPropiedades"
+    TagPrefix="uc2" %>
+
 <%@ Register Src="Controles/ctrlBuscadorPropiedades.ascx" TagName="ctrlBuscadorPropiedades"
     TagPrefix="uc1" %>
 
@@ -94,43 +97,9 @@ function MM_preloadImages() { //v3.0
                 <asp:ImageButton ID="ibBuscar" runat="server" OnClick="ibBuscar_Click" ImageUrl="~/imagenes/boton_buscar.jpg" /></td>
             </tr>
             <tr>
-              <td align="left" style="width: 100px; height: 21px">
-                <asp:Label ID="lMensaje" runat="server" Width="730px" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
-            </tr>
-            <tr>
               <td style="width: 100px">
-                <asp:DataList ID="DataList1" runat="server" CellPadding="4" ForeColor="#333333" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False">
-                  <FooterStyle BackColor="Red" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" />  
-                  <SelectedItemStyle BackColor="#CCCCCC" Font-Bold="True" ForeColor="#333333" />  
-                  <AlternatingItemStyle BackColor="White" />  
-                  <ItemStyle BackColor="#EEEEEE" />  
-                  <HeaderStyle BackColor="Red" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" />  
-                  <HeaderTemplate ><div style="font: 10pt verdana"> <%= GetPaginacion() %> </div></HeaderTemplate>
-                  <ItemTemplate>
-                    <table cellpadding="10" style="font: 10pt verdana" width="730">
-                      <tr>
-                        <td valign="top" style="width: 220px; height: 220px; text-align: center"> 
-                            <%# DataBinder.Eval(Container.DataItem, "Reservado") %>
-                            <img alt="Foto Fachada" align="top" src='<%# DataBinder.Eval(Container.DataItem, "Thumbnail")%>'/> <br />
-                            <a href='<%# DataBinder.Eval(Container.DataItem, "Link") %>'>Ver Ficha</a> </td>
-                        <td valign="top" align="left"> <b>Detalles</b><br />
-                            <br />
-                            <%# DataBinder.Eval(Container.DataItem, "Detalles") %><br />
-                            <br />
-                            <b>C&oacute;digo: </b><%# DataBinder.Eval(Container.DataItem, "Codigo") %><br />
-                            <br />
-                            <b>Ubicaci&oacute;n: </b><%# DataBinder.Eval(Container.DataItem, "Ubicacion") %><br />
-                            <br />
-                            <b>Calle: </b><%# DataBinder.Eval(Container.DataItem, "Direccion") %><br />
-                            <br />
-                            <b>Valor: </b><%# DataBinder.Eval(Container.DataItem, "Valor") %><br />
-                        </td>
-                      </tr>
-                    </table>
-                  </ItemTemplate>
-                  <FooterTemplate> <div style="font: 10pt verdana"> <%= GetPaginacion() %> </div></FooterTemplate>
-                  <SeparatorStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
-                            Font-Underline="False" ForeColor="Blue" /> </asp:DataList></td>
+                  <uc2:ListadoPropiedades ID="ListadoPropiedades1" runat="server" />
+              </td>
             </tr>
           </table>
        <br />

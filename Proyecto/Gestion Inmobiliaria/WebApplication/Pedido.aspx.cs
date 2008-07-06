@@ -32,9 +32,11 @@ namespace WebApplication
         {          
 
             GI.Managers.Pedidos.MngPedidosWeb mngPedidoWeb = new GI.Managers.Pedidos.MngPedidosWeb();
-            if (mngPedidoWeb.CrearPedidoWeb(CtrlPedido1.GetPedido))
+            GI.BR.Pedidos.Pedido pedido = CtrlPedido1.GetPedido;
+            if (mngPedidoWeb.CrearPedidoWeb(pedido))
             {
                 Session["ClientePedido"] = null;
+                Session["Pedido"] = pedido;
                 Response.Redirect("PedidoEnviado.aspx");
             }
             else

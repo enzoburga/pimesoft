@@ -15,7 +15,17 @@ namespace WebApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            GI.BR.Pedidos.Pedido pedido = (GI.BR.Pedidos.Pedido)Session["Pedido"];
 
+            GI.Managers.Pedidos.MngPedidos mng = new GI.Managers.Pedidos.MngPedidos();
+            if (IsPostBack)
+            {
+                ListadoPropiedades1.CargarListado(true, mng.GetPropiedadesSinOfrecer(pedido));
+            }
+            else
+            {
+                ListadoPropiedades1.CargarListado(false, mng.GetPropiedadesSinOfrecer(pedido));
+            }
         }
     }
 }
