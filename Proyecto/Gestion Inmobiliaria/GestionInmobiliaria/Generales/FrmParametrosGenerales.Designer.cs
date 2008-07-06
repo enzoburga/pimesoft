@@ -384,18 +384,18 @@ namespace GI.UI.Generales
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(8, 143);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(178, 13);
+            this.label12.Size = new System.Drawing.Size(177, 13);
             this.label12.TabIndex = 22;
-            this.label12.Text = "Pie de página reporte (200 x 60 px)";
+            this.label12.Text = "Pie de página reporte (19 x 1,5 cm)";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(8, 24);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(133, 13);
+            this.label11.Size = new System.Drawing.Size(132, 13);
             this.label11.TabIndex = 21;
-            this.label11.Text = "Encabezado (200 x 60 px)";
+            this.label11.Text = "Encabezado (19 x 2,8 cm)";
             // 
             // pictureBox2
             // 
