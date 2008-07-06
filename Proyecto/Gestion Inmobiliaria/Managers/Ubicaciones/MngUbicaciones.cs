@@ -6,9 +6,9 @@ namespace GI.Managers.Ubicaciones
 {
     public class MngUbicaciones
     {
-        public List<GI.BR.Propiedades.Ubicacion> GetUbicaciones(GI.BR.Propiedades.Ubicaciones.Barrios barrios, GI.BR.Propiedades.Ubicaciones.Localidad localidad, GI.BR.Propiedades.Ubicaciones.Provincia provincia,GI.BR.Propiedades.Ubicaciones.Pais pais)
+        public GI.BR.Propiedades.UbicacionesCollection GetUbicaciones(GI.BR.Propiedades.Ubicaciones.Barrios barrios, GI.BR.Propiedades.Ubicaciones.Localidad localidad, GI.BR.Propiedades.Ubicaciones.Provincia provincia, GI.BR.Propiedades.Ubicaciones.Pais pais)
         {
-            System.Collections.Generic.List<GI.BR.Propiedades.Ubicacion> ubicaciones = new System.Collections.Generic.List<GI.BR.Propiedades.Ubicacion>();
+            GI.BR.Propiedades.UbicacionesCollection ubicaciones = new GI.BR.Propiedades.UbicacionesCollection();
 
             if (barrios.Count == 0)
                 ubicaciones.Add(GetUbicacion(null, localidad, provincia, pais));

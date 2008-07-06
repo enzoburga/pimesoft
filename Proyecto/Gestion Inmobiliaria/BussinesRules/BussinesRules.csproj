@@ -119,6 +119,7 @@
     <Compile Include="Propiedades\Tranasacciones\TransaccionPedido.cs" />
     <Compile Include="Propiedades\Tranasacciones\TransaccionPropiedad.cs" />
     <Compile Include="Propiedades\Ubicacion.cs" />
+    <Compile Include="Propiedades\UbicacionesCollection.cs" />
     <Compile Include="Propiedades\Ubicaciones\Barrio.cs" />
     <Compile Include="Propiedades\PropiedadFactory.cs" />
     <Compile Include="Propiedades\Ubicaciones\Localidad.cs" />

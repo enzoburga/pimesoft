@@ -130,7 +130,21 @@ namespace GI.Managers.Propiedades
         }
 
 
+        public GI.BR.Propiedades.Propiedades RecuperarPropiedades(Type Type, GI.BR.Propiedades.TipoPropiedad Tipo,
+            GI.BR.Propiedades.EstadoPropiedad Estado, GI.BR.Propiedades.Ambiente Ambientes,
+            GI.BR.Propiedades.UbicacionesCollection Ubicaciones, GI.BR.Valor ValorDesde, GI.BR.Valor ValorHasta)
+        {
+            GI.BR.Propiedades.Propiedades propiedades = new GI.BR.Propiedades.Propiedades();
+            foreach (GI.BR.Propiedades.Ubicacion u in Ubicaciones)
+            {
+                propiedades.AddRange(RecuperarPropiedades(Type, Tipo,
+                    Estado, Ambientes,
+                    u, ValorDesde, ValorHasta));
+            }
 
+            return propiedades;
+
+        }
 
         /// <summary>
         /// genera una copia de una propiedad
