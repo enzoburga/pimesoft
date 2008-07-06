@@ -232,6 +232,39 @@ namespace GI.Managers.Pedidos
             return filtro;
         }
 
+
+
+
+        /// <summary>
+        /// Crea un pedido que proviene de la web.
+        /// </summary>
+        /// <param name="Pedido"></param>
+        /// <returns></returns>
+        public bool CrearPedidoDeWeb(GI.BR.Pedidos.Pedido Pedido)
+        { 
+            // Verificamos que el cliente del pedido ya existe en la base por email
+
+            BR.Clientes.ClientePedido cliente = new GI.BR.Clientes.ClientePedido();
+            cliente.RecuperarPorEmail(Pedido.ClientePedido.Email);
+            if (cliente.IdCliente > 0)
+            {
+                Pedido.ClientePedido = cliente;
+            }
+            else
+            {
+                Pedido.ClientePedido.Guardar();
+
+            }
+
+            if (!Pedido.Guardar()) return false;
+
+
+            return true;
+
+
+
+        }
+
         #endregion
     }
 }
