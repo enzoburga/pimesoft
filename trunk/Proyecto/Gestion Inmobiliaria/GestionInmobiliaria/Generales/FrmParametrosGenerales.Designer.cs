@@ -56,14 +56,15 @@ namespace GI.UI.Generales
             this.textBoxSmtpHost = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelSelectPie = new System.Windows.Forms.LinkLabel();
+            this.linkLabelSelectEncabezado = new System.Windows.Forms.LinkLabel();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bAceptar = new System.Windows.Forms.Button();
             this.bCancelar = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -343,8 +344,8 @@ namespace GI.UI.Generales
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.linkLabel2);
-            this.tabPage3.Controls.Add(this.linkLabel1);
+            this.tabPage3.Controls.Add(this.linkLabelSelectPie);
+            this.tabPage3.Controls.Add(this.linkLabelSelectEncabezado);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.pictureBox2);
@@ -356,25 +357,27 @@ namespace GI.UI.Generales
             this.tabPage3.Text = "Reportes";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // linkLabel2
+            // linkLabelSelectPie
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(320, 236);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(98, 13);
-            this.linkLabel2.TabIndex = 24;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Seleccionar imagen";
+            this.linkLabelSelectPie.AutoSize = true;
+            this.linkLabelSelectPie.Location = new System.Drawing.Point(320, 236);
+            this.linkLabelSelectPie.Name = "linkLabelSelectPie";
+            this.linkLabelSelectPie.Size = new System.Drawing.Size(98, 13);
+            this.linkLabelSelectPie.TabIndex = 24;
+            this.linkLabelSelectPie.TabStop = true;
+            this.linkLabelSelectPie.Text = "Seleccionar imagen";
+            this.linkLabelSelectPie.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSelectPie_LinkClicked);
             // 
-            // linkLabel1
+            // linkLabelSelectEncabezado
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(320, 117);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(98, 13);
-            this.linkLabel1.TabIndex = 23;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Seleccionar imagen";
+            this.linkLabelSelectEncabezado.AutoSize = true;
+            this.linkLabelSelectEncabezado.Location = new System.Drawing.Point(320, 117);
+            this.linkLabelSelectEncabezado.Name = "linkLabelSelectEncabezado";
+            this.linkLabelSelectEncabezado.Size = new System.Drawing.Size(98, 13);
+            this.linkLabelSelectEncabezado.TabIndex = 23;
+            this.linkLabelSelectEncabezado.TabStop = true;
+            this.linkLabelSelectEncabezado.Text = "Seleccionar imagen";
+            this.linkLabelSelectEncabezado.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSelectEncabezado_LinkClicked);
             // 
             // label12
             // 
@@ -400,6 +403,7 @@ namespace GI.UI.Generales
             this.pictureBox2.Location = new System.Drawing.Point(8, 159);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(410, 74);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
@@ -409,6 +413,7 @@ namespace GI.UI.Generales
             this.pictureBox1.Location = new System.Drawing.Point(8, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(410, 74);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -432,6 +437,11 @@ namespace GI.UI.Generales
             this.bCancelar.TabIndex = 0;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Imagenes JPG|*.jpg";
             // 
             // FrmParametrosGenerales
             // 
@@ -495,11 +505,12 @@ namespace GI.UI.Generales
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxSmtpHost;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabelSelectPie;
+        private System.Windows.Forms.LinkLabel linkLabelSelectEncabezado;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
