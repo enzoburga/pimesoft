@@ -187,7 +187,7 @@ namespace GI.UI.Pedidos
 
 
             GI.BR.Propiedades.EstadosPropiedad Estados = new GI.BR.Propiedades.EstadosPropiedad();
-            Estados.RecuperarEstados(System.Type.GetType(Pedido.EstadoPropiedad));
+            Estados.RecuperarEstados((Pedido.EstadoPropiedad == "GI.BR.Propiedades.Venta") ? typeof(GI.BR.Propiedades.Venta) : typeof(GI.BR.Propiedades.Alquiler));
             cbEstado.Items.Clear();
             cbEstado.Items.Add("Sin Definir");
             foreach (GI.BR.Propiedades.EstadoPropiedad Estado in Estados)
