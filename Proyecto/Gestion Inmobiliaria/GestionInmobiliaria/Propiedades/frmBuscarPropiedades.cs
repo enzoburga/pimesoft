@@ -130,10 +130,17 @@ namespace GI.UI.Propiedades
             cbLocalidad.Items.Clear();
             cbBarrio.Items.Clear();
 
+            cbLocalidad2.Items.Clear();
+            cbLocalidad3.Items.Clear();
+            cbBarrio2.Items.Clear();
+            cbBarrio3.Items.Clear();
+
             cbLocalidad.Items.Add("Seleccione opción...");
             foreach (GI.BR.Propiedades.Ubicaciones.Localidad l in Localidades)
             {
                 cbLocalidad.Items.Add(l);
+                cbLocalidad2.Items.Add(l);
+                cbLocalidad3.Items.Add(l);
                 if (l.EsDefault)
                     cbLocalidad.SelectedItem = l;
             }
@@ -172,8 +179,12 @@ namespace GI.UI.Propiedades
             if (tabControlTiposDeBusqueda.SelectedIndex == 0)
             {
 
+                GI.BR.Propiedades.UbicacionesCollection Ubicaciones = new GI.BR.Propiedades.UbicacionesCollection();
+
                 GI.BR.Propiedades.TipoPropiedad TipoProp = null;
                 GI.BR.Propiedades.Ubicacion Ubicacion = new GI.BR.Propiedades.Ubicacion();
+
+
                 GI.BR.Propiedades.Ambiente Ambiente = null;
                 GI.BR.Propiedades.EstadoPropiedad Estado = null;
                 GI.BR.Valor ValorDesde = null;
@@ -189,6 +200,38 @@ namespace GI.UI.Propiedades
                     Ubicacion.Localidad = (GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad.SelectedItem;
                 if (cbBarrio.SelectedIndex > 0)
                     Ubicacion.Barrio = (GI.BR.Propiedades.Ubicaciones.Barrio)cbBarrio.SelectedItem;
+
+                Ubicaciones.Add(Ubicacion);
+
+                // 2da Ubicacion
+                if (cbLocalidad2.SelectedItem != null)
+                {
+                    GI.BR.Propiedades.Ubicacion ub2 = new GI.BR.Propiedades.Ubicacion();
+                    ub2.Pais = (GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem;
+                    ub2.Provincia = (GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem;
+                    ub2.Localidad = (GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad2.SelectedItem;
+                    if (cbBarrio2.SelectedItem != null)
+                    {
+                        ub2.Barrio = (GI.BR.Propiedades.Ubicaciones.Barrio)cbBarrio2.SelectedItem;
+                    }
+                    Ubicaciones.Add(ub2);
+                }
+
+                // 3ra Ubicacion
+                if (cbLocalidad3.SelectedItem != null)
+                {
+                    GI.BR.Propiedades.Ubicacion ub3 = new GI.BR.Propiedades.Ubicacion();
+                    ub3.Pais = (GI.BR.Propiedades.Ubicaciones.Pais)cbPais.SelectedItem;
+                    ub3.Provincia = (GI.BR.Propiedades.Ubicaciones.Provincia)cbProvincia.SelectedItem;
+                    ub3.Localidad = (GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad3.SelectedItem;
+                    if (cbBarrio3.SelectedItem != null)
+                    {
+                        ub3.Barrio = (GI.BR.Propiedades.Ubicaciones.Barrio)cbBarrio3.SelectedItem;
+                    }
+                    Ubicaciones.Add(ub3);
+                }
+
+
 
                 if (cbAmbientes.SelectedIndex > 0)
                     Ambiente = (GI.BR.Propiedades.Ambiente)cbAmbientes.SelectedItem;
@@ -214,7 +257,7 @@ namespace GI.UI.Propiedades
 
                 }
 
-                propiedades = mngPropiedades.RecuperarPropiedades(tipo, TipoProp, Estado, Ambiente, Ubicacion, ValorDesde, ValorHasta);
+                propiedades = mngPropiedades.RecuperarPropiedades(tipo, TipoProp, Estado, Ambiente, Ubicaciones, ValorDesde, ValorHasta);
             } 
             #endregion
 
@@ -281,6 +324,38 @@ namespace GI.UI.Propiedades
         }
 
         #endregion
+
+        private void cbLocalidad2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbLocalidad2.SelectedIndex <= 0) return;
+
+
+
+            GI.BR.Propiedades.Ubicaciones.Localidad Localidad = (GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad2.SelectedItem;
+            GI.BR.Propiedades.Ubicaciones.Barrios Barrios = uff.GetBarrios(Localidad.IdLocalidad);
+
+            cbBarrio2.Items.Clear();
+            //cbBarrio2.Items.Add("Seleccione opción...");
+            foreach (GI.BR.Propiedades.Ubicaciones.Barrio b in Barrios)
+                cbBarrio2.Items.Add(b);
+            //cbBarrio.SelectedIndex = 0;
+        }
+
+        private void cbLocalidad3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbLocalidad3.SelectedIndex <= 0) return;
+
+
+
+            GI.BR.Propiedades.Ubicaciones.Localidad Localidad = (GI.BR.Propiedades.Ubicaciones.Localidad)cbLocalidad3.SelectedItem;
+            GI.BR.Propiedades.Ubicaciones.Barrios Barrios = uff.GetBarrios(Localidad.IdLocalidad);
+
+            cbBarrio3.Items.Clear();
+            //cbBarrio2.Items.Add("Seleccione opción...");
+            foreach (GI.BR.Propiedades.Ubicaciones.Barrio b in Barrios)
+                cbBarrio3.Items.Add(b);
+            //cbBarrio.SelectedIndex = 0;
+        }
 
         
     }
