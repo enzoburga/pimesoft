@@ -370,7 +370,7 @@ namespace WebApplication.Controles
                 else
                     tipoOperacion = typeof(GI.BR.Propiedades.Venta);
 
-                pedido.EstadoPropiedad = tipoOperacion;
+                pedido.EstadoPropiedad = tipoOperacion.ToString();
 
                 pedido.ValorInicial = getValor(tbValorDesde.Text);
                 pedido.ValorFinal = getValor(tbValorHasta.Text);

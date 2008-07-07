@@ -63,9 +63,9 @@ namespace GI.UI.Pedidos
                 else
                     lvi.SubItems.Add("----");
 
-                if (p.EstadoPropiedad == typeof(GI.BR.Propiedades.Venta))
+                if (p.EstadoPropiedad == typeof(GI.BR.Propiedades.Venta).ToString())
                     lvi.SubItems.Add("Venta");
-                if (p.EstadoPropiedad == typeof(GI.BR.Propiedades.Alquiler))
+                if (p.EstadoPropiedad == typeof(GI.BR.Propiedades.Alquiler).ToString())
                     lvi.SubItems.Add("Alquiler");
 
                 if (p.Moneda != null)
@@ -165,7 +165,7 @@ namespace GI.UI.Pedidos
             frmFichaPedidos frm = new frmFichaPedidos();
 
             GI.BR.Pedidos.Pedido pedido = new GI.BR.Pedidos.Pedido();
-            pedido.EstadoPropiedad = typeof(GI.BR.Propiedades.Venta);
+            pedido.EstadoPropiedad = typeof(GI.BR.Propiedades.Venta).ToString();
             
             pedido.Ubicacion = new GI.BR.Propiedades.Ubicacion();
         
@@ -189,7 +189,7 @@ namespace GI.UI.Pedidos
             frmFichaPedidos frm = new frmFichaPedidos();
 
             GI.BR.Pedidos.Pedido pedido = new GI.BR.Pedidos.Pedido();
-            pedido.EstadoPropiedad = typeof(GI.BR.Propiedades.Alquiler);
+            pedido.EstadoPropiedad = typeof(GI.BR.Propiedades.Alquiler).ToString();
 
             pedido.Ubicacion = new GI.BR.Propiedades.Ubicacion();
 

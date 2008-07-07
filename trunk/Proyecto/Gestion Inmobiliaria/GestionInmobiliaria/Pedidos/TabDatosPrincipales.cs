@@ -187,7 +187,7 @@ namespace GI.UI.Pedidos
 
 
             GI.BR.Propiedades.EstadosPropiedad Estados = new GI.BR.Propiedades.EstadosPropiedad();
-            Estados.RecuperarEstados(Pedido.EstadoPropiedad);
+            Estados.RecuperarEstados(System.Type.GetType(Pedido.EstadoPropiedad));
             cbEstado.Items.Clear();
             cbEstado.Items.Add("Sin Definir");
             foreach (GI.BR.Propiedades.EstadoPropiedad Estado in Estados)
@@ -347,7 +347,7 @@ namespace GI.UI.Pedidos
                 else
                     gbDepartamento.Enabled = false;
 
-                if (Pedido.EstadoPropiedad == typeof(GI.BR.Propiedades.Venta) && ((GI.BR.Propiedades.TipoPropiedad)cbTipoPropiedad.SelectedItem).Descripcion == "Campo")
+                if (Pedido.EstadoPropiedad == typeof(GI.BR.Propiedades.Venta).ToString() && ((GI.BR.Propiedades.TipoPropiedad)cbTipoPropiedad.SelectedItem).Descripcion == "Campo")
                     gbTerreno.Enabled = true;
                 else
                     gbTerreno.Enabled = false;

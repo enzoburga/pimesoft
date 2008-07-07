@@ -24,7 +24,7 @@ namespace GI.BR.Pedidos
         private int idPedido;
         private GI.BR.Clientes.ClientePedido clientePedido;
 
-        private Type estadoPropiedad;
+        private string estadoPropiedad;
         private TipoPropiedad tipoPropiedad;
         private CategoriaPropiedad categoria;
         private EstadoPropiedad estado;
@@ -59,17 +59,21 @@ namespace GI.BR.Pedidos
 
         public GI.BR.Clientes.ClientePedido ClientePedido { get { return clientePedido; } set { clientePedido = value; } }
 
-        public Type EstadoPropiedad { get { return estadoPropiedad; } set { estadoPropiedad = value; } }
+        public string EstadoPropiedad { get { return estadoPropiedad; } set { estadoPropiedad = value; } }
 
         public TipoPropiedad TipoPropiedad { get { return tipoPropiedad; } set { tipoPropiedad = value; } }
 
         public CategoriaPropiedad Categoria { get { return categoria; } set { categoria = value; } }
 
+        [System.Xml.Serialization.XmlIgnore]
         public EstadoPropiedad Estado
         {
             get
             {
-                return GI.BR.Propiedades.EstadoPropiedadFlyweigthFactory.GetInstancia(this.EstadoPropiedad).GetEstadoBase();
+                if ("GI.BR.Propiedades.Alquiler" == EstadoPropiedad)
+                    return GI.BR.Propiedades.EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Alquiler)).GetEstadoBase();
+                else
+                    return GI.BR.Propiedades.EstadoPropiedadFlyweigthFactory.GetInstancia(typeof(GI.BR.Propiedades.Venta)).GetEstadoBase();
             }
         }
 
@@ -438,7 +442,7 @@ namespace GI.BR.Pedidos
             else
                 this.EsAptoProfesional = dr.GetBoolean(dr.GetOrdinal("EsAptoProfesional"));
 
-            this.EstadoPropiedad = Type.GetType(dr.GetString(dr.GetOrdinal("EstadoPropiedad")));
+            this.EstadoPropiedad = dr.GetString(dr.GetOrdinal("EstadoPropiedad"));
 
             //if (dr.IsDBNull(dr.GetOrdinal("IdEstadoPropiedad")))
             //    this.Estado = null;

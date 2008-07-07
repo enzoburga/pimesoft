@@ -177,7 +177,7 @@ namespace GI.Managers.Pedidos
                         continue;
 
                 if(tipo != null)
-                    if (p.EstadoPropiedad != tipo)
+                    if (p.EstadoPropiedad != tipo.ToString())
                         continue;
 
                 filtro.Add(p);
@@ -221,7 +221,7 @@ namespace GI.Managers.Pedidos
                     if (!p.Activo)
                         continue;
 
-                if (p.EstadoPropiedad != propiedad.GetType())
+                if (p.EstadoPropiedad != propiedad.GetType().ToString())
                     continue;
 
                 if (!CoincidePropiedadPedido(propiedad, p))
