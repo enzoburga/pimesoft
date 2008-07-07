@@ -357,6 +357,166 @@ body {
                             <td align="left" bordercolor="#CCCCCC" style="width: 220px">
                               <asp:Label ID="r2v9" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
                           </tr>
+                            <tr>
+                                <td align="right" style="width: 200px">
+                                </td>
+                                <td style="width: 5px">
+                                </td>
+                                <td align="left" style="width: 200px">
+                                </td>
+                                <td style="width: 15px">
+                                </td>
+                                <td align="right" bordercolor="#cccccc" style="width: 240px">
+                                    <asp:Label ID="r2c10" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                                <td bordercolor="#cccccc" style="width: 5px">
+                                </td>
+                                <td align="left" bordercolor="#cccccc" style="width: 220px">
+                                    <asp:Label ID="r2v10" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td align="right" style="width: 200px">
+                                </td>
+                                <td style="width: 5px">
+                                </td>
+                                <td align="left" style="width: 200px">
+                                </td>
+                                <td style="width: 15px">
+                                </td>
+                                <td align="right" bordercolor="#cccccc" style="width: 240px">
+                                    <asp:Label ID="r2c11" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                                <td bordercolor="#cccccc" style="width: 5px">
+                                </td>
+                                <td align="left" bordercolor="#cccccc" style="width: 220px">
+                                    <asp:Label ID="r2v11" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td align="right" style="width: 200px">
+                                </td>
+                                <td style="width: 5px">
+                                </td>
+                                <td align="left" style="width: 200px">
+                                </td>
+                                <td style="width: 15px">
+                                </td>
+                                <td align="right" bordercolor="#cccccc" style="width: 240px">
+                                    <asp:Label ID="r2c12" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                                <td bordercolor="#cccccc" style="width: 5px">
+                                </td>
+                                <td align="left" bordercolor="#cccccc" style="width: 220px">
+                                    <asp:Label ID="r2v12" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td align="right" style="width: 200px">
+                                </td>
+                                <td style="width: 5px">
+                                </td>
+                                <td align="left" style="width: 200px">
+                                </td>
+                                <td style="width: 15px">
+                                </td>
+                                <td align="right" bordercolor="#cccccc" style="width: 240px">
+                                    <asp:Label ID="r2c13" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                                <td bordercolor="#cccccc" style="width: 5px">
+                                </td>
+                                <td align="left" bordercolor="#cccccc" style="width: 220px">
+                                    <asp:Label ID="r2v13" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td align="right" style="width: 200px">
+                                </td>
+                                <td style="width: 5px">
+                                </td>
+                                <td align="left" style="width: 200px">
+                                </td>
+                                <td style="width: 15px">
+                                </td>
+                                <td align="right" bordercolor="#cccccc" style="width: 240px">
+                                    <asp:Label ID="r2c14" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                                <td bordercolor="#cccccc" style="width: 5px">
+                                </td>
+                                <td align="left" bordercolor="#cccccc" style="width: 220px">
+                                    <asp:Label ID="r2v14" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td align="right" style="width: 200px">
+                                </td>
+                                <td style="width: 5px">
+                                </td>
+                                <td align="left" style="width: 200px">
+                                </td>
+                                <td style="width: 15px">
+                                </td>
+                                <td align="right" bordercolor="#cccccc" style="width: 240px">
+                                    <asp:Label ID="r2c15" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                                <td bordercolor="#cccccc" style="width: 5px">
+                                </td>
+                                <td align="left" bordercolor="#cccccc" style="width: 220px">
+                                    <asp:Label ID="r2v15" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td align="right" style="width: 200px">
+                                </td>
+                                <td style="width: 5px">
+                                </td>
+                                <td align="left" style="width: 200px">
+                                </td>
+                                <td style="width: 15px">
+                                </td>
+                                <td align="right" bordercolor="#cccccc" style="width: 240px">
+                                    <asp:Label ID="r2c16" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                                <td bordercolor="#cccccc" style="width: 5px">
+                                </td>
+                                <td align="left" bordercolor="#cccccc" style="width: 220px">
+                                    <asp:Label ID="r2v16" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td align="right" style="width: 200px">
+                                </td>
+                                <td style="width: 5px">
+                                </td>
+                                <td align="left" style="width: 200px">
+                                </td>
+                                <td style="width: 15px">
+                                </td>
+                                <td align="right" bordercolor="#cccccc" style="width: 240px">
+                                    <asp:Label ID="r2c17" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                                <td bordercolor="#cccccc" style="width: 5px">
+                                </td>
+                                <td align="left" bordercolor="#cccccc" style="width: 220px">
+                                    <asp:Label ID="r2v17" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td align="right" style="width: 200px">
+                                </td>
+                                <td style="width: 5px">
+                                </td>
+                                <td align="left" style="width: 200px">
+                                </td>
+                                <td style="width: 15px">
+                                </td>
+                                <td align="right" bordercolor="#cccccc" style="width: 240px">
+                                    <asp:Label ID="r2c18" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                                <td bordercolor="#cccccc" style="width: 5px">
+                                </td>
+                                <td align="left" bordercolor="#cccccc" style="width: 220px">
+                                    <asp:Label ID="r2v18" runat="server" Font-Names="Arial" Font-Size="Small"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td align="right" style="width: 200px">
+                                </td>
+                                <td style="width: 5px">
+                                </td>
+                                <td align="left" style="width: 200px">
+                                </td>
+                                <td style="width: 15px">
+                                </td>
+                                <td align="right" bordercolor="#cccccc" style="width: 240px">
+                                </td>
+                                <td bordercolor="#cccccc" style="width: 5px">
+                                </td>
+                                <td align="left" bordercolor="#cccccc" style="width: 220px">
+                                </td>
+                            </tr>
                           <tr>
                             <td colspan="7" style="background-color: #ff0000; text-align: center"> <span style="font-size: 10pt; color: #FFFFFF; font-weight: bold;"> OBSERVACIONES</span></td>
                           </tr>

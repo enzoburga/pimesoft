@@ -22,6 +22,18 @@ namespace GI.BR.Propiedades
 
         }
 
+        public override void RecuperarPorId(int IdPropiedad)
+        {
+            GI.DA.PropiedadesData data = new GI.DA.PropiedadesData();
+            using (System.Data.IDataReader dr = data.RecuperarVentaPorId(IdPropiedad))
+            {
+                if (dr.Read())
+                    CargarPropiedad(dr);
+            }
+            this.cargado = true;
+
+        }
+
         public override EstadoPropiedad Estado
         {
             get

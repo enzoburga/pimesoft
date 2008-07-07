@@ -581,5 +581,21 @@ namespace GI.DA
         #endregion
 
 
+
+        public IDataReader RecuperarVentaPorId(int IdPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                "PropiedadesVentas_RecuperarPorId",
+                new object[] { IdPropiedad },
+                new string[] { "@IdPropiedad" });
+        }
+
+        public IDataReader RecuperarAlquilerPorId(int IdPropiedad)
+        {
+            return AccesoDatos.RecuperarDatos(
+                "PropiedadesAlquileres_RecuperarPorId",
+                new object[] { IdPropiedad },
+                new string[] { "@IdPropiedad" });
+        }
     }
 }
