@@ -28,7 +28,7 @@ namespace GI.UI.Pedidos
 
                 pedido = value;
                 pedidoClone = (GI.BR.Pedidos.Pedido)pedido.Clone();
-                if(pedido.EstadoPropiedad == typeof(GI.BR.Propiedades.Venta))
+                if(pedido.EstadoPropiedad == typeof(GI.BR.Propiedades.Venta).ToString())
                     this.Text = "Pedido de Venta";
                 else
                     this.Text = "Pedido de Alquiler";

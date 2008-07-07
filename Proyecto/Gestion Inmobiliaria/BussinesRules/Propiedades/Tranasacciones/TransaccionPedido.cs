@@ -4,6 +4,7 @@ using System.Text;
 
 namespace GI.BR.Propiedades.Tranasacciones
 {
+    [Serializable]
     public class TransaccionPedido : Transaccion
     {
 
