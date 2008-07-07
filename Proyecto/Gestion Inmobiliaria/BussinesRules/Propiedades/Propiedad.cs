@@ -82,7 +82,7 @@ namespace GI.BR.Propiedades
 
 
 
-        private bool cargado = false;
+        protected bool cargado = false;
         
         #endregion
 
@@ -734,18 +734,6 @@ namespace GI.BR.Propiedades
 
         }
 
-        public void RecuperarPorId(int IdPropiedad)
-        {
-            GI.DA.PropiedadesData data = new GI.DA.PropiedadesData();
-            using (System.Data.IDataReader dr = data.RecuperarPropiedadPorId(IdPropiedad))
-            {
-                if (dr.Read())
-                    CargarPropiedad(dr);
-            }
-            this.cargado = true;
-
-        }
-
         private void Cargar()
         {
             GI.DA.PropiedadesData data = new GI.DA.PropiedadesData();
@@ -757,7 +745,9 @@ namespace GI.BR.Propiedades
             this.cargado = true;
         }
 
-        private void CargarPropiedad(System.Data.IDataReader dr)
+        public abstract void RecuperarPorId(int IdPropiedad);
+
+        protected void CargarPropiedad(System.Data.IDataReader dr)
         {
 
             this.cargado = true;

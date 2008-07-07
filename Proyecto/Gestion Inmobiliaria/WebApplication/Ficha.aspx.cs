@@ -30,7 +30,12 @@ namespace WebApplication
             lOrientacion.Text = pRow.Ubicacion;
             lAntiguedad.Text = pRow.Antiguedad;
             lEstado.Text = pRow.Estado;
-            lPrecio.Text = pRow.Precio;
+
+            if(GetPropiedadSeleccionada.PublicarSinPrecio)
+                lPrecio.Text = "<a href='mailto:info@pime.com.ar'>Consultar</a>";                
+            else
+                lPrecio.Text = pRow.Precio;
+
             lObservaciones.Text = pRow.Observaciones;
             lCodigo.Text = pRow.Codigo;
             #endregion
@@ -143,6 +148,37 @@ namespace WebApplication
             if (!r2Row.IsCampo9Null())
                 r2c9.Text = r2Row.Campo9;
 
+            if (!r2Row.IsCampo10Null())
+                r2c10.Text = r2Row.Campo10;
+
+            if (!r2Row.IsCampo11Null())
+                r2c11.Text = r2Row.Campo11;
+
+            if (!r2Row.IsCampo12Null())
+                r2c12.Text = r2Row.Campo12;
+
+            if (!r2Row.IsCampo13Null())
+                r2c13.Text = r2Row.Campo13;
+
+            if (!r2Row.IsCampo14Null())
+                r2c14.Text = r2Row.Campo14;
+
+            if (!r2Row.IsCampo15Null())
+                r2c15.Text = r2Row.Campo15;
+
+            if (!r2Row.IsCampo16Null())
+                r2c16.Text = r2Row.Campo16;
+
+            if (!r2Row.IsCampo17Null())
+                r2c17.Text = r2Row.Campo17;
+
+            if (!r2Row.IsCampo18Null())
+                r2c18.Text = r2Row.Campo18;
+
+
+
+
+
             if (!r2Row.IsValor2Null())
                 r2v1.Text = r2Row.Valor1;
 
@@ -169,6 +205,33 @@ namespace WebApplication
 
             if (!r2Row.IsValor9Null())
                 r2v9.Text = r2Row.Valor9;
+
+            if (!r2Row.IsValor10Null())
+                r2v10.Text = r2Row.Valor10;
+
+            if (!r2Row.IsValor11Null())
+                r2v11.Text = r2Row.Valor11;
+
+            if (!r2Row.IsValor12Null())
+                r2v12.Text = r2Row.Valor12;
+
+            if (!r2Row.IsValor13Null())
+                r2v13.Text = r2Row.Valor13;
+
+            if (!r2Row.IsValor14Null())
+                r2v14.Text = r2Row.Valor14;
+
+            if (!r2Row.IsValor15Null())
+                r2v15.Text = r2Row.Valor15;
+
+            if (!r2Row.IsValor16Null())
+                r2v16.Text = r2Row.Valor16;
+
+            if (!r2Row.IsValor17Null())
+                r2v17.Text = r2Row.Valor17;
+
+            if (!r2Row.IsValor18Null())
+                r2v18.Text = r2Row.Valor18;
 
             #endregion
 

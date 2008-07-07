@@ -56,10 +56,14 @@ namespace WebApplication.Controles
                     else
                         dr[5] = p.ValorPublicacion.ToString();
                     dr[6] = p.Codigo.ToString();
-                    if (p.Estado.Descripcion == "Reservado")
-                        dr[7] = "<br>Reservado</br>";
-                    else
-                        dr[7] = "";
+
+                    if (p.Estado != null)
+                    {
+                        if (p.Estado.Descripcion == "Reservado")
+                            dr[7] = "<br>Reservado</br>";
+                        else
+                            dr[7] = "";
+                    }
                     dt.Rows.Add(dr);
                 }
             }
