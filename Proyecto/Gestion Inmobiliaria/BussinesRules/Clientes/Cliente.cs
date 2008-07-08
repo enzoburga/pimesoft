@@ -26,10 +26,14 @@ namespace GI.BR.Clientes
         private Nullable<DateTime> fechaNacimiento;
         private string email;
         private bool cargado = false;
+
         #endregion
 
 
         #region Propiedades Publicas
+
+
+
 
         public int IdCliente
         {
@@ -98,6 +102,13 @@ namespace GI.BR.Clientes
             }
             set { telefonoParticular = value; }
         }
+
+        public bool Cargado
+        {
+            get { return cargado; }
+            set { cargado = value; }
+        }
+
 
         public string TelefonoTrabajo
         {

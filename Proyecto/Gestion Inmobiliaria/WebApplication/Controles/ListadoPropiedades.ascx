@@ -1,4 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ListadoPropiedades.ascx.cs" Inherits="WebApplication.Controles.ListadoPropiedades" %>
+
+
 <asp:Label ID="lMensaje" runat="server"></asp:Label><br />
 <br />
 <asp:DataList id="DataList1" runat="server" Font-Underline="False" Font-Strikeout="False" Font-Overline="False" Font-Italic="False" Font-Bold="False" ForeColor="#333333" CellPadding="4">
@@ -8,11 +10,11 @@
 <ItemTemplate>
                     <table cellpadding="10" style="font: 10pt verdana" width="730">
                       <tr>
-                        <td valign="top" style="width: 220px; height: 220px; text-align: center"> 
+                        <td valign="top" style="220px; height: 220px; text-align: center"> 
                             <%# DataBinder.Eval(Container.DataItem, "Reservado") %>
                             <img alt="Foto Fachada" align="top" src='<%# DataBinder.Eval(Container.DataItem, "Thumbnail")%>' /> <br  />
                             <a href='<%# DataBinder.Eval(Container.DataItem, "Link") %>'>Ver Ficha</a> </td>
-                        <td valign="top" align="left"> <b>Detalles</b><br  />
+                        <td valign="top" align="left" style="color: black"> <b>Detalles</b><br  />
                             <br  />
                             <%# DataBinder.Eval(Container.DataItem, "Detalles") %><br  />
                             <br  />
