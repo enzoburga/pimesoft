@@ -20,8 +20,8 @@ namespace WebApplication
 
         protected void bAceptar_Click(object sender, ImageClickEventArgs e)
         {
-            if (tbConfirmar.Text.ToLower() != tbEmail.Text.ToLower())
-                lError.Text = "Verifique las direcciones de Email, deben ser identicas.";
+            if ((tbConfirmar.Text.ToLower() != tbEmail.Text.ToLower()) || (tbConfirmar.Text == "" && tbEmail.Text == ""))
+                lError.Text = "Verifique las direcciones de Email, deben ser identicas y no vacias.";
             else
             {
                 GI.Managers.Clientes.mngClientes mng = new GI.Managers.Clientes.mngClientes();
