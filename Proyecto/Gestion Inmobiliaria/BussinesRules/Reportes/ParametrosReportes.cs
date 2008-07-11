@@ -40,10 +40,13 @@ namespace GI.BR.Reportes
                 if (dr.Read())
                 {
                     ms = new System.IO.MemoryStream((byte[])dr.GetValue(dr.GetOrdinal("Encabezado")));
-                    this.Encabezado = new System.Drawing.Bitmap(ms);
+                    if (ms.Length > 0)
+                        this.Encabezado = new System.Drawing.Bitmap(ms);
+
 
                     ms1 = new System.IO.MemoryStream((byte[])dr.GetValue(dr.GetOrdinal("PiePagina")));
-                    this.PiePagina = new System.Drawing.Bitmap(ms1);
+                    if (ms1.Length > 0)
+                        this.PiePagina = new System.Drawing.Bitmap(ms1);
 
 
 
@@ -67,16 +70,21 @@ namespace GI.BR.Reportes
                 using (MemoryStream ms1 = new MemoryStream()) 
                 using (MemoryStream ms = new MemoryStream())
                 {
-                    encabezado.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    imgBytes = ms.GetBuffer();
-                    encabezado.Dispose();
-                    ms.Close();
+                    if (encabezado != null)
+                    {
+                        encabezado.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        imgBytes = ms.GetBuffer();
+                        encabezado.Dispose();
+                        ms.Close();
+                    }
 
-                    piePagina.Save(ms1, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    imgBytes2 = ms1.GetBuffer();
-                    piePagina.Dispose();
-                    ms1.Close();
-
+                    if (piePagina != null)
+                    {
+                        piePagina.Save(ms1, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        imgBytes2 = ms1.GetBuffer();
+                        piePagina.Dispose();
+                        ms1.Close();
+                    }
 
                     new DA.ParametrosReportesData().GuardarParametrosReporte(
                         imgBytes, imgBytes2);
