@@ -257,7 +257,7 @@ namespace GI.DA
             {
                 if (dr.Read())
                 {
-                    id = dr.GetInt32(0);
+                    id = dr.IsDBNull(0) ? 1 : dr.GetInt32(0);
                 }
             }
 
