@@ -3831,6 +3831,26 @@ namespace GI.Reportes.DataSet {
             
             private global::System.Data.DataColumn columnNombreRegion;
             
+            private global::System.Data.DataColumn columnCampo9;
+            
+            private global::System.Data.DataColumn columnValor9;
+            
+            private global::System.Data.DataColumn columnCampo10;
+            
+            private global::System.Data.DataColumn columnValor10;
+            
+            private global::System.Data.DataColumn columnCampo11;
+            
+            private global::System.Data.DataColumn columnValor11;
+            
+            private global::System.Data.DataColumn columnCampo12;
+            
+            private global::System.Data.DataColumn columnValor12;
+            
+            private global::System.Data.DataColumn columnCampo13;
+            
+            private global::System.Data.DataColumn columnValor13;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public Region5DataTable() {
                 this.TableName = "Region5";
@@ -3981,6 +4001,76 @@ namespace GI.Reportes.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn Campo9Column {
+                get {
+                    return this.columnCampo9;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn Valor9Column {
+                get {
+                    return this.columnValor9;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn Campo10Column {
+                get {
+                    return this.columnCampo10;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn Valor10Column {
+                get {
+                    return this.columnValor10;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn Campo11Column {
+                get {
+                    return this.columnCampo11;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn Valor11Column {
+                get {
+                    return this.columnValor11;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn Campo12Column {
+                get {
+                    return this.columnCampo12;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn Valor12Column {
+                get {
+                    return this.columnValor12;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn Campo13Column {
+                get {
+                    return this.columnCampo13;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn Valor13Column {
+                get {
+                    return this.columnValor13;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4026,7 +4116,17 @@ namespace GI.Reportes.DataSet {
                         string Valor7, 
                         string Campo8, 
                         string Valor8, 
-                        string NombreRegion) {
+                        string NombreRegion, 
+                        string Campo9, 
+                        string Valor9, 
+                        string Campo10, 
+                        string Valor10, 
+                        string Campo11, 
+                        string Valor11, 
+                        string Campo12, 
+                        string Valor12, 
+                        string Campo13, 
+                        string Valor13) {
                 Region5Row rowRegion5Row = ((Region5Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Campo1,
@@ -4045,7 +4145,17 @@ namespace GI.Reportes.DataSet {
                         Valor7,
                         Campo8,
                         Valor8,
-                        NombreRegion};
+                        NombreRegion,
+                        Campo9,
+                        Valor9,
+                        Campo10,
+                        Valor10,
+                        Campo11,
+                        Valor11,
+                        Campo12,
+                        Valor12,
+                        Campo13,
+                        Valor13};
                 rowRegion5Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRegion5Row);
                 return rowRegion5Row;
@@ -4087,6 +4197,16 @@ namespace GI.Reportes.DataSet {
                 this.columnCampo8 = base.Columns["Campo8"];
                 this.columnValor8 = base.Columns["Valor8"];
                 this.columnNombreRegion = base.Columns["NombreRegion"];
+                this.columnCampo9 = base.Columns["Campo9"];
+                this.columnValor9 = base.Columns["Valor9"];
+                this.columnCampo10 = base.Columns["Campo10"];
+                this.columnValor10 = base.Columns["Valor10"];
+                this.columnCampo11 = base.Columns["Campo11"];
+                this.columnValor11 = base.Columns["Valor11"];
+                this.columnCampo12 = base.Columns["Campo12"];
+                this.columnValor12 = base.Columns["Valor12"];
+                this.columnCampo13 = base.Columns["Campo13"];
+                this.columnValor13 = base.Columns["Valor13"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4125,6 +4245,26 @@ namespace GI.Reportes.DataSet {
                 base.Columns.Add(this.columnValor8);
                 this.columnNombreRegion = new global::System.Data.DataColumn("NombreRegion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombreRegion);
+                this.columnCampo9 = new global::System.Data.DataColumn("Campo9", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCampo9);
+                this.columnValor9 = new global::System.Data.DataColumn("Valor9", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValor9);
+                this.columnCampo10 = new global::System.Data.DataColumn("Campo10", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCampo10);
+                this.columnValor10 = new global::System.Data.DataColumn("Valor10", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValor10);
+                this.columnCampo11 = new global::System.Data.DataColumn("Campo11", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCampo11);
+                this.columnValor11 = new global::System.Data.DataColumn("Valor11", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValor11);
+                this.columnCampo12 = new global::System.Data.DataColumn("Campo12", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCampo12);
+                this.columnValor12 = new global::System.Data.DataColumn("Valor12", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValor12);
+                this.columnCampo13 = new global::System.Data.DataColumn("Campo13", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCampo13);
+                this.columnValor13 = new global::System.Data.DataColumn("Valor13", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValor13);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8058,6 +8198,156 @@ namespace GI.Reportes.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Campo9 {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegion5.Campo9Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Campo9\' in table \'Region5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegion5.Campo9Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Valor9 {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegion5.Valor9Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Valor9\' in table \'Region5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegion5.Valor9Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Campo10 {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegion5.Campo10Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Campo10\' in table \'Region5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegion5.Campo10Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Valor10 {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegion5.Valor10Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Valor10\' in table \'Region5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegion5.Valor10Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Campo11 {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegion5.Campo11Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Campo11\' in table \'Region5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegion5.Campo11Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Valor11 {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegion5.Valor11Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Valor11\' in table \'Region5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegion5.Valor11Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Campo12 {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegion5.Campo12Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Campo12\' in table \'Region5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegion5.Campo12Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Valor12 {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegion5.Valor12Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Valor12\' in table \'Region5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegion5.Valor12Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Campo13 {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegion5.Campo13Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Campo13\' in table \'Region5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegion5.Campo13Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Valor13 {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegion5.Valor13Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Valor13\' in table \'Region5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegion5.Valor13Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsCampo1Null() {
                 return this.IsNull(this.tableRegion5.Campo1Column);
             }
@@ -8225,6 +8515,106 @@ namespace GI.Reportes.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetNombreRegionNull() {
                 this[this.tableRegion5.NombreRegionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCampo9Null() {
+                return this.IsNull(this.tableRegion5.Campo9Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCampo9Null() {
+                this[this.tableRegion5.Campo9Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsValor9Null() {
+                return this.IsNull(this.tableRegion5.Valor9Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetValor9Null() {
+                this[this.tableRegion5.Valor9Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCampo10Null() {
+                return this.IsNull(this.tableRegion5.Campo10Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCampo10Null() {
+                this[this.tableRegion5.Campo10Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsValor10Null() {
+                return this.IsNull(this.tableRegion5.Valor10Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetValor10Null() {
+                this[this.tableRegion5.Valor10Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCampo11Null() {
+                return this.IsNull(this.tableRegion5.Campo11Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCampo11Null() {
+                this[this.tableRegion5.Campo11Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsValor11Null() {
+                return this.IsNull(this.tableRegion5.Valor11Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetValor11Null() {
+                this[this.tableRegion5.Valor11Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCampo12Null() {
+                return this.IsNull(this.tableRegion5.Campo12Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCampo12Null() {
+                this[this.tableRegion5.Campo12Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsValor12Null() {
+                return this.IsNull(this.tableRegion5.Valor12Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetValor12Null() {
+                this[this.tableRegion5.Valor12Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCampo13Null() {
+                return this.IsNull(this.tableRegion5.Campo13Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCampo13Null() {
+                this[this.tableRegion5.Campo13Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsValor13Null() {
+                return this.IsNull(this.tableRegion5.Valor13Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetValor13Null() {
+                this[this.tableRegion5.Valor13Column] = global::System.Convert.DBNull;
             }
         }
         
