@@ -261,7 +261,7 @@ namespace GI.Reportes.Clases.Propiedades
             }
             if (Propiedad.Baulera)
             {
-                row_region_5["Campo" + index] = "Baulera: ";
+        row_region_5["Campo" + index] = "Baulera: ";
                 row_region_5["Valor" + index] = "Si";
                 index++;
             }
