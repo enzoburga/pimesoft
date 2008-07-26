@@ -51,8 +51,8 @@ namespace WebApplication.Controles
                     dr[2] = "Ficha.aspx?Propiedad=" + p.IdPropiedad.ToString();
                     dr[3] = p.Direccion.ToStringReporte();
                     dr[4] = p.Ubicacion.Localidad.ToString() + " - " + p.Ubicacion.Barrio.ToString();
-                    if (p.PublicarSinPrecio)
-                        dr[5] = "<a href='mailto:info@pime.com.ar'>Consultar</a>";
+                    if (true)
+                        dr[5] = "<a href='mailto:"+ConfigurationManager.AppSettings["email"].ToString()+"'>Consultar</a>";
                     else
                         dr[5] = p.ValorPublicacion.ToString();
                     dr[6] = p.Codigo.ToString();
@@ -79,6 +79,8 @@ namespace WebApplication.Controles
             {
                 if (propiedades.Count == 0)
                     lMensaje.Text = "No se han encontrado propiedades que se ajunten al criterio de búsqueda.";
+                else
+                    lMensaje.Text = "";
 
                 #region cargar listado y paginador
                 PagedDataSource objPds = new PagedDataSource();

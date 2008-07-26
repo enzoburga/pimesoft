@@ -31,8 +31,8 @@ namespace WebApplication
             lAntiguedad.Text = pRow.Antiguedad;
             lEstado.Text = pRow.Estado;
 
-            if(GetPropiedadSeleccionada.PublicarSinPrecio)
-                lPrecio.Text = "<a href='mailto:info@pime.com.ar'>Consultar</a>";                
+            if (GetPropiedadSeleccionada.PublicarSinPrecio)
+                lPrecio.Text = "<a href='mailto:" + ConfigurationManager.AppSettings["email"].ToString() + "'>Consultar</a>";
             else
                 lPrecio.Text = pRow.Precio;
 
