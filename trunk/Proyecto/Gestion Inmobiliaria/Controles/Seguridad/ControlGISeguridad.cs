@@ -18,6 +18,12 @@ namespace GI.Framework.Seguridad
             InitializeComponent();
         }
 
+        private void ControlGISeguridad_Load(object sender, EventArgs e)
+        {
+            if (MngSeguridadDemo.GetInstancia.EsDemo)
+                soloLectura = true;
+        }
+
         #region ISoloLectura Members
 
         public virtual bool SoloLectura
@@ -94,5 +100,7 @@ namespace GI.Framework.Seguridad
         }
 
         #endregion
+
+
     }
 }

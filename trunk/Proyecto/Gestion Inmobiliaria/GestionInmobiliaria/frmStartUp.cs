@@ -20,6 +20,9 @@ namespace GI.UI
             InitializeComponent();
             builder = new FrmBuilder(this);
 
+            if (Framework.Seguridad.MngSeguridadDemo.GetInstancia.VersionDemo)
+                this.Text += " - (Version de prueba, quedan " + Framework.Seguridad.MngSeguridadDemo.GetInstancia.DiasParaVencimiento + " dias)";
+
 
             frmEventos = new frmPopUpEventos();
             frmEventos.MdiParent = this;

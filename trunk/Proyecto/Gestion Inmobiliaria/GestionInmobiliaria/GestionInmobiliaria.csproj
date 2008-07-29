@@ -147,6 +147,12 @@
     <Compile Include="FrmAcercaDe.Designer.cs">
       <DependentUpon>FrmAcercaDe.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAvisoDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAvisoDemo.Designer.cs">
+      <DependentUpon>FrmAvisoDemo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBuilder.cs" />
     <Compile Include="frmPopUpEventos.cs">
       <SubType>Form</SubType>
@@ -315,6 +321,10 @@
     <EmbeddedResource Include="FrmAcercaDe.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FrmAcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAvisoDemo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmAvisoDemo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPopUpEventos.resx">
       <SubType>Designer</SubType>

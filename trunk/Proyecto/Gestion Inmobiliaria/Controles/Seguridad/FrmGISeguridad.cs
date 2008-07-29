@@ -21,6 +21,8 @@ namespace GI.Framework.Seguridad
         private void FrmGISeguridad_Load(object sender, EventArgs e)
         {
 
+            if (MngSeguridadDemo.GetInstancia.EsDemo)
+                soloLectura = true;
 
             if (SoloLectura)
                 RefrezcarSoloLectura(this.Controls);
