@@ -51,7 +51,7 @@ namespace WebApplication.Controles
                     dr[2] = "Ficha.aspx?Propiedad=" + p.IdPropiedad.ToString();
                     dr[3] = p.Direccion.ToStringReporte();
                     dr[4] = p.Ubicacion.Localidad.ToString() + " - " + p.Ubicacion.Barrio.ToString();
-                    if (true)
+                    if (p.PublicarSinPrecio)
                         dr[5] = "<a href='mailto:"+ConfigurationManager.AppSettings["email"].ToString()+"'>Consultar</a>";
                     else
                         dr[5] = p.ValorPublicacion.ToString();
