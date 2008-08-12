@@ -15,9 +15,14 @@ namespace GI.Managers.Propiedades
 
         public bool ActualizarPropiedad(GI.BR.Propiedades.Propiedad p)
         {
+            //Elimino todos los ambientes, luego vuelvo a crear los que no se eliminaron.
+            p.EliminarAmbientes();
+            //seteo los idAmbientes en 0 para que los cree.
+            foreach (GI.BR.Propiedades.MedidaAmbiente m in p.Medidas)
+            {
+                m.IdMedidaAmbiente = 0;
+            }
             return p.Actualizar();
-
-
         }
 
 
@@ -27,16 +32,11 @@ namespace GI.Managers.Propiedades
             foto.IdFoto = IdFoto;
 
             return foto.Eliminar();
-
-
         }
 
 
         public bool AgregarFotoAGaleria(GI.BR.Propiedades.Galeria.Foto Foto, GI.BR.Propiedades.Propiedad p)
         { 
-            
-
-
             //Si la foto es fachada, eliminamos la fachada anterior.
             if (Foto.EsFachada)
             {
