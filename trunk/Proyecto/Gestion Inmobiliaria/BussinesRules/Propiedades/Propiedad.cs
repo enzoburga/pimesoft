@@ -932,5 +932,10 @@ namespace GI.BR.Propiedades
 
             return error;
         }
+
+        public virtual void EliminarAmbientes()
+        {
+            new DA.PropiedadesData().EliminarAmbientes(this.IdPropiedad);
+        }
     }
 }

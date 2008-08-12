@@ -597,5 +597,13 @@ namespace GI.DA
                 new object[] { IdPropiedad },
                 new string[] { "@IdPropiedad" });
         }
+
+        public bool EliminarAmbientes(int IdPropiedad)
+        {
+            return AccesoDatos.EliminarRegistro(
+                "Propiedades_EliminarAmbientes",
+                new object[] { IdPropiedad },
+                new string[] { "@IdPropiedad" });
+        }
     }
 }
