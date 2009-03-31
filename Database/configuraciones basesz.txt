@@ -1,0 +1,8 @@
+ <add key="ConnString" value="Data Source=www.estebangeremia.com.ar;Initial Catalog=InmobiliariaDb_esteban;Persist Security Info=True;User ID=esteban; password=1234" />
+ <add key="ConnString" value="Data Source=pime.com.ar;Initial Catalog=inmobiliariadb;Persist Security Info=True;User ID=user_db; password=1234" />
+ 
+ 
+
+
+
+http://code.google.com/p/pimesoft/source/browse/trunk/
