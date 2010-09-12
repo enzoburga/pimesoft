@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RecuperarTransaccionesPendientes">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecuperarTransaccionesPendientesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecuperarTransaccionesPendientesResult" type="tns:ArrayOfTransaccion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTransaccion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Transaccion" nillable="true" type="tns:Transaccion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Transaccion" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MensajeRespuesta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="tns:EnumEstadoTrans" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTransaccion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoTransaccion" type="tns:EnumTipoTransaccion" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Activa" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="EnumEstadoTrans">
+        <s:restriction base="s:string">
+          <s:enumeration value="Pendiente" />
+          <s:enumeration value="Sincronizado" />
+          <s:enumeration value="Error" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="EnumTipoTransaccion">
+        <s:restriction base="s:string">
+          <s:enumeration value="Crear" />
+          <s:enumeration value="Modificar" />
+          <s:enumeration value="Eliminar" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="TransaccionPedido">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Transaccion">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Pedido" type="tns:Pedido" />
+              <s:element minOccurs="1" maxOccurs="1" name="IdPedido" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Pedido">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdPedido" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientePedido" type="tns:ClientePedido" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoPropiedad" type="tns:Type" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoPropiedad" type="tns:TipoPropiedad" />
+          <s:element minOccurs="0" maxOccurs="1" name="Categoria" type="tns:CategoriaPropiedad" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnumEstado" nillable="true" type="tns:Estado" />
+          <s:element minOccurs="0" maxOccurs="1" name="CantidadAmbientesInicial" type="tns:Ambiente" />
+          <s:element minOccurs="0" maxOccurs="1" name="CantidadAmbientesFinal" type="tns:Ambiente" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ubicacion" type="tns:Ubicacion" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorInicial" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorFinal" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Moneda" type="tns:Moneda" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosTerrenoInicial" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosTerrenoFinal" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosCubiertosInicial" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosCubiertosFinal" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Disposicion" nillable="true" type="tns:DepartamentoDisposicion" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsAptoProfesional" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoZona" nillable="true" type="tns:TipoZona" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosConstruiblesInicial" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosConstruiblesFinal" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Activo" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaAlta" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClientePedido">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Cliente" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Cliente" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdCliente" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NroDocumento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoDocumento" type="tns:enumTipoDocumento" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefonoParticular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefonoTrabajo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefonoCelular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ubicacion" type="tns:Ubicacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="tns:Direccion" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNacimiento" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enumTipoDocumento">
+        <s:restriction base="s:string">
+          <s:enumeration value="DNI" />
+          <s:enumeration value="LC" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Ubicacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Pais" type="tns:Pais" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provincia" type="tns:Provincia" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="tns:Localidad" />
+          <s:element minOccurs="0" maxOccurs="1" name="Barrio" type="tns:Barrio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Pais">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdPais" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsDefault" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Provincia">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdProvincia" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdPais" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsDefault" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Localidad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdLocalidad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdProvincia" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsDefault" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Barrio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdBarrio" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdLocalidad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsDefault" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Direccion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CalleEntre1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CalleEntre2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Numero" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Depto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Piso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPostal" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Type" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MemberInfo" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MemberInfo" abstract="true" />
+      <s:complexType name="TipoPropiedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoPropiedad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdCategoria" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CategoriaPropiedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdCategoria" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TiposPropiedad" type="tns:ArrayOfTipoPropiedad" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTipoPropiedad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoPropiedad" nillable="true" type="tns:TipoPropiedad" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Estado">
+        <s:restriction base="s:string">
+          <s:enumeration value="AEstrenar" />
+          <s:enumeration value="Reciclado" />
+          <s:enumeration value="Bueno" />
+          <s:enumeration value="MuyBueno" />
+          <s:enumeration value="Regular" />
+          <s:enumeration value="Malo" />
+          <s:enumeration value="AReciclar" />
+          <s:enumeration value="NoEspecifica" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Ambiente">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadAmbientes" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Moneda">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdMoneda" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Simbolo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DepartamentoDisposicion">
+        <s:restriction base="s:string">
+          <s:enumeration value="Frente" />
+          <s:enumeration value="Contrafrente" />
+          <s:enumeration value="Lateral" />
+          <s:enumeration value="Interno" />
+          <s:enumeration value="SinDefinir" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="TipoZona">
+        <s:restriction base="s:string">
+          <s:enumeration value="Residencial" />
+          <s:enumeration value="Comercial" />
+          <s:enumeration value="Industrial" />
+          <s:enumeration value="SinDefinir" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="TransaccionProcesada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Transaccion" type="tns:Transaccion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransaccionProcesadaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ActualizarPropiedad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Propiedad" type="tns:Propiedad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Propiedad" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PublicarSinPrecio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Jardin" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Patio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Piscina" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Lavadero" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Dependencia" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quincho" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Parrilla" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balcon" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Terraza" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Playroom" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Baulera" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuartoHerraminetas" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorExpensas" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Antiguedad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Categoria" type="tns:CategoriaPropiedad" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadAmbientes" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdPropiedad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoPropiedad" type="tns:TipoPropiedad" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="tns:EstadoPropiedad" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnumEstado" type="tns:Estado" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ubicacion" type="tns:Ubicacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="tns:Direccion" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValorMercado" type="tns:Valor" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValorPublicacion" type="tns:Valor" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsOtraInmobiliaria" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Medidas" type="tns:ArrayOfMedidaAmbiente" />
+          <s:element minOccurs="0" maxOccurs="1" name="MedidasPropiedad" type="tns:MedidaPropiedad" />
+          <s:element minOccurs="0" maxOccurs="1" name="MedidasTerreno" type="tns:MedidasTerreno" />
+          <s:element minOccurs="0" maxOccurs="1" name="Orientacion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadBaños" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadCocheras" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadDormitorios" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadPlantas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Disposicion" type="tns:DepartamentoDisposicion" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsAptoProfesional" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadPisos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DepartamentosPorPiso" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadAscensores" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadAscensoresServicio" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoZona" type="tns:TipoZona" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fot" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zonificacion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosConstruibles" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstadoPropiedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoPropiedad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Valor">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Moneda" type="tns:Moneda" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMedidaAmbiente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MedidaAmbiente" nillable="true" type="tns:MedidaAmbiente" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MedidaAmbiente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TipoAmbiente" type="tns:TipoAmbiente" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ancho" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMedidaAmbiente" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Largo" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreAmbiente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoDePiso" type="tns:TipoDePiso" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoAmbiente">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Codigo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoAmbiente" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoDePiso">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoPiso" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MedidaPropiedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosCubiertos" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosSemicubiertos" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MetrosLibres" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MedidasTerreno">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Metros" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fondo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Frente" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Venta">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Propiedad" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Alquiler">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Propiedad" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ActualizarPropiedadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizarPropiedadResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IngresarPropiedad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Propiedad" type="tns:Propiedad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IngresarPropiedadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IngresarPropiedadResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarFotoAGaleria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Foto" type="tns:Foto" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdPropiedad" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Foto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdFoto" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsFachada" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="FotoByteArray" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarFotoAGaleriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarFotoAGaleriaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarFotoPropiedad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdFoto" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarFotoPropiedadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarFotoPropiedadResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RecuperarTransaccionesPendientesSoapIn">
+    <wsdl:part name="parameters" element="tns:RecuperarTransaccionesPendientes" />
+  </wsdl:message>
+  <wsdl:message name="RecuperarTransaccionesPendientesSoapOut">
+    <wsdl:part name="parameters" element="tns:RecuperarTransaccionesPendientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransaccionProcesadaSoapIn">
+    <wsdl:part name="parameters" element="tns:TransaccionProcesada" />
+  </wsdl:message>
+  <wsdl:message name="TransaccionProcesadaSoapOut">
+    <wsdl:part name="parameters" element="tns:TransaccionProcesadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarPropiedadSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarPropiedad" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarPropiedadSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarPropiedadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IngresarPropiedadSoapIn">
+    <wsdl:part name="parameters" element="tns:IngresarPropiedad" />
+  </wsdl:message>
+  <wsdl:message name="IngresarPropiedadSoapOut">
+    <wsdl:part name="parameters" element="tns:IngresarPropiedadResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarFotoAGaleriaSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarFotoAGaleria" />
+  </wsdl:message>
+  <wsdl:message name="AgregarFotoAGaleriaSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarFotoAGaleriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarFotoPropiedadSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarFotoPropiedad" />
+  </wsdl:message>
+  <wsdl:message name="EliminarFotoPropiedadSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarFotoPropiedadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PropiedadesServicioSincSoap">
+    <wsdl:operation name="RecuperarTransaccionesPendientes">
+      <wsdl:input message="tns:RecuperarTransaccionesPendientesSoapIn" />
+      <wsdl:output message="tns:RecuperarTransaccionesPendientesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransaccionProcesada">
+      <wsdl:input message="tns:TransaccionProcesadaSoapIn" />
+      <wsdl:output message="tns:TransaccionProcesadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPropiedad">
+      <wsdl:input message="tns:ActualizarPropiedadSoapIn" />
+      <wsdl:output message="tns:ActualizarPropiedadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarPropiedad">
+      <wsdl:input message="tns:IngresarPropiedadSoapIn" />
+      <wsdl:output message="tns:IngresarPropiedadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarFotoAGaleria">
+      <wsdl:input message="tns:AgregarFotoAGaleriaSoapIn" />
+      <wsdl:output message="tns:AgregarFotoAGaleriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarFotoPropiedad">
+      <wsdl:input message="tns:EliminarFotoPropiedadSoapIn" />
+      <wsdl:output message="tns:EliminarFotoPropiedadSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PropiedadesServicioSincSoap" type="tns:PropiedadesServicioSincSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecuperarTransaccionesPendientes">
+      <soap:operation soapAction="http://tempuri.org/RecuperarTransaccionesPendientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransaccionProcesada">
+      <soap:operation soapAction="http://tempuri.org/TransaccionProcesada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPropiedad">
+      <soap:operation soapAction="http://tempuri.org/ActualizarPropiedad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarPropiedad">
+      <soap:operation soapAction="http://tempuri.org/IngresarPropiedad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarFotoAGaleria">
+      <soap:operation soapAction="http://tempuri.org/AgregarFotoAGaleria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarFotoPropiedad">
+      <soap:operation soapAction="http://tempuri.org/EliminarFotoPropiedad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PropiedadesServicioSincSoap12" type="tns:PropiedadesServicioSincSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecuperarTransaccionesPendientes">
+      <soap12:operation soapAction="http://tempuri.org/RecuperarTransaccionesPendientes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransaccionProcesada">
+      <soap12:operation soapAction="http://tempuri.org/TransaccionProcesada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPropiedad">
+      <soap12:operation soapAction="http://tempuri.org/ActualizarPropiedad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarPropiedad">
+      <soap12:operation soapAction="http://tempuri.org/IngresarPropiedad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarFotoAGaleria">
+      <soap12:operation soapAction="http://tempuri.org/AgregarFotoAGaleria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarFotoPropiedad">
+      <soap12:operation soapAction="http://tempuri.org/EliminarFotoPropiedad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PropiedadesServicioSinc">
+    <wsdl:port name="PropiedadesServicioSincSoap" binding="tns:PropiedadesServicioSincSoap">
+      <soap:address location="http://localhost:28058/PropiedadesServicioSinc.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PropiedadesServicioSincSoap12" binding="tns:PropiedadesServicioSincSoap12">
+      <soap12:address location="http://localhost:28058/PropiedadesServicioSinc.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

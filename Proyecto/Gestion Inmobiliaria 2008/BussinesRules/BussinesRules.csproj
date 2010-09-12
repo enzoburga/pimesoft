@@ -1,0 +1,159 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{66558686-DC74-4052-B6C9-B1F04797999A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GI.BR</RootNamespace>
+    <AssemblyName>GI.BR</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdmAlquileres\AdmAlquiler.cs" />
+    <Compile Include="AdmAlquileres\AdmAlquileres.cs" />
+    <Compile Include="AdmAlquileres\Contrato.cs" />
+    <Compile Include="AdmAlquileres\Contratos.cs" />
+    <Compile Include="AdmAlquileres\ValorRenta.cs" />
+    <Compile Include="AdmAlquileres\Pago.cs" />
+    <Compile Include="AdmAlquileres\Pagos.cs" />
+    <Compile Include="AdmAlquileres\ValoresRenta.cs" />
+    <Compile Include="Carteles\Cartel.cs" />
+    <Compile Include="Carteles\Carteles.cs" />
+    <Compile Include="Carteles\UbicacionCartel.cs" />
+    <Compile Include="Carteles\UbicacionesCartel.cs" />
+    <Compile Include="Carteles\UbicacionesCartelFlyweigthFactory.cs" />
+    <Compile Include="Clientes\Cliente.cs" />
+    <Compile Include="Clientes\ClienteFactory.cs" />
+    <Compile Include="Clientes\ClientePedido.cs" />
+    <Compile Include="Clientes\Clientes.cs" />
+    <Compile Include="Clientes\enumTipoClientes.cs" />
+    <Compile Include="Eventos\Configuracion.cs" />
+    <Compile Include="Eventos\EnumTipoEvento.cs" />
+    <Compile Include="Eventos\Evento.cs" />
+    <Compile Include="Eventos\EventoCumpleanios.cs" />
+    <Compile Include="Eventos\EventoPagoAlquiler.cs" />
+    <Compile Include="Eventos\Eventos.cs" />
+    <Compile Include="Eventos\EventoSincronizacion.cs" />
+    <Compile Include="Eventos\EventoVisita.cs" />
+    <Compile Include="Eventos\FactoryEventos.cs" />
+    <Compile Include="General\enumTipoDocumento.cs" />
+    <Compile Include="Inmobiliarias\Inmobiliaria.cs" />
+    <Compile Include="Inmobiliarias\InmobiliariaExterna.cs" />
+    <Compile Include="Inmobiliarias\InmobiliariasExternas.cs" />
+    <Compile Include="Mail\SmtpConfig.cs" />
+    <Compile Include="Monedas\Moneda.cs" />
+    <Compile Include="Monedas\Monedas.cs" />
+    <Compile Include="Monedas\MonedasFlyweigthFactory.cs" />
+    <Compile Include="Monedas\Valor.cs" />
+    <Compile Include="Pedidos\Pedido.cs" />
+    <Compile Include="Pedidos\Pedidos.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Propiedades\Alquiler.cs" />
+    <Compile Include="Propiedades\Ambientes.cs" />
+    <Compile Include="Propiedades\CategoriaPropiedad.cs" />
+    <Compile Include="Propiedades\CategoriaPropiedadFlyweigthFactory.cs" />
+    <Compile Include="Propiedades\CategoriasPropiedad.cs" />
+    <Compile Include="Propiedades\DepartamentoDisposicion.cs" />
+    <Compile Include="Propiedades\Direccion.cs" />
+    <Compile Include="Propiedades\Estado.cs" />
+    <Compile Include="Propiedades\EstadoPropiedad.cs" />
+    <Compile Include="Propiedades\EstadoPropiedadFlyweigthFactory.cs" />
+    <Compile Include="Propiedades\EstadosPropiedad.cs" />
+    <Compile Include="Clientes\Inquilino.cs" />
+    <Compile Include="Propiedades\Galeria\Foto.cs" />
+    <Compile Include="Propiedades\Galeria\GaleriaFotos.cs" />
+    <Compile Include="Propiedades\Llamado.cs" />
+    <Compile Include="Propiedades\Llamados.cs" />
+    <Compile Include="Propiedades\MedidaAmbiente.cs" />
+    <Compile Include="Propiedades\MedidaPropiedad.cs" />
+    <Compile Include="Propiedades\MedidasAmbiente.cs" />
+    <Compile Include="Propiedades\MedidasTerreno.cs" />
+    <Compile Include="Propiedades\Nota.cs" />
+    <Compile Include="Propiedades\Notas.cs" />
+    <Compile Include="Propiedades\Propiedad.cs" />
+    <Compile Include="Propiedades\Publicacion.cs" />
+    <Compile Include="Propiedades\Publicaciones.cs" />
+    <Compile Include="Propiedades\RedondeoNumeroDireccion.cs" />
+    <Compile Include="Propiedades\Tasacion.cs" />
+    <Compile Include="Propiedades\Tasaciones.cs" />
+    <Compile Include="Propiedades\TimpoAlarma.cs" />
+    <Compile Include="Propiedades\TipoAmbiente.cs" />
+    <Compile Include="Propiedades\TipoDePiso.cs" />
+    <Compile Include="Propiedades\TipoPropiedad.cs" />
+    <Compile Include="Propiedades\TiposAmbiente.cs" />
+    <Compile Include="Propiedades\TiposDePiso.cs" />
+    <Compile Include="Propiedades\TiposPropiedad.cs" />
+    <Compile Include="Propiedades\TiposPropiedadFlyweightFactory.cs" />
+    <Compile Include="Propiedades\TipoZona.cs" />
+    <Compile Include="Propiedades\Tranasacciones\EnumEstadoTrans.cs" />
+    <Compile Include="Propiedades\Tranasacciones\EnumTipoTransaccion.cs" />
+    <Compile Include="Propiedades\Tranasacciones\Transaccion.cs" />
+    <Compile Include="Propiedades\Tranasacciones\Transacciones.cs" />
+    <Compile Include="Propiedades\Tranasacciones\TransaccionFotoPropiedad.cs" />
+    <Compile Include="Propiedades\Tranasacciones\TransaccionPedido.cs" />
+    <Compile Include="Propiedades\Tranasacciones\TransaccionPropiedad.cs" />
+    <Compile Include="Propiedades\Ubicacion.cs" />
+    <Compile Include="Propiedades\UbicacionesCollection.cs" />
+    <Compile Include="Propiedades\Ubicaciones\Barrio.cs" />
+    <Compile Include="Propiedades\PropiedadFactory.cs" />
+    <Compile Include="Propiedades\Ubicaciones\Localidad.cs" />
+    <Compile Include="Propiedades\Ubicaciones\Pais.cs" />
+    <Compile Include="Propiedades\Propiedades.cs" />
+    <Compile Include="Propiedades\Ubicaciones\Provincia.cs" />
+    <Compile Include="Propiedades\Ubicaciones\UbicacionFlyweightFactory.cs" />
+    <Compile Include="Propiedades\Venta.cs" />
+    <Compile Include="Clientes\Propietario.cs" />
+    <Compile Include="Propiedades\VisitaPropiedad.cs" />
+    <Compile Include="Propiedades\VisitasPropiedad.cs" />
+    <Compile Include="Reportes\ParametrosReportes.cs" />
+    <Compile Include="Seguridad\Usuario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{49D54CEC-D798-4349-8D29-022294E64789}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Propiedades\Web\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

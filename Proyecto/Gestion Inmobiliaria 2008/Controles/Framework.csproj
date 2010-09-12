@@ -1,0 +1,144 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{28CFEA97-AA29-49AE-9F7F-3CF337A0AB81}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GI.Framework</RootNamespace>
+    <AssemblyName>GI.Framework</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controles\Combobox\ComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Demo\FrmAvisoDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Demo\FrmAvisoDemo.Designer.cs">
+      <DependentUpon>FrmAvisoDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IBuscador.cs" />
+    <Compile Include="ListView\ListViewColumnSorter.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\MngSeguridadDemo.cs" />
+    <Compile Include="Seleccionador\EnumTipoBusqueda.cs" />
+    <Compile Include="Seleccionador\frmBuscador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seleccionador\frmBuscador.Designer.cs">
+      <DependentUpon>frmBuscador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seleccionador\frmSeleccionador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seleccionador\frmSeleccionador.Designer.cs">
+      <DependentUpon>frmSeleccionador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\enumTipoMensaje.cs" />
+    <Compile Include="General\GIMsgBox.cs" />
+    <Compile Include="Interfaces\ISeleccionadorObeto.cs" />
+    <Compile Include="Interfaces\ISoloLectura.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad\ControlGISeguridad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Seguridad\ControlGISeguridad.Designer.cs">
+      <DependentUpon>ControlGISeguridad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\FrmGISeguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\FrmGISeguridad.Designer.cs">
+      <DependentUpon>FrmGISeguridad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seleccionador\MetodoBusqueda.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Demo\FrmAvisoDemo.resx">
+      <DependentUpon>FrmAvisoDemo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\ControlGISeguridad.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ControlGISeguridad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seleccionador\frmBuscador.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBuscador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seleccionador\frmSeleccionador.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSeleccionador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\FrmGISeguridad.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmGISeguridad.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
