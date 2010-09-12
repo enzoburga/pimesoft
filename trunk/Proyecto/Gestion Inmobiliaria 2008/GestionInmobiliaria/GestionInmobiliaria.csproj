@@ -1,0 +1,753 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{05324A33-1FC5-44FF-A790-153B80F802A0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GI.UI</RootNamespace>
+    <AssemblyName>GestionInmobiliaria</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminAlquileres\frmBuscarAdminAlquileres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmBuscarAdminAlquileres.Designer.cs">
+      <DependentUpon>frmBuscarAdminAlquileres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmListadoAdmAlquiler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmListadoAdmAlquiler.Designer.cs">
+      <DependentUpon>frmListadoAdmAlquiler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmFichaAdmAlquileres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmFichaAdmAlquileres.Designer.cs">
+      <DependentUpon>frmFichaAdmAlquileres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmNuevaRenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmNuevaRenta.Designer.cs">
+      <DependentUpon>frmNuevaRenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmNuevoContrato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmNuevoContrato.Designer.cs">
+      <DependentUpon>frmNuevoContrato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmNuevoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\frmNuevoPago.Designer.cs">
+      <DependentUpon>frmNuevoPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabContenidoAdmAlquiler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabContenidoAdmAlquiler.Designer.cs">
+      <DependentUpon>TabContenidoAdmAlquiler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabDatosPrincipales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabDatosPrincipales.Designer.cs">
+      <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabHistorico.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabHistorico.Designer.cs">
+      <DependentUpon>TabHistorico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabPagos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminAlquileres\TabPagos.Designer.cs">
+      <DependentUpon>TabPagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Botonera.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Botonera.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Carteles\frmFichaCarteles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Carteles\frmFichaCarteles.Designer.cs">
+      <DependentUpon>frmFichaCarteles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Carteles\frmListadoCarteles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Carteles\frmListadoCarteles.Designer.cs">
+      <DependentUpon>frmListadoCarteles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmBuscarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmBuscarClientes.Designer.cs">
+      <DependentUpon>frmBuscarClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmFichaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmFichaCliente.Designer.cs">
+      <DependentUpon>frmFichaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmListadoClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmListadoClientes.Designer.cs">
+      <DependentUpon>frmListadoClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\SeleccionadorClientes.cs" />
+    <Compile Include="Clientes\TabDatosPrincipales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Clientes\TabDatosPrincipales.Designer.cs">
+      <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventosService.cs" />
+    <Compile Include="FrmAcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAcercaDe.Designer.cs">
+      <DependentUpon>FrmAcercaDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuilder.cs" />
+    <Compile Include="frmPopUpEventos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPopUpEventos.Designer.cs">
+      <DependentUpon>frmPopUpEventos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPublicacionWeb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPublicacionWeb.Designer.cs">
+      <DependentUpon>frmPublicacionWeb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStartUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStartUp.Designer.cs">
+      <DependentUpon>frmStartUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\CtrlContrato.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Generales\CtrlContrato.Designer.cs">
+      <DependentUpon>CtrlContrato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\CtrlDireccion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Generales\CtrlDireccion.Designer.cs">
+      <DependentUpon>CtrlDireccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\CtrlUbicacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Generales\CtrlUbicacion.Designer.cs">
+      <DependentUpon>CtrlUbicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\FrmParametrosGenerales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generales\FrmParametrosGenerales.Designer.cs">
+      <DependentUpon>FrmParametrosGenerales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\FrmSmtpConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generales\FrmSmtpConfig.Designer.cs">
+      <DependentUpon>FrmSmtpConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inmobiliarias\FrmInmobiliariaExterna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inmobiliarias\FrmInmobiliariaExterna.Designer.cs">
+      <DependentUpon>FrmInmobiliariaExterna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inmobiliarias\SeleccionadorInmobiliariaExterna.cs" />
+    <Compile Include="Pedidos\frmBuscarPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\frmBuscarPedidos.Designer.cs">
+      <DependentUpon>frmBuscarPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\frmFichaPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\frmFichaPedidos.Designer.cs">
+      <DependentUpon>frmFichaPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\frmListadoPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\frmListadoPedidos.Designer.cs">
+      <DependentUpon>frmListadoPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\TabContenidoPedidos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pedidos\TabContenidoPedidos.Designer.cs">
+      <DependentUpon>TabContenidoPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\TabDatosPrincipales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pedidos\TabDatosPrincipales.designer.cs">
+      <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\TabPropiedadesOfrecidas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pedidos\TabPropiedadesOfrecidas.Designer.cs">
+      <DependentUpon>TabPropiedadesOfrecidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\TabPropiedadesSinOfrecer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pedidos\TabPropiedadesSinOfrecer.Designer.cs">
+      <DependentUpon>TabPropiedadesSinOfrecer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminAlquileres\frmBuscarAdminAlquileres.resx">
+      <DependentUpon>frmBuscarAdminAlquileres.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\frmListadoAdmAlquiler.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmListadoAdmAlquiler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\frmFichaAdmAlquileres.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmFichaAdmAlquileres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\frmNuevaRenta.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNuevaRenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\frmNuevoContrato.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNuevoContrato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\frmNuevoPago.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNuevoPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\TabDatosPrincipales.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\TabHistorico.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabHistorico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAlquileres\TabPagos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Botonera.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Botonera.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Carteles\frmFichaCarteles.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmFichaCarteles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Carteles\frmListadoCarteles.resx">
+      <DependentUpon>frmListadoCarteles.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmBuscarClientes.resx">
+      <DependentUpon>frmBuscarClientes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmFichaCliente.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmFichaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmListadoClientes.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmListadoClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\TabDatosPrincipales.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAcercaDe.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmAcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPopUpEventos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPopUpEventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPublicacionWeb.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPublicacionWeb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStartUp.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmStartUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generales\CtrlContrato.resx">
+      <DependentUpon>CtrlContrato.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generales\CtrlDireccion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CtrlDireccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generales\CtrlUbicacion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CtrlUbicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generales\FrmParametrosGenerales.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmParametrosGenerales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generales\FrmSmtpConfig.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmSmtpConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inmobiliarias\FrmInmobiliariaExterna.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmInmobiliariaExterna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\frmBuscarPedidos.resx">
+      <DependentUpon>frmBuscarPedidos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\frmFichaPedidos.resx">
+      <DependentUpon>frmFichaPedidos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\frmListadoPedidos.resx">
+      <DependentUpon>frmListadoPedidos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\TabDatosPrincipales.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabDatosPrincipales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\TabPropiedadesOfrecidas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabPropiedadesOfrecidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\TabPropiedadesSinOfrecer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabPropiedadesSinOfrecer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\FrmLlamado.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLlamado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\FrmEnviarFichasMail.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmEnviarFichasMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\FrmFoto.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmFoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\FrmMedida.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMedida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\frmNota.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\FrmPublicacion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmPublicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\FrmSeleccionFotos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmSeleccionFotos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\FrmSeleccionTipoPropiedad.resx">
+      <DependentUpon>FrmSeleccionTipoPropiedad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\FrmTasacion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTasacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\Formularios\frmVisita.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmVisita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\frmBuscarPropiedades.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBuscarPropiedades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\frmFichaPropiedad.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmFichaPropiedad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\FrmListadoPropiedades.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmListadoPropiedades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\FrmListadoPropiedadesEnAlquiler.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmListadoPropiedadesEnAlquiler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabAdicionales.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabAdicionales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabContenidoPropiedad.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabContenidoPropiedad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabDetalles.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabDetalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabGaleriaFotos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabGaleriaFotos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabLlamadas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabLlamadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabNotas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabNotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabPedidos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabPropiedad.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabPropiedad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabPublicaciones.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabPublicaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabTasaciones.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabTasaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Propiedades\TabVisitas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabVisitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\FrmLogIn.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\DataSources\GI.BR.AdmAlquileres.AdmAlquiler.datasource" />
+    <None Include="Properties\DataSources\GI.BR.AdmAlquileres.Contrato.datasource" />
+    <None Include="Properties\DataSources\GI.BR.AdmAlquileres.ValorRenta.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Clientes.Cliente.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Clientes.Inquilino.datasource" />
+    <None Include="Properties\DataSources\GI.BR.InmobiliariaExterna.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Monedas.Moneda.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Pedidos.Pedido.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.Direccion1.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.MedidaAmbiente.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.MedidaPropiedad.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.MedidasTerreno.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.Propiedad.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.Tasacion.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.TipoDePiso.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Propiedades.Ubicacion.datasource" />
+    <None Include="Properties\DataSources\GI.BR.Valor.datasource" />
+    <Compile Include="Propiedades\Formularios\FrmLlamado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmLlamado.Designer.cs">
+      <DependentUpon>FrmLlamado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmEnviarFichasMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmEnviarFichasMail.Designer.cs">
+      <DependentUpon>FrmEnviarFichasMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmFoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmFoto.Designer.cs">
+      <DependentUpon>FrmFoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmMedida.Designer.cs">
+      <DependentUpon>FrmMedida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\frmNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\frmNota.Designer.cs">
+      <DependentUpon>frmNota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmPublicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmPublicacion.Designer.cs">
+      <DependentUpon>FrmPublicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmSeleccionFotos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmSeleccionFotos.Designer.cs">
+      <DependentUpon>FrmSeleccionFotos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmSeleccionTipoPropiedad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmSeleccionTipoPropiedad.designer.cs">
+      <DependentUpon>FrmSeleccionTipoPropiedad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmTasacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\FrmTasacion.Designer.cs">
+      <DependentUpon>FrmTasacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\frmVisita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\Formularios\frmVisita.Designer.cs">
+      <DependentUpon>frmVisita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\frmBuscarPropiedades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\frmBuscarPropiedades.Designer.cs">
+      <DependentUpon>frmBuscarPropiedades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\frmFichaPropiedad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\frmFichaPropiedad.Designer.cs">
+      <DependentUpon>frmFichaPropiedad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\FrmListadoPropiedades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\FrmListadoPropiedades.Designer.cs">
+      <DependentUpon>FrmListadoPropiedades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\FrmListadoPropiedadesEnAlquiler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Propiedades\FrmListadoPropiedadesEnAlquiler.Designer.cs">
+      <DependentUpon>FrmListadoPropiedadesEnAlquiler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\SeleccionadorPropiedades.cs" />
+    <Compile Include="Propiedades\TabAdicionales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabAdicionales.Designer.cs">
+      <DependentUpon>TabAdicionales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabContenidoPropiedad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabContenidoPropiedad.Designer.cs">
+      <DependentUpon>TabContenidoPropiedad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabDetalles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabDetalles.Designer.cs">
+      <DependentUpon>TabDetalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabGaleriaFotos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabGaleriaFotos.Designer.cs">
+      <DependentUpon>TabGaleriaFotos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabLlamadas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabLlamadas.Designer.cs">
+      <DependentUpon>TabLlamadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabNotas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabNotas.Designer.cs">
+      <DependentUpon>TabNotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabPedidos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabPedidos.Designer.cs">
+      <DependentUpon>TabPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabPropiedad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabPropiedad.Designer.cs">
+      <DependentUpon>TabPropiedad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabPublicaciones.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabPublicaciones.Designer.cs">
+      <DependentUpon>TabPublicaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabTasaciones.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabTasaciones.Designer.cs">
+      <DependentUpon>TabTasaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades\TabVisitas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Propiedades\TabVisitas.Designer.cs">
+      <DependentUpon>TabVisitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\FrmLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\FrmLogIn.Designer.cs">
+      <DependentUpon>FrmLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BussinesRules\BussinesRules.csproj">
+      <Project>{66558686-DC74-4052-B6C9-B1F04797999A}</Project>
+      <Name>BussinesRules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controles\Framework.csproj">
+      <Project>{28CFEA97-AA29-49AE-9F7F-3CF337A0AB81}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Managers\Managers.csproj">
+      <Project>{DA938C06-AE00-447E-8675-C0F97DF9273F}</Project>
+      <Name>Managers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Reportes\Reportes.csproj">
+      <Project>{2483B3D5-E6A6-4527-8815-DFD81B0BA85A}</Project>
+      <Name>Reportes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Generales\Eventos\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Tasaciones\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
